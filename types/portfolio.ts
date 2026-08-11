@@ -7,6 +7,7 @@ export interface Project {
   client: string;
   thumbnail: string;
   videoUrl?: string | null;
+  previewVideoUrl?: string | null;
   description: string;
   role?: string;
   deliverables?: string[];

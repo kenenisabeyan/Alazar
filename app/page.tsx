@@ -5,9 +5,13 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import HeroSection from '@/components/sections/HeroSection';
 import ClientLogos from '@/components/sections/ClientLogos';
+import ShowreelBanner from '@/components/sections/ShowreelBanner';
 import AboutSnapshot from '@/components/sections/AboutSnapshot';
 import ColorGradingShowcase from '@/components/sections/ColorGradingShowcase';
 import ServiceSplitter from '@/components/sections/ServiceSplitter';
+import CaseStudyHighlight from '@/components/sections/CaseStudyHighlight';
+import ProjectCalculator from '@/components/sections/ProjectCalculator';
+import WorkflowVault from '@/components/sections/WorkflowVault';
 import GearSection from '@/components/sections/GearSection';
 import BehindTheScenes from '@/components/sections/BehindTheScenes';
 import SocialProof from '@/components/sections/SocialProof';
@@ -34,7 +38,7 @@ export default function HomePage() {
       title: 'Alazar Asdesach - 2025 Showreel',
       category: 'Showreel',
       client: 'Alazar Studio',
-      videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1',
+      videoUrl: '/assets/sample-showreel.mp4',
       thumbnail: 'https://images.unsplash.com/photo-1604998103924-89e012e5265a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       description: 'A compiled high-octane visual showcase featuring commercial edits, kinetic typography, color grading transformations, and 3D motion graphics.',
       role: 'Director & Lead Editor',
@@ -58,13 +62,16 @@ export default function HomePage() {
       {/* 2. Client Brands & Awards Bar */}
       <ClientLogos />
 
-      {/* 3. About Director Overview */}
+      {/* 3. Widescreen Directorial Showreel Banner */}
+      <ShowreelBanner onOpenShowreel={handleOpenShowreel} />
+
+      {/* 4. About Director Overview */}
       <AboutSnapshot />
 
-      {/* 4. Interactive RAW vs. Graded Master Color Slider */}
+      {/* 5. Interactive RAW vs. Graded Master Color Slider */}
       <ColorGradingShowcase />
       
-      {/* 5. Featured Projects Grid */}
+      {/* 6. Featured Projects Grid */}
       <section className="py-28 bg-canvas">
         <div className="container mx-auto px-6 md:px-12">
           
@@ -110,16 +117,34 @@ export default function HomePage() {
                 data-cursor={project.category === 'video' ? 'play' : 'view'}
                 className="group relative cursor-pointer rounded-2xl overflow-hidden bg-surface aspect-[4/5] border border-border hover:border-burgundy-soft hover:shadow-burgundy-md transition-all duration-500 shadow-card"
               >
-                <Image 
-                  src={project.thumbnail} 
-                  alt={project.title} 
-                  fill
-                  sizes="(max-width: 768px) 100vw, 400px"
-                  className="object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-transform duration-700 ease-out" 
-                />
+                {project.previewVideoUrl ? (
+                  <video 
+                    src={project.previewVideoUrl} 
+                    autoPlay 
+                    muted 
+                    loop 
+                    playsInline 
+                    className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-108 transition-transform duration-700 ease-out"
+                  />
+                ) : (
+                  <Image 
+                    src={project.thumbnail} 
+                    alt={project.title} 
+                    fill
+                    sizes="(max-width: 768px) 100vw, 400px"
+                    className="object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-transform duration-700 ease-out" 
+                  />
+                )}
                 
                 <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/20 to-transparent opacity-75 group-hover:opacity-85 transition-opacity"></div>
                 
+                {project.previewVideoUrl && (
+                  <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-white text-[10px] uppercase font-semibold px-2.5 py-1 rounded-full flex items-center gap-1.5 z-10 border border-white/10 opacity-75 group-hover:opacity-100 transition-opacity">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span>Live Preview</span>
+                  </div>
+                )}
+
                 <div className="absolute inset-0 p-8 flex flex-col justify-between">
                   <div className="flex justify-between items-start">
                     <span className="text-xs uppercase tracking-widest px-3 py-1 bg-burgundy text-white rounded-full font-medium z-10">
@@ -145,16 +170,25 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. Service Splitter */}
+      {/* 7. Case Studies & Client Performance ROI */}
+      <CaseStudyHighlight />
+
+      {/* 8. Service Splitter */}
       <ServiceSplitter />
 
-      {/* 7. Cinema Gear Systems & Editing Specs */}
+      {/* 9. Interactive Package Rate Calculator */}
+      <ProjectCalculator />
+
+      {/* 10. Seamless Workflow Vault */}
+      <WorkflowVault />
+
+      {/* 11. Cinema Gear Systems & Editing Specs */}
       <GearSection />
 
-      {/* 8. Behind The Scenes On Set */}
+      {/* 12. Behind The Scenes On Set */}
       <BehindTheScenes />
 
-      {/* 9. Testimonials & Client Feedback */}
+      {/* 13. Testimonials & Client Feedback */}
       <SocialProof />
 
       <Modal 

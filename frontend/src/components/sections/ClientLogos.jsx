@@ -6,7 +6,7 @@ import { Award, Star } from 'lucide-react';
 export const ClientLogos = () => {
   return (
     <section className="py-20 bg-white border-t border-[#E5D9DB] relative" style={{ fontFamily: theme.fonts.body }}>
-      <div className="container mx-auto px-6 md:px-12 max-w-6xl">
+      <div className="container mx-auto px-6 md:px-12 max-w-7xl">
         
         {/* Subtitle */}
         <div className="text-center mb-10">

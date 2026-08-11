@@ -6,7 +6,7 @@ import { Camera, MapPin } from 'lucide-react';
 export const BehindTheScenes = () => {
   return (
     <section className="py-28 bg-[#FAFAF9] border-t border-[#E5D9DB] relative" style={{ fontFamily: theme.fonts.body }}>
-      <div className="container mx-auto px-6 md:px-12 max-w-6xl">
+      <div className="container mx-auto px-6 md:px-12 max-w-7xl">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">

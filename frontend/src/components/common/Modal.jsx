@@ -20,15 +20,15 @@ export const Modal = ({ isOpen, onClose, project }) => {
   if (!isOpen || !project) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 animate-fade-in">
-      {/* Backdrop */}
+    <div className="fixed inset-0 z-[10000] flex items-center justify-center p-4 md:p-8 animate-fade-in">
+      {/* Backdrop covering entire page & header */}
       <div 
-        className="fixed inset-0 bg-[#1C1917]/60 backdrop-blur-md transition-opacity"
+        className="fixed inset-0 bg-[#1C1917]/85 backdrop-blur-xl transition-opacity"
         onClick={onClose}
       />
 
       {/* Modal Container */}
-      <div className="relative w-full max-w-4xl max-h-[90vh] bg-[#FFFFFF] border border-[#6B1D2F]/30 rounded-2xl shadow-2xl overflow-y-auto overflow-x-hidden z-10 flex flex-col my-auto">
+      <div className="relative w-full max-w-5xl max-h-[92vh] bg-[#FFFFFF] border border-[#6B1D2F]/30 rounded-2xl shadow-2xl overflow-y-auto overflow-x-hidden z-10 flex flex-col my-auto">
         
         {/* Header Bar */}
         <div className="sticky top-0 bg-[#FFFFFF]/95 backdrop-blur-md border-b border-[#E5D9DB] px-6 py-4 flex items-center justify-between z-20">
@@ -51,16 +51,25 @@ export const Modal = ({ isOpen, onClose, project }) => {
         {/* Content Body */}
         <div className="p-6 md:p-8 space-y-8">
           
-          {/* Media Player / Thumbnail Preview */}
-          <div className="relative aspect-video rounded-xl overflow-hidden bg-[#FAFAF9] border border-[#E5D9DB] group shadow-xl">
+          {/* Media Player / Full Video Preview */}
+          <div className="relative aspect-video rounded-xl overflow-hidden bg-black border border-[#E5D9DB] group shadow-xl">
             {project.videoUrl ? (
-              <iframe
-                src={project.videoUrl}
-                title={project.title}
-                className="w-full h-full border-0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
+              project.videoUrl.includes('.mp4') ? (
+                <video
+                  src={project.videoUrl}
+                  autoPlay
+                  controls
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <iframe
+                  src={project.videoUrl}
+                  title={project.title}
+                  className="w-full h-full border-0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              )
             ) : (
               <div className="relative w-full h-full">
                 <img 

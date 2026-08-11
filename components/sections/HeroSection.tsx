@@ -84,7 +84,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenShowreel }) => {
           </motion.div>
 
           {/* Headline */}
-          <div className="max-w-4xl mx-auto space-y-6 mb-12">
+          <div className="max-w-6xl mx-auto space-y-6 mb-12">
             <motion.h1 
               variants={itemVariants}
               className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-none text-charcoal tracking-tight" 
@@ -96,7 +96,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenShowreel }) => {
             
             <motion.p 
               variants={itemVariants}
-              className="text-base sm:text-lg md:text-xl text-slate max-w-2xl mx-auto leading-relaxed font-light"
+              className="text-base sm:text-lg md:text-xl text-slate max-w-3xl mx-auto leading-relaxed font-light"
             >
               Crafting compelling narratives through high-end video editing, color grading, and striking graphic design for visionary brands.
             </motion.p>
@@ -129,7 +129,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenShowreel }) => {
           {/* Animated Stats Strip */}
           <motion.div 
             variants={itemVariants}
-            className="w-full max-w-4xl grid grid-cols-2 md:grid-cols-4 gap-6 pt-16 border-t border-border"
+            className="w-full max-w-6xl grid grid-cols-2 md:grid-cols-4 gap-6 pt-16 border-t border-border"
           >
             {statistics.map((stat, idx) => (
               <motion.div 

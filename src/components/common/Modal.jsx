@@ -20,10 +20,10 @@ export const Modal = ({ isOpen, onClose, project }) => {
   if (!isOpen || !project) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 animate-fade-in">
-      {/* Backdrop */}
+    <div className="fixed inset-0 z-[10000] flex items-center justify-center p-4 md:p-8 animate-fade-in">
+      {/* Backdrop covering entire page & header */}
       <div 
-        className="fixed inset-0 bg-[#150709]/80 backdrop-blur-md transition-opacity"
+        className="fixed inset-0 bg-[#1C1917]/85 backdrop-blur-xl transition-opacity"
         onClick={onClose}
       />
 

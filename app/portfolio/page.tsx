@@ -96,16 +96,17 @@ export default function PortfolioPage() {
       </div>
 
       {/* Animated Projects Grid */}
-      <div className="container mx-auto px-6 md:px-12">
+      <div className="container mx-auto px-6 md:px-12 max-w-7xl">
         <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <AnimatePresence>
             {filteredProjects.map((project) => (
               <motion.div 
                 layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                whileHover={{ y: -10, scale: 1.02 }}
+                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                 key={project.id} 
                 onClick={() => handleOpenProjectModal(project)}
                 data-cursor={project.category === 'video' ? 'play' : 'view'}
@@ -116,32 +117,39 @@ export default function PortfolioPage() {
                   alt={project.title} 
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-transform duration-700 ease-out" 
+                  className="object-cover opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-transform duration-700 ease-out" 
                 />
                 
                 {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/20 to-transparent opacity-75 group-hover:opacity-85 transition-opacity"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/85 via-charcoal/25 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
                 
                 {/* Card Content */}
-                <div className="absolute inset-0 p-8 flex flex-col justify-between">
-                  
-                  <div className="flex justify-between items-start z-10">
-                    <span className="text-xs uppercase tracking-widest px-3 py-1 bg-burgundy text-white rounded-full font-medium">
+                <div className="absolute inset-0 p-8 flex flex-col justify-between z-10">
+                  <div className="flex justify-between items-start">
+                    <motion.span 
+                      animate={{ y: [0, -2, 0] }}
+                      transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                      className="text-xs uppercase tracking-widest px-3 py-1 bg-burgundy text-white rounded-full font-medium shadow-burgundy-sm flex items-center gap-1.5"
+                    >
+                      {project.category === 'video' && <Film size={12} />}
                       {project.category}
-                    </span>
+                    </motion.span>
 
-                    <div className="w-10 h-10 rounded-full bg-white/90 flex items-center justify-center text-burgundy opacity-0 group-hover:opacity-100 transition-opacity shadow-sm">
-                      {project.videoUrl ? <Play size={16} /> : <Eye size={16} />}
-                    </div>
+                    <motion.div 
+                      whileHover={{ scale: 1.2, rotate: 5 }}
+                      whileTap={{ scale: 0.9 }}
+                      className="w-12 h-12 rounded-full bg-white/95 text-burgundy flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-lg"
+                    >
+                      {project.videoUrl ? <Play size={20} className="ml-0.5" /> : <Eye size={20} />}
+                    </motion.div>
                   </div>
 
-                  <div className="z-10">
+                  <div>
                     <h3 className="text-2xl text-white mb-1 font-semibold" style={{ fontFamily: theme.fonts.heading }}>
                       {project.title}
                     </h3>
                     <p className="text-white/70 text-xs uppercase tracking-widest">{project.client} • {project.year || '2025'}</p>
                   </div>
-
                 </div>
 
               </motion.div>

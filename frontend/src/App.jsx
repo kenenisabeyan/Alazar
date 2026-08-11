@@ -23,7 +23,7 @@ export default function App() {
       title: 'Alazar Asdesach - 2025 Showreel',
       category: 'Showreel',
       client: 'Alazar Studio',
-      videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1',
+      videoUrl: '/assets/sample-showreel.mp4',
       description: 'A compiled high-octane visual showcase featuring commercial edits, kinetic typography, color grading transformations, and 3D motion graphics.',
       role: 'Director & Lead Editor',
       deliverables: ['Full 2025 Showreel', 'Commercial Edit Cut', 'Color Grade Master'],

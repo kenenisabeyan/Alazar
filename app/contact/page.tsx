@@ -58,7 +58,7 @@ export default function ContactPage() {
       transition={{ duration: 0.5 }}
       className="min-h-screen bg-canvas pt-36 pb-24"
     >
-      <div className="container mx-auto px-6 md:px-12 max-w-6xl">
+      <div className="container mx-auto px-6 md:px-12 max-w-7xl">
         <div className="grid md:grid-cols-12 gap-16 items-start">
           
           {/* Contact Info Left */}

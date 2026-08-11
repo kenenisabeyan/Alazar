@@ -16,7 +16,7 @@ export const Layout = ({ children, currentPage, setCurrentPage }) => {
 
         <Navigation currentPage={currentPage} setCurrentPage={setCurrentPage} />
 
-        <main className="flex-grow z-10">
+        <main className="flex-grow">
           {children}
         </main>
 

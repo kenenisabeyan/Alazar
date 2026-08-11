@@ -17,7 +17,7 @@ export const About = ({ setCurrentPage }) => {
       className="min-h-screen bg-[#FAFAF9] pt-36 pb-24"
       style={{ fontFamily: theme.fonts.body }}
     >
-      <div className="container mx-auto px-6 md:px-12 max-w-6xl">
+      <div className="container mx-auto px-6 md:px-12 max-w-7xl">
         
         {/* Header Hero */}
         <div className="grid md:grid-cols-12 gap-12 items-center mb-24">

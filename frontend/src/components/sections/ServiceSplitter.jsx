@@ -47,7 +47,7 @@ export const ServiceSplitter = ({ setCurrentPage }) => {
 
   return (
     <section className="py-28 bg-white border-t border-[#E5D9DB] relative overflow-hidden">
-      <div className="container mx-auto px-6 md:px-12 text-center max-w-5xl">
+      <div className="container mx-auto px-6 md:px-12 text-center max-w-7xl">
         
         <motion.div 
           initial={{ opacity: 0, y: 30 }}

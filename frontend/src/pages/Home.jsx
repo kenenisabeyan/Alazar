@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import HeroSection from '../components/sections/HeroSection';
 import ClientLogos from '../components/sections/ClientLogos';
+import ShowreelBanner from '../components/sections/ShowreelBanner';
 import AboutSnapshot from '../components/sections/AboutSnapshot';
 import ColorGradingShowcase from '../components/sections/ColorGradingShowcase';
 import ServiceSplitter from '../components/sections/ServiceSplitter';
@@ -31,13 +32,16 @@ export const Home = ({ setCurrentPage, onOpenProjectModal, onOpenShowreel }) => 
       {/* 2. Client Brands & Awards Bar */}
       <ClientLogos />
 
-      {/* 3. About Director Overview */}
+      {/* 3. 2025 Widescreen Cinema Showreel Banner with Interactive Audio Toggle */}
+      <ShowreelBanner onOpenShowreel={onOpenShowreel} />
+
+      {/* 4. About Director Overview */}
       <AboutSnapshot setCurrentPage={setCurrentPage} />
       
-      {/* 4. Interactive RAW vs. Graded Master Color Slider */}
+      {/* 5. Interactive RAW vs. Graded Master Color Slider */}
       <ColorGradingShowcase />
 
-      {/* 5. Featured Projects Grid */}
+      {/* 6. Featured Projects Grid */}
       <section className="py-28 bg-[#FAFAF9]" style={{ fontFamily: theme.fonts.body }}>
         <div className="container mx-auto px-6 md:px-12">
           
@@ -81,15 +85,33 @@ export const Home = ({ setCurrentPage, onOpenProjectModal, onOpenShowreel }) => 
                 onClick={() => onOpenProjectModal(project)}
                 className="group relative cursor-pointer rounded-2xl overflow-hidden bg-white aspect-[4/5] border border-[#E5D9DB] hover:border-[#C59A9F] hover:shadow-lg transition-all duration-500 shadow-sm"
               >
-                <img 
-                  src={project.thumbnail} 
-                  alt={project.title} 
-                  className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-transform duration-700 ease-out" 
-                />
+                {project.previewVideoUrl ? (
+                  <video 
+                    src={project.previewVideoUrl} 
+                    autoPlay 
+                    muted 
+                    loop 
+                    playsInline 
+                    className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-108 transition-transform duration-700 ease-out"
+                  />
+                ) : (
+                  <img 
+                    src={project.thumbnail} 
+                    alt={project.title} 
+                    className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-transform duration-700 ease-out" 
+                  />
+                )}
                 
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1C1917]/80 via-[#1C1917]/20 to-transparent opacity-75 group-hover:opacity-85 transition-opacity"></div>
                 
-                <div className="absolute inset-0 p-8 flex flex-col justify-between">
+                {project.previewVideoUrl && (
+                  <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-white text-[10px] uppercase font-semibold px-2.5 py-1 rounded-full flex items-center gap-1.5 z-10 border border-white/10 opacity-75 group-hover:opacity-100 transition-opacity">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span>Live Preview</span>
+                  </div>
+                )}
+
+                <div className="absolute inset-0 p-8 flex flex-col justify-between z-10">
                   <div className="flex justify-between items-start">
                     <span className="text-xs uppercase tracking-widest px-3 py-1 bg-[#6B1D2F] text-white rounded-full font-medium">
                       {project.category}
@@ -114,25 +136,25 @@ export const Home = ({ setCurrentPage, onOpenProjectModal, onOpenShowreel }) => 
         </div>
       </section>
 
-      {/* 6. Case Studies & Client ROI Metrics */}
+      {/* 7. Case Studies & Client ROI Metrics */}
       <CaseStudyHighlight setCurrentPage={setCurrentPage} />
 
-      {/* 7. Service Splitter */}
+      {/* 8. Service Splitter */}
       <ServiceSplitter setCurrentPage={setCurrentPage} />
 
-      {/* 8. Interactive Project & Budget Calculator */}
+      {/* 9. Interactive Project & Budget Calculator */}
       <ProjectCalculator setCurrentPage={setCurrentPage} />
 
-      {/* 9. Frictionless Client Collaboration Process */}
+      {/* 10. Frictionless Client Collaboration Process */}
       <WorkflowVault />
 
-      {/* 10. Cinema Gear & Editing Rig Specs */}
+      {/* 11. Cinema Gear & Editing Rig Specs */}
       <GearSection />
 
-      {/* 11. Behind The Scenes On Set */}
+      {/* 12. Behind The Scenes On Set */}
       <BehindTheScenes />
 
-      {/* 12. Testimonials & Client Reviews */}
+      {/* 13. Testimonials & Client Reviews */}
       <SocialProof />
     </motion.div>
   );

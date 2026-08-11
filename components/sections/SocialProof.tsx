@@ -20,8 +20,8 @@ export const SocialProof: React.FC = () => {
   const current = testimonials[activeIndex];
 
   return (
-    <section className="py-28 bg-surface-alt border-t border-border relative">
-      <div className="container mx-auto px-6 md:px-12 max-w-4xl text-center">
+    <section className="py-28 bg-canvas border-t border-border relative">
+      <div className="container mx-auto px-6 md:px-12 max-w-6xl text-center">
         
         <motion.span 
           initial={{ opacity: 0, y: 20 }}

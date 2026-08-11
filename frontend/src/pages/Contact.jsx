@@ -56,7 +56,7 @@ export const Contact = () => {
       className="min-h-screen bg-[#FAFAF9] pt-36 pb-24"
       style={{ fontFamily: theme.fonts.body }}
     >
-      <div className="container mx-auto px-6 md:px-12 max-w-6xl">
+      <div className="container mx-auto px-6 md:px-12 max-w-7xl">
         <div className="grid md:grid-cols-12 gap-16 items-start">
           
           {/* Contact Info Left */}

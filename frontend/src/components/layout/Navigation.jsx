@@ -30,8 +30,8 @@ export const Navigation = ({ currentPage, setCurrentPage }) => {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
       isScrolled 
-        ? 'glass-nav py-4 shadow-sm' 
-        : 'bg-transparent py-7'
+        ? 'glass-nav py-4 shadow-2xl border-b-2 border-[#6B1D2F]/35' 
+        : 'bg-transparent py-7 border-b border-transparent'
     }`}>
       <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
         

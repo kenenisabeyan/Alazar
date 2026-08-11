@@ -47,7 +47,7 @@ export const Services = ({ setCurrentPage }) => {
         </div>
 
         {/* Core Services Split Cards */}
-        <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto mb-24">
+        <div className="grid md:grid-cols-2 gap-12 max-w-7xl mx-auto mb-24">
           
           {/* Remote Services Card */}
           <motion.div 
@@ -152,7 +152,7 @@ export const Services = ({ setCurrentPage }) => {
       <WorkflowVault />
 
       {/* FAQs */}
-      <div className="container mx-auto px-6 md:px-12 max-w-4xl pt-16 border-t border-[#E5D9DB]">
+      <div className="container mx-auto px-6 md:px-12 max-w-6xl pt-16 border-t border-[#E5D9DB]">
         <div className="text-center mb-12">
           <HelpCircle size={36} className="text-[#6B1D2F] mx-auto mb-3" />
           <h2 className="text-3xl font-bold text-[#1C1917]" style={{ fontFamily: theme.fonts.heading }}>

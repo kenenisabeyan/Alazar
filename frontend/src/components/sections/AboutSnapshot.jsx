@@ -5,9 +5,9 @@ import { theme } from '../../utils/constants';
 
 export const AboutSnapshot = ({ setCurrentPage }) => {
   return (
-    <section className="py-28 bg-[#F4F0EF] border-t border-[#E5D9DB] relative overflow-hidden">
+    <section className="py-28 bg-[#FAFAF9] border-t border-[#E5D9DB] relative overflow-hidden">
       <div className="container mx-auto px-6 md:px-12">
-        <div className="grid md:grid-cols-12 gap-12 items-center max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-12 gap-12 items-center max-w-7xl mx-auto">
           
           {/* Visual Showcase Card */}
           <motion.div 

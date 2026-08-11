@@ -8,7 +8,7 @@ import { Award } from 'lucide-react';
 export const ClientLogos: React.FC = () => {
   return (
     <section className="py-20 bg-surface border-t border-border relative">
-      <div className="container mx-auto px-6 md:px-12 max-w-6xl">
+      <div className="container mx-auto px-6 md:px-12 max-w-7xl">
         
         {/* Subtitle */}
         <div className="text-center mb-10">

@@ -70,7 +70,7 @@ export default function RootLayout({
 
             <Navigation />
 
-            <main className="flex-grow z-10">
+            <main className="flex-grow">
               {children}
             </main>
 

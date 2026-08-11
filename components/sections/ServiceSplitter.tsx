@@ -9,7 +9,7 @@ import { theme } from '@/utils/constants';
 export const ServiceSplitter: React.FC = () => {
   return (
     <section className="py-28 bg-surface border-t border-border relative overflow-hidden">
-      <div className="container mx-auto px-6 md:px-12 text-center max-w-5xl">
+      <div className="container mx-auto px-6 md:px-12 text-center max-w-7xl">
         
         {/* Header Title */}
         <motion.div 

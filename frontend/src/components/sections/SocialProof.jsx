@@ -12,8 +12,8 @@ export const SocialProof = () => {
   const current = testimonials[activeIndex];
 
   return (
-    <section className="py-28 bg-[#F4F0EF] border-t border-[#E5D9DB] relative">
-      <div className="container mx-auto px-6 md:px-12 max-w-4xl text-center">
+    <section className="py-28 bg-white border-t border-[#E5D9DB] relative">
+      <div className="container mx-auto px-6 md:px-12 max-w-6xl text-center">
         
         <motion.span 
           initial={{ opacity: 0, y: 20 }}
