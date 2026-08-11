@@ -2,11 +2,14 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
 import HeroSection from '@/components/sections/HeroSection';
+import ClientLogos from '@/components/sections/ClientLogos';
 import AboutSnapshot from '@/components/sections/AboutSnapshot';
+import ColorGradingShowcase from '@/components/sections/ColorGradingShowcase';
 import ServiceSplitter from '@/components/sections/ServiceSplitter';
+import GearSection from '@/components/sections/GearSection';
+import BehindTheScenes from '@/components/sections/BehindTheScenes';
 import SocialProof from '@/components/sections/SocialProof';
 import Modal from '@/components/common/Modal';
 import Button from '@/components/common/Button';
@@ -49,14 +52,20 @@ export default function HomePage() {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
+      {/* 1. Hero Section */}
       <HeroSection onOpenShowreel={handleOpenShowreel} />
       
-      <AboutSnapshot />
-      
-      <ServiceSplitter />
+      {/* 2. Client Brands & Awards Bar */}
+      <ClientLogos />
 
-      {/* Featured Projects Grid */}
-      <section className="py-28 bg-[#1E0A0D]">
+      {/* 3. About Director Overview */}
+      <AboutSnapshot />
+
+      {/* 4. Interactive RAW vs. Graded Master Color Slider */}
+      <ColorGradingShowcase />
+      
+      {/* 5. Featured Projects Grid */}
+      <section className="py-28 bg-canvas">
         <div className="container mx-auto px-6 md:px-12">
           
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
@@ -66,9 +75,9 @@ export default function HomePage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <span className="text-xs uppercase tracking-widest text-[#8B1E3F] font-semibold block mb-2">Curated Works</span>
-              <h2 className="text-4xl md:text-5xl font-bold text-[#F5F0F1]" style={{ fontFamily: theme.fonts.heading }}>
-                Featured <span className="italic font-light text-[#A89597]">Reels</span>
+              <span className="text-xs uppercase tracking-widest text-burgundy font-semibold block mb-2">Curated Works</span>
+              <h2 className="text-4xl md:text-5xl font-bold text-charcoal" style={{ fontFamily: theme.fonts.heading }}>
+                Featured <span className="italic font-light text-burgundy">Reels</span>
               </h2>
             </motion.div>
 
@@ -99,34 +108,34 @@ export default function HomePage() {
                 transition={{ duration: 0.6, delay: idx * 0.15 }}
                 onClick={() => handleOpenProjectModal(project)}
                 data-cursor={project.category === 'video' ? 'play' : 'view'}
-                className="group relative cursor-pointer rounded-2xl overflow-hidden bg-[#2E1216] aspect-[4/5] border border-white/5 hover:border-[#8B1E3F]/50 transition-all duration-500 shadow-xl"
+                className="group relative cursor-pointer rounded-2xl overflow-hidden bg-surface aspect-[4/5] border border-border hover:border-burgundy-soft hover:shadow-burgundy-md transition-all duration-500 shadow-card"
               >
                 <Image 
                   src={project.thumbnail} 
                   alt={project.title} 
                   fill
                   sizes="(max-width: 768px) 100vw, 400px"
-                  className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-108 transition-transform duration-700 ease-out" 
+                  className="object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-transform duration-700 ease-out" 
                 />
                 
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1E0A0D] via-[#1E0A0D]/40 to-transparent opacity-90 group-hover:opacity-95 transition-opacity"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/20 to-transparent opacity-75 group-hover:opacity-85 transition-opacity"></div>
                 
                 <div className="absolute inset-0 p-8 flex flex-col justify-between">
                   <div className="flex justify-between items-start">
-                    <span className="text-xs uppercase tracking-widest px-3 py-1 bg-[#8B1E3F]/80 text-white rounded-full font-medium z-10">
+                    <span className="text-xs uppercase tracking-widest px-3 py-1 bg-burgundy text-white rounded-full font-medium z-10">
                       {project.category}
                     </span>
 
-                    <div className="w-10 h-10 rounded-full bg-[#1E0A0D]/80 border border-white/10 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                    <div className="w-10 h-10 rounded-full bg-white/90 flex items-center justify-center text-burgundy opacity-0 group-hover:opacity-100 transition-opacity z-10 shadow-sm">
                       {project.videoUrl ? <Play size={16} /> : <Eye size={16} />}
                     </div>
                   </div>
 
                   <div className="z-10">
-                    <h3 className="text-2xl text-[#F5F0F1] mb-1 font-semibold" style={{ fontFamily: theme.fonts.heading }}>
+                    <h3 className="text-2xl text-white mb-1 font-semibold" style={{ fontFamily: theme.fonts.heading }}>
                       {project.title}
                     </h3>
-                    <p className="text-[#A89597] text-xs uppercase tracking-widest">{project.client}</p>
+                    <p className="text-white/70 text-xs uppercase tracking-widest">{project.client}</p>
                   </div>
                 </div>
               </motion.div>
@@ -136,6 +145,16 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* 6. Service Splitter */}
+      <ServiceSplitter />
+
+      {/* 7. Cinema Gear Systems & Editing Specs */}
+      <GearSection />
+
+      {/* 8. Behind The Scenes On Set */}
+      <BehindTheScenes />
+
+      {/* 9. Testimonials & Client Feedback */}
       <SocialProof />
 
       <Modal 

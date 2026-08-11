@@ -24,13 +24,16 @@ export const Button: React.FC<ButtonProps> = ({
   loading = false,
   ...props
 }) => {
-  const baseStyle = "inline-flex items-center justify-center px-8 py-3.5 rounded-full font-medium transition-all duration-300 ease-out tracking-wide text-sm select-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#8B1E3F]/50 disabled:opacity-50 disabled:cursor-not-allowed";
+  const baseStyle = "inline-flex items-center justify-center px-8 py-3.5 rounded-full font-medium transition-all duration-300 ease-out tracking-wide text-sm select-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-burgundy/30 disabled:opacity-50 disabled:cursor-not-allowed";
   
   const variants = {
-    primary: "bg-[#8B1E3F] text-[#F5F0F1] hover:bg-[#a3234a] hover:-translate-y-1 shadow-lg shadow-[#8B1E3F]/20 active:translate-y-0",
-    secondary: "bg-[#2E1216] text-[#F5F0F1] border border-[#8B1E3F]/30 hover:border-[#8B1E3F] hover:bg-[#8B1E3F]/15 hover:-translate-y-1 active:translate-y-0",
-    outline: "bg-transparent text-[#F5F0F1] border border-[#A89597]/40 hover:border-[#F5F0F1] hover:text-white hover:bg-white/5 hover:-translate-y-1 active:translate-y-0",
-    ghost: "bg-transparent text-[#A89597] hover:text-[#F5F0F1] hover:bg-white/5"
+    // Rich Burgundy — brand CTA
+    primary: "bg-burgundy text-white hover:bg-burgundy-light hover:-translate-y-1 shadow-burgundy-sm active:translate-y-0",
+    // Soft rose-tinted secondary
+    secondary: "bg-burgundy-faint text-burgundy border border-burgundy-soft hover:bg-burgundy hover:text-white hover:border-burgundy hover:-translate-y-1 active:translate-y-0",
+    // Ghost outline
+    outline: "bg-transparent text-charcoal border border-border hover:border-burgundy hover:text-burgundy hover:-translate-y-1 active:translate-y-0",
+    ghost: "bg-transparent text-slate hover:text-charcoal hover:bg-surface-alt"
   };
 
   const combinedClasses = `${baseStyle} ${variants[variant]} ${className}`;

@@ -44,7 +44,6 @@ export default function ContactPage() {
     }
 
     setLoading(true);
-
     setTimeout(() => {
       setLoading(false);
       setSubmitted(true);
@@ -57,7 +56,7 @@ export default function ContactPage() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="min-h-screen bg-[#1E0A0D] pt-36 pb-24"
+      className="min-h-screen bg-canvas pt-36 pb-24"
     >
       <div className="container mx-auto px-6 md:px-12 max-w-6xl">
         <div className="grid md:grid-cols-12 gap-16 items-start">
@@ -70,46 +69,46 @@ export default function ContactPage() {
             className="md:col-span-5 space-y-8"
           >
             <div>
-              <span className="text-xs uppercase tracking-widest text-[#8B1E3F] font-semibold block mb-3">Initiate Collaboration</span>
-              <h1 className="text-5xl md:text-7xl font-bold text-[#F5F0F1] mb-6 leading-none" style={{ fontFamily: theme.fonts.heading }}>
-                Let's <span className="italic font-light text-[#A89597]">Create.</span>
+              <span className="text-xs uppercase tracking-widest text-burgundy font-semibold block mb-3">Initiate Collaboration</span>
+              <h1 className="text-5xl md:text-7xl font-bold text-charcoal mb-6 leading-none" style={{ fontFamily: theme.fonts.heading }}>
+                Let's <span className="italic font-light text-burgundy">Create.</span>
               </h1>
-              <p className="text-[#A89597] font-light text-base md:text-lg leading-relaxed">
+              <p className="text-slate font-light text-base md:text-lg leading-relaxed">
                 Ready to elevate your visual project? Fill out the inquiry form or reach out directly to discuss timelines, concept ideas, and availability.
               </p>
             </div>
 
-            <div className="space-y-6 pt-4">
+            <div className="space-y-4 pt-4">
               
-              <div className="flex items-center gap-4 p-4 bg-[#2E1216]/50 rounded-xl border border-white/5">
-                <div className="w-12 h-12 bg-[#2E1216] border border-[#8B1E3F]/30 rounded-full flex items-center justify-center text-[#8B1E3F] flex-shrink-0">
+              <div className="flex items-center gap-4 p-4 bg-surface rounded-xl border border-border shadow-card">
+                <div className="w-12 h-12 bg-burgundy-faint border border-burgundy-soft/40 rounded-full flex items-center justify-center text-burgundy flex-shrink-0">
                   <Mail size={20} />
                 </div>
                 <div>
-                  <p className="text-xs text-[#A89597] uppercase tracking-wider font-semibold">Direct Email</p>
-                  <a href="mailto:hello@alazar.com" className="text-[#F5F0F1] font-light hover:text-[#8B1E3F] transition-colors text-sm" data-cursor="pointer">
+                  <p className="text-xs text-slate uppercase tracking-wider font-semibold">Direct Email</p>
+                  <a href="mailto:hello@alazar.com" className="text-charcoal font-light hover:text-burgundy transition-colors text-sm" data-cursor="pointer">
                     hello@alazar.com
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-center gap-4 p-4 bg-[#2E1216]/50 rounded-xl border border-white/5">
-                <div className="w-12 h-12 bg-[#2E1216] border border-[#8B1E3F]/30 rounded-full flex items-center justify-center text-[#8B1E3F] flex-shrink-0">
+              <div className="flex items-center gap-4 p-4 bg-surface rounded-xl border border-border shadow-card">
+                <div className="w-12 h-12 bg-burgundy-faint border border-burgundy-soft/40 rounded-full flex items-center justify-center text-burgundy flex-shrink-0">
                   <Phone size={20} />
                 </div>
                 <div>
-                  <p className="text-xs text-[#A89597] uppercase tracking-wider font-semibold">Phone / WhatsApp</p>
-                  <p className="text-[#F5F0F1] font-light text-sm">+1 (555) 123-4567</p>
+                  <p className="text-xs text-slate uppercase tracking-wider font-semibold">Phone / WhatsApp</p>
+                  <p className="text-charcoal font-light text-sm">+1 (555) 123-4567</p>
                 </div>
               </div>
 
-              <div className="flex items-center gap-4 p-4 bg-[#2E1216]/50 rounded-xl border border-white/5">
-                <div className="w-12 h-12 bg-[#2E1216] border border-[#8B1E3F]/30 rounded-full flex items-center justify-center text-[#8B1E3F] flex-shrink-0">
+              <div className="flex items-center gap-4 p-4 bg-surface rounded-xl border border-border shadow-card">
+                <div className="w-12 h-12 bg-burgundy-faint border border-burgundy-soft/40 rounded-full flex items-center justify-center text-burgundy flex-shrink-0">
                   <Clock size={20} />
                 </div>
                 <div>
-                  <p className="text-xs text-[#A89597] uppercase tracking-wider font-semibold">Response Window</p>
-                  <p className="text-[#F5F0F1] font-light text-sm">Within 24 business hours</p>
+                  <p className="text-xs text-slate uppercase tracking-wider font-semibold">Response Window</p>
+                  <p className="text-charcoal font-light text-sm">Within 24 business hours</p>
                 </div>
               </div>
 
@@ -121,7 +120,7 @@ export default function ContactPage() {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
-            className="md:col-span-7 bg-[#2E1216] p-8 md:p-12 rounded-2xl border border-white/5 shadow-2xl relative"
+            className="md:col-span-7 bg-surface p-8 md:p-12 rounded-2xl border border-border shadow-card relative"
           >
             
             <AnimatePresence mode="wait">
@@ -133,13 +132,13 @@ export default function ContactPage() {
                   exit={{ opacity: 0, scale: 0.95 }}
                   className="py-16 text-center space-y-6"
                 >
-                  <div className="w-16 h-16 bg-[#8B1E3F]/20 border border-[#8B1E3F] text-[#8B1E3F] rounded-full flex items-center justify-center mx-auto shadow-xl">
+                  <div className="w-16 h-16 bg-burgundy-faint border border-burgundy-soft text-burgundy rounded-full flex items-center justify-center mx-auto shadow-burgundy-sm">
                     <CheckCircle2 size={36} />
                   </div>
-                  <h3 className="text-3xl text-[#F5F0F1]" style={{ fontFamily: theme.fonts.heading }}>
+                  <h3 className="text-3xl text-charcoal font-bold" style={{ fontFamily: theme.fonts.heading }}>
                     Inquiry Received
                   </h3>
-                  <p className="text-[#A89597] font-light max-w-md mx-auto text-sm leading-relaxed">
+                  <p className="text-slate font-light max-w-md mx-auto text-sm leading-relaxed">
                     Thank you for reaching out, {formData.firstName}. Your project brief has been logged. I will review your requirements and get back to you shortly.
                   </p>
                   <Button 
@@ -169,7 +168,7 @@ export default function ContactPage() {
                   className="space-y-6" 
                   onSubmit={handleSubmit}
                 >
-                  <h3 className="text-2xl text-[#F5F0F1] mb-2" style={{ fontFamily: theme.fonts.heading }}>
+                  <h3 className="text-2xl text-charcoal font-bold mb-2" style={{ fontFamily: theme.fonts.heading }}>
                     Project Inquiry
                   </h3>
 
@@ -205,14 +204,14 @@ export default function ContactPage() {
                   
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div className="flex flex-col gap-2">
-                      <label className="text-xs text-[#A89597] font-semibold tracking-wider uppercase">
+                      <label className="text-xs text-slate font-semibold tracking-wider uppercase">
                         Project Discipline
                       </label>
                       <select 
                         name="projectType"
                         value={formData.projectType}
                         onChange={handleChange}
-                        className="w-full bg-[#1E0A0D] border border-white/10 rounded-lg px-4 py-3 text-[#F5F0F1] focus:outline-none focus:border-[#8B1E3F] text-sm appearance-none cursor-pointer"
+                        className="w-full bg-canvas border border-border rounded-lg px-4 py-3 text-charcoal focus:outline-none focus:border-burgundy focus:ring-1 focus:ring-burgundy/20 text-sm appearance-none cursor-pointer transition-colors"
                       >
                         <option value="freelance-video">Freelance Video Editing / Color</option>
                         <option value="freelance-design">Brand Identity & Graphic Design</option>
@@ -222,14 +221,14 @@ export default function ContactPage() {
                     </div>
 
                     <div className="flex flex-col gap-2">
-                      <label className="text-xs text-[#A89597] font-semibold tracking-wider uppercase">
+                      <label className="text-xs text-slate font-semibold tracking-wider uppercase">
                         Estimated Budget Range
                       </label>
                       <select 
                         name="budget"
                         value={formData.budget}
                         onChange={handleChange}
-                        className="w-full bg-[#1E0A0D] border border-white/10 rounded-lg px-4 py-3 text-[#F5F0F1] focus:outline-none focus:border-[#8B1E3F] text-sm appearance-none cursor-pointer"
+                        className="w-full bg-canvas border border-border rounded-lg px-4 py-3 text-charcoal focus:outline-none focus:border-burgundy focus:ring-1 focus:ring-burgundy/20 text-sm appearance-none cursor-pointer transition-colors"
                       >
                         <option value="under-3k">&lt; $3,000</option>
                         <option value="$3k - $5k">$3,000 - $5,000</option>

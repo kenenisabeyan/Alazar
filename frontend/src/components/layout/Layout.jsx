@@ -7,12 +7,12 @@ import SmoothScroll from '../common/SmoothScroll';
 export const Layout = ({ children, currentPage, setCurrentPage }) => {
   return (
     <SmoothScroll>
-      <div className="font-sans bg-[#1E0A0D] text-[#F5F0F1] selection:bg-[#8B1E3F] selection:text-white min-h-screen flex flex-col relative overflow-x-hidden">
+      <div className="font-sans bg-[#FAFAF9] text-[#1C1917] selection:bg-[#6B1D2F] selection:text-white min-h-screen flex flex-col relative overflow-x-hidden" style={{ fontFamily: "'Roboto', sans-serif" }}>
         {/* Custom Interactive Cursor */}
         <CustomCursor />
 
-        {/* Ambient lighting glow */}
-        <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[1100px] h-[550px] bg-[#8B1E3F]/12 blur-[160px] rounded-full pointer-events-none z-0"></div>
+        {/* Ambient soft glow — subtle burgundy warmth */}
+        <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[900px] h-[400px] bg-[#C59A9F]/10 blur-[180px] rounded-full pointer-events-none z-0"></div>
 
         <Navigation currentPage={currentPage} setCurrentPage={setCurrentPage} />
 

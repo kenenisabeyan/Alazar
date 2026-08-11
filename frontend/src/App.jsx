@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import Layout from './components/layout/Layout';
 import Home from './pages/Home';
+import About from './pages/About';
 import Portfolio from './pages/Portfolio';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
 import Modal from './components/common/Modal';
-import { portfolioProjects } from './utils/constants';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -47,6 +47,12 @@ export default function App() {
             setCurrentPage={setCurrentPage} 
             onOpenProjectModal={handleOpenProjectModal}
             onOpenShowreel={handleOpenShowreel}
+          />
+        );
+      case 'about':
+        return (
+          <About 
+            setCurrentPage={setCurrentPage}
           />
         );
       case 'portfolio':

@@ -29,13 +29,13 @@ export const Input: React.FC<InputProps> = ({
   rows = 4,
   className = '',
 }) => {
-  const baseClasses = "w-full bg-[#1E0A0D] border border-white/10 rounded-lg px-4 py-3 text-[#F5F0F1] focus:outline-none focus:border-[#8B1E3F] focus:ring-1 focus:ring-[#8B1E3F] transition-all duration-300 placeholder:text-[#A89597]/40 text-sm";
+  const baseClasses = "w-full bg-canvas border border-border rounded-lg px-4 py-3 text-charcoal focus:outline-none focus:border-burgundy focus:ring-2 focus:ring-burgundy/15 transition-all duration-300 placeholder:text-slate/50 text-sm";
   
   return (
     <div className={`flex flex-col gap-2 ${className}`}>
       {label && (
-        <label className="text-xs text-[#A89597] font-semibold tracking-widest uppercase flex justify-between">
-          <span>{label} {required && <span className="text-[#8B1E3F]">*</span>}</span>
+        <label className="text-xs text-slate font-semibold tracking-widest uppercase flex justify-between">
+          <span>{label} {required && <span className="text-burgundy">*</span>}</span>
         </label>
       )}
       {multiline ? (
@@ -46,7 +46,7 @@ export const Input: React.FC<InputProps> = ({
           onChange={onChange}
           placeholder={placeholder}
           required={required}
-          className={`${baseClasses} resize-none ${error ? 'border-red-500/80 focus:border-red-500' : ''}`}
+          className={`${baseClasses} resize-none ${error ? 'border-red-400 focus:border-red-500 focus:ring-red-200/30' : ''}`}
         />
       ) : (
         <input
@@ -56,10 +56,10 @@ export const Input: React.FC<InputProps> = ({
           onChange={onChange}
           placeholder={placeholder}
           required={required}
-          className={`${baseClasses} ${error ? 'border-red-500/80 focus:border-red-500' : ''}`}
+          className={`${baseClasses} ${error ? 'border-red-400 focus:border-red-500 focus:ring-red-200/30' : ''}`}
         />
       )}
-      {error && <span className="text-xs text-red-400 mt-0.5">{error}</span>}
+      {error && <span className="text-xs text-red-500 mt-0.5">{error}</span>}
     </div>
   );
 };

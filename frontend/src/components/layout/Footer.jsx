@@ -12,8 +12,10 @@ export const Footer = ({ setCurrentPage }) => {
     scrollToTop();
   };
 
+  const socialBtn = "w-10 h-10 rounded-full border border-[#E5D9DB] flex items-center justify-center text-[#78716C] hover:bg-[#6B1D2F] hover:text-white hover:border-[#6B1D2F] transition-all";
+
   return (
-    <footer className="bg-[#150709] text-[#F5F0F1] pt-24 pb-12 border-t border-[#8B1E3F]/20 relative">
+    <footer className="bg-[#F4F0EF] text-[#1C1917] pt-24 pb-12 border-t border-[#E5D9DB] relative" style={{ fontFamily: theme.fonts.body }}>
       <div className="container mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
           
@@ -21,47 +23,25 @@ export const Footer = ({ setCurrentPage }) => {
           <div className="md:col-span-6 lg:col-span-5 pr-0 md:pr-10">
             <button 
               onClick={() => handleNavClick('home')} 
-              className="text-3xl font-bold tracking-widest text-[#F5F0F1] uppercase block mb-6 text-left hover:opacity-90 transition-opacity" 
+              className="text-3xl font-bold tracking-widest text-[#1C1917] uppercase block mb-6 text-left hover:opacity-90 transition-opacity" 
               style={{ fontFamily: theme.fonts.heading }}
             >
-              Alazar<span className="text-[#8B1E3F]">.</span>
+              Alazar<span className="text-[#6B1D2F]">.</span>
             </button>
-            <p className="text-[#A89597] max-w-md mb-8 leading-relaxed font-light text-sm md:text-base">
+            <p className="text-[#78716C] max-w-md mb-8 leading-relaxed font-light text-sm md:text-base">
               Premium cinematic video editing, color grading, and bespoke graphic design services for ambitious brands demanding creative distinction.
             </p>
             <div className="flex gap-4">
-              <a 
-                href="https://instagram.com" 
-                target="_blank" 
-                rel="noreferrer"
-                className="w-10 h-10 rounded-full border border-[#8B1E3F]/40 flex items-center justify-center text-[#A89597] hover:bg-[#8B1E3F] hover:text-white hover:border-[#8B1E3F] transition-all"
-                aria-label="Instagram"
-              >
+              <a href="https://instagram.com" target="_blank" rel="noreferrer" className={socialBtn} aria-label="Instagram">
                 <Instagram size={18} />
               </a>
-              <a 
-                href="https://twitter.com" 
-                target="_blank" 
-                rel="noreferrer"
-                className="w-10 h-10 rounded-full border border-[#8B1E3F]/40 flex items-center justify-center text-[#A89597] hover:bg-[#8B1E3F] hover:text-white hover:border-[#8B1E3F] transition-all"
-                aria-label="Twitter"
-              >
+              <a href="https://twitter.com" target="_blank" rel="noreferrer" className={socialBtn} aria-label="Twitter">
                 <Twitter size={18} />
               </a>
-              <a 
-                href="https://linkedin.com" 
-                target="_blank" 
-                rel="noreferrer"
-                className="w-10 h-10 rounded-full border border-[#8B1E3F]/40 flex items-center justify-center text-[#A89597] hover:bg-[#8B1E3F] hover:text-white hover:border-[#8B1E3F] transition-all"
-                aria-label="LinkedIn"
-              >
+              <a href="https://linkedin.com" target="_blank" rel="noreferrer" className={socialBtn} aria-label="LinkedIn">
                 <Linkedin size={18} />
               </a>
-              <a 
-                href="mailto:hello@alazar.com" 
-                className="w-10 h-10 rounded-full border border-[#8B1E3F]/40 flex items-center justify-center text-[#A89597] hover:bg-[#8B1E3F] hover:text-white hover:border-[#8B1E3F] transition-all"
-                aria-label="Email"
-              >
+              <a href="mailto:hello@alazar.com" className={socialBtn} aria-label="Email">
                 <Mail size={18} />
               </a>
             </div>
@@ -70,28 +50,29 @@ export const Footer = ({ setCurrentPage }) => {
           {/* Quick Links */}
           <div className="md:col-span-6 lg:col-span-7 flex flex-wrap gap-12 md:gap-16 md:justify-end">
             <div>
-              <h4 className="text-xs uppercase tracking-widest font-semibold text-[#8B1E3F] mb-6">Navigation</h4>
-              <ul className="space-y-4 text-sm text-[#A89597] font-light">
-                <li><button onClick={() => handleNavClick('home')} className="hover:text-[#F5F0F1] transition-colors">Home</button></li>
-                <li><button onClick={() => handleNavClick('portfolio')} className="hover:text-[#F5F0F1] transition-colors">Portfolio</button></li>
-                <li><button onClick={() => handleNavClick('services')} className="hover:text-[#F5F0F1] transition-colors">Services</button></li>
-                <li><button onClick={() => handleNavClick('contact')} className="hover:text-[#F5F0F1] transition-colors">Contact</button></li>
+              <h4 className="text-xs uppercase tracking-widest font-semibold text-[#6B1D2F] mb-6">Navigation</h4>
+              <ul className="space-y-4 text-sm text-[#78716C] font-light">
+                <li><button onClick={() => handleNavClick('home')} className="hover:text-[#1C1917] transition-colors">Home</button></li>
+                <li><button onClick={() => handleNavClick('about')} className="hover:text-[#1C1917] transition-colors">About</button></li>
+                <li><button onClick={() => handleNavClick('portfolio')} className="hover:text-[#1C1917] transition-colors">Portfolio</button></li>
+                <li><button onClick={() => handleNavClick('services')} className="hover:text-[#1C1917] transition-colors">Services</button></li>
+                <li><button onClick={() => handleNavClick('contact')} className="hover:text-[#1C1917] transition-colors">Contact</button></li>
               </ul>
             </div>
 
             <div>
-              <h4 className="text-xs uppercase tracking-widest font-semibold text-[#8B1E3F] mb-6">Services</h4>
-              <ul className="space-y-4 text-sm text-[#A89597] font-light">
-                <li><span className="hover:text-[#F5F0F1] transition-colors cursor-default">Commercial Editing</span></li>
-                <li><span className="hover:text-[#F5F0F1] transition-colors cursor-default">Color Grading</span></li>
-                <li><span className="hover:text-[#F5F0F1] transition-colors cursor-default">Brand Identity</span></li>
-                <li><span className="hover:text-[#F5F0F1] transition-colors cursor-default">Motion Design</span></li>
+              <h4 className="text-xs uppercase tracking-widest font-semibold text-[#6B1D2F] mb-6">Services</h4>
+              <ul className="space-y-4 text-sm text-[#78716C] font-light">
+                <li><span className="cursor-default">Commercial Editing</span></li>
+                <li><span className="cursor-default">Color Grading</span></li>
+                <li><span className="cursor-default">Brand Identity</span></li>
+                <li><span className="cursor-default">Motion Design</span></li>
               </ul>
             </div>
 
             <div>
-              <h4 className="text-xs uppercase tracking-widest font-semibold text-[#8B1E3F] mb-6">Location</h4>
-              <p className="text-sm text-[#A89597] font-light leading-relaxed">
+              <h4 className="text-xs uppercase tracking-widest font-semibold text-[#6B1D2F] mb-6">Location</h4>
+              <p className="text-sm text-[#78716C] font-light leading-relaxed">
                 Available Globally (Remote)<br />
                 In-Person Consultancy Available
               </p>
@@ -101,15 +82,15 @@ export const Footer = ({ setCurrentPage }) => {
         </div>
         
         {/* Bottom Bar */}
-        <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-[#A89597] tracking-wider uppercase font-light">
+        <div className="border-t border-[#E5D9DB] pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-[#78716C] tracking-wider uppercase font-light">
           <p>&copy; {new Date().getFullYear()} Alazar Asdesach. All rights reserved.</p>
           
           <button 
             onClick={scrollToTop}
-            className="flex items-center gap-2 hover:text-white transition-colors py-1"
+            className="flex items-center gap-2 hover:text-[#1C1917] transition-colors py-1"
           >
             <span>Back to top</span>
-            <ArrowUp size={14} className="text-[#8B1E3F]" />
+            <ArrowUp size={14} className="text-[#6B1D2F]" />
           </button>
         </div>
       </div>

@@ -7,7 +7,6 @@ import { theme, statistics } from '../../utils/constants';
 export const HeroSection = ({ setCurrentPage, onOpenShowreel }) => {
   const containerRef = useRef(null);
 
-  // Parallax scroll hooks
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"]
@@ -17,15 +16,11 @@ export const HeroSection = ({ setCurrentPage, onOpenShowreel }) => {
   const textY = useTransform(scrollYProgress, [0, 1], ['0%', '25%']);
   const opacityFade = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
-  // Framer Motion Animation Variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.1,
-      }
+      transition: { staggerChildren: 0.15, delayChildren: 0.1 }
     }
   };
 
@@ -41,16 +36,17 @@ export const HeroSection = ({ setCurrentPage, onOpenShowreel }) => {
   return (
     <section 
       ref={containerRef}
-      className="relative min-h-[92vh] flex flex-col justify-center pt-32 pb-20 overflow-hidden bg-[#1E0A0D]"
+      className="relative min-h-[92vh] flex flex-col justify-center pt-32 pb-20 overflow-hidden bg-[#FAFAF9]"
+      style={{ fontFamily: theme.fonts.body }}
     >
-      {/* Parallax Background Glows */}
+      {/* Soft Ambient Glow */}
       <motion.div 
         style={{ y: bgY }}
-        className="absolute top-8 left-1/2 -translate-x-1/2 w-[800px] h-[550px] bg-[#8B1E3F]/15 blur-[150px] rounded-full pointer-events-none"
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-[#C59A9F]/15 blur-[160px] rounded-full pointer-events-none"
       />
       <motion.div 
         style={{ y: bgY }}
-        className="absolute bottom-0 right-0 w-[450px] h-[450px] bg-[#8B1E3F]/10 blur-[130px] rounded-full pointer-events-none"
+        className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#C59A9F]/10 blur-[130px] rounded-full pointer-events-none"
       />
 
       <motion.div 
@@ -66,9 +62,9 @@ export const HeroSection = ({ setCurrentPage, onOpenShowreel }) => {
           {/* Subtitle Pill */}
           <motion.div 
             variants={itemVariants}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#2E1216] border border-[#8B1E3F]/40 text-xs tracking-widest text-[#F5F0F1] uppercase mb-8 shadow-inner"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#F5E8EA] border border-[#C59A9F]/40 text-xs tracking-widest text-[#6B1D2F] uppercase mb-8 shadow-sm"
           >
-            <Sparkles size={14} className="text-[#8B1E3F]" />
+            <Sparkles size={14} className="text-[#6B1D2F]" />
             <span>Visual Storyteller & Lead Editor</span>
           </motion.div>
 
@@ -76,16 +72,16 @@ export const HeroSection = ({ setCurrentPage, onOpenShowreel }) => {
           <div className="max-w-4xl mx-auto space-y-6 mb-12">
             <motion.h1 
               variants={itemVariants}
-              className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-none text-[#F5F0F1] tracking-tight" 
+              className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-none text-[#1C1917] tracking-tight" 
               style={{ fontFamily: theme.fonts.heading }}
             >
               Cinematic Vision.<br />
-              <span className="italic font-light text-[#A89597]">Premium Design.</span>
+              <span className="italic font-light text-[#6B1D2F]">Premium Design.</span>
             </motion.h1>
             
             <motion.p 
               variants={itemVariants}
-              className="text-base sm:text-lg md:text-xl text-[#A89597] max-w-2xl mx-auto leading-relaxed font-light"
+              className="text-base sm:text-lg md:text-xl text-[#78716C] max-w-2xl mx-auto leading-relaxed font-light"
             >
               Crafting compelling narratives through high-end video editing, color grading, and striking graphic design for visionary brands.
             </motion.p>
@@ -99,7 +95,6 @@ export const HeroSection = ({ setCurrentPage, onOpenShowreel }) => {
                 variant="primary" 
                 icon={<ArrowRight size={18} />} 
                 onClick={() => { setCurrentPage('portfolio'); window.scrollTo(0,0); }}
-                data-cursor="pointer"
               >
                 Explore Work
               </Button>
@@ -108,28 +103,27 @@ export const HeroSection = ({ setCurrentPage, onOpenShowreel }) => {
                 variant="secondary" 
                 icon={<Play size={18} />}
                 onClick={onOpenShowreel}
-                data-cursor="play"
               >
                 Watch Showreel
               </Button>
             </motion.div>
           </div>
 
-          {/* Animated Stats Strip */}
+          {/* Stats Strip */}
           <motion.div 
             variants={itemVariants}
-            className="w-full max-w-4xl grid grid-cols-2 md:grid-cols-4 gap-6 pt-16 border-t border-white/5"
+            className="w-full max-w-4xl grid grid-cols-2 md:grid-cols-4 gap-6 pt-16 border-t border-[#E5D9DB]"
           >
             {statistics.map((stat, idx) => (
               <motion.div 
                 key={idx}
-                whileHover={{ y: -5, borderColor: 'rgba(139, 30, 63, 0.4)' }}
-                className="text-center p-5 bg-[#2E1216]/50 rounded-2xl border border-white/5 backdrop-blur-md transition-colors"
+                whileHover={{ y: -5, boxShadow: '0 6px 24px rgba(107,29,47,0.12)' }}
+                className="text-center p-5 bg-white rounded-2xl border border-[#E5D9DB] shadow-sm transition-all duration-300"
               >
-                <p className="text-3xl md:text-4xl font-bold text-[#F5F0F1] mb-1" style={{ fontFamily: theme.fonts.heading }}>
+                <p className="text-3xl md:text-4xl font-bold text-[#6B1D2F] mb-1" style={{ fontFamily: theme.fonts.heading }}>
                   {stat.value}
                 </p>
-                <p className="text-xs text-[#A89597] uppercase tracking-widest font-light">{stat.label}</p>
+                <p className="text-xs text-[#78716C] uppercase tracking-widest font-light">{stat.label}</p>
               </motion.div>
             ))}
           </motion.div>

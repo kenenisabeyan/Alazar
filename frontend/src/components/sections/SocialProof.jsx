@@ -6,25 +6,20 @@ import { testimonials, theme } from '../../utils/constants';
 export const SocialProof = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const handleNext = () => {
-    setActiveIndex((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const handlePrev = () => {
-    setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
+  const handleNext = () => setActiveIndex((prev) => (prev + 1) % testimonials.length);
+  const handlePrev = () => setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
 
   const current = testimonials[activeIndex];
 
   return (
-    <section className="py-28 bg-[#1E0A0D] border-t border-white/5 relative">
+    <section className="py-28 bg-[#F4F0EF] border-t border-[#E5D9DB] relative">
       <div className="container mx-auto px-6 md:px-12 max-w-4xl text-center">
         
         <motion.span 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-xs uppercase tracking-widest text-[#8B1E3F] font-semibold block mb-4"
+          className="text-xs uppercase tracking-widest text-[#6B1D2F] font-semibold block mb-4"
         >
           Client Feedback & Reviews
         </motion.span>
@@ -34,7 +29,7 @@ export const SocialProof = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-3xl md:text-4xl font-normal text-[#F5F0F1] mb-12" 
+          className="text-3xl md:text-4xl font-bold text-[#1C1917] mb-12" 
           style={{ fontFamily: theme.fonts.heading }}
         >
           Trusted By Visionary Directors
@@ -46,9 +41,9 @@ export const SocialProof = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="bg-[#2E1216]/60 border border-white/5 p-8 md:p-14 rounded-3xl relative shadow-2xl backdrop-blur-md overflow-hidden min-h-[340px] flex flex-col justify-center"
+          className="bg-white border border-[#E5D9DB] p-8 md:p-14 rounded-3xl relative shadow-sm overflow-hidden min-h-[340px] flex flex-col justify-center"
         >
-          <Quote size={48} className="text-[#8B1E3F]/30 mx-auto mb-6" />
+          <Quote size={48} className="text-[#C59A9F]/50 mx-auto mb-6" />
 
           <AnimatePresence mode="wait">
             <motion.div
@@ -59,7 +54,7 @@ export const SocialProof = () => {
               transition={{ duration: 0.4 }}
               className="space-y-8"
             >
-              <p className="text-lg md:text-xl text-[#F5F0F1] font-light italic leading-relaxed max-w-2xl mx-auto">
+              <p className="text-lg md:text-xl text-[#1C1917] font-light italic leading-relaxed max-w-2xl mx-auto">
                 "{current.quote}"
               </p>
 
@@ -67,10 +62,10 @@ export const SocialProof = () => {
                 <img 
                   src={current.avatar} 
                   alt={current.author}
-                  className="w-14 h-14 rounded-full border-2 border-[#8B1E3F] object-cover mb-3 shadow-md" 
+                  className="w-14 h-14 rounded-full border-2 border-[#C59A9F] object-cover mb-3 shadow-sm" 
                 />
-                <h4 className="text-base text-[#F5F0F1] font-semibold">{current.author}</h4>
-                <p className="text-xs text-[#A89597] uppercase tracking-wider">{current.title} • <span className="text-[#8B1E3F]">{current.company}</span></p>
+                <h4 className="text-base text-[#1C1917] font-semibold">{current.author}</h4>
+                <p className="text-xs text-[#78716C] uppercase tracking-wider">{current.title} • <span className="text-[#6B1D2F]">{current.company}</span></p>
               </div>
             </motion.div>
           </AnimatePresence>
@@ -81,7 +76,7 @@ export const SocialProof = () => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               onClick={handlePrev}
-              className="w-10 h-10 rounded-full bg-[#1E0A0D]/90 border border-white/10 flex items-center justify-center text-[#A89597] hover:text-white hover:border-[#8B1E3F] transition-colors pointer-events-auto shadow-lg"
+              className="w-10 h-10 rounded-full bg-[#FAFAF9] border border-[#E5D9DB] flex items-center justify-center text-[#78716C] hover:text-[#6B1D2F] hover:border-[#C59A9F] transition-colors pointer-events-auto shadow-sm"
               aria-label="Previous review"
             >
               <ChevronLeft size={20} />
@@ -91,7 +86,7 @@ export const SocialProof = () => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               onClick={handleNext}
-              className="w-10 h-10 rounded-full bg-[#1E0A0D]/90 border border-white/10 flex items-center justify-center text-[#A89597] hover:text-white hover:border-[#8B1E3F] transition-colors pointer-events-auto shadow-lg"
+              className="w-10 h-10 rounded-full bg-[#FAFAF9] border border-[#E5D9DB] flex items-center justify-center text-[#78716C] hover:text-[#6B1D2F] hover:border-[#C59A9F] transition-colors pointer-events-auto shadow-sm"
               aria-label="Next review"
             >
               <ChevronRight size={20} />

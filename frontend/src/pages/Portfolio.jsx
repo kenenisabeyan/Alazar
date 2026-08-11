@@ -16,7 +16,8 @@ export const Portfolio = ({ onOpenProjectModal }) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="min-h-screen bg-[#1E0A0D] pt-36 pb-24"
+      className="min-h-screen bg-[#FAFAF9] pt-36 pb-24"
+      style={{ fontFamily: theme.fonts.body }}
     >
       
       {/* Header Banner */}
@@ -24,7 +25,7 @@ export const Portfolio = ({ onOpenProjectModal }) => {
         <motion.span 
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-xs uppercase tracking-widest text-[#8B1E3F] font-semibold block mb-3"
+          className="text-xs uppercase tracking-widest text-[#6B1D2F] font-semibold block mb-3"
         >
           Portfolio Archives
         </motion.span>
@@ -33,17 +34,17 @@ export const Portfolio = ({ onOpenProjectModal }) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="text-5xl md:text-7xl font-bold text-[#F5F0F1] mb-6" 
+          className="text-5xl md:text-7xl font-bold text-[#1C1917] mb-6" 
           style={{ fontFamily: theme.fonts.heading }}
         >
-          Selected <span className="italic font-light text-[#A89597]">Works</span>
+          Selected <span className="italic font-light text-[#6B1D2F]">Works</span>
         </motion.h1>
         
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="text-[#A89597] max-w-xl mx-auto font-light text-base mb-10"
+          className="text-[#78716C] max-w-xl mx-auto font-light text-base mb-10"
         >
           A showcase of cinematic commercials, documentary edits, brand identities, and high-impact design projects.
         </motion.p>
@@ -53,12 +54,12 @@ export const Portfolio = ({ onOpenProjectModal }) => {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.3 }}
-          className="inline-flex bg-[#2E1216] p-1.5 rounded-full border border-white/10 shadow-lg"
+          className="inline-flex bg-white p-1.5 rounded-full border border-[#E5D9DB] shadow-sm"
         >
           <button 
             onClick={() => setFilter('all')} 
             className={`px-7 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all ${
-              filter === 'all' ? 'bg-[#8B1E3F] text-white shadow-md' : 'text-[#A89597] hover:text-white'
+              filter === 'all' ? 'bg-[#6B1D2F] text-white shadow-sm' : 'text-[#78716C] hover:text-[#1C1917]'
             }`}
           >
             All ({portfolioProjects.length})
@@ -67,7 +68,7 @@ export const Portfolio = ({ onOpenProjectModal }) => {
           <button 
             onClick={() => setFilter('video')} 
             className={`px-7 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all flex items-center gap-2 ${
-              filter === 'video' ? 'bg-[#8B1E3F] text-white shadow-md' : 'text-[#A89597] hover:text-white'
+              filter === 'video' ? 'bg-[#6B1D2F] text-white shadow-sm' : 'text-[#78716C] hover:text-[#1C1917]'
             }`}
           >
             <Film size={14} /> Video ({portfolioProjects.filter(p => p.category === 'video').length})
@@ -76,7 +77,7 @@ export const Portfolio = ({ onOpenProjectModal }) => {
           <button 
             onClick={() => setFilter('design')} 
             className={`px-7 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all flex items-center gap-2 ${
-              filter === 'design' ? 'bg-[#8B1E3F] text-white shadow-md' : 'text-[#A89597] hover:text-white'
+              filter === 'design' ? 'bg-[#6B1D2F] text-white shadow-sm' : 'text-[#78716C] hover:text-[#1C1917]'
             }`}
           >
             <Layout size={14} /> Design ({portfolioProjects.filter(p => p.category === 'design').length})
@@ -97,38 +98,35 @@ export const Portfolio = ({ onOpenProjectModal }) => {
                 transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                 key={project.id} 
                 onClick={() => onOpenProjectModal(project)}
-                data-cursor={project.category === 'video' ? 'play' : 'view'}
-                className="group relative cursor-pointer rounded-2xl overflow-hidden bg-[#2E1216] aspect-[4/5] border border-white/5 hover:border-[#8B1E3F]/60 transition-all duration-500 shadow-xl"
+                className="group relative cursor-pointer rounded-2xl overflow-hidden bg-white aspect-[4/5] border border-[#E5D9DB] hover:border-[#C59A9F] hover:shadow-lg transition-all duration-500 shadow-sm"
               >
                 <img 
                   src={project.thumbnail} 
                   alt={project.title} 
-                  className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-108 transition-transform duration-700 ease-out" 
+                  className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-transform duration-700 ease-out" 
                 />
                 
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1E0A0D] via-[#1E0A0D]/50 to-transparent opacity-90 group-hover:opacity-95 transition-opacity"></div>
+                {/* Dark Gradient Overlay over Image for High-Contrast Text Visibility */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1C1917]/85 via-[#1C1917]/25 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
                 
                 {/* Card Content */}
-                <div className="absolute inset-0 p-8 flex flex-col justify-between">
-                  
+                <div className="absolute inset-0 p-8 flex flex-col justify-between z-10">
                   <div className="flex justify-between items-start">
-                    <span className="text-xs uppercase tracking-widest px-3 py-1 bg-[#8B1E3F]/80 text-white rounded-full font-medium">
+                    <span className="text-xs uppercase tracking-widest px-3 py-1 bg-[#6B1D2F] text-white rounded-full font-medium shadow-sm">
                       {project.category}
                     </span>
 
-                    <div className="w-10 h-10 rounded-full bg-[#1E0A0D]/80 border border-white/10 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="w-10 h-10 rounded-full bg-white/90 flex items-center justify-center text-[#6B1D2F] opacity-0 group-hover:opacity-100 transition-opacity shadow-md">
                       {project.videoUrl ? <Play size={16} /> : <Eye size={16} />}
                     </div>
                   </div>
 
                   <div>
-                    <h3 className="text-2xl text-[#F5F0F1] mb-1 font-semibold" style={{ fontFamily: theme.fonts.heading }}>
+                    <h3 className="text-2xl text-white mb-1 font-bold tracking-wide" style={{ fontFamily: theme.fonts.heading }}>
                       {project.title}
                     </h3>
-                    <p className="text-[#A89597] text-xs uppercase tracking-widest">{project.client} • {project.year || '2025'}</p>
+                    <p className="text-white/70 text-xs uppercase tracking-widest">{project.client} • {project.year || '2025'}</p>
                   </div>
-
                 </div>
 
               </motion.div>

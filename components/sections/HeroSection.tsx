@@ -33,10 +33,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenShowreel }) => {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.1,
-      }
+      transition: { staggerChildren: 0.15, delayChildren: 0.1 }
     }
   };
 
@@ -52,19 +49,19 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenShowreel }) => {
   return (
     <section 
       ref={containerRef}
-      className="relative min-h-[92vh] flex flex-col justify-center pt-32 pb-20 overflow-hidden bg-[#1E0A0D]"
+      className="relative min-h-[92vh] flex flex-col justify-center pt-32 pb-20 overflow-hidden bg-canvas"
     >
       {/* Dynamic 3D WebGL Canvas Background */}
       <HeroCanvas />
 
-      {/* Parallax Background Glows */}
+      {/* Subtle Soft Glow */}
       <motion.div 
         style={{ y: bgY }}
-        className="absolute top-8 left-1/2 -translate-x-1/2 w-[800px] h-[550px] bg-[#8B1E3F]/12 blur-[150px] rounded-full pointer-events-none"
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-burgundy-soft/15 blur-[160px] rounded-full pointer-events-none"
       />
       <motion.div 
         style={{ y: bgY }}
-        className="absolute bottom-0 right-0 w-[450px] h-[450px] bg-[#8B1E3F]/08 blur-[130px] rounded-full pointer-events-none"
+        className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-burgundy-soft/10 blur-[130px] rounded-full pointer-events-none"
       />
 
       <motion.div 
@@ -80,9 +77,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenShowreel }) => {
           {/* Subtitle Pill */}
           <motion.div 
             variants={itemVariants}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#2E1216]/80 backdrop-blur-md border border-[#8B1E3F]/40 text-xs tracking-widest text-[#F5F0F1] uppercase mb-8 shadow-xl"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-burgundy-faint border border-burgundy-soft/40 text-xs tracking-widest text-burgundy uppercase mb-8 shadow-sm"
           >
-            <Sparkles size={14} className="text-[#8B1E3F]" />
+            <Sparkles size={14} className="text-burgundy" />
             <span>Visual Storyteller & Lead Editor</span>
           </motion.div>
 
@@ -90,16 +87,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenShowreel }) => {
           <div className="max-w-4xl mx-auto space-y-6 mb-12">
             <motion.h1 
               variants={itemVariants}
-              className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-none text-[#F5F0F1] tracking-tight" 
+              className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-none text-charcoal tracking-tight" 
               style={{ fontFamily: theme.fonts.heading }}
             >
               Cinematic Vision.<br />
-              <span className="italic font-light text-[#A89597]">Premium Design.</span>
+              <span className="italic font-light text-burgundy">Premium Design.</span>
             </motion.h1>
             
             <motion.p 
               variants={itemVariants}
-              className="text-base sm:text-lg md:text-xl text-[#A89597] max-w-2xl mx-auto leading-relaxed font-light"
+              className="text-base sm:text-lg md:text-xl text-slate max-w-2xl mx-auto leading-relaxed font-light"
             >
               Crafting compelling narratives through high-end video editing, color grading, and striking graphic design for visionary brands.
             </motion.p>
@@ -132,18 +129,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenShowreel }) => {
           {/* Animated Stats Strip */}
           <motion.div 
             variants={itemVariants}
-            className="w-full max-w-4xl grid grid-cols-2 md:grid-cols-4 gap-6 pt-16 border-t border-white/5"
+            className="w-full max-w-4xl grid grid-cols-2 md:grid-cols-4 gap-6 pt-16 border-t border-border"
           >
             {statistics.map((stat, idx) => (
               <motion.div 
                 key={idx}
-                whileHover={{ y: -5, borderColor: 'rgba(139, 30, 63, 0.4)' }}
-                className="text-center p-5 bg-[#2E1216]/60 rounded-2xl border border-white/5 backdrop-blur-md transition-colors"
+                whileHover={{ y: -5, boxShadow: '0 6px 24px rgba(107,29,47,0.12)' }}
+                className="text-center p-5 bg-surface rounded-2xl border border-border shadow-card transition-all duration-300"
               >
-                <p className="text-3xl md:text-4xl font-bold text-[#F5F0F1] mb-1" style={{ fontFamily: theme.fonts.heading }}>
+                <p className="text-3xl md:text-4xl font-bold text-burgundy mb-1" style={{ fontFamily: theme.fonts.heading }}>
                   {stat.value}
                 </p>
-                <p className="text-xs text-[#A89597] uppercase tracking-widest font-light">{stat.label}</p>
+                <p className="text-xs text-slate uppercase tracking-widest font-light">{stat.label}</p>
               </motion.div>
             ))}
           </motion.div>
