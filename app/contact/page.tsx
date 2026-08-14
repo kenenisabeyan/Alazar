@@ -2,11 +2,12 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Phone, Clock, Send, CheckCircle2 } from 'lucide-react';
+import { Mail, Phone, Clock, Send, CheckCircle2, Database } from 'lucide-react';
 import Input from '@/components/common/Input';
 import Button from '@/components/common/Button';
 import { theme } from '@/utils/constants';
 import { ContactFormData } from '@/types/portfolio';
+import api from '@/utils/api';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState<ContactFormData>({
@@ -20,6 +21,7 @@ export default function ContactPage() {
 
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [serverError, setServerError] = useState<string | null>(null);
   const [errors, setErrors] = useState<Record<string, string | null>>({});
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -30,8 +32,9 @@ export default function ContactPage() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setServerError(null);
     
     const newErrors: Record<string, string> = {};
     if (!formData.firstName.trim()) newErrors.firstName = 'First name is required';
@@ -44,10 +47,14 @@ export default function ContactPage() {
     }
 
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+    try {
+      await api.inquiries.create(formData);
       setSubmitted(true);
-    }, 1200);
+    } catch (err: any) {
+      setServerError(err.message || 'Failed to submit inquiry to PERN backend.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -69,12 +76,16 @@ export default function ContactPage() {
             className="md:col-span-5 space-y-8"
           >
             <div>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-burgundy/10 border border-burgundy/20 rounded-full text-xs text-burgundy font-medium mb-4">
+                <Database size={13} /> Direct Database Sync
+              </div>
+
               <span className="text-xs uppercase tracking-widest text-burgundy font-semibold block mb-3">Initiate Collaboration</span>
               <h1 className="text-5xl md:text-7xl font-bold text-charcoal mb-6 leading-none" style={{ fontFamily: theme.fonts.heading }}>
-                Let's <span className="italic font-light text-burgundy">Create.</span>
+                Let&apos;s <span className="italic font-light text-burgundy">Create.</span>
               </h1>
               <p className="text-slate font-light text-base md:text-lg leading-relaxed">
-                Ready to elevate your visual project? Fill out the inquiry form or reach out directly to discuss timelines, concept ideas, and availability.
+                Ready to elevate your visual project? Fill out the inquiry form or reach out directly. Inquiries log directly to our PostgreSQL database.
               </p>
             </div>
 
@@ -136,10 +147,10 @@ export default function ContactPage() {
                     <CheckCircle2 size={36} />
                   </div>
                   <h3 className="text-3xl text-charcoal font-bold" style={{ fontFamily: theme.fonts.heading }}>
-                    Inquiry Received
+                    Inquiry Received in PERN Backend
                   </h3>
                   <p className="text-slate font-light max-w-md mx-auto text-sm leading-relaxed">
-                    Thank you for reaching out, {formData.firstName}. Your project brief has been logged. I will review your requirements and get back to you shortly.
+                    Thank you for reaching out, {formData.firstName}. Your project brief has been recorded in PostgreSQL. I will review your requirements shortly.
                   </p>
                   <Button 
                     variant="outline" 
@@ -171,6 +182,12 @@ export default function ContactPage() {
                   <h3 className="text-2xl text-charcoal font-bold mb-2" style={{ fontFamily: theme.fonts.heading }}>
                     Project Inquiry
                   </h3>
+
+                  {serverError && (
+                    <div className="p-4 bg-rose-50 border border-rose-200 text-rose-700 text-sm rounded-lg">
+                      {serverError}
+                    </div>
+                  )}
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <Input 
@@ -258,7 +275,7 @@ export default function ContactPage() {
                     className="w-full py-4 mt-2"
                     data-cursor="pointer"
                   >
-                    Send Inquiry
+                    Send Inquiry to PERN Backend
                   </Button>
                 </motion.form>
               )}

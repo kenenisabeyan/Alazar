@@ -2,14 +2,17 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Calculator, CheckCircle2, ArrowRight, Sparkles, Clock, ShieldCheck } from 'lucide-react';
+import { Calculator, CheckCircle2, ArrowRight, Sparkles, Clock, ShieldCheck, Database } from 'lucide-react';
 import Button from '@/components/common/Button';
 import { calculatorOptions, theme } from '@/utils/constants';
+import api from '@/utils/api';
 
 export const ProjectCalculator: React.FC = () => {
   const [selectedType, setSelectedType] = useState(calculatorOptions.projectTypes[0].id);
   const [selectedScope, setSelectedScope] = useState(calculatorOptions.scopes[0].id);
   const [selectedAddons, setSelectedAddons] = useState<string[]>(['color', 'sound']);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [quoteSaved, setQuoteSaved] = useState(false);
 
   const typeObj = calculatorOptions.projectTypes.find(t => t.id === selectedType) || calculatorOptions.projectTypes[0];
   const scopeObj = calculatorOptions.scopes.find(s => s.id === selectedScope) || calculatorOptions.scopes[0];
@@ -30,20 +33,37 @@ export const ProjectCalculator: React.FC = () => {
     }
   };
 
+  const handleSaveQuote = async () => {
+    setIsSubmitting(true);
+    try {
+      await api.quotes.create({
+        client_name: 'Website Visitor',
+        client_email: 'estimate@alazar-client.com',
+        project_type: typeObj.label,
+        scope: scopeObj.label,
+        addons: selectedAddons,
+        total_price: estimatedTotal,
+        notes: `Turnaround: ${estimatedDays}`
+      });
+      setQuoteSaved(true);
+      setTimeout(() => setQuoteSaved(false), 4000);
+    } catch (err) {
+      console.error('Error saving quote estimate:', err);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section className="py-28 bg-canvas border-t border-border relative">
       <div className="container mx-auto px-6 md:px-12 max-w-7xl">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <motion.span 
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-xs uppercase tracking-widest text-burgundy font-semibold block"
-          >
-            Instant Estimator
-          </motion.span>
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-burgundy/10 border border-burgundy/20 rounded-full text-xs text-burgundy font-medium">
+            <Database size={13} /> PERN Quote Generator
+          </div>
+
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -61,7 +81,7 @@ export const ProjectCalculator: React.FC = () => {
             transition={{ delay: 0.2 }}
             className="text-slate font-light text-base"
           >
-            Customize your project scope, select post-production deliverables, and receive an instant estimate for your brand campaign.
+            Customize your project scope, select post-production deliverables, and record an estimate directly into our PostgreSQL backend database.
           </motion.p>
         </div>
 
@@ -183,17 +203,25 @@ export const ProjectCalculator: React.FC = () => {
                   <span>ProRes 422 HQ + H.264 Deliverables</span>
                 </div>
               </div>
+
+              {quoteSaved && (
+                <div className="mt-4 p-3 bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs rounded-lg flex items-center gap-2">
+                  <CheckCircle2 size={16} />
+                  <span>Estimate logged in PostgreSQL database!</span>
+                </div>
+              )}
             </div>
 
-            <div className="pt-4">
+            <div className="pt-4 space-y-2">
               <Button 
                 variant="primary" 
                 className="w-full py-4"
                 icon={<ArrowRight size={16} />}
-                href="/contact"
+                loading={isSubmitting}
+                onClick={handleSaveQuote}
                 data-cursor="pointer"
               >
-                Lock In Package Quote
+                Save Quote to PERN Database
               </Button>
             </div>
 

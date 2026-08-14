@@ -1,0 +1,385 @@
+import pg from 'pg';
+import dotenv from 'dotenv';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+dotenv.config();
+
+const { Pool, Client } = pg;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const dbConfig = {
+  host: process.env.PGHOST || 'localhost',
+  port: parseInt(process.env.PGPORT || '5432', 10),
+  user: process.env.PGUSER || 'postgres',
+  password: process.env.PGPASSWORD || 'postgres',
+  database: process.env.PGDATABASE || 'alazar_portfolio',
+};
+
+export const pool = process.env.DATABASE_URL
+  ? new Pool({ connectionString: process.env.DATABASE_URL })
+  : new Pool(dbConfig);
+
+export let isDbConnected = false;
+
+// Fallback in-memory data store when PostgreSQL credentials require configuration
+const memoryStore = {
+  projects: [
+    {
+      id: 1,
+      title: "Urban Echoes",
+      category: "video",
+      client: "Vanguard Apparel",
+      thumbnail: "https://images.unsplash.com/photo-1604998103924-89e012e5265a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      preview_video_url: "/assets/sample-showreel.mp4",
+      video_url: "/assets/sample-showreel.mp4",
+      description: "A fast-paced, documentary-style lookbook for Vanguard's Fall collection. Focused on kinetic movement, rhythmic cuts matched to an underground beat, and a moody, high-contrast color grade.",
+      role: "Lead Video Editor & Colorist",
+      deliverables: ["60s Commercial Reel", "3x 15s Instagram Reels", "Full Sound Design Mix"],
+      year: "2025",
+      featured: true,
+      created_at: new Date().toISOString()
+    },
+    {
+      id: 2,
+      title: "Lumina Brand Identity",
+      category: "design",
+      client: "Lumina Tech",
+      thumbnail: "https://images.unsplash.com/photo-1626785773579-c93818bb51d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      preview_video_url: null,
+      video_url: null,
+      description: "Complete visual overhaul for a modern tech startup. The goal was to create a minimalist, premium identity that stands out in a cluttered SaaS market.",
+      role: "Art Director & Graphic Designer",
+      deliverables: ["Logo System & Guidelines", "Brand Strategy Book", "Ui Kit & Typography"],
+      year: "2024",
+      featured: true,
+      created_at: new Date().toISOString()
+    },
+    {
+      id: 3,
+      title: "The Craftsman",
+      category: "video",
+      client: "Oak & Iron",
+      thumbnail: "https://images.unsplash.com/photo-1535016120720-40c746a480d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      preview_video_url: "https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-carpenter-working-with-wood-41555-large.mp4",
+      video_url: "https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-carpenter-working-with-wood-41555-large.mp4",
+      description: "A slow-cinema inspired mini-documentary following a master woodworker. Emphasis on immersive sound design and warm, earthy color palettes.",
+      role: "Cinematographer & Editor",
+      deliverables: ["3-Minute Short Film", "Soundscape Mix", "Color Grading"],
+      year: "2025",
+      featured: true,
+      created_at: new Date().toISOString()
+    },
+    {
+      id: 4,
+      title: "AURA Festival",
+      category: "design",
+      client: "AURA Music Group",
+      thumbnail: "https://images.unsplash.com/photo-1557672172-298e090bd0f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      preview_video_url: null,
+      video_url: null,
+      description: "A series of striking, abstract 3D poster designs for a boutique electronic music festival designed to capture ambient light aesthetics.",
+      role: "Visual & Poster Designer",
+      deliverables: ["Key Art Posters", "3D Motion Graphics", "Social Banners"],
+      year: "2024",
+      featured: true,
+      created_at: new Date().toISOString()
+    },
+    {
+      id: 5,
+      title: "Velocity Luxury Car",
+      category: "video",
+      client: "Apex Motors",
+      thumbnail: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      preview_video_url: "https://assets.mixkit.co/videos/preview/mixkit-sports-car-driving-on-a-road-at-sunset-41549-large.mp4",
+      video_url: "https://assets.mixkit.co/videos/preview/mixkit-sports-car-driving-on-a-road-at-sunset-41549-large.mp4",
+      description: "High-octane commercial edit for a luxury sports car launch. Features precision speed-ramping, sound sync, and deep dark cinematic color grading.",
+      role: "Lead Editor",
+      deliverables: ["30s TV Spot", "Social Teasers", "Cinematic Sound Design"],
+      year: "2025",
+      featured: true,
+      created_at: new Date().toISOString()
+    },
+    {
+      id: 6,
+      title: "Noir Editorial Spreads",
+      category: "design",
+      client: "Studio One Magazine",
+      thumbnail: "https://images.unsplash.com/photo-1588636156711-b0728cce7230?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      preview_video_url: null,
+      video_url: null,
+      description: "Editorial layout design for a high-fashion spread. Focused on rigid grid structures juxtaposed with bold editorial typography.",
+      role: "Editorial & Layout Designer",
+      deliverables: ["16-Page Print Spread", "Typography System", "Digital Press Kit"],
+      year: "2024",
+      featured: false,
+      created_at: new Date().toISOString()
+    }
+  ],
+  inquiries: [],
+  quotes: [],
+  testimonials: [
+    {
+      id: 1,
+      quote: "Alazar's cinematic touch transformed our brand identity. The editing pacing and color grading on our campaign exceeded every expectation.",
+      author: "Elena Rostova",
+      title: "Creative Director",
+      company: "Vanguard Apparel",
+      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+      rating: 5
+    },
+    {
+      quote: "Working with Alazar on the Lumina rebranding was seamless. He has a rare ability to bridge still design aesthetics with motion.",
+      author: "Marcus Chen",
+      title: "Founder & CEO",
+      company: "Lumina Tech",
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+      rating: 5
+    },
+    {
+      quote: "The sound design and color grading on 'The Craftsman' brought tears to our clients' eyes. Pure artistic genius.",
+      author: "David Thorne",
+      title: "Executive Producer",
+      company: "Oak & Iron Media",
+      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+      rating: 5
+    }
+  ],
+  stats: [
+    { key_name: 'experience', value: '8+', label: 'Years Experience' },
+    { key_name: 'completed', value: '140+', label: 'Projects Completed' },
+    { key_name: 'satisfaction', value: '98%', label: 'Client Satisfaction' },
+    { key_name: 'awards', value: '12', label: 'Industry Awards' }
+  ]
+};
+
+// Ensure database exists
+async function ensureDatabaseExists() {
+  if (process.env.DATABASE_URL) return;
+  const adminClient = new Client({
+    host: dbConfig.host,
+    port: dbConfig.port,
+    user: dbConfig.user,
+    password: dbConfig.password,
+    database: 'postgres',
+  });
+
+  try {
+    await adminClient.connect();
+    const res = await adminClient.query(
+      `SELECT 1 FROM pg_database WHERE datname = $1`,
+      [dbConfig.database]
+    );
+
+    if (res.rowCount === 0) {
+      console.log(`[Database] Creating database '${dbConfig.database}'...`);
+      await adminClient.query(`CREATE DATABASE "${dbConfig.database}"`);
+      console.log(`[Database] Created database '${dbConfig.database}'.`);
+    }
+  } catch (err) {
+    // console.warn('[Database] Database check notice:', err.message);
+  } finally {
+    try {
+      await adminClient.end();
+    } catch (_) {}
+  }
+}
+
+// Auto-run schema migrations and seed initial data
+export async function initializeDatabase() {
+  try {
+    await ensureDatabaseExists();
+
+    const client = await pool.connect();
+    console.log(`[Database] ✅ Connected to PostgreSQL database '${dbConfig.database}' on port ${dbConfig.port}!`);
+    isDbConnected = true;
+
+    const schemaPath = path.join(__dirname, '../db/schema.sql');
+    if (fs.existsSync(schemaPath)) {
+      const schemaSql = fs.readFileSync(schemaPath, 'utf8');
+      await client.query(schemaSql);
+      console.log(`[Database] Database schema synchronized.`);
+    }
+
+    const projectCount = await client.query('SELECT COUNT(*) FROM projects');
+    if (parseInt(projectCount.rows[0].count, 10) === 0) {
+      console.log(`[Database] Seeding initial portfolio records...`);
+      await seedInitialData(client);
+      console.log(`[Database] Seeding completed.`);
+    }
+
+    client.release();
+    return true;
+  } catch (err) {
+    console.warn(`[Database Notice] PostgreSQL not yet authenticated (${err.message}). Set PGPASSWORD in backend/.env to connect directly.`);
+    console.log(`[Database] Server active with in-memory resilient data store ready for requests.`);
+    isDbConnected = false;
+    return false;
+  }
+}
+
+export async function seedInitialData(clientOrPool = pool) {
+  for (const p of memoryStore.projects) {
+    await clientOrPool.query(
+      `INSERT INTO projects (title, category, client, thumbnail, preview_video_url, video_url, description, role, deliverables, year, featured)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)`,
+      [p.title, p.category, p.client, p.thumbnail, p.preview_video_url, p.video_url, p.description, p.role, p.deliverables, p.year, p.featured]
+    );
+  }
+
+  for (const t of memoryStore.testimonials) {
+    await clientOrPool.query(
+      `INSERT INTO testimonials (quote, author, title, company, avatar, rating)
+       VALUES ($1, $2, $3, $4, $5, $6)`,
+      [t.quote, t.author, t.title, t.company, t.avatar, t.rating]
+    );
+  }
+
+  for (const s of memoryStore.stats) {
+    await clientOrPool.query(
+      `INSERT INTO stats (key_name, value, label)
+       VALUES ($1, $2, $3)
+       ON CONFLICT (key_name) DO NOTHING`,
+      [s.key_name, s.value, s.label]
+    );
+  }
+}
+
+// Resilient Query Handler
+export const query = async (text, params = []) => {
+  if (isDbConnected) {
+    return await pool.query(text, params);
+  }
+
+  // Fallback simulator for memoryStore
+  const upperSql = text.toUpperCase();
+  if (upperSql.includes('FROM PROJECTS')) {
+    if (upperSql.includes('INSERT INTO PROJECTS')) {
+      const newProj = {
+        id: memoryStore.projects.length + 1,
+        title: params[0],
+        category: params[1],
+        client: params[2],
+        thumbnail: params[3],
+        preview_video_url: params[4],
+        video_url: params[5],
+        description: params[6],
+        role: params[7],
+        deliverables: params[8] || [],
+        year: params[9],
+        featured: params[10] || false,
+        created_at: new Date().toISOString()
+      };
+      memoryStore.projects.push(newProj);
+      return { rowCount: 1, rows: [newProj] };
+    }
+    if (upperSql.includes('UPDATE PROJECTS')) {
+      const id = parseInt(params[11], 10);
+      const proj = memoryStore.projects.find(p => p.id === id);
+      if (proj) {
+        if (params[0] !== undefined && params[0] !== null) proj.title = params[0];
+        if (params[1] !== undefined && params[1] !== null) proj.category = params[1];
+        if (params[2] !== undefined && params[2] !== null) proj.client = params[2];
+        if (params[3] !== undefined && params[3] !== null) proj.thumbnail = params[3];
+        if (params[4] !== undefined && params[4] !== null) proj.preview_video_url = params[4];
+        if (params[5] !== undefined && params[5] !== null) proj.video_url = params[5];
+        if (params[6] !== undefined && params[6] !== null) proj.description = params[6];
+        if (params[7] !== undefined && params[7] !== null) proj.role = params[7];
+        if (params[8] !== undefined && params[8] !== null) proj.deliverables = params[8];
+        if (params[9] !== undefined && params[9] !== null) proj.year = params[9];
+        if (params[10] !== undefined && params[10] !== null) proj.featured = params[10];
+        return { rowCount: 1, rows: [proj] };
+      }
+      return { rowCount: 0, rows: [] };
+    }
+    if (upperSql.includes('DELETE FROM PROJECTS')) {
+      const id = parseInt(params[0], 10);
+      const index = memoryStore.projects.findIndex(p => p.id === id);
+      if (index !== -1) {
+        const deleted = memoryStore.projects.splice(index, 1);
+        return { rowCount: 1, rows: deleted };
+      }
+      return { rowCount: 0, rows: [] };
+    }
+    if (upperSql.includes('WHERE ID = $1')) {
+      const id = parseInt(params[0], 10);
+      const found = memoryStore.projects.find(p => p.id === id);
+      return { rowCount: found ? 1 : 0, rows: found ? [found] : [] };
+    }
+    return { rowCount: memoryStore.projects.length, rows: memoryStore.projects };
+  }
+
+  if (upperSql.includes('FROM INQUIRIES')) {
+    if (upperSql.includes('INSERT INTO INQUIRIES')) {
+      const newInquiry = {
+        id: memoryStore.inquiries.length + 1,
+        first_name: params[0],
+        last_name: params[1],
+        email: params[2],
+        project_type: params[3],
+        budget: params[4],
+        details: params[5],
+        status: 'new',
+        created_at: new Date().toISOString()
+      };
+      memoryStore.inquiries.unshift(newInquiry);
+      return { rowCount: 1, rows: [newInquiry] };
+    }
+    if (upperSql.includes('UPDATE INQUIRIES')) {
+      const status = params[0];
+      const id = parseInt(params[1], 10);
+      const inq = memoryStore.inquiries.find(i => i.id === id);
+      if (inq) {
+        inq.status = status;
+        return { rowCount: 1, rows: [inq] };
+      }
+      return { rowCount: 0, rows: [] };
+    }
+    if (upperSql.includes('DELETE FROM INQUIRIES')) {
+      const id = parseInt(params[0], 10);
+      const index = memoryStore.inquiries.findIndex(i => i.id === id);
+      if (index !== -1) {
+        memoryStore.inquiries.splice(index, 1);
+        return { rowCount: 1, rows: [] };
+      }
+      return { rowCount: 0, rows: [] };
+    }
+    return { rowCount: memoryStore.inquiries.length, rows: memoryStore.inquiries };
+  }
+
+  if (upperSql.includes('FROM QUOTES')) {
+    if (upperSql.includes('INSERT INTO QUOTES')) {
+      const newQuote = {
+        id: memoryStore.quotes.length + 1,
+        client_name: params[0],
+        client_email: params[1],
+        project_type: params[2],
+        scope: params[3],
+        addons: params[4] || [],
+        total_price: params[5],
+        notes: params[6],
+        status: 'estimated',
+        created_at: new Date().toISOString()
+      };
+      memoryStore.quotes.unshift(newQuote);
+      return { rowCount: 1, rows: [newQuote] };
+    }
+    return { rowCount: memoryStore.quotes.length, rows: memoryStore.quotes };
+  }
+
+  if (upperSql.includes('FROM TESTIMONIALS')) {
+    return { rowCount: memoryStore.testimonials.length, rows: memoryStore.testimonials };
+  }
+
+  if (upperSql.includes('FROM STATS')) {
+    return { rowCount: memoryStore.stats.length, rows: memoryStore.stats };
+  }
+
+  if (upperSql.includes('COUNT(*)')) {
+    return { rowCount: 1, rows: [{ count: 0 }] };
+  }
+
+  return { rowCount: 0, rows: [] };
+};

@@ -1,32 +1,26 @@
-# Dependencies
-/node_modules
-/.pnp
-.pnp.js
-package-lock.json
+# Frontend Node Modules
+node_modules/
 
-# Next.js & Vite build outputs
-/.next/
-/out/
-/dist/
-/build/
+# Production Build Outputs
+dist/
+build/
+.next/
+out/
 
-# Debug and runtime logs
-logs
+# Environment Variables & Secrets
+.env
+.env.local
+.env.development
+.env.production
+
+# Logs & Debug Output
+logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
 
-# Environment files
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# IDE & OS files
-.vscode/
-.idea/
+# OS & Editor Files
 .DS_Store
 Thumbs.db
+.vscode/
+.idea/

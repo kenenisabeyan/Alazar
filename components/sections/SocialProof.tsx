@@ -1,28 +1,49 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
-import { testimonials, theme } from '@/utils/constants';
+import { ChevronLeft, ChevronRight, Quote, Database } from 'lucide-react';
+import { testimonials as fallbackTestimonials, theme } from '@/utils/constants';
+import { Testimonial } from '@/types/portfolio';
+import api from '@/utils/api';
 
 export const SocialProof: React.FC = () => {
+  const [items, setItems] = useState<Testimonial[]>(fallbackTestimonials);
   const [activeIndex, setActiveIndex] = useState(0);
 
+  useEffect(() => {
+    async function loadTestimonials() {
+      try {
+        const data = await api.testimonials.getAll();
+        if (data && data.length > 0) {
+          setItems(data);
+        }
+      } catch (err) {
+        console.error('Error fetching PERN testimonials:', err);
+      }
+    }
+    loadTestimonials();
+  }, []);
+
   const handleNext = () => {
-    setActiveIndex((prev) => (prev + 1) % testimonials.length);
+    setActiveIndex((prev) => (prev + 1) % items.length);
   };
 
   const handlePrev = () => {
-    setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setActiveIndex((prev) => (prev - 1 + items.length) % items.length);
   };
 
-  const current = testimonials[activeIndex];
+  const current = items[activeIndex] || fallbackTestimonials[0];
 
   return (
     <section className="py-28 bg-canvas border-t border-border relative">
       <div className="container mx-auto px-6 md:px-12 max-w-6xl text-center">
         
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-burgundy/10 border border-burgundy/20 rounded-full text-xs text-burgundy font-medium mb-4">
+          <Database size={13} /> PERN Testimonials Sync
+        </div>
+
         <motion.span 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -63,7 +84,7 @@ export const SocialProof: React.FC = () => {
               className="space-y-8"
             >
               <p className="text-lg md:text-xl text-charcoal font-light italic leading-relaxed max-w-2xl mx-auto">
-                "{current.quote}"
+                &quot;{current.quote}&quot;
               </p>
 
               <div className="flex flex-col items-center">
