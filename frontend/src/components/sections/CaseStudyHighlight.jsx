@@ -49,7 +49,7 @@ export const CaseStudyHighlight = ({ setCurrentPage }) => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: idx * 0.15 }}
               whileHover={{ y: -6 }}
-              className="bg-[#FAFAF9] rounded-2xl p-8 border border-[#E5D9DB] shadow-sm hover:shadow-md hover:border-[#C59A9F] transition-all text-left flex flex-col justify-between"
+              className="bg-[#FAFAF9] rounded-2xl p-6 sm:p-8 border border-[#E5D9DB] shadow-sm hover:shadow-md hover:border-[#C59A9F] transition-all text-left flex flex-col justify-between"
             >
               <div>
                 <span className="text-[10px] uppercase tracking-widest px-3 py-1 bg-[#F5E8EA] text-[#6B1D2F] rounded-full font-bold inline-block mb-6">

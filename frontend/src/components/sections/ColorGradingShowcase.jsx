@@ -130,7 +130,7 @@ export const ColorGradingShowcase = () => {
         </motion.div>
 
         {/* Technical Spec Metadata Strip */}
-        <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 p-6 bg-white rounded-2xl border border-[#E5D9DB] shadow-sm text-left">
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 p-4 sm:p-6 bg-white rounded-2xl border border-[#E5D9DB] shadow-sm text-left">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-[#F5E8EA] text-[#6B1D2F] flex items-center justify-center flex-shrink-0">
               <Camera size={18} />

@@ -41,7 +41,7 @@ export const SocialProof = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="bg-white border border-[#E5D9DB] p-8 md:p-14 rounded-3xl relative shadow-sm overflow-hidden min-h-[340px] flex flex-col justify-center"
+          className="bg-white border border-[#E5D9DB] p-5 sm:p-8 md:p-14 rounded-2xl sm:rounded-3xl relative shadow-sm overflow-hidden min-h-[340px] flex flex-col justify-center"
         >
           <Quote size={48} className="text-[#C59A9F]/50 mx-auto mb-6" />
 
@@ -52,9 +52,9 @@ export const SocialProof = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15 }}
               transition={{ duration: 0.4 }}
-              className="space-y-8"
+              className="space-y-6 sm:space-y-8"
             >
-              <p className="text-lg md:text-xl text-[#1C1917] font-light italic leading-relaxed max-w-2xl mx-auto">
+              <p className="text-base sm:text-lg md:text-xl text-[#1C1917] font-light italic leading-relaxed max-w-2xl mx-auto px-4 sm:px-0">
                 "{current.quote}"
               </p>
 
@@ -71,7 +71,7 @@ export const SocialProof = () => {
           </AnimatePresence>
 
           {/* Nav Controls */}
-          <div className="flex justify-between items-center absolute inset-y-1/2 -translate-y-1/2 left-4 right-4 pointer-events-none">
+          <div className="flex justify-between items-center absolute inset-y-1/2 -translate-y-1/2 left-2 right-2 sm:left-4 sm:right-4 pointer-events-none">
             <motion.button 
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}

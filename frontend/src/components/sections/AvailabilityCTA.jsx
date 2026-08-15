@@ -25,7 +25,7 @@ export const AvailabilityCTA = ({ setCurrentPage }) => {
             <span>Available for Q3 / Q4 Contracts & Projects</span>
           </div>
 
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight" style={{ fontFamily: theme.fonts.heading }}>
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold leading-tight" style={{ fontFamily: theme.fonts.heading }}>
             Have a Video or Design Project in Mind?
           </h2>
 
@@ -33,10 +33,10 @@ export const AvailabilityCTA = ({ setCurrentPage }) => {
             Let's create high-impact video edits, color grading, and graphic design that help your brand stand out. Fast turnaround and guaranteed quality.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 w-full sm:w-auto">
             <Button 
               variant="secondary" 
-              className="bg-white text-[#6B1D2F] hover:bg-[#F5E8EA] border-white font-bold py-4 px-8"
+              className="w-full sm:w-auto bg-white text-[#6B1D2F] hover:bg-[#F5E8EA] border-white font-bold py-4 px-8"
               icon={<ArrowRight size={18} />}
               onClick={() => {
                 if (setCurrentPage) setCurrentPage('contact');
@@ -48,7 +48,7 @@ export const AvailabilityCTA = ({ setCurrentPage }) => {
 
             <a 
               href="mailto:hello@alazar.com" 
-              className="inline-flex items-center gap-2 px-6 py-4 rounded-xl border border-white/30 hover:bg-white/10 text-white font-medium text-sm transition-all"
+              className="w-full sm:w-auto inline-flex justify-center items-center gap-2 px-6 py-4 rounded-xl border border-white/30 hover:bg-white/10 text-white font-medium text-sm transition-all"
             >
               <Mail size={18} />
               <span>Email Directly: hello@alazar.com</span>

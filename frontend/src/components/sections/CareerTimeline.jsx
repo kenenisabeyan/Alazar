@@ -46,7 +46,7 @@ export const CareerTimeline = ({ setCurrentPage }) => {
         </div>
 
         {/* Timeline Items */}
-        <div className="relative border-l-2 border-[#E5D9DB] ml-4 md:ml-8 space-y-12 pl-6 md:pl-10 text-left">
+        <div className="relative border-l-2 border-[#E5D9DB] ml-2 sm:ml-4 md:ml-8 space-y-8 sm:space-y-12 pl-4 sm:pl-6 md:pl-10 text-left">
           {careerExperience.map((exp, idx) => (
             <motion.div 
               key={idx}
@@ -57,9 +57,9 @@ export const CareerTimeline = ({ setCurrentPage }) => {
               className="relative group"
             >
               {/* Timeline Bullet Dot */}
-              <div className="absolute -left-[31px] md:-left-[47px] top-1.5 w-5 h-5 rounded-full bg-[#6B1D2F] border-4 border-white shadow-md group-hover:scale-125 transition-transform" />
+              <div className="absolute -left-[23px] sm:-left-[31px] md:-left-[47px] top-1.5 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[#6B1D2F] border-4 border-white shadow-md group-hover:scale-125 transition-transform" />
 
-              <div className="bg-[#FAFAF9] p-8 rounded-2xl border border-[#E5D9DB] shadow-sm hover:border-[#C59A9F] transition-all space-y-4">
+              <div className="bg-[#FAFAF9] p-5 sm:p-8 rounded-2xl border border-[#E5D9DB] shadow-sm hover:border-[#C59A9F] transition-all space-y-4">
                 <div className="flex flex-wrap justify-between items-start gap-2">
                   <div>
                     <h3 className="text-xl font-bold text-[#1C1917]" style={{ fontFamily: theme.fonts.heading }}>
