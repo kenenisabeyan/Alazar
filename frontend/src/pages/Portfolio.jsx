@@ -39,12 +39,12 @@ export const Portfolio = ({ onOpenProjectModal, setCurrentPage }) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="min-h-screen bg-[#FAFAF9] pt-36 pb-24"
+      className="min-h-screen bg-[#FAFAF9] pt-28 sm:pt-36 pb-16 sm:pb-24"
       style={{ fontFamily: theme.fonts.body }}
     >
       
       {/* Header Banner */}
-      <div className="container mx-auto px-6 md:px-12 mb-16 text-center">
+      <div className="container mx-auto px-4 sm:px-6 md:px-12 mb-12 sm:mb-16 text-center">
         <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#6B1D2F]/10 border border-[#6B1D2F]/20 rounded-full text-xs text-[#6B1D2F] font-medium mb-4">
           <Database size={13} className="animate-pulse" />
           <span>Full Stack Portfolio</span>
@@ -62,7 +62,7 @@ export const Portfolio = ({ onOpenProjectModal, setCurrentPage }) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="text-5xl md:text-7xl font-bold text-[#1C1917] mb-6" 
+          className="text-4xl sm:text-6xl md:text-7xl font-bold text-[#1C1917] mb-4 sm:mb-6" 
           style={{ fontFamily: theme.fonts.heading }}
         >
           Selected <span className="italic font-light text-[#6B1D2F]">Works</span>
@@ -72,13 +72,13 @@ export const Portfolio = ({ onOpenProjectModal, setCurrentPage }) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="text-[#78716C] max-w-xl mx-auto font-light text-base mb-10"
+          className="text-[#78716C] max-w-xl mx-auto font-light text-sm sm:text-base mb-8 sm:mb-10"
         >
           A showcase of commercial videos, short documentaries, brand designs, and poster graphics.
         </motion.p>
 
         {/* Category Filters */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -124,15 +124,15 @@ export const Portfolio = ({ onOpenProjectModal, setCurrentPage }) => {
       </div>
 
       {/* Animated Projects Grid */}
-      <div className="container mx-auto px-6 md:px-12 max-w-7xl mb-24">
+      <div className="container mx-auto px-4 sm:px-6 md:px-12 max-w-7xl mb-16 sm:mb-24">
         {loading ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {[1, 2, 3, 4, 5, 6].map((n) => (
               <div key={n} className="rounded-2xl aspect-[4/5] bg-gray-200 animate-pulse" />
             ))}
           </div>
         ) : (
-          <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             <AnimatePresence>
               {filteredProjects.map((project) => (
                 <motion.div 
@@ -172,7 +172,7 @@ export const Portfolio = ({ onOpenProjectModal, setCurrentPage }) => {
                     </div>
                   )}
 
-                  <div className="absolute inset-0 p-8 flex flex-col justify-between z-10">
+                  <div className="absolute inset-0 p-5 sm:p-8 flex flex-col justify-between z-10">
                     <div className="flex justify-between items-start">
                       <motion.span 
                         animate={{ y: [0, -2, 0] }}
@@ -186,14 +186,14 @@ export const Portfolio = ({ onOpenProjectModal, setCurrentPage }) => {
                       <motion.div 
                         whileHover={{ scale: 1.2, rotate: 5 }}
                         whileTap={{ scale: 0.9 }}
-                        className="w-12 h-12 rounded-full bg-white/95 text-[#6B1D2F] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-lg"
+                        className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/95 text-[#6B1D2F] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-lg"
                       >
-                        {project.videoUrl ? <Volume2 size={20} /> : <Eye size={20} />}
+                        {project.videoUrl ? <Volume2 size={18} /> : <Eye size={18} />}
                       </motion.div>
                     </div>
 
                     <div className="transform group-hover:translate-y-0 transition-transform duration-300">
-                      <h3 className="text-2xl text-white mb-1 font-bold tracking-wide group-hover:text-[#F5E8EA] transition-colors" style={{ fontFamily: theme.fonts.heading }}>
+                      <h3 className="text-xl sm:text-2xl text-white mb-1 font-bold tracking-wide group-hover:text-[#F5E8EA] transition-colors" style={{ fontFamily: theme.fonts.heading }}>
                         {project.title}
                       </h3>
                       <p className="text-white/70 text-xs uppercase tracking-widest">
