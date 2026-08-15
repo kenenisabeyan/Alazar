@@ -1,29 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  /* Light Burgundy Canvas Theme */
+  --bg-primary: #FAFAF9;        /* Background (Clean Canvas Off-White) */
+  --brand-color: #6B1D2F;       /* Brand Color (Rich Burgundy for headers & buttons) */
+  --accent-color: #C59A9F;      /* Accent Color (Soft Rose for highlights/borders) */
+  --text-primary: #1C1917;      /* Primary Text (Charcoal for readability) */
+  --text-secondary: #78716C;    /* Secondary Text (Muted Slate) */
+  --bg-secondary: #FFFFFF;
+  --border-color: #E5D9DB;
+}
+
+.dark, [data-theme="dark"] {
+  /* Deep Dark Burgundy Night Theme */
+  --bg-primary: #1E0A0D;        /* Primary Background (Deep Dark Burgundy) */
+  --bg-secondary: #2E1216;      /* Secondary Background (Card/Sections) */
+  --accent-color: #8B1E3F;      /* Accent Color (Bright Rose Burgundy) */
+  --brand-color: #8B1E3F;       /* Bright Rose Burgundy */
+  --text-primary: #F5F0F1;      /* Primary Text (Off-White) */
+  --text-secondary: #A89597;    /* Secondary Text (Muted Rose-Gray) */
+  --border-color: rgba(139, 30, 63, 0.25);
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
-    font-family: var(--font-roboto), 'Roboto', sans-serif;
-    background-color: #FAFAF9;
-    color: #1C1917;
+    font-family: 'Plus Jakarta Sans', 'Roboto', sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
   }
 
   body {
     overflow-x: hidden;
+    font-family: 'Plus Jakarta Sans', 'Roboto', sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', 'Roboto', sans-serif;
   }
 
   /* Elegant burgundy-tinted scrollbar */
   ::-webkit-scrollbar {
-    width: 6px;
+    width: 7px;
   }
   ::-webkit-scrollbar-track {
     background: #F4F0EF;
   }
   ::-webkit-scrollbar-thumb {
     background: #C59A9F;
-    border-radius: 3px;
+    border-radius: 4px;
   }
   ::-webkit-scrollbar-thumb:hover {
     background: #6B1D2F;
@@ -32,31 +63,32 @@
   /* Text selection */
   ::selection {
     background-color: #6B1D2F;
-    color: #FAFAF9;
+    color: #FFFFFF;
   }
 }
 
 @layer utilities {
-  /* Glassmorphism card — light mode */
-  .glass-card {
-    background: rgba(255, 255, 255, 0.75);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(197, 154, 159, 0.25);
-  }
-
   /* Frosted nav — high-contrast shadow & rich border on scroll */
   .glass-nav {
-    background: rgba(250, 250, 249, 0.96);
+    background: rgba(250, 250, 249, 0.92);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
-    border-bottom: 2px solid rgba(107, 29, 47, 0.35);
-    box-shadow: 0 20px 50px -10px rgba(107, 29, 47, 0.25), 0 10px 25px -5px rgba(28, 25, 23, 0.15), 0 4px 10px rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid rgba(229, 217, 219, 0.8);
+    box-shadow: 0 10px 40px -10px rgba(107, 29, 47, 0.12), 0 4px 12px rgba(28, 25, 23, 0.04);
+  }
+
+  /* Glassmorphism card — light mode */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(197, 154, 159, 0.3);
+    box-shadow: 0 10px 30px -10px rgba(107, 29, 47, 0.08);
   }
 
   /* Burgundy brand gradient */
   .accent-gradient {
-    background: linear-gradient(135deg, #6B1D2F 0%, #8B2440 60%, #C59A9F 100%);
+    background: linear-gradient(135deg, #6B1D2F 0%, #8B2440 50%, #C59A9F 100%);
   }
 
   /* Soft card shadow */
@@ -76,9 +108,9 @@
   }
 }
 
-/* ---- Animations ---- */
+/* Animations */
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(16px); }
+  from { opacity: 0; transform: translateY(18px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
@@ -95,7 +127,6 @@
   animation: slideInRight 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Staggered animation utilities */
 .delay-100 { animation-delay: 100ms; }
 .delay-200 { animation-delay: 200ms; }
 .delay-300 { animation-delay: 300ms; }

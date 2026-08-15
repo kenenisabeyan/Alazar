@@ -27,7 +27,7 @@ export const Footer: React.FC = () => {
               Alazar<span className="text-burgundy">.</span>
             </Link>
             <p className="text-slate max-w-md mb-8 leading-relaxed font-light text-sm md:text-base">
-              Premium cinematic video editing, color grading, and bespoke graphic design services for ambitious brands demanding creative distinction.
+              Professional video editing, color grading, and graphic design services for brands and creative teams.
             </p>
             <div className="flex gap-4">
               <a 

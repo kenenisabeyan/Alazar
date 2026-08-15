@@ -24,7 +24,7 @@ export default function App() {
       category: 'Showreel',
       client: 'Alazar Studio',
       videoUrl: '/assets/sample-showreel.mp4',
-      description: 'A compiled high-octane visual showcase featuring commercial edits, kinetic typography, color grading transformations, and 3D motion graphics.',
+      description: 'A compilation of video edits, color grading work, graphic design, and 3D motion graphics.',
       role: 'Director & Lead Editor',
       deliverables: ['Full 2025 Showreel', 'Commercial Edit Cut', 'Color Grade Master'],
       year: '2025'

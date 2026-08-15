@@ -29,7 +29,7 @@ export const ProjectCalculator = ({ setCurrentPage }) => {
   };
 
   return (
-    <section className="py-28 bg-white border-t border-[#E5D9DB] relative" style={{ fontFamily: theme.fonts.body }}>
+    <section className="py-28 bg-[#FAFAF9] relative" style={{ fontFamily: theme.fonts.body }}>
       <div className="container mx-auto px-6 md:px-12 max-w-7xl">
         
         {/* Header */}
@@ -40,7 +40,7 @@ export const ProjectCalculator = ({ setCurrentPage }) => {
             viewport={{ once: true }}
             className="text-xs uppercase tracking-widest text-[#6B1D2F] font-semibold block"
           >
-            Instant Estimator
+            Price Estimator
           </motion.span>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -50,7 +50,7 @@ export const ProjectCalculator = ({ setCurrentPage }) => {
             className="text-4xl md:text-5xl font-bold text-[#1C1917]"
             style={{ fontFamily: theme.fonts.heading }}
           >
-            Interactive <span className="italic font-light text-[#6B1D2F]">Project Estimator</span>
+            Project <span className="italic font-light text-[#6B1D2F]">Price Estimator</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -59,15 +59,15 @@ export const ProjectCalculator = ({ setCurrentPage }) => {
             transition={{ delay: 0.2 }}
             className="text-[#78716C] font-light text-base"
           >
-            Customize your project scope, select post-production deliverables, and receive an instant estimate for your brand campaign.
+            Choose your project type, scope, and optional add-ons to calculate a quick estimate.
           </motion.p>
         </div>
 
         {/* Calculator Interface Grid */}
-        <div className="grid md:grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Controls Left */}
-          <div className="md:col-span-7 bg-white p-8 md:p-10 rounded-2xl border border-[#E5D9DB] shadow-sm space-y-8 text-left">
+          <div className="lg:col-span-7 bg-white p-6 sm:p-8 md:p-10 rounded-2xl border border-[#E5D9DB] shadow-sm space-y-8 text-left">
             
             {/* Step 1: Project Type */}
             <div>
@@ -95,7 +95,7 @@ export const ProjectCalculator = ({ setCurrentPage }) => {
             {/* Step 2: Production Scope */}
             <div>
               <label className="text-xs text-[#78716C] font-bold uppercase tracking-wider block mb-3">
-                2. Operational Scope
+                2. Select Project Scope
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {calculatorOptions.scopes.map((s) => (
@@ -118,7 +118,7 @@ export const ProjectCalculator = ({ setCurrentPage }) => {
             {/* Step 3: Add-on Modules */}
             <div>
               <label className="text-xs text-[#78716C] font-bold uppercase tracking-wider block mb-3">
-                3. Premium Modules & Upgrades
+                3. Optional Add-ons
               </label>
               <div className="space-y-2.5">
                 {calculatorOptions.addons.map((a) => {
@@ -151,16 +151,16 @@ export const ProjectCalculator = ({ setCurrentPage }) => {
           </div>
 
           {/* Estimate Result Right Card */}
-          <div className="md:col-span-5 bg-white p-8 md:p-10 rounded-2xl border-2 border-[#6B1D2F] shadow-md text-left flex flex-col justify-between h-full space-y-6">
+          <div className="lg:col-span-5 bg-white p-6 sm:p-8 md:p-10 rounded-2xl border-2 border-[#6B1D2F] shadow-md text-left flex flex-col justify-between h-full space-y-6">
             
             <div>
               <div className="flex items-center justify-between mb-6 pb-4 border-b border-[#E5D9DB]">
-                <span className="text-xs uppercase tracking-widest text-[#6B1D2F] font-bold">Estimated Investment</span>
+                <span className="text-xs uppercase tracking-widest text-[#6B1D2F] font-bold">Estimated Cost</span>
                 <Calculator size={20} className="text-[#6B1D2F]" />
               </div>
 
               <div className="mb-6">
-                <span className="text-xs text-[#78716C] font-semibold uppercase tracking-wider block mb-1">Total Quote Estimate</span>
+                <span className="text-xs text-[#78716C] font-semibold uppercase tracking-wider block mb-1">Total Estimate</span>
                 <p className="text-5xl font-bold text-[#1C1917]" style={{ fontFamily: theme.fonts.heading }}>
                   ${estimatedTotal.toLocaleString()}
                   <span className="text-sm font-normal text-[#78716C]"> USD</span>
@@ -174,11 +174,11 @@ export const ProjectCalculator = ({ setCurrentPage }) => {
                 </div>
                 <div className="flex items-center gap-2 text-xs text-[#1C1917]">
                   <ShieldCheck size={15} className="text-[#6B1D2F]" />
-                  <span>Includes 2 Revision Rounds & 4K Masters</span>
+                  <span>Includes 2 Revision Rounds & Master Files</span>
                 </div>
                 <div className="flex items-center gap-2 text-xs text-[#1C1917]">
                   <Sparkles size={15} className="text-[#6B1D2F]" />
-                  <span>ProRes 422 HQ + H.264 Deliverables</span>
+                  <span>High-Resolution Video & Audio Files</span>
                 </div>
               </div>
             </div>
@@ -186,14 +186,14 @@ export const ProjectCalculator = ({ setCurrentPage }) => {
             <div className="pt-4">
               <Button 
                 variant="primary" 
-                className="w-full py-4"
+                className="w-full py-4 font-bold tracking-wider uppercase"
                 icon={<ArrowRight size={16} />}
                 onClick={() => {
                   if (setCurrentPage) setCurrentPage('contact');
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
               >
-                Lock In Package Quote
+                Contact Me
               </Button>
             </div>
 

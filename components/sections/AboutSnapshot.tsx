@@ -38,7 +38,7 @@ export const AboutSnapshot: React.FC = () => {
               
               <div className="absolute bottom-6 left-6 right-6 p-4 bg-white/90 backdrop-blur-md rounded-xl border border-border shadow-card">
                 <p className="text-xs uppercase tracking-widest text-burgundy font-semibold mb-1">Director's Note</p>
-                <p className="text-xs text-charcoal italic font-light">"Pacing and tone dictate every edit; precision rules every frame."</p>
+                <p className="text-xs text-charcoal italic font-light">"Clear storytelling and good timing make every video cut work."</p>
               </div>
             </motion.div>
 
@@ -57,12 +57,12 @@ export const AboutSnapshot: React.FC = () => {
             <span className="text-xs uppercase tracking-widest text-burgundy font-semibold">About Alazar</span>
             
             <h2 className="text-3xl md:text-5xl font-bold text-charcoal leading-tight" style={{ fontFamily: theme.fonts.heading }}>
-              Visual Storyteller &<br />
-              <span className="italic font-light text-burgundy">Architect of Aesthetics</span>
+              Video Director &<br />
+              <span className="italic font-light text-burgundy">Creative Designer</span>
             </h2>
 
             <p className="text-slate font-light text-base md:text-lg leading-relaxed">
-              I bridge the gap between motion picture storytelling and static design perfection. Grounded in years of refining post-production workflows, I bring deep mastery of narrative pacing, cinematic color grading, and typography hierarchy to every project.
+              I combine video editing and graphic design to help brands share clear, engaging stories. With years of experience in video post-production, color work, and graphic design, I bring a simple, focused approach to every project.
             </p>
 
             {/* Feature Highlights */}
@@ -75,8 +75,8 @@ export const AboutSnapshot: React.FC = () => {
                   <Film size={18} />
                 </div>
                 <div>
-                  <h4 className="text-sm text-charcoal font-semibold">Cinematic Editing</h4>
-                  <p className="text-xs text-slate">Rhythmic cuts, speed ramps & color grading.</p>
+                  <h4 className="text-sm text-charcoal font-semibold">Video Editing</h4>
+                  <p className="text-xs text-slate">Smooth cuts, color grading & sound.</p>
                 </div>
               </motion.div>
 
@@ -88,8 +88,8 @@ export const AboutSnapshot: React.FC = () => {
                   <PenTool size={18} />
                 </div>
                 <div>
-                  <h4 className="text-sm text-charcoal font-semibold">Brand Design</h4>
-                  <p className="text-xs text-slate">Bespoke identities & poster art.</p>
+                  <h4 className="text-sm text-charcoal font-semibold">Graphic Design</h4>
+                  <p className="text-xs text-slate">Clean brand look & poster graphics.</p>
                 </div>
               </motion.div>
             </div>

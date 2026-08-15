@@ -137,7 +137,7 @@ export default function ServicesPage() {
 
             <div>
               <Button variant="primary" className="w-full py-3.5" href="/contact" data-cursor="pointer">
-                Book Consultation
+                Contact Me
               </Button>
             </div>
           </motion.div>

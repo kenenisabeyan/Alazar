@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Download } from 'lucide-react';
 import Button from '../common/Button';
 import { theme } from '@/utils/constants';
 
@@ -17,6 +17,16 @@ export const Navigation: React.FC = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleDownloadCV = () => {
+    const link = document.createElement('a');
+    link.href = '/resume.pdf';
+    link.download = 'Alazar_Asdesach_Resume.pdf';
+    link.target = '_blank';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   const navLinks = [
     { name: 'Home', href: '/' },
@@ -45,7 +55,7 @@ export const Navigation: React.FC = () => {
         </Link>
 
         {/* Desktop Links */}
-        <nav className="hidden md:flex items-center space-x-10">
+        <nav className="hidden md:flex items-center space-x-6">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -64,15 +74,26 @@ export const Navigation: React.FC = () => {
             );
           })}
 
-          <Button 
-            variant="primary" 
-            className="text-xs px-6 py-2.5 shadow-burgundy-sm" 
-            href="/contact"
-            icon={<ArrowUpRight size={15} />}
-            data-cursor="pointer"
-          >
-            Book Now
-          </Button>
+          <div className="flex items-center gap-3 ml-4">
+            <Button 
+              variant="outline" 
+              className="text-xs px-5 py-2.5 font-bold tracking-wider uppercase border-burgundy text-burgundy hover:bg-burgundy-faint" 
+              onClick={handleDownloadCV}
+              icon={<Download size={15} />}
+            >
+              Download CV
+            </Button>
+
+            <Button 
+              variant="primary" 
+              className="text-xs px-6 py-2.5 shadow-burgundy-sm" 
+              href="/contact"
+              icon={<ArrowUpRight size={15} />}
+              data-cursor="pointer"
+            >
+              Contact Me
+            </Button>
+          </div>
         </nav>
 
         {/* Mobile Hamburger Toggle */}
@@ -103,14 +124,23 @@ export const Navigation: React.FC = () => {
               </Link>
             );
           })}
-          <div className="pt-4 border-t border-border">
+          <div className="pt-4 border-t border-border flex flex-col gap-3">
+            <Button 
+              variant="outline" 
+              className="w-full py-3.5 border-burgundy text-burgundy" 
+              onClick={handleDownloadCV}
+              icon={<Download size={16} />}
+            >
+              Download CV
+            </Button>
+
             <Button 
               variant="primary" 
               className="w-full py-3.5" 
               href="/contact"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Book Now
+              Contact Me
             </Button>
           </div>
         </div>

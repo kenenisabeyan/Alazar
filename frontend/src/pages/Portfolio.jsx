@@ -3,8 +3,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { theme } from '../utils/constants';
 import { Eye, Film, Layout, Volume2, Database, RefreshCw } from 'lucide-react';
 import api from '../services/api';
+import SkillsSection from '../components/sections/SkillsSection';
+import CaseStudyHighlight from '../components/sections/CaseStudyHighlight';
+import CareerTimeline from '../components/sections/CareerTimeline';
+import AvailabilityCTA from '../components/sections/AvailabilityCTA';
 
-export const Portfolio = ({ onOpenProjectModal }) => {
+export const Portfolio = ({ onOpenProjectModal, setCurrentPage }) => {
   const [filter, setFilter] = useState('all');
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -43,7 +47,7 @@ export const Portfolio = ({ onOpenProjectModal }) => {
       <div className="container mx-auto px-6 md:px-12 mb-16 text-center">
         <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#6B1D2F]/10 border border-[#6B1D2F]/20 rounded-full text-xs text-[#6B1D2F] font-medium mb-4">
           <Database size={13} className="animate-pulse" />
-          <span>PERN Stack Powered</span>
+          <span>Full Stack Portfolio</span>
         </div>
 
         <motion.span 
@@ -51,7 +55,7 @@ export const Portfolio = ({ onOpenProjectModal }) => {
           animate={{ opacity: 1, y: 0 }}
           className="text-xs uppercase tracking-widest text-[#6B1D2F] font-semibold block mb-3"
         >
-          Portfolio Archives
+          Project Gallery
         </motion.span>
 
         <motion.h1 
@@ -70,7 +74,7 @@ export const Portfolio = ({ onOpenProjectModal }) => {
           transition={{ delay: 0.2 }}
           className="text-[#78716C] max-w-xl mx-auto font-light text-base mb-10"
         >
-          A showcase of cinematic commercials, documentary edits, brand identities, and high-impact design projects stored dynamically in PostgreSQL.
+          A showcase of commercial videos, short documentaries, brand designs, and poster graphics.
         </motion.p>
 
         {/* Category Filters */}
@@ -79,11 +83,11 @@ export const Portfolio = ({ onOpenProjectModal }) => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3 }}
-            className="inline-flex bg-white p-1.5 rounded-full border border-[#E5D9DB] shadow-sm"
+            className="flex flex-wrap justify-center bg-white p-1.5 rounded-2xl sm:rounded-full border border-[#E5D9DB] shadow-sm max-w-full gap-1 sm:gap-0"
           >
             <button 
               onClick={() => setFilter('all')} 
-              className={`px-7 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all ${
+              className={`px-4 sm:px-7 py-2 sm:py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all ${
                 filter === 'all' ? 'bg-[#6B1D2F] text-white shadow-sm' : 'text-[#78716C] hover:text-[#1C1917]'
               }`}
             >
@@ -92,7 +96,7 @@ export const Portfolio = ({ onOpenProjectModal }) => {
             
             <button 
               onClick={() => setFilter('video')} 
-              className={`px-7 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all flex items-center gap-2 ${
+              className={`px-4 sm:px-7 py-2 sm:py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all flex items-center gap-1.5 ${
                 filter === 'video' ? 'bg-[#6B1D2F] text-white shadow-sm' : 'text-[#78716C] hover:text-[#1C1917]'
               }`}
             >
@@ -101,7 +105,7 @@ export const Portfolio = ({ onOpenProjectModal }) => {
             
             <button 
               onClick={() => setFilter('design')} 
-              className={`px-7 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all flex items-center gap-2 ${
+              className={`px-4 sm:px-7 py-2 sm:py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all flex items-center gap-1.5 ${
                 filter === 'design' ? 'bg-[#6B1D2F] text-white shadow-sm' : 'text-[#78716C] hover:text-[#1C1917]'
               }`}
             >
@@ -120,7 +124,7 @@ export const Portfolio = ({ onOpenProjectModal }) => {
       </div>
 
       {/* Animated Projects Grid */}
-      <div className="container mx-auto px-6 md:px-12 max-w-7xl">
+      <div className="container mx-auto px-6 md:px-12 max-w-7xl mb-24">
         {loading ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[1, 2, 3, 4, 5, 6].map((n) => (
@@ -205,8 +209,21 @@ export const Portfolio = ({ onOpenProjectModal }) => {
         )}
       </div>
 
+      {/* Software & Skills Proficiency Matrix */}
+      <SkillsSection />
+
+      {/* Case Studies & Client ROI Metrics */}
+      <CaseStudyHighlight setCurrentPage={setCurrentPage} />
+
+      {/* Work Experience Timeline */}
+      <CareerTimeline setCurrentPage={setCurrentPage} />
+
+      {/* Availability Hiring Banner */}
+      <AvailabilityCTA setCurrentPage={setCurrentPage} />
+
     </motion.div>
   );
 };
 
 export default Portfolio;
+

@@ -5,7 +5,7 @@ import { Camera, MapPin } from 'lucide-react';
 
 export const BehindTheScenes = () => {
   return (
-    <section className="py-28 bg-[#FAFAF9] border-t border-[#E5D9DB] relative" style={{ fontFamily: theme.fonts.body }}>
+    <section className="py-28 bg-[#FAFAF9] relative" style={{ fontFamily: theme.fonts.body }}>
       <div className="container mx-auto px-6 md:px-12 max-w-7xl">
         
         {/* Header */}
@@ -16,7 +16,7 @@ export const BehindTheScenes = () => {
             viewport={{ once: true }}
             className="text-xs uppercase tracking-widest text-[#6B1D2F] font-semibold block"
           >
-            Production Field Notes
+            Behind The Scenes
           </motion.span>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -26,7 +26,7 @@ export const BehindTheScenes = () => {
             className="text-4xl md:text-5xl font-bold text-[#1C1917]"
             style={{ fontFamily: theme.fonts.heading }}
           >
-            Behind The <span className="italic font-light text-[#6B1D2F]">Lens & Suite</span>
+            On Set & <span className="italic font-light text-[#6B1D2F]">In The Studio</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -35,12 +35,12 @@ export const BehindTheScenes = () => {
             transition={{ delay: 0.2 }}
             className="text-[#78716C] font-light text-base"
           >
-            A look inside our live production shoots, camera rigs, location scouts, and post-production color suites.
+            A quick look at my filming setup, camera work, and editing process.
           </motion.p>
         </div>
 
         {/* BTS Grid */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {btsGallery.map((item, idx) => (
             <motion.div
               key={item.id}

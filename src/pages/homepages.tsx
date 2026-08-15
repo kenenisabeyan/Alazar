@@ -218,7 +218,7 @@ export const Navigation: React.FC<NavProps> = ({ currentPage, setCurrentPage }) 
               <span className={`absolute -bottom-2 left-0 h-[1px] bg-[#8B1E3F] transition-all duration-300 ${currentPage === link.id ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
             </button>
           ))}
-          <Button variant="primary" className="text-xs px-6 py-2.5" onClick={() => handleNavClick('contact')}>Book Now</Button>
+          <Button variant="primary" className="text-xs px-6 py-2.5" onClick={() => handleNavClick('contact')}>Contact Me</Button>
         </nav>
 
         <button className="md:hidden text-[#F5F0F1]" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
@@ -421,7 +421,7 @@ export const ServicesPage: React.FC<NavProps> = ({ setCurrentPage }) => {
                 <li key={i} className="flex items-center text-[#F5F0F1] font-light"><CheckCircle2 size={18} className="text-[#8B1E3F] mr-3" /> {item}</li>
               ))}
             </ul>
-            <Button variant="primary" onClick={() => setCurrentPage('contact')}>Book Consultation</Button>
+            <Button variant="primary" onClick={() => setCurrentPage('contact')}>Contact Me</Button>
           </div>
         </div>
       </div>

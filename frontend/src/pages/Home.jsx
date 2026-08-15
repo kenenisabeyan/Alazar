@@ -12,6 +12,10 @@ import WorkflowVault from '../components/sections/WorkflowVault';
 import GearSection from '../components/sections/GearSection';
 import BehindTheScenes from '../components/sections/BehindTheScenes';
 import SocialProof from '../components/sections/SocialProof';
+import SkillsSection from '../components/sections/SkillsSection';
+import CareerTimeline from '../components/sections/CareerTimeline';
+import WhyHireMe from '../components/sections/WhyHireMe';
+import AvailabilityCTA from '../components/sections/AvailabilityCTA';
 import { portfolioProjects, theme } from '../utils/constants';
 import Button from '../components/common/Button';
 import { ArrowRight, Play, Eye } from 'lucide-react';
@@ -52,9 +56,9 @@ export const Home = ({ setCurrentPage, onOpenProjectModal, onOpenShowreel }) => 
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <span className="text-xs uppercase tracking-widest text-[#6B1D2F] font-semibold block mb-2">Curated Works</span>
+              <span className="text-xs uppercase tracking-widest text-[#6B1D2F] font-semibold block mb-2">Featured Work</span>
               <h2 className="text-4xl md:text-5xl font-bold text-[#1C1917]" style={{ fontFamily: theme.fonts.heading }}>
-                Featured <span className="italic font-light text-[#6B1D2F]">Reels</span>
+                Featured <span className="italic font-light text-[#6B1D2F]">Projects</span>
               </h2>
             </motion.div>
 
@@ -69,7 +73,7 @@ export const Home = ({ setCurrentPage, onOpenProjectModal, onOpenShowreel }) => 
                 icon={<ArrowRight size={16} />}
                 onClick={() => { setCurrentPage('portfolio'); window.scrollTo(0,0); }}
               >
-                View Full Gallery
+                View All Projects
               </Button>
             </motion.div>
           </div>
@@ -136,28 +140,41 @@ export const Home = ({ setCurrentPage, onOpenProjectModal, onOpenShowreel }) => 
         </div>
       </section>
 
-      {/* 7. Case Studies & Client ROI Metrics */}
+      {/* 7. Software & Skills Proficiency Matrix */}
+      <SkillsSection />
+
+      {/* 8. Case Studies & Client ROI Metrics */}
       <CaseStudyHighlight setCurrentPage={setCurrentPage} />
 
-      {/* 8. Service Splitter */}
+      {/* 9. Career Experience Timeline & Download CV */}
+      <CareerTimeline setCurrentPage={setCurrentPage} />
+
+      {/* 10. Service Splitter */}
       <ServiceSplitter setCurrentPage={setCurrentPage} />
 
-      {/* 9. Interactive Project & Budget Calculator */}
+      {/* 11. Why Hire Me — Client Assurances & Guarantees */}
+      <WhyHireMe setCurrentPage={setCurrentPage} />
+
+      {/* 12. Interactive Project & Budget Calculator */}
       <ProjectCalculator setCurrentPage={setCurrentPage} />
 
-      {/* 10. Frictionless Client Collaboration Process */}
+      {/* 13. Frictionless Client Collaboration Process */}
       <WorkflowVault />
 
-      {/* 11. Cinema Gear & Editing Rig Specs */}
+      {/* 14. Cinema Gear & Editing Rig Specs */}
       <GearSection />
 
-      {/* 12. Behind The Scenes On Set */}
+      {/* 15. Behind The Scenes On Set */}
       <BehindTheScenes />
 
-      {/* 13. Testimonials & Client Reviews */}
+      {/* 16. Testimonials & Client Reviews */}
       <SocialProof />
+
+      {/* 17. Live Availability & Conversion Banner */}
+      <AvailabilityCTA setCurrentPage={setCurrentPage} />
     </motion.div>
   );
 };
 
 export default Home;
+

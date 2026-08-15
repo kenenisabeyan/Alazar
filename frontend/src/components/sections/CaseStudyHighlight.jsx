@@ -5,7 +5,7 @@ import { caseStudies, theme } from '../../utils/constants';
 
 export const CaseStudyHighlight = ({ setCurrentPage }) => {
   return (
-    <section className="py-28 bg-white border-t border-[#E5D9DB] relative" style={{ fontFamily: theme.fonts.body }}>
+    <section className="py-28 bg-[#FAFAF9] relative" style={{ fontFamily: theme.fonts.body }}>
       <div className="container mx-auto px-6 md:px-12 max-w-7xl">
         
         {/* Header */}
@@ -16,7 +16,7 @@ export const CaseStudyHighlight = ({ setCurrentPage }) => {
             viewport={{ once: true }}
             className="text-xs uppercase tracking-widest text-[#6B1D2F] font-semibold block"
           >
-            Client Performance & ROI
+            Results & Impact
           </motion.span>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -26,7 +26,7 @@ export const CaseStudyHighlight = ({ setCurrentPage }) => {
             className="text-4xl md:text-5xl font-bold text-[#1C1917]"
             style={{ fontFamily: theme.fonts.heading }}
           >
-            Measurable Impact & <span className="italic font-light text-[#6B1D2F]">Campaign ROI</span>
+            Real Results for <span className="italic font-light text-[#6B1D2F]">Clients</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -35,12 +35,12 @@ export const CaseStudyHighlight = ({ setCurrentPage }) => {
             transition={{ delay: 0.2 }}
             className="text-[#78716C] font-light text-base"
           >
-            High-end cinematography and video editing do more than look pretty — they drive real business growth, brand authority, and view counts.
+            Great video editing and clear design help brands get more views, engage audiences, and grow.
           </motion.p>
         </div>
 
         {/* Case Studies Grid */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {caseStudies.map((item, idx) => (
             <motion.div
               key={item.id}
@@ -89,7 +89,7 @@ export const CaseStudyHighlight = ({ setCurrentPage }) => {
                   }}
                   className="flex items-center text-xs font-bold uppercase tracking-widest text-[#6B1D2F] hover:text-[#8B2440] transition-colors"
                 >
-                  <span>Explore Campaign</span>
+                  <span>View Projects</span>
                   <ArrowRight size={14} className="ml-1.5" />
                 </button>
               </div>

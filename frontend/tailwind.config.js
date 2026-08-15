@@ -5,23 +5,37 @@ export default {
     "./public/index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
+        // Light Burgundy Canvas Theme
+        canvas: '#FAFAF9',       // Background (Clean Canvas Off-White)
+        brand: {
+          DEFAULT: '#6B1D2F',    // Brand Color (Rich Burgundy for headers & buttons)
+          hover: '#8B2440',
+          deep: '#4A1020',
+          soft: '#C59A9F',       // Accent Color (Soft Rose for highlights/borders)
+          faint: '#F5E8EA',
+        },
+        charcoal: '#1C1917',     // Primary Text (Charcoal for readability)
+        slate: '#78716C',        // Secondary Text (Muted Slate)
+
+        // Dark Burgundy Night Theme
         burgundy: {
-          dark: '#1E0A0D',
-          card: '#2E1216',
-          accent: '#8B1E3F',
-          hover: '#a3234a',
-          deep: '#150709',
+          DEFAULT: '#1E0A0D',    // Primary Background (Deep Dark Burgundy)
+          dark: '#1E0A0D',       // Primary Background (Deep Dark Burgundy)
+          card: '#2E1216',       // Secondary Background (Card/Sections)
+          accent: '#8B1E3F',     // Accent Color (Bright Rose Burgundy)
+          hover: '#A3234A',
           border: 'rgba(139, 30, 63, 0.25)',
         },
-        textMain: '#F5F0F1',
-        textMuted: '#A89597',
+        textMain: '#F5F0F1',     // Primary Text (Off-White)
+        textMuted: '#A89597',    // Secondary Text (Muted Rose-Gray)
       },
       fontFamily: {
-        heading: ["'Cinzel'", "'Playfair Display'", "serif"],
-        body: ["'Inter'", "sans-serif"],
+        heading: ["'Outfit'", "'Cinzel'", "'Playfair Display'", "serif"],
+        body: ["'Plus Jakarta Sans'", "'Inter'", "sans-serif"],
       },
     },
   },

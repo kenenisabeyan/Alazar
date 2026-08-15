@@ -22,7 +22,7 @@ export const ServiceSplitter = ({ setCurrentPage }) => {
             <span className="italic text-[#A89597]">One Vision.</span>
           </h2>
           <p className="text-[#A89597] max-w-xl mx-auto font-light text-sm md:text-base">
-            Select a core service area to explore our dedicated capabilities, deliverables, and past work.
+            Select a core service area to explore my dedicated capabilities, deliverables, and past work.
           </p>
         </motion.div>
 

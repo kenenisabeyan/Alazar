@@ -9,7 +9,7 @@ export const GearSection = () => {
   const icons = [Camera, Film, Monitor, Zap];
 
   return (
-    <section className="py-28 bg-white border-t border-[#E5D9DB] relative" style={{ fontFamily: theme.fonts.body }}>
+    <section className="py-28 bg-[#FAFAF9] relative" style={{ fontFamily: theme.fonts.body }}>
       <div className="container mx-auto px-6 md:px-12 max-w-7xl">
         
         {/* Header */}
@@ -20,7 +20,7 @@ export const GearSection = () => {
             viewport={{ once: true }}
             className="text-xs uppercase tracking-widest text-[#6B1D2F] font-semibold block"
           >
-            Cinema Gear & Post Rig
+            Production Gear
           </motion.span>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -30,7 +30,7 @@ export const GearSection = () => {
             className="text-4xl md:text-5xl font-bold text-[#1C1917]"
             style={{ fontFamily: theme.fonts.heading }}
           >
-            Production & <span className="italic font-light text-[#6B1D2F]">Editing Rig</span>
+            Filming & <span className="italic font-light text-[#6B1D2F]">Editing Gear</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -39,19 +39,19 @@ export const GearSection = () => {
             transition={{ delay: 0.2 }}
             className="text-[#78716C] font-light text-base"
           >
-            We operate with industry-standard 8K cinema cameras, anamorphic optics, calibrated color mastering suites, and heavy cinema gimbals.
+            I use professional 8K cinema cameras, sharp lenses, and fast editing setups to deliver high-quality results.
           </motion.p>
         </div>
 
         {/* Category Tabs */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-12">
           {gearList.map((cat, idx) => {
             const IconComponent = icons[idx % icons.length];
             return (
               <button
                 key={cat.category}
                 onClick={() => setActiveCategory(idx)}
-                className={`px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-wider transition-all flex items-center gap-2 ${
+                className={`px-4 sm:px-6 py-2.5 sm:py-3 rounded-full text-xs font-semibold uppercase tracking-wider transition-all flex items-center gap-2 ${
                   activeCategory === idx 
                     ? 'bg-[#6B1D2F] text-white shadow-sm' 
                     : 'bg-white text-[#78716C] border border-[#E5D9DB] hover:text-[#1C1917]'
@@ -69,7 +69,7 @@ export const GearSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="grid md:grid-cols-3 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {gearList[activeCategory].items.map((item, idx) => (
             <div 

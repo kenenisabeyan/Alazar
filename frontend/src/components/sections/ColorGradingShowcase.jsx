@@ -28,7 +28,7 @@ export const ColorGradingShowcase = () => {
   };
 
   return (
-    <section className="py-28 bg-[#FAFAF9] border-t border-[#E5D9DB] relative overflow-hidden" style={{ fontFamily: theme.fonts.body }}>
+    <section className="py-28 bg-[#FAFAF9] relative overflow-hidden" style={{ fontFamily: theme.fonts.body }}>
       <div className="container mx-auto px-6 md:px-12 max-w-7xl">
         
         {/* Section Header */}
@@ -39,7 +39,7 @@ export const ColorGradingShowcase = () => {
             viewport={{ once: true }}
             className="text-xs uppercase tracking-widest text-[#6B1D2F] font-semibold block"
           >
-            Color Grading Suite
+            Color Suite
           </motion.span>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -49,7 +49,7 @@ export const ColorGradingShowcase = () => {
             className="text-4xl md:text-5xl font-bold text-[#1C1917]"
             style={{ fontFamily: theme.fonts.heading }}
           >
-            RAW Log vs. <span className="italic font-light text-[#6B1D2F]">Color Master</span>
+            Before & After <span className="italic font-light text-[#6B1D2F]">Color</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -58,17 +58,17 @@ export const ColorGradingShowcase = () => {
             transition={{ delay: 0.2 }}
             className="text-[#78716C] font-light text-base"
           >
-            Drag the slider to reveal the DaVinci Resolve color transformation from un-graded RAW Log footage to the final commercial color grade.
+            Drag the slider to see how raw camera footage transforms into a finished, polished video.
           </motion.p>
         </div>
 
         {/* Sample Switcher Tabs */}
-        <div className="flex justify-center gap-3 mb-10">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10">
           {colorGradingSamples.map((sample, idx) => (
             <button
               key={sample.id}
               onClick={() => { setActiveSampleIndex(idx); setSliderPosition(50); }}
-              className={`px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all flex items-center gap-2 ${
+              className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all flex items-center gap-2 ${
                 activeSampleIndex === idx 
                   ? 'bg-[#6B1D2F] text-white shadow-sm' 
                   : 'bg-white text-[#78716C] border border-[#E5D9DB] hover:text-[#1C1917]'
@@ -85,7 +85,7 @@ export const ColorGradingShowcase = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="relative aspect-video rounded-2xl overflow-hidden shadow-lg border border-[#E5D9DB] bg-black select-none cursor-ew-resize group"
+          className="relative aspect-[4/3] sm:aspect-video rounded-2xl overflow-hidden shadow-lg border border-[#E5D9DB] bg-black select-none cursor-ew-resize group"
           onMouseDown={() => setIsDragging(true)}
           onMouseUp={() => setIsDragging(false)}
           onMouseLeave={() => setIsDragging(false)}
@@ -99,7 +99,7 @@ export const ColorGradingShowcase = () => {
             className="absolute inset-0 w-full h-full object-cover pointer-events-none"
           />
           <span className="absolute bottom-4 right-4 bg-[#6B1D2F] text-white text-xs uppercase tracking-widest px-3 py-1.5 rounded-full font-bold shadow-md z-10">
-            Graded Color Master
+            Final Color
           </span>
 
           {/* RAW Log Layer (Clipped Left) */}
@@ -114,7 +114,7 @@ export const ColorGradingShowcase = () => {
               style={{ width: '100%', height: '100%' }}
             />
             <span className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-md text-[#1C1917] border border-[#E5D9DB] text-xs uppercase tracking-widest px-3 py-1.5 rounded-full font-bold shadow-md z-10">
-              RAW S-Log3 / Flat
+              Raw Footage
             </span>
           </div>
 

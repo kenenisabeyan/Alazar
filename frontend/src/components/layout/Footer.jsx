@@ -15,7 +15,7 @@ export const Footer = ({ setCurrentPage }) => {
   const socialBtn = "w-10 h-10 rounded-full border border-[#E5D9DB] flex items-center justify-center text-[#78716C] hover:bg-[#6B1D2F] hover:text-white hover:border-[#6B1D2F] transition-all";
 
   return (
-    <footer className="bg-[#F4F0EF] text-[#1C1917] pt-24 pb-12 border-t border-[#E5D9DB] relative" style={{ fontFamily: theme.fonts.body }}>
+    <footer className="bg-[#FAFAF9] text-[#1C1917] pt-24 pb-12 relative" style={{ fontFamily: theme.fonts.body }}>
       <div className="container mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
           
@@ -29,7 +29,7 @@ export const Footer = ({ setCurrentPage }) => {
               Alazar<span className="text-[#6B1D2F]">.</span>
             </button>
             <p className="text-[#78716C] max-w-md mb-8 leading-relaxed font-light text-sm md:text-base">
-              Premium cinematic video editing, color grading, and bespoke graphic design services for ambitious brands demanding creative distinction.
+              Professional video editing, color grading, and graphic design services for brands and creative teams.
             </p>
             <div className="flex gap-4">
               <a href="https://instagram.com" target="_blank" rel="noreferrer" className={socialBtn} aria-label="Instagram">

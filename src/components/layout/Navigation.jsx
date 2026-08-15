@@ -66,7 +66,7 @@ export const Navigation = ({ currentPage, setCurrentPage }) => {
             onClick={() => handleNavClick('contact')}
             icon={<ArrowUpRight size={15} />}
           >
-            Book Now
+            Contact Me
           </Button>
         </nav>
 
@@ -100,7 +100,7 @@ export const Navigation = ({ currentPage, setCurrentPage }) => {
               className="w-full py-3.5" 
               onClick={() => handleNavClick('contact')}
             >
-              Book Now
+              Contact Me
             </Button>
           </div>
         </div>

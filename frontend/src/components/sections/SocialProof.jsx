@@ -12,7 +12,7 @@ export const SocialProof = () => {
   const current = testimonials[activeIndex];
 
   return (
-    <section className="py-28 bg-white border-t border-[#E5D9DB] relative">
+    <section className="py-28 bg-[#FAFAF9] relative">
       <div className="container mx-auto px-6 md:px-12 max-w-6xl text-center">
         
         <motion.span 
@@ -21,7 +21,7 @@ export const SocialProof = () => {
           viewport={{ once: true }}
           className="text-xs uppercase tracking-widest text-[#6B1D2F] font-semibold block mb-4"
         >
-          Client Feedback & Reviews
+          Client Reviews
         </motion.span>
 
         <motion.h2 
@@ -32,7 +32,7 @@ export const SocialProof = () => {
           className="text-3xl md:text-4xl font-bold text-[#1C1917] mb-12" 
           style={{ fontFamily: theme.fonts.heading }}
         >
-          Trusted By Visionary Directors
+          What Clients Say
         </motion.h2>
 
         {/* Carousel Box */}

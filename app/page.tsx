@@ -56,7 +56,7 @@ export default function HomePage() {
       client: 'Alazar Studio',
       videoUrl: '/assets/sample-showreel.mp4',
       thumbnail: 'https://images.unsplash.com/photo-1604998103924-89e012e5265a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      description: 'A compiled high-octane visual showcase featuring commercial edits, kinetic typography, color grading transformations, and 3D motion graphics.',
+      description: 'A compilation of video edits, color grading work, graphic design, and 3D motion graphics.',
       role: 'Director & Lead Editor',
       deliverables: ['Full 2025 Showreel', 'Commercial Edit Cut', 'Color Grade Master'],
       year: '2025'
@@ -87,7 +87,7 @@ export default function HomePage() {
       {/* 5. Interactive RAW vs. Graded Master Color Slider */}
       <ColorGradingShowcase />
       
-      {/* 6. Featured Projects Grid (Powered by PERN Backend) */}
+      {/* 6. Featured Projects Grid */}
       <section className="py-28 bg-canvas">
         <div className="container mx-auto px-6 md:px-12">
           
@@ -99,10 +99,10 @@ export default function HomePage() {
               transition={{ duration: 0.6 }}
             >
               <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-burgundy font-semibold mb-2">
-                <Database size={13} /> PERN Featured Works
+                <Database size={13} /> Featured Work
               </div>
               <h2 className="text-4xl md:text-5xl font-bold text-charcoal" style={{ fontFamily: theme.fonts.heading }}>
-                Featured <span className="italic font-light text-burgundy">Reels</span>
+                Featured <span className="italic font-light text-burgundy">Projects</span>
               </h2>
             </motion.div>
 
@@ -118,7 +118,7 @@ export default function HomePage() {
                 href="/portfolio"
                 data-cursor="pointer"
               >
-                View Full Gallery
+                View All Projects
               </Button>
             </motion.div>
           </div>

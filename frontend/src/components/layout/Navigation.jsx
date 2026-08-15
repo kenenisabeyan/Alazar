@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Download } from 'lucide-react';
 import Button from '../common/Button';
 import { theme } from '../../utils/constants';
 
@@ -27,6 +27,16 @@ export const Navigation = ({ currentPage, setCurrentPage }) => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleDownloadCV = () => {
+    const link = document.createElement('a');
+    link.href = '/resume.pdf';
+    link.download = 'Alazar_Asdesach_Resume.pdf';
+    link.target = '_blank';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
       isScrolled 
@@ -35,25 +45,32 @@ export const Navigation = ({ currentPage, setCurrentPage }) => {
     }`}>
       <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
         
-        {/* Brand Logo */}
-        <button 
-          onClick={() => handleNavClick('home')} 
-          className="text-2xl font-bold tracking-widest text-[#1C1917] uppercase hover:opacity-90 transition-opacity text-left group" 
-          style={{ fontFamily: theme.fonts.heading }}
-        >
-          Alazar<span className="text-[#6B1D2F] group-hover:text-[#8B2440] transition-colors">.</span>
-        </button>
+        {/* Brand Logo & Live Status */}
+        <div className="flex items-center gap-4">
+          <button 
+            onClick={() => handleNavClick('home')} 
+            className="text-2xl font-bold tracking-widest text-[#1C1917] uppercase hover:opacity-90 transition-opacity text-left group flex items-center gap-1" 
+            style={{ fontFamily: theme.fonts.heading }}
+          >
+            Alazar<span className="text-[#6B1D2F] group-hover:text-[#8B2440] transition-colors">.</span>
+          </button>
+
+          <span className="hidden lg:inline-flex items-center gap-1.5 px-3 py-1 bg-white/80 border border-[#E5D9DB] rounded-full text-[10px] uppercase font-bold text-[#6B1D2F] tracking-wider shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" /> Available Q3/Q4
+          </span>
+        </div>
 
         {/* Desktop Links */}
-        <nav className="hidden md:flex items-center space-x-10">
+        <nav className="hidden md:flex items-center space-x-6">
           {navLinks.map((link) => (
             <button 
               key={link.name} 
               onClick={() => handleNavClick(link.id)} 
               className={`${
-                currentPage === link.id ? 'text-[#1C1917] font-semibold' : 'text-[#78716C]'
-              } font-medium text-xs tracking-widest uppercase hover:text-[#1C1917] transition-colors relative group py-1`}
+                currentPage === link.id ? 'text-[#6B1D2F] font-bold' : 'text-[#78716C]'
+              } font-medium text-xs tracking-widest uppercase hover:text-[#6B1D2F] transition-colors relative group py-1 flex items-center gap-1.5`}
             >
+              {currentPage === link.id && <span className="w-1.5 h-1.5 rounded-full bg-[#6B1D2F]" />}
               {link.name}
               <span className={`absolute bottom-0 left-0 h-[2px] bg-[#6B1D2F] transition-all duration-300 ${
                 currentPage === link.id ? 'w-full' : 'w-0 group-hover:w-full'
@@ -61,14 +78,25 @@ export const Navigation = ({ currentPage, setCurrentPage }) => {
             </button>
           ))}
 
-          <Button 
-            variant="primary" 
-            className="text-xs px-6 py-2.5" 
-            onClick={() => handleNavClick('contact')}
-            icon={<ArrowUpRight size={15} />}
-          >
-            Book Now
-          </Button>
+          <div className="flex items-center gap-3 ml-4">
+            <Button 
+              variant="outline" 
+              className="text-xs px-5 py-2.5 font-bold tracking-wider uppercase border-[#6B1D2F] text-[#6B1D2F] hover:bg-[#F5E8EA]" 
+              onClick={handleDownloadCV}
+              icon={<Download size={15} />}
+            >
+              Download CV
+            </Button>
+
+            <Button 
+              variant="primary" 
+              className="text-xs px-6 py-2.5 shadow-md hover:shadow-[#6B1D2F]/20 font-bold tracking-wider uppercase" 
+              onClick={() => handleNavClick('contact')}
+              icon={<ArrowUpRight size={15} />}
+            >
+              Contact Me
+            </Button>
+          </div>
         </nav>
 
         {/* Mobile Hamburger Toggle */}
@@ -95,13 +123,21 @@ export const Navigation = ({ currentPage, setCurrentPage }) => {
               {link.name}
             </button>
           ))}
-          <div className="pt-4 border-t border-[#E5D9DB]">
+          <div className="pt-4 border-t border-[#E5D9DB] flex flex-col gap-3">
+            <Button 
+              variant="outline" 
+              className="w-full py-3.5 border-[#6B1D2F] text-[#6B1D2F]" 
+              onClick={handleDownloadCV}
+              icon={<Download size={16} />}
+            >
+              Download CV
+            </Button>
             <Button 
               variant="primary" 
               className="w-full py-3.5" 
               onClick={() => handleNavClick('contact')}
             >
-              Book Now
+              Contact Me
             </Button>
           </div>
         </div>

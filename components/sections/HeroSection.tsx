@@ -80,7 +80,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenShowreel }) => {
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-burgundy-faint border border-burgundy-soft/40 text-xs tracking-widest text-burgundy uppercase mb-8 shadow-sm"
           >
             <Sparkles size={14} className="text-burgundy" />
-            <span>Visual Storyteller & Lead Editor</span>
+            <span>Video Editor & Graphic Designer</span>
           </motion.div>
 
           {/* Headline */}
@@ -90,15 +90,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenShowreel }) => {
               className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-none text-charcoal tracking-tight" 
               style={{ fontFamily: theme.fonts.heading }}
             >
-              Cinematic Vision.<br />
-              <span className="italic font-light text-burgundy">Premium Design.</span>
+              Cinematic Videos.<br />
+              <span className="italic font-light text-burgundy">Clear Design.</span>
             </motion.h1>
             
             <motion.p 
               variants={itemVariants}
               className="text-base sm:text-lg md:text-xl text-slate max-w-3xl mx-auto leading-relaxed font-light"
             >
-              Crafting compelling narratives through high-end video editing, color grading, and striking graphic design for visionary brands.
+              Creating clean, engaging video edits, color work, and graphic designs that help your brand stand out clearly.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -112,7 +112,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenShowreel }) => {
                 href="/portfolio"
                 data-cursor="pointer"
               >
-                Explore Work
+                View Work
               </Button>
               
               <Button 
@@ -121,7 +121,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenShowreel }) => {
                 onClick={onOpenShowreel}
                 data-cursor="play"
               >
-                Watch Showreel
+                Watch Reel
               </Button>
             </motion.div>
           </div>

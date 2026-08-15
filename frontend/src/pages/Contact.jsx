@@ -3,9 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Phone, Clock, Send, CheckCircle2 } from 'lucide-react';
 import Input from '../components/common/Input';
 import Button from '../components/common/Button';
+import WhyHireMe from '../components/sections/WhyHireMe';
+import CareerTimeline from '../components/sections/CareerTimeline';
 import { theme } from '../utils/constants';
 
-export const Contact = () => {
+export const Contact = ({ setCurrentPage }) => {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -56,23 +58,23 @@ export const Contact = () => {
       className="min-h-screen bg-[#FAFAF9] pt-36 pb-24"
       style={{ fontFamily: theme.fonts.body }}
     >
-      <div className="container mx-auto px-6 md:px-12 max-w-7xl">
-        <div className="grid md:grid-cols-12 gap-16 items-start">
+      <div className="container mx-auto px-6 md:px-12 max-w-7xl mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           
           {/* Contact Info Left */}
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
-            className="md:col-span-5 space-y-8"
+            className="lg:col-span-5 space-y-8"
           >
             <div>
-              <span className="text-xs uppercase tracking-widest text-[#6B1D2F] font-semibold block mb-3">Initiate Collaboration</span>
+              <span className="text-xs uppercase tracking-widest text-[#6B1D2F] font-semibold block mb-3">Get In Touch</span>
               <h1 className="text-5xl md:text-7xl font-bold text-[#1C1917] mb-6 leading-none" style={{ fontFamily: theme.fonts.heading }}>
-                Let's <span className="italic font-light text-[#6B1D2F]">Create.</span>
+                Let's <span className="italic font-light text-[#6B1D2F]">Work Together.</span>
               </h1>
               <p className="text-[#78716C] font-light text-base md:text-lg leading-relaxed">
-                Ready to elevate your visual project? Fill out the inquiry form or reach out directly to discuss timelines, concept ideas, and availability.
+                Ready to start your next video or design project? Fill out the form or reach out directly to talk about your ideas and timeline.
               </p>
             </div>
 
@@ -83,7 +85,7 @@ export const Contact = () => {
                   <Mail size={20} />
                 </div>
                 <div>
-                  <p className="text-xs text-[#78716C] uppercase tracking-wider font-semibold">Direct Email</p>
+                  <p className="text-xs text-[#78716C] uppercase tracking-wider font-semibold">Email</p>
                   <a href="mailto:hello@alazar.com" className="text-[#1C1917] font-light hover:text-[#6B1D2F] transition-colors text-sm">
                     hello@alazar.com
                   </a>
@@ -105,8 +107,8 @@ export const Contact = () => {
                   <Clock size={20} />
                 </div>
                 <div>
-                  <p className="text-xs text-[#78716C] uppercase tracking-wider font-semibold">Response Window</p>
-                  <p className="text-[#1C1917] font-light text-sm">Within 24 business hours</p>
+                  <p className="text-xs text-[#78716C] uppercase tracking-wider font-semibold">Response Time</p>
+                  <p className="text-[#1C1917] font-light text-sm">Within 24 hours</p>
                 </div>
               </div>
 
@@ -118,7 +120,7 @@ export const Contact = () => {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
-            className="md:col-span-7 bg-white p-8 md:p-12 rounded-2xl border border-[#E5D9DB] shadow-sm relative"
+            className="lg:col-span-7 bg-white p-6 sm:p-8 md:p-12 rounded-2xl border border-[#E5D9DB] shadow-sm relative"
           >
             
             <AnimatePresence mode="wait">
@@ -134,10 +136,10 @@ export const Contact = () => {
                     <CheckCircle2 size={36} />
                   </div>
                   <h3 className="text-3xl text-[#1C1917] font-bold" style={{ fontFamily: theme.fonts.heading }}>
-                    Inquiry Received
+                    Message Received
                   </h3>
                   <p className="text-[#78716C] font-light max-w-md mx-auto text-sm leading-relaxed">
-                    Thank you for reaching out, {formData.firstName}. Your project brief has been logged. I will review your requirements and get back to you shortly.
+                    Thank you for reaching out, {formData.firstName}. I have received your message and will get back to you within 24 hours.
                   </p>
                   <Button 
                     variant="outline" 
@@ -153,7 +155,7 @@ export const Contact = () => {
                       });
                     }}
                   >
-                    Send Another Inquiry
+                    Send Another Message
                   </Button>
                 </motion.div>
               ) : (
@@ -166,7 +168,7 @@ export const Contact = () => {
                   onSubmit={handleSubmit}
                 >
                   <h3 className="text-2xl text-[#1C1917] font-bold mb-2" style={{ fontFamily: theme.fonts.heading }}>
-                    Project Inquiry
+                    Send a Message
                   </h3>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -202,7 +204,7 @@ export const Contact = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div className="flex flex-col gap-2">
                       <label className="text-xs text-[#78716C] font-semibold tracking-wider uppercase">
-                        Project Discipline
+                        Project Type
                       </label>
                       <select 
                         name="projectType"
@@ -210,16 +212,16 @@ export const Contact = () => {
                         onChange={handleChange}
                         className="w-full bg-[#FAFAF9] border border-[#E5D9DB] rounded-lg px-4 py-3 text-[#1C1917] focus:outline-none focus:border-[#6B1D2F] focus:ring-1 focus:ring-[#6B1D2F]/20 text-sm appearance-none cursor-pointer transition-colors"
                       >
-                        <option value="freelance-video">Freelance Video Editing / Color</option>
-                        <option value="freelance-design">Brand Identity & Graphic Design</option>
-                        <option value="in-person">In-Person Shoot / Consultation</option>
-                        <option value="full-package">Full Production (Video + Design)</option>
+                        <option value="freelance-video">Video Editing & Color Grading</option>
+                        <option value="freelance-design">Brand Design & Graphics</option>
+                        <option value="in-person">On-Set Filming & Directing</option>
+                        <option value="full-package">Full Package (Video + Design)</option>
                       </select>
                     </div>
 
                     <div className="flex flex-col gap-2">
                       <label className="text-xs text-[#78716C] font-semibold tracking-wider uppercase">
-                        Estimated Budget Range
+                        Estimated Budget
                       </label>
                       <select 
                         name="budget"
@@ -236,11 +238,11 @@ export const Contact = () => {
                   </div>
 
                   <Input 
-                    label="Project Details & Vision" 
+                    label="Project Details" 
                     name="details"
                     multiline 
                     rows={5}
-                    placeholder="Tell me about your goals, target audience, deliverables needed, and timeline benchmarks..." 
+                    placeholder="Tell me about your project goals, target audience, deliverables needed, and timeline..." 
                     value={formData.details}
                     onChange={handleChange}
                     error={errors.details}
@@ -254,7 +256,7 @@ export const Contact = () => {
                     icon={<Send size={16} />}
                     className="w-full py-4 mt-2"
                   >
-                    Send Inquiry
+                    Send Message
                   </Button>
                 </motion.form>
               )}
@@ -264,8 +266,16 @@ export const Contact = () => {
 
         </div>
       </div>
+
+      {/* Why Hire Me — Client Assurances */}
+      <WhyHireMe setCurrentPage={setCurrentPage} />
+
+      {/* Work History & Resume Download */}
+      <CareerTimeline setCurrentPage={setCurrentPage} />
+
     </motion.div>
   );
 };
 
 export default Contact;
+
