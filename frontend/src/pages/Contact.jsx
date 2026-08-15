@@ -55,10 +55,10 @@ export const Contact = ({ setCurrentPage }) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="min-h-screen bg-[#FAFAF9] pt-36 pb-24"
+      className="min-h-screen bg-[#FAFAF9] pt-28 sm:pt-36 pb-16 sm:pb-24"
       style={{ fontFamily: theme.fonts.body }}
     >
-      <div className="container mx-auto px-6 md:px-12 max-w-7xl mb-24">
+      <div className="container mx-auto px-4 sm:px-6 md:px-12 max-w-7xl mb-16 sm:mb-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           
           {/* Contact Info Left */}
@@ -66,11 +66,11 @@ export const Contact = ({ setCurrentPage }) => {
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
-            className="lg:col-span-5 space-y-8"
+            className="lg:col-span-5 space-y-6 sm:space-y-8"
           >
             <div>
               <span className="text-xs uppercase tracking-widest text-[#6B1D2F] font-semibold block mb-3">Get In Touch</span>
-              <h1 className="text-5xl md:text-7xl font-bold text-[#1C1917] mb-6 leading-none" style={{ fontFamily: theme.fonts.heading }}>
+              <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold text-[#1C1917] mb-4 sm:mb-6 leading-tight" style={{ fontFamily: theme.fonts.heading }}>
                 Let's <span className="italic font-light text-[#6B1D2F]">Work Together.</span>
               </h1>
               <p className="text-[#78716C] font-light text-base md:text-lg leading-relaxed">
@@ -78,37 +78,37 @@ export const Contact = ({ setCurrentPage }) => {
               </p>
             </div>
 
-            <div className="space-y-4 pt-4">
+            <div className="space-y-3 sm:space-y-4 pt-2 sm:pt-4">
               
-              <div className="flex items-center gap-4 p-4 bg-white rounded-xl border border-[#E5D9DB] shadow-sm">
-                <div className="w-12 h-12 bg-[#F5E8EA] border border-[#C59A9F]/40 rounded-full flex items-center justify-center text-[#6B1D2F] flex-shrink-0">
-                  <Mail size={20} />
+              <div className="flex items-center gap-3 sm:gap-4 p-3.5 sm:p-4 bg-white rounded-xl border border-[#E5D9DB] shadow-sm">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#F5E8EA] border border-[#C59A9F]/40 rounded-full flex items-center justify-center text-[#6B1D2F] flex-shrink-0">
+                  <Mail size={18} />
                 </div>
                 <div>
                   <p className="text-xs text-[#78716C] uppercase tracking-wider font-semibold">Email</p>
-                  <a href="mailto:hello@alazar.com" className="text-[#1C1917] font-light hover:text-[#6B1D2F] transition-colors text-sm">
+                  <a href="mailto:hello@alazar.com" className="text-[#1C1917] font-light hover:text-[#6B1D2F] transition-colors text-xs sm:text-sm">
                     hello@alazar.com
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-center gap-4 p-4 bg-white rounded-xl border border-[#E5D9DB] shadow-sm">
-                <div className="w-12 h-12 bg-[#F5E8EA] border border-[#C59A9F]/40 rounded-full flex items-center justify-center text-[#6B1D2F] flex-shrink-0">
-                  <Phone size={20} />
+              <div className="flex items-center gap-3 sm:gap-4 p-3.5 sm:p-4 bg-white rounded-xl border border-[#E5D9DB] shadow-sm">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#F5E8EA] border border-[#C59A9F]/40 rounded-full flex items-center justify-center text-[#6B1D2F] flex-shrink-0">
+                  <Phone size={18} />
                 </div>
                 <div>
                   <p className="text-xs text-[#78716C] uppercase tracking-wider font-semibold">Phone / WhatsApp</p>
-                  <p className="text-[#1C1917] font-light text-sm">+1 (555) 123-4567</p>
+                  <p className="text-[#1C1917] font-light text-xs sm:text-sm">+1 (555) 123-4567</p>
                 </div>
               </div>
 
-              <div className="flex items-center gap-4 p-4 bg-white rounded-xl border border-[#E5D9DB] shadow-sm">
-                <div className="w-12 h-12 bg-[#F5E8EA] border border-[#C59A9F]/40 rounded-full flex items-center justify-center text-[#6B1D2F] flex-shrink-0">
-                  <Clock size={20} />
+              <div className="flex items-center gap-3 sm:gap-4 p-3.5 sm:p-4 bg-white rounded-xl border border-[#E5D9DB] shadow-sm">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#F5E8EA] border border-[#C59A9F]/40 rounded-full flex items-center justify-center text-[#6B1D2F] flex-shrink-0">
+                  <Clock size={18} />
                 </div>
                 <div>
                   <p className="text-xs text-[#78716C] uppercase tracking-wider font-semibold">Response Time</p>
-                  <p className="text-[#1C1917] font-light text-sm">Within 24 hours</p>
+                  <p className="text-[#1C1917] font-light text-xs sm:text-sm">Within 24 hours</p>
                 </div>
               </div>
 
@@ -120,7 +120,7 @@ export const Contact = ({ setCurrentPage }) => {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
-            className="lg:col-span-7 bg-white p-6 sm:p-8 md:p-12 rounded-2xl border border-[#E5D9DB] shadow-sm relative"
+            className="lg:col-span-7 bg-white p-5 sm:p-8 md:p-12 rounded-2xl border border-[#E5D9DB] shadow-sm relative"
           >
             
             <AnimatePresence mode="wait">
