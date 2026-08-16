@@ -32,56 +32,117 @@ export const About = ({ setCurrentPage }) => {
       <div className="container mx-auto px-6 md:px-12 max-w-7xl">
         
         {/* Header Hero */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-16 sm:mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center mb-16 sm:mb-24">
+          
+          {/* Left Column: Bio & Title */}
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
             className="lg:col-span-6 space-y-6 text-left relative z-10"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#C59A9F]/40 text-xs tracking-widest text-[#6B1D2F] uppercase font-extrabold shadow-sm shimmer-border">
-              <Sparkles size={14} /> Video Director & Designer
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white border border-[#C59A9F]/50 text-xs tracking-widest text-[#6B1D2F] uppercase font-black shadow-sm shimmer-border">
+              <Sparkles size={14} className="text-[#6B1D2F] animate-pulse" />
+              <span>Video Director & Graphic Designer</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] leading-tight" style={{ fontFamily: theme.fonts.heading }}>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] leading-[1.08] tracking-tight" style={{ fontFamily: theme.fonts.heading }}>
               Alazar Asdesach.<br />
               <span className="italic font-light text-gradient-burgundy">Director & Visual Artist.</span>
             </h1>
 
-            <p className="text-[#78716C] font-light text-base md:text-lg leading-relaxed">
+            <p className="text-[#1C1917] font-medium text-base md:text-lg leading-relaxed">
               With over 8 years of experience in video production, cinematic color science, and brand design, I craft clean, visual assets that communicate brand identity with precision.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 w-full sm:w-auto">
-              <Button variant="primary" className="w-full sm:w-auto px-8 py-4 rounded-full font-bold uppercase text-xs" onClick={() => { setCurrentPage('portfolio'); window.scrollTo(0,0); }}>
+            {/* Quick Skill Highlights Badges */}
+            <div className="grid grid-cols-2 gap-3 pt-1">
+              <div className="flex items-center gap-2.5 p-3 rounded-2xl bg-white border border-[#C59A9F]/30 shadow-sm">
+                <div className="w-8 h-8 rounded-xl bg-[#F5E8EA] text-[#6B1D2F] flex items-center justify-center font-bold">
+                  <Film size={16} />
+                </div>
+                <div>
+                  <p className="text-xs font-black text-[#1C1917]">Video Production</p>
+                  <p className="text-[10px] text-[#78716C] font-semibold uppercase">DaVinci & RED 8K</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2.5 p-3 rounded-2xl bg-white border border-[#C59A9F]/30 shadow-sm">
+                <div className="w-8 h-8 rounded-xl bg-[#F5E8EA] text-[#6B1D2F] flex items-center justify-center font-bold">
+                  <PenTool size={16} />
+                </div>
+                <div>
+                  <p className="text-xs font-black text-[#1C1917]">Brand & Graphic</p>
+                  <p className="text-[10px] text-[#78716C] font-semibold uppercase">Identity Systems</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 pt-4 w-full sm:w-auto">
+              <Button 
+                variant="primary" 
+                className="w-full sm:w-auto px-9 py-4.5 rounded-full font-black uppercase text-xs sm:text-sm tracking-widest shadow-xl" 
+                onClick={() => { setCurrentPage('portfolio'); window.scrollTo(0,0); }}
+              >
                 View Portfolio
               </Button>
-              <Button variant="outline" className="w-full sm:w-auto px-8 py-4 rounded-full font-bold uppercase text-xs border-[#6B1D2F] text-[#6B1D2F]" onClick={() => { setCurrentPage('contact'); window.scrollTo(0,0); }}>
+              <Button 
+                variant="secondary" 
+                className="w-full sm:w-auto px-9 py-4.5 rounded-full font-black uppercase text-xs sm:text-sm tracking-widest" 
+                onClick={() => { setCurrentPage('contact'); window.scrollTo(0,0); }}
+              >
                 Get In Touch
               </Button>
             </div>
           </motion.div>
 
+          {/* Right Column: Clean 3-Photo Overlapping Profile Showcase */}
           <motion.div 
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7 }}
-            className="lg:col-span-6 relative"
+            transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-6 relative flex items-center justify-center pt-6 pb-8"
           >
-            <div className="relative aspect-[4/5] rounded-3xl overflow-hidden border border-[#C59A9F]/40 shadow-2xl bg-white">
-              <img 
-                src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                alt="Alazar Asdesach Portrait" 
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1C1917]/75 via-transparent to-transparent" />
+            {/* Ambient Background Glow Orbs */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-tr from-[#6B1D2F]/25 via-[#8B2440]/15 to-[#C59A9F]/30 blur-[130px] rounded-full pointer-events-none" />
+
+            {/* Pure 3-Photo Overlapping Stack Container */}
+            <div className="relative w-full max-w-sm sm:max-w-md aspect-[4/5] flex items-center justify-center group cursor-pointer">
               
-              <div className="absolute bottom-6 left-6 right-6 p-5 glass-card-luxury rounded-2xl text-left">
-                <p className="text-xs uppercase tracking-widest text-[#6B1D2F] font-black mb-1">Director's Creed</p>
-                <p className="text-xs text-[#1C1917] italic font-medium">"Paced storytelling, vivid color science, and purposeful design."</p>
+              {/* PHOTO STACK LAYER 1: Back Left Card */}
+              <div className="absolute inset-0 w-full h-full rounded-[2.5rem] overflow-hidden border-2 border-[#C59A9F]/40 shadow-xl bg-gradient-to-br from-[#6B1D2F] via-[#2E1216] to-[#1C1917] -rotate-6 -translate-x-5 -translate-y-3 scale-95 opacity-80 group-hover:-rotate-12 group-hover:-translate-x-12 group-hover:-translate-y-6 group-hover:opacity-95 group-hover:scale-95 transition-all duration-500 ease-out z-0">
+                <img 
+                  src={alazarImg} 
+                  alt="Alazar Asdesach Portrait Layer 1" 
+                  className="w-full h-full object-cover object-top filter contrast-125 brightness-90 mix-blend-luminosity" 
+                />
+                <div className="absolute inset-0 bg-[#6B1D2F]/30 mix-blend-multiply" />
               </div>
+
+              {/* PHOTO STACK LAYER 2: Back Right Card */}
+              <div className="absolute inset-0 w-full h-full rounded-[2.5rem] overflow-hidden border-2 border-[#C59A9F]/50 shadow-xl bg-gradient-to-br from-[#8B2440] via-[#1C1917] to-[#6B1D2F] rotate-6 translate-x-5 -translate-y-1 scale-95 opacity-85 group-hover:rotate-12 group-hover:translate-x-12 group-hover:-translate-y-4 group-hover:opacity-95 group-hover:scale-95 transition-all duration-500 ease-out z-10">
+                <img 
+                  src={alazarImg} 
+                  alt="Alazar Asdesach Portrait Layer 2" 
+                  className="w-full h-full object-cover object-top filter saturate-150 brightness-95" 
+                />
+                <div className="absolute inset-0 bg-[#8B2440]/20 mix-blend-color-burn" />
+              </div>
+
+              {/* PHOTO STACK LAYER 3: Main Center Front Card */}
+              <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden border-2 border-white/80 shadow-2xl shadow-[#6B1D2F]/30 bg-gradient-to-br from-[#1C1917] via-[#2E1216] to-[#6B1D2F] group-hover:scale-105 transition-all duration-500 ease-out z-20">
+                <img 
+                  src={alazarImg} 
+                  alt="Alazar Asdesach — Lead Director & Graphic Designer" 
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1C1917]/50 via-transparent to-transparent opacity-80" />
+              </div>
+
             </div>
+
           </motion.div>
+
         </div>
 
         {/* Core Philosophy Grid (4 Unique Pillars) */}

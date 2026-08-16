@@ -35,9 +35,9 @@ export const AvailabilityCTA = ({ setCurrentPage }) => {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 w-full sm:w-auto">
             <Button 
-              variant="secondary" 
-              className="w-full sm:w-auto bg-white text-[#6B1D2F] hover:bg-[#F5E8EA] border-white font-extrabold py-4 px-9 text-xs sm:text-sm tracking-widest uppercase shadow-lg"
-              icon={<ArrowRight size={18} className="text-[#6B1D2F]" />}
+              variant="inverted" 
+              className="w-full sm:w-auto font-black py-4 px-9 text-xs sm:text-sm tracking-widest uppercase shadow-xl"
+              icon={<ArrowRight size={18} />}
               onClick={() => {
                 if (setCurrentPage) setCurrentPage('contact');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -48,10 +48,11 @@ export const AvailabilityCTA = ({ setCurrentPage }) => {
 
             <a 
               href="mailto:hello@alazar.com" 
-              className="w-full sm:w-auto inline-flex justify-center items-center gap-2 px-8 py-4 rounded-full border-2 border-white/40 hover:bg-white hover:text-[#6B1D2F] text-white font-extrabold text-xs sm:text-sm tracking-widest uppercase transition-all shadow-sm"
+              className="relative overflow-hidden group w-full sm:w-auto inline-flex justify-center items-center gap-2.5 px-8 py-4 rounded-full border-2 border-white/50 hover:border-white bg-white/10 backdrop-blur-md hover:bg-white hover:text-[#6B1D2F] text-white font-black text-xs sm:text-sm tracking-widest uppercase transition-all duration-300 shadow-md hover:shadow-lg active:scale-[0.98]"
             >
-              <Mail size={18} />
-              <span>Email Directly: hello@alazar.com</span>
+              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/25 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out pointer-events-none" />
+              <Mail size={18} className="relative z-10" />
+              <span className="relative z-10">Email Directly: hello@alazar.com</span>
             </a>
           </div>
 

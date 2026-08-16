@@ -88,17 +88,17 @@ export const ProjectCalculator = ({ setCurrentPage }) => {
                       key={t.id}
                       type="button"
                       onClick={() => setSelectedType(t.id)}
-                      className={`p-4 sm:p-4.5 rounded-2xl border-2 text-left text-xs sm:text-sm font-extrabold transition-all flex items-center justify-between gap-3 ${
+                      className={`relative overflow-hidden py-5 px-5 sm:py-5.5 sm:px-6 min-h-[58px] rounded-2xl border-2 text-left text-xs sm:text-sm font-extrabold transition-all duration-300 flex items-center justify-between gap-3 group active:scale-[0.98] ${
                         isSelected 
-                          ? 'bg-[#6B1D2F] border-[#6B1D2F] text-white shadow-lg shadow-[#6B1D2F]/25 scale-[1.01]' 
-                          : 'bg-[#F5E8EA]/60 border-[#C59A9F]/70 text-[#1C1917] hover:border-[#6B1D2F] hover:bg-white shadow-sm'
+                          ? 'bg-gradient-to-r from-[#6B1D2F] via-[#7D2237] to-[#8B2440] border-[#6B1D2F] text-white shadow-xl shadow-[#6B1D2F]/25 scale-[1.02] ring-2 ring-[#6B1D2F]/20' 
+                          : 'bg-white/80 border-[#C59A9F]/60 text-[#1C1917] hover:border-[#6B1D2F] hover:bg-white hover:shadow-md hover:scale-[1.01]'
                       }`}
                     >
-                      <span className="leading-snug">{t.label}</span>
-                      <span className={`w-4 h-4 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-all ${
-                        isSelected ? 'border-white bg-white' : 'border-[#C59A9F] bg-white/80'
+                      <span className="leading-snug relative z-10">{t.label}</span>
+                      <span className={`w-4.5 h-4.5 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-all duration-300 relative z-10 ${
+                        isSelected ? 'border-white bg-white scale-110' : 'border-[#C59A9F] bg-white/80 group-hover:border-[#6B1D2F]'
                       }`}>
-                        {isSelected && <span className="w-2 h-2 rounded-full bg-[#6B1D2F]" />}
+                        {isSelected && <span className="w-2.5 h-2.5 rounded-full bg-[#6B1D2F]" />}
                       </span>
                     </button>
                   );
@@ -120,17 +120,17 @@ export const ProjectCalculator = ({ setCurrentPage }) => {
                       key={s.id}
                       type="button"
                       onClick={() => setSelectedScope(s.id)}
-                      className={`p-4 sm:p-4.5 rounded-2xl border-2 text-left text-xs sm:text-sm font-extrabold transition-all flex items-center justify-between gap-3 ${
+                      className={`relative overflow-hidden py-5 px-5 sm:py-5.5 sm:px-6 min-h-[58px] rounded-2xl border-2 text-left text-xs sm:text-sm font-extrabold transition-all duration-300 flex items-center justify-between gap-3 group active:scale-[0.98] ${
                         isSelected 
-                          ? 'bg-[#6B1D2F] border-[#6B1D2F] text-white shadow-lg shadow-[#6B1D2F]/25 scale-[1.01]' 
-                          : 'bg-[#F5E8EA]/60 border-[#C59A9F]/70 text-[#1C1917] hover:border-[#6B1D2F] hover:bg-white shadow-sm'
+                          ? 'bg-gradient-to-r from-[#6B1D2F] via-[#7D2237] to-[#8B2440] border-[#6B1D2F] text-white shadow-xl shadow-[#6B1D2F]/25 scale-[1.02] ring-2 ring-[#6B1D2F]/20' 
+                          : 'bg-white/80 border-[#C59A9F]/60 text-[#1C1917] hover:border-[#6B1D2F] hover:bg-white hover:shadow-md hover:scale-[1.01]'
                       }`}
                     >
-                      <span className="leading-snug">{s.label}</span>
-                      <span className={`w-4 h-4 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-all ${
-                        isSelected ? 'border-white bg-white' : 'border-[#C59A9F] bg-white/80'
+                      <span className="leading-snug relative z-10">{s.label}</span>
+                      <span className={`w-4.5 h-4.5 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-all duration-300 relative z-10 ${
+                        isSelected ? 'border-white bg-white scale-110' : 'border-[#C59A9F] bg-white/80 group-hover:border-[#6B1D2F]'
                       }`}>
-                        {isSelected && <span className="w-2 h-2 rounded-full bg-[#6B1D2F]" />}
+                        {isSelected && <span className="w-2.5 h-2.5 rounded-full bg-[#6B1D2F]" />}
                       </span>
                     </button>
                   );
@@ -151,21 +151,21 @@ export const ProjectCalculator = ({ setCurrentPage }) => {
                     <div
                       key={a.id}
                       onClick={() => toggleAddon(a.id)}
-                      className={`p-4 sm:p-4.5 rounded-2xl border-2 flex items-center justify-between text-xs sm:text-sm font-extrabold cursor-pointer transition-all ${
+                      className={`relative overflow-hidden py-5 px-5 sm:py-5.5 sm:px-6 min-h-[58px] rounded-2xl border-2 flex items-center justify-between text-xs sm:text-sm font-extrabold cursor-pointer transition-all duration-300 group active:scale-[0.99] ${
                         isChecked 
-                          ? 'bg-[#6B1D2F] border-[#6B1D2F] text-white shadow-lg shadow-[#6B1D2F]/20' 
-                          : 'bg-[#F5E8EA]/70 border-[#C59A9F] text-[#1C1917] hover:border-[#6B1D2F] hover:bg-white shadow-sm'
+                          ? 'bg-gradient-to-r from-[#6B1D2F] via-[#7D2237] to-[#8B2440] border-[#6B1D2F] text-white shadow-xl shadow-[#6B1D2F]/20 scale-[1.01] ring-2 ring-[#6B1D2F]/20' 
+                          : 'bg-white/80 border-[#C59A9F]/60 text-[#1C1917] hover:border-[#6B1D2F] hover:bg-white hover:shadow-md hover:scale-[1.005]'
                       }`}
                     >
-                      <div className="flex items-center gap-3">
-                        <div className={`w-6 h-6 rounded-lg flex items-center justify-center border-2 transition-all ${
-                          isChecked ? 'bg-white border-white text-[#6B1D2F]' : 'border-[#6B1D2F] bg-white text-transparent'
+                      <div className="flex items-center gap-3 relative z-10">
+                        <div className={`w-6 h-6 rounded-lg flex items-center justify-center border-2 transition-all duration-300 ${
+                          isChecked ? 'bg-white border-white text-[#6B1D2F] scale-110 shadow-sm' : 'border-[#6B1D2F] bg-white text-transparent group-hover:scale-105'
                         }`}>
                           <CheckCircle2 size={16} className={isChecked ? 'text-[#6B1D2F]' : 'opacity-0'} />
                         </div>
                         <span className={isChecked ? 'text-white' : 'text-[#1C1917]'}>{a.label}</span>
                       </div>
-                      <span className={`font-black ${isChecked ? 'text-white' : 'text-[#6B1D2F]'}`}>+${a.price}</span>
+                      <span className={`font-black relative z-10 ${isChecked ? 'text-white' : 'text-[#6B1D2F]'}`}>+${a.price}</span>
                     </div>
                   );
                 })}
@@ -228,10 +228,13 @@ export const ProjectCalculator = ({ setCurrentPage }) => {
                   if (setCurrentPage) setCurrentPage('contact');
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
-                className="w-full py-4.5 px-6 font-black tracking-widest uppercase rounded-full shadow-xl bg-white hover:bg-[#F5E8EA] text-[#6B1D2F] flex items-center justify-center gap-2 transition-all duration-300 group text-xs sm:text-sm cursor-pointer border-0"
+                className="relative overflow-hidden w-full py-5.5 sm:py-6 px-8 min-h-[62px] sm:min-h-[66px] font-black tracking-widest uppercase rounded-full shadow-2xl bg-gradient-to-r from-white via-[#FFF5F6] to-white text-[#6B1D2F] hover:text-[#521321] flex items-center justify-center gap-3.5 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] text-xs sm:text-sm cursor-pointer border border-white/80 ring-4 ring-white/15 hover:ring-white/35 group"
               >
-                <span>Lock In Estimate & Inquire</span>
-                <ArrowRight size={18} className="text-[#6B1D2F] group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none" />
+                <span className="relative z-10 font-black drop-shadow-sm tracking-[0.12em]">Lock In Estimate & Inquire</span>
+                <div className="relative z-10 w-9 h-9 rounded-full bg-[#6B1D2F]/10 group-hover:bg-[#6B1D2F] flex items-center justify-center transition-colors duration-300">
+                  <ArrowRight size={18} className="text-[#6B1D2F] group-hover:text-white group-hover:translate-x-0.5 transition-all duration-300 flex-shrink-0" />
+                </div>
               </button>
             </div>
 
