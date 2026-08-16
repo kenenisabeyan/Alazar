@@ -36,9 +36,15 @@ export const Navigation = ({ currentPage, setCurrentPage }) => {
         
         {/* Brand Logo */}
         <button 
-          onClick={() => handleNavClick('home')} 
-          className="text-2xl font-bold tracking-widest text-[#F5F0F1] uppercase hover:opacity-90 transition-opacity text-left group" 
+          type="button"
+          onClick={(e) => {
+            e.preventDefault();
+            handleNavClick('home');
+          }} 
+          className="text-2xl font-bold tracking-widest text-[#F5F0F1] uppercase hover:opacity-90 transition-opacity text-left group cursor-pointer" 
           style={{ fontFamily: theme.fonts.heading }}
+          aria-label="Navigate to Home Page"
+          title="Go to Home Page"
         >
           Alazar<span className="text-[#8B1E3F] group-hover:text-red-500 transition-colors">.</span>
         </button>

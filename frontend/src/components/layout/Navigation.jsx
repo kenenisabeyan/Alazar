@@ -64,38 +64,35 @@ export const Navigation = ({ currentPage, setCurrentPage }) => {
           : 'bg-transparent py-2'
       }`}>
         
-        {/* Brand Logo with Alazar Profile Avatar & Live Status */}
+        {/* Brand Logo with Alazar Profile Avatar */}
         <div className="flex items-center gap-3 sm:gap-4">
           <button 
-            onClick={() => handleNavClick('home')} 
+            type="button"
+            onClick={(e) => {
+              e.preventDefault();
+              handleNavClick('home');
+            }} 
             className="flex items-center gap-3 text-[#1C1917] dark:text-[#F5F0F1] uppercase hover:opacity-95 transition-all text-left group cursor-pointer focus:outline-none" 
             style={{ fontFamily: theme.fonts.heading }}
+            aria-label="Navigate to Home Page"
+            title="Go to Home Page"
           >
             {/* Alazar Profile Photo Avatar Icon in Header Nav */}
             <div className="relative p-0.5 rounded-full bg-gradient-to-tr from-[#6B1D2F] via-[#8B2440] to-[#C59A9F] shadow-md shadow-[#6B1D2F]/20 group-hover:scale-105 transition-transform duration-300">
               <img 
                 src={alazarImg} 
                 alt="Alazar Profile Icon" 
-                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full object-cover object-top border border-white"
+                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full object-cover object-top border border-white cursor-pointer"
               />
               <span className="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-emerald-500 border-2 border-white ring-1 ring-emerald-400" />
             </div>
 
             <div className="flex flex-col text-left">
               <span className="text-base sm:text-lg font-black tracking-widest leading-none">
-                ALAZAR <span className="text-[#6B1D2F] dark:text-[#8B1E3F]">ASDESACH</span>
-              </span>
-              <span className="text-[9px] text-[#78716C] dark:text-[#A89597] font-extrabold tracking-widest uppercase mt-0.5">
-                Video Director & Designer
+                ALAZAR
               </span>
             </div>
           </button>
-
-          {/* Availability Status Badge */}
-          <div className="hidden lg:inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 dark:bg-[#2E1216] border border-[#C59A9F]/40 text-[10px] tracking-widest text-[#6B1D2F] dark:text-[#F5F0F1] uppercase font-extrabold shadow-sm">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span>Available Q3/Q4</span>
-          </div>
         </div>
 
         {/* Desktop Links & Theme Switcher */}
