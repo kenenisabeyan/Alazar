@@ -9,8 +9,8 @@ export const theme: ThemeConfig = {
     textMuted: '#78716C',      // Muted Slate (secondary text)
   },
   fonts: {
-    heading: "'Outfit', 'Roboto', sans-serif",
-    body: "'Plus Jakarta Sans', 'Roboto', sans-serif"
+    heading: "'Roboto', sans-serif",
+    body: "'Roboto', sans-serif"
   }
 };
 

@@ -19,8 +19,8 @@ export const theme = {
     }
   },
   fonts: {
-    heading: "'Outfit', 'Cinzel', 'Playfair Display', serif",
-    body: "'Plus Jakarta Sans', 'Inter', sans-serif"
+    heading: "'Roboto', sans-serif",
+    body: "'Roboto', sans-serif"
   }
 };
 

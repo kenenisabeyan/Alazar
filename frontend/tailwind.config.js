@@ -34,8 +34,9 @@ export default {
         textMuted: '#A89597',    // Secondary Text (Muted Rose-Gray)
       },
       fontFamily: {
-        heading: ["'Outfit'", "'Cinzel'", "'Playfair Display'", "serif"],
-        body: ["'Plus Jakarta Sans'", "'Inter'", "sans-serif"],
+        sans: ["'Roboto'", "sans-serif"],
+        heading: ["'Roboto'", "sans-serif"],
+        body: ["'Roboto'", "sans-serif"],
       },
     },
   },
