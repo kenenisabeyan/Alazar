@@ -8,7 +8,6 @@ import SkillsSection from '../components/sections/SkillsSection';
 import CareerTimeline from '../components/sections/CareerTimeline';
 import AvailabilityCTA from '../components/sections/AvailabilityCTA';
 import { theme } from '../utils/constants';
-import heroBg from '../assets/images/hero-bg.png';
 import alazarImg from '../assets/images/alazar.png';
 
 export const About = ({ setCurrentPage }) => {
@@ -21,20 +20,7 @@ export const About = ({ setCurrentPage }) => {
       className="min-h-screen bg-[#FAFAF9] pt-32 sm:pt-40 pb-0 mesh-bg relative overflow-hidden"
       style={{ fontFamily: theme.fonts.body }}
     >
-      {/* Motion Flow Background Image Layer 1: hero-bg.png */}
-      <motion.div 
-        animate={{ 
-          scale: [1, 1.06, 1],
-          x: ['0%', '-2%', '0%'],
-          y: ['0%', '-1.5%', '0%'],
-        }}
-        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-0 left-0 right-0 h-[700px] z-0 pointer-events-none opacity-20 mix-blend-multiply"
-      >
-        <img src={heroBg} alt="Background Flow" className="w-full h-full object-cover filter blur-[1px]" />
-      </motion.div>
-
-      {/* Motion Flow Layer 2: Floating alazar.png */}
+      {/* Motion Flow Background Image: alazar.png ONLY */}
       <motion.div 
         animate={{ y: [0, -18, 0], rotate: [0, 2, 0] }}
         transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
@@ -51,7 +37,7 @@ export const About = ({ setCurrentPage }) => {
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
-            className="lg:col-span-6 space-y-6 text-left"
+            className="lg:col-span-6 space-y-6 text-left relative z-10"
           >
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#C59A9F]/40 text-xs tracking-widest text-[#6B1D2F] uppercase font-extrabold shadow-sm shimmer-border">
               <Sparkles size={14} /> Video Director & Designer

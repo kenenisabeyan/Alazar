@@ -7,7 +7,7 @@ export const SkillsSection = () => {
   const [activeCategory, setActiveCategory] = useState(0);
 
   return (
-    <section className="py-28 bg-[#FAFAF9] relative overflow-hidden" style={{ fontFamily: theme.fonts.body }}>
+    <section className="py-28 bg-[#F5E8EA]/50 relative overflow-hidden" style={{ fontFamily: theme.fonts.body }}>
       <div className="container mx-auto px-6 md:px-12 max-w-7xl">
         
         {/* Section Header */}
@@ -16,7 +16,7 @@ export const SkillsSection = () => {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-xs uppercase tracking-widest text-[#6B1D2F] font-semibold block flex items-center justify-center gap-1.5"
+            className="text-xs uppercase tracking-widest text-[#6B1D2F] font-bold block flex items-center justify-center gap-1.5"
           >
             <Cpu size={14} className="text-[#6B1D2F]" />
             Technical Expertise
@@ -27,10 +27,10 @@ export const SkillsSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-bold text-[#1C1917]"
+            className="text-4xl md:text-5xl font-black text-[#1C1917]"
             style={{ fontFamily: theme.fonts.heading }}
           >
-            Software & <span className="italic font-light text-[#6B1D2F]">Skills Matrix</span>
+            Software & <span className="italic font-light text-gradient-burgundy">Skills Matrix</span>
           </motion.h2>
 
           <motion.p 

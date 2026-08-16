@@ -7,7 +7,6 @@ import SkillsSection from '../components/sections/SkillsSection';
 import CaseStudyHighlight from '../components/sections/CaseStudyHighlight';
 import CareerTimeline from '../components/sections/CareerTimeline';
 import AvailabilityCTA from '../components/sections/AvailabilityCTA';
-import heroBg from '../assets/images/hero-bg.png';
 import alazarImg from '../assets/images/alazar.png';
 
 export const Portfolio = ({ onOpenProjectModal, setCurrentPage }) => {
@@ -44,20 +43,7 @@ export const Portfolio = ({ onOpenProjectModal, setCurrentPage }) => {
       className="min-h-screen bg-[#FAFAF9] pt-32 sm:pt-40 pb-0 mesh-bg relative overflow-hidden"
       style={{ fontFamily: theme.fonts.body }}
     >
-      {/* Motion Flow Background Image Layer 1: hero-bg.png */}
-      <motion.div 
-        animate={{ 
-          scale: [1, 1.06, 1],
-          x: ['0%', '-2%', '0%'],
-          y: ['0%', '-1.5%', '0%'],
-        }}
-        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-0 left-0 right-0 h-[650px] z-0 pointer-events-none opacity-20 mix-blend-multiply"
-      >
-        <img src={heroBg} alt="Background Flow" className="w-full h-full object-cover filter blur-[1px]" />
-      </motion.div>
-
-      {/* Motion Flow Layer 2: Floating alazar.png */}
+      {/* Motion Flow Background Image: alazar.png ONLY */}
       <motion.div 
         animate={{ y: [0, -15, 0], rotate: [0, 2, 0] }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
@@ -66,9 +52,8 @@ export const Portfolio = ({ onOpenProjectModal, setCurrentPage }) => {
         <img src={alazarImg} alt="Alazar Visual" className="w-full h-auto object-contain" />
       </motion.div>
 
-      
       {/* Header Banner */}
-      <div className="container mx-auto px-4 sm:px-6 md:px-12 mb-14 sm:mb-20 text-center">
+      <div className="container mx-auto px-4 sm:px-6 md:px-12 mb-14 sm:mb-20 text-center relative z-10">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white border border-[#C59A9F]/40 rounded-full text-xs text-[#6B1D2F] font-extrabold mb-6 shadow-sm shimmer-border">
           <Sparkles size={13} className="animate-pulse" />
           <span>Curated Work Gallery</span>
@@ -78,7 +63,7 @@ export const Portfolio = ({ onOpenProjectModal, setCurrentPage }) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-[#1C1917] mb-6 tracking-tight" 
+          className="text-4xl sm:text-6xl md:text-7xl font-black text-[#1C1917] mb-6 tracking-tight" 
           style={{ fontFamily: theme.fonts.heading }}
         >
           Selected <span className="italic font-light text-gradient-burgundy">Works</span>

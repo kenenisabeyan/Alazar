@@ -93,19 +93,19 @@ export const HeroSection = ({ setCurrentPage, onOpenShowreel }) => {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="flex flex-col items-center w-full"
+          className="flex flex-col items-center w-full max-w-5xl"
         >
           {/* Shimmer Subtitle Pill */}
           <motion.div 
             variants={itemVariants}
             className="inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full bg-white/95 backdrop-blur-md border border-[#C59A9F]/50 text-xs tracking-widest text-[#6B1D2F] uppercase mb-10 shadow-sm hover:border-[#6B1D2F] transition-all shimmer-border group"
           >
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
             <Sparkles size={14} className="text-[#6B1D2F] group-hover:rotate-12 transition-transform" />
             <span className="font-extrabold tracking-wider">Video Director & Graphic Designer</span>
           </motion.div>
 
-          {/* Headline */}
+          {/* Headline & Subtitle Text (Clean spacious design without bulky box) */}
           <div className="max-w-6xl mx-auto space-y-6 mb-12">
             <motion.h1 
               variants={itemVariants}
@@ -118,7 +118,7 @@ export const HeroSection = ({ setCurrentPage, onOpenShowreel }) => {
             
             <motion.p 
               variants={itemVariants}
-              className="text-base sm:text-lg md:text-xl text-[#78716C] max-w-3xl mx-auto leading-relaxed font-light"
+              className="text-base sm:text-lg md:text-xl text-[#1C1917] font-bold max-w-3xl mx-auto leading-relaxed bg-white/85 backdrop-blur-md px-6 py-3.5 rounded-2xl border border-[#C59A9F]/40 shadow-md inline-block"
             >
               Crafting high-octane commercial edits, master-level color grading, and striking graphic design systems for visionary global brands.
             </motion.p>

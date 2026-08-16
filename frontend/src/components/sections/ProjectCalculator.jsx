@@ -72,15 +72,15 @@ export const ProjectCalculator = ({ setCurrentPage }) => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
           {/* Controls Left */}
-          <div className="lg:col-span-7 glass-card-luxury p-8 sm:p-10 rounded-3xl space-y-8 text-left">
+          <div className="lg:col-span-7 bg-white p-8 sm:p-10 rounded-3xl border border-[#C59A9F]/40 shadow-xl shadow-black/5 space-y-8 text-left">
             
             {/* Step 1: Project Type */}
             <div>
-              <label className="text-xs text-[#78716C] font-extrabold uppercase tracking-widest block mb-4 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-[#6B1D2F] text-white flex items-center justify-center text-[10px]">1</span>
+              <label className="text-xs text-[#6B1D2F] font-black uppercase tracking-widest block mb-4 flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-[#6B1D2F] text-white flex items-center justify-center text-xs font-black shadow-sm">1</span>
                 Select Production Category
               </label>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 {calculatorOptions.projectTypes.map((t) => {
                   const isSelected = selectedType === t.id;
                   return (
@@ -88,13 +88,18 @@ export const ProjectCalculator = ({ setCurrentPage }) => {
                       key={t.id}
                       type="button"
                       onClick={() => setSelectedType(t.id)}
-                      className={`p-4.5 rounded-2xl border text-left text-xs font-bold transition-all relative overflow-hidden ${
+                      className={`p-4 sm:p-4.5 rounded-2xl border-2 text-left text-xs sm:text-sm font-extrabold transition-all flex items-center justify-between gap-3 ${
                         isSelected 
-                          ? 'bg-[#6B1D2F] border-[#6B1D2F] text-white shadow-lg shadow-[#6B1D2F]/20' 
-                          : 'bg-white border-[#E5D9DB] text-[#1C1917] hover:border-[#C59A9F] hover:bg-[#FAFAF9]'
+                          ? 'bg-[#6B1D2F] border-[#6B1D2F] text-white shadow-lg shadow-[#6B1D2F]/25 scale-[1.01]' 
+                          : 'bg-[#F5E8EA]/60 border-[#C59A9F]/70 text-[#1C1917] hover:border-[#6B1D2F] hover:bg-white shadow-sm'
                       }`}
                     >
-                      {t.label}
+                      <span className="leading-snug">{t.label}</span>
+                      <span className={`w-4 h-4 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-all ${
+                        isSelected ? 'border-white bg-white' : 'border-[#C59A9F] bg-white/80'
+                      }`}>
+                        {isSelected && <span className="w-2 h-2 rounded-full bg-[#6B1D2F]" />}
+                      </span>
                     </button>
                   );
                 })}
@@ -103,11 +108,11 @@ export const ProjectCalculator = ({ setCurrentPage }) => {
 
             {/* Step 2: Production Scope */}
             <div>
-              <label className="text-xs text-[#78716C] font-extrabold uppercase tracking-widest block mb-4 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-[#6B1D2F] text-white flex items-center justify-center text-[10px]">2</span>
+              <label className="text-xs text-[#6B1D2F] font-black uppercase tracking-widest block mb-4 flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-[#6B1D2F] text-white flex items-center justify-center text-xs font-black shadow-sm">2</span>
                 Define Project Scope
               </label>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 {calculatorOptions.scopes.map((s) => {
                   const isSelected = selectedScope === s.id;
                   return (
@@ -115,13 +120,18 @@ export const ProjectCalculator = ({ setCurrentPage }) => {
                       key={s.id}
                       type="button"
                       onClick={() => setSelectedScope(s.id)}
-                      className={`p-4.5 rounded-2xl border text-left text-xs font-bold transition-all ${
+                      className={`p-4 sm:p-4.5 rounded-2xl border-2 text-left text-xs sm:text-sm font-extrabold transition-all flex items-center justify-between gap-3 ${
                         isSelected 
-                          ? 'bg-[#6B1D2F] border-[#6B1D2F] text-white shadow-lg shadow-[#6B1D2F]/20' 
-                          : 'bg-white border-[#E5D9DB] text-[#1C1917] hover:border-[#C59A9F] hover:bg-[#FAFAF9]'
+                          ? 'bg-[#6B1D2F] border-[#6B1D2F] text-white shadow-lg shadow-[#6B1D2F]/25 scale-[1.01]' 
+                          : 'bg-[#F5E8EA]/60 border-[#C59A9F]/70 text-[#1C1917] hover:border-[#6B1D2F] hover:bg-white shadow-sm'
                       }`}
                     >
-                      {s.label}
+                      <span className="leading-snug">{s.label}</span>
+                      <span className={`w-4 h-4 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-all ${
+                        isSelected ? 'border-white bg-white' : 'border-[#C59A9F] bg-white/80'
+                      }`}>
+                        {isSelected && <span className="w-2 h-2 rounded-full bg-[#6B1D2F]" />}
+                      </span>
                     </button>
                   );
                 })}
@@ -130,32 +140,32 @@ export const ProjectCalculator = ({ setCurrentPage }) => {
 
             {/* Step 3: Add-on Modules */}
             <div>
-              <label className="text-xs text-[#78716C] font-extrabold uppercase tracking-widest block mb-4 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-[#6B1D2F] text-white flex items-center justify-center text-[10px]">3</span>
+              <label className="text-xs text-[#6B1D2F] font-black uppercase tracking-widest block mb-4 flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-[#6B1D2F] text-white flex items-center justify-center text-xs font-black shadow-sm">3</span>
                 Optional Add-on Enhancements
               </label>
-              <div className="space-y-3">
+              <div className="space-y-3.5">
                 {calculatorOptions.addons.map((a) => {
                   const isChecked = selectedAddons.includes(a.id);
                   return (
                     <div
                       key={a.id}
                       onClick={() => toggleAddon(a.id)}
-                      className={`p-4 rounded-2xl border flex items-center justify-between text-xs font-semibold cursor-pointer transition-all ${
+                      className={`p-4 sm:p-4.5 rounded-2xl border-2 flex items-center justify-between text-xs sm:text-sm font-extrabold cursor-pointer transition-all ${
                         isChecked 
-                          ? 'bg-[#F5E8EA] border-[#6B1D2F] text-[#6B1D2F]' 
-                          : 'bg-white border-[#E5D9DB] text-[#78716C] hover:text-[#1C1917] hover:border-[#C59A9F]'
+                          ? 'bg-[#6B1D2F] border-[#6B1D2F] text-white shadow-lg shadow-[#6B1D2F]/20' 
+                          : 'bg-[#F5E8EA]/70 border-[#C59A9F] text-[#1C1917] hover:border-[#6B1D2F] hover:bg-white shadow-sm'
                       }`}
                     >
                       <div className="flex items-center gap-3">
-                        <div className={`w-6 h-6 rounded-lg flex items-center justify-center border transition-all ${
-                          isChecked ? 'bg-[#6B1D2F] border-[#6B1D2F] text-white shadow-sm' : 'border-[#E5D9DB] bg-white'
+                        <div className={`w-6 h-6 rounded-lg flex items-center justify-center border-2 transition-all ${
+                          isChecked ? 'bg-white border-white text-[#6B1D2F]' : 'border-[#6B1D2F] bg-white text-transparent'
                         }`}>
-                          {isChecked && <CheckCircle2 size={15} />}
+                          <CheckCircle2 size={16} className={isChecked ? 'text-[#6B1D2F]' : 'opacity-0'} />
                         </div>
-                        <span>{a.label}</span>
+                        <span className={isChecked ? 'text-white' : 'text-[#1C1917]'}>{a.label}</span>
                       </div>
-                      <span className="font-extrabold text-[#6B1D2F]">+${a.price}</span>
+                      <span className={`font-black ${isChecked ? 'text-white' : 'text-[#6B1D2F]'}`}>+${a.price}</span>
                     </div>
                   );
                 })}
@@ -165,20 +175,20 @@ export const ProjectCalculator = ({ setCurrentPage }) => {
           </div>
 
           {/* Estimate Result Right Card */}
-          <div className="lg:col-span-5 bg-gradient-to-br from-[#1E0A0D] to-[#2E1216] text-white p-8 sm:p-10 rounded-3xl shadow-2xl border border-[#8B1E3F]/40 text-left flex flex-col justify-between space-y-8 relative overflow-hidden">
+          <div className="lg:col-span-5 bg-gradient-to-br from-[#6B1D2F] via-[#7D2237] to-[#8B2440] text-white p-8 sm:p-10 rounded-3xl shadow-2xl border border-[#C59A9F]/40 text-left flex flex-col justify-between space-y-8 relative overflow-hidden">
             {/* Ambient Background Glow */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-[#8B1E3F]/20 blur-3xl rounded-full pointer-events-none" />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[#C59A9F]/25 blur-3xl rounded-full pointer-events-none" />
 
             <div className="relative z-10">
-              <div className="flex items-center justify-between mb-8 pb-4 border-b border-[#8B1E3F]/40">
-                <span className="text-xs uppercase tracking-widest text-[#E8C4C8] font-black flex items-center gap-2">
-                  <Sparkles size={14} className="text-[#E8C4C8]" /> Real-Time Estimate
+              <div className="flex items-center justify-between mb-8 pb-4 border-b border-white/20">
+                <span className="text-xs uppercase tracking-widest text-[#F5E8EA] font-black flex items-center gap-2">
+                  <Sparkles size={14} className="text-[#C59A9F]" /> Real-Time Estimate
                 </span>
-                <Calculator size={22} className="text-[#E8C4C8]" />
+                <Calculator size={22} className="text-[#F5E8EA]" />
               </div>
 
               <div className="mb-8">
-                <span className="text-xs text-[#A89597] font-bold uppercase tracking-wider block mb-2">Estimated Investment</span>
+                <span className="text-xs text-[#F5E8EA]/90 font-bold uppercase tracking-wider block mb-2">Estimated Investment</span>
                 <AnimatePresence mode="wait">
                   <motion.p 
                     key={estimatedTotal}
@@ -190,39 +200,39 @@ export const ProjectCalculator = ({ setCurrentPage }) => {
                     style={{ fontFamily: theme.fonts.heading }}
                   >
                     ${estimatedTotal.toLocaleString()}
-                    <span className="text-sm font-normal text-[#A89597] ml-2">USD</span>
+                    <span className="text-sm font-normal text-[#F5E8EA] ml-2">USD</span>
                   </motion.p>
                 </AnimatePresence>
               </div>
 
-              <div className="space-y-4 pt-6 border-t border-[#8B1E3F]/40 text-xs text-[#F5F0F1]/90 font-medium">
+              <div className="space-y-4 pt-6 border-t border-white/20 text-xs text-white/95 font-medium">
                 <div className="flex items-center gap-3">
-                  <Clock size={16} className="text-[#E8C4C8]" />
+                  <Clock size={16} className="text-[#C59A9F]" />
                   <span>Turnaround Time: <strong className="text-white font-extrabold">{estimatedDays}</strong></span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <ShieldCheck size={16} className="text-[#E8C4C8]" />
+                  <ShieldCheck size={16} className="text-[#C59A9F]" />
                   <span>Includes 2 Revision Rounds & Full Master Delivery</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Sparkles size={16} className="text-[#E8C4C8]" />
+                  <Sparkles size={16} className="text-[#C59A9F]" />
                   <span>Broadcast Ready 4K & RAW Master Exports</span>
                 </div>
               </div>
             </div>
 
             <div className="pt-6 relative z-10">
-              <Button 
-                variant="primary" 
-                className="w-full py-4.5 font-black tracking-widest uppercase rounded-full shadow-xl shadow-[#8B1E3F]/30 hover:shadow-[#8B1E3F]/50 bg-gradient-to-r from-[#8B1E3F] to-[#A3234A]"
-                icon={<ArrowRight size={17} />}
+              <button 
+                type="button"
                 onClick={() => {
                   if (setCurrentPage) setCurrentPage('contact');
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
+                className="w-full py-4.5 px-6 font-black tracking-widest uppercase rounded-full shadow-xl bg-white hover:bg-[#F5E8EA] text-[#6B1D2F] flex items-center justify-center gap-2 transition-all duration-300 group text-xs sm:text-sm cursor-pointer border-0"
               >
-                Lock In Estimate & Inquire
-              </Button>
+                <span>Lock In Estimate & Inquire</span>
+                <ArrowRight size={18} className="text-[#6B1D2F] group-hover:translate-x-1 transition-transform flex-shrink-0" />
+              </button>
             </div>
 
           </div>

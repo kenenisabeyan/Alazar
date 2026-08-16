@@ -12,14 +12,14 @@ export const SocialProof = () => {
   const current = testimonials[activeIndex];
 
   return (
-    <section className="py-28 bg-[#FAFAF9] relative">
+    <section className="py-28 bg-[#F4F0EF] relative">
       <div className="container mx-auto px-6 md:px-12 max-w-6xl text-center">
         
         <motion.span 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-xs uppercase tracking-widest text-[#6B1D2F] font-semibold block mb-4"
+          className="text-xs uppercase tracking-widest text-[#6B1D2F] font-bold block mb-4"
         >
           Client Reviews
         </motion.span>
@@ -29,7 +29,7 @@ export const SocialProof = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-3xl md:text-4xl font-bold text-[#1C1917] mb-12" 
+          className="text-3xl md:text-5xl font-black text-[#1C1917] mb-12" 
           style={{ fontFamily: theme.fonts.heading }}
         >
           What Clients Say

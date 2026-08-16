@@ -38,7 +38,7 @@ export const ServiceSplitter = ({ setCurrentPage }) => {
   );
 
   return (
-    <section className="py-28 bg-[#FAFAF9] relative overflow-hidden">
+    <section className="py-28 bg-[#F5E8EA]/50 relative overflow-hidden">
       <div className="container mx-auto px-6 md:px-12 text-center max-w-7xl">
         
         <motion.div 
@@ -48,10 +48,10 @@ export const ServiceSplitter = ({ setCurrentPage }) => {
           transition={{ duration: 0.7 }}
           className="mb-16 space-y-4"
         >
-          <span className="text-xs uppercase tracking-widest text-[#6B1D2F] font-semibold">Services</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-[#1C1917]" style={{ fontFamily: theme.fonts.heading }}>
+          <span className="text-xs uppercase tracking-widest text-[#6B1D2F] font-bold">Services</span>
+          <h2 className="text-4xl md:text-5xl font-black text-[#1C1917]" style={{ fontFamily: theme.fonts.heading }}>
             Two Disciplines.<br />
-            <span className="italic font-light text-[#6B1D2F]">One Vision.</span>
+            <span className="italic font-light text-gradient-burgundy">One Vision.</span>
           </h2>
           <p className="text-[#78716C] max-w-xl mx-auto font-light text-sm md:text-base">
             Choose a service below to view video editing or graphic design work.

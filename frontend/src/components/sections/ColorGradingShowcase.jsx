@@ -28,7 +28,7 @@ export const ColorGradingShowcase = () => {
   };
 
   return (
-    <section className="py-28 bg-[#FAFAF9] relative overflow-hidden" style={{ fontFamily: theme.fonts.body }}>
+    <section className="py-28 bg-[#F4F0EF] relative overflow-hidden" style={{ fontFamily: theme.fonts.body }}>
       {/* Background Ambient Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-gradient-to-r from-[#6B1D2F]/10 via-[#8B2440]/05 to-[#C59A9F]/10 blur-[160px] rounded-full pointer-events-none" />
 
@@ -42,7 +42,7 @@ export const ColorGradingShowcase = () => {
             viewport={{ once: true }}
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#C59A9F]/40 text-xs uppercase tracking-widest text-[#6B1D2F] font-extrabold shadow-sm"
           >
-            <Sparkles size={12} /> Color Grading Suite
+            <Sparkles size={12} className="text-[#6B1D2F]" /> Color Grading Suite
           </motion.div>
           
           <motion.h2 

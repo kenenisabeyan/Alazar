@@ -36,8 +36,8 @@ export const AvailabilityCTA = ({ setCurrentPage }) => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 w-full sm:w-auto">
             <Button 
               variant="secondary" 
-              className="w-full sm:w-auto bg-white text-[#6B1D2F] hover:bg-[#F5E8EA] border-white font-bold py-4 px-8"
-              icon={<ArrowRight size={18} />}
+              className="w-full sm:w-auto bg-white text-[#6B1D2F] hover:bg-[#F5E8EA] border-white font-extrabold py-4 px-9 text-xs sm:text-sm tracking-widest uppercase shadow-lg"
+              icon={<ArrowRight size={18} className="text-[#6B1D2F]" />}
               onClick={() => {
                 if (setCurrentPage) setCurrentPage('contact');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -48,7 +48,7 @@ export const AvailabilityCTA = ({ setCurrentPage }) => {
 
             <a 
               href="mailto:hello@alazar.com" 
-              className="w-full sm:w-auto inline-flex justify-center items-center gap-2 px-6 py-4 rounded-xl border border-white/30 hover:bg-white/10 text-white font-medium text-sm transition-all"
+              className="w-full sm:w-auto inline-flex justify-center items-center gap-2 px-8 py-4 rounded-full border-2 border-white/40 hover:bg-white hover:text-[#6B1D2F] text-white font-extrabold text-xs sm:text-sm tracking-widest uppercase transition-all shadow-sm"
             >
               <Mail size={18} />
               <span>Email Directly: hello@alazar.com</span>

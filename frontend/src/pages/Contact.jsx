@@ -5,7 +5,6 @@ import Input from '../components/common/Input';
 import Button from '../components/common/Button';
 import AvailabilityCTA from '../components/sections/AvailabilityCTA';
 import { theme } from '../utils/constants';
-import heroBg from '../assets/images/hero-bg.png';
 import alazarImg from '../assets/images/alazar.png';
 
 export const Contact = ({ setCurrentPage }) => {
@@ -59,20 +58,7 @@ export const Contact = ({ setCurrentPage }) => {
       className="min-h-screen bg-[#FAFAF9] pt-28 sm:pt-36 pb-0 relative overflow-hidden"
       style={{ fontFamily: theme.fonts.body }}
     >
-      {/* Motion Flow Background Image Layer 1: hero-bg.png */}
-      <motion.div 
-        animate={{ 
-          scale: [1, 1.06, 1],
-          x: ['0%', '-2%', '0%'],
-          y: ['0%', '-1.5%', '0%'],
-        }}
-        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-0 left-0 right-0 h-[650px] z-0 pointer-events-none opacity-20 mix-blend-multiply"
-      >
-        <img src={heroBg} alt="Background Flow" className="w-full h-full object-cover filter blur-[1px]" />
-      </motion.div>
-
-      {/* Motion Flow Layer 2: Floating alazar.png */}
+      {/* Motion Flow Background Image: alazar.png ONLY */}
       <motion.div 
         animate={{ y: [0, -18, 0], rotate: [0, 2, 0] }}
         transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
@@ -89,7 +75,7 @@ export const Contact = ({ setCurrentPage }) => {
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
-            className="lg:col-span-5 space-y-6 sm:space-y-8"
+            className="lg:col-span-5 space-y-6 sm:space-y-8 relative z-10"
           >
             <div>
               <span className="text-xs uppercase tracking-widest text-[#6B1D2F] font-semibold block mb-3">Get In Touch</span>

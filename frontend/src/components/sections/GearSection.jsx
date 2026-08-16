@@ -9,7 +9,7 @@ export const GearSection = () => {
   const icons = [Camera, Film, Monitor, Zap];
 
   return (
-    <section className="py-28 bg-[#FAFAF9] relative" style={{ fontFamily: theme.fonts.body }}>
+    <section className="py-28 bg-[#F4F0EF] relative" style={{ fontFamily: theme.fonts.body }}>
       <div className="container mx-auto px-6 md:px-12 max-w-7xl">
         
         {/* Header */}
@@ -18,7 +18,7 @@ export const GearSection = () => {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-xs uppercase tracking-widest text-[#6B1D2F] font-semibold block"
+            className="text-xs uppercase tracking-widest text-[#6B1D2F] font-bold block"
           >
             Production Gear
           </motion.span>
@@ -27,10 +27,10 @@ export const GearSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-bold text-[#1C1917]"
+            className="text-4xl md:text-5xl font-black text-[#1C1917]"
             style={{ fontFamily: theme.fonts.heading }}
           >
-            Filming & <span className="italic font-light text-[#6B1D2F]">Editing Gear</span>
+            Filming & <span className="italic font-light text-gradient-burgundy">Editing Gear</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}

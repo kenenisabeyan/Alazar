@@ -1,18 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowUpRight, Download, Sparkles } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Download, Sparkles, Moon, Sun } from 'lucide-react';
 import Button from '../common/Button';
 import { theme } from '../../utils/constants';
 
 export const Navigation = ({ currentPage, setCurrentPage }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 40);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const toggleTheme = () => {
+    const nextMode = !isDarkMode;
+    setIsDarkMode(nextMode);
+    if (nextMode) {
+      document.documentElement.classList.add('dark');
+      document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  };
 
   const navLinks = [
     { name: 'Home', id: 'home' },
@@ -54,49 +67,60 @@ export const Navigation = ({ currentPage, setCurrentPage }) => {
         <div className="flex items-center gap-4">
           <button 
             onClick={() => handleNavClick('home')} 
-            className="text-xl md:text-2xl font-black tracking-widest text-[#1C1917] uppercase hover:opacity-90 transition-all text-left group flex items-center gap-1.5" 
+            className="text-xl md:text-2xl font-black tracking-widest text-[#1C1917] dark:text-[#F5F0F1] uppercase hover:opacity-90 transition-all text-left group flex items-center gap-1.5" 
             style={{ fontFamily: theme.fonts.heading }}
           >
-            <span className="w-2.5 h-2.5 rounded-full bg-[#6B1D2F] group-hover:scale-125 transition-transform" />
-            Alazar<span className="text-[#6B1D2F] group-hover:text-[#8B2440] transition-colors">.</span>
+            <span className="w-2.5 h-2.5 rounded-full bg-[#6B1D2F] dark:bg-[#8B1E3F] group-hover:scale-125 transition-transform" />
+            <span>ALAZAR <span className="text-[#6B1D2F] dark:text-[#8B1E3F] font-light">.</span></span>
           </button>
 
-          <span className="hidden lg:inline-flex items-center gap-2 px-3.5 py-1 bg-white/80 backdrop-blur-md border border-[#C59A9F]/40 rounded-full text-[10px] uppercase font-bold text-[#6B1D2F] tracking-wider shadow-sm shimmer-border">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" /> Available Q3/Q4
-          </span>
+          {/* Availability Status Badge */}
+          <div className="hidden sm:inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 dark:bg-[#2E1216] border border-[#C59A9F]/40 text-[10px] tracking-widest text-[#6B1D2F] dark:text-[#F5F0F1] uppercase font-extrabold shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span>Available Q3/Q4</span>
+          </div>
         </div>
 
-        {/* Desktop Links */}
-        <nav className="hidden md:flex items-center space-x-2">
+        {/* Desktop Links & Theme Switcher */}
+        <nav className="hidden md:flex items-center space-x-2 bg-white/80 dark:bg-[#2E1216]/90 backdrop-blur-xl border border-white/80 dark:border-white/10 rounded-full px-3 py-1.5 shadow-md">
           {navLinks.map((link) => {
             const isActive = currentPage === link.id;
             return (
               <button 
                 key={link.name} 
                 onClick={() => handleNavClick(link.id)} 
-                className={`relative px-4 py-2 text-xs tracking-widest uppercase font-bold transition-all duration-300 ${
-                  isActive ? 'text-[#6B1D2F]' : 'text-[#78716C] hover:text-[#1C1917]'
+                className={`relative px-4 py-2 text-xs tracking-widest uppercase font-black transition-all duration-300 ${
+                  isActive ? 'text-[#6B1D2F] dark:text-[#8B1E3F]' : 'text-[#0F0D0D] dark:text-[#F5F0F1] hover:text-[#6B1D2F]'
                 }`}
               >
                 {isActive && (
                   <motion.div 
                     layoutId="activeNavTab"
-                    className="absolute inset-0 bg-[#F5E8EA] border border-[#C59A9F]/50 rounded-full -z-10 shadow-sm"
+                    className="absolute inset-0 bg-[#F5E8EA] dark:bg-[#8B1E3F]/25 border border-[#C59A9F]/60 rounded-full -z-10 shadow-sm"
                     transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                   />
                 )}
                 <span className="relative z-10 flex items-center gap-1.5">
-                  {isActive && <Sparkles size={11} className="text-[#6B1D2F]" />}
+                  {isActive && <Sparkles size={11} className="text-[#6B1D2F] dark:text-[#8B1E3F]" />}
                   {link.name}
                 </span>
               </button>
             );
           })}
 
-          <div className="flex items-center gap-3 ml-4 pl-4 border-l border-[#E5D9DB]">
+          {/* Theme Toggle Button (Dark Burgundy vs Light Canvas) */}
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-full bg-[#F5E8EA] dark:bg-[#1E0A0D] border border-[#C59A9F]/40 text-[#6B1D2F] dark:text-[#F5F0F1] hover:scale-110 transition-all shadow-sm ml-1"
+            title={isDarkMode ? "Switch to Light Canvas (#FAFAF9)" : "Switch to Deep Dark Burgundy (#1E0A0D)"}
+          >
+            {isDarkMode ? <Sun size={14} className="text-amber-400" /> : <Moon size={14} className="text-[#6B1D2F]" />}
+          </button>
+
+          <div className="flex items-center gap-3 ml-2 pl-3 border-l border-[#E5D9DB] dark:border-white/10">
             <Button 
               variant="outline" 
-              className="text-[11px] px-4 py-2 font-extrabold tracking-wider uppercase border-[#6B1D2F] text-[#6B1D2F] hover:bg-[#F5E8EA] rounded-full" 
+              className="text-[11px] px-4 py-2 font-black tracking-wider uppercase border-2 border-[#6B1D2F] dark:border-[#8B1E3F] text-[#6B1D2F] dark:text-[#F5F0F1] hover:bg-[#F5E8EA] dark:hover:bg-[#8B1E3F]/30 rounded-full shadow-sm" 
               onClick={handleDownloadCV}
               icon={<Download size={13} />}
             >
@@ -105,7 +129,7 @@ export const Navigation = ({ currentPage, setCurrentPage }) => {
 
             <Button 
               variant="primary" 
-              className="text-[11px] px-5 py-2 shadow-lg hover:shadow-[#6B1D2F]/25 font-extrabold tracking-wider uppercase rounded-full" 
+              className="text-[11px] px-5 py-2 shadow-lg hover:shadow-[#6B1D2F]/30 font-black tracking-wider uppercase rounded-full bg-[#6B1D2F] dark:bg-[#8B1E3F] text-white" 
               onClick={() => handleNavClick('contact')}
               icon={<ArrowUpRight size={14} />}
             >

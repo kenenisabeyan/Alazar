@@ -16,18 +16,18 @@ export const CareerTimeline = ({ setCurrentPage }) => {
   };
 
   return (
-    <section className="py-28 bg-[#FAFAF9] relative" style={{ fontFamily: theme.fonts.body }}>
+    <section className="py-28 bg-[#F4F0EF] relative" style={{ fontFamily: theme.fonts.body }}>
       <div className="container mx-auto px-6 md:px-12 max-w-6xl">
         
         {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
           <div>
-            <span className="text-xs uppercase tracking-widest text-[#6B1D2F] font-semibold block mb-2 flex items-center gap-1.5">
+            <span className="text-xs uppercase tracking-widest text-[#6B1D2F] font-bold block mb-2 flex items-center gap-1.5">
               <Briefcase size={14} className="text-[#6B1D2F]" />
               Work History
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1C1917]" style={{ fontFamily: theme.fonts.heading }}>
-              Career <span className="italic font-light text-[#6B1D2F]">Experience</span>
+            <h2 className="text-4xl md:text-5xl font-black text-[#1C1917]" style={{ fontFamily: theme.fonts.heading }}>
+              Career <span className="italic font-light text-gradient-burgundy">Experience</span>
             </h2>
           </div>
 
