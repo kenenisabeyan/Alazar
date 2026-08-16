@@ -1,15 +1,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Film, PenTool, Award, Camera, CheckCircle2, Sparkles } from 'lucide-react';
+import { Film, PenTool, Camera, Sparkles, Layers } from 'lucide-react';
 import Button from '../components/common/Button';
 import GearSection from '../components/sections/GearSection';
-import ClientLogos from '../components/sections/ClientLogos';
 import BehindTheScenes from '../components/sections/BehindTheScenes';
 import SkillsSection from '../components/sections/SkillsSection';
 import CareerTimeline from '../components/sections/CareerTimeline';
-import WhyHireMe from '../components/sections/WhyHireMe';
 import AvailabilityCTA from '../components/sections/AvailabilityCTA';
-import { theme, awardsList } from '../utils/constants';
+import { theme } from '../utils/constants';
+import heroBg from '../assets/images/hero-bg.png';
+import alazarImg from '../assets/images/alazar.png';
 
 export const About = ({ setCurrentPage }) => {
   return (
@@ -18,9 +18,31 @@ export const About = ({ setCurrentPage }) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="min-h-screen bg-[#FAFAF9] pt-36 pb-24"
+      className="min-h-screen bg-[#FAFAF9] pt-32 sm:pt-40 pb-0 mesh-bg relative overflow-hidden"
       style={{ fontFamily: theme.fonts.body }}
     >
+      {/* Motion Flow Background Image Layer 1: hero-bg.png */}
+      <motion.div 
+        animate={{ 
+          scale: [1, 1.06, 1],
+          x: ['0%', '-2%', '0%'],
+          y: ['0%', '-1.5%', '0%'],
+        }}
+        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-0 left-0 right-0 h-[700px] z-0 pointer-events-none opacity-20 mix-blend-multiply"
+      >
+        <img src={heroBg} alt="Background Flow" className="w-full h-full object-cover filter blur-[1px]" />
+      </motion.div>
+
+      {/* Motion Flow Layer 2: Floating alazar.png */}
+      <motion.div 
+        animate={{ y: [0, -18, 0], rotate: [0, 2, 0] }}
+        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-10 right-0 w-[450px] md:w-[600px] opacity-15 pointer-events-none z-0 mix-blend-luminosity filter blur-[0.5px]"
+      >
+        <img src={alazarImg} alt="Alazar Visual" className="w-full h-auto object-contain" />
+      </motion.div>
+
       <div className="container mx-auto px-6 md:px-12 max-w-7xl">
         
         {/* Header Hero */}
@@ -31,25 +53,25 @@ export const About = ({ setCurrentPage }) => {
             transition={{ duration: 0.7 }}
             className="lg:col-span-6 space-y-6 text-left"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#F5E8EA] border border-[#C59A9F]/40 text-xs tracking-widest text-[#6B1D2F] uppercase font-semibold">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#C59A9F]/40 text-xs tracking-widest text-[#6B1D2F] uppercase font-extrabold shadow-sm shimmer-border">
               <Sparkles size={14} /> Video Director & Designer
             </div>
 
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-[#1C1917] leading-tight" style={{ fontFamily: theme.fonts.heading }}>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] leading-tight" style={{ fontFamily: theme.fonts.heading }}>
               Alazar Asdesach.<br />
-              <span className="italic font-light text-[#6B1D2F]">Video Director & Designer.</span>
+              <span className="italic font-light text-gradient-burgundy">Director & Visual Artist.</span>
             </h1>
 
             <p className="text-[#78716C] font-light text-base md:text-lg leading-relaxed">
-              With over 8 years of experience in video production and post-production, I help brands share their story with clear, high-quality video edits, color grading, and graphic design.
+              With over 8 years of experience in video production, cinematic color science, and brand design, I craft clean, visual assets that communicate brand identity with precision.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 w-full sm:w-auto">
-              <Button variant="primary" className="w-full sm:w-auto" onClick={() => { setCurrentPage('portfolio'); window.scrollTo(0,0); }}>
+              <Button variant="primary" className="w-full sm:w-auto px-8 py-4 rounded-full font-bold uppercase text-xs" onClick={() => { setCurrentPage('portfolio'); window.scrollTo(0,0); }}>
                 View Portfolio
               </Button>
-              <Button variant="outline" className="w-full sm:w-auto" onClick={() => { setCurrentPage('contact'); window.scrollTo(0,0); }}>
-                Contact Me
+              <Button variant="outline" className="w-full sm:w-auto px-8 py-4 rounded-full font-bold uppercase text-xs border-[#6B1D2F] text-[#6B1D2F]" onClick={() => { setCurrentPage('contact'); window.scrollTo(0,0); }}>
+                Get In Touch
               </Button>
             </div>
           </motion.div>
@@ -60,70 +82,78 @@ export const About = ({ setCurrentPage }) => {
             transition={{ duration: 0.7 }}
             className="lg:col-span-6 relative"
           >
-            <div className="relative aspect-[4/5] rounded-2xl sm:rounded-3xl overflow-hidden border border-[#E5D9DB] shadow-lg bg-white">
+            <div className="relative aspect-[4/5] rounded-3xl overflow-hidden border border-[#C59A9F]/40 shadow-2xl bg-white">
               <img 
                 src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
                 alt="Alazar Asdesach Portrait" 
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1C1917]/70 via-transparent to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1C1917]/75 via-transparent to-transparent" />
               
-              <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 p-4 sm:p-5 bg-white/95 backdrop-blur-md rounded-xl sm:rounded-2xl border border-[#E5D9DB] shadow-md text-left">
-                <p className="text-xs uppercase tracking-widest text-[#6B1D2F] font-bold mb-1">My Goal</p>
-                <p className="text-xs text-[#1C1917] italic">"Every edit should be clear, natural, and serve the story."</p>
+              <div className="absolute bottom-6 left-6 right-6 p-5 glass-card-luxury rounded-2xl text-left">
+                <p className="text-xs uppercase tracking-widest text-[#6B1D2F] font-black mb-1">Director's Creed</p>
+                <p className="text-xs text-[#1C1917] italic font-medium">"Paced storytelling, vivid color science, and purposeful design."</p>
               </div>
             </div>
           </motion.div>
         </div>
 
-        {/* Core Philosophy Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16 sm:mb-24">
-          <div className="bg-white p-6 sm:p-8 rounded-2xl border border-[#E5D9DB] shadow-sm text-center flex flex-col items-center">
-            <div className="w-14 h-14 rounded-2xl bg-[#F5E8EA] border border-[#C59A9F]/30 text-[#6B1D2F] flex items-center justify-center mb-6 mx-auto shadow-sm">
-              <Film size={26} />
+        {/* Core Philosophy Grid (4 Unique Pillars) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20 sm:mb-28">
+          <div className="glass-card-luxury p-7 rounded-3xl text-left flex flex-col justify-between">
+            <div>
+              <div className="w-12 h-12 rounded-2xl bg-[#F5E8EA] text-[#6B1D2F] flex items-center justify-center mb-6 shadow-sm">
+                <Film size={22} />
+              </div>
+              <h3 className="text-xl font-bold text-[#1C1917] mb-2" style={{ fontFamily: theme.fonts.heading }}>
+                Paced Editing
+              </h3>
+              <p className="text-xs text-[#78716C] font-light leading-relaxed">
+                Cutting footage to match musical cadence, emotional beat, and narrative flow.
+              </p>
             </div>
-            <h3 className="text-xl font-bold text-[#1C1917] mb-3" style={{ fontFamily: theme.fonts.heading }}>
-              Video Timing
-            </h3>
-            <p className="text-xs text-[#78716C] font-light leading-relaxed">
-              Cutting videos to match music and natural rhythm so viewers stay engaged from start to finish.
-            </p>
           </div>
 
-          <div className="bg-white p-6 sm:p-8 rounded-2xl border border-[#E5D9DB] shadow-sm text-center flex flex-col items-center">
-            <div className="w-14 h-14 rounded-2xl bg-[#F5E8EA] border border-[#C59A9F]/30 text-[#6B1D2F] flex items-center justify-center mb-6 mx-auto shadow-sm">
-              <Film size={26} />
+          <div className="glass-card-luxury p-7 rounded-3xl text-left flex flex-col justify-between">
+            <div>
+              <div className="w-12 h-12 rounded-2xl bg-[#F5E8EA] text-[#6B1D2F] flex items-center justify-center mb-6 shadow-sm">
+                <Layers size={22} />
+              </div>
+              <h3 className="text-xl font-bold text-[#1C1917] mb-2" style={{ fontFamily: theme.fonts.heading }}>
+                Color Science
+              </h3>
+              <p className="text-xs text-[#78716C] font-light leading-relaxed">
+                Transforming flat camera log profiles into rich, cinematic color gamuts.
+              </p>
             </div>
-            <h3 className="text-xl font-bold text-[#1C1917] mb-3" style={{ fontFamily: theme.fonts.heading }}>
-              Video Timing
-            </h3>
-            <p className="text-xs text-[#78716C] font-light leading-relaxed">
-              Cutting videos to match music and natural rhythm so viewers stay engaged from start to finish.
-            </p>
           </div>
 
-          <div className="bg-white p-6 sm:p-8 rounded-2xl border border-[#E5D9DB] shadow-sm text-center flex flex-col items-center">
-            <div className="w-14 h-14 rounded-2xl bg-[#F5E8EA] border border-[#C59A9F]/30 text-[#6B1D2F] flex items-center justify-center mb-6 mx-auto shadow-sm">
-              <Camera size={26} />
+          <div className="glass-card-luxury p-7 rounded-3xl text-left flex flex-col justify-between">
+            <div>
+              <div className="w-12 h-12 rounded-2xl bg-[#F5E8EA] text-[#6B1D2F] flex items-center justify-center mb-6 shadow-sm">
+                <Camera size={22} />
+              </div>
+              <h3 className="text-xl font-bold text-[#1C1917] mb-2" style={{ fontFamily: theme.fonts.heading }}>
+                Camera & Lens
+              </h3>
+              <p className="text-xs text-[#78716C] font-light leading-relaxed">
+                Capturing ultra-sharp 8K raw frames with prime lenses and controlled lighting.
+              </p>
             </div>
-            <h3 className="text-xl font-bold text-[#1C1917] mb-3" style={{ fontFamily: theme.fonts.heading }}>
-              Cinematic Filming
-            </h3>
-            <p className="text-xs text-[#78716C] font-light leading-relaxed">
-              Using wide camera angles, natural lighting, and sharp lenses to create a clean look.
-            </p>
           </div>
 
-          <div className="bg-white p-6 sm:p-8 rounded-2xl border border-[#E5D9DB] shadow-sm text-center flex flex-col items-center">
-            <div className="w-14 h-14 rounded-2xl bg-[#F5E8EA] border border-[#C59A9F]/30 text-[#6B1D2F] flex items-center justify-center mb-6 mx-auto shadow-sm">
-              <PenTool size={26} />
+          <div className="glass-card-luxury p-7 rounded-3xl text-left flex flex-col justify-between">
+            <div>
+              <div className="w-12 h-12 rounded-2xl bg-[#F5E8EA] text-[#6B1D2F] flex items-center justify-center mb-6 shadow-sm">
+                <PenTool size={22} />
+              </div>
+              <h3 className="text-xl font-bold text-[#1C1917] mb-2" style={{ fontFamily: theme.fonts.heading }}>
+                Brand Identity
+              </h3>
+              <p className="text-xs text-[#78716C] font-light leading-relaxed">
+                Building cohesive poster art, motion graphics, and graphic design systems.
+              </p>
             </div>
-            <h3 className="text-xl font-bold text-[#1C1917] mb-3" style={{ fontFamily: theme.fonts.heading }}>
-              Color Grading
-            </h3>
-            <p className="text-xs text-[#78716C] font-light leading-relaxed">
-              Enhancing colors and lighting to give every video a polished, professional look.
-            </p>
           </div>
         </div>
 
@@ -135,14 +165,8 @@ export const About = ({ setCurrentPage }) => {
       {/* Career Work History & Download Resume */}
       <CareerTimeline setCurrentPage={setCurrentPage} />
 
-      {/* Why Hire Me — Client Assurances */}
-      <WhyHireMe setCurrentPage={setCurrentPage} />
-
       {/* Embedded Gear Section */}
       <GearSection />
-
-      {/* Embedded Client Logos & Recognition */}
-      <ClientLogos />
 
       {/* Embedded Behind The Scenes */}
       <BehindTheScenes />
@@ -155,4 +179,5 @@ export const About = ({ setCurrentPage }) => {
 };
 
 export default About;
+
 

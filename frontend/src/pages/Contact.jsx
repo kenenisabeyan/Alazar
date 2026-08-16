@@ -3,8 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Phone, Clock, Send, CheckCircle2 } from 'lucide-react';
 import Input from '../components/common/Input';
 import Button from '../components/common/Button';
-import WhyHireMe from '../components/sections/WhyHireMe';
-import CareerTimeline from '../components/sections/CareerTimeline';
+import AvailabilityCTA from '../components/sections/AvailabilityCTA';
 import { theme } from '../utils/constants';
 
 export const Contact = ({ setCurrentPage }) => {
@@ -55,7 +54,7 @@ export const Contact = ({ setCurrentPage }) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="min-h-screen bg-[#FAFAF9] pt-28 sm:pt-36 pb-16 sm:pb-24"
+      className="min-h-screen bg-[#FAFAF9] pt-28 sm:pt-36 pb-0"
       style={{ fontFamily: theme.fonts.body }}
     >
       <div className="container mx-auto px-4 sm:px-6 md:px-12 max-w-7xl mb-16 sm:mb-24">
@@ -267,15 +266,13 @@ export const Contact = ({ setCurrentPage }) => {
         </div>
       </div>
 
-      {/* Why Hire Me — Client Assurances */}
-      <WhyHireMe setCurrentPage={setCurrentPage} />
-
-      {/* Work History & Resume Download */}
-      <CareerTimeline setCurrentPage={setCurrentPage} />
+      {/* Live Availability Hiring Banner */}
+      <AvailabilityCTA setCurrentPage={setCurrentPage} />
 
     </motion.div>
   );
 };
 
 export default Contact;
+
 

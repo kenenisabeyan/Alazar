@@ -16,7 +16,7 @@ export const Services = ({ setCurrentPage }) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="min-h-screen bg-[#FAFAF9] pt-28 sm:pt-36 pb-16 sm:pb-24"
+      className="min-h-screen bg-[#FAFAF9] pt-28 sm:pt-36 pb-0"
       style={{ fontFamily: theme.fonts.body }}
     >
       <div className="container mx-auto px-4 sm:px-6 md:px-12">
@@ -143,9 +143,6 @@ export const Services = ({ setCurrentPage }) => {
       {/* Why Hire Me — Client Assurances & Guarantees */}
       <WhyHireMe setCurrentPage={setCurrentPage} />
 
-      {/* Software & Technical Capabilities */}
-      <SkillsSection />
-
       {/* Embedded Interactive Rate & Package Estimator */}
       <ProjectCalculator setCurrentPage={setCurrentPage} />
 
@@ -186,4 +183,5 @@ export const Services = ({ setCurrentPage }) => {
 };
 
 export default Services;
+
 
