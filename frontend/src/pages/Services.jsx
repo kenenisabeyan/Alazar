@@ -8,6 +8,8 @@ import SkillsSection from '../components/sections/SkillsSection';
 import WhyHireMe from '../components/sections/WhyHireMe';
 import AvailabilityCTA from '../components/sections/AvailabilityCTA';
 import { theme, faqs } from '../utils/constants';
+import heroBg from '../assets/images/hero-bg.png';
+import alazarImg from '../assets/images/alazar.png';
 
 export const Services = ({ setCurrentPage }) => {
   return (
@@ -16,9 +18,31 @@ export const Services = ({ setCurrentPage }) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="min-h-screen bg-[#FAFAF9] pt-28 sm:pt-36 pb-0"
+      className="min-h-screen bg-[#FAFAF9] pt-28 sm:pt-36 pb-0 relative overflow-hidden"
       style={{ fontFamily: theme.fonts.body }}
     >
+      {/* Motion Flow Background Image Layer 1: hero-bg.png */}
+      <motion.div 
+        animate={{ 
+          scale: [1, 1.06, 1],
+          x: ['0%', '-2%', '0%'],
+          y: ['0%', '-1.5%', '0%'],
+        }}
+        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-0 left-0 right-0 h-[650px] z-0 pointer-events-none opacity-20 mix-blend-multiply"
+      >
+        <img src={heroBg} alt="Background Flow" className="w-full h-full object-cover filter blur-[1px]" />
+      </motion.div>
+
+      {/* Motion Flow Layer 2: Floating alazar.png */}
+      <motion.div 
+        animate={{ y: [0, -18, 0], rotate: [0, 2, 0] }}
+        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-10 right-0 w-[450px] md:w-[600px] opacity-15 pointer-events-none z-0 mix-blend-luminosity filter blur-[0.5px]"
+      >
+        <img src={alazarImg} alt="Alazar Visual" className="w-full h-auto object-contain" />
+      </motion.div>
+
       <div className="container mx-auto px-4 sm:px-6 md:px-12">
         
         {/* Header Hero */}
