@@ -84,9 +84,9 @@ export const CustomCursor = () => {
       >
         {/* Dynamic Badge Content */}
         {cursorState === 'play' && (
-          <motion.div 
-            initial={{ scale: 0, opacity: 0 }} 
-            animate={{ scale: 1, opacity: 1 }} 
+          <motion.div
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
             className="flex items-center gap-1 text-white font-bold text-xs uppercase tracking-wider"
           >
             <Play size={16} fill="white" />
@@ -95,9 +95,9 @@ export const CustomCursor = () => {
         )}
 
         {cursorState === 'view' && (
-          <motion.div 
-            initial={{ scale: 0, opacity: 0 }} 
-            animate={{ scale: 1, opacity: 1 }} 
+          <motion.div
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
             className="flex items-center gap-1 text-white font-bold text-xs uppercase tracking-wider"
           >
             <Eye size={16} />

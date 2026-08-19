@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Play, Volume2, VolumeX, Sparkles, Film, Disc } from 'lucide-react';
-import { theme } from '../../utils/constants';
+import { theme } from '../../constants';
 
 export const ShowreelBanner = ({ onOpenShowreel }) => {
   const [isMuted, setIsMuted] = useState(true);
@@ -21,7 +21,7 @@ export const ShowreelBanner = ({ onOpenShowreel }) => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#C59A9F]/15 blur-[180px] rounded-full pointer-events-none"></div>
 
       <div className="container mx-auto px-6 md:px-12 max-w-7xl relative z-10">
-        
+
         {/* Section Header */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
           <div>
@@ -56,7 +56,7 @@ export const ShowreelBanner = ({ onOpenShowreel }) => {
         </div>
 
         {/* Widescreen Video Player Frame */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -80,7 +80,7 @@ export const ShowreelBanner = ({ onOpenShowreel }) => {
 
           {/* Center Play Button Callout */}
           <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
-            <motion.div 
+            <motion.div
               whileHover={{ scale: 1.15 }}
               whileTap={{ scale: 0.95 }}
               className="w-20 h-20 rounded-full bg-[#6B1D2F] text-white flex items-center justify-center shadow-2xl border-2 border-white/80 ring-8 ring-[#6B1D2F]/30 group-hover:ring-[#6B1D2F]/60 group-hover:scale-110 transition-all duration-300 pointer-events-auto"

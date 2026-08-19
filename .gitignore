@@ -10,7 +10,6 @@ frontend/node_modules/
 # ==========================================
 # Production & Compiler Build Outputs
 # ==========================================
-.next/
 out/
 dist/
 build/

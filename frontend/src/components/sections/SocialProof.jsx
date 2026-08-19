@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Quote, Star, Sparkles } from 'lucide-react';
-import { testimonials, theme } from '../../utils/constants';
+import { testimonials, theme } from '../../constants';
 
 export const SocialProof = () => {
   const [[page, direction], setPage] = useState([0, 0]);
@@ -58,9 +58,9 @@ export const SocialProof = () => {
       <div className="absolute -top-20 right-10 w-96 h-96 bg-[#6B1D2F]/08 blur-[140px] rounded-full pointer-events-none" />
 
       <div className="container mx-auto px-6 md:px-12 max-w-6xl text-center relative z-10">
-        
+
         {/* Header */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -71,8 +71,8 @@ export const SocialProof = () => {
             <Sparkles size={13} className="text-[#6B1D2F] animate-pulse" /> Client Endorsements
           </div>
 
-          <h2 
-            className="text-4xl sm:text-5xl md:text-6xl font-black text-[#1C1917] tracking-tight" 
+          <h2
+            className="text-4xl sm:text-5xl md:text-6xl font-black text-[#1C1917] tracking-tight"
             style={{ fontFamily: theme.fonts.heading }}
           >
             What Clients <span className="italic font-light text-gradient-burgundy">Say</span>
@@ -84,12 +84,12 @@ export const SocialProof = () => {
         </motion.div>
 
         {/* Carousel Container */}
-        <div 
+        <div
           className="relative max-w-4xl mx-auto"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30, scale: 0.96 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true }}
@@ -104,7 +104,7 @@ export const SocialProof = () => {
             {/* 5-Star Social Proof Rating */}
             <div className="flex items-center justify-center gap-1.5 mb-6">
               {[...Array(5)].map((_, i) => (
-                <motion.div 
+                <motion.div
                   key={i}
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -139,10 +139,10 @@ export const SocialProof = () => {
 
                   <div className="flex flex-col items-center">
                     <div className="p-1 bg-gradient-to-tr from-[#6B1D2F] via-[#8B2440] to-[#C59A9F] rounded-full shadow-lg mb-3.5 group-hover:scale-105 transition-transform duration-300">
-                      <img 
-                        src={current.avatar} 
+                      <img
+                        src={current.avatar}
                         alt={current.author}
-                        className="w-16 h-16 sm:w-18 sm:h-18 rounded-full object-cover border-2 border-white" 
+                        className="w-16 h-16 sm:w-18 sm:h-18 rounded-full object-cover border-2 border-white"
                       />
                     </div>
                     <h4 className="text-lg text-[#1C1917] font-black tracking-tight" style={{ fontFamily: theme.fonts.heading }}>
@@ -158,7 +158,7 @@ export const SocialProof = () => {
 
             {/* Animated Progress Bar */}
             <div className="w-full bg-[#E5D9DB]/50 h-1 rounded-full overflow-hidden mt-8">
-              <motion.div 
+              <motion.div
                 key={page}
                 initial={{ width: "0%" }}
                 animate={{ width: "100%" }}
@@ -170,7 +170,7 @@ export const SocialProof = () => {
 
           {/* Nav Controls Left & Right Buttons */}
           <div className="flex justify-between items-center absolute inset-y-1/2 -translate-y-1/2 -left-4 -right-4 sm:-left-6 sm:-right-6 pointer-events-none z-20">
-            <motion.button 
+            <motion.button
               whileHover={{ scale: 1.12, x: -3 }}
               whileTap={{ scale: 0.92 }}
               onClick={() => paginate(-1)}
@@ -179,8 +179,8 @@ export const SocialProof = () => {
             >
               <ChevronLeft size={22} />
             </motion.button>
-            
-            <motion.button 
+
+            <motion.button
               whileHover={{ scale: 1.12, x: 3 }}
               whileTap={{ scale: 0.92 }}
               onClick={() => paginate(1)}
@@ -199,11 +199,10 @@ export const SocialProof = () => {
                 <button
                   key={idx}
                   onClick={() => jumpTo(idx)}
-                  className={`h-2.5 rounded-full transition-all duration-400 cursor-pointer ${
-                    isActive 
-                      ? 'w-9 bg-[#6B1D2F] shadow-md shadow-[#6B1D2F]/30' 
-                      : 'w-2.5 bg-[#C59A9F]/50 hover:bg-[#6B1D2F]/60'
-                  }`}
+                  className={`h-2.5 rounded-full transition-all duration-400 cursor-pointer ${isActive
+                    ? 'w-9 bg-[#6B1D2F] shadow-md shadow-[#6B1D2F]/30'
+                    : 'w-2.5 bg-[#C59A9F]/50 hover:bg-[#6B1D2F]/60'
+                    }`}
                   aria-label={`Go to slide ${idx + 1}`}
                 />
               );

@@ -1,22 +1,24 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Film, PenTool, Sparkles, Quote, ArrowRight, Layers, CheckCircle2, Award } from 'lucide-react';
 import Button from '../common/Button';
-import { theme } from '../../utils/constants';
+import { theme } from '../../constants';
 import alazarImg from '../../assets/images/alazar.png';
 
-export const AboutSnapshot = ({ setCurrentPage }) => {
+export const AboutSnapshot = () => {
+  const navigate = useNavigate();
   return (
     <section className="py-28 sm:py-36 bg-[#FAFAF9] relative overflow-hidden mesh-bg" style={{ fontFamily: theme.fonts.body }}>
       {/* Background Ambient Glow Orbs */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[550px] bg-gradient-to-tr from-[#6B1D2F]/12 via-[#8B2440]/08 to-[#C59A9F]/15 blur-[180px] rounded-full pointer-events-none" />
 
       <div className="container mx-auto px-6 md:px-12 max-w-7xl relative z-10">
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          
+
           {/* Left Column: Bio & Core Services */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -30,8 +32,8 @@ export const AboutSnapshot = ({ setCurrentPage }) => {
             </div>
 
             {/* Headline */}
-            <h2 
-              className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] tracking-tight leading-[1.1]" 
+            <h2
+              className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] tracking-tight leading-[1.1]"
               style={{ fontFamily: theme.fonts.heading }}
             >
               Expert Video Director & <span className="italic font-light text-gradient-burgundy">Graphic Designer</span>
@@ -84,13 +86,10 @@ export const AboutSnapshot = ({ setCurrentPage }) => {
 
             {/* CTA Button */}
             <div className="pt-2">
-              <Button 
+              <Button
                 variant="primary"
                 icon={<ArrowRight size={18} />}
-                onClick={() => {
-                  if (setCurrentPage) setCurrentPage('about');
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }}
+                onClick={() => { navigate('/about'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
                 className="w-full sm:w-auto px-9 py-5 text-xs sm:text-sm font-black uppercase tracking-widest rounded-full shadow-xl"
               >
                 Learn More About Me
@@ -99,7 +98,7 @@ export const AboutSnapshot = ({ setCurrentPage }) => {
           </motion.div>
 
           {/* Right Column: Clean 3-Photo Overlapping Profile Showcase */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -111,32 +110,32 @@ export const AboutSnapshot = ({ setCurrentPage }) => {
 
             {/* Pure 3-Photo Overlapping Stack Container */}
             <div className="relative w-full max-w-sm sm:max-w-md aspect-[4/5] flex items-center justify-center group cursor-pointer">
-              
+
               {/* PHOTO STACK LAYER 1: Back Left Card */}
               <div className="absolute inset-0 w-full h-full rounded-[2.5rem] overflow-hidden border-2 border-[#C59A9F]/40 shadow-xl bg-gradient-to-br from-[#6B1D2F] via-[#2E1216] to-[#1C1917] -rotate-6 -translate-x-5 -translate-y-3 scale-95 opacity-80 group-hover:-rotate-12 group-hover:-translate-x-12 group-hover:-translate-y-6 group-hover:opacity-95 group-hover:scale-95 transition-all duration-500 ease-out z-0">
-                <img 
-                  src={alazarImg} 
-                  alt="Alazar Asdesach Portrait Layer 1" 
-                  className="w-full h-full object-cover object-top filter contrast-125 brightness-90 mix-blend-luminosity" 
+                <img
+                  src={alazarImg}
+                  alt="Alazar Asdesach Portrait Layer 1"
+                  className="w-full h-full object-cover object-top filter contrast-125 brightness-90 mix-blend-luminosity"
                 />
                 <div className="absolute inset-0 bg-[#6B1D2F]/30 mix-blend-multiply" />
               </div>
 
               {/* PHOTO STACK LAYER 2: Back Right Card */}
               <div className="absolute inset-0 w-full h-full rounded-[2.5rem] overflow-hidden border-2 border-[#C59A9F]/50 shadow-xl bg-gradient-to-br from-[#8B2440] via-[#1C1917] to-[#6B1D2F] rotate-6 translate-x-5 -translate-y-1 scale-95 opacity-85 group-hover:rotate-12 group-hover:translate-x-12 group-hover:-translate-y-4 group-hover:opacity-95 group-hover:scale-95 transition-all duration-500 ease-out z-10">
-                <img 
-                  src={alazarImg} 
-                  alt="Alazar Asdesach Portrait Layer 2" 
-                  className="w-full h-full object-cover object-top filter saturate-150 brightness-95" 
+                <img
+                  src={alazarImg}
+                  alt="Alazar Asdesach Portrait Layer 2"
+                  className="w-full h-full object-cover object-top filter saturate-150 brightness-95"
                 />
                 <div className="absolute inset-0 bg-[#8B2440]/20 mix-blend-color-burn" />
               </div>
 
               {/* PHOTO STACK LAYER 3: Main Center Front Card */}
               <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden border-2 border-white/80 shadow-2xl shadow-[#6B1D2F]/30 bg-gradient-to-br from-[#1C1917] via-[#2E1216] to-[#6B1D2F] group-hover:scale-105 transition-all duration-500 ease-out z-20">
-                <img 
-                  src={alazarImg} 
-                  alt="Alazar Asdesach — Video Director & Graphic Designer" 
+                <img
+                  src={alazarImg}
+                  alt="Alazar Asdesach — Video Director & Graphic Designer"
                   className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1C1917]/50 via-transparent to-transparent opacity-80" />

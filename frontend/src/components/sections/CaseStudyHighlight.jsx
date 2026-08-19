@@ -1,16 +1,18 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { TrendingUp, CheckCircle2, ArrowRight } from 'lucide-react';
-import { caseStudies, theme } from '../../utils/constants';
+import { caseStudies, theme } from '../../constants';
 
-export const CaseStudyHighlight = ({ setCurrentPage }) => {
+export const CaseStudyHighlight = () => {
+  const navigate = useNavigate();
   return (
     <section className="py-28 bg-[#FAFAF9] relative" style={{ fontFamily: theme.fonts.body }}>
       <div className="container mx-auto px-6 md:px-12 max-w-7xl">
-        
+
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <motion.span 
+          <motion.span
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -18,7 +20,7 @@ export const CaseStudyHighlight = ({ setCurrentPage }) => {
           >
             Results & Impact
           </motion.span>
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -28,7 +30,7 @@ export const CaseStudyHighlight = ({ setCurrentPage }) => {
           >
             Real Results for <span className="italic font-light text-[#6B1D2F]">Clients</span>
           </motion.h2>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -82,11 +84,8 @@ export const CaseStudyHighlight = ({ setCurrentPage }) => {
               </div>
 
               <div>
-                <button 
-                  onClick={() => {
-                    if (setCurrentPage) setCurrentPage('portfolio');
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                  }}
+                <button
+                  onClick={() => { navigate('/portfolio'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
                   className="flex items-center text-xs font-bold uppercase tracking-widest text-[#6B1D2F] hover:text-[#8B2440] transition-colors"
                 >
                   <span>View Projects</span>

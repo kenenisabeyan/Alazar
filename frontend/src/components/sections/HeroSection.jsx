@@ -1,13 +1,15 @@
 import React, { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, Play, Sparkles, Award } from 'lucide-react';
 import Button from '../common/Button';
-import { theme, statistics } from '../../utils/constants';
+import { theme, statistics } from '../../constants';
 import heroBg from '../../assets/images/hero-bg.png';
 import alazarImg from '../../assets/images/alazar.png';
 
-export const HeroSection = ({ setCurrentPage, onOpenShowreel }) => {
+export const HeroSection = ({ onOpenShowreel }) => {
   const containerRef = useRef(null);
+  const navigate = useNavigate();
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -36,14 +38,14 @@ export const HeroSection = ({ setCurrentPage, onOpenShowreel }) => {
   };
 
   return (
-    <section 
+    <section
       ref={containerRef}
       className="relative min-h-[95vh] flex flex-col justify-center pt-36 pb-24 overflow-hidden bg-[#FAFAF9] mesh-bg"
       style={{ fontFamily: theme.fonts.body }}
     >
       {/* Motion Flow Background Image Layer 1: hero-bg.png */}
-      <motion.div 
-        animate={{ 
+      <motion.div
+        animate={{
           scale: [1, 1.06, 1],
           x: ['0%', '-2%', '0%'],
           y: ['0%', '-1.5%', '0%'],
@@ -51,16 +53,16 @@ export const HeroSection = ({ setCurrentPage, onOpenShowreel }) => {
         transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
         className="absolute inset-0 z-0 pointer-events-none opacity-25 mix-blend-multiply"
       >
-        <img 
-          src={heroBg} 
-          alt="Hero Flow Texture" 
+        <img
+          src={heroBg}
+          alt="Hero Flow Texture"
           className="w-full h-full object-cover object-center filter blur-[1px]"
         />
       </motion.div>
 
       {/* Motion Flow Layer 2: Floating alazar.png visual element */}
-      <motion.div 
-        animate={{ 
+      <motion.div
+        animate={{
           y: [0, -18, 0],
           rotate: [0, 1.5, 0],
           scale: [1, 1.02, 1]
@@ -68,24 +70,24 @@ export const HeroSection = ({ setCurrentPage, onOpenShowreel }) => {
         transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
         className="absolute -top-10 right-0 sm:right-10 md:right-20 w-[380px] sm:w-[500px] md:w-[650px] opacity-20 md:opacity-25 pointer-events-none z-0 mix-blend-luminosity filter blur-[0.5px]"
       >
-        <img 
-          src={alazarImg} 
-          alt="Alazar Motion Flow" 
+        <img
+          src={alazarImg}
+          alt="Alazar Motion Flow"
           className="w-full h-auto object-contain"
         />
       </motion.div>
 
       {/* Dynamic Ambient Glow Orbs */}
-      <motion.div 
+      <motion.div
         style={{ y: bgY }}
         className="absolute -top-12 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-gradient-to-r from-[#6B1D2F]/18 via-[#8B2440]/12 to-[#C59A9F]/20 blur-[180px] rounded-full pointer-events-none animate-pulse-glow"
       />
-      <motion.div 
+      <motion.div
         style={{ y: bgY }}
         className="absolute top-1/2 -right-20 w-[500px] h-[500px] bg-[#C59A9F]/20 blur-[150px] rounded-full pointer-events-none"
       />
 
-      <motion.div 
+      <motion.div
         style={{ y: textY, opacity: opacityFade }}
         className="container mx-auto px-6 md:px-12 relative z-10 text-center flex flex-col items-center"
       >
@@ -96,7 +98,7 @@ export const HeroSection = ({ setCurrentPage, onOpenShowreel }) => {
           className="flex flex-col items-center w-full max-w-5xl"
         >
           {/* Shimmer Subtitle Pill */}
-          <motion.div 
+          <motion.div
             variants={itemVariants}
             className="inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full bg-white/95 backdrop-blur-md border border-[#C59A9F]/50 text-xs tracking-widest text-[#6B1D2F] uppercase mb-10 shadow-sm hover:border-[#6B1D2F] transition-all shimmer-border group"
           >
@@ -107,16 +109,16 @@ export const HeroSection = ({ setCurrentPage, onOpenShowreel }) => {
 
           {/* Headline & Subtitle Text (Clean spacious design without bulky box) */}
           <div className="max-w-6xl mx-auto space-y-6 mb-12">
-            <motion.h1 
+            <motion.h1
               variants={itemVariants}
-              className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[1.05] sm:leading-none text-[#1C1917] tracking-tight" 
+              className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[1.05] sm:leading-none text-[#1C1917] tracking-tight"
               style={{ fontFamily: theme.fonts.heading }}
             >
               Cinematic Videos.<br />
               <span className="italic font-light text-gradient-burgundy">Clear Design.</span>
             </motion.h1>
-            
-            <motion.p 
+
+            <motion.p
               variants={itemVariants}
               className="text-base sm:text-lg md:text-xl text-[#1C1917] font-bold max-w-3xl mx-auto leading-relaxed bg-white/85 backdrop-blur-md px-6 py-3.5 rounded-2xl border border-[#C59A9F]/40 shadow-md inline-block"
             >
@@ -124,21 +126,21 @@ export const HeroSection = ({ setCurrentPage, onOpenShowreel }) => {
             </motion.p>
 
             {/* CTA Buttons */}
-            <motion.div 
+            <motion.div
               variants={itemVariants}
               className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 pt-6 w-full sm:w-auto"
             >
-              <Button 
-                variant="primary" 
-                icon={<ArrowRight size={18} />} 
-                onClick={() => { setCurrentPage('portfolio'); window.scrollTo(0,0); }}
+              <Button
+                variant="primary"
+                icon={<ArrowRight size={18} />}
+                onClick={() => { navigate('/portfolio'); window.scrollTo(0, 0); }}
                 className="w-full sm:w-auto shadow-xl shadow-[#6B1D2F]/20 hover:shadow-[#6B1D2F]/35 px-9 py-4 text-xs sm:text-sm tracking-widest uppercase font-extrabold rounded-full"
               >
                 Explore Selected Work
               </Button>
-              
-              <Button 
-                variant="secondary" 
+
+              <Button
+                variant="secondary"
                 icon={<Play size={18} className="fill-[#6B1D2F] text-[#6B1D2F]" />}
                 onClick={onOpenShowreel}
                 className="w-full sm:w-auto bg-white/90 backdrop-blur-md border border-[#E5D9DB] hover:border-[#6B1D2F] px-9 py-4 text-xs sm:text-sm tracking-widest uppercase font-extrabold shadow-sm rounded-full"
@@ -149,12 +151,12 @@ export const HeroSection = ({ setCurrentPage, onOpenShowreel }) => {
           </div>
 
           {/* Luxury Glass Stats Cards */}
-          <motion.div 
+          <motion.div
             variants={itemVariants}
             className="w-full max-w-6xl grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 pt-14 border-t border-[#E5D9DB]/80"
           >
             {statistics.map((stat, idx) => (
-              <motion.div 
+              <motion.div
                 key={idx}
                 whileHover={{ y: -6, scale: 1.02 }}
                 className="glass-card-luxury text-center p-6 sm:p-7 rounded-3xl"

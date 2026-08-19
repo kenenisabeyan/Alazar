@@ -9,6 +9,11 @@ import inquiryRoutes from './routes/inquiryRoutes.js';
 import quoteRoutes from './routes/quoteRoutes.js';
 import testimonialRoutes from './routes/testimonialRoutes.js';
 import statsRoutes from './routes/statsRoutes.js';
+import serviceRoutes from './routes/serviceRoutes.js';
+
+import { requestLogger } from './middleware/requestLogger.js';
+import { notFound } from './middleware/notFound.js';
+import { errorHandler } from './middleware/errorHandler.js';
 
 dotenv.config();
 
@@ -23,6 +28,7 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use(morgan('dev'));
+app.use(requestLogger);
 
 // Health & Database status endpoint
 app.get('/api/health', async (req, res) => {
@@ -51,6 +57,7 @@ app.use('/api/inquiries', inquiryRoutes);
 app.use('/api/quotes', quoteRoutes);
 app.use('/api/testimonials', testimonialRoutes);
 app.use('/api/stats', statsRoutes);
+app.use('/api/services', serviceRoutes);
 
 // Root route
 app.get('/', (req, res) => {
@@ -64,25 +71,15 @@ app.get('/', (req, res) => {
       '/api/inquiries',
       '/api/quotes',
       '/api/testimonials',
-      '/api/stats'
+      '/api/stats',
+      '/api/services'
     ]
   });
 });
 
-// 404 handler
-app.use((req, res) => {
-  res.status(404).json({ success: false, message: 'Endpoint not found' });
-});
-
-// Global error handler
-app.use((err, req, res, next) => {
-  console.error('Unhandled Server Error:', err.stack);
-  res.status(500).json({
-    success: false,
-    message: 'Internal Server Error',
-    error: process.env.NODE_ENV === 'development' ? err.message : undefined
-  });
-});
+// 404 & global error handlers (must be last)
+app.use(notFound);
+app.use(errorHandler);
 
 // Start Server and Initialize PostgreSQL
 app.listen(PORT, async () => {

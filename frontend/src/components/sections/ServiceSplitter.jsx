@@ -1,19 +1,21 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Film, Layout, ArrowRight, CheckCircle2 } from 'lucide-react';
-import { theme } from '../../utils/constants';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { theme } from '../../constants';
 
-export const ServiceSplitter = ({ setCurrentPage }) => {
+export const ServiceSplitter = () => {
+  const navigate = useNavigate();
   const cardClass = "cursor-pointer group text-left p-8 md:p-10 bg-[#FAFAF9] border border-[#E5D9DB] rounded-2xl hover:border-[#C59A9F] hover:shadow-lg transition-all duration-500 shadow-sm relative overflow-hidden flex flex-col justify-between";
 
   const renderCard = (icon, title, desc, items, delay) => (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.7, delay }}
       whileHover={{ y: -8 }}
-      onClick={() => { setCurrentPage('portfolio'); window.scrollTo(0,0); }}
+      onClick={() => { navigate('/portfolio'); window.scrollTo(0, 0); }}
       className={cardClass}
     >
       <div className="w-full">
@@ -40,8 +42,8 @@ export const ServiceSplitter = ({ setCurrentPage }) => {
   return (
     <section className="py-28 bg-[#F5E8EA]/50 relative overflow-hidden">
       <div className="container mx-auto px-6 md:px-12 text-center max-w-7xl">
-        
-        <motion.div 
+
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

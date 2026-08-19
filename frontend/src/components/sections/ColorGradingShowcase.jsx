@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Sliders, Camera, Disc, Eye, Sparkles } from 'lucide-react';
-import { colorGradingSamples, theme } from '../../utils/constants';
+import { colorGradingSamples, theme } from '../../constants';
 
 export const ColorGradingShowcase = () => {
   const [activeSampleIndex, setActiveSampleIndex] = useState(0);
@@ -33,10 +33,10 @@ export const ColorGradingShowcase = () => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-gradient-to-r from-[#6B1D2F]/10 via-[#8B2440]/05 to-[#C59A9F]/10 blur-[160px] rounded-full pointer-events-none" />
 
       <div className="container mx-auto px-6 md:px-12 max-w-7xl relative z-10">
-        
+
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -44,8 +44,8 @@ export const ColorGradingShowcase = () => {
           >
             <Sparkles size={12} className="text-[#6B1D2F]" /> Color Grading Suite
           </motion.div>
-          
-          <motion.h2 
+
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -56,7 +56,7 @@ export const ColorGradingShowcase = () => {
             Raw Log vs <span className="italic font-light text-gradient-burgundy">Graded Master</span>
           </motion.h2>
 
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -75,12 +75,11 @@ export const ColorGradingShowcase = () => {
               <button
                 key={sample.id}
                 onClick={() => { setActiveSampleIndex(idx); setSliderPosition(50); }}
-                className={`relative px-5 py-2.5 rounded-full text-xs font-extrabold uppercase tracking-wider transition-all flex items-center gap-2 ${
-                  isActive ? 'text-white' : 'text-[#78716C] bg-white border border-[#E5D9DB] hover:text-[#1C1917]'
-                }`}
+                className={`relative px-5 py-2.5 rounded-full text-xs font-extrabold uppercase tracking-wider transition-all flex items-center gap-2 ${isActive ? 'text-white' : 'text-[#78716C] bg-white border border-[#E5D9DB] hover:text-[#1C1917]'
+                  }`}
               >
                 {isActive && (
-                  <motion.div 
+                  <motion.div
                     layoutId="activeColorTab"
                     className="absolute inset-0 bg-[#6B1D2F] rounded-full shadow-lg shadow-[#6B1D2F]/25 -z-10"
                     transition={{ type: 'spring', stiffness: 400, damping: 30 }}
@@ -93,7 +92,7 @@ export const ColorGradingShowcase = () => {
         </div>
 
         {/* Interactive Before/After Slider Container */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -106,9 +105,9 @@ export const ColorGradingShowcase = () => {
           onTouchMove={handleTouchMove}
         >
           {/* Graded Layer (Base Image) */}
-          <img 
-            src={currentSample.gradedImage} 
-            alt="Final Graded Master" 
+          <img
+            src={currentSample.gradedImage}
+            alt="Final Graded Master"
             className="absolute inset-0 w-full h-full object-cover pointer-events-none"
           />
           <span className="absolute bottom-5 right-5 bg-[#6B1D2F] text-white text-xs uppercase tracking-widest px-4 py-2 rounded-full font-black shadow-xl z-10 flex items-center gap-1.5">
@@ -116,13 +115,13 @@ export const ColorGradingShowcase = () => {
           </span>
 
           {/* RAW Log Layer (Clipped Left) */}
-          <div 
+          <div
             className="absolute inset-0 overflow-hidden pointer-events-none"
             style={{ width: `${sliderPosition}%` }}
           >
-            <img 
-              src={currentSample.logImage} 
-              alt="RAW Log Flat Footage" 
+            <img
+              src={currentSample.logImage}
+              alt="RAW Log Flat Footage"
               className="absolute inset-0 h-full object-cover max-w-none"
               style={{ width: '100%', minWidth: '100%' }}
             />
@@ -132,7 +131,7 @@ export const ColorGradingShowcase = () => {
           </div>
 
           {/* Vertical Slider Handle Line */}
-          <div 
+          <div
             className="absolute top-0 bottom-0 w-0.5 bg-white/90 shadow-2xl z-20 pointer-events-none"
             style={{ left: `calc(${sliderPosition}% - 1px)` }}
           >

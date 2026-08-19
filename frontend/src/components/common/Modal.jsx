@@ -24,7 +24,7 @@ export const Modal = ({ isOpen, onClose, project }) => {
     <AnimatePresence>
       <div className="fixed inset-0 z-[10000] flex items-center justify-center p-3 sm:p-6 md:p-8">
         {/* Animated Dark Glass Backdrop */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -33,14 +33,14 @@ export const Modal = ({ isOpen, onClose, project }) => {
         />
 
         {/* Modal Container */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, scale: 0.94, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.94, y: 20 }}
           transition={{ type: 'spring', stiffness: 350, damping: 28 }}
           className="relative w-full max-w-5xl max-h-[92vh] bg-white border border-[#C59A9F]/40 rounded-3xl shadow-2xl overflow-y-auto overflow-x-hidden z-10 flex flex-col my-auto border-t-2 border-t-[#6B1D2F]"
         >
-          
+
           {/* Sticky Header Bar */}
           <div className="sticky top-0 bg-white/95 backdrop-blur-xl border-b border-[#E5D9DB] px-6 py-4 flex items-center justify-between z-20">
             <div className="flex items-center gap-3">
@@ -50,7 +50,7 @@ export const Modal = ({ isOpen, onClose, project }) => {
               <span className="text-xs text-[#78716C] font-semibold">{project.client} • {project.year || '2025'}</span>
             </div>
 
-            <button 
+            <button
               onClick={onClose}
               className="w-9 h-9 rounded-full bg-[#FAFAF9] border border-[#E5D9DB] flex items-center justify-center text-[#78716C] hover:text-[#6B1D2F] hover:border-[#6B1D2F] hover:bg-[#F5E8EA] transition-all shadow-sm"
               aria-label="Close modal"
@@ -61,7 +61,7 @@ export const Modal = ({ isOpen, onClose, project }) => {
 
           {/* Content Body */}
           <div className="p-6 sm:p-8 space-y-8">
-            
+
             {/* Media Player Container */}
             <div className="relative aspect-video rounded-2xl overflow-hidden bg-black border border-[#E5D9DB] shadow-2xl">
               {project.videoUrl ? (
@@ -82,10 +82,10 @@ export const Modal = ({ isOpen, onClose, project }) => {
                   />
                 )
               ) : (
-                <img 
-                  src={project.thumbnail} 
+                <img
+                  src={project.thumbnail}
                   alt={project.title}
-                  className="w-full h-full object-cover" 
+                  className="w-full h-full object-cover"
                 />
               )}
             </div>

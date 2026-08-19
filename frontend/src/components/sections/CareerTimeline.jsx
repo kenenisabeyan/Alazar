@@ -2,9 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Briefcase, Download, Calendar, MapPin, CheckCircle2 } from 'lucide-react';
 import Button from '../common/Button';
-import { careerExperience, theme } from '../../utils/constants';
+import { careerExperience, theme } from '../../constants';
 
-export const CareerTimeline = ({ setCurrentPage }) => {
+export const CareerTimeline = () => {
   const handleDownloadCV = () => {
     const link = document.createElement('a');
     link.href = '/resume.pdf';
@@ -18,7 +18,7 @@ export const CareerTimeline = ({ setCurrentPage }) => {
   return (
     <section className="py-28 bg-[#F4F0EF] relative" style={{ fontFamily: theme.fonts.body }}>
       <div className="container mx-auto px-6 md:px-12 max-w-6xl">
-        
+
         {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
           <div>
@@ -31,12 +31,12 @@ export const CareerTimeline = ({ setCurrentPage }) => {
             </h2>
           </div>
 
-          <motion.div 
-            whileHover={{ scale: 1.03 }} 
+          <motion.div
+            whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
           >
-            <Button 
-              variant="primary" 
+            <Button
+              variant="primary"
               icon={<Download size={16} />}
               onClick={handleDownloadCV}
             >
@@ -48,7 +48,7 @@ export const CareerTimeline = ({ setCurrentPage }) => {
         {/* Timeline Items */}
         <div className="relative border-l-2 border-[#E5D9DB] ml-2 sm:ml-4 md:ml-8 space-y-8 sm:space-y-12 pl-4 sm:pl-6 md:pl-10 text-left">
           {careerExperience.map((exp, idx) => (
-            <motion.div 
+            <motion.div
               key={idx}
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}

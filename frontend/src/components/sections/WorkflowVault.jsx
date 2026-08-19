@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ShieldCheck, MessageSquare, Film, Download, Layers } from 'lucide-react';
-import { theme } from '../../utils/constants';
+import { theme } from '../../constants';
 
 export const WorkflowVault = () => {
   const steps = [
@@ -30,10 +30,10 @@ export const WorkflowVault = () => {
   return (
     <section className="py-28 bg-[#FAFAF9] relative" style={{ fontFamily: theme.fonts.body }}>
       <div className="container mx-auto px-6 md:px-12 max-w-7xl">
-        
+
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <motion.span 
+          <motion.span
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -41,7 +41,7 @@ export const WorkflowVault = () => {
           >
             How I Work
           </motion.span>
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -51,7 +51,7 @@ export const WorkflowVault = () => {
           >
             Simple & Clear <span className="italic font-light text-[#6B1D2F]">Client Process</span>
           </motion.h2>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

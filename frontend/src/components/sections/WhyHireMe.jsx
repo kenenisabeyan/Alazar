@@ -1,19 +1,21 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ShieldCheck, Clock, FileCheck, Music, MessageCircle, ArrowRight } from 'lucide-react';
 import Button from '../common/Button';
-import { hiringGuarantees, theme } from '../../utils/constants';
+import { hiringGuarantees, theme } from '../../constants';
 
-export const WhyHireMe = ({ setCurrentPage }) => {
+export const WhyHireMe = () => {
+  const navigate = useNavigate();
   const guaranteeIcons = [Clock, FileCheck, MessageCircle, Music];
 
   return (
     <section className="py-28 bg-[#FAFAF9] relative" style={{ fontFamily: theme.fonts.body }}>
       <div className="container mx-auto px-6 md:px-12 max-w-7xl">
-        
+
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <motion.span 
+          <motion.span
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -23,7 +25,7 @@ export const WhyHireMe = ({ setCurrentPage }) => {
             Client Assurance
           </motion.span>
 
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -34,7 +36,7 @@ export const WhyHireMe = ({ setCurrentPage }) => {
             Why Hire <span className="italic font-light text-[#6B1D2F]">Me?</span>
           </motion.h2>
 
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -90,13 +92,10 @@ export const WhyHireMe = ({ setCurrentPage }) => {
             </p>
           </div>
 
-          <Button 
-            variant="primary" 
+          <Button
+            variant="primary"
             icon={<ArrowRight size={16} />}
-            onClick={() => {
-              if (setCurrentPage) setCurrentPage('contact');
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
+            onClick={() => { navigate('/contact'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
           >
             Start Project Inquiry
           </Button>

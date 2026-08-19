@@ -1,16 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { btsGallery, theme } from '../../utils/constants';
+import { btsGallery, theme } from '../../constants';
 import { Camera, MapPin } from 'lucide-react';
 
 export const BehindTheScenes = () => {
   return (
     <section className="py-28 bg-[#FAFAF9] relative" style={{ fontFamily: theme.fonts.body }}>
       <div className="container mx-auto px-6 md:px-12 max-w-7xl">
-        
+
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <motion.span 
+          <motion.span
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -18,7 +18,7 @@ export const BehindTheScenes = () => {
           >
             Behind The Scenes
           </motion.span>
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -28,7 +28,7 @@ export const BehindTheScenes = () => {
           >
             On Set & <span className="italic font-light text-[#6B1D2F]">In The Studio</span>
           </motion.h2>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -52,9 +52,9 @@ export const BehindTheScenes = () => {
               className="bg-white rounded-2xl overflow-hidden border border-[#E5D9DB] shadow-sm hover:shadow-md transition-all group flex flex-col justify-between"
             >
               <div className="relative aspect-[4/3] overflow-hidden bg-black">
-                <img 
-                  src={item.image} 
-                  alt={item.title} 
+                <img
+                  src={item.image}
+                  alt={item.title}
                   className="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
                 <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-semibold text-[#1C1917] flex items-center gap-1.5 shadow-sm">
