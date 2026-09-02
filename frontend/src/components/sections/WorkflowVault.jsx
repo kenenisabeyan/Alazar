@@ -1,101 +1,235 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ShieldCheck, MessageSquare, Film, Download, Layers } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import {
+  MessageSquare, Layers, Film, Download,
+  ShieldCheck, ArrowRight, CheckCircle2,
+} from 'lucide-react';
 import { theme } from '../../constants';
 
+const steps = [
+  {
+    number: '01',
+    icon: MessageSquare,
+    title: 'Creative Brief',
+    subtitle: 'Alignment & Vision',
+    desc: 'Deep-dive discovery session to align on your creative goals, target audience, style references, technical requirements, and delivery timeline.',
+    details: ['Project goals & KPIs defined', 'Style references & mood board review', 'Technical specs & delivery formats agreed', 'Timeline & milestone schedule set'],
+    duration: '1 Day',
+    color: '#6B1D2F',
+  },
+  {
+    number: '02',
+    icon: Layers,
+    title: 'Draft & Review',
+    subtitle: 'Collaborative Iteration',
+    desc: 'Review annotated video drafts and design concepts online with timecoded feedback — no email chains. Direct, frame-accurate collaboration.',
+    details: ['Frame.io timecoded review link provided', 'Unlimited annotation comments', '2 structured revision rounds included', 'Screen-share sessions available on demand'],
+    duration: '2–4 Days',
+    color: '#8B1E3F',
+  },
+  {
+    number: '03',
+    icon: Film,
+    title: 'Polish & Grade',
+    subtitle: 'Precision Finishing',
+    desc: 'Final color grade, Fairlight audio polish, sound FX layering, motion graphics rendering, and export quality control across all formats.',
+    details: ['DaVinci Resolve professional color grade', 'Broadcast-compliant audio master', 'Motion graphics & title card finalization', 'All formats: 4K, 1080p, vertical & square'],
+    duration: '1–2 Days',
+    color: '#6B1D2F',
+  },
+  {
+    number: '04',
+    icon: Download,
+    title: 'Final Delivery',
+    subtitle: 'Master Archive Package',
+    desc: 'Secure cloud delivery of all finished assets — master files, social cuts, project sources, and audio stems — fully organized and archived.',
+    details: ['ProRes 422 HQ 4K/8K master files', 'All social media format cuts included', 'Source project files & RAW footage', 'Permanent secure archive link'],
+    duration: '1 Day',
+    color: '#6B1D2F',
+  },
+];
+
 export const WorkflowVault = () => {
-  const steps = [
-    {
-      icon: MessageSquare,
-      title: "1. Creative Brief",
-      desc: "I discuss your goals, target audience, style references, and project timeline."
-    },
-    {
-      icon: Layers,
-      title: "2. Online Draft Review",
-      desc: "Review video drafts online and leave clear notes directly on specific frames."
-    },
-    {
-      icon: Film,
-      title: "3. Color & Audio Polish",
-      desc: "Fine-tuning video colors, audio levels, sound effects, and smooth cuts."
-    },
-    {
-      icon: Download,
-      title: "4. Final Delivery",
-      desc: "Download your finished high-resolution videos, social media clips, and project files."
-    }
-  ];
+  const [activeStep, setActiveStep] = useState(0);
+  const step = steps[activeStep];
+  const Icon = step.icon;
 
   return (
-    <section className="py-28 bg-[#FAFAF9] relative" style={{ fontFamily: theme.fonts.body }}>
-      <div className="container mx-auto px-6 md:px-12 max-w-7xl">
+    <section
+      className="py-28 sm:py-36 relative overflow-hidden"
+      style={{ fontFamily: theme.fonts.body, background: '#FAFAF9' }}
+    >
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#C59A9F]/10 blur-[160px] rounded-full pointer-events-none" />
+
+      <div className="container mx-auto px-6 md:px-12 max-w-7xl relative z-10">
 
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <motion.span
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-xs uppercase tracking-widest text-[#6B1D2F] font-semibold block"
-          >
-            How I Work
-          </motion.span>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-bold text-[#1C1917]"
-            style={{ fontFamily: theme.fonts.heading }}
-          >
-            Simple & Clear <span className="italic font-light text-[#6B1D2F]">Client Process</span>
-          </motion.h2>
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-16">
+          <div>
+            <motion.span
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center gap-2 text-[11px] uppercase tracking-widest text-[#6B1D2F] font-black mb-4 block"
+            >
+              <ShieldCheck size={13} /> Client Process
+            </motion.span>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.08 }}
+              className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] leading-[1.06] tracking-tight"
+              style={{ fontFamily: theme.fonts.heading }}
+            >
+              Simple & Transparent<br />
+              <span className="italic font-light text-gradient-burgundy">Production Workflow.</span>
+            </motion.h2>
+          </div>
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-[#78716C] font-light text-base"
+            transition={{ delay: 0.15 }}
+            className="text-[#78716C] font-light text-base max-w-xs leading-relaxed"
           >
-            Working together is easy, organized, and transparent at every step.
+            Four clear phases from initial brief to final delivery — zero confusion, full transparency.
           </motion.p>
         </div>
 
-        {/* Workflow Steps Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {steps.map((step, idx) => {
-            const IconComponent = step.icon;
-            return (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                whileHover={{ y: -5 }}
-                className="bg-white p-7 rounded-2xl border border-[#E5D9DB] shadow-sm hover:border-[#C59A9F] transition-all text-center flex flex-col items-center justify-between"
-              >
-                <div className="flex flex-col items-center">
-                  <div className="w-14 h-14 rounded-2xl bg-[#F5E8EA] border border-[#C59A9F]/30 text-[#6B1D2F] flex items-center justify-center mb-6 mx-auto shadow-sm">
-                    <IconComponent size={26} />
+        {/* Step selector + detail panel */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+
+          {/* Left: step selectors */}
+          <div className="lg:col-span-5 flex flex-col gap-3">
+            {steps.map((s, idx) => {
+              const StepIcon = s.icon;
+              const isActive = idx === activeStep;
+              return (
+                <motion.button
+                  key={s.number}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.08 }}
+                  onClick={() => setActiveStep(idx)}
+                  className={`w-full text-left flex items-center gap-4 p-5 rounded-2xl border-2 transition-all duration-300 group ${isActive
+                      ? 'bg-[#6B1D2F] border-[#6B1D2F] text-white shadow-xl shadow-[#6B1D2F]/25'
+                      : 'bg-white border-[#C59A9F]/50 text-[#1C1917] hover:border-[#6B1D2F]'
+                    }`}
+                >
+                  {/* Number badge */}
+                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 font-black text-sm transition-all ${isActive
+                      ? 'bg-white/20 text-white shadow-md'
+                      : 'bg-[#FAFAF9] text-[#6B1D2F] group-hover:bg-[#6B1D2F] group-hover:text-white'
+                    }`}>
+                    {s.number}
                   </div>
-                  <h4 className="text-lg font-bold text-[#1C1917] mb-2" style={{ fontFamily: theme.fonts.heading }}>
-                    {step.title}
-                  </h4>
-                  <p className="text-xs text-[#78716C] font-light leading-relaxed">
-                    {step.desc}
-                  </p>
+
+                  <div className="flex-1 min-w-0">
+                    <p className={`text-[10px] font-black uppercase tracking-widest mb-0.5 ${isActive ? 'text-[#FAFAF9]/80' : 'text-[#78716C]'}`}>
+                      {s.subtitle}
+                    </p>
+                    <h4 className={`text-sm font-black leading-tight ${isActive ? 'text-white' : 'text-[#1C1917]'}`}
+                      style={{ fontFamily: theme.fonts.heading }}>
+                      {s.title}
+                    </h4>
+                  </div>
+
+                  <div className={`text-[10px] font-bold px-2.5 py-1 rounded-full flex-shrink-0 ${isActive
+                      ? 'bg-white/20 text-white'
+                      : 'bg-[#FAFAF9] text-[#6B1D2F]'
+                    }`}>
+                    {s.duration}
+                  </div>
+                </motion.button>
+              );
+            })}
+          </div>
+
+          {/* Right: detail card */}
+          <div className="lg:col-span-7">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeStep}
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -30 }}
+                transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                className="h-full bg-white rounded-[2rem] border border-[#C59A9F] shadow-xl p-8 sm:p-10 flex flex-col"
+              >
+                {/* Icon + step */}
+                <div className="flex items-start justify-between mb-8">
+                  <div className="flex items-center gap-4">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center shadow-xl shadow-[#6B1D2F]/25">
+                      <Icon size={28} />
+                    </div>
+                    <div>
+                      <p className="text-[10px] font-black uppercase tracking-widest text-[#6B1D2F] mb-0.5">
+                        Step {step.number} / {steps.length}
+                      </p>
+                      <h3
+                        className="text-2xl font-black text-[#1C1917]"
+                        style={{ fontFamily: theme.fonts.heading }}
+                      >
+                        {step.title}
+                      </h3>
+                    </div>
+                  </div>
+                  <span className="text-[11px] font-black text-[#6B1D2F] bg-[#FAFAF9] border border-[#C59A9F]/50 px-3 py-1.5 rounded-full flex-shrink-0">
+                    {step.duration}
+                  </span>
                 </div>
 
-                <div className="w-full mt-6 pt-4 border-t border-[#E5D9DB]/60 flex items-center justify-center gap-1.5 text-[11px] text-[#6B1D2F] font-semibold uppercase tracking-wider">
-                  <ShieldCheck size={14} /> Quality Guaranteed
+                <p className="text-[#78716C] font-light leading-relaxed mb-8 text-sm sm:text-base flex-grow">
+                  {step.desc}
+                </p>
+
+                <div className="pt-6 border-t border-[#C59A9F]">
+                  <p className="text-[10px] font-black uppercase tracking-widest text-[#6B1D2F] mb-4">
+                    What's Included
+                  </p>
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    {step.details.map((d, i) => (
+                      <li key={i} className="flex items-center gap-2.5 text-xs text-[#1C1917] font-medium">
+                        <CheckCircle2 size={14} className="text-[#6B1D2F] flex-shrink-0" />
+                        {d}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Step nav */}
+                <div className="flex items-center gap-3 mt-8">
+                  <button
+                    disabled={activeStep === 0}
+                    onClick={() => setActiveStep(s => s - 1)}
+                    className="w-9 h-9 rounded-full border border-[#C59A9F] flex items-center justify-center text-[#78716C] hover:border-[#6B1D2F] hover:text-[#6B1D2F] disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+                  >
+                    <ArrowRight size={14} className="rotate-180" />
+                  </button>
+                  <div className="flex gap-1.5 flex-1 justify-center">
+                    {steps.map((_, i) => (
+                      <button
+                        key={i}
+                        onClick={() => setActiveStep(i)}
+                        className={`h-1.5 rounded-full transition-all ${i === activeStep ? 'w-8 bg-[#6B1D2F]' : 'w-1.5 bg-[#C59A9F]/50'
+                          }`}
+                      />
+                    ))}
+                  </div>
+                  <button
+                    disabled={activeStep === steps.length - 1}
+                    onClick={() => setActiveStep(s => s + 1)}
+                    className="w-9 h-9 rounded-full border border-[#C59A9F] flex items-center justify-center text-[#78716C] hover:border-[#6B1D2F] hover:text-[#6B1D2F] disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+                  >
+                    <ArrowRight size={14} />
+                  </button>
                 </div>
               </motion.div>
-            );
-          })}
+            </AnimatePresence>
+          </div>
         </div>
-
       </div>
     </section>
   );

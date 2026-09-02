@@ -15,7 +15,7 @@ export const Button = ({
 
   const variants = {
     // Rich Burgundy Brand Gradient with ambient glow & sheen
-    primary: "bg-gradient-to-r from-[#6B1D2F] via-[#7D2237] to-[#8B2440] text-white shadow-lg shadow-[#6B1D2F]/25 hover:shadow-xl hover:shadow-[#6B1D2F]/40 hover:-translate-y-0.5 border border-white/10",
+    primary: "bg-gradient-to-r from-[#6B1D2F] via-[#7D2237] to-[#8B1E3F] text-white shadow-lg shadow-[#6B1D2F]/25 hover:shadow-xl hover:shadow-[#6B1D2F]/40 hover:-translate-y-0.5 border border-white/10",
     // Pristine White glass with burgundy border & text, hover fill transition
     secondary: "bg-white/95 backdrop-blur-md text-[#6B1D2F] border-2 border-[#6B1D2F]/80 hover:bg-[#6B1D2F] hover:text-white shadow-md shadow-black/5 hover:shadow-lg hover:-translate-y-0.5",
     // Inverted luxury light pill for dark burgundy cards/banners
@@ -23,7 +23,7 @@ export const Button = ({
     // Subtle frosted outline button
     outline: "bg-white/80 backdrop-blur-sm text-[#1C1917] border-2 border-[#C59A9F] hover:border-[#6B1D2F] hover:text-[#6B1D2F] hover:bg-white hover:-translate-y-0.5 shadow-sm",
     // Soft transparent hover pill
-    ghost: "bg-transparent text-[#1C1917] hover:text-[#6B1D2F] hover:bg-[#F5E8EA]/80"
+    ghost: "bg-transparent text-[#1C1917] hover:text-[#6B1D2F] hover:bg-[#FAFAF9]/80"
   };
 
   return (

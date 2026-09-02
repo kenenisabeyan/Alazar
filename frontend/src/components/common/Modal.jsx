@@ -28,7 +28,7 @@ export const Modal = ({ isOpen, onClose, project }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-[#1C1917]/85 backdrop-blur-2xl transition-opacity"
+          className="fixed inset-0 bg-[#1E0A0D]/75 backdrop-blur-2xl transition-opacity"
           onClick={onClose}
         />
 
@@ -42,7 +42,7 @@ export const Modal = ({ isOpen, onClose, project }) => {
         >
 
           {/* Sticky Header Bar */}
-          <div className="sticky top-0 bg-white/95 backdrop-blur-xl border-b border-[#E5D9DB] px-6 py-4 flex items-center justify-between z-20">
+          <div className="sticky top-0 bg-white/95 backdrop-blur-xl border-b border-[#C59A9F] px-6 py-4 flex items-center justify-between z-20">
             <div className="flex items-center gap-3">
               <span className="text-xs uppercase tracking-widest px-3.5 py-1 bg-[#6B1D2F] text-white rounded-full font-black shadow-sm">
                 {project.category}
@@ -52,7 +52,7 @@ export const Modal = ({ isOpen, onClose, project }) => {
 
             <button
               onClick={onClose}
-              className="w-9 h-9 rounded-full bg-[#FAFAF9] border border-[#E5D9DB] flex items-center justify-center text-[#78716C] hover:text-[#6B1D2F] hover:border-[#6B1D2F] hover:bg-[#F5E8EA] transition-all shadow-sm"
+              className="w-9 h-9 rounded-full bg-[#FAFAF9] border border-[#C59A9F] flex items-center justify-center text-[#78716C] hover:text-[#6B1D2F] hover:border-[#6B1D2F] hover:bg-[#FAFAF9] transition-all shadow-sm"
               aria-label="Close modal"
             >
               <X size={18} />
@@ -63,7 +63,7 @@ export const Modal = ({ isOpen, onClose, project }) => {
           <div className="p-6 sm:p-8 space-y-8">
 
             {/* Media Player Container */}
-            <div className="relative aspect-video rounded-2xl overflow-hidden bg-black border border-[#E5D9DB] shadow-2xl">
+            <div className="relative aspect-video rounded-2xl overflow-hidden bg-[#1E0A0D] border border-[#C59A9F] shadow-2xl">
               {project.videoUrl ? (
                 project.videoUrl.includes('.mp4') ? (
                   <video
@@ -109,7 +109,7 @@ export const Modal = ({ isOpen, onClose, project }) => {
                   <p className="text-[#1C1917] text-sm font-bold">{project.role || 'Lead Creative Director'}</p>
                 </div>
 
-                <div className="pt-3 border-t border-[#E5D9DB]">
+                <div className="pt-3 border-t border-[#C59A9F]">
                   <h4 className="text-[11px] uppercase tracking-widest text-[#6B1D2F] font-extrabold mb-3 flex items-center gap-1.5">
                     <Sparkles size={12} /> Deliverable Modules
                   </h4>
@@ -128,7 +128,7 @@ export const Modal = ({ isOpen, onClose, project }) => {
           </div>
 
           {/* Modal Footer */}
-          <div className="bg-[#FAFAF9] px-8 py-4 border-t border-[#E5D9DB] flex justify-end">
+          <div className="bg-[#FAFAF9] px-8 py-4 border-t border-[#C59A9F] flex justify-end">
             <Button variant="secondary" className="text-xs py-2.5 px-6 rounded-full font-bold uppercase tracking-wider" onClick={onClose}>
               Close Window
             </Button>

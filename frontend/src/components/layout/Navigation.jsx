@@ -76,13 +76,13 @@ export const Navigation = () => {
           style={{ fontFamily: theme.fonts.heading }}
           aria-label="Navigate to Home"
         >
-          <div className="relative p-0.5 rounded-full bg-gradient-to-tr from-[#6B1D2F] via-[#8B2440] to-[#C59A9F] shadow-md shadow-[#6B1D2F]/20 group-hover:scale-105 transition-transform duration-300">
+          <div className="relative group-hover:scale-105 transition-transform duration-300">
             <img
               src={alazarImg}
               alt="Alazar Profile Icon"
-              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full object-cover object-top border border-white cursor-pointer"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full object-cover object-top cursor-pointer"
             />
-            <span className="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-emerald-500 border-2 border-white ring-1 ring-emerald-400" />
+            <span className="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-emerald-500 ring-2 ring-[#FAFAF9] dark:ring-[#1E0A0D]" />
           </div>
           <div className="flex flex-col text-left">
             <span className="text-base sm:text-lg font-black tracking-widest leading-none">ALAZAR</span>
@@ -90,7 +90,7 @@ export const Navigation = () => {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center space-x-2 bg-white/80 dark:bg-[#2E1216]/90 backdrop-blur-xl border border-white/80 dark:border-white/10 rounded-full px-3 py-1.5 shadow-md">
+        <nav className="hidden md:flex items-center space-x-2 bg-[#FAFAF9]/75 dark:bg-[#1E0A0D]/75 backdrop-blur-xl rounded-full px-4 py-2">
           {navLinks.map((link) => {
             const active = isActive(link.path);
             return (
@@ -99,13 +99,13 @@ export const Navigation = () => {
                 to={link.path}
                 className={`relative px-4 py-2 text-xs tracking-widest uppercase font-black transition-all duration-300 ${active
                   ? 'text-[#6B1D2F] dark:text-[#8B1E3F]'
-                  : 'text-[#0F0D0D] dark:text-[#F5F0F1] hover:text-[#6B1D2F]'
+                  : 'text-[#1C1917] dark:text-[#F5F0F1] hover:text-[#6B1D2F]'
                   }`}
               >
                 {active && (
                   <motion.div
                     layoutId="activeNavTab"
-                    className="absolute inset-0 bg-[#F5E8EA] dark:bg-[#8B1E3F]/25 border border-[#C59A9F]/60 rounded-full -z-10 shadow-sm"
+                    className="absolute inset-0 bg-[#6B1D2F]/10 dark:bg-[#8B1E3F]/30 rounded-full -z-10"
                     transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -120,7 +120,7 @@ export const Navigation = () => {
           {/* Theme Toggle */}
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-full bg-[#F5E8EA] dark:bg-[#1E0A0D] border border-[#C59A9F]/40 text-[#6B1D2F] dark:text-[#F5F0F1] hover:scale-110 transition-all shadow-sm ml-1"
+            className="p-2 rounded-full bg-transparent text-[#6B1D2F] dark:text-[#F5F0F1] hover:bg-[#6B1D2F]/10 dark:hover:bg-white/10 hover:scale-110 transition-all ml-1"
             title={isDarkMode ? 'Switch to Light Canvas' : 'Switch to Dark Burgundy'}
           >
             {isDarkMode ? (
@@ -130,10 +130,10 @@ export const Navigation = () => {
             )}
           </button>
 
-          <div className="flex items-center gap-3 ml-2 pl-3 border-l border-[#E5D9DB] dark:border-white/10">
+          <div className="flex items-center gap-3 ml-2 pl-1">
             <Button
-              variant="outline"
-              className="text-[11px] px-4 py-2 font-black tracking-wider uppercase border-2 border-[#6B1D2F] dark:border-[#8B1E3F] text-[#6B1D2F] dark:text-[#F5F0F1] hover:bg-[#F5E8EA] dark:hover:bg-[#8B1E3F]/30 rounded-full shadow-sm"
+              variant="ghost"
+              className="text-[11px] px-4 py-2 font-black tracking-wider uppercase text-[#6B1D2F] dark:text-[#F5F0F1] hover:bg-[#6B1D2F]/10 dark:hover:bg-white/10 rounded-full transition-all"
               onClick={handleDownloadCV}
               icon={<Download size={13} />}
             >
@@ -153,7 +153,7 @@ export const Navigation = () => {
 
         {/* Mobile Hamburger */}
         <button
-          className="md:hidden text-[#1C1917] p-2 focus:outline-none bg-white/80 rounded-full border border-[#E5D9DB]"
+          className="md:hidden text-[#1C1917] dark:text-[#F5F0F1] p-2 focus:outline-none bg-[#FAFAF9]/80 dark:bg-[#1E0A0D]/80 rounded-full"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle navigation menu"
         >
@@ -169,7 +169,7 @@ export const Navigation = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden fixed inset-x-4 top-20 bg-[#FAFAF9]/95 backdrop-blur-2xl shadow-2xl rounded-3xl p-6 flex flex-col space-y-4 border border-[#C59A9F]/40 z-50"
+            className="md:hidden fixed inset-x-4 top-20 bg-[#FAFAF9]/95 dark:bg-[#1E0A0D]/95 backdrop-blur-2xl shadow-2xl rounded-3xl p-6 flex flex-col space-y-4 border border-[#C59A9F]/20 dark:border-white/10 z-50"
           >
             {navLinks.map((link) => (
               <Link
@@ -177,16 +177,16 @@ export const Navigation = () => {
                 to={link.path}
                 className={`text-left font-bold text-lg uppercase tracking-wider py-3 px-4 rounded-xl transition-all block ${isActive(link.path)
                   ? 'bg-[#6B1D2F] text-white shadow-lg'
-                  : 'text-[#1C1917] hover:bg-[#F5E8EA]'
+                  : 'text-[#1C1917] dark:text-[#F5F0F1] hover:bg-[#6B1D2F]/10 dark:hover:bg-white/10'
                   }`}
               >
                 {link.name}
               </Link>
             ))}
-            <div className="pt-4 border-t border-[#E5D9DB] flex flex-col gap-3">
+            <div className="pt-4 border-t border-[#C59A9F]/30 flex flex-col gap-3">
               <Button
                 variant="outline"
-                className="w-full py-3 border-[#6B1D2F] text-[#6B1D2F] rounded-xl"
+                className="w-full py-3 border-[#6B1D2F] dark:border-[#8B1E3F] text-[#6B1D2F] dark:text-[#F5F0F1] rounded-xl"
                 onClick={handleDownloadCV}
                 icon={<Download size={16} />}
               >

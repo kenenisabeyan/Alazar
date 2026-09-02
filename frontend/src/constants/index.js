@@ -1,32 +1,50 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// Theme — colors & fonts used across all components
+// Theme — exact brand tokens from Alazar's color brief
+//
+//  LIGHT  ·  background #FAFAF9  ·  brand #6B1D2F  ·  soft rose #C59A9F
+//           text #1C1917  ·  muted #78716C
+//
+//  DARK   ·  bg #1E0A0D  ·  card #2E1216  ·  accent #8B1E3F
+//           text #F5F0F1  ·  muted #A89597
 // ─────────────────────────────────────────────────────────────────────────────
 export const theme = {
   colors: {
-    background:   '#FAFAF9',
-    brand:        '#6B1D2F',
-    accent:       '#6B1D2F',
-    accentSoft:   '#C59A9F',
-    accentHover:  '#8B2440',
-    accentLight:  '#F5E8EA',
-    cardBg:       '#FFFFFF',
-    surfaceAlt:   '#F4F0EF',
-    text:         '#1C1917',
-    textMuted:    '#78716C',
-    border:       '#E5D9DB',
+    // ── Light canvas palette ────────────────────────────────────────────────
+    background: '#FAFAF9',   // Clean Canvas Off-White
+    surface: '#FAFAF9',   // Warm cream alternate sections
+    surfaceAlt: '#FAFAF9',   // Faint rose tint
+
+    brand: '#6B1D2F',   // Rich Burgundy — signature color
+    brandHover: '#8B1E3F',   // Hover state
+    brandDeep: '#1E0A0D',   // Pressed / ultra-dark
+    brandSoft: '#C59A9F',   // Soft Rose — borders & highlights
+    brandFaint: '#FAFAF9',   // Ultra-light rose tint
+
+    cardBg: '#FFFFFF',   // Pure white cards
+    text: '#1C1917',   // Charcoal — primary readability
+    textMuted: '#78716C',   // Muted Slate — secondary text
+    border: '#C59A9F',   // Soft rose-gray border
+
+    // ── Dark burgundy night palette ─────────────────────────────────────────
     dark: {
-      backgroundPrimary:   '#1E0A0D',
-      backgroundSecondary: '#2E1216',
-      accent:              '#8B1E3F',
-      accentHover:         '#A3234A',
-      textPrimary:         '#F5F0F1',
-      textSecondary:       '#A89597',
-      border:              'rgba(139, 30, 63, 0.25)',
+      bgPrimary: '#1E0A0D',   // Deep Dark Burgundy
+      bgSecondary: '#2E1216',   // Card / section backgrounds
+      bgSurface: '#2E1216',   // Slightly lighter surface
+
+      accent: '#8B1E3F',   // Bright Rose Burgundy
+      accentHover: '#8B1E3F',   // Hover state
+      accentDeep: '#6B1D2F',   // Deep pressed
+
+      textPrimary: '#F5F0F1', // Off-White
+      textSecondary: '#A89597', // Muted Rose-Gray
+      border: 'rgba(139, 30, 63, 0.25)',
+      borderBrand: 'rgba(139, 30, 63, 0.50)',
     },
   },
+
   fonts: {
     heading: "'Roboto', sans-serif",
-    body:    "'Roboto', sans-serif",
+    body: "'Roboto', sans-serif",
   },
 };
 
@@ -36,80 +54,184 @@ export const theme = {
 export const portfolioProjects = [
   {
     id: 1,
-    title: 'Urban Echoes',
+    title: 'Urban Echoes Commercial',
     category: 'video',
+    subCategory: 'Commercial Video',
     client: 'Vanguard Apparel',
-    thumbnail: 'https://images.unsplash.com/photo-1604998103924-89e012e5265a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    thumbnail: 'https://images.unsplash.com/photo-1536240478700-b869070f9279?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     previewVideoUrl: '/assets/sample-showreel.mp4',
     videoUrl: '/assets/sample-showreel.mp4',
-    description: "A fast-paced video for Vanguard's Fall collection. Focuses on movement, rhythm, and a clean color style.",
+    description: "A high-octane commercial edit for Vanguard's Fall collection. Focused on kinetic movement, rhythmic cuts, and a sleek color grade.",
     role: 'Lead Video Editor & Colorist',
-    deliverables: ['60s Video Reel', '3x Short Social Clips', 'Full Audio Mix'],
+    deliverables: ['60s Commercial Reel', '3x Short Social Clips', 'Full Audio Mix'],
     year: '2025',
   },
   {
     id: 2,
-    title: 'Lumina Brand Identity',
+    title: 'Lumina Brand Profile Book',
     category: 'design',
+    subCategory: 'Brand Profile Book',
     client: 'Lumina Tech',
     thumbnail: 'https://images.unsplash.com/photo-1626785773579-c93818bb51d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     previewVideoUrl: null,
     videoUrl: null,
-    description: 'A complete brand redesign for a modern tech company. Built to create a simple, clean look that stands out clearly.',
+    description: 'Complete brand identity book design and visual strategy for a modern tech company, built with clean typography and grid balance.',
     role: 'Art Director & Graphic Designer',
     deliverables: ['Logo System & Guide', 'Brand Strategy Book', 'UI Kit & Fonts'],
     year: '2024',
   },
   {
     id: 3,
-    title: 'The Craftsman',
+    title: 'The Craftsman Mini-Doc',
     category: 'video',
+    subCategory: 'Documentary Edit',
     client: 'Oak & Iron',
     thumbnail: 'https://images.unsplash.com/photo-1535016120720-40c746a480d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     previewVideoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-carpenter-working-with-wood-41555-large.mp4',
     videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-carpenter-working-with-wood-41555-large.mp4',
-    description: 'A short documentary following a master woodworker. Focuses on clear storytelling, natural sound, and warm colors.',
+    description: 'A cinematic mini-documentary following a master craftsman. Focuses on organic sound design and rich color grading.',
     role: 'Cinematographer & Editor',
     deliverables: ['3-Minute Short Film', 'Audio Mixing', 'Color Grading'],
     year: '2025',
   },
   {
     id: 4,
-    title: 'AURA Festival',
+    title: 'Peace & Character Illustration',
     category: 'design',
+    subCategory: 'Illustration & Art',
+    client: 'Peace Creative Studio',
+    thumbnail: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    previewVideoUrl: null,
+    videoUrl: null,
+    description: 'A series of vibrant character illustrations and vector artworks crafted for apparel prints and digital media.',
+    role: 'Lead Illustrator & Graphic Artist',
+    deliverables: ['Character Vector Suite', 'Print File Masters', 'Sticker Pack Design'],
+    year: '2025',
+  },
+  {
+    id: 5,
+    title: 'Custom Typography & Lettering',
+    category: 'design',
+    subCategory: 'Typography & Typeface',
+    client: 'Typecraft Lab',
+    thumbnail: 'https://images.unsplash.com/photo-1516962215378-7fa2e137ae93?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    previewVideoUrl: null,
+    videoUrl: null,
+    description: 'Experimental editorial typography, custom hand-lettering badges, and brand display font designs.',
+    role: 'Typography Specialist',
+    deliverables: ['Display Typeface Set', 'Hand-Lettering Badges', 'Vector Monograms'],
+    year: '2024',
+  },
+  {
+    id: 6,
+    title: 'Book Cover & Publication Spreads',
+    category: 'design',
+    subCategory: 'Book Cover Design',
+    client: 'Novelist Press',
+    thumbnail: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    previewVideoUrl: null,
+    videoUrl: null,
+    description: '3D book cover renders, spine typography, and editorial publication spreads for a literary anthology series.',
+    role: 'Book & Cover Designer',
+    deliverables: ['3D Hardcover Mockups', 'Spine & Back Jacket', 'Print Layout Spreads'],
+    year: '2025',
+  },
+  {
+    id: 7,
+    title: 'Digital Composite Imaging',
+    category: 'design',
+    subCategory: 'Digital Imaging',
+    client: 'Surreal Vision',
+    thumbnail: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    previewVideoUrl: null,
+    videoUrl: null,
+    description: 'High-end photo manipulation, color matching, and digital composite art for cinematic movie posters.',
+    role: 'Digital Compositor',
+    deliverables: ['High-Res Key Art', 'Multi-Layer PSD Masters', 'Retouching Guide'],
+    year: '2024',
+  },
+  {
+    id: 8,
+    title: 'Artisanal Jar Label & Packaging',
+    category: 'design',
+    subCategory: 'Packaging & Labels',
+    client: 'Rudeku Gourmet',
+    thumbnail: 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    previewVideoUrl: null,
+    videoUrl: null,
+    description: 'Premium label packaging design for artisanal food jars, featuring foil stamp details and custom die-cut labels.',
+    role: 'Packaging Designer',
+    deliverables: ['Die-Cut Jar Labels', 'Box Packaging Design', 'Product 3D Renders'],
+    year: '2025',
+  },
+  {
+    id: 9,
+    title: 'Instagram Feed & Mobile UI Design',
+    category: 'design',
+    subCategory: 'Feed & App UI',
+    client: 'Sunlocal Agency',
+    thumbnail: 'https://images.unsplash.com/photo-1616469829941-c7200edec809?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    previewVideoUrl: null,
+    videoUrl: null,
+    description: 'Cohesive social media grid feed strategy and mobile application preview interfaces designed for high engagement.',
+    role: 'UI & Social Media Designer',
+    deliverables: ['9-Grid Feed Template', 'Figma Mobile UI Kit', 'Story Animation Assets'],
+    year: '2024',
+  },
+  {
+    id: 10,
+    title: 'Promotional Content & 3D Hardware',
+    category: 'design',
+    subCategory: 'Promotional Content',
+    client: 'Apex Gaming Tech',
+    thumbnail: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    previewVideoUrl: null,
+    videoUrl: null,
+    description: '3D product visualization, lighting setup, and promotional ad banners for high-performance gaming gear.',
+    role: '3D & Promotional Designer',
+    deliverables: ['3D Product Renderings', 'Digital Ad Banners', 'Display Kiosk Mockups'],
+    year: '2025',
+  },
+  {
+    id: 11,
+    title: 'AURA Festival Poster System',
+    category: 'design',
+    subCategory: 'Poster Design',
     client: 'AURA Music Group',
     thumbnail: 'https://images.unsplash.com/photo-1557672172-298e090bd0f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     previewVideoUrl: null,
     videoUrl: null,
-    description: 'Poster designs for an electronic music festival, using bold colors and clean 3D graphics.',
+    description: 'A series of striking, abstract 3D poster designs for an electronic music festival designed to capture ambient lighting.',
     role: 'Visual & Poster Designer',
-    deliverables: ['Main Art Posters', '3D Motion Graphics', 'Social Banners'],
+    deliverables: ['Key Art Posters', '3D Motion Graphics', 'Social Banners'],
     year: '2024',
   },
   {
-    id: 5,
-    title: 'Velocity Luxury Car',
+    id: 12,
+    title: 'Velocity Luxury Car Launch',
     category: 'video',
+    subCategory: 'Commercial Edit',
     client: 'Apex Motors',
     thumbnail: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     previewVideoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-sports-car-driving-on-a-road-at-sunset-41549-large.mp4',
     videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-sports-car-driving-on-a-road-at-sunset-41549-large.mp4',
-    description: 'An energetic commercial edit for a sports car launch, featuring smooth timing, clear sound sync, and sleek colors.',
+    description: 'High-octane commercial edit for a sports car launch, featuring speed-ramping, sound sync, and deep dark color grading.',
     role: 'Lead Editor',
-    deliverables: ['30s Video Spot', 'Social Teasers', 'Sound Design'],
+    deliverables: ['30s TV Spot', 'Social Teasers', 'Sound Design'],
     year: '2025',
   },
   {
-    id: 6,
-    title: 'Noir Editorial Spreads',
+    id: 13,
+    title: 'Noir Editorial Magazine Spreads',
     category: 'design',
+    subCategory: 'Editorial Layout',
     client: 'Studio One Magazine',
     thumbnail: 'https://images.unsplash.com/photo-1588636156711-b0728cce7230?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     previewVideoUrl: null,
     videoUrl: null,
-    description: 'Page layouts for a fashion magazine spread, built with clean grids and strong typography.',
+    description: 'Editorial layout design for a high-fashion spread. Focused on rigid grid structures juxtaposed with bold typography.',
     role: 'Editorial & Layout Designer',
-    deliverables: ['16-Page Print Spread', 'Font System', 'Digital Press Kit'],
+    deliverables: ['16-Page Print Spread', 'Typography System', 'Digital Press Kit'],
     year: '2024',
   },
 ];
@@ -118,10 +240,10 @@ export const portfolioProjects = [
 // Statistics
 // ─────────────────────────────────────────────────────────────────────────────
 export const statistics = [
-  { value: '8+',   label: 'Years Experience' },
+  { value: '8+', label: 'Years Experience' },
   { value: '140+', label: 'Projects Completed' },
-  { value: '98%',  label: 'Client Satisfaction' },
-  { value: '12',   label: 'Industry Awards' },
+  { value: '98%', label: 'Client Satisfaction' },
+  { value: '12', label: 'Industry Awards' },
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -172,7 +294,7 @@ export const faqs = [
   },
   {
     q: 'How do we start a project together?',
-    a: 'Simply send a message using my Contact form or email me directly at hello@alazar.com with your project goals and timeline.',
+    a: 'Simply send a message using my Contact form or email me directly at a.asdesach1@gmail.com with your project goals and timeline.',
   },
 ];
 
@@ -183,34 +305,34 @@ export const gearList = [
   {
     category: 'Camera Systems',
     items: [
-      { name: 'RED V-Raptor 8K',      desc: 'Flagship 8K cinema camera for high quality video' },
+      { name: 'RED V-Raptor 8K', desc: 'Flagship 8K cinema camera for high quality video' },
       { name: 'Sony FX6 Cinema Line', desc: 'Full-frame camera for low light and high speed video' },
-      { name: 'BMPCC 6K Pro',         desc: 'Compact secondary camera with built-in ND filters' },
+      { name: 'BMPCC 6K Pro', desc: 'Compact secondary camera with built-in ND filters' },
     ],
   },
   {
     category: 'Lenses & Optics',
     items: [
-      { name: 'Cooke Anamorphic Lenses',   desc: 'Classic cinema lens look with smooth background blur' },
+      { name: 'Cooke Anamorphic Lenses', desc: 'Classic cinema lens look with smooth background blur' },
       { name: 'Sony G Master Prime Lenses', desc: 'Ultra sharp prime lenses with wide aperture' },
-      { name: 'Sirui Carbon Anamorphic',   desc: 'Lightweight anamorphic lenses for cinematic flare' },
+      { name: 'Sirui Carbon Anamorphic', desc: 'Lightweight anamorphic lenses for cinematic flare' },
     ],
   },
   {
     category: 'Editing Suite',
     items: [
       { name: 'DaVinci Resolve Studio 19', desc: 'Professional software for color grading and audio mixing' },
-      { name: 'Mac Studio Workstation',    desc: 'Fast hardware for smooth editing and fast rendering' },
-      { name: 'Flanders OLED Monitor',     desc: 'Color-calibrated reference screen for accurate colors' },
-      { name: 'Adobe Creative Cloud',      desc: 'Premiere Pro and After Effects for editing and graphics' },
+      { name: 'Mac Studio Workstation', desc: 'Fast hardware for smooth editing and fast rendering' },
+      { name: 'Flanders OLED Monitor', desc: 'Color-calibrated reference screen for accurate colors' },
+      { name: 'Adobe Creative Cloud', desc: 'Premiere Pro and After Effects for editing and graphics' },
     ],
   },
   {
     category: 'Lighting & Gear',
     items: [
-      { name: 'DJI Mavic 3 Drone',    desc: 'High-resolution drone for smooth aerial video' },
+      { name: 'DJI Mavic 3 Drone', desc: 'High-resolution drone for smooth aerial video' },
       { name: 'Aputure Cinema Lights', desc: 'Bright, natural LED lights for video production' },
-      { name: 'DJI RS 3 Pro Gimbal',  desc: 'Camera stabilizer for smooth moving shots' },
+      { name: 'DJI RS 3 Pro Gimbal', desc: 'Camera stabilizer for smooth moving shots' },
     ],
   },
 ];
@@ -309,20 +431,20 @@ export const caseStudies = [
 // ─────────────────────────────────────────────────────────────────────────────
 export const calculatorOptions = {
   projectTypes: [
-    { id: 'commercial',   label: 'Commercial / Brand Video',    basePrice: 3500 },
-    { id: 'documentary',  label: 'Short Documentary',           basePrice: 2800 },
-    { id: 'music-video',  label: 'Music Video',                 basePrice: 2500 },
-    { id: 'brand-design', label: 'Brand Design & Identity',     basePrice: 2200 },
+    { id: 'commercial', label: 'Commercial / Brand Video', basePrice: 3500 },
+    { id: 'documentary', label: 'Short Documentary', basePrice: 2800 },
+    { id: 'music-video', label: 'Music Video', basePrice: 2500 },
+    { id: 'brand-design', label: 'Brand Design & Identity', basePrice: 2200 },
   ],
   scopes: [
-    { id: 'remote', label: 'Editing Only (Remote)',      multiplier: 1.0 },
-    { id: 'onset',  label: 'Filming + Full Editing',     multiplier: 1.6 },
+    { id: 'remote', label: 'Editing Only (Remote)', multiplier: 1.0 },
+    { id: 'onset', label: 'Filming + Full Editing', multiplier: 1.6 },
   ],
   addons: [
-    { id: 'color',    label: 'Advanced Color Grading',         price: 600 },
-    { id: 'sound',    label: 'Sound Design & Audio Mix',        price: 500 },
-    { id: 'motion3d', label: '3D Motion Graphics & Posters',    price: 800 },
-    { id: 'raw',      label: 'Raw Footage Delivery',            price: 400 },
+    { id: 'color', label: 'Advanced Color Grading', price: 600 },
+    { id: 'sound', label: 'Sound Design & Audio Mix', price: 500 },
+    { id: 'motion3d', label: '3D Motion Graphics & Posters', price: 800 },
+    { id: 'raw', label: 'Raw Footage Delivery', price: 400 },
   ],
 };
 
@@ -331,21 +453,21 @@ export const calculatorOptions = {
 // ─────────────────────────────────────────────────────────────────────────────
 export const clientLogos = [
   { name: 'Vanguard Apparel', text: 'VANGUARD' },
-  { name: 'Lumina Tech',      text: 'LUMINA' },
-  { name: 'Oak & Iron',       text: 'OAK & IRON' },
-  { name: 'Apex Motors',      text: 'APEX MOTORS' },
-  { name: 'AURA Music',       text: 'AURA' },
-  { name: 'Studio One',       text: 'STUDIO ONE' },
+  { name: 'Lumina Tech', text: 'LUMINA' },
+  { name: 'Oak & Iron', text: 'OAK & IRON' },
+  { name: 'Apex Motors', text: 'APEX MOTORS' },
+  { name: 'AURA Music', text: 'AURA' },
+  { name: 'Studio One', text: 'STUDIO ONE' },
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Awards
 // ─────────────────────────────────────────────────────────────────────────────
 export const awardsList = [
-  { year: '2025', title: 'Vimeo Staff Pick',         project: 'The Craftsman' },
-  { year: '2024', title: 'Telly Gold Winner',         project: 'Velocity Commercial' },
-  { year: '2024', title: 'Cannes Lions Shortlist',    project: 'Urban Echoes' },
-  { year: '2023', title: 'Awwwards Site of the Day',  project: 'Lumina Launch' },
+  { year: '2025', title: 'Vimeo Staff Pick', project: 'The Craftsman' },
+  { year: '2024', title: 'Telly Gold Winner', project: 'Velocity Commercial' },
+  { year: '2024', title: 'Cannes Lions Shortlist', project: 'Urban Echoes' },
+  { year: '2023', title: 'Awwwards Site of the Day', project: 'Lumina Launch' },
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -356,26 +478,26 @@ export const skillsMatrix = [
     category: 'Video & Post-Production',
     skills: [
       { name: 'DaVinci Resolve Studio', level: 98, desc: 'Color grading, Fairlight audio & advanced node editing' },
-      { name: 'Adobe Premiere Pro',      level: 95, desc: 'Rhythmic cutting, multicam & speed ramping' },
-      { name: 'Frame.io Collaboration',  level: 98, desc: 'Client review, timecoded notes & rapid delivery' },
-      { name: 'Sound Design & Foley',    level: 90, desc: 'Audio cleaning, sound FX layering & stereo mixing' },
+      { name: 'Adobe Premiere Pro', level: 95, desc: 'Rhythmic cutting, multicam & speed ramping' },
+      { name: 'Frame.io Collaboration', level: 98, desc: 'Client review, timecoded notes & rapid delivery' },
+      { name: 'Sound Design & Foley', level: 90, desc: 'Audio cleaning, sound FX layering & stereo mixing' },
     ],
   },
   {
     category: 'Graphic & Motion Design',
     skills: [
-      { name: 'Adobe After Effects',        level: 92, desc: '2D/3D motion graphics, kinetic type & visual FX' },
-      { name: 'Photoshop & Illustrator',    level: 95, desc: 'Brand design, typography & print/digital layouts' },
-      { name: 'Blender 3D',                 level: 85, desc: '3D poster graphics, lighting & abstract art' },
-      { name: 'Figma & UI Kits',            level: 90, desc: 'Brand guidelines & digital design systems' },
+      { name: 'Adobe After Effects', level: 92, desc: '2D/3D motion graphics, kinetic type & visual FX' },
+      { name: 'Photoshop & Illustrator', level: 95, desc: 'Brand design, typography & print/digital layouts' },
+      { name: 'Blender 3D', level: 85, desc: '3D poster graphics, lighting & abstract art' },
+      { name: 'Figma & UI Kits', level: 90, desc: 'Brand guidelines & digital design systems' },
     ],
   },
   {
     category: 'Filming & On-Set Directing',
     skills: [
       { name: 'Cinema Camera Operation', level: 95, desc: 'RED V-Raptor, Sony FX6 & Blackmagic 6K' },
-      { name: 'Lighting & Composition',  level: 92, desc: 'Three-point lighting, LED panels & mood setups' },
-      { name: 'Drone Aerial Filming',    level: 88, desc: 'DJI drone flight, tracking shots & spatial framing' },
+      { name: 'Lighting & Composition', level: 92, desc: 'Three-point lighting, LED panels & mood setups' },
+      { name: 'Drone Aerial Filming', level: 88, desc: 'DJI drone flight, tracking shots & spatial framing' },
     ],
   },
 ];
@@ -423,18 +545,17 @@ export const careerExperience = [
 // Hiring Guarantees
 // ─────────────────────────────────────────────────────────────────────────────
 export const hiringGuarantees = [
-  { title: '100% On-Time Delivery',      desc: 'Strict adherence to project deadlines with clear milestone check-ins.' },
-  { title: 'Master Quality Files',        desc: 'Receive ProRes 422 HQ, 4K/8K RAW footage, and multi-format vertical social cuts.' },
+  { title: '100% On-Time Delivery', desc: 'Strict adherence to project deadlines with clear milestone check-ins.' },
+  { title: 'Master Quality Files', desc: 'Receive ProRes 422 HQ, 4K/8K RAW footage, and multi-format vertical social cuts.' },
   { title: 'Clear & Fast Communication', desc: 'Direct access via Slack, email, or WhatsApp with responses under 24 hours.' },
-  { title: 'Commercial Audio Licenses',  desc: 'All videos include fully licensed background music, sound effects, and stems.' },
+  { title: 'Commercial Audio Licenses', desc: 'All videos include fully licensed background music, sound effects, and stems.' },
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Social Links
+// Social Links (Alazar's Official Handles)
 // ─────────────────────────────────────────────────────────────────────────────
 export const socialLinks = [
-  { name: 'Instagram', url: 'https://instagram.com',  icon: 'Instagram' },
-  { name: 'Twitter',   url: 'https://twitter.com',    icon: 'Twitter' },
-  { name: 'LinkedIn',  url: 'https://linkedin.com',   icon: 'Linkedin' },
-  { name: 'Email',     url: 'mailto:hello@alazar.com', icon: 'Mail' },
+  { name: 'Telegram', url: 'https://t.me/Onlygrace2', handle: '@Onlygrace2', type: 'telegram' },
+  { name: 'Facebook', url: 'https://www.facebook.com/share/169w6Q4Mqo4/?mibextid=wwXIfr', handle: 'Alazar Asdesach', type: 'facebook' },
+  { name: 'Facebook Page', url: 'https://www.facebook.com/share/1CMuAk9pQM/?mibextid=wwXIfr', handle: 'Alazar Studio', type: 'facebook' },
 ];

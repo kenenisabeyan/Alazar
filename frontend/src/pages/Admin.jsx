@@ -114,7 +114,7 @@ export default function Admin() {
     }
   };
 
-  const inputCls = 'w-full bg-[#FAFAF9] border border-[#E5D9DB] rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#6B1D2F] transition-colors text-[#1C1917]';
+  const inputCls = 'w-full bg-[#FAFAF9] border border-[#C59A9F] rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#6B1D2F] transition-colors text-[#1C1917]';
   const labelCls = 'text-xs font-bold uppercase tracking-wider text-[#78716C] block mb-1';
 
   const tabs = [
@@ -128,7 +128,7 @@ export default function Admin() {
       <div className="container mx-auto px-6 md:px-12 max-w-7xl">
 
         {/* Header */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-10 pb-8 border-b border-[#E5D9DB]">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-10 pb-8 border-b border-[#C59A9F]">
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#6B1D2F]/10 border border-[#6B1D2F]/20 rounded-full text-xs text-[#6B1D2F] font-medium mb-3">
               <Shield size={14} className="animate-pulse" /> PERN Admin Panel
@@ -138,14 +138,14 @@ export default function Admin() {
             </h1>
           </div>
 
-          <div className="flex items-center gap-4 bg-white p-4 rounded-xl border border-[#E5D9DB] shadow-sm">
+          <div className="flex items-center gap-4 bg-white p-4 rounded-xl border border-[#C59A9F] shadow-sm">
             <div className="flex items-center gap-2 text-xs">
               <span className={`w-2.5 h-2.5 rounded-full ${health.status === 'healthy' ? 'bg-emerald-500 animate-ping' : 'bg-amber-500'}`} />
               <span className="font-semibold uppercase tracking-wider">PERN API</span>
             </div>
-            <div className="h-4 w-px bg-[#E5D9DB]" />
+            <div className="h-4 w-px bg-[#C59A9F]" />
             <span className="text-xs text-[#78716C] font-medium">{health.database}</span>
-            <button onClick={loadData} className="p-1.5 rounded-lg bg-[#FAFAF9] hover:bg-[#E5D9DB] transition-colors text-[#78716C] hover:text-[#1C1917]">
+            <button onClick={loadData} className="p-1.5 rounded-lg bg-[#FAFAF9] hover:bg-[#C59A9F] transition-colors text-[#78716C] hover:text-[#1C1917]">
               <RefreshCw size={14} className={loading ? 'animate-spin text-[#6B1D2F]' : ''} />
             </button>
           </div>
@@ -161,7 +161,7 @@ export default function Admin() {
 
         {/* Tabs */}
         <div className="flex items-center justify-between gap-4 mb-8">
-          <div className="inline-flex bg-white p-1.5 rounded-full border border-[#E5D9DB] shadow-sm">
+          <div className="inline-flex bg-white p-1.5 rounded-full border border-[#C59A9F] shadow-sm">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
@@ -180,7 +180,7 @@ export default function Admin() {
           {activeTab === 'projects' && (
             <button
               onClick={() => setIsCreatingProject(!isCreatingProject)}
-              className="px-5 py-2.5 rounded-full bg-[#6B1D2F] text-white text-xs font-semibold uppercase tracking-wider hover:bg-[#8B2440] transition-all flex items-center gap-2 shadow-md"
+              className="px-5 py-2.5 rounded-full bg-[#6B1D2F] text-white text-xs font-semibold uppercase tracking-wider hover:bg-[#8B1E3F] transition-all flex items-center gap-2 shadow-md"
             >
               <Plus size={16} /> {isCreatingProject ? 'Cancel' : 'Add New Project'}
             </button>
@@ -195,7 +195,7 @@ export default function Admin() {
             onSubmit={handleCreateProject}
             className="mb-12 bg-white p-8 rounded-2xl border-2 border-[#6B1D2F] shadow-md space-y-6"
           >
-            <h3 className="text-xl font-bold text-[#1C1917] border-b border-[#E5D9DB] pb-3">
+            <h3 className="text-xl font-bold text-[#1C1917] border-b border-[#C59A9F] pb-3">
               Add New Project to PostgreSQL
             </h3>
 
@@ -243,10 +243,10 @@ export default function Admin() {
             </div>
 
             <div className="flex justify-end gap-3 pt-2">
-              <button type="button" onClick={() => setIsCreatingProject(false)} className="px-5 py-2.5 rounded-lg border border-[#E5D9DB] text-xs uppercase font-semibold text-[#78716C] hover:text-[#1C1917] transition-colors">
+              <button type="button" onClick={() => setIsCreatingProject(false)} className="px-5 py-2.5 rounded-lg border border-[#C59A9F] text-xs uppercase font-semibold text-[#78716C] hover:text-[#1C1917] transition-colors">
                 Cancel
               </button>
-              <button type="submit" className="px-6 py-2.5 rounded-lg bg-[#6B1D2F] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#8B2440] transition-colors shadow-md">
+              <button type="submit" className="px-6 py-2.5 rounded-lg bg-[#6B1D2F] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#8B1E3F] transition-colors shadow-md">
                 Save to PostgreSQL
               </button>
             </div>
@@ -255,15 +255,15 @@ export default function Admin() {
 
         {/* Projects Table */}
         {activeTab === 'projects' && (
-          <div className="bg-white rounded-2xl border border-[#E5D9DB] shadow-sm overflow-hidden">
-            <div className="p-6 border-b border-[#E5D9DB] flex justify-between items-center">
+          <div className="bg-white rounded-2xl border border-[#C59A9F] shadow-sm overflow-hidden">
+            <div className="p-6 border-b border-[#C59A9F] flex justify-between items-center">
               <h2 className="text-lg font-bold text-[#1C1917]">PostgreSQL Projects Table</h2>
               <span className="text-xs text-[#78716C] font-medium">{projects.length} Records</span>
             </div>
             <div className="overflow-x-auto">
               <table className="w-full text-left">
                 <thead>
-                  <tr className="bg-[#FAFAF9] border-b border-[#E5D9DB] text-xs uppercase tracking-wider text-[#78716C]">
+                  <tr className="bg-[#FAFAF9] border-b border-[#C59A9F] text-xs uppercase tracking-wider text-[#78716C]">
                     <th className="py-4 px-6 font-semibold">ID</th>
                     <th className="py-4 px-6 font-semibold">Title</th>
                     <th className="py-4 px-6 font-semibold">Category</th>
@@ -272,7 +272,7 @@ export default function Admin() {
                     <th className="py-4 px-6 font-semibold text-right">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#E5D9DB] text-sm">
+                <tbody className="divide-y divide-[#C59A9F] text-sm">
                   {loading ? (
                     [...Array(4)].map((_, i) => (
                       <tr key={i}><td colSpan={6} className="py-4 px-6"><div className="h-4 bg-gray-100 rounded animate-pulse" /></td></tr>
@@ -308,8 +308,8 @@ export default function Admin() {
 
         {/* Inquiries Table */}
         {activeTab === 'inquiries' && (
-          <div className="bg-white rounded-2xl border border-[#E5D9DB] shadow-sm overflow-hidden">
-            <div className="p-6 border-b border-[#E5D9DB] flex justify-between items-center">
+          <div className="bg-white rounded-2xl border border-[#C59A9F] shadow-sm overflow-hidden">
+            <div className="p-6 border-b border-[#C59A9F] flex justify-between items-center">
               <h2 className="text-lg font-bold text-[#1C1917]">Client Inquiries</h2>
               <span className="text-xs text-[#78716C] font-medium">{inquiries.length} Submissions</span>
             </div>
@@ -321,7 +321,7 @@ export default function Admin() {
               <div className="overflow-x-auto">
                 <table className="w-full text-left">
                   <thead>
-                    <tr className="bg-[#FAFAF9] border-b border-[#E5D9DB] text-xs uppercase tracking-wider text-[#78716C]">
+                    <tr className="bg-[#FAFAF9] border-b border-[#C59A9F] text-xs uppercase tracking-wider text-[#78716C]">
                       <th className="py-4 px-6 font-semibold">ID</th>
                       <th className="py-4 px-6 font-semibold">Name</th>
                       <th className="py-4 px-6 font-semibold">Email</th>
@@ -331,7 +331,7 @@ export default function Admin() {
                       <th className="py-4 px-6 font-semibold text-right">Actions</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-[#E5D9DB] text-sm">
+                  <tbody className="divide-y divide-[#C59A9F] text-sm">
                     {inquiries.map((inq) => (
                       <tr key={inq.id} className="hover:bg-[#FAFAF9] transition-colors">
                         <td className="py-4 px-6 font-mono text-xs text-[#78716C]">#{inq.id}</td>
@@ -358,8 +358,8 @@ export default function Admin() {
 
         {/* Quotes Table */}
         {activeTab === 'quotes' && (
-          <div className="bg-white rounded-2xl border border-[#E5D9DB] shadow-sm overflow-hidden">
-            <div className="p-6 border-b border-[#E5D9DB] flex justify-between items-center">
+          <div className="bg-white rounded-2xl border border-[#C59A9F] shadow-sm overflow-hidden">
+            <div className="p-6 border-b border-[#C59A9F] flex justify-between items-center">
               <h2 className="text-lg font-bold text-[#1C1917]">Saved Rate Quotes</h2>
               <span className="text-xs text-[#78716C] font-medium">{quotes.length} Quotes</span>
             </div>
@@ -371,7 +371,7 @@ export default function Admin() {
               <div className="overflow-x-auto">
                 <table className="w-full text-left">
                   <thead>
-                    <tr className="bg-[#FAFAF9] border-b border-[#E5D9DB] text-xs uppercase tracking-wider text-[#78716C]">
+                    <tr className="bg-[#FAFAF9] border-b border-[#C59A9F] text-xs uppercase tracking-wider text-[#78716C]">
                       <th className="py-4 px-6 font-semibold">ID</th>
                       <th className="py-4 px-6 font-semibold">Project Type</th>
                       <th className="py-4 px-6 font-semibold">Scope</th>
@@ -379,7 +379,7 @@ export default function Admin() {
                       <th className="py-4 px-6 font-semibold">Notes</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-[#E5D9DB] text-sm">
+                  <tbody className="divide-y divide-[#C59A9F] text-sm">
                     {quotes.map((q) => (
                       <tr key={q.id} className="hover:bg-[#FAFAF9] transition-colors">
                         <td className="py-4 px-6 font-mono text-xs text-[#78716C]">#{q.id}</td>

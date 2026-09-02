@@ -1,0 +1,305 @@
+import React, { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import {
+  Film, PenTool, Sliders, Layers, Monitor, Camera,
+  CheckCircle2, ArrowRight, Zap, Award, Star,
+} from 'lucide-react';
+import { theme } from '../../constants';
+
+// ─── Specialist tag pill ────────────────────────────────────────────────────
+const Tag = ({ label }) => (
+  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FAFAF9] border border-[#C59A9F]/50 text-[10px] font-black text-[#6B1D2F] uppercase tracking-widest">
+    <CheckCircle2 size={10} className="text-[#6B1D2F]" />
+    {label}
+  </span>
+);
+
+// ─── Video discipline card ───────────────────────────────────────────────────
+const VideoCard = ({ navigate }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+    className="relative group flex flex-col bg-gradient-to-br from-[#6B1D2F] via-[#521523] to-[#3B0E19] text-white rounded-[2rem] overflow-hidden border border-[#C59A9F]/30 shadow-2xl shadow-[#6B1D2F]/20"
+  >
+    {/* Dark noise texture overlay */}
+    <div className="absolute inset-0 opacity-[0.04] bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJub2lzZSI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuNjUiIG51bU9jdGF2ZXM9IjMiIHN0aXRjaFRpbGVzPSJzdGl0Y2giLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgZmlsdGVyPSJ1cmwoI25vaXNlKSIgb3BhY2l0eT0iMSIvPjwvc3ZnPg==')] pointer-events-none z-10" />
+
+    {/* Ambient glow blob */}
+    <div className="absolute -top-20 -left-20 w-64 h-64 bg-white/10 blur-[80px] rounded-full pointer-events-none" />
+    <div className="absolute -bottom-10 right-0 w-48 h-48 bg-white/05 blur-[60px] rounded-full pointer-events-none" />
+
+    <div className="relative z-20 p-8 sm:p-10 flex flex-col h-full">
+      {/* Top badge row */}
+      <div className="flex items-center justify-between mb-8">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/20 border border-white/30 text-[11px] font-black text-white uppercase tracking-widest shadow-lg">
+          <Film size={12} />
+          Video Production
+        </div>
+        <div className="flex items-center gap-1.5 text-[10px] font-black text-white/80 uppercase tracking-widest">
+          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+          8+ Yrs Experience
+        </div>
+      </div>
+
+      {/* Discipline title */}
+      <h3 className="text-3xl sm:text-4xl font-black text-white leading-tight mb-3" style={{ fontFamily: theme.fonts.heading }}>
+        Senior Video Editor<br />
+        <span className="italic font-light text-[#C59A9F]">& Colorist</span>
+      </h3>
+
+      <p className="text-white/80 text-sm font-light leading-relaxed mb-8 max-w-md">
+        Mastery in cinematic editing, rhythm-perfect cuts, high-dynamic-range color grading from RAW log to broadcast master, and professional sound design — on RED 8K and Sony cinema cameras.
+      </p>
+
+      {/* Core competencies grid */}
+      <div className="grid grid-cols-2 gap-3 mb-8">
+        {[
+          { icon: Sliders, label: 'Color Grading', sub: 'DaVinci Resolve Studio' },
+          { icon: Film,    label: 'Commercial Edit', sub: 'Premiere Pro / Resolve' },
+          { icon: Monitor, label: 'Sound Design',   sub: 'Fairlight & Pro Tools' },
+          { icon: Camera,  label: '8K Cinema Raw',  sub: 'RED V-Raptor / FX6' },
+        ].map(({ icon: Icon, label, sub }) => (
+          <div key={label} className="flex items-center gap-3 bg-white/10 hover:bg-white/15 border border-white/15 rounded-xl px-3.5 py-3 transition-colors">
+            <div className="w-8 h-8 rounded-lg bg-white/20 text-white flex items-center justify-center flex-shrink-0">
+              <Icon size={15} />
+            </div>
+            <div>
+              <p className="text-[11px] font-black text-white leading-none mb-0.5">{label}</p>
+              <p className="text-[10px] text-white/60 font-medium">{sub}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Specialty tags */}
+      <div className="flex flex-wrap gap-2 mb-8">
+        {['Music Video Cuts', 'Documentary', 'Brand Reel', '3D Motion', 'Social Reels', 'Film Grading'].map(t => (
+          <span key={t} className="px-2.5 py-1 rounded-full bg-white/15 border border-white/20 text-[10px] font-bold text-white uppercase tracking-wider">
+            {t}
+          </span>
+        ))}
+      </div>
+
+      {/* Award strip */}
+      <div className="mt-auto pt-6 border-t border-white/20 flex items-center justify-between">
+        <div className="flex items-center gap-2 text-xs text-white/80">
+          <Award size={14} className="text-[#C59A9F]" />
+          <span>Telly Gold • Vimeo Staff Pick</span>
+        </div>
+        <button
+          onClick={() => { navigate('/portfolio'); window.scrollTo(0, 0); }}
+          className="flex items-center gap-1.5 text-[11px] font-black text-white hover:text-[#C59A9F] uppercase tracking-widest group/btn transition-colors"
+        >
+          View Edits <ArrowRight size={13} className="group-hover/btn:translate-x-1 transition-transform" />
+        </button>
+      </div>
+    </div>
+  </motion.div>
+);
+
+// ─── Design discipline card ──────────────────────────────────────────────────
+const DesignCard = ({ navigate }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.75, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+    className="relative group flex flex-col bg-white rounded-[2rem] overflow-hidden border border-[#C59A9F] shadow-xl shadow-black/5"
+  >
+    {/* Top accent stripe */}
+    <div className="h-1.5 w-full bg-gradient-to-r from-[#6B1D2F] via-[#8B1E3F] to-[#C59A9F]" />
+
+    <div className="relative p-8 sm:p-10 flex flex-col h-full">
+      {/* Top badge row */}
+      <div className="flex items-center justify-between mb-8">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAFAF9] border border-[#C59A9F]/50 text-[11px] font-black text-[#6B1D2F] uppercase tracking-widest shadow-sm">
+          <PenTool size={12} />
+          Graphic Design
+        </div>
+        <div className="flex items-center gap-1.5 text-[10px] font-black text-[#78716C] uppercase tracking-widest">
+          <Star size={11} className="text-[#6B1D2F] fill-[#6B1D2F]" />
+          Senior Level
+        </div>
+      </div>
+
+      {/* Discipline title */}
+      <h3 className="text-3xl sm:text-4xl font-black text-[#1C1917] leading-tight mb-3" style={{ fontFamily: theme.fonts.heading }}>
+        Senior Graphics<br />
+        <span className="italic font-light text-[#6B1D2F]">Designer & Director</span>
+      </h3>
+
+      <p className="text-[#78716C] text-sm font-light leading-relaxed mb-8 max-w-md">
+        Comprehensive brand identity systems, editorial poster design, 3D visual concepts, motion graphics, and digital UI kits — built to last and scale across every brand touchpoint.
+      </p>
+
+      {/* Core competencies grid */}
+      <div className="grid grid-cols-2 gap-3 mb-8">
+        {[
+          { icon: PenTool, label: 'Brand Identity',   sub: 'Illustrator / Figma' },
+          { icon: Layers,  label: 'Motion Graphics',  sub: 'After Effects / C4D' },
+          { icon: Monitor, label: 'Print & Editorial', sub: 'InDesign / Photoshop' },
+          { icon: Zap,     label: '3D Art Direction',  sub: 'Blender / Octane' },
+        ].map(({ icon: Icon, label, sub }) => (
+          <div key={label} className="flex items-center gap-3 bg-[#FAFAF9] hover:bg-[#FAFAF9]/50 border border-[#C59A9F] rounded-xl px-3.5 py-3 transition-colors">
+            <div className="w-8 h-8 rounded-lg bg-[#FAFAF9] text-[#6B1D2F] flex items-center justify-center flex-shrink-0">
+              <Icon size={15} />
+            </div>
+            <div>
+              <p className="text-[11px] font-black text-[#1C1917] leading-none mb-0.5">{label}</p>
+              <p className="text-[10px] text-[#78716C] font-medium">{sub}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Specialty tags */}
+      <div className="flex flex-wrap gap-2 mb-8">
+        {['Logo Systems', 'Brand Guide', 'Poster Art', 'UI Kits', 'Typography', 'Key Art'].map(t => (
+          <Tag key={t} label={t} />
+        ))}
+      </div>
+
+      {/* Award strip */}
+      <div className="mt-auto pt-6 border-t border-[#C59A9F] flex items-center justify-between">
+        <div className="flex items-center gap-2 text-xs text-[#78716C]">
+          <Award size={14} className="text-[#6B1D2F]" />
+          <span>Awwwards Site of the Day</span>
+        </div>
+        <button
+          onClick={() => { navigate('/portfolio'); window.scrollTo(0, 0); }}
+          className="flex items-center gap-1.5 text-[11px] font-black text-[#6B1D2F] hover:text-[#8B1E3F] uppercase tracking-widest group/btn transition-colors"
+        >
+          View Design Work <ArrowRight size={13} className="group-hover/btn:translate-x-1 transition-transform" />
+        </button>
+      </div>
+    </div>
+  </motion.div>
+);
+
+// ─── Main Export ─────────────────────────────────────────────────────────────
+export const ExpertiseSection = () => {
+  const navigate = useNavigate();
+  const sectionRef = useRef(null);
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ['start end', 'end start'] });
+  const marqX = useTransform(scrollYProgress, [0, 1], ['0%', '-20%']);
+
+  const marqueeItems = [
+    'Video Editing', 'Color Grading', 'Sound Design', 'Brand Identity',
+    'Motion Graphics', '3D Art Direction', 'Commercial Reels', 'Typography',
+    'Poster Design', 'Documentary Editing', 'UI Kit Design', 'Cinematic Cuts',
+  ];
+
+  const stats = [
+    { value: '140+', label: 'Projects Delivered',   icon: Film },
+    { value: '8+',   label: 'Years of Mastery',      icon: Award },
+    { value: '98%',  label: 'Client Satisfaction',   icon: Star },
+    { value: '12',   label: 'Industry Awards Won',   icon: Zap },
+  ];
+
+  return (
+    <section
+      ref={sectionRef}
+      className="py-28 sm:py-36 bg-[#FAFAF9] relative overflow-hidden"
+      style={{ fontFamily: theme.fonts.body }}
+    >
+      {/* Ambient glow */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-bl from-[#6B1D2F]/08 to-transparent blur-[160px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-to-tr from-[#C59A9F]/12 to-transparent blur-[120px] rounded-full pointer-events-none" />
+
+      <div className="container mx-auto px-6 md:px-12 max-w-7xl relative z-10">
+
+        {/* ── Section header ── */}
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 mb-16">
+          <div className="max-w-2xl">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white border border-[#C59A9F]/50 text-[11px] font-black text-[#6B1D2F] uppercase tracking-widest shadow-sm shimmer-border mb-6"
+            >
+              <Zap size={13} className="text-[#6B1D2F]" />
+              Dual Creative Disciplines
+            </motion.div>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.08 }}
+              className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] leading-[1.06] tracking-tight"
+              style={{ fontFamily: theme.fonts.heading }}
+            >
+              Expert in Two<br />
+              <span className="italic font-light text-gradient-burgundy">Creative Fields.</span>
+            </motion.h2>
+          </div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.18 }}
+            className="text-[#78716C] font-light text-base lg:text-lg max-w-sm leading-relaxed lg:text-right"
+          >
+            Where cinematic video production meets senior-level graphic design — two disciplines mastered under one creative vision.
+          </motion.p>
+        </div>
+
+        {/* ── Dual discipline cards ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-16">
+          <VideoCard navigate={navigate} />
+          <DesignCard navigate={navigate} />
+        </div>
+
+        {/* ── Stats bar ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16"
+        >
+          {stats.map(({ value, label, icon: Icon }, idx) => (
+            <motion.div
+              key={label}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1 }}
+              whileHover={{ y: -4 }}
+              className="glass-card-luxury rounded-2xl p-6 text-center"
+            >
+              <div className="w-10 h-10 rounded-xl bg-[#FAFAF9] text-[#6B1D2F] flex items-center justify-center mx-auto mb-3 shadow-sm">
+                <Icon size={18} />
+              </div>
+              <p className="text-3xl font-black text-[#6B1D2F] mb-1" style={{ fontFamily: theme.fonts.heading }}>
+                {value}
+              </p>
+              <p className="text-[11px] text-[#78716C] font-bold uppercase tracking-widest">{label}</p>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* ── Scrolling marquee strip ── */}
+        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#6B1D2F] via-[#8B1E3F] to-[#6B1D2F] py-5 px-0 select-none shadow-lg shadow-[#6B1D2F]/20">
+          <motion.div style={{ x: marqX }} className="flex items-center gap-0 w-max">
+            {[...marqueeItems, ...marqueeItems, ...marqueeItems].map((item, idx) => (
+              <React.Fragment key={idx}>
+                <span className="text-[11px] font-black uppercase tracking-[0.25em] text-white/90 whitespace-nowrap px-6">
+                  {item}
+                </span>
+                <span className="text-white text-xs flex-shrink-0">✦</span>
+              </React.Fragment>
+            ))}
+          </motion.div>
+        </div>
+
+      </div>
+    </section>
+  );
+};
+
+export default ExpertiseSection;

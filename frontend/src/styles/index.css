@@ -4,221 +4,340 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================================
+   BRAND COLOR SYSTEM — Alazar Portfolio
+   ── Light: Clean Cream Canvas + Rich Burgundy signature
+   ── Dark:  Deep Dark Burgundy night with Rose Burgundy accent
+   ============================================================ */
+
 :root {
-  /* Light Burgundy Canvas Theme */
-  --bg-primary: #FAFAF9;        /* Background (Clean Canvas Off-White) */
-  --brand-color: #6B1D2F;       /* Brand Color (Rich Burgundy for headers & buttons) */
-  --accent-color: #C59A9F;      /* Accent Color (Soft Rose for highlights/borders) */
-  --text-primary: #1C1917;      /* Primary Text (Charcoal for readability) */
-  --text-secondary: #78716C;    /* Secondary Text (Muted Slate) */
-  --bg-secondary: #FFFFFF;
-  --border-color: #E5D9DB;
+  /* ── Light mode (default) ── */
+  --bg-primary:      #FAFAF9;   /* Clean Canvas Off-White          */
+  --bg-secondary:    #FFFFFF;   /* Pure White cards                */
+  --bg-surface:      #FAFAF9;   /* Cream surface / alt sections    */
+  --bg-surface-alt:  #FAFAF9;   /* Faint rose tint                 */
+
+  --brand:           #6B1D2F;   /* Rich Burgundy — headers/buttons */
+  --brand-hover:     #8B1E3F;   /* Burgundy hover state            */
+  --brand-deep:      #1E0A0D;   /* Deep burgundy press state       */
+  --brand-soft:      #C59A9F;   /* Soft Rose — borders/highlights  */
+  --brand-faint:     #FAFAF9;   /* Ultra-light rose tint           */
+
+  --text-primary:    #1C1917;   /* Charcoal — primary text         */
+  --text-secondary:  #78716C;   /* Muted Slate — secondary text    */
+  --text-inverse:    #FFFFFF;   /* White text on dark bg           */
+
+  --border:          #C59A9F;   /* Soft rose-gray border           */
+  --border-brand:    rgba(107, 29, 47, 0.30);
+
+  /* Selection */
+  --selection-bg:    #6B1D2F;
+  --selection-text:  #FFFFFF;
 }
 
-.dark, [data-theme="dark"] {
-  /* Deep Dark Burgundy Night Theme */
-  --bg-primary: #1E0A0D;        /* Primary Background (Deep Dark Burgundy) */
-  --bg-secondary: #2E1216;      /* Secondary Background (Card/Sections) */
-  --accent-color: #8B1E3F;      /* Accent Color (Bright Rose Burgundy) */
-  --brand-color: #8B1E3F;       /* Bright Rose Burgundy */
-  --text-primary: #F5F0F1;      /* Primary Text (Off-White) */
-  --text-secondary: #A89597;    /* Secondary Text (Muted Rose-Gray) */
-  --border-color: rgba(139, 30, 63, 0.25);
+/* ── Dark mode ── */
+.dark,
+[data-theme="dark"] {
+  --bg-primary:      #1E0A0D;   /* Deep Dark Burgundy              */
+  --bg-secondary:    #2E1216;   /* Card / Section backgrounds      */
+  --bg-surface:      #2E1216;
+  --bg-surface-alt:  #2E1216;   /* Slightly lighter dark surface   */
+
+  --brand:           #8B1E3F;   /* Bright Rose Burgundy            */
+  --brand-hover:     #8B1E3F;   /* Hover state                     */
+  --brand-deep:      #6B1D2F;   /* Deep pressed state              */
+  --brand-soft:      #A89597;   /* Muted Rose-Gray highlights      */
+  --brand-faint:     rgba(139, 30, 63, 0.18);
+
+  --text-primary:    #F5F0F1;   /* Off-White                       */
+  --text-secondary:  #A89597;   /* Muted Rose-Gray                 */
+  --text-inverse:    #1E0A0D;   /* Dark text on light elements     */
+
+  --border:          rgba(139, 30, 63, 0.25);
+  --border-brand:    rgba(139, 30, 63, 0.50);
+
+  --selection-bg:    #8B1E3F;
+  --selection-text:  #F5F0F1;
 }
+
+/* ============================================================
+   BASE LAYER
+   ============================================================ */
 
 @layer base {
   *, ::before, ::after {
-    font-family: 'Roboto', sans-serif !important;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
   }
 
   html {
     scroll-behavior: smooth;
-    font-family: 'Roboto', sans-serif !important;
     background-color: var(--bg-primary);
     color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 
   body {
     overflow-x: hidden;
-    font-family: 'Roboto', sans-serif !important;
     background-color: var(--bg-primary);
     color: var(--text-primary);
+    transition: background-color 0.35s ease, color 0.35s ease;
   }
 
-  h1, h2, h3, h4, h5, h6, p, span, a, button, input, textarea, select {
-    font-family: 'Roboto', sans-serif !important;
-  }
-
-  /* Elegant burgundy-tinted scrollbar */
-  ::-webkit-scrollbar {
-    width: 7px;
-  }
-  ::-webkit-scrollbar-track {
-    background: #F4F0EF;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: #C59A9F;
-    border-radius: 4px;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: #6B1D2F;
-  }
+  /* Branded scrollbar */
+  ::-webkit-scrollbar       { width: 6px; }
+  ::-webkit-scrollbar-track { background: #FAFAF9; }
+  ::-webkit-scrollbar-thumb { background: #C59A9F; border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: #6B1D2F; }
 
   /* Premium text selection */
   ::selection {
-    background-color: #6B1D2F;
-    color: #FFFFFF;
+    background-color: var(--selection-bg);
+    color: var(--selection-text);
   }
 }
 
-@layer utilities {
-  /* Floating Frosted Pill Nav */
+/* ============================================================
+   COMPONENT LAYER — reusable design primitives
+   ============================================================ */
+
+@layer components {
+
+  /* ── Floating frosted nav pill ─────────────────────────── */
   .glass-nav-floating {
-    background: rgba(255, 255, 255, 0.88);
+    background: rgba(250, 250, 249, 0.85);
     backdrop-filter: blur(28px);
     -webkit-backdrop-filter: blur(28px);
-    border: 1px solid rgba(197, 154, 159, 0.4);
-    box-shadow: 0 20px 50px -10px rgba(107, 29, 47, 0.12), 0 4px 20px rgba(28, 25, 23, 0.05);
+    border: none;
+    box-shadow:
+      0 12px 35px -10px rgba(107, 29, 47, 0.10),
+      0  4px 15px     rgba( 28, 25, 23, 0.03);
   }
 
-  /* Frosted nav — high-contrast shadow & rich border on scroll */
+  .dark .glass-nav-floating {
+    background: rgba(30, 10, 13, 0.85);
+    border: none;
+    box-shadow:
+      0 12px 35px -10px rgba(0, 0, 0, 0.40),
+      0  4px 15px     rgba(139, 30, 63, 0.10);
+  }
+
+  /* ── Standard frosted nav ──────────────────────────────── */
   .glass-nav {
-    background: rgba(250, 250, 249, 0.92);
+    background: rgba(250, 250, 249, 0.94);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
-    border-bottom: 1px solid rgba(229, 217, 219, 0.8);
-    box-shadow: 0 10px 40px -10px rgba(107, 29, 47, 0.12), 0 4px 12px rgba(28, 25, 23, 0.04);
+    border-bottom: 1px solid rgba(229, 217, 219, 0.80);
+    box-shadow:
+      0 10px 40px -10px rgba(107, 29, 47, 0.10),
+      0  4px 12px      rgba( 28, 25, 23, 0.04);
   }
 
-  /* Glassmorphism card — premium light mode */
-  .glass-card {
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(197, 154, 159, 0.3);
-    box-shadow: 0 10px 30px -10px rgba(107, 29, 47, 0.08);
+  .dark .glass-nav {
+    background: rgba(30, 10, 13, 0.95);
+    border-bottom-color: rgba(139, 30, 63, 0.25);
   }
 
-  /* Ultra Luxury Glassmorphism Card 2.0 */
+  /* ── Luxury glass card ─────────────────────────────────── */
   .glass-card-luxury {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.94) 0%, rgba(252, 248, 249, 0.82) 100%);
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.94) 0%,
+      rgba(252, 248, 249, 0.82) 100%
+    );
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
     border: 1px solid rgba(197, 154, 159, 0.38);
-    box-shadow: 0 24px 48px -12px rgba(107, 29, 47, 0.09), 0 2px 6px rgba(28, 25, 23, 0.04);
+    box-shadow:
+      0 24px 48px -12px rgba(107, 29, 47, 0.09),
+      0  2px  6px       rgba( 28, 25, 23, 0.04);
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  
+
   .glass-card-luxury:hover {
     border-color: rgba(107, 29, 47, 0.45);
-    box-shadow: 0 30px 60px -15px rgba(107, 29, 47, 0.18), 0 8px 24px rgba(107, 29, 47, 0.08);
+    box-shadow:
+      0 30px 60px -15px rgba(107, 29, 47, 0.18),
+      0  8px 24px       rgba(107, 29, 47, 0.08);
     transform: translateY(-4px);
   }
 
-  /* Burgundy brand gradient */
+  .dark .glass-card-luxury {
+    background: linear-gradient(
+      135deg,
+      rgba(46, 18, 22, 0.94) 0%,
+      rgba(30, 10, 13, 0.88) 100%
+    );
+    border-color: rgba(139, 30, 63, 0.25);
+  }
+
+  .dark .glass-card-luxury:hover {
+    border-color: rgba(139, 30, 63, 0.55);
+    box-shadow:
+      0 30px 60px -15px rgba(0, 0, 0, 0.40),
+      0  8px 24px       rgba(139, 30, 63, 0.20);
+  }
+
+  /* ── Base glass card ───────────────────────────────────── */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.86);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(197, 154, 159, 0.30);
+    box-shadow: 0 10px 30px -10px rgba(107, 29, 47, 0.08);
+  }
+
+  .dark .glass-card {
+    background: rgba(46, 18, 22, 0.86);
+    border-color: rgba(139, 30, 63, 0.22);
+  }
+}
+
+/* ============================================================
+   UTILITY LAYER — brand-specific helpers
+   ============================================================ */
+
+@layer utilities {
+
+  /* ── Brand gradients ───────────────────────────────────── */
   .accent-gradient {
-    background: linear-gradient(135deg, #6B1D2F 0%, #8B2440 50%, #C59A9F 100%);
+    background: linear-gradient(135deg, #6B1D2F 0%, #8B1E3F 50%, #C59A9F 100%);
   }
 
-  /* Glowing text gradient */
+  .dark .accent-gradient {
+    background: linear-gradient(135deg, #8B1E3F 0%, #8B1E3F 50%, #A89597 100%);
+  }
+
+  /* ── Text gradients ────────────────────────────────────── */
   .text-gradient-burgundy {
-    background: linear-gradient(135deg, #6B1D2F 0%, #9B2C47 50%, #C59A9F 100%);
+    background: linear-gradient(135deg, #6B1D2F 0%, #6B1D2F 50%, #C59A9F 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
-  /* Metallic Rose Gold Text Gradient */
+  .dark .text-gradient-burgundy {
+    background: linear-gradient(135deg, #8B1E3F 0%, #C59A9F 50%, #F5F0F1 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
   .text-gradient-rose {
-    background: linear-gradient(135deg, #9B2C47 0%, #C59A9F 50%, #E8C4C8 100%);
+    background: linear-gradient(135deg, #6B1D2F 0%, #C59A9F 50%, #C59A9F 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
-  /* Glowing border ring */
-  .glow-ring {
-    box-shadow: 0 0 25px -5px rgba(107, 29, 47, 0.3);
+  /* ── Ambient mesh backgrounds ──────────────────────────── */
+  .mesh-bg {
+    background-image:
+      radial-gradient(at   0%   0%, rgba(107,  29,  47, 0.06) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(197, 154, 159, 0.10) 0px, transparent 50%),
+      radial-gradient(at  50%  50%, rgba(245, 232, 234, 0.45) 0px, transparent 70%);
   }
 
-  /* Shimmer button animation */
+  .dark .mesh-bg {
+    background-image:
+      radial-gradient(at   0%   0%, rgba(139,  30,  63, 0.18) 0px, transparent 55%),
+      radial-gradient(at 100% 100%, rgba(139,  30,  63, 0.12) 0px, transparent 50%),
+      radial-gradient(at  50%  50%, rgba( 30,  10,  13, 0.95) 0px, transparent 80%);
+  }
+
+  .mesh-bg-dark {
+    background-image:
+      radial-gradient(at 10% 20%, rgba(139,  30,  63, 0.28) 0px, transparent 60%),
+      radial-gradient(at 90% 80%, rgba(139,  30,  63, 0.18) 0px, transparent 50%),
+      radial-gradient(at 50% 50%, rgba( 30,  10,  13, 0.95) 0px, transparent 80%);
+  }
+
+  /* ── Glow ring ─────────────────────────────────────────── */
+  .glow-ring {
+    box-shadow: 0 0 25px -5px rgba(107, 29, 47, 0.30);
+  }
+
+  .dark .glow-ring {
+    box-shadow: 0 0 30px -5px rgba(139, 30, 63, 0.45);
+  }
+
+  /* ── Shimmer button ────────────────────────────────────── */
   .shimmer-bg {
-    background: linear-gradient(90deg, #6B1D2F 0%, #8B2440 50%, #6B1D2F 100%);
+    background: linear-gradient(90deg, #6B1D2F 0%, #8B1E3F 50%, #6B1D2F 100%);
     background-size: 200% 100%;
     animation: shimmer 4s infinite linear;
   }
 
-  /* Shimmer Border Animation */
+  /* ── Shimmer border ────────────────────────────────────── */
   .shimmer-border {
     position: relative;
   }
+
   .shimmer-border::before {
     content: '';
     position: absolute;
     inset: -1px;
     border-radius: inherit;
     padding: 1px;
-    background: linear-gradient(90deg, rgba(107, 29, 47, 0.2), rgba(197, 154, 159, 0.8), rgba(107, 29, 47, 0.2));
+    background: linear-gradient(
+      90deg,
+      rgba(107, 29,  47, 0.20),
+      rgba(197, 154, 159, 0.80),
+      rgba(107, 29,  47, 0.20)
+    );
     background-size: 200% 100%;
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     animation: shimmer 5s infinite linear;
     pointer-events: none;
   }
-
-  /* Ambient mesh background */
-  .mesh-bg {
-    background-image: 
-      radial-gradient(at 0% 0%, rgba(107, 29, 47, 0.06) 0px, transparent 50%),
-      radial-gradient(at 100% 100%, rgba(197, 154, 159, 0.1) 0px, transparent 50%),
-      radial-gradient(at 50% 50%, rgba(245, 232, 234, 0.45) 0px, transparent 70%);
-  }
-
-  /* Luxury Dark Mesh */
-  .mesh-bg-dark {
-    background-image:
-      radial-gradient(at 10% 20%, rgba(107, 29, 47, 0.25) 0px, transparent 60%),
-      radial-gradient(at 90% 80%, rgba(139, 30, 63, 0.2) 0px, transparent 50%),
-      radial-gradient(at 50% 50%, rgba(30, 10, 13, 0.95) 0px, transparent 80%);
-  }
 }
 
-/* Animations */
+/* ============================================================
+   KEYFRAMES
+   ============================================================ */
+
 @keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
+  0%, 100% { transform: translateY(  0px); }
+  50%       { transform: translateY( -8px); }
 }
 
 @keyframes pulseGlow {
-  0%, 100% { opacity: 0.45; transform: scale(1); }
-  50% { opacity: 0.85; transform: scale(1.04); }
-}
-
-.animate-float {
-  animation: float 5s ease-in-out infinite;
-}
-
-.animate-pulse-glow {
-  animation: pulseGlow 4s ease-in-out infinite;
+  0%, 100% { opacity: 0.45; transform: scale(1.00); }
+  50%       { opacity: 0.85; transform: scale(1.04); }
 }
 
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(18px); }
-  to   { opacity: 1; transform: translateY(0); }
+  to   { opacity: 1; transform: translateY( 0px); }
 }
 
-.animate-fade-up {
-  animation: fadeUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+@keyframes marqueeLeft {
+  from { transform: translateX(  0%); }
+  to   { transform: translateX(-50%); }
 }
 
-/* Stagger helpers */
-.delay-100 { animation-delay: 100ms; }
-.delay-200 { animation-delay: 200ms; }
-.delay-300 { animation-delay: 300ms; }
+/* ============================================================
+   ANIMATION HELPERS
+   ============================================================ */
 
+.animate-float      { animation: float      5.0s ease-in-out infinite; }
+.animate-pulse-glow { animation: pulseGlow  4.0s ease-in-out infinite; }
+.animate-fade-up    { animation: fadeUp     0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-marquee    { animation: marqueeLeft 28s linear infinite; }
+
+.delay-100 { animation-delay:  100ms; }
+.delay-200 { animation-delay:  200ms; }
+.delay-300 { animation-delay:  300ms; }
+.delay-400 { animation-delay:  400ms; }
+.delay-500 { animation-delay:  500ms; }

@@ -1,99 +1,167 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Camera, Film, Monitor, Zap, CheckCircle2 } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Camera, Film, Monitor, Zap, CheckCircle2, ArrowRight } from 'lucide-react';
 import { gearList, theme } from '../../constants';
+
+const catIcons = [Camera, Film, Monitor, Zap];
 
 export const GearSection = () => {
   const [activeCategory, setActiveCategory] = useState(0);
 
-  const icons = [Camera, Film, Monitor, Zap];
-
   return (
-    <section className="py-28 bg-[#F4F0EF] relative" style={{ fontFamily: theme.fonts.body }}>
-      <div className="container mx-auto px-6 md:px-12 max-w-7xl">
+    <section
+      className="py-28 sm:py-36 relative overflow-hidden"
+      style={{ fontFamily: theme.fonts.body, background: '#FAFAF9' }}
+    >
+      {/* Dark decorative side panel */}
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-[#6B1D2F]/[0.03] pointer-events-none hidden lg:block" />
+      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[400px] h-[400px] bg-[#6B1D2F]/06 blur-[140px] rounded-full pointer-events-none" />
 
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <motion.span
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-xs uppercase tracking-widest text-[#6B1D2F] font-bold block"
-          >
-            Production Gear
-          </motion.span>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-black text-[#1C1917]"
-            style={{ fontFamily: theme.fonts.heading }}
-          >
-            Filming & <span className="italic font-light text-gradient-burgundy">Editing Gear</span>
-          </motion.h2>
+      <div className="container mx-auto px-6 md:px-12 max-w-7xl relative z-10">
+
+        {/* ── Header ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-16 items-end">
+          <div className="lg:col-span-7">
+            <motion.span
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center gap-2 text-[11px] uppercase tracking-widest text-[#6B1D2F] font-black mb-4 block"
+            >
+              <Camera size={13} /> Production Gear
+            </motion.span>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.08 }}
+              className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] leading-[1.06] tracking-tight"
+              style={{ fontFamily: theme.fonts.heading }}
+            >
+              Professional-Grade<br />
+              <span className="italic font-light text-gradient-burgundy">Filming & Editing Kit.</span>
+            </motion.h2>
+          </div>
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-[#78716C] font-light text-base"
+            transition={{ delay: 0.15 }}
+            className="lg:col-span-5 text-[#78716C] font-light text-base leading-relaxed"
           >
-            I use professional 8K cinema cameras, sharp lenses, and fast editing setups to deliver high-quality results.
+            Industry-standard cinema cameras, precision lenses, professional lighting, and a fast dedicated post-production suite — everything needed to deliver 8K master quality.
           </motion.p>
         </div>
 
-        {/* Category Tabs */}
-        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-12">
-          {gearList.map((cat, idx) => {
-            const IconComponent = icons[idx % icons.length];
-            return (
-              <button
-                key={cat.category}
-                onClick={() => setActiveCategory(idx)}
-                className={`px-4 sm:px-6 py-2.5 sm:py-3 rounded-full text-xs font-semibold uppercase tracking-wider transition-all flex items-center gap-2 ${activeCategory === idx
-                    ? 'bg-[#6B1D2F] text-white shadow-sm'
-                    : 'bg-white text-[#78716C] border border-[#E5D9DB] hover:text-[#1C1917]'
-                  }`}
-              >
-                <IconComponent size={16} /> {cat.category}
-              </button>
-            );
-          })}
-        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
-        {/* Active Gear Grid */}
-        <motion.div
-          key={activeCategory}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          {gearList[activeCategory].items.map((item, idx) => (
-            <div
-              key={idx}
-              className="bg-white p-7 rounded-2xl border border-[#E5D9DB] shadow-sm hover:border-[#C59A9F] hover:shadow-md transition-all text-left flex flex-col justify-between"
-            >
-              <div>
-                <div className="w-10 h-10 rounded-xl bg-[#F5E8EA] text-[#6B1D2F] flex items-center justify-center mb-4">
-                  <CheckCircle2 size={20} />
-                </div>
-                <h4 className="text-xl font-bold text-[#1C1917] mb-2" style={{ fontFamily: theme.fonts.heading }}>
-                  {item.name}
-                </h4>
-                <p className="text-xs text-[#78716C] font-light leading-relaxed">
-                  {item.desc}
-                </p>
+          {/* ── Left: Category nav ── */}
+          <div className="lg:col-span-4 flex flex-row lg:flex-col gap-3 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0">
+            {gearList.map((cat, idx) => {
+              const Icon = catIcons[idx % catIcons.length];
+              const isActive = idx === activeCategory;
+              return (
+                <motion.button
+                  key={cat.category}
+                  initial={{ opacity: 0, x: -15 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.07 }}
+                  onClick={() => setActiveCategory(idx)}
+                  className={`flex-shrink-0 lg:flex-shrink flex items-center gap-3.5 px-5 py-4 rounded-xl border-2 transition-all duration-300 text-left w-full group ${isActive
+                      ? 'bg-[#6B1D2F] border-[#6B1D2F] text-white shadow-xl shadow-[#6B1D2F]/25'
+                      : 'bg-white border-[#C59A9F]/50 text-[#1C1917] hover:border-[#6B1D2F]'
+                    }`}
+                >
+                  <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 transition-all ${isActive
+                      ? 'bg-white/20 text-white shadow-md'
+                      : 'bg-[#FAFAF9] text-[#6B1D2F] group-hover:bg-[#6B1D2F] group-hover:text-white'
+                    }`}>
+                    <Icon size={18} />
+                  </div>
+                  <div className="min-w-0">
+                    <p className={`text-[10px] font-black uppercase tracking-widest mb-0.5 ${isActive ? 'text-[#FAFAF9]/80' : 'text-[#78716C]'}`}>
+                      {idx + 1} of {gearList.length}
+                    </p>
+                    <h4 className={`text-sm font-black truncate leading-tight ${isActive ? 'text-white' : 'text-[#1C1917]'}`}
+                      style={{ fontFamily: theme.fonts.heading }}>
+                      {cat.category}
+                    </h4>
+                  </div>
+                  <ArrowRight
+                    size={14}
+                    className={`ml-auto flex-shrink-0 transition-all ${isActive ? 'text-[#C59A9F]' : 'text-[#C59A9F]/0 group-hover:text-[#C59A9F]'}`}
+                  />
+                </motion.button>
+              );
+            })}
+
+            {/* Spec badge */}
+            <div className="hidden lg:flex mt-4 p-4 bg-white border border-[#C59A9F] rounded-xl items-center gap-3">
+              <div className="w-9 h-9 rounded-lg bg-[#FAFAF9] text-[#6B1D2F] flex items-center justify-center flex-shrink-0">
+                <Zap size={16} />
               </div>
-              <div className="mt-6 pt-4 border-t border-[#E5D9DB]/60 flex items-center justify-between text-xs text-[#6B1D2F] font-semibold uppercase tracking-widest">
-                <span>Production Standard</span>
-                <span className="w-2 h-2 rounded-full bg-[#6B1D2F]"></span>
+              <div>
+                <p className="text-[10px] font-black uppercase tracking-widest text-[#6B1D2F] mb-0.5">Output Standard</p>
+                <p className="text-xs font-bold text-[#1C1917]">8K Cinema RAW Master</p>
               </div>
             </div>
-          ))}
-        </motion.div>
+          </div>
 
+          {/* ── Right: Gear cards ── */}
+          <div className="lg:col-span-8">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeCategory}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.38, ease: [0.16, 1, 0.3, 1] }}
+                className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5"
+              >
+                {gearList[activeCategory].items.map((item, idx) => (
+                  <motion.div
+                    key={item.name}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: idx * 0.07 }}
+                    whileHover={{ y: -6 }}
+                    className="bg-white rounded-2xl border border-[#C59A9F] shadow-sm hover:border-[#C59A9F] hover:shadow-lg transition-all duration-400 overflow-hidden flex flex-col"
+                  >
+                    {/* Top colour band */}
+                    <div className="h-1 bg-gradient-to-r from-[#6B1D2F] to-[#C59A9F]" />
+
+                    <div className="p-6 flex flex-col gap-4 flex-grow">
+                      {/* Icon + name */}
+                      <div className="flex items-start gap-3">
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center shadow-md shadow-[#6B1D2F]/20 flex-shrink-0">
+                          <CheckCircle2 size={18} />
+                        </div>
+                        <h4
+                          className="text-sm font-black text-[#1C1917] leading-tight pt-0.5"
+                          style={{ fontFamily: theme.fonts.heading }}
+                        >
+                          {item.name}
+                        </h4>
+                      </div>
+
+                      <p className="text-xs text-[#78716C] font-light leading-relaxed flex-grow">
+                        {item.desc}
+                      </p>
+
+                      <div className="pt-3 border-t border-[#C59A9F] flex items-center justify-between">
+                        <span className="text-[10px] font-black uppercase tracking-widest text-[#6B1D2F]">
+                          Pro Standard
+                        </span>
+                        <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </div>
       </div>
     </section>
   );

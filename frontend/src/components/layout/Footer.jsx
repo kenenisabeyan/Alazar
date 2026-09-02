@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Instagram, Twitter, Linkedin, Mail, ArrowUp, Sparkles } from 'lucide-react';
+import { Facebook, Send, ArrowUp, Sparkles } from 'lucide-react';
 import { theme } from '../../constants';
 
 export const Footer = () => {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
   const socialBtn =
-    'w-11 h-11 rounded-full bg-white/80 border border-[#E5D9DB] flex items-center justify-center text-[#78716C] hover:bg-[#6B1D2F] hover:text-white hover:border-[#6B1D2F] hover:shadow-lg hover:shadow-[#6B1D2F]/20 transition-all duration-300';
+    'w-11 h-11 rounded-full bg-white/80 border border-[#C59A9F] flex items-center justify-center text-[#78716C] hover:bg-[#6B1D2F] hover:text-white hover:border-[#6B1D2F] hover:shadow-lg hover:shadow-[#6B1D2F]/20 transition-all duration-300';
 
   const navLinks = [
     { label: 'Home', path: '/' },
@@ -20,7 +20,7 @@ export const Footer = () => {
 
   return (
     <footer
-      className="bg-[#FAFAF9] text-[#1C1917] pt-16 pb-12 relative overflow-hidden border-t border-[#E5D9DB]/60"
+      className="bg-[#FAFAF9] text-[#1C1917] pt-16 pb-12 relative overflow-hidden border-t border-[#C59A9F]/60"
       style={{ fontFamily: theme.fonts.body }}
     >
       {/* Watermark */}
@@ -49,18 +49,39 @@ export const Footer = () => {
               Crafting clean, cinematic video edits, color grading, and high-impact graphic design
               solutions for ambitious creators and global brands.
             </p>
-            <div className="flex gap-3">
-              <motion.a whileHover={{ y: -4 }} href="https://instagram.com" target="_blank" rel="noreferrer" className={socialBtn} aria-label="Instagram">
-                <Instagram size={18} />
+            <div className="flex items-center gap-3">
+              <motion.a
+                whileHover={{ y: -4 }}
+                href="https://t.me/Onlygrace2"
+                target="_blank"
+                rel="noreferrer"
+                className={socialBtn}
+                title="Telegram @Onlygrace2"
+                aria-label="Telegram"
+              >
+                <Send size={18} className="translate-x-[-1px]" />
               </motion.a>
-              <motion.a whileHover={{ y: -4 }} href="https://twitter.com" target="_blank" rel="noreferrer" className={socialBtn} aria-label="Twitter">
-                <Twitter size={18} />
+              <motion.a
+                whileHover={{ y: -4 }}
+                href="https://www.facebook.com/share/169w6Q4Mqo4/?mibextid=wwXIfr"
+                target="_blank"
+                rel="noreferrer"
+                className={socialBtn}
+                title="Facebook Profile"
+                aria-label="Facebook Profile"
+              >
+                <Facebook size={18} />
               </motion.a>
-              <motion.a whileHover={{ y: -4 }} href="https://linkedin.com" target="_blank" rel="noreferrer" className={socialBtn} aria-label="LinkedIn">
-                <Linkedin size={18} />
-              </motion.a>
-              <motion.a whileHover={{ y: -4 }} href="mailto:hello@alazar.com" className={socialBtn} aria-label="Email">
-                <Mail size={18} />
+              <motion.a
+                whileHover={{ y: -4 }}
+                href="https://www.facebook.com/share/1CMuAk9pQM/?mibextid=wwXIfr"
+                target="_blank"
+                rel="noreferrer"
+                className={socialBtn}
+                title="Facebook Page"
+                aria-label="Facebook Page"
+              >
+                <Facebook size={18} />
               </motion.a>
             </div>
           </div>
@@ -116,11 +137,11 @@ export const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-[#E5D9DB] pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-[#78716C] tracking-wider uppercase font-semibold">
+        <div className="border-t border-[#C59A9F] pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-[#78716C] tracking-wider uppercase font-semibold">
           <p>&copy; {new Date().getFullYear()} Alazar Asdesach. All rights reserved.</p>
           <button
             onClick={scrollToTop}
-            className="flex items-center gap-2.5 px-5 py-2.5 bg-white border border-[#E5D9DB] hover:border-[#6B1D2F] rounded-full text-[#1C1917] hover:text-[#6B1D2F] shadow-sm hover:shadow-md transition-all duration-300 group"
+            className="flex items-center gap-2.5 px-5 py-2.5 bg-white border border-[#C59A9F] hover:border-[#6B1D2F] rounded-full text-[#1C1917] hover:text-[#6B1D2F] shadow-sm hover:shadow-md transition-all duration-300 group"
           >
             <span>Back to top</span>
             <ArrowUp size={14} className="text-[#6B1D2F] group-hover:-translate-y-0.5 transition-transform" />

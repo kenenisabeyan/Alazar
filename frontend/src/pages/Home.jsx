@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { ArrowRight, Play, Eye } from 'lucide-react';
+
 import HeroSection from '../components/sections/HeroSection';
 import ShowreelBanner from '../components/sections/ShowreelBanner';
 import AboutSnapshot from '../components/sections/AboutSnapshot';
+import ExpertiseSection from '../components/sections/ExpertiseSection';
 import ColorGradingShowcase from '../components/sections/ColorGradingShowcase';
 import ServiceSplitter from '../components/sections/ServiceSplitter';
 import ProjectCalculator from '../components/sections/ProjectCalculator';
@@ -13,7 +16,6 @@ import Modal from '../components/common/Modal';
 import Button from '../components/common/Button';
 import { theme } from '../constants';
 import api from '../api';
-import { ArrowRight, Play, Eye } from 'lucide-react';
 
 export default function Home() {
   const navigate = useNavigate();
@@ -45,7 +47,7 @@ export default function Home() {
   const handleOpenShowreel = () => {
     handleOpenProjectModal({
       id: 'showreel',
-      title: 'Alazar Asdesach - 2025 Showreel',
+      title: 'Alazar Asdesach — 2025 Showreel',
       category: 'Showreel',
       client: 'Alazar Studio',
       videoUrl: '/assets/sample-showreel.mp4',
@@ -63,32 +65,46 @@ export default function Home() {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-      {/* 1. Hero */}
+      {/* 1 ── Hero */}
       <HeroSection onOpenShowreel={handleOpenShowreel} />
 
-      {/* 2. Showreel Banner */}
+      {/* 2 ── Showreel banner */}
       <ShowreelBanner onOpenShowreel={handleOpenShowreel} />
 
-      {/* 3. About Snapshot */}
+      {/* 3 ── About snapshot */}
       <AboutSnapshot />
 
-      {/* 4. Color Grading Showcase */}
+      {/* 4 ── Specialist context — Video Editor + Senior Graphic Designer */}
+      <ExpertiseSection />
+
+      {/* 5 ── Color grading showcase */}
       <ColorGradingShowcase />
 
-      {/* 5. Featured Projects Grid */}
-      <section className="py-28 bg-[#FAFAF9] relative" style={{ fontFamily: theme.fonts.body }}>
-        <div className="container mx-auto px-6 md:px-12 max-w-7xl">
+      {/* 6 ── Featured projects */}
+      <section
+        className="py-28 relative overflow-hidden"
+        style={{ fontFamily: theme.fonts.body, background: '#FAFAF9' }}
+      >
+        {/* Ambient */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#6B1D2F]/06 blur-[160px] rounded-full pointer-events-none" />
 
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
+        <div className="container mx-auto px-6 md:px-12 max-w-7xl relative z-10">
+          {/* Section header */}
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-14 gap-6">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <span className="text-xs uppercase tracking-widest text-[#6B1D2F] font-bold block mb-2">Selected Works</span>
-              <h2 className="text-4xl md:text-5xl font-black text-[#1C1917]" style={{ fontFamily: theme.fonts.heading }}>
-                Featured <span className="italic font-light text-[#6B1D2F]">Projects</span>
+              <span className="inline-flex items-center gap-2 text-[11px] uppercase tracking-widest text-[#6B1D2F] font-black mb-3 block">
+                <span className="w-8 h-px bg-[#6B1D2F] inline-block" /> Selected Works
+              </span>
+              <h2
+                className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] leading-[1.06] tracking-tight"
+                style={{ fontFamily: theme.fonts.heading }}
+              >
+                Featured <span className="italic font-light text-gradient-burgundy">Projects</span>
               </h2>
             </motion.div>
 
@@ -100,71 +116,81 @@ export default function Home() {
             >
               <Button
                 variant="outline"
-                icon={<ArrowRight size={16} />}
+                icon={<ArrowRight size={15} />}
                 onClick={() => { navigate('/portfolio'); window.scrollTo(0, 0); }}
-                className="rounded-full px-6 py-3 border-[#6B1D2F] text-[#6B1D2F] font-bold text-xs uppercase tracking-wider hover:bg-[#F5E8EA]"
+                className="rounded-full px-7 py-3.5 border-2 border-[#6B1D2F] text-[#6B1D2F] font-black text-[11px] uppercase tracking-wider hover:bg-[#FAFAF9]"
               >
                 View All Projects
               </Button>
             </motion.div>
           </div>
 
+          {/* Project cards */}
           {isLoading ? (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[1, 2, 3].map((idx) => (
-                <div key={idx} className="rounded-3xl aspect-[4/5] bg-gray-200 animate-pulse" />
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {[1, 2, 3].map(i => (
+                <div key={i} className="rounded-[2rem] aspect-[4/5] bg-[#FAFAF9] animate-pulse" />
               ))}
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {featuredProjects.map((project, idx) => (
                 <motion.div
                   key={project.id}
                   initial={{ opacity: 0, y: 35 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.55, delay: idx * 0.15 }}
+                  transition={{ duration: 0.55, delay: idx * 0.12 }}
                   whileHover={{ y: -8 }}
                   onClick={() => handleOpenProjectModal(project)}
-                  className="group relative cursor-pointer rounded-3xl overflow-hidden bg-white aspect-[4/5] border border-[#C59A9F]/35 hover:border-[#6B1D2F] hover:shadow-2xl hover:shadow-[#6B1D2F]/15 transition-all duration-500 shadow-md"
+                  className="group relative cursor-pointer rounded-[2rem] overflow-hidden bg-gradient-to-br from-[#6B1D2F] via-[#521523] to-[#3B0E19] aspect-[4/5] border border-[#C59A9F]/30 hover:border-[#C59A9F]/60 hover:shadow-2xl hover:shadow-[#6B1D2F]/20 transition-all duration-500 shadow-xl"
                 >
+                  {/* Media */}
                   {project.previewVideoUrl ? (
                     <video
                       src={project.previewVideoUrl}
                       autoPlay muted loop playsInline
-                      className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-transform duration-700 ease-out"
+                      className="w-full h-full object-cover opacity-75 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700 ease-out"
                     />
                   ) : (
                     <img
                       src={project.thumbnail}
                       alt={project.title}
-                      className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-transform duration-700 ease-out"
+                      className="w-full h-full object-cover opacity-75 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700 ease-out"
                     />
                   )}
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1C1917]/90 via-[#1C1917]/30 to-transparent opacity-80 group-hover:opacity-95 transition-opacity" />
+                  {/* Gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#3B0E19]/95 via-[#6B1D2F]/30 to-transparent" />
 
+                  {/* Live badge */}
                   {project.previewVideoUrl && (
-                    <div className="absolute top-4 right-4 bg-black/70 backdrop-blur-md text-white text-[10px] uppercase font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 z-10 border border-white/20">
-                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                      <span>Live Reel</span>
+                    <div className="absolute top-5 right-5 bg-[#1E0A0D]/80 backdrop-blur-md text-white text-[10px] uppercase font-black px-3 py-1.5 rounded-full flex items-center gap-1.5 z-10 border border-white/15">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                      Live Reel
                     </div>
                   )}
 
-                  <div className="absolute inset-0 p-8 flex flex-col justify-between z-10">
+                  {/* Content */}
+                  <div className="absolute inset-0 p-7 flex flex-col justify-between z-10">
                     <div className="flex justify-between items-start">
-                      <span className="text-xs uppercase tracking-widest px-3.5 py-1.5 bg-[#6B1D2F] text-white rounded-full font-bold shadow-md">
+                      <span className="text-[10px] uppercase tracking-widest px-3.5 py-1.5 bg-[#6B1D2F] text-white rounded-full font-black shadow-md">
                         {project.category}
                       </span>
                       <div className="w-11 h-11 rounded-full bg-white/95 text-[#6B1D2F] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-xl">
-                        {project.videoUrl ? <Play size={18} className="fill-[#6B1D2F] text-[#6B1D2F]" /> : <Eye size={18} />}
+                        {project.videoUrl
+                          ? <Play size={18} className="fill-[#6B1D2F] text-[#6B1D2F] ml-0.5" />
+                          : <Eye size={18} />}
                       </div>
                     </div>
                     <div>
-                      <h3 className="text-2xl text-white mb-1.5 font-bold tracking-tight group-hover:text-[#F5E8EA] transition-colors" style={{ fontFamily: theme.fonts.heading }}>
+                      <h3
+                        className="text-2xl text-white mb-1.5 font-black tracking-tight group-hover:text-[#FAFAF9] transition-colors"
+                        style={{ fontFamily: theme.fonts.heading }}
+                      >
                         {project.title}
                       </h3>
-                      <p className="text-white/75 text-xs uppercase tracking-widest font-semibold">{project.client}</p>
+                      <p className="text-white/60 text-[11px] uppercase tracking-widest font-bold">{project.client}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -174,16 +200,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 6. Services Splitter */}
+      {/* 7 ── Services splitter */}
       <ServiceSplitter />
 
-      {/* 7. Rate Calculator */}
+      {/* 8 ── Rate calculator */}
       <ProjectCalculator />
 
-      {/* 8. Testimonials */}
+      {/* 9 ── Testimonials */}
       <SocialProof />
 
-      {/* 9. Availability CTA */}
+      {/* 10 ── Availability CTA */}
       <AvailabilityCTA />
 
       <Modal

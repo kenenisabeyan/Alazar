@@ -1,32 +1,94 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Phone, Clock, Send, CheckCircle2, Database } from 'lucide-react';
-import Input from '../components/common/Input';
-import Button from '../components/common/Button';
-import AvailabilityCTA from '../components/sections/AvailabilityCTA';
-import { theme } from '../constants';
-import api from '../api';
-import alazarImg from '../assets/images/alazar.png';
+import {
+  Mail, Phone, Clock, Send, CheckCircle2,
+  Database, Film, PenTool, Zap, Sparkles,
+} from 'lucide-react';
+
+import Input             from '../components/common/Input';
+import Button            from '../components/common/Button';
+import ExpertiseSection  from '../components/sections/ExpertiseSection';
+import AvailabilityCTA   from '../components/sections/AvailabilityCTA';
+import { theme }         from '../constants';
+import api               from '../api';
+import alazarImg         from '../assets/images/alazar.png';
+
+const serviceOptions = [
+  { value: 'freelance-video',  label: 'Video Editing & Color Grading',    icon: Film    },
+  { value: 'freelance-design', label: 'Brand Design & Graphics',           icon: PenTool },
+  { value: 'in-person',        label: 'On-Set Filming & Directing',        icon: Film    },
+  { value: 'full-package',     label: 'Full Package (Video + Design)',      icon: Zap     },
+];
+
+const contactMeta = [
+  {
+    icon: Mail,
+    label: 'Email',
+    content: (
+      <a href="mailto:a.asdesach1@gmail.com" className="text-[#1C1917] font-medium hover:text-[#6B1D2F] transition-colors text-sm">
+        a.asdesach1@gmail.com
+      </a>
+    ),
+  },
+  {
+    icon: Phone,
+    label: 'Phone / WhatsApp',
+    content: <p className="text-[#1C1917] font-medium text-sm">+1 (555) 123-4567</p>,
+  },
+  {
+    icon: Clock,
+    label: 'Response Time',
+    content: <p className="text-[#1C1917] font-medium text-sm">Within 24 hours</p>,
+  },
+];
+
+const defaultForm = {
+  firstName: '',
+  lastName: '',
+  email: '',
+  projectType: 'freelance-video',
+  budget: '$3k - $5k',
+  details: '',
+};
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    projectType: 'freelance-video',
-    budget: '$3k - $5k',
-    details: '',
+  const location = useLocation();
+  const [formData, setFormData] = useState(() => {
+    if (location.state?.estimate) {
+      const est = location.state.estimate;
+      let budgetVal = '$3k - $5k';
+      if (est < 3000) budgetVal = 'under-3k';
+      else if (est <= 5000) budgetVal = '$3k - $5k';
+      else if (est <= 10000) budgetVal = '$5k - $10k';
+      else budgetVal = '$10k+';
+
+      const typeMap = {
+        'commercial': 'freelance-video',
+        'documentary': 'freelance-video',
+        'music-video': 'freelance-video',
+        'brand-design': 'freelance-design',
+      };
+
+      return {
+        ...defaultForm,
+        projectType: typeMap[location.state.projectType] || 'freelance-video',
+        budget: budgetVal,
+        details: `Calculator Estimate: $${est.toLocaleString()} USD (${location.state.typeName || 'Production'} — ${location.state.scope || 'Scope'}).`,
+      };
+    }
+    return defaultForm;
   });
 
-  const [loading, setLoading] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
+  const [loading,     setLoading]     = useState(false);
+  const [submitted,   setSubmitted]   = useState(false);
   const [serverError, setServerError] = useState(null);
-  const [errors, setErrors] = useState({});
+  const [errors,      setErrors]      = useState({});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-    if (errors[name]) setErrors((prev) => ({ ...prev, [name]: null }));
+    setFormData(prev => ({ ...prev, [name]: value }));
+    if (errors[name]) setErrors(prev => ({ ...prev, [name]: null }));
   };
 
   const handleSubmit = async (e) => {
@@ -36,12 +98,9 @@ export default function Contact() {
     const newErrors = {};
     if (!formData.firstName.trim()) newErrors.firstName = 'First name is required';
     if (!formData.email.trim() || !formData.email.includes('@')) newErrors.email = 'Valid email is required';
-    if (!formData.details.trim()) newErrors.details = 'Please describe your project details';
+    if (!formData.details.trim()) newErrors.details = 'Please describe your project';
 
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
-      return;
-    }
+    if (Object.keys(newErrors).length > 0) { setErrors(newErrors); return; }
 
     setLoading(true);
     try {
@@ -54,11 +113,6 @@ export default function Contact() {
     }
   };
 
-  const resetForm = () => {
-    setSubmitted(false);
-    setFormData({ firstName: '', lastName: '', email: '', projectType: 'freelance-video', budget: '$3k - $5k', details: '' });
-  };
-
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -68,143 +122,242 @@ export default function Contact() {
       className="min-h-screen bg-[#FAFAF9] pt-28 sm:pt-36 pb-0 relative overflow-hidden"
       style={{ fontFamily: theme.fonts.body }}
     >
-      {/* Floating background image */}
+      {/* Floating portrait */}
       <motion.div
         animate={{ y: [0, -18, 0], rotate: [0, 2, 0] }}
         transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute top-10 right-0 w-[450px] md:w-[600px] opacity-15 pointer-events-none z-0 mix-blend-luminosity filter blur-[0.5px]"
+        className="absolute top-10 right-0 w-[450px] md:w-[600px] opacity-[0.06] pointer-events-none z-0 mix-blend-luminosity"
       >
-        <img src={alazarImg} alt="Alazar Visual" className="w-full h-auto object-contain" />
+        <img src={alazarImg} alt="" className="w-full h-auto object-contain" />
       </motion.div>
 
-      <div className="container mx-auto px-4 sm:px-6 md:px-12 max-w-7xl mb-16 sm:mb-24">
+      <div className="container mx-auto px-4 sm:px-6 md:px-12 max-w-7xl mb-20 sm:mb-28 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
 
-          {/* Left: Info */}
+          {/* ── Left info panel ─────────────────────────────────────── */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
-            className="lg:col-span-5 space-y-6 sm:space-y-8 relative z-10"
+            className="lg:col-span-5 space-y-8"
           >
+            {/* Badge */}
             <div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#6B1D2F]/10 border border-[#6B1D2F]/20 rounded-full text-xs text-[#6B1D2F] font-medium mb-4">
-                <Database size={13} /> Direct Database Sync
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#6B1D2F]/10 border border-[#6B1D2F]/20 rounded-full text-[11px] text-[#6B1D2F] font-black uppercase tracking-widest mb-5">
+                <Database size={12} /> Direct PostgreSQL Sync
               </div>
-              <span className="text-xs uppercase tracking-widest text-[#6B1D2F] font-semibold block mb-3">Get In Touch</span>
-              <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold text-[#1C1917] mb-4 sm:mb-6 leading-tight" style={{ fontFamily: theme.fonts.heading }}>
-                Let's <span className="italic font-light text-[#6B1D2F]">Work Together.</span>
+              <h1
+                className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] mb-5 leading-[1.06] tracking-tight"
+                style={{ fontFamily: theme.fonts.heading }}
+              >
+                Let's Build<br />
+                <span className="italic font-light text-gradient-burgundy">Something Great.</span>
               </h1>
-              <p className="text-[#78716C] font-light text-base md:text-lg leading-relaxed">
-                Ready to start your next video or design project? Fill out the form and your inquiry goes straight into the PostgreSQL database.
+              <p className="text-[#78716C] font-light text-base leading-relaxed max-w-md">
+                Ready to start your next video or design project? Fill out the brief below — your inquiry goes straight into the PERN backend.
               </p>
             </div>
 
-            <div className="space-y-3 sm:space-y-4 pt-2 sm:pt-4">
+            {/* Discipline mini-cards */}
+            <div className="grid grid-cols-2 gap-3">
               {[
-                { icon: <Mail size={18} />, label: 'Email', content: <a href="mailto:hello@alazar.com" className="text-[#1C1917] font-light hover:text-[#6B1D2F] transition-colors text-xs sm:text-sm">hello@alazar.com</a> },
-                { icon: <Phone size={18} />, label: 'Phone / WhatsApp', content: <p className="text-[#1C1917] font-light text-xs sm:text-sm">+1 (555) 123-4567</p> },
-                { icon: <Clock size={18} />, label: 'Response Time', content: <p className="text-[#1C1917] font-light text-xs sm:text-sm">Within 24 hours</p> },
-              ].map(({ icon, label, content }) => (
-                <div key={label} className="flex items-center gap-3 sm:gap-4 p-3.5 sm:p-4 bg-white rounded-xl border border-[#E5D9DB] shadow-sm">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#F5E8EA] border border-[#C59A9F]/40 rounded-full flex items-center justify-center text-[#6B1D2F] flex-shrink-0">
-                    {icon}
+                { icon: Film,    title: 'Video Production',  sub: 'Editing · Grading · Sound' },
+                { icon: PenTool, title: 'Graphic Design',    sub: 'Brand · Motion · 3D Art'   },
+              ].map(({ icon: Icon, title, sub }) => (
+                <div key={title} className="flex items-start gap-3 p-4 bg-white rounded-2xl border border-[#C59A9F] shadow-sm hover:border-[#C59A9F] transition-colors">
+                  <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center flex-shrink-0 shadow-md shadow-[#6B1D2F]/20">
+                    <Icon size={16} />
                   </div>
                   <div>
-                    <p className="text-xs text-[#78716C] uppercase tracking-wider font-semibold">{label}</p>
+                    <p className="text-xs font-black text-[#1C1917] leading-tight mb-0.5">{title}</p>
+                    <p className="text-[10px] text-[#78716C] font-medium">{sub}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Contact meta */}
+            <div className="space-y-3">
+              {contactMeta.map(({ icon: Icon, label, content }) => (
+                <div key={label} className="flex items-center gap-3.5 p-4 bg-white rounded-2xl border border-[#C59A9F] shadow-sm">
+                  <div className="w-11 h-11 bg-[#FAFAF9] border border-[#C59A9F]/40 rounded-full flex items-center justify-center text-[#6B1D2F] flex-shrink-0">
+                    <Icon size={18} />
+                  </div>
+                  <div>
+                    <p className="text-[10px] text-[#78716C] uppercase tracking-widest font-black mb-0.5">{label}</p>
                     {content}
                   </div>
                 </div>
               ))}
             </div>
+
+            {/* Availability pulse */}
+            <div className="flex items-center gap-3 p-4 bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] rounded-2xl shadow-lg shadow-[#6B1D2F]/20">
+              <div className="relative flex-shrink-0">
+                <span className="absolute inline-flex h-3 w-3 rounded-full bg-emerald-400 opacity-75 animate-ping" />
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500" />
+              </div>
+              <div>
+                <p className="text-[10px] font-black text-white/70 uppercase tracking-widest mb-0.5">Current Status</p>
+                <p className="text-sm font-black text-white">Accepting Q3 / Q4 Projects Worldwide</p>
+              </div>
+            </div>
           </motion.div>
 
-          {/* Right: Form */}
+          {/* ── Right form panel ───────────────────────────────────── */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
-            className="lg:col-span-7 bg-white p-5 sm:p-8 md:p-12 rounded-2xl border border-[#E5D9DB] shadow-sm relative"
+            className="lg:col-span-7 bg-white rounded-[2rem] border-2 border-[#C59A9F] shadow-xl overflow-hidden"
           >
-            <AnimatePresence mode="wait">
-              {submitted ? (
-                <motion.div
-                  key="success"
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  className="py-16 text-center space-y-6"
-                >
-                  <div className="w-16 h-16 bg-[#F5E8EA] border border-[#C59A9F] text-[#6B1D2F] rounded-full flex items-center justify-center mx-auto shadow-sm">
-                    <CheckCircle2 size={36} />
-                  </div>
-                  <h3 className="text-3xl text-[#1C1917] font-bold" style={{ fontFamily: theme.fonts.heading }}>
-                    Inquiry Saved to Database
-                  </h3>
-                  <p className="text-[#78716C] font-light max-w-md mx-auto text-sm leading-relaxed">
-                    Thank you, {formData.firstName}. Your project brief has been recorded in PostgreSQL. I'll review it shortly.
-                  </p>
-                  <Button variant="outline" onClick={resetForm}>Send Another Inquiry</Button>
-                </motion.div>
-              ) : (
-                <motion.form
-                  key="form"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  className="space-y-6"
-                  onSubmit={handleSubmit}
-                >
-                  <h3 className="text-2xl text-[#1C1917] font-bold mb-2" style={{ fontFamily: theme.fonts.heading }}>
-                    Project Inquiry
-                  </h3>
+            {/* Top accent */}
+            <div className="h-1 bg-gradient-to-r from-[#6B1D2F] via-[#C59A9F] to-[#8B1E3F]" />
 
-                  {serverError && (
-                    <div className="p-4 bg-rose-50 border border-rose-200 text-rose-700 text-sm rounded-lg">
-                      {serverError}
+            <div className="p-7 sm:p-10 md:p-12">
+              <AnimatePresence mode="wait">
+                {submitted ? (
+                  <motion.div
+                    key="success"
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    className="py-16 text-center space-y-6"
+                  >
+                    <div className="w-20 h-20 bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white rounded-full flex items-center justify-center mx-auto shadow-2xl shadow-[#6B1D2F]/30">
+                      <CheckCircle2 size={36} />
                     </div>
-                  )}
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <Input label="First Name" name="firstName" placeholder="John" value={formData.firstName} onChange={handleChange} error={errors.firstName} required />
-                    <Input label="Last Name" name="lastName" placeholder="Doe" value={formData.lastName} onChange={handleChange} />
-                  </div>
-
-                  <Input label="Email Address" name="email" type="email" placeholder="john@company.com" value={formData.email} onChange={handleChange} error={errors.email} required />
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div className="flex flex-col gap-2">
-                      <label className="text-xs text-[#78716C] font-semibold tracking-wider uppercase">Project Type</label>
-                      <select name="projectType" value={formData.projectType} onChange={handleChange} className="w-full bg-[#FAFAF9] border border-[#E5D9DB] rounded-lg px-4 py-3 text-[#1C1917] focus:outline-none focus:border-[#6B1D2F] text-sm appearance-none cursor-pointer transition-colors">
-                        <option value="freelance-video">Video Editing & Color Grading</option>
-                        <option value="freelance-design">Brand Design & Graphics</option>
-                        <option value="in-person">On-Set Filming & Directing</option>
-                        <option value="full-package">Full Package (Video + Design)</option>
-                      </select>
+                    <h3
+                      className="text-3xl font-black text-[#1C1917]"
+                      style={{ fontFamily: theme.fonts.heading }}
+                    >
+                      Inquiry Saved!
+                    </h3>
+                    <p className="text-[#78716C] font-light max-w-sm mx-auto text-sm leading-relaxed">
+                      Thank you, <strong className="text-[#1C1917]">{formData.firstName}</strong>. Your brief has been recorded in PostgreSQL — I'll review it within 24 hours.
+                    </p>
+                    <Button variant="outline" onClick={() => { setSubmitted(false); setFormData(defaultForm); }}>
+                      Send Another Inquiry
+                    </Button>
+                  </motion.div>
+                ) : (
+                  <motion.form
+                    key="form"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="space-y-6"
+                    onSubmit={handleSubmit}
+                  >
+                    <div>
+                      <h3
+                        className="text-2xl font-black text-[#1C1917] mb-1"
+                        style={{ fontFamily: theme.fonts.heading }}
+                      >
+                        Project Inquiry
+                      </h3>
+                      <p className="text-[11px] text-[#78716C] font-medium uppercase tracking-wider">
+                        All fields marked * are required
+                      </p>
                     </div>
+
+                    {serverError && (
+                      <div className="p-4 bg-rose-50 border border-rose-200 text-rose-700 text-sm rounded-xl">
+                        {serverError}
+                      </div>
+                    )}
+
+                    {/* Name row */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                      <Input label="First Name *" name="firstName" placeholder="John" value={formData.firstName} onChange={handleChange} error={errors.firstName} required />
+                      <Input label="Last Name"    name="lastName"  placeholder="Doe"  value={formData.lastName}  onChange={handleChange} />
+                    </div>
+
+                    <Input label="Email Address *" name="email" type="email" placeholder="john@company.com" value={formData.email} onChange={handleChange} error={errors.email} required />
+
+                    {/* Service type — custom styled buttons */}
+                    <div>
+                      <label className="text-[11px] text-[#78716C] font-black tracking-widest uppercase block mb-3">
+                        Service Type
+                      </label>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                        {serviceOptions.map(({ value, label, icon: Icon }) => {
+                          const active = formData.projectType === value;
+                          return (
+                            <button
+                              key={value}
+                              type="button"
+                              onClick={() => setFormData(p => ({ ...p, projectType: value }))}
+                              className={`flex items-center gap-3 px-4 py-3 rounded-xl border-2 text-xs font-black text-left transition-all ${
+                                active
+                                  ? 'bg-[#6B1D2F] border-[#6B1D2F] text-white shadow-md'
+                                  : 'bg-white border-[#C59A9F]/50 text-[#1C1917] hover:border-[#6B1D2F]'
+                              }`}
+                            >
+                              <div className={`w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 ${
+                                active ? 'bg-white/20 text-white' : 'bg-[#FAFAF9] text-[#6B1D2F]'
+                              }`}>
+                                <Icon size={14} />
+                              </div>
+                              {label}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+
+                    {/* Budget */}
                     <div className="flex flex-col gap-2">
-                      <label className="text-xs text-[#78716C] font-semibold tracking-wider uppercase">Budget Range</label>
-                      <select name="budget" value={formData.budget} onChange={handleChange} className="w-full bg-[#FAFAF9] border border-[#E5D9DB] rounded-lg px-4 py-3 text-[#1C1917] focus:outline-none focus:border-[#6B1D2F] text-sm appearance-none cursor-pointer transition-colors">
+                      <label className="text-[11px] text-[#78716C] font-black tracking-widest uppercase">
+                        Budget Range
+                      </label>
+                      <select
+                        name="budget"
+                        value={formData.budget}
+                        onChange={handleChange}
+                        className="w-full bg-[#FAFAF9] border-2 border-[#C59A9F] rounded-xl px-4 py-3.5 text-[#1C1917] font-medium focus:outline-none focus:border-[#6B1D2F] text-sm appearance-none cursor-pointer transition-colors"
+                      >
                         <option value="under-3k">&lt; $3,000</option>
-                        <option value="$3k - $5k">$3,000 - $5,000</option>
-                        <option value="$5k - $10k">$5,000 - $10,000</option>
+                        <option value="$3k - $5k">$3,000 – $5,000</option>
+                        <option value="$5k - $10k">$5,000 – $10,000</option>
                         <option value="$10k+">$10,000+</option>
                       </select>
                     </div>
-                  </div>
 
-                  <Input label="Project Details" name="details" multiline rows={5} placeholder="Tell me about your goals, target audience, deliverables, and timeline..." value={formData.details} onChange={handleChange} error={errors.details} required />
+                    <Input
+                      label="Project Details *"
+                      name="details"
+                      multiline
+                      rows={5}
+                      placeholder="Describe your goals, audience, deliverables, and timeline..."
+                      value={formData.details}
+                      onChange={handleChange}
+                      error={errors.details}
+                      required
+                    />
 
-                  <Button type="submit" variant="primary" loading={loading} icon={<Send size={16} />} className="w-full py-4 mt-2">
-                    Send Inquiry to PERN Backend
-                  </Button>
-                </motion.form>
-              )}
-            </AnimatePresence>
+                    <Button
+                      type="submit"
+                      variant="primary"
+                      loading={loading}
+                      icon={<Send size={16} />}
+                      className="w-full py-4 rounded-xl font-black text-xs uppercase tracking-widest"
+                    >
+                      Send Project Inquiry
+                    </Button>
+                  </motion.form>
+                )}
+              </AnimatePresence>
+            </div>
           </motion.div>
+
         </div>
       </div>
 
+      {/* ── Specialist context ─────────────────────────────────────────── */}
+      <ExpertiseSection />
+
+      {/* ── CTA ───────────────────────────────────────────────────────── */}
       <AvailabilityCTA />
     </motion.div>
   );

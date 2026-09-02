@@ -80,7 +80,7 @@ export const HeroSection = ({ onOpenShowreel }) => {
       {/* Dynamic Ambient Glow Orbs */}
       <motion.div
         style={{ y: bgY }}
-        className="absolute -top-12 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-gradient-to-r from-[#6B1D2F]/18 via-[#8B2440]/12 to-[#C59A9F]/20 blur-[180px] rounded-full pointer-events-none animate-pulse-glow"
+        className="absolute -top-12 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-gradient-to-r from-[#6B1D2F]/18 via-[#8B1E3F]/12 to-[#C59A9F]/20 blur-[180px] rounded-full pointer-events-none animate-pulse-glow"
       />
       <motion.div
         style={{ y: bgY }}
@@ -143,7 +143,7 @@ export const HeroSection = ({ onOpenShowreel }) => {
                 variant="secondary"
                 icon={<Play size={18} className="fill-[#6B1D2F] text-[#6B1D2F]" />}
                 onClick={onOpenShowreel}
-                className="w-full sm:w-auto bg-white/90 backdrop-blur-md border border-[#E5D9DB] hover:border-[#6B1D2F] px-9 py-4 text-xs sm:text-sm tracking-widest uppercase font-extrabold shadow-sm rounded-full"
+                className="w-full sm:w-auto bg-white/90 backdrop-blur-md border border-[#C59A9F] hover:border-[#6B1D2F] px-9 py-4 text-xs sm:text-sm tracking-widest uppercase font-extrabold shadow-sm rounded-full"
               >
                 Watch 2025 Reel
               </Button>
@@ -153,7 +153,7 @@ export const HeroSection = ({ onOpenShowreel }) => {
           {/* Luxury Glass Stats Cards */}
           <motion.div
             variants={itemVariants}
-            className="w-full max-w-6xl grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 pt-14 border-t border-[#E5D9DB]/80"
+            className="w-full max-w-6xl grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 pt-14 border-t border-[#C59A9F]/80"
           >
             {statistics.map((stat, idx) => (
               <motion.div

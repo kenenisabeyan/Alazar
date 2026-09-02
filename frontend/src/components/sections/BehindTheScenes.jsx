@@ -1,81 +1,255 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Camera, MapPin, ArrowRight, Film, PenTool, Zap, X } from 'lucide-react';
 import { btsGallery, theme } from '../../constants';
-import { Camera, MapPin } from 'lucide-react';
+
+// Grid layout config: first item is large (spans 2 rows), rest are regular
+const layoutConfig = [
+  { colSpan: 'md:col-span-4', rowSpan: 'md:row-span-2', aspect: 'aspect-[4/5] md:aspect-auto' },
+  { colSpan: 'md:col-span-4', rowSpan: '', aspect: 'aspect-[4/3]' },
+  { colSpan: 'md:col-span-4', rowSpan: '', aspect: 'aspect-[4/3]' },
+];
+
+const disciplineTags = [
+  { icon: Film, text: 'On-Set Filming' },
+  { icon: PenTool, text: 'Color Suite' },
+  { icon: Camera, text: 'Aerial Filming' },
+  { icon: Zap, text: 'Lighting Setup' },
+];
 
 export const BehindTheScenes = () => {
+  const [lightboxItem, setLightboxItem] = useState(null);
+
   return (
-    <section className="py-28 bg-[#FAFAF9] relative" style={{ fontFamily: theme.fonts.body }}>
-      <div className="container mx-auto px-6 md:px-12 max-w-7xl">
+    <section
+      className="py-28 sm:py-36 relative overflow-hidden"
+      style={{ fontFamily: theme.fonts.body, background: '#FAFAF9' }}
+    >
+      {/* Ambient */}
+      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-[#C59A9F]/10 blur-[150px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#6B1D2F]/06 blur-[130px] rounded-full pointer-events-none" />
 
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <motion.span
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-xs uppercase tracking-widest text-[#6B1D2F] font-semibold block"
-          >
-            Behind The Scenes
-          </motion.span>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-bold text-[#1C1917]"
-            style={{ fontFamily: theme.fonts.heading }}
-          >
-            On Set & <span className="italic font-light text-[#6B1D2F]">In The Studio</span>
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-[#78716C] font-light text-base"
-          >
-            A quick look at my filming setup, camera work, and editing process.
-          </motion.p>
-        </div>
+      <div className="container mx-auto px-6 md:px-12 max-w-7xl relative z-10">
 
-        {/* BTS Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {btsGallery.map((item, idx) => (
-            <motion.div
-              key={item.id}
-              initial={{ opacity: 0, y: 30 }}
+        {/* ── Header ─────────────────────────────────────────────────────── */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-14">
+          <div>
+            <motion.span
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: idx * 0.15 }}
-              whileHover={{ y: -6 }}
-              className="bg-white rounded-2xl overflow-hidden border border-[#E5D9DB] shadow-sm hover:shadow-md transition-all group flex flex-col justify-between"
+              className="inline-flex items-center gap-2 text-[11px] uppercase tracking-widest text-[#6B1D2F] font-black mb-4 block"
             >
-              <div className="relative aspect-[4/3] overflow-hidden bg-black">
+              <Camera size={13} /> Behind The Scenes
+            </motion.span>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.08 }}
+              className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] leading-[1.06] tracking-tight"
+              style={{ fontFamily: theme.fonts.heading }}
+            >
+              On Set &<br />
+              <span className="italic font-light text-gradient-burgundy">In the Studio.</span>
+            </motion.h2>
+          </div>
+
+          {/* Discipline tag pills */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.15 }}
+            className="flex flex-wrap gap-2"
+          >
+            {disciplineTags.map(({ icon: Icon, text }) => (
+              <div
+                key={text}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-[#C59A9F] text-[10px] font-black text-[#78716C] uppercase tracking-wider shadow-sm hover:border-[#6B1D2F] hover:text-[#6B1D2F] transition-colors"
+              >
+                <Icon size={11} className="text-[#6B1D2F]" /> {text}
+              </div>
+            ))}
+          </motion.div>
+        </div>
+
+        {/* ── Masonry-style grid ─────────────────────────────────────────── */}
+        <div className="grid grid-cols-1 md:grid-cols-12 md:grid-rows-2 gap-5 mb-10"
+          style={{ minHeight: 'clamp(400px, 70vh, 700px)' }}>
+          {btsGallery.map((item, idx) => {
+            const layout = layoutConfig[idx] ?? layoutConfig[layoutConfig.length - 1];
+            return (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: idx * 0.12 }}
+                whileHover={{ y: -6, scale: 1.01 }}
+                onClick={() => setLightboxItem(item)}
+                className={`group relative overflow-hidden rounded-[2rem] cursor-pointer ${layout.colSpan} ${layout.rowSpan} ${layout.aspect} bg-gradient-to-br from-[#6B1D2F] via-[#521523] to-[#3B0E19] shadow-xl shadow-[#6B1D2F]/15 border border-[#C59A9F]/20 hover:border-[#C59A9F]/60 hover:shadow-2xl hover:shadow-[#6B1D2F]/25 transition-all duration-500`}
+              >
+                {/* Image */}
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700 ease-out"
+                  className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-95 group-hover:scale-105 transition-all duration-700 ease-out"
                 />
-                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-semibold text-[#1C1917] flex items-center gap-1.5 shadow-sm">
-                  <MapPin size={12} className="text-[#6B1D2F]" />
-                  {item.location}
-                </div>
-              </div>
 
-              <div className="p-6 text-left">
-                <h4 className="text-lg font-bold text-[#1C1917] mb-2" style={{ fontFamily: theme.fonts.heading }}>
-                  {item.title}
-                </h4>
-                <p className="text-xs text-[#78716C] font-light leading-relaxed">
-                  {item.caption}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#3B0E19]/90 via-[#6B1D2F]/20 to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-500" />
+
+                {/* Top tags */}
+                <div className="absolute top-5 left-5 right-5 z-10 flex items-start justify-between">
+                  <div className="flex items-center gap-1.5 bg-[#1E0A0D]/80 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/15 text-[10px] font-bold text-white/80">
+                    <MapPin size={11} className="text-[#C59A9F]" />
+                    {item.location}
+                  </div>
+                  <div className="w-9 h-9 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-xl">
+                    <ArrowRight size={14} />
+                  </div>
+                </div>
+
+                {/* Bottom info */}
+                <div className="absolute bottom-0 left-0 right-0 z-10 p-6">
+                  <h4
+                    className="text-lg sm:text-xl font-black text-white mb-1.5 leading-tight group-hover:text-[#FAFAF9] transition-colors"
+                    style={{ fontFamily: theme.fonts.heading }}
+                  >
+                    {item.title}
+                  </h4>
+                  <p className="text-xs text-white/55 font-light leading-relaxed line-clamp-2 max-w-xs">
+                    {item.caption}
+                  </p>
+                  {/* Expand hint */}
+                  <div className="mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-1.5 text-[10px] font-black text-[#C59A9F] uppercase tracking-widest">
+                    <Camera size={11} /> Click to expand
+                  </div>
+                </div>
+
+                {/* Large index overlay (editorial style) */}
+                <div
+                  className="absolute top-4 right-4 text-[80px] font-black text-white/[0.04] leading-none pointer-events-none select-none"
+                  style={{ fontFamily: theme.fonts.heading }}
+                >
+                  0{idx + 1}
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
 
+        {/* ── Process stat strip ─────────────────────────────────────────── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-4"
+        >
+          {[
+            { value: '140+', label: 'Projects Shot' },
+            { value: '8K', label: 'Max Resolution' },
+            { value: '3', label: 'Cinema Cameras' },
+            { value: '4', label: 'Continents Filmed' },
+          ].map(({ value, label }) => (
+            <div
+              key={label}
+              className="glass-card-luxury rounded-2xl p-5 text-center"
+            >
+              <p
+                className="text-3xl font-black text-[#6B1D2F] mb-1 leading-none"
+                style={{ fontFamily: theme.fonts.heading }}
+              >
+                {value}
+              </p>
+              <p className="text-[10px] text-[#78716C] font-black uppercase tracking-widest">{label}</p>
+            </div>
+          ))}
+        </motion.div>
       </div>
+
+      {/* ── Lightbox ─────────────────────────────────────────────────────── */}
+      <AnimatePresence>
+        {lightboxItem && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setLightboxItem(null)}
+            className="fixed inset-0 bg-[#1E0A0D]/90 backdrop-blur-xl z-[200] flex items-center justify-center p-4 sm:p-6 cursor-pointer"
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.92, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.92, y: 20 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 28 }}
+              onClick={e => e.stopPropagation()}
+              className="relative max-w-4xl w-full rounded-[2rem] overflow-hidden shadow-2xl shadow-[#1E0A0D]/60 border border-white/15 cursor-default bg-[#2E1216]"
+            >
+              <img
+                src={lightboxItem.image}
+                alt={lightboxItem.title}
+                className="w-full max-h-[75vh] object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1E0A0D]/95 via-[#1E0A0D]/20 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
+                <div className="flex items-center gap-2 mb-2">
+                  <MapPin size={13} className="text-[#C59A9F]" />
+                  <span className="text-[11px] font-black text-white/70 uppercase tracking-widest">
+                    {lightboxItem.location}
+                  </span>
+                </div>
+                <h3
+                  className="text-2xl font-black text-white mb-2"
+                  style={{ fontFamily: theme.fonts.heading }}
+                >
+                  {lightboxItem.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-white/80 font-light leading-relaxed max-w-xl">
+                  {lightboxItem.caption}
+                </p>
+              </div>
+
+              {/* Prev / Next controls */}
+              <div className="absolute inset-y-0 left-4 right-4 flex items-center justify-between pointer-events-none">
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    const idx = btsGallery.findIndex(i => i.id === lightboxItem.id);
+                    const prevIdx = (idx - 1 + btsGallery.length) % btsGallery.length;
+                    setLightboxItem(btsGallery[prevIdx]);
+                  }}
+                  className="pointer-events-auto w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white flex items-center justify-center hover:bg-white/20 hover:scale-110 transition-all shadow-lg"
+                  aria-label="Previous photo"
+                >
+                  <ArrowRight size={18} className="rotate-180" />
+                </button>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    const idx = btsGallery.findIndex(i => i.id === lightboxItem.id);
+                    const nextIdx = (idx + 1) % btsGallery.length;
+                    setLightboxItem(btsGallery[nextIdx]);
+                  }}
+                  className="pointer-events-auto w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white flex items-center justify-center hover:bg-white/20 hover:scale-110 transition-all shadow-lg"
+                  aria-label="Next photo"
+                >
+                  <ArrowRight size={18} />
+                </button>
+              </div>
+
+              <button
+                onClick={() => setLightboxItem(null)}
+                className="absolute top-5 right-5 w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white flex items-center justify-center hover:bg-white/20 transition-all z-10"
+              >
+                <X size={18} />
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

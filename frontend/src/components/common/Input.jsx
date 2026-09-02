@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 
 export const Input = ({
   label,
@@ -14,7 +14,7 @@ export const Input = ({
   className = '',
   ...props
 }) => {
-  const baseClasses = "w-full bg-[#FAFAF9] border border-[#E5D9DB] rounded-lg px-4 py-3 text-[#1C1917] focus:outline-none focus:border-[#6B1D2F] focus:ring-1 focus:ring-[#6B1D2F] transition-all duration-300 placeholder:text-[#78716C]/40 text-sm";
+  const baseClasses = "w-full bg-[#FAFAF9] border border-[#C59A9F] rounded-lg px-4 py-3 text-[#1C1917] focus:outline-none focus:border-[#6B1D2F] focus:ring-1 focus:ring-[#6B1D2F] transition-all duration-300 placeholder:text-[#78716C]/40 text-sm";
   
   return (
     <div className={`flex flex-col gap-2 ${className}`}>
