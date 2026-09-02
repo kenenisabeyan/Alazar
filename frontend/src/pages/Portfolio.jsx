@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Eye, Film, Layout, Volume2, RefreshCw, Sparkles } from 'lucide-react';
+import { Eye, Film, Layout, Volume2, RefreshCw, Sparkles, Grid, Layers, ArrowUpRight } from 'lucide-react';
 
 import Modal from '../components/common/Modal';
+import ProjectImage from '../components/common/ProjectImage';
+import ProjectCardMedia from '../components/common/ProjectCardMedia';
+import PortfolioPresentationBoard from '../components/sections/PortfolioPresentationBoard';
 import ExpertiseSection from '../components/sections/ExpertiseSection';
 import CaseStudyHighlight from '../components/sections/CaseStudyHighlight';
 import AvailabilityCTA from '../components/sections/AvailabilityCTA';
@@ -14,6 +17,7 @@ import alazarImg from '../assets/images/alazar.png';
 export default function Portfolio() {
   const navigate = useNavigate();
   const [filter, setFilter] = useState('all');
+  const [viewMode, setViewMode] = useState('spread'); // 'spread' | 'grid'
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const [activeModalProject, setActiveModalProject] = useState(null);
@@ -61,10 +65,10 @@ export default function Portfolio() {
       </motion.div>
 
       {/* ── Page header ────────────────────────────────────────────────── */}
-      <div className="container mx-auto px-4 sm:px-6 md:px-12 mb-14 sm:mb-20 text-center relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 md:px-12 mb-10 text-center relative z-10">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white border border-[#C59A9F]/40 rounded-full text-[11px] text-[#6B1D2F] font-black mb-6 shadow-sm shimmer-border">
           <Sparkles size={12} className="animate-pulse" />
-          Curated Work Gallery
+          Graphic Design & Video Portfolio Presentation
         </div>
 
         <motion.h1
@@ -81,12 +85,12 @@ export default function Portfolio() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="text-[#78716C] max-w-2xl mx-auto font-light text-base sm:text-lg mb-10 leading-relaxed"
+          className="text-[#78716C] max-w-2xl mx-auto font-light text-base sm:text-lg mb-8 leading-relaxed"
         >
-          An archive of commercial video cuts, color-graded masters, brand identities, and 3D visual concepts — spanning video editing and senior graphic design.
+          An editorial archive of commercial video cuts, color-graded masters, brand identities, book covers, packaging, and digital imaging spreads.
         </motion.p>
 
-        {/* Filter bar */}
+        {/* Filter bar & View Mode Switcher */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -121,6 +125,26 @@ export default function Portfolio() {
             })}
           </motion.div>
 
+          {/* Presentation View Toggle */}
+          <div className="flex items-center bg-white p-1.5 rounded-full border border-[#C59A9F] shadow-sm gap-1">
+            <button
+              onClick={() => setViewMode('grid')}
+              className={`px-3.5 py-2 rounded-full text-[11px] font-black uppercase tracking-wider transition-all flex items-center gap-1.5 ${
+                viewMode === 'grid' ? 'bg-[#6B1D2F] text-white shadow-sm' : 'text-[#78716C] hover:text-[#1C1917]'
+              }`}
+            >
+              <Grid size={13} /> Grid
+            </button>
+            <button
+              onClick={() => setViewMode('spread')}
+              className={`px-3.5 py-2 rounded-full text-[11px] font-black uppercase tracking-wider transition-all flex items-center gap-1.5 ${
+                viewMode === 'spread' ? 'bg-[#6B1D2F] text-white shadow-sm' : 'text-[#78716C] hover:text-[#1C1917]'
+              }`}
+            >
+              <Layers size={13} /> Presentation Sheet
+            </button>
+          </div>
+
           <button
             onClick={fetchProjects}
             title="Sync latest"
@@ -131,15 +155,24 @@ export default function Portfolio() {
         </div>
       </div>
 
-      {/* ── Projects grid ────────────────────────────────────────────────── */}
-      <div className="container mx-auto px-4 sm:px-6 md:px-12 max-w-7xl mb-20 sm:mb-28">
+      {/* ── Projects Gallery ────────────────────────────────────────────────── */}
+      <div className="container mx-auto px-4 sm:px-6 md:px-12 max-w-7xl mb-20 sm:mb-28 relative z-10">
         {loading ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[1, 2, 3, 4, 5, 6].map(n => (
-              <div key={n} className="rounded-[2rem] aspect-[4/5] bg-[#FAFAF9] animate-pulse" />
+              <div key={n} className="rounded-[2rem] aspect-[4/5] bg-[#FAFAF9] border border-[#C59A9F]/40 animate-pulse" />
             ))}
           </div>
+        ) : viewMode === 'spread' ? (
+          /* 🎨 Presentation Master Board View (Exact layout matching Image 2 reference) */
+          <PortfolioPresentationBoard
+            onSelectProject={(id) => {
+              const target = projects.find(p => p.id === id) || projects[0];
+              if (target) openModal(target);
+            }}
+          />
         ) : (
+          /* 📱 Interactive Grid View */
           <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <AnimatePresence>
               {filteredProjects.map(project => (
@@ -154,19 +187,7 @@ export default function Portfolio() {
                   onClick={() => openModal(project)}
                   className="group relative cursor-pointer rounded-[2rem] overflow-hidden bg-gradient-to-br from-[#6B1D2F] via-[#521523] to-[#3B0E19] aspect-[4/5] border border-[#C59A9F]/30 hover:border-[#C59A9F]/60 hover:shadow-2xl hover:shadow-[#6B1D2F]/20 transition-all duration-500 shadow-xl"
                 >
-                  {project.previewVideoUrl ? (
-                    <video
-                      src={project.previewVideoUrl}
-                      autoPlay muted loop playsInline
-                      className="w-full h-full object-cover opacity-75 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700 ease-out"
-                    />
-                  ) : (
-                    <img
-                      src={project.thumbnail}
-                      alt={project.title}
-                      className="w-full h-full object-cover opacity-75 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700 ease-out"
-                    />
-                  )}
+                  <ProjectCardMedia project={project} />
 
                   <div className="absolute inset-0 bg-gradient-to-t from-[#3B0E19]/95 via-[#6B1D2F]/25 to-transparent" />
 
@@ -179,9 +200,9 @@ export default function Portfolio() {
 
                   <div className="absolute inset-0 p-6 sm:p-7 flex flex-col justify-between z-10">
                     <div className="flex justify-between items-start">
-                      <span className="text-[10px] uppercase tracking-widest px-3.5 py-1.5 bg-[#6B1D2F] text-white rounded-full font-black shadow-md flex items-center gap-1.5">
+                      <span className="text-[10px] uppercase tracking-widest px-3.5 py-1.5 bg-[#6B1D2F] text-white rounded-full font-black shadow-md flex items-center gap-1.5 border border-white/15">
                         {project.category === 'video' && <Film size={11} />}
-                        {project.category}
+                        {project.subCategory || project.category}
                       </span>
                       <motion.div
                         whileHover={{ scale: 1.15, rotate: 6 }}
@@ -197,7 +218,7 @@ export default function Portfolio() {
                       >
                         {project.title}
                       </h3>
-                      <p className="text-white/55 text-[10px] uppercase tracking-widest font-bold">
+                      <p className="text-white/60 text-[10px] uppercase tracking-widest font-bold">
                         {project.client} · {project.year || '2025'}
                       </p>
                     </div>

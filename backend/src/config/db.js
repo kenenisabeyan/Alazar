@@ -32,7 +32,7 @@ const memoryStore = {
       title: "Urban Echoes Commercial",
       category: "video",
       client: "Vanguard Apparel",
-      thumbnail: "https://images.unsplash.com/photo-1536240478700-b869070f9279?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      thumbnail: "/assets/projects/urban-echoes.svg",
       preview_video_url: "/assets/sample-showreel.mp4",
       video_url: "/assets/sample-showreel.mp4",
       description: "A fast-paced, documentary-style lookbook for Vanguard's Fall collection. Focused on kinetic movement, rhythmic cuts, and a sleek color grade.",
@@ -47,7 +47,7 @@ const memoryStore = {
       title: "Lumina Brand Profile Book",
       category: "design",
       client: "Lumina Tech",
-      thumbnail: "https://images.unsplash.com/photo-1626785773579-c93818bb51d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      thumbnail: "/assets/projects/lumina-brand.svg",
       preview_video_url: null,
       video_url: null,
       description: "Complete visual overhaul and brand profile book design for a modern tech startup. Built with clean typography grid and brand strategy.",
@@ -62,9 +62,9 @@ const memoryStore = {
       title: "The Craftsman Mini-Doc",
       category: "video",
       client: "Oak & Iron",
-      thumbnail: "https://images.unsplash.com/photo-1535016120720-40c746a480d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      preview_video_url: "https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-carpenter-working-with-wood-41555-large.mp4",
-      video_url: "https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-carpenter-working-with-wood-41555-large.mp4",
+      thumbnail: "/assets/projects/craftsman.svg",
+      preview_video_url: "/assets/sample-showreel.mp4",
+      video_url: "/assets/sample-showreel.mp4",
       description: "A slow-cinema mini-documentary following a master woodworker. Emphasis on organic sound design and warm color palettes.",
       role: "Cinematographer & Editor",
       deliverables: ["3-Minute Short Film", "Soundscape Mix", "Color Grading"],
@@ -77,7 +77,7 @@ const memoryStore = {
       title: "Peace & Character Illustration",
       category: "design",
       client: "Peace Creative Studio",
-      thumbnail: "https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      thumbnail: "/assets/projects/peace-illustration.svg",
       preview_video_url: null,
       video_url: null,
       description: "Vibrant character illustrations and vector artworks crafted for digital media, stickers, and editorial prints.",
@@ -92,7 +92,7 @@ const memoryStore = {
       title: "Custom Typography & Lettering",
       category: "design",
       client: "Typecraft Lab",
-      thumbnail: "https://images.unsplash.com/photo-1516962215378-7fa2e137ae93?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      thumbnail: "/assets/projects/typography.svg",
       preview_video_url: null,
       video_url: null,
       description: "Experimental editorial typography, custom hand-lettering badges, and brand display font designs.",
@@ -107,7 +107,7 @@ const memoryStore = {
       title: "Book Cover & Publication Spreads",
       category: "design",
       client: "Novelist Press",
-      thumbnail: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      thumbnail: "/assets/projects/book-cover.svg",
       preview_video_url: null,
       video_url: null,
       description: "3D book cover renders, spine typography, and editorial publication spreads for a literary anthology series.",
@@ -122,7 +122,7 @@ const memoryStore = {
       title: "Digital Composite Imaging",
       category: "design",
       client: "Surreal Vision",
-      thumbnail: "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      thumbnail: "/assets/projects/digital-imaging.svg",
       preview_video_url: null,
       video_url: null,
       description: "High-end photo manipulation, color matching, and digital composite art for cinematic movie posters.",
@@ -137,7 +137,7 @@ const memoryStore = {
       title: "Artisanal Jar Label & Packaging",
       category: "design",
       client: "Rudeku Gourmet",
-      thumbnail: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      thumbnail: "/assets/projects/jar-label.svg",
       preview_video_url: null,
       video_url: null,
       description: "Premium label packaging design for artisanal food jars, featuring foil stamp details and custom die-cut labels.",
@@ -152,7 +152,7 @@ const memoryStore = {
       title: "Instagram Feed & Mobile UI Design",
       category: "design",
       client: "Sunlocal Agency",
-      thumbnail: "https://images.unsplash.com/photo-1616469829941-c7200edec809?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      thumbnail: "/assets/projects/social-feed.svg",
       preview_video_url: null,
       video_url: null,
       description: "Cohesive social media grid feed strategy and mobile application preview interfaces designed for high engagement.",
@@ -167,7 +167,7 @@ const memoryStore = {
       title: "Promotional Content & 3D Hardware",
       category: "design",
       client: "Apex Gaming Tech",
-      thumbnail: "https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      thumbnail: "/assets/projects/promotional-3d.svg",
       preview_video_url: null,
       video_url: null,
       description: "3D product visualization, lighting setup, and promotional ad banners for high-performance gaming gear.",
@@ -182,7 +182,7 @@ const memoryStore = {
       title: "AURA Festival Poster System",
       category: "design",
       client: "AURA Music Group",
-      thumbnail: "https://images.unsplash.com/photo-1557672172-298e090bd0f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      thumbnail: "/assets/projects/aura-poster.svg",
       preview_video_url: null,
       video_url: null,
       description: "Abstract 3D poster designs for a boutique electronic music festival designed to capture ambient lighting.",
@@ -197,9 +197,9 @@ const memoryStore = {
       title: "Velocity Luxury Car Launch",
       category: "video",
       client: "Apex Motors",
-      thumbnail: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      preview_video_url: "https://assets.mixkit.co/videos/preview/mixkit-sports-car-driving-on-a-road-at-sunset-41549-large.mp4",
-      video_url: "https://assets.mixkit.co/videos/preview/mixkit-sports-car-driving-on-a-road-at-sunset-41549-large.mp4",
+      thumbnail: "/assets/projects/velocity-car.svg",
+      preview_video_url: "/assets/sample-showreel.mp4",
+      video_url: "/assets/sample-showreel.mp4",
       description: "High-octane commercial edit for a sports car launch, featuring speed-ramping, sound sync, and deep color grading.",
       role: "Lead Editor",
       deliverables: ["30s TV Spot", "Social Teasers", "Cinematic Sound Design"],
@@ -212,7 +212,7 @@ const memoryStore = {
       title: "Noir Editorial Magazine Spreads",
       category: "design",
       client: "Studio One Magazine",
-      thumbnail: "https://images.unsplash.com/photo-1588636156711-b0728cce7230?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      thumbnail: "/assets/projects/noir-editorial.svg",
       preview_video_url: null,
       video_url: null,
       description: "Editorial layout design for a high-fashion spread. Focused on rigid grid structures juxtaposed with bold typography.",
@@ -308,12 +308,9 @@ export async function initializeDatabase() {
       console.log(`[Database] Database schema synchronized.`);
     }
 
-    const projectCount = await client.query('SELECT COUNT(*) FROM projects');
-    if (parseInt(projectCount.rows[0].count, 10) === 0) {
-      console.log(`[Database] Seeding initial portfolio records...`);
-      await seedInitialData(client);
-      console.log(`[Database] Seeding completed.`);
-    }
+    console.log(`[Database] Synchronizing portfolio database records...`);
+    await seedInitialData(client);
+    console.log(`[Database] Synchronization completed.`);
 
     client.release();
     return true;
@@ -328,9 +325,21 @@ export async function initializeDatabase() {
 export async function seedInitialData(clientOrPool = pool) {
   for (const p of memoryStore.projects) {
     await clientOrPool.query(
-      `INSERT INTO projects (title, category, client, thumbnail, preview_video_url, video_url, description, role, deliverables, year, featured)
-       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)`,
-      [p.title, p.category, p.client, p.thumbnail, p.preview_video_url, p.video_url, p.description, p.role, p.deliverables, p.year, p.featured]
+      `INSERT INTO projects (id, title, category, client, thumbnail, preview_video_url, video_url, description, role, deliverables, year, featured)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
+       ON CONFLICT (id) DO UPDATE SET
+         title = EXCLUDED.title,
+         category = EXCLUDED.category,
+         client = EXCLUDED.client,
+         thumbnail = EXCLUDED.thumbnail,
+         preview_video_url = EXCLUDED.preview_video_url,
+         video_url = EXCLUDED.video_url,
+         description = EXCLUDED.description,
+         role = EXCLUDED.role,
+         deliverables = EXCLUDED.deliverables,
+         year = EXCLUDED.year,
+         featured = EXCLUDED.featured`,
+      [p.id, p.title, p.category, p.client, p.thumbnail, p.preview_video_url, p.video_url, p.description, p.role, p.deliverables, p.year, p.featured]
     );
   }
 

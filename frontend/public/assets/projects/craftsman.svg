@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E0A0D"/>
+      <stop offset="50%" stop-color="#3B0E19"/>
+      <stop offset="100%" stop-color="#6B1D2F"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="15" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="1000" fill="url(#bg)"/>
+
+  <!-- Cinema Reel & Craft Elements -->
+  <g opacity="0.15" stroke="#C59A9F" stroke-width="2" fill="none">
+    <circle cx="400" cy="400" r="280"/>
+    <line x1="0" y1="400" x2="800" y2="400"/>
+    <line x1="400" y1="0" x2="400" y2="800"/>
+  </g>
+
+  <rect x="140" y="240" width="520" height="380" rx="24" fill="#2E1216" stroke="#C59A9F" stroke-width="2" filter="url(#shadow)"/>
+  
+  <circle cx="400" cy="430" r="54" fill="#6B1D2F" stroke="#FAFAF9" stroke-width="3"/>
+  <polygon points="392,408 422,430 392,452" fill="#FAFAF9"/>
+
+  <text x="400" y="740" text-anchor="middle" fill="#FAFAF9" font-family="'Roboto', sans-serif" font-weight="900" font-size="42" letter-spacing="4">THE CRAFTSMAN</text>
+  <text x="400" y="785" text-anchor="middle" fill="#C59A9F" font-family="'Roboto', sans-serif" font-weight="700" font-size="18" letter-spacing="6">MINI-DOCUMENTARY EDIT • 2025</text>
+</svg>

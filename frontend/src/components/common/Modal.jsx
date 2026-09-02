@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, CheckCircle2, Sparkles } from 'lucide-react';
 import Button from './Button';
+import ProjectImage from './ProjectImage';
 
 export const Modal = ({ isOpen, onClose, project }) => {
   useEffect(() => {
@@ -82,9 +83,11 @@ export const Modal = ({ isOpen, onClose, project }) => {
                   />
                 )
               ) : (
-                <img
+                <ProjectImage
                   src={project.thumbnail}
-                  alt={project.title}
+                  title={project.title}
+                  category={project.category}
+                  subCategory={project.subCategory || project.category}
                   className="w-full h-full object-cover"
                 />
               )}

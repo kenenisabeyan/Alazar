@@ -29,6 +29,16 @@ async function request(endpoint, options = {}) {
   }
 }
 
+const normalizeProject = (p) => {
+  if (!p) return p;
+  return {
+    ...p,
+    previewVideoUrl: p.previewVideoUrl || p.preview_video_url || null,
+    videoUrl: p.videoUrl || p.video_url || null,
+    subCategory: p.subCategory || p.sub_category || (p.category === 'video' ? 'Commercial Video' : 'Graphic Design'),
+  };
+};
+
 export const api = {
   // ── Health ───────────────────────────────────────────────────────────────
   health: async () => {
@@ -48,21 +58,22 @@ export const api = {
         if (params.featured) q.append('featured', 'true');
         if (params.search)   q.append('search', params.search);
         const res = await request(`/projects${q.toString() ? `?${q}` : ''}`);
-        return res.data;
+        return (res.data || []).map(normalizeProject);
       } catch {
         const items = params.category && params.category !== 'all'
           ? portfolioProjects.filter((p) => p.category.toLowerCase() === params.category.toLowerCase())
           : portfolioProjects;
-        return items;
+        return items.map(normalizeProject);
       }
     },
 
     getById: async (id) => {
       try {
         const res = await request(`/projects/${id}`);
-        return res.data;
+        return normalizeProject(res.data);
       } catch {
-        return portfolioProjects.find((p) => p.id === parseInt(id, 10)) || null;
+        const found = portfolioProjects.find((p) => p.id === parseInt(id, 10)) || null;
+        return normalizeProject(found);
       }
     },
 

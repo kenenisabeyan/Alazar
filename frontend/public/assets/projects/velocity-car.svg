@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B0E19"/>
+      <stop offset="100%" stop-color="#1E0A0D"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="1000" fill="url(#bg)"/>
+
+  <g transform="translate(140, 220)">
+    <rect width="520" height="380" rx="24" fill="#2E1216" stroke="#C59A9F" stroke-width="2"/>
+    <circle cx="260" cy="190" r="50" fill="#6B1D2F" stroke="#FAFAF9" stroke-width="2"/>
+    <polygon points="252,170 278,190 252,210" fill="#FAFAF9"/>
+  </g>
+
+  <text x="400" y="740" text-anchor="middle" fill="#FAFAF9" font-family="'Roboto', sans-serif" font-weight="900" font-size="42" letter-spacing="4">VELOCITY LUXURY CAR</text>
+  <text x="400" y="785" text-anchor="middle" fill="#C59A9F" font-family="'Roboto', sans-serif" font-weight="700" font-size="18" letter-spacing="6">COMMERCIAL CAR SPOT • 2025</text>
+</svg>

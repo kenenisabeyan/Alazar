@@ -17,6 +17,9 @@ import Button from '../components/common/Button';
 import { theme } from '../constants';
 import api from '../api';
 
+import ProjectImage from '../components/common/ProjectImage';
+import ProjectCardMedia from '../components/common/ProjectCardMedia';
+
 export default function Home() {
   const navigate = useNavigate();
   const [activeModalProject, setActiveModalProject] = useState(null);
@@ -146,19 +149,7 @@ export default function Home() {
                   className="group relative cursor-pointer rounded-[2rem] overflow-hidden bg-gradient-to-br from-[#6B1D2F] via-[#521523] to-[#3B0E19] aspect-[4/5] border border-[#C59A9F]/30 hover:border-[#C59A9F]/60 hover:shadow-2xl hover:shadow-[#6B1D2F]/20 transition-all duration-500 shadow-xl"
                 >
                   {/* Media */}
-                  {project.previewVideoUrl ? (
-                    <video
-                      src={project.previewVideoUrl}
-                      autoPlay muted loop playsInline
-                      className="w-full h-full object-cover opacity-75 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700 ease-out"
-                    />
-                  ) : (
-                    <img
-                      src={project.thumbnail}
-                      alt={project.title}
-                      className="w-full h-full object-cover opacity-75 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700 ease-out"
-                    />
-                  )}
+                  <ProjectCardMedia project={project} />
 
                   {/* Gradient */}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#3B0E19]/95 via-[#6B1D2F]/30 to-transparent" />
