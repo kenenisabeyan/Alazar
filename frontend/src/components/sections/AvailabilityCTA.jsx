@@ -34,7 +34,7 @@ export const AvailabilityCTA = () => {
         <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-[#6B1D2F]/35 blur-[140px] rounded-full pointer-events-none" />
         <div className="absolute bottom-0 right-0 w-[350px] h-[350px] bg-[#8B1E3F]/20 blur-[100px] rounded-full pointer-events-none" />
 
-        <div className="container mx-auto px-6 md:px-12 max-w-7xl relative z-10 py-20 sm:py-28">
+        <div className="container mx-auto px-4 sm:px-6 md:px-10 lg:px-12 max-w-[1550px] relative z-10 py-20 sm:py-28">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
             {/* Left copy */}
@@ -190,7 +190,7 @@ export const AvailabilityCTA = () => {
 
       {/* ── Light lower band — social + copyright ─────────────────────────── */}
       <div className="bg-[#FAFAF9] border-t border-[#C59A9F]">
-        <div className="container mx-auto px-6 md:px-12 max-w-7xl py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="container mx-auto px-4 sm:px-6 md:px-10 lg:px-12 max-w-[1550px] py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
 
           {/* Brand mark */}
           <div className="flex items-center gap-2">

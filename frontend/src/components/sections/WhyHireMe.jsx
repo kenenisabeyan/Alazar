@@ -29,7 +29,7 @@ export const WhyHireMe = () => {
       {/* Ambient */}
       <div className="absolute -top-32 right-0 w-[500px] h-[500px] bg-[#6B1D2F]/07 blur-[160px] rounded-full pointer-events-none" />
 
-      <div className="container mx-auto px-6 md:px-12 max-w-7xl relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 md:px-10 lg:px-12 max-w-[1550px] relative z-10">
 
         {/* Header row */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 mb-16">

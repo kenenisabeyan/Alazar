@@ -156,7 +156,7 @@ export default function Portfolio() {
       </div>
 
       {/* ── Projects Gallery ────────────────────────────────────────────────── */}
-      <div className="container mx-auto px-4 sm:px-6 md:px-12 max-w-7xl mb-20 sm:mb-28 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 md:px-10 lg:px-12 max-w-[1550px] mb-20 sm:mb-28 relative z-10">
         {loading ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[1, 2, 3, 4, 5, 6].map(n => (
@@ -166,6 +166,8 @@ export default function Portfolio() {
         ) : viewMode === 'spread' ? (
           /* 🎨 Presentation Master Board View (Exact layout matching Image 2 reference) */
           <PortfolioPresentationBoard
+            projects={projects}
+            filter={filter}
             onSelectProject={(id) => {
               const target = projects.find(p => p.id === id) || projects[0];
               if (target) openModal(target);
@@ -185,42 +187,37 @@ export default function Portfolio() {
                   whileHover={{ y: -8, scale: 1.02 }}
                   transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
                   onClick={() => openModal(project)}
-                  className="group relative cursor-pointer rounded-[2rem] overflow-hidden bg-gradient-to-br from-[#6B1D2F] via-[#521523] to-[#3B0E19] aspect-[4/5] border border-[#C59A9F]/30 hover:border-[#C59A9F]/60 hover:shadow-2xl hover:shadow-[#6B1D2F]/20 transition-all duration-500 shadow-xl"
+                  className="group relative cursor-pointer rounded-[2rem] overflow-hidden bg-gradient-to-br from-[#240A0F] via-[#3B111A] to-[#160508] aspect-[4/5] border border-white/15 hover:border-[#C59A9F]/50 hover:shadow-2xl hover:shadow-[#6B1D2F]/25 transition-all duration-500 shadow-xl"
                 >
                   <ProjectCardMedia project={project} />
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#3B0E19]/95 via-[#6B1D2F]/25 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#160508]/95 via-[#240A0F]/30 to-transparent pointer-events-none" />
 
-                  {project.previewVideoUrl && (
-                    <div className="absolute top-5 right-5 bg-[#1E0A0D]/80 backdrop-blur-md text-white text-[10px] uppercase font-black px-3 py-1.5 rounded-full flex items-center gap-1.5 z-10 border border-white/15">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                      Live Reel
-                    </div>
-                  )}
-
-                  <div className="absolute inset-0 p-6 sm:p-7 flex flex-col justify-between z-10">
+                  <div className="absolute inset-0 p-6 sm:p-7 flex flex-col justify-between z-10 pointer-events-none">
                     <div className="flex justify-between items-start">
-                      <span className="text-[10px] uppercase tracking-widest px-3.5 py-1.5 bg-[#6B1D2F] text-white rounded-full font-black shadow-md flex items-center gap-1.5 border border-white/15">
-                        {project.category === 'video' && <Film size={11} />}
+                      <span className="text-[9.5px] uppercase tracking-[0.2em] px-3.5 py-1.5 bg-black/60 backdrop-blur-md text-[#FAFAF9] rounded-full font-black shadow-lg flex items-center gap-1.5 border border-white/15">
+                        {project.category === 'video' ? <Film size={11} className="text-[#C59A9F]" /> : <Layout size={11} className="text-[#C59A9F]" />}
                         {project.subCategory || project.category}
                       </span>
                       <motion.div
                         whileHover={{ scale: 1.15, rotate: 6 }}
-                        className="w-11 h-11 rounded-full bg-white/95 text-[#6B1D2F] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-xl"
+                        className="w-10 h-10 rounded-full bg-white/95 text-[#6B1D2F] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-xl pointer-events-auto"
                       >
-                        {project.videoUrl ? <Volume2 size={18} /> : <Eye size={18} />}
+                        {project.videoUrl || project.previewVideoUrl ? <Volume2 size={16} /> : <Eye size={16} />}
                       </motion.div>
                     </div>
                     <div>
                       <h3
-                        className="text-xl sm:text-2xl text-white mb-1.5 font-black tracking-tight group-hover:text-[#FAFAF9] transition-colors"
+                        className="text-xl sm:text-2xl text-white mb-1.5 font-black tracking-tight group-hover:text-[#FAFAF9] transition-colors font-serif"
                         style={{ fontFamily: theme.fonts.heading }}
                       >
                         {project.title}
                       </h3>
-                      <p className="text-white/60 text-[10px] uppercase tracking-widest font-bold">
-                        {project.client} · {project.year || '2025'}
-                      </p>
+                      <div className="flex items-center gap-2 text-[#C59A9F] text-[10px] uppercase tracking-[0.2em] font-bold">
+                        <span>{project.client}</span>
+                        <span className="text-white/30">•</span>
+                        <span>{project.year || '2025'}</span>
+                      </div>
                     </div>
                   </div>
                 </motion.div>

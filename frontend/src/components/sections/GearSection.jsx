@@ -17,7 +17,7 @@ export const GearSection = () => {
       <div className="absolute top-0 right-0 w-1/3 h-full bg-[#6B1D2F]/[0.03] pointer-events-none hidden lg:block" />
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[400px] h-[400px] bg-[#6B1D2F]/06 blur-[140px] rounded-full pointer-events-none" />
 
-      <div className="container mx-auto px-6 md:px-12 max-w-7xl relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 md:px-10 lg:px-12 max-w-[1550px] relative z-10">
 
         {/* ── Header ── */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-16 items-end">

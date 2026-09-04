@@ -131,7 +131,7 @@ export default function Contact() {
         <img src={alazarImg} alt="" className="w-full h-auto object-contain" />
       </motion.div>
 
-      <div className="container mx-auto px-4 sm:px-6 md:px-12 max-w-7xl mb-20 sm:mb-28 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 md:px-10 lg:px-12 max-w-[1550px] mb-20 sm:mb-28 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
 
           {/* ── Left info panel ─────────────────────────────────────── */}

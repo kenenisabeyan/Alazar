@@ -33,7 +33,7 @@ export const ColorGradingShowcase = () => {
       {/* Ambient */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[#6B1D2F]/06 blur-[180px] rounded-full pointer-events-none" />
 
-      <div className="container mx-auto px-6 md:px-12 max-w-7xl relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 md:px-10 lg:px-12 max-w-[1550px] relative z-10">
 
         {/* ── Header ── */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 mb-14">
@@ -67,8 +67,8 @@ export const ColorGradingShowcase = () => {
             transition={{ delay: 0.15 }}
             className="flex flex-col gap-2"
           >
-            <p className="text-[10px] font-black uppercase tracking-widest text-[#78716C] mb-1">Select Sample</p>
-            <div className="inline-flex bg-white border border-[#C59A9F] rounded-full p-1.5 gap-1 shadow-sm">
+            <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[#78716C] mb-1">SELECT SAMPLE</p>
+            <div className="inline-flex bg-white border border-[#C59A9F] rounded-full p-1.5 gap-1.5 shadow-sm flex-wrap">
               {colorGradingSamples.map((sample, idx) => (
                 <button
                   key={sample.id}
@@ -84,7 +84,7 @@ export const ColorGradingShowcase = () => {
                     />
                   )}
                   <Sliders size={12} />
-                  {sample.title.split('—')[0].trim().split(' ').slice(0, 2).join(' ')}
+                  {sample.title.split('—')[0].trim()}
                 </button>
               ))}
             </div>
@@ -97,11 +97,11 @@ export const ColorGradingShowcase = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="mb-6"
+          className="mb-8"
         >
           <div
             ref={containerRef}
-            className="relative aspect-[4/3] sm:aspect-video rounded-[2rem] overflow-hidden shadow-2xl border border-[#C59A9F]/30 bg-[#1E0A0D] select-none cursor-ew-resize group"
+            className="relative w-full aspect-[16/10] sm:aspect-[16/9] lg:aspect-[21/10] min-h-[420px] sm:min-h-[540px] lg:min-h-[640px] rounded-3xl sm:rounded-[2.5rem] overflow-hidden shadow-2xl border border-[#C59A9F]/40 bg-[#1E0A0D] select-none cursor-ew-resize group"
             onMouseDown={(e) => { setIsDragging(true); updateSlider(e.clientX); }}
             onMouseUp={() => setIsDragging(false)}
             onMouseLeave={() => setIsDragging(false)}
@@ -129,20 +129,24 @@ export const ColorGradingShowcase = () => {
             </div>
 
             {/* Gradient vignette */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#1E0A0D]/80 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#1E0A0D]/90 via-transparent to-[#1E0A0D]/30 pointer-events-none" />
+
+            {/* Viewfinder Corners */}
+            <div className="absolute top-4 left-4 w-3.5 h-3.5 border-t-2 border-l-2 border-white/40 rounded-tl-sm pointer-events-none" />
+            <div className="absolute top-4 right-4 w-3.5 h-3.5 border-t-2 border-r-2 border-white/40 rounded-tr-sm pointer-events-none" />
 
             {/* RAW label */}
-            <div className="absolute bottom-6 left-5 flex items-center gap-2 pointer-events-none z-10">
-              <span className="bg-white/95 backdrop-blur-md text-[#1C1917] border border-[#C59A9F] text-[10px] uppercase tracking-widest px-3.5 py-2 rounded-full font-black shadow-xl">
-                Camera RAW Log
+            <div className="absolute bottom-6 left-6 flex items-center gap-2 pointer-events-none z-10">
+              <span className="bg-black/70 backdrop-blur-md text-[#FAFAF9] border border-white/20 text-[9.5px] uppercase tracking-[0.2em] px-3.5 py-1.5 rounded-full font-black shadow-xl font-mono">
+                [ CAMERA RAW LOG ]
               </span>
             </div>
 
             {/* Graded label */}
-            <div className="absolute bottom-6 right-5 flex items-center gap-2 pointer-events-none z-10">
-              <span className="bg-[#6B1D2F] text-white text-[10px] uppercase tracking-widest px-3.5 py-2 rounded-full font-black shadow-xl flex items-center gap-1.5">
+            <div className="absolute bottom-6 right-6 flex items-center gap-2 pointer-events-none z-10">
+              <span className="bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] text-white text-[9.5px] uppercase tracking-[0.2em] px-3.5 py-1.5 rounded-full font-black shadow-xl flex items-center gap-1.5 border border-white/20 font-mono">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                Final Color Grade
+                GRADED MASTER (REC.709)
               </span>
             </div>
 

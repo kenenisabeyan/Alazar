@@ -28,7 +28,7 @@ export const CareerTimeline = () => {
       {/* Ambient */}
       <div className="absolute -top-20 right-0 w-[450px] h-[450px] bg-[#6B1D2F]/06 blur-[150px] rounded-full pointer-events-none" />
 
-      <div className="container mx-auto px-6 md:px-12 max-w-7xl relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 md:px-10 lg:px-12 max-w-[1550px] relative z-10">
 
         {/* ── Header ── */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-16">

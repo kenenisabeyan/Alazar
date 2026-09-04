@@ -149,7 +149,7 @@ export default function Services() {
         </div>
 
         {/* ── Service cards ─────────────────────────────────────────────── */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-7xl mx-auto mb-0">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-[1550px] mx-auto mb-0">
           {serviceCards.map((svc, idx) => (
             <motion.div
               key={svc.title}

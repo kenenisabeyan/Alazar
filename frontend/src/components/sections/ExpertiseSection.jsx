@@ -209,7 +209,7 @@ export const ExpertiseSection = () => {
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-bl from-[#6B1D2F]/08 to-transparent blur-[160px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-to-tr from-[#C59A9F]/12 to-transparent blur-[120px] rounded-full pointer-events-none" />
 
-      <div className="container mx-auto px-6 md:px-12 max-w-7xl relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 md:px-10 lg:px-12 max-w-[1550px] relative z-10">
 
         {/* ── Section header ── */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 mb-16">
