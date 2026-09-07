@@ -11,6 +11,7 @@ import WhyHireMe from '../components/sections/WhyHireMe';
 import AvailabilityCTA from '../components/sections/AvailabilityCTA';
 import { theme, faqs } from '../constants';
 import alazarImg from '../assets/images/alazar.png';
+import api from '../api';
 
 const serviceCards = [
   {
@@ -97,6 +98,19 @@ function FaqAccordion({ faqs }) {
 
 export default function Services() {
   const navigate = useNavigate();
+  const [cards, setCards] = useState(serviceCards);
+
+  React.useEffect(() => {
+    async function loadServices() {
+      try {
+        const data = await api.services.getAll();
+        if (data && data.length > 0) setCards(data);
+      } catch (err) {
+        console.warn('Using default service cards');
+      }
+    }
+    loadServices();
+  }, []);
 
   return (
     <motion.div
@@ -150,7 +164,7 @@ export default function Services() {
 
         {/* ── Service cards ─────────────────────────────────────────────── */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-[1550px] mx-auto mb-0">
-          {serviceCards.map((svc, idx) => (
+          {cards.map((svc, idx) => (
             <motion.div
               key={svc.title}
               initial={{ opacity: 0, y: 40 }}

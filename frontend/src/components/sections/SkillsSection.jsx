@@ -5,8 +5,17 @@ import { skillsMatrix, theme } from '../../constants';
 
 const catIcons = [Film, PenTool, Camera];
 
-export const SkillsSection = () => {
+export const SkillsSection = ({ data }) => {
   const [activeCategory, setActiveCategory] = useState(0);
+  const matrix = (data && data.length) ? data.map(cat => ({
+    category: cat.name,
+    tagline: cat.description,
+    skills: (cat.skills || []).map(s => ({
+      name: s.name,
+      level: s.percentage,
+      desc: s.description
+    }))
+  })) : skillsMatrix;
 
   return (
     <section
@@ -54,7 +63,7 @@ export const SkillsSection = () => {
             transition={{ delay: 0.15 }}
             className="inline-flex bg-white border border-[#C59A9F] rounded-full p-1.5 shadow-sm gap-1"
           >
-            {skillsMatrix.map((cat, idx) => {
+            {matrix.map((cat, idx) => {
               const Icon = catIcons[idx % catIcons.length];
               const isActive = idx === activeCategory;
               return (
@@ -101,17 +110,17 @@ export const SkillsSection = () => {
                   className="text-lg font-black text-[#1C1917]"
                   style={{ fontFamily: theme.fonts.heading }}
                 >
-                  {skillsMatrix[activeCategory].category}
+                  {(matrix[activeCategory] || matrix[0])?.category}
                 </h3>
               </div>
               <div className="ml-auto text-[11px] text-[#78716C] font-medium">
-                {skillsMatrix[activeCategory].skills.length} skills
+                {(matrix[activeCategory] || matrix[0])?.skills.length || 0} skills
               </div>
             </div>
 
             {/* Skills grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {skillsMatrix[activeCategory].skills.map((skill, idx) => (
+              {((matrix[activeCategory] || matrix[0])?.skills || []).map((skill, idx) => (
                 <motion.div
                   key={skill.name}
                   initial={{ opacity: 0, y: 20 }}

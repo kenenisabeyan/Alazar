@@ -261,6 +261,32 @@ const memoryStore = {
   inquiries: [],
   quotes: [],
   // CMS tables
+  services: [
+    {
+      id: 1,
+      badge: 'Remote Post-Production',
+      badgeDark: false,
+      title: 'Video Editing & Post-Production',
+      desc: 'High-quality video editing, color grading, sound mixing, and graphic design delivered globally — no travel required.',
+      items: ['Cinematic Color Grading', 'Commercial & Documentary Editing', 'Brand Identity & Logo Design', 'Social Media Motion Edits', 'Audio Mixing & Sound Design'],
+      cta: 'Request Remote Quote',
+      ctaVariant: 'outline',
+      sort_order: 0,
+      isVisible: true
+    },
+    {
+      id: 2,
+      badge: 'On-Location Filming',
+      badgeDark: true,
+      title: 'On-Set Filming & Directing',
+      desc: 'On-set camera operation, lighting, live event videography, and full creative direction — available globally.',
+      items: ['On-Set Filming & Camera Operation', 'Creative Strategy & Art Direction', 'Live Event & Music Coverage', 'Brand Photoshoots & Video Direction', 'Video Production Consulting'],
+      cta: 'Contact for On-Site',
+      ctaVariant: 'primary',
+      sort_order: 1,
+      isVisible: true
+    }
+  ],
   site_settings: [],
   blog_posts: [],
   faqs: [
@@ -674,8 +700,8 @@ export const query = async (text, params = []) => {
   }
 
   // Generic CMS table fallbacks
-  const CMS_TABLES = ['FAQS', 'GEAR', 'AWARDS', 'SKILLS', 'CAREER_EXPERIENCE', 'CLIENT_LOGOS', 'BTS_GALLERY', 'COLOR_GRADING_SAMPLES', 'HIRING_GUARANTEES', 'PRICING_OPTIONS', 'SOCIAL_LINKS', 'CASE_STUDIES', 'PAGE_SECTIONS'];
-  const storeKey = { FAQS: 'faqs', GEAR: 'gear', AWARDS: 'awards', SKILLS: 'skills', CAREER_EXPERIENCE: 'career_experience', CLIENT_LOGOS: 'client_logos', BTS_GALLERY: 'bts_gallery', COLOR_GRADING_SAMPLES: 'color_grading_samples', HIRING_GUARANTEES: 'hiring_guarantees', PRICING_OPTIONS: 'pricing_options', SOCIAL_LINKS: 'social_links', CASE_STUDIES: 'case_studies', PAGE_SECTIONS: 'page_sections' };
+  const CMS_TABLES = ['FAQS', 'GEAR', 'AWARDS', 'SKILLS', 'CAREER_EXPERIENCE', 'CLIENT_LOGOS', 'BTS_GALLERY', 'COLOR_GRADING_SAMPLES', 'HIRING_GUARANTEES', 'PRICING_OPTIONS', 'SOCIAL_LINKS', 'CASE_STUDIES', 'PAGE_SECTIONS', 'SERVICES'];
+  const storeKey = { FAQS: 'faqs', GEAR: 'gear', AWARDS: 'awards', SKILLS: 'skills', CAREER_EXPERIENCE: 'career_experience', CLIENT_LOGOS: 'client_logos', BTS_GALLERY: 'bts_gallery', COLOR_GRADING_SAMPLES: 'color_grading_samples', HIRING_GUARANTEES: 'hiring_guarantees', PRICING_OPTIONS: 'pricing_options', SOCIAL_LINKS: 'social_links', CASE_STUDIES: 'case_studies', PAGE_SECTIONS: 'page_sections', SERVICES: 'services' };
   for (const tbl of CMS_TABLES) {
     if (upperSql.includes(tbl)) {
       const key = storeKey[tbl];

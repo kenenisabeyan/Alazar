@@ -7,11 +7,15 @@ import {
   Play, User, Link2, Globe, Navigation, Layers, Palette, Camera,
   Mail, Calculator, LogOut, Menu, X, RefreshCw, Plus, Trash2,
   Edit3, Save, CheckCircle, Shield, ChevronRight, Eye, EyeOff,
-  Upload, Star, GripVertical, Minus, ExternalLink,
+  Upload, Star, GripVertical, Minus, ExternalLink, Sparkles,
 } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import api from '../api';
+import AboutAdmin from '../components/admin/AboutAdmin';
+import PortfolioAdmin from '../components/admin/PortfolioAdmin';
+import ServicesAdmin from '../components/admin/ServicesAdmin';
+import InquiriesAdmin from '../components/admin/InquiriesAdmin';
 
 // ── Mini UI helpers ───────────────────────────────────────────────────────────
 const cls = (...args) => args.filter(Boolean).join(' ');
@@ -25,7 +29,11 @@ const btnDanger = 'p-2 rounded-lg text-red-400 hover:text-red-300 hover:bg-red-9
 
 // ── Sidebar nav items ─────────────────────────────────────────────────────────
 const NAV_ITEMS = [
-  { id: 'dashboard',    label: 'Dashboard',      icon: LayoutDashboard, group: 'Overview'  },
+  { id: 'dashboard',     label: 'Dashboard',       icon: LayoutDashboard, group: 'Overview'  },
+  { id: 'about-cms',     label: 'About Page CMS',  icon: Sparkles,        group: 'Overview'  },
+  { id: 'portfolio-cms', label: 'Portfolio CMS',   icon: Layers,          group: 'Overview'  },
+  { id: 'services-cms',  label: 'Services CMS',    icon: Wrench,          group: 'Overview'  },
+  { id: 'contact-cms',   label: 'Contact CRM',     icon: Mail,            group: 'Overview'  },
   { id: 'projects',     label: 'Projects',        icon: Film,            group: 'Content'   },
   { id: 'blog',         label: 'Blog & News',     icon: PenSquare,       group: 'Content'   },
   { id: 'testimonials', label: 'Testimonials',    icon: MessageSquare,   group: 'Content'   },
@@ -830,14 +838,18 @@ export default function Admin() {
   // Render the active panel
   const renderPanel = () => {
     switch (activeSection) {
-      case 'dashboard':    return <DashboardPanel data={data} />;
+      case 'dashboard':     return <DashboardPanel data={data} />;
+      case 'about-cms':     return <AboutAdmin />;
+      case 'portfolio-cms': return <PortfolioAdmin />;
+      case 'services-cms':  return <ServicesAdmin />;
+      case 'contact-cms':   return <InquiriesAdmin />;
+      case 'inquiries':    return <InquiriesAdmin />;
       case 'projects':     return <ProjectsPanel projects={data.projects} onRefresh={loadCore} />;
       case 'blog':         return <BlogPanel />;
       case 'testimonials': return <TestimonialsPanel />;
       case 'stats':        return <StatsPanel stats={data.stats} />;
       case 'media':        return <MediaPanel />;
       case 'sections':     return <SectionsPanel />;
-      case 'inquiries':    return <InquiriesPanel inquiries={data.inquiries} onRefresh={loadCore} />;
       case 'profile':      return <SettingsPanel sectionId="profile" />;
       case 'seo':          return <SettingsPanel sectionId="seo" />;
       case 'showreel':     return <SettingsPanel sectionId="showreel" />;

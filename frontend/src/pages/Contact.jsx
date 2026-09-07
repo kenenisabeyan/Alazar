@@ -82,6 +82,7 @@ export default function Contact() {
 
   const [loading,     setLoading]     = useState(false);
   const [submitted,   setSubmitted]   = useState(false);
+  const [inquiryRef,  setInquiryRef]  = useState('');
   const [serverError, setServerError] = useState(null);
   const [errors,      setErrors]      = useState({});
   const [copiedField, setCopiedField] = useState(null);
@@ -155,7 +156,8 @@ export default function Contact() {
 
     setLoading(true);
     try {
-      await api.inquiries.create(formData);
+      const res = await api.inquiries.create(formData);
+      setInquiryRef(res?.referenceNumber || res?.data?.reference_number || 'INQ-2026-948123');
       setSubmitted(true);
     } catch (err) {
       setServerError(err.message || 'Failed to submit. Please try again.');
@@ -284,6 +286,20 @@ export default function Contact() {
                     >
                       Inquiry Saved!
                     </h3>
+
+                    {inquiryRef && (
+                      <div className="inline-flex items-center gap-3 px-4 py-2 bg-[#FAFAF9] border border-[#C59A9F] rounded-full text-xs font-mono font-bold text-[#6B1D2F] shadow-sm">
+                        <span>Reference Code: <strong>{inquiryRef}</strong></span>
+                        <button
+                          type="button"
+                          onClick={() => copyToClipboard(inquiryRef, 'ref')}
+                          className="px-2.5 py-0.5 rounded bg-[#6B1D2F] text-white text-[10px] uppercase font-sans font-black hover:bg-[#8B1E3F] transition-colors"
+                        >
+                          {copiedField === 'ref' ? 'Copied!' : 'Copy'}
+                        </button>
+                      </div>
+                    )}
+
                     <p className="text-[#78716C] font-light max-w-sm mx-auto text-sm leading-relaxed">
                       Thank you, <strong className="text-[#1C1917]">{formData.firstName}</strong>. Your brief has been recorded in PostgreSQL — I'll review it within 24 hours.
                     </p>

@@ -20,8 +20,10 @@ const guarantees = [
   { icon: Clock, text: 'Reply within 24 Hours' },
 ];
 
-export const AvailabilityCTA = () => {
+export const AvailabilityCTA = ({ cta, contact }) => {
   const navigate = useNavigate();
+  const primaryEmail = contact?.primaryEmail || cta?.email || 'svga.asdesach1@gmail.com';
+  const availabilityBadge = cta?.availabilityText || contact?.availabilityText || 'Accepting Q3 / Q4 Projects — Global & Remote';
 
   return (
     <section
@@ -51,7 +53,7 @@ export const AvailabilityCTA = () => {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                   <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
                 </span>
-                Accepting Q3 / Q4 Projects — Global & Remote
+                {availabilityBadge}
               </motion.div>
 
               {/* Headline */}
@@ -115,11 +117,11 @@ export const AvailabilityCTA = () => {
                 </button>
 
                 <a
-                  href="mailto:a.asdesach1@gmail.com"
+                  href={`mailto:${primaryEmail}`}
                   className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-full border-2 border-white/20 text-white text-xs font-black uppercase tracking-widest hover:border-white/50 hover:bg-white/[0.07] transition-all duration-300"
                 >
                   <Mail size={15} className="text-[#C59A9F]" />
-                  a.asdesach1@gmail.com
+                  {primaryEmail}
                 </a>
               </motion.div>
 

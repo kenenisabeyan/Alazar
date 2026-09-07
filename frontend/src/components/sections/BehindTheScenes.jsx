@@ -19,8 +19,9 @@ const disciplineTags = [
   { icon: Zap, text: 'Lighting Setup' },
 ];
 
-export const BehindTheScenes = () => {
+export const BehindTheScenes = ({ data }) => {
   const [lightboxItem, setLightboxItem] = useState(null);
+  const btsItems = (data && data.length) ? data.flatMap(cat => cat.media || []).filter(Boolean) : btsGallery;
 
   return (
     <section
@@ -79,7 +80,7 @@ export const BehindTheScenes = () => {
         {/* ── Masonry-style grid ─────────────────────────────────────────── */}
         <div className="grid grid-cols-1 md:grid-cols-12 md:grid-rows-2 gap-5 mb-10"
           style={{ minHeight: 'clamp(400px, 70vh, 700px)' }}>
-          {btsGallery.map((item, idx) => {
+          {(btsItems.length ? btsItems : btsGallery).map((item, idx) => {
             const layout = layoutConfig[idx] ?? layoutConfig[layoutConfig.length - 1];
             return (
               <motion.div

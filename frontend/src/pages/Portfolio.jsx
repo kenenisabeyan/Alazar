@@ -20,6 +20,7 @@ export default function Portfolio() {
   const [filter, setFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [viewMode, setViewMode] = useState('spread'); // 'spread' | 'grid'
+  const [portfolioData, setPortfolioData] = useState(null);
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const [activeModalProject, setActiveModalProject] = useState(null);
@@ -28,13 +29,20 @@ export default function Portfolio() {
   const fetchProjects = async () => {
     setLoading(true);
     try {
-      const data = await api.projects.getAll();
-      setProjects(data);
+      const publicData = await api.portfolio.getPublicData();
+      if (publicData && publicData.projects) {
+        setPortfolioData(publicData);
+        setProjects(publicData.projects);
+      } else {
+        const data = await api.projects.getAll();
+        setProjects(data);
+      }
 
       // Check if direct project query string exists
       const directProjectId = searchParams.get('project');
       if (directProjectId) {
-        const found = data.find(p => p.id === directProjectId || String(p.id) === directProjectId);
+        const foundList = publicData?.projects || projects;
+        const found = foundList.find(p => p.id === directProjectId || String(p.id) === directProjectId);
         if (found) {
           setActiveModalProject(found);
           setIsModalOpen(true);
@@ -228,6 +236,7 @@ export default function Portfolio() {
           <PortfolioPresentationBoard
             projects={projects}
             filter={filter}
+            presentationSettings={portfolioData?.settings?.presentation}
             onSelectProject={(id) => {
               const target = projects.find(p => p.id === id) || projects[0];
               if (target) openModal(target);

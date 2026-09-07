@@ -7,6 +7,10 @@ import {
 } from 'lucide-react';
 import { theme } from '../../constants';
 
+// Icon lookup for dynamic discipline data
+const iconMap = { Film, PenTool, Sliders, Layers, Monitor, Camera, Zap, Award, Star, CheckCircle2 };
+const getIcon = (name) => iconMap[name] || Film;
+
 // ─── Specialist tag pill ────────────────────────────────────────────────────
 const Tag = ({ label }) => (
   <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FAFAF9] border border-[#C59A9F]/50 text-[10px] font-black text-[#6B1D2F] uppercase tracking-widest">
@@ -15,189 +19,266 @@ const Tag = ({ label }) => (
   </span>
 );
 
-// ─── Video discipline card ───────────────────────────────────────────────────
-const VideoCard = ({ navigate }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 50 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
-    className="relative group flex flex-col bg-gradient-to-br from-[#6B1D2F] via-[#521523] to-[#3B0E19] text-white rounded-[2rem] overflow-hidden border border-[#C59A9F]/30 shadow-2xl shadow-[#6B1D2F]/20"
-  >
-    {/* Dark noise texture overlay */}
-    <div className="absolute inset-0 opacity-[0.04] bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJub2lzZSI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuNjUiIG51bU9jdGF2ZXM9IjMiIHN0aXRjaFRpbGVzPSJzdGl0Y2giLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgZmlsdGVyPSJ1cmwoI25vaXNlKSIgb3BhY2l0eT0iMSIvPjwvc3ZnPg==')] pointer-events-none z-10" />
+// ─── Default static data ─────────────────────────────────────────────────────
+const defaultVideoCard = {
+  badge: 'Video Production',
+  experienceLabel: '8+ Yrs Experience',
+  headline: 'Senior Video Editor',
+  headlineAccent: '& Colorist',
+  description: 'Mastery in cinematic editing, rhythm-perfect cuts, high-dynamic-range color grading from RAW log to broadcast master, and professional sound design — on RED 8K and Sony cinema cameras.',
+  competencies: [
+    { icon: 'Sliders', label: 'Color Grading', sub: 'DaVinci Resolve Studio' },
+    { icon: 'Film',    label: 'Commercial Edit', sub: 'Premiere Pro / Resolve' },
+    { icon: 'Monitor', label: 'Sound Design',   sub: 'Fairlight & Pro Tools' },
+    { icon: 'Camera',  label: '8K Cinema Raw',  sub: 'RED V-Raptor / FX6' },
+  ],
+  tags: ['Music Video Cuts', 'Documentary', 'Brand Reel', '3D Motion', 'Social Reels', 'Film Grading'],
+  awardText: 'Telly Gold • Vimeo Staff Pick',
+  buttonText: 'View Edits',
+  buttonLink: '/portfolio',
+};
 
-    {/* Ambient glow blob */}
-    <div className="absolute -top-20 -left-20 w-64 h-64 bg-white/10 blur-[80px] rounded-full pointer-events-none" />
-    <div className="absolute -bottom-10 right-0 w-48 h-48 bg-white/05 blur-[60px] rounded-full pointer-events-none" />
+const defaultDesignCard = {
+  badge: 'Graphic Design',
+  experienceLabel: 'Senior Level',
+  headline: 'Senior Graphics',
+  headlineAccent: 'Designer & Director',
+  description: 'Comprehensive brand identity systems, editorial poster design, 3D visual concepts, motion graphics, and digital UI kits — built to last and scale across every brand touchpoint.',
+  competencies: [
+    { icon: 'PenTool', label: 'Brand Identity',   sub: 'Illustrator / Figma' },
+    { icon: 'Layers',  label: 'Motion Graphics',  sub: 'After Effects / C4D' },
+    { icon: 'Monitor', label: 'Print & Editorial', sub: 'InDesign / Photoshop' },
+    { icon: 'Zap',     label: '3D Art Direction',  sub: 'Blender / Octane' },
+  ],
+  tags: ['Logo Systems', 'Brand Guide', 'Poster Art', 'UI Kits', 'Typography', 'Key Art'],
+  awardText: 'Awwwards Site of the Day',
+  buttonText: 'View Design Work',
+  buttonLink: '/portfolio',
+};
 
-    <div className="relative z-20 p-8 sm:p-10 flex flex-col h-full">
-      {/* Top badge row */}
-      <div className="flex items-center justify-between mb-8">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/20 border border-white/30 text-[11px] font-black text-white uppercase tracking-widest shadow-lg">
-          <Film size={12} />
-          Video Production
-        </div>
-        <div className="flex items-center gap-1.5 text-[10px] font-black text-white/80 uppercase tracking-widest">
-          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-          8+ Yrs Experience
-        </div>
-      </div>
+const defaultStats = [
+  { value: '140+', label: 'Projects Delivered',   iconName: 'Film' },
+  { value: '8+',   label: 'Years of Mastery',      iconName: 'Award' },
+  { value: '98%',  label: 'Client Satisfaction',   iconName: 'Star' },
+  { value: '12',   label: 'Industry Awards Won',   iconName: 'Zap' },
+];
 
-      {/* Discipline title */}
-      <h3 className="text-3xl sm:text-4xl font-black text-white leading-tight mb-3" style={{ fontFamily: theme.fonts.heading }}>
-        Senior Video Editor<br />
-        <span className="text-[#C59A9F] font-black">& Colorist</span>
-      </h3>
+const defaultMarquee = [
+  'Video Editing', 'Color Grading', 'Sound Design', 'Brand Identity',
+  'Motion Graphics', '3D Art Direction', 'Commercial Reels', 'Typography',
+  'Poster Design', 'Documentary Editing', 'UI Kit Design', 'Cinematic Cuts',
+];
 
-      <p className="text-white/80 text-sm font-light leading-relaxed mb-8 max-w-md">
-        Mastery in cinematic editing, rhythm-perfect cuts, high-dynamic-range color grading from RAW log to broadcast master, and professional sound design — on RED 8K and Sony cinema cameras.
-      </p>
+// ─── Video discipline card (dark) ────────────────────────────────────────────
+const VideoCard = ({ navigate, cardData }) => {
+  const d = cardData || defaultVideoCard;
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+      className="relative group flex flex-col bg-gradient-to-br from-[#6B1D2F] via-[#521523] to-[#3B0E19] text-white rounded-[2rem] overflow-hidden border border-[#C59A9F]/30 shadow-2xl shadow-[#6B1D2F]/20"
+    >
+      {/* Dark noise texture overlay */}
+      <div className="absolute inset-0 opacity-[0.04] bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJub2lzZSI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuNjUiIG51bU9jdGF2ZXM9IjMiIHN0aXRjaFRpbGVzPSJzdGl0Y2giLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgZmlsdGVyPSJ1cmwoI25vaXNlKSIgb3BhY2l0eT0iMSIvPjwvc3ZnPg==')] pointer-events-none z-10" />
 
-      {/* Core competencies grid */}
-      <div className="grid grid-cols-2 gap-3 mb-8">
-        {[
-          { icon: Sliders, label: 'Color Grading', sub: 'DaVinci Resolve Studio' },
-          { icon: Film,    label: 'Commercial Edit', sub: 'Premiere Pro / Resolve' },
-          { icon: Monitor, label: 'Sound Design',   sub: 'Fairlight & Pro Tools' },
-          { icon: Camera,  label: '8K Cinema Raw',  sub: 'RED V-Raptor / FX6' },
-        ].map(({ icon: Icon, label, sub }) => (
-          <div key={label} className="flex items-center gap-3 bg-white/10 hover:bg-white/15 border border-white/15 rounded-xl px-3.5 py-3 transition-colors">
-            <div className="w-8 h-8 rounded-lg bg-white/20 text-white flex items-center justify-center flex-shrink-0">
-              <Icon size={15} />
-            </div>
-            <div>
-              <p className="text-[11px] font-black text-white leading-none mb-0.5">{label}</p>
-              <p className="text-[10px] text-white/60 font-medium">{sub}</p>
-            </div>
+      {/* Ambient glow blob */}
+      <div className="absolute -top-20 -left-20 w-64 h-64 bg-white/10 blur-[80px] rounded-full pointer-events-none" />
+      <div className="absolute -bottom-10 right-0 w-48 h-48 bg-white/05 blur-[60px] rounded-full pointer-events-none" />
+
+      <div className="relative z-20 p-8 sm:p-10 flex flex-col h-full">
+        {/* Top badge row */}
+        <div className="flex items-center justify-between mb-8">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/20 border border-white/30 text-[11px] font-black text-white uppercase tracking-widest shadow-lg">
+            <Film size={12} />
+            {d.badge}
           </div>
-        ))}
-      </div>
-
-      {/* Specialty tags */}
-      <div className="flex flex-wrap gap-2 mb-8">
-        {['Music Video Cuts', 'Documentary', 'Brand Reel', '3D Motion', 'Social Reels', 'Film Grading'].map(t => (
-          <span key={t} className="px-2.5 py-1 rounded-full bg-white/15 border border-white/20 text-[10px] font-bold text-white uppercase tracking-wider">
-            {t}
-          </span>
-        ))}
-      </div>
-
-      {/* Award strip */}
-      <div className="mt-auto pt-6 border-t border-white/20 flex items-center justify-between">
-        <div className="flex items-center gap-2 text-xs text-white/80">
-          <Award size={14} className="text-[#C59A9F]" />
-          <span>Telly Gold • Vimeo Staff Pick</span>
-        </div>
-        <button
-          onClick={() => { navigate('/portfolio'); window.scrollTo(0, 0); }}
-          className="flex items-center gap-1.5 text-[11px] font-black text-white hover:text-[#C59A9F] uppercase tracking-widest group/btn transition-colors"
-        >
-          View Edits <ArrowRight size={13} className="group-hover/btn:translate-x-1 transition-transform" />
-        </button>
-      </div>
-    </div>
-  </motion.div>
-);
-
-// ─── Design discipline card ──────────────────────────────────────────────────
-const DesignCard = ({ navigate }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 50 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.75, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-    className="relative group flex flex-col bg-white rounded-[2rem] overflow-hidden border border-[#C59A9F] shadow-xl shadow-black/5"
-  >
-    {/* Top accent stripe */}
-    <div className="h-1.5 w-full bg-gradient-to-r from-[#6B1D2F] via-[#8B1E3F] to-[#C59A9F]" />
-
-    <div className="relative p-8 sm:p-10 flex flex-col h-full">
-      {/* Top badge row */}
-      <div className="flex items-center justify-between mb-8">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAFAF9] border border-[#C59A9F]/50 text-[11px] font-black text-[#6B1D2F] uppercase tracking-widest shadow-sm">
-          <PenTool size={12} />
-          Graphic Design
-        </div>
-        <div className="flex items-center gap-1.5 text-[10px] font-black text-[#78716C] uppercase tracking-widest">
-          <Star size={11} className="text-[#6B1D2F] fill-[#6B1D2F]" />
-          Senior Level
-        </div>
-      </div>
-
-      {/* Discipline title */}
-      <h3 className="text-3xl sm:text-4xl font-black text-[#1C1917] leading-tight mb-3" style={{ fontFamily: theme.fonts.heading }}>
-        Senior Graphics<br />
-        <span className="text-[#6B1D2F] font-black">Designer & Director</span>
-      </h3>
-
-      <p className="text-[#78716C] text-sm font-light leading-relaxed mb-8 max-w-md">
-        Comprehensive brand identity systems, editorial poster design, 3D visual concepts, motion graphics, and digital UI kits — built to last and scale across every brand touchpoint.
-      </p>
-
-      {/* Core competencies grid */}
-      <div className="grid grid-cols-2 gap-3 mb-8">
-        {[
-          { icon: PenTool, label: 'Brand Identity',   sub: 'Illustrator / Figma' },
-          { icon: Layers,  label: 'Motion Graphics',  sub: 'After Effects / C4D' },
-          { icon: Monitor, label: 'Print & Editorial', sub: 'InDesign / Photoshop' },
-          { icon: Zap,     label: '3D Art Direction',  sub: 'Blender / Octane' },
-        ].map(({ icon: Icon, label, sub }) => (
-          <div key={label} className="flex items-center gap-3 bg-[#FAFAF9] hover:bg-[#FAFAF9]/50 border border-[#C59A9F] rounded-xl px-3.5 py-3 transition-colors">
-            <div className="w-8 h-8 rounded-lg bg-[#FAFAF9] text-[#6B1D2F] flex items-center justify-center flex-shrink-0">
-              <Icon size={15} />
-            </div>
-            <div>
-              <p className="text-[11px] font-black text-[#1C1917] leading-none mb-0.5">{label}</p>
-              <p className="text-[10px] text-[#78716C] font-medium">{sub}</p>
-            </div>
+          <div className="flex items-center gap-1.5 text-[10px] font-black text-white/80 uppercase tracking-widest">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            {d.experienceLabel}
           </div>
-        ))}
-      </div>
-
-      {/* Specialty tags */}
-      <div className="flex flex-wrap gap-2 mb-8">
-        {['Logo Systems', 'Brand Guide', 'Poster Art', 'UI Kits', 'Typography', 'Key Art'].map(t => (
-          <Tag key={t} label={t} />
-        ))}
-      </div>
-
-      {/* Award strip */}
-      <div className="mt-auto pt-6 border-t border-[#C59A9F] flex items-center justify-between">
-        <div className="flex items-center gap-2 text-xs text-[#78716C]">
-          <Award size={14} className="text-[#6B1D2F]" />
-          <span>Awwwards Site of the Day</span>
         </div>
-        <button
-          onClick={() => { navigate('/portfolio'); window.scrollTo(0, 0); }}
-          className="flex items-center gap-1.5 text-[11px] font-black text-[#6B1D2F] hover:text-[#8B1E3F] uppercase tracking-widest group/btn transition-colors"
-        >
-          View Design Work <ArrowRight size={13} className="group-hover/btn:translate-x-1 transition-transform" />
-        </button>
+
+        {/* Discipline title */}
+        <h3 className="text-3xl sm:text-4xl font-black text-white leading-tight mb-3" style={{ fontFamily: theme.fonts.heading }}>
+          {d.headline}<br />
+          <span className="text-[#C59A9F] font-black">{d.headlineAccent}</span>
+        </h3>
+
+        <p className="text-white/80 text-sm font-light leading-relaxed mb-8 max-w-md">
+          {d.description}
+        </p>
+
+        {/* Core competencies grid */}
+        <div className="grid grid-cols-2 gap-3 mb-8">
+          {(d.competencies || defaultVideoCard.competencies).map(({ icon, label, sub }) => {
+            const Icon = getIcon(icon);
+            return (
+              <div key={label} className="flex items-center gap-3 bg-white/10 hover:bg-white/15 border border-white/15 rounded-xl px-3.5 py-3 transition-colors">
+                <div className="w-8 h-8 rounded-lg bg-white/20 text-white flex items-center justify-center flex-shrink-0">
+                  <Icon size={15} />
+                </div>
+                <div>
+                  <p className="text-[11px] font-black text-white leading-none mb-0.5">{label}</p>
+                  <p className="text-[10px] text-white/60 font-medium">{sub}</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Specialty tags */}
+        <div className="flex flex-wrap gap-2 mb-8">
+          {(d.tags || defaultVideoCard.tags).map(t => (
+            <span key={t} className="px-2.5 py-1 rounded-full bg-white/15 border border-white/20 text-[10px] font-bold text-white uppercase tracking-wider">
+              {t}
+            </span>
+          ))}
+        </div>
+
+        {/* Award strip */}
+        <div className="mt-auto pt-6 border-t border-white/20 flex items-center justify-between">
+          <div className="flex items-center gap-2 text-xs text-white/80">
+            <Award size={14} className="text-[#C59A9F]" />
+            <span>{d.awardText}</span>
+          </div>
+          <button
+            onClick={() => { navigate(d.buttonLink || '/portfolio'); window.scrollTo(0, 0); }}
+            className="flex items-center gap-1.5 text-[11px] font-black text-white hover:text-[#C59A9F] uppercase tracking-widest group/btn transition-colors"
+          >
+            {d.buttonText || 'View Edits'} <ArrowRight size={13} className="group-hover/btn:translate-x-1 transition-transform" />
+          </button>
+        </div>
       </div>
-    </div>
-  </motion.div>
-);
+    </motion.div>
+  );
+};
+
+// ─── Design discipline card (light) ──────────────────────────────────────────
+const DesignCard = ({ navigate, cardData }) => {
+  const d = cardData || defaultDesignCard;
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.75, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+      className="relative group flex flex-col bg-white rounded-[2rem] overflow-hidden border border-[#C59A9F] shadow-xl shadow-black/5"
+    >
+      {/* Top accent stripe */}
+      <div className="h-1.5 w-full bg-gradient-to-r from-[#6B1D2F] via-[#8B1E3F] to-[#C59A9F]" />
+
+      <div className="relative p-8 sm:p-10 flex flex-col h-full">
+        {/* Top badge row */}
+        <div className="flex items-center justify-between mb-8">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAFAF9] border border-[#C59A9F]/50 text-[11px] font-black text-[#6B1D2F] uppercase tracking-widest shadow-sm">
+            <PenTool size={12} />
+            {d.badge}
+          </div>
+          <div className="flex items-center gap-1.5 text-[10px] font-black text-[#78716C] uppercase tracking-widest">
+            <Star size={11} className="text-[#6B1D2F] fill-[#6B1D2F]" />
+            {d.experienceLabel}
+          </div>
+        </div>
+
+        {/* Discipline title */}
+        <h3 className="text-3xl sm:text-4xl font-black text-[#1C1917] leading-tight mb-3" style={{ fontFamily: theme.fonts.heading }}>
+          {d.headline}<br />
+          <span className="text-[#6B1D2F] font-black">{d.headlineAccent}</span>
+        </h3>
+
+        <p className="text-[#78716C] text-sm font-light leading-relaxed mb-8 max-w-md">
+          {d.description}
+        </p>
+
+        {/* Core competencies grid */}
+        <div className="grid grid-cols-2 gap-3 mb-8">
+          {(d.competencies || defaultDesignCard.competencies).map(({ icon, label, sub }) => {
+            const Icon = getIcon(icon);
+            return (
+              <div key={label} className="flex items-center gap-3 bg-[#FAFAF9] hover:bg-[#FAFAF9]/50 border border-[#C59A9F] rounded-xl px-3.5 py-3 transition-colors">
+                <div className="w-8 h-8 rounded-lg bg-[#FAFAF9] text-[#6B1D2F] flex items-center justify-center flex-shrink-0">
+                  <Icon size={15} />
+                </div>
+                <div>
+                  <p className="text-[11px] font-black text-[#1C1917] leading-none mb-0.5">{label}</p>
+                  <p className="text-[10px] text-[#78716C] font-medium">{sub}</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Specialty tags */}
+        <div className="flex flex-wrap gap-2 mb-8">
+          {(d.tags || defaultDesignCard.tags).map(t => (
+            <Tag key={t} label={t} />
+          ))}
+        </div>
+
+        {/* Award strip */}
+        <div className="mt-auto pt-6 border-t border-[#C59A9F] flex items-center justify-between">
+          <div className="flex items-center gap-2 text-xs text-[#78716C]">
+            <Award size={14} className="text-[#6B1D2F]" />
+            <span>{d.awardText}</span>
+          </div>
+          <button
+            onClick={() => { navigate(d.buttonLink || '/portfolio'); window.scrollTo(0, 0); }}
+            className="flex items-center gap-1.5 text-[11px] font-black text-[#6B1D2F] hover:text-[#8B1E3F] uppercase tracking-widest group/btn transition-colors"
+          >
+            {d.buttonText || 'View Design Work'} <ArrowRight size={13} className="group-hover/btn:translate-x-1 transition-transform" />
+          </button>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
 
 // ─── Main Export ─────────────────────────────────────────────────────────────
-export const ExpertiseSection = () => {
+export const ExpertiseSection = ({ data, statistics }) => {
   const navigate = useNavigate();
   const sectionRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ['start end', 'end start'] });
   const marqX = useTransform(scrollYProgress, [0, 1], ['0%', '-20%']);
 
-  const marqueeItems = [
-    'Video Editing', 'Color Grading', 'Sound Design', 'Brand Identity',
-    'Motion Graphics', '3D Art Direction', 'Commercial Reels', 'Typography',
-    'Poster Design', 'Documentary Editing', 'UI Kit Design', 'Cinematic Cuts',
-  ];
+  // Map API disciplines data to card format
+  // The API returns an array of disciplines; index 0 = video (dark card), index 1 = design (light card)
+  let videoData = null;
+  let designData = null;
+  if (data && data.length >= 1) {
+    const mapDiscipline = (disc) => ({
+      badge: disc.badge || disc.title,
+      experienceLabel: disc.experienceLabel || 'Expert',
+      headline: (disc.headline || disc.title || '').split('\n')[0] || disc.title,
+      headlineAccent: (disc.headline || '').split('\n')[1] || '',
+      description: disc.description,
+      competencies: (disc.expertise || []).map(e => ({
+        icon: e.icon || 'Film',
+        label: e.title,
+        sub: e.subtitle || e.software || '',
+      })),
+      tags: (disc.tags || []).map(t => t.name || t),
+      awardText: disc.awardText || '',
+      buttonText: disc.buttonText || 'View Work',
+      buttonLink: disc.buttonLink || '/portfolio',
+    });
+    videoData = mapDiscipline(data[0]);
+    if (data.length >= 2) {
+      designData = mapDiscipline(data[1]);
+    }
+  }
 
-  const stats = [
-    { value: '140+', label: 'Projects Delivered',   icon: Film },
-    { value: '8+',   label: 'Years of Mastery',      icon: Award },
-    { value: '98%',  label: 'Client Satisfaction',   icon: Star },
-    { value: '12',   label: 'Industry Awards Won',   icon: Zap },
-  ];
+  // Use dynamic statistics if provided, otherwise defaults
+  const stats = (statistics && statistics.length)
+    ? statistics.map(s => ({
+        value: `${s.value}${s.suffix || ''}`,
+        label: s.label,
+        icon: getIcon(s.icon || s.iconName),
+      }))
+    : defaultStats.map(s => ({ ...s, icon: getIcon(s.iconName) }));
+
+  const marqueeItems = defaultMarquee;
 
   return (
     <section
@@ -250,8 +331,8 @@ export const ExpertiseSection = () => {
 
         {/* ── Dual discipline cards ── */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-16">
-          <VideoCard navigate={navigate} />
-          <DesignCard navigate={navigate} />
+          <VideoCard navigate={navigate} cardData={videoData} />
+          <DesignCard navigate={navigate} cardData={designData} />
         </div>
 
         {/* ── Stats bar ── */}

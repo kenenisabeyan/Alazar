@@ -7,8 +7,22 @@ import {
 import Button from '../common/Button';
 import { careerExperience, awardsList, theme } from '../../constants';
 
-export const CareerTimeline = () => {
+export const CareerTimeline = ({ data, awards: awardsProp }) => {
   const [expanded, setExpanded] = useState(0);
+  const timeline = (data && data.length) ? data.map(item => ({
+    period: `${item.startDate || ''} - ${item.endDate || ''}`,
+    role: item.position,
+    company: item.company,
+    location: item.location,
+    description: item.description,
+    achievements: (item.achievements || []).map(a => a.description || a.title)
+  })) : careerExperience;
+
+  const honors = (awardsProp && awardsProp.length) ? awardsProp.map(a => ({
+    year: a.year,
+    title: a.title,
+    project: a.projectName || a.project || 'Project'
+  })) : awardsList;
 
   const handleDownloadCV = () => {
     const link = document.createElement('a');
@@ -70,7 +84,7 @@ export const CareerTimeline = () => {
 
           {/* ── Left: accordion timeline ── */}
           <div className="lg:col-span-7 space-y-4">
-            {careerExperience.map((exp, idx) => {
+            {timeline.map((exp, idx) => {
               const isOpen = expanded === idx;
               return (
                 <motion.div
@@ -185,7 +199,7 @@ export const CareerTimeline = () => {
                 </h3>
 
                 <div className="space-y-4">
-                  {awardsList.map((award, idx) => (
+                  {honors.map((award, idx) => (
                     <motion.div
                       key={idx}
                       initial={{ opacity: 0, x: -15 }}

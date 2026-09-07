@@ -127,6 +127,12 @@ export const api = {
       const res = await request(`/inquiries${status ? `?status=${status}` : ''}`);
       return res.data;
     },
+    getSettings: async () => {
+      const res = await request('/inquiries/settings');
+      return res.data;
+    },
+    updateSettings: async (settings) =>
+      request('/inquiries/settings', { method: 'PUT', body: JSON.stringify(settings) }),
     updateStatus: async (id, status) =>
       request(`/inquiries/${id}/status`, { method: 'PATCH', body: JSON.stringify({ status }) }),
     delete: async (id) => request(`/inquiries/${id}`, { method: 'DELETE' }),
@@ -314,6 +320,69 @@ export const api = {
     createCaseStudy:  (d) => request('/content/case-studies', { method: 'POST', body: JSON.stringify(d) }),
     updateCaseStudy:  (id, d) => request(`/content/case-studies/${id}`, { method: 'PUT', body: JSON.stringify(d) }),
     deleteCaseStudy:  (id) => request(`/content/case-studies/${id}`, { method: 'DELETE' }),
+  },
+
+  // ── About Page CMS ────────────────────────────────────────────────────────
+  about: {
+    getPublicData: async () => {
+      try {
+        const res = await request('/about/data');
+        return res.data;
+      } catch (e) {
+        console.warn('[API] Failed to fetch about data:', e);
+        return null;
+      }
+    },
+    getAdminFull: async () => request('/about/admin/full'),
+    updateProfile: async (data) => request('/about/admin/profile', { method: 'PUT', body: JSON.stringify(data) }),
+
+    // Generic Admin methods
+    createItem: async (entityPath, data) => request(`/about/admin/${entityPath}`, { method: 'POST', body: JSON.stringify(data) }),
+    updateItem: async (entityPath, id, data) => request(`/about/admin/${entityPath}/${id}`, { method: 'PUT', body: JSON.stringify(data) }),
+    deleteItem: async (entityPath, id) => request(`/about/admin/${entityPath}/${id}`, { method: 'DELETE' }),
+    toggleItem: async (entityPath, id) => request(`/about/admin/${entityPath}/${id}/toggle`, { method: 'PATCH' }),
+    reorderItems: async (entityPath, items) => request(`/about/admin/${entityPath}/reorder`, { method: 'PATCH', body: JSON.stringify({ items }) }),
+
+    updateAvailability: async (data) => request('/about/admin/availability', { method: 'PUT', body: JSON.stringify(data) }),
+    updateCta: async (data) => request('/about/admin/cta', { method: 'PUT', body: JSON.stringify(data) }),
+    updateContact: async (data) => request('/about/admin/contact', { method: 'PUT', body: JSON.stringify(data) }),
+    updateFooter: async (data) => request('/about/admin/footer', { method: 'PUT', body: JSON.stringify(data) }),
+  },
+
+  // ── Portfolio Page CMS ──────────────────────────────────────────────────
+  portfolio: {
+    getPublicData: async () => {
+      try {
+        const res = await request('/portfolio/data');
+        return res.data;
+      } catch (e) {
+        console.warn('[API] Failed to fetch portfolio public data:', e);
+        return null;
+      }
+    },
+    getAdminFull: async () => request('/portfolio/admin/full'),
+    createProject: async (data) => request('/portfolio/admin/projects', { method: 'POST', body: JSON.stringify(data) }),
+    updateProject: async (id, data) => request(`/portfolio/admin/projects/${id}`, { method: 'PUT', body: JSON.stringify(data) }),
+    deleteProject: async (id) => request(`/portfolio/admin/projects/${id}`, { method: 'DELETE' }),
+    toggleFeatured: async (id) => request(`/portfolio/admin/projects/${id}/toggle-featured`, { method: 'PATCH' }),
+  },
+
+  // ── Services Page CMS ───────────────────────────────────────────────────
+  services: {
+    getAll: async () => {
+      try {
+        const res = await request('/services');
+        return res.data;
+      } catch (e) {
+        console.warn('[API] Failed to fetch services:', e);
+        return [];
+      }
+    },
+    getAdminFull: async () => request('/services/admin/full'),
+    create: async (data) => request('/services/admin/services', { method: 'POST', body: JSON.stringify(data) }),
+    update: async (id, data) => request(`/services/admin/services/${id}`, { method: 'PUT', body: JSON.stringify(data) }),
+    delete: async (id) => request(`/services/admin/services/${id}`, { method: 'DELETE' }),
+    submitEstimate: async (data) => request('/services/estimate-request', { method: 'POST', body: JSON.stringify(data) }),
   },
 };
 

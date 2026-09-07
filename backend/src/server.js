@@ -20,6 +20,8 @@ import settingsRoutes    from './routes/settingsRoutes.js';
 import blogRoutes        from './routes/blogRoutes.js';
 import mediaRoutes       from './routes/mediaRoutes.js';
 import contentRoutes     from './routes/contentRoutes.js';
+import aboutRoutes       from './routes/aboutRoutes.js';
+import portfolioRoutes   from './routes/portfolioRoutes.js';
 
 // ── Middleware ────────────────────────────────────────────────────────────────
 import { requestLogger } from './middleware/requestLogger.js';
@@ -58,7 +60,7 @@ app.get('/api/health', async (req, res) => {
       service: 'Alazar Portfolio CMS Backend',
       database: 'PostgreSQL Connected',
       timestamp: dbRes.rows[0].now,
-      uptime: process.uptime(),
+      uptime: process.env.UPTIME || process.uptime(),
     });
   } catch {
     res.json({
@@ -86,6 +88,8 @@ app.use('/api/settings',     settingsRoutes);
 app.use('/api/blog',         blogRoutes);
 app.use('/api/media',        mediaRoutes);
 app.use('/api/content',      contentRoutes);
+app.use('/api/about',        aboutRoutes);
+app.use('/api/portfolio',    portfolioRoutes);
 
 // ── Root info ─────────────────────────────────────────────────────────────────
 app.get('/', (req, res) => {

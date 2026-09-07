@@ -250,6 +250,17 @@
   ],
   "inquiries": [
     {
+      "id": 2,
+      "first_name": "Elena",
+      "last_name": "Rostova",
+      "email": "elena@luxurymotion.com",
+      "project_type": "full-package",
+      "budget": "$10k+",
+      "details": "We need high-end commercial editing and 3D product rendering for our upcoming global brand campaign.",
+      "status": "new",
+      "created_at": "2026-09-07T14:00:17.106Z"
+    },
+    {
       "id": 1,
       "first_name": "Database",
       "last_name": "Test",
@@ -309,6 +320,411 @@
       "key_name": "awards",
       "value": "12",
       "label": "Industry Awards"
+    }
+  ],
+  "services": [
+    {
+      "id": 1,
+      "badge": "Remote Post-Production",
+      "badgeDark": false,
+      "title": "Video Editing & Post-Production",
+      "desc": "High-quality video editing, color grading, sound mixing, and graphic design delivered globally — no travel required.",
+      "items": [
+        "Cinematic Color Grading",
+        "Commercial & Documentary Editing",
+        "Brand Identity & Logo Design",
+        "Social Media Motion Edits",
+        "Audio Mixing & Sound Design"
+      ],
+      "cta": "Request Remote Quote",
+      "ctaVariant": "outline",
+      "sort_order": 0,
+      "isVisible": true
+    },
+    {
+      "id": 2,
+      "badge": "On-Location Filming",
+      "badgeDark": true,
+      "title": "On-Set Filming & Directing",
+      "desc": "On-set camera operation, lighting, live event videography, and full creative direction — available globally.",
+      "items": [
+        "On-Set Filming & Camera Operation",
+        "Creative Strategy & Art Direction",
+        "Live Event & Music Coverage",
+        "Brand Photoshoots & Video Direction",
+        "Video Production Consulting"
+      ],
+      "cta": "Contact for On-Site",
+      "ctaVariant": "primary",
+      "sort_order": 1,
+      "isVisible": true
+    }
+  ],
+  "site_settings": [],
+  "blog_posts": [],
+  "faqs": [
+    {
+      "id": 1,
+      "question": "How long does a video project take?",
+      "answer": "Most video edits take between 5 to 10 business days depending on the project length and revision needs.",
+      "sort_order": 0
+    },
+    {
+      "id": 2,
+      "question": "Do you work remotely or on location?",
+      "answer": "Both! Remote video editing, color grading, sound mixing, and graphic design are available worldwide. On-set filming is available locally and for travel assignments.",
+      "sort_order": 1
+    },
+    {
+      "id": 3,
+      "question": "What cameras and editing software do you use?",
+      "answer": "I film with high-quality 8K cinema cameras and edit using DaVinci Resolve Studio and Adobe Creative Cloud.",
+      "sort_order": 2
+    },
+    {
+      "id": 4,
+      "question": "How do we start a project together?",
+      "answer": "Simply send a message using my Contact form or email me directly at a.asdesach1@gmail.com with your project goals and timeline.",
+      "sort_order": 3
+    }
+  ],
+  "gear": [
+    {
+      "id": 1,
+      "category": "Camera Systems",
+      "name": "RED V-Raptor 8K",
+      "description": "Flagship 8K cinema camera",
+      "sort_order": 0
+    },
+    {
+      "id": 2,
+      "category": "Camera Systems",
+      "name": "Sony FX6 Cinema Line",
+      "description": "Full-frame low light cinema camera",
+      "sort_order": 1
+    },
+    {
+      "id": 3,
+      "category": "Editing Suite",
+      "name": "DaVinci Resolve Studio 19",
+      "description": "Professional color grading and audio",
+      "sort_order": 2
+    }
+  ],
+  "awards": [
+    {
+      "id": 1,
+      "year": "2025",
+      "title": "Vimeo Staff Pick",
+      "project": "The Craftsman",
+      "sort_order": 0
+    },
+    {
+      "id": 2,
+      "year": "2024",
+      "title": "Telly Gold Winner",
+      "project": "Velocity Commercial",
+      "sort_order": 1
+    },
+    {
+      "id": 3,
+      "year": "2024",
+      "title": "Cannes Lions Shortlist",
+      "project": "Urban Echoes",
+      "sort_order": 2
+    }
+  ],
+  "skills": [
+    {
+      "id": 1,
+      "category": "Video & Post-Production",
+      "name": "DaVinci Resolve Studio",
+      "level": 98,
+      "description": "Color grading, Fairlight audio & node editing",
+      "sort_order": 0
+    },
+    {
+      "id": 2,
+      "category": "Video & Post-Production",
+      "name": "Adobe Premiere Pro",
+      "level": 95,
+      "description": "Rhythmic cutting, multicam & speed ramping",
+      "sort_order": 1
+    },
+    {
+      "id": 3,
+      "category": "Graphic & Motion Design",
+      "name": "Adobe After Effects",
+      "level": 92,
+      "description": "2D/3D motion graphics & visual FX",
+      "sort_order": 2
+    }
+  ],
+  "career_experience": [
+    {
+      "id": 1,
+      "period": "2022 - Present",
+      "role": "Founder & Lead Creative Director",
+      "company": "Alazar Studio",
+      "location": "Global / Remote",
+      "description": "Directing, editing, and brand design for international clients.",
+      "achievements": [
+        "Delivered 140+ client projects with 98% satisfaction",
+        "Led campaign for Vanguard Apparel reaching 4.8M+ views"
+      ],
+      "sort_order": 0
+    }
+  ],
+  "client_logos": [
+    {
+      "id": 1,
+      "name": "Vanguard Apparel",
+      "display_text": "VANGUARD",
+      "logo_url": null,
+      "sort_order": 0
+    },
+    {
+      "id": 2,
+      "name": "Lumina Tech",
+      "display_text": "LUMINA",
+      "logo_url": null,
+      "sort_order": 1
+    },
+    {
+      "id": 3,
+      "name": "Apex Motors",
+      "display_text": "APEX MOTORS",
+      "logo_url": null,
+      "sort_order": 2
+    }
+  ],
+  "bts_gallery": [
+    {
+      "id": 1,
+      "title": "Directing on Set",
+      "location": "New York Studio",
+      "image": "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&q=80",
+      "caption": "Filming with dual cameras and stabilizer setup.",
+      "sort_order": 0
+    },
+    {
+      "id": 2,
+      "title": "Editing & Color Suite",
+      "location": "Alazar Studio",
+      "image": "https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=800&q=80",
+      "caption": "Color grading 8K video on reference monitors.",
+      "sort_order": 1
+    }
+  ],
+  "color_grading_samples": [
+    {
+      "id": 1,
+      "title": "Urban Echoes — High Contrast",
+      "log_image": "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?w=1200&q=60",
+      "graded_image": "https://images.unsplash.com/photo-1604998103924-89e012e5265a?w=1200&q=80",
+      "camera": "RED V-Raptor 8K",
+      "color_space": "RED Wide Gamut -> Rec.709",
+      "lut": "Custom Film Emulation",
+      "iso": "ISO 800",
+      "sort_order": 0
+    }
+  ],
+  "hiring_guarantees": [
+    {
+      "id": 1,
+      "title": "100% On-Time Delivery",
+      "description": "Strict adherence to project deadlines with clear milestone check-ins.",
+      "sort_order": 0
+    },
+    {
+      "id": 2,
+      "title": "Master Quality Files",
+      "description": "Receive ProRes 422 HQ, 4K/8K RAW footage, and multi-format vertical social cuts.",
+      "sort_order": 1
+    },
+    {
+      "id": 3,
+      "title": "Clear & Fast Communication",
+      "description": "Direct access via Slack, email, or WhatsApp with responses under 24 hours.",
+      "sort_order": 2
+    }
+  ],
+  "pricing_options": [
+    {
+      "id": 1,
+      "type": "project_type",
+      "option_id": "commercial",
+      "label": "Commercial / Brand Video",
+      "base_price": 3500,
+      "multiplier": null,
+      "price": null,
+      "sort_order": 0
+    },
+    {
+      "id": 2,
+      "type": "project_type",
+      "option_id": "documentary",
+      "label": "Short Documentary",
+      "base_price": 2800,
+      "multiplier": null,
+      "price": null,
+      "sort_order": 1
+    },
+    {
+      "id": 3,
+      "type": "scope",
+      "option_id": "remote",
+      "label": "Editing Only (Remote)",
+      "base_price": null,
+      "multiplier": 1,
+      "price": null,
+      "sort_order": 0
+    },
+    {
+      "id": 4,
+      "type": "scope",
+      "option_id": "onset",
+      "label": "Filming + Full Editing",
+      "base_price": null,
+      "multiplier": 1.6,
+      "price": null,
+      "sort_order": 1
+    },
+    {
+      "id": 5,
+      "type": "addon",
+      "option_id": "color",
+      "label": "Advanced Color Grading",
+      "base_price": null,
+      "multiplier": null,
+      "price": 600,
+      "sort_order": 0
+    },
+    {
+      "id": 6,
+      "type": "addon",
+      "option_id": "sound",
+      "label": "Sound Design & Audio Mix",
+      "base_price": null,
+      "multiplier": null,
+      "price": 500,
+      "sort_order": 1
+    }
+  ],
+  "social_links": [
+    {
+      "id": 1,
+      "name": "Telegram",
+      "url": "https://t.me/Onlygrace2",
+      "handle": "@Onlygrace2",
+      "type": "telegram",
+      "sort_order": 0
+    },
+    {
+      "id": 2,
+      "name": "Facebook",
+      "url": "https://www.facebook.com/share/169w6Q4Mqo4/",
+      "handle": "Alazar Asdesach",
+      "type": "facebook",
+      "sort_order": 1
+    }
+  ],
+  "case_studies": [
+    {
+      "id": 1,
+      "client": "Vanguard Apparel",
+      "project": "Fall Collection Commercial",
+      "metric": "4.8M+",
+      "metric_label": "Video Views",
+      "result": "+420% Sales Growth",
+      "deliverables": [
+        "60s Video Cut",
+        "3x Social Clips",
+        "Audio Mix"
+      ],
+      "image": "https://images.unsplash.com/photo-1604998103924-89e012e5265a?w=800&q=80"
+    }
+  ],
+  "page_sections": [
+    {
+      "id": 1,
+      "page": "home",
+      "section_key": "hero",
+      "label": "Hero Banner",
+      "visible": true,
+      "sort_order": 1
+    },
+    {
+      "id": 2,
+      "page": "home",
+      "section_key": "about_snapshot",
+      "label": "About Snapshot",
+      "visible": true,
+      "sort_order": 2
+    },
+    {
+      "id": 3,
+      "page": "home",
+      "section_key": "expertise",
+      "label": "Expertise Section",
+      "visible": true,
+      "sort_order": 3
+    },
+    {
+      "id": 4,
+      "page": "home",
+      "section_key": "showreel",
+      "label": "Showreel Banner",
+      "visible": true,
+      "sort_order": 4
+    },
+    {
+      "id": 5,
+      "page": "home",
+      "section_key": "social_proof",
+      "label": "Testimonials",
+      "visible": true,
+      "sort_order": 5
+    },
+    {
+      "id": 6,
+      "page": "home",
+      "section_key": "color_grading",
+      "label": "Color Grading Showcase",
+      "visible": true,
+      "sort_order": 6
+    },
+    {
+      "id": 7,
+      "page": "home",
+      "section_key": "skills",
+      "label": "Skills Section",
+      "visible": true,
+      "sort_order": 7
+    },
+    {
+      "id": 8,
+      "page": "home",
+      "section_key": "gear",
+      "label": "Gear Section",
+      "visible": true,
+      "sort_order": 8
+    },
+    {
+      "id": 9,
+      "page": "home",
+      "section_key": "why_hire",
+      "label": "Why Hire Me",
+      "visible": true,
+      "sort_order": 9
+    },
+    {
+      "id": 10,
+      "page": "home",
+      "section_key": "calculator",
+      "label": "Project Calculator",
+      "visible": true,
+      "sort_order": 10
     }
   ]
 }

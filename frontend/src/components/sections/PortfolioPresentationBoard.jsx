@@ -4,7 +4,15 @@ import { Sparkles, ArrowUpRight, Mail, Phone, MapPin, Award, BookOpen, Layers, C
 import alazarImg from '../../assets/images/alazar.png';
 import ProjectCardMedia from '../common/ProjectCardMedia';
 
-export const PortfolioPresentationBoard = ({ projects = [], filter = 'all', onSelectProject }) => {
+export const PortfolioPresentationBoard = ({ projects = [], filter = 'all', presentationSettings, onSelectProject }) => {
+  const ps = presentationSettings || {};
+  const profileName = ps.profileName || 'Alazar Asdesach';
+  const profileTitle = ps.profileTitle || 'Senior Video Editor & Lead Designer';
+  const profileDescription = ps.profileDescription || 'Passionate visual storyteller with 5+ years of expertise in commercial video editing, brand profile books, 3D product visuals, and custom editorial typography.';
+  const location = ps.location || 'Addis Ababa';
+  const availability = ps.availability || 'Available';
+  const edition = ps.edition || '2025 EDITION';
+
   // Dynamic project filtering for Video, Design, and All
   const displayProjects = projects.filter(p => {
     if (filter === 'video') return p.category === 'video';
@@ -85,7 +93,7 @@ export const PortfolioPresentationBoard = ({ projects = [], filter = 'all', onSe
                   />
 
                   <div className="absolute bottom-3 inset-x-3 py-2 px-3 rounded-xl bg-black/80 backdrop-blur-md border border-white/20 text-center text-[10px] font-mono font-black uppercase tracking-[0.2em] text-[#FAFAF9] shadow-xl z-20">
-                    ALAZAR ASDESACH
+                    {profileName.toUpperCase()}
                   </div>
                 </div>
               </div>
@@ -100,7 +108,7 @@ export const PortfolioPresentationBoard = ({ projects = [], filter = 'all', onSe
                 <span className="text-[#C59A9F]">SELECTED WORKS</span>
               </div>
               <div className="text-[10px] font-black uppercase tracking-widest text-[#FAFAF9] bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] px-4.5 py-1.5 rounded-full border border-white/20 shadow-lg">
-                2025 EDITION
+                {edition}
               </div>
             </div>
           </motion.div>
@@ -127,27 +135,27 @@ export const PortfolioPresentationBoard = ({ projects = [], filter = 'all', onSe
 
               <div className="flex items-center gap-4 mb-4">
                 <div className="relative">
-                  <img src={alazarImg} alt="Alazar" className="w-14 h-14 rounded-2xl border-2 border-[#C59A9F] object-cover shadow-lg" />
+                  <img src={alazarImg} alt={profileName} className="w-14 h-14 rounded-2xl border-2 border-[#C59A9F] object-cover shadow-lg" />
                   <span className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-emerald-500 border-2 border-[#140407] shadow-sm" />
                 </div>
                 <div>
-                  <h4 className="text-base sm:text-lg font-black text-[#FAFAF9] tracking-tight">Alazar Asdesach</h4>
-                  <p className="text-xs text-[#C59A9F] font-bold tracking-wide">Senior Video Editor & Lead Designer</p>
+                  <h4 className="text-base sm:text-lg font-black text-[#FAFAF9] tracking-tight">{profileName}</h4>
+                  <p className="text-xs text-[#C59A9F] font-bold tracking-wide">{profileTitle}</p>
                 </div>
               </div>
 
               <p className="text-xs sm:text-sm text-white/85 leading-relaxed mb-4 font-normal">
-                Passionate visual storyteller with 5+ years of expertise in commercial video editing, brand profile books, 3D product visuals, and custom editorial typography.
+                {profileDescription}
               </p>
 
               <div className="grid grid-cols-2 gap-3 text-[10px] sm:text-[11px] uppercase font-black text-white/95 border-t border-white/15 pt-4">
                 <div className="flex items-center gap-2 bg-white/10 px-3.5 py-2.5 rounded-2xl border border-white/15 backdrop-blur-md shadow-sm">
                   <MapPin size={14} className="text-[#C59A9F]" />
-                  <span>Addis Ababa</span>
+                  <span>{location}</span>
                 </div>
                 <div className="flex items-center gap-2 bg-emerald-950/60 text-emerald-300 px-3.5 py-2.5 rounded-2xl border border-emerald-500/30 shadow-sm">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  <span>Available</span>
+                  <span>{availability}</span>
                 </div>
               </div>
             </motion.div>

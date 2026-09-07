@@ -5,8 +5,15 @@ import { gearList, theme } from '../../constants';
 
 const catIcons = [Camera, Film, Monitor, Zap];
 
-export const GearSection = () => {
+export const GearSection = ({ data }) => {
   const [activeCategory, setActiveCategory] = useState(0);
+  const categories = (data && data.length) ? data.map(cat => ({
+    category: cat.name,
+    items: (cat.items || []).map(i => ({
+      name: i.name,
+      desc: i.description || i.badge || 'Pro Standard Equipment'
+    }))
+  })) : gearList;
 
   return (
     <section
@@ -57,7 +64,7 @@ export const GearSection = () => {
 
           {/* ── Left: Category nav ── */}
           <div className="lg:col-span-4 flex flex-row lg:flex-col gap-3 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0">
-            {gearList.map((cat, idx) => {
+            {categories.map((cat, idx) => {
               const Icon = catIcons[idx % catIcons.length];
               const isActive = idx === activeCategory;
               return (
@@ -81,7 +88,7 @@ export const GearSection = () => {
                   </div>
                   <div className="min-w-0">
                     <p className={`text-[10px] font-black uppercase tracking-widest mb-0.5 ${isActive ? 'text-[#FAFAF9]/80' : 'text-[#78716C]'}`}>
-                      {idx + 1} of {gearList.length}
+                      {idx + 1} of {categories.length}
                     </p>
                     <h4 className={`text-sm font-black truncate leading-tight ${isActive ? 'text-white' : 'text-[#1C1917]'}`}
                       style={{ fontFamily: theme.fonts.heading }}>
@@ -119,7 +126,7 @@ export const GearSection = () => {
                 transition={{ duration: 0.38, ease: [0.16, 1, 0.3, 1] }}
                 className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5"
               >
-                {gearList[activeCategory].items.map((item, idx) => (
+                {((categories[activeCategory] || categories[0])?.items || []).map((item, idx) => (
                   <motion.div
                     key={item.name}
                     initial={{ opacity: 0, scale: 0.95 }}
