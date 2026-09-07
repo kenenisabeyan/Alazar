@@ -79,7 +79,7 @@ export const ServiceSplitter = () => {
               style={{ fontFamily: theme.fonts.heading }}
             >
               Two Disciplines.<br />
-              <span className="italic font-light text-gradient-burgundy">One Vision.</span>
+              <span className="text-gradient-burgundy font-black">One Vision.</span>
             </motion.h2>
           </div>
           <motion.p

@@ -1,0 +1,314 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "Urban Echoes Commercial",
+      "category": "video",
+      "client": "Vanguard Apparel",
+      "thumbnail": "/assets/projects/urban-echoes.svg",
+      "preview_video_url": "/assets/sample-showreel.mp4",
+      "video_url": "/assets/sample-showreel.mp4",
+      "description": "A fast-paced, documentary-style lookbook for Vanguard's Fall collection. Focused on kinetic movement, rhythmic cuts, and a sleek color grade.",
+      "role": "Lead Video Editor & Colorist",
+      "deliverables": [
+        "60s Commercial Reel",
+        "3x 15s Instagram Reels",
+        "Full Sound Design Mix"
+      ],
+      "year": "2025",
+      "featured": true,
+      "created_at": "2026-09-07T08:44:09.367Z"
+    },
+    {
+      "id": 2,
+      "title": "Lumina Brand Profile Book",
+      "category": "design",
+      "client": "Lumina Tech",
+      "thumbnail": "/assets/projects/lumina-brand.svg",
+      "preview_video_url": null,
+      "video_url": null,
+      "description": "Complete visual overhaul and brand profile book design for a modern tech startup. Built with clean typography grid and brand strategy.",
+      "role": "Art Director & Graphic Designer",
+      "deliverables": [
+        "Logo System & Guidelines",
+        "Brand Strategy Book",
+        "Ui Kit & Typography"
+      ],
+      "year": "2024",
+      "featured": true,
+      "created_at": "2026-09-07T08:44:09.368Z"
+    },
+    {
+      "id": 3,
+      "title": "The Craftsman Mini-Doc",
+      "category": "video",
+      "client": "Oak & Iron",
+      "thumbnail": "/assets/projects/craftsman.svg",
+      "preview_video_url": "/assets/sample-showreel.mp4",
+      "video_url": "/assets/sample-showreel.mp4",
+      "description": "A slow-cinema mini-documentary following a master woodworker. Emphasis on organic sound design and warm color palettes.",
+      "role": "Cinematographer & Editor",
+      "deliverables": [
+        "3-Minute Short Film",
+        "Soundscape Mix",
+        "Color Grading"
+      ],
+      "year": "2025",
+      "featured": true,
+      "created_at": "2026-09-07T08:44:09.368Z"
+    },
+    {
+      "id": 4,
+      "title": "Peace & Character Illustration",
+      "category": "design",
+      "client": "Peace Creative Studio",
+      "thumbnail": "/assets/projects/peace-illustration.svg",
+      "preview_video_url": null,
+      "video_url": null,
+      "description": "Vibrant character illustrations and vector artworks crafted for digital media, stickers, and editorial prints.",
+      "role": "Lead Illustrator & Graphic Artist",
+      "deliverables": [
+        "Character Vector Suite",
+        "Print File Masters",
+        "Sticker Pack Design"
+      ],
+      "year": "2025",
+      "featured": true,
+      "created_at": "2026-09-07T08:44:09.368Z"
+    },
+    {
+      "id": 5,
+      "title": "Custom Typography & Lettering",
+      "category": "design",
+      "client": "Typecraft Lab",
+      "thumbnail": "/assets/projects/typography.svg",
+      "preview_video_url": null,
+      "video_url": null,
+      "description": "Experimental editorial typography, custom hand-lettering badges, and brand display font designs.",
+      "role": "Typography Specialist",
+      "deliverables": [
+        "Display Typeface Set",
+        "Hand-Lettering Badges",
+        "Vector Monograms"
+      ],
+      "year": "2024",
+      "featured": true,
+      "created_at": "2026-09-07T08:44:09.368Z"
+    },
+    {
+      "id": 6,
+      "title": "Book Cover & Publication Spreads",
+      "category": "design",
+      "client": "Novelist Press",
+      "thumbnail": "/assets/projects/book-cover.svg",
+      "preview_video_url": null,
+      "video_url": null,
+      "description": "3D book cover renders, spine typography, and editorial publication spreads for a literary anthology series.",
+      "role": "Book & Cover Designer",
+      "deliverables": [
+        "3D Hardcover Mockups",
+        "Spine & Back Jacket",
+        "Print Layout Spreads"
+      ],
+      "year": "2025",
+      "featured": true,
+      "created_at": "2026-09-07T08:44:09.368Z"
+    },
+    {
+      "id": 7,
+      "title": "Digital Composite Imaging",
+      "category": "design",
+      "client": "Surreal Vision",
+      "thumbnail": "/assets/projects/digital-imaging.svg",
+      "preview_video_url": null,
+      "video_url": null,
+      "description": "High-end photo manipulation, color matching, and digital composite art for cinematic movie posters.",
+      "role": "Digital Compositor",
+      "deliverables": [
+        "High-Res Key Art",
+        "Multi-Layer PSD Masters",
+        "Retouching Guide"
+      ],
+      "year": "2024",
+      "featured": false,
+      "created_at": "2026-09-07T08:44:09.368Z"
+    },
+    {
+      "id": 8,
+      "title": "Artisanal Jar Label & Packaging",
+      "category": "design",
+      "client": "Rudeku Gourmet",
+      "thumbnail": "/assets/projects/jar-label.svg",
+      "preview_video_url": null,
+      "video_url": null,
+      "description": "Premium label packaging design for artisanal food jars, featuring foil stamp details and custom die-cut labels.",
+      "role": "Packaging Designer",
+      "deliverables": [
+        "Die-Cut Jar Labels",
+        "Box Packaging Design",
+        "Product 3D Renders"
+      ],
+      "year": "2025",
+      "featured": false,
+      "created_at": "2026-09-07T08:44:09.368Z"
+    },
+    {
+      "id": 9,
+      "title": "Instagram Feed & Mobile UI Design",
+      "category": "design",
+      "client": "Sunlocal Agency",
+      "thumbnail": "/assets/projects/social-feed.svg",
+      "preview_video_url": null,
+      "video_url": null,
+      "description": "Cohesive social media grid feed strategy and mobile application preview interfaces designed for high engagement.",
+      "role": "UI & Social Media Designer",
+      "deliverables": [
+        "9-Grid Feed Template",
+        "Figma Mobile UI Kit",
+        "Story Animation Assets"
+      ],
+      "year": "2024",
+      "featured": false,
+      "created_at": "2026-09-07T08:44:09.368Z"
+    },
+    {
+      "id": 10,
+      "title": "Promotional Content & 3D Hardware",
+      "category": "design",
+      "client": "Apex Gaming Tech",
+      "thumbnail": "/assets/projects/promotional-3d.svg",
+      "preview_video_url": null,
+      "video_url": null,
+      "description": "3D product visualization, lighting setup, and promotional ad banners for high-performance gaming gear.",
+      "role": "3D & Promotional Designer",
+      "deliverables": [
+        "3D Product Renderings",
+        "Digital Ad Banners",
+        "Display Kiosk Mockups"
+      ],
+      "year": "2025",
+      "featured": false,
+      "created_at": "2026-09-07T08:44:09.368Z"
+    },
+    {
+      "id": 11,
+      "title": "AURA Festival Poster System",
+      "category": "design",
+      "client": "AURA Music Group",
+      "thumbnail": "/assets/projects/aura-poster.svg",
+      "preview_video_url": null,
+      "video_url": null,
+      "description": "Abstract 3D poster designs for a boutique electronic music festival designed to capture ambient lighting.",
+      "role": "Visual & Poster Designer",
+      "deliverables": [
+        "Key Art Posters",
+        "3D Motion Graphics",
+        "Social Banners"
+      ],
+      "year": "2024",
+      "featured": true,
+      "created_at": "2026-09-07T08:44:09.368Z"
+    },
+    {
+      "id": 12,
+      "title": "Velocity Luxury Car Launch",
+      "category": "video",
+      "client": "Apex Motors",
+      "thumbnail": "/assets/projects/velocity-car.svg",
+      "preview_video_url": "/assets/sample-showreel.mp4",
+      "video_url": "/assets/sample-showreel.mp4",
+      "description": "High-octane commercial edit for a sports car launch, featuring speed-ramping, sound sync, and deep color grading.",
+      "role": "Lead Editor",
+      "deliverables": [
+        "30s TV Spot",
+        "Social Teasers",
+        "Cinematic Sound Design"
+      ],
+      "year": "2025",
+      "featured": true,
+      "created_at": "2026-09-07T08:44:09.368Z"
+    },
+    {
+      "id": 13,
+      "title": "Noir Editorial Magazine Spreads",
+      "category": "design",
+      "client": "Studio One Magazine",
+      "thumbnail": "/assets/projects/noir-editorial.svg",
+      "preview_video_url": null,
+      "video_url": null,
+      "description": "Editorial layout design for a high-fashion spread. Focused on rigid grid structures juxtaposed with bold typography.",
+      "role": "Editorial & Layout Designer",
+      "deliverables": [
+        "16-Page Print Spread",
+        "Typography System",
+        "Digital Press Kit"
+      ],
+      "year": "2024",
+      "featured": false,
+      "created_at": "2026-09-07T08:44:09.368Z"
+    }
+  ],
+  "inquiries": [
+    {
+      "id": 1,
+      "first_name": "Database",
+      "last_name": "Test",
+      "email": "dbtest@example.com",
+      "project_type": "freelance-video",
+      "budget": " - ",
+      "details": "Verifying direct database connection & persistence.",
+      "status": "new",
+      "created_at": "2026-09-07T08:49:11.010Z"
+    }
+  ],
+  "quotes": [],
+  "testimonials": [
+    {
+      "id": 1,
+      "quote": "Alazar's cinematic touch transformed our brand identity. The editing pacing and color grading on our campaign exceeded every expectation.",
+      "author": "Elena Rostova",
+      "title": "Creative Director",
+      "company": "Vanguard Apparel",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+      "rating": 5
+    },
+    {
+      "quote": "Working with Alazar on the Lumina rebranding was seamless. He has a rare ability to bridge still design aesthetics with motion.",
+      "author": "Marcus Chen",
+      "title": "Founder & CEO",
+      "company": "Lumina Tech",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+      "rating": 5
+    },
+    {
+      "quote": "The sound design and color grading on 'The Craftsman' brought tears to our clients' eyes. Pure artistic genius.",
+      "author": "David Thorne",
+      "title": "Executive Producer",
+      "company": "Oak & Iron Media",
+      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+      "rating": 5
+    }
+  ],
+  "stats": [
+    {
+      "key_name": "experience",
+      "value": "8+",
+      "label": "Years Experience"
+    },
+    {
+      "key_name": "completed",
+      "value": "140+",
+      "label": "Projects Completed"
+    },
+    {
+      "key_name": "satisfaction",
+      "value": "98%",
+      "label": "Client Satisfaction"
+    },
+    {
+      "key_name": "awards",
+      "value": "12",
+      "label": "Industry Awards"
+    }
+  ]
+}

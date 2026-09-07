@@ -388,6 +388,20 @@ export const btsGallery = [
     image: 'https://images.unsplash.com/photo-1508614589041-895b88991e3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     caption: 'Capturing drone footage at sunrise.',
   },
+  {
+    id: 'bts-4',
+    title: 'Lighting & Rigging',
+    location: 'Soundstage Studio',
+    image: 'https://images.unsplash.com/photo-1518173946687-a4c8a383392e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    caption: 'Setting up high-key cinematic lighting and motorized rigs.',
+  },
+  {
+    id: 'bts-5',
+    title: 'Sound Design & Scoring',
+    location: 'Audio Suite',
+    image: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    caption: 'Mixing spatial audio, dialogue, and cinematic scores.',
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────

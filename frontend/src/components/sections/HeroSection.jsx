@@ -115,7 +115,7 @@ export const HeroSection = ({ onOpenShowreel }) => {
               style={{ fontFamily: theme.fonts.heading }}
             >
               Cinematic Videos.<br />
-              <span className="italic font-light text-gradient-burgundy">Clear Design.</span>
+              <span className="text-gradient-burgundy font-black">Clear Design.</span>
             </motion.h1>
 
             <motion.p

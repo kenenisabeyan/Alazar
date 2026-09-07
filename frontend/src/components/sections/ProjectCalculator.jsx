@@ -82,7 +82,7 @@ export const ProjectCalculator = () => {
               style={{ fontFamily: theme.fonts.heading }}
             >
               Interactive<br />
-              <span className="italic font-light text-gradient-burgundy">Scope Estimator.</span>
+              <span className="text-gradient-burgundy font-black">Scope Estimator.</span>
             </motion.h2>
           </div>
           <motion.p

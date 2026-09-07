@@ -47,7 +47,7 @@ const VideoCard = ({ navigate }) => (
       {/* Discipline title */}
       <h3 className="text-3xl sm:text-4xl font-black text-white leading-tight mb-3" style={{ fontFamily: theme.fonts.heading }}>
         Senior Video Editor<br />
-        <span className="italic font-light text-[#C59A9F]">& Colorist</span>
+        <span className="text-[#C59A9F] font-black">& Colorist</span>
       </h3>
 
       <p className="text-white/80 text-sm font-light leading-relaxed mb-8 max-w-md">
@@ -128,7 +128,7 @@ const DesignCard = ({ navigate }) => (
       {/* Discipline title */}
       <h3 className="text-3xl sm:text-4xl font-black text-[#1C1917] leading-tight mb-3" style={{ fontFamily: theme.fonts.heading }}>
         Senior Graphics<br />
-        <span className="italic font-light text-[#6B1D2F]">Designer & Director</span>
+        <span className="text-[#6B1D2F] font-black">Designer & Director</span>
       </h3>
 
       <p className="text-[#78716C] text-sm font-light leading-relaxed mb-8 max-w-md">
@@ -233,7 +233,7 @@ export const ExpertiseSection = () => {
               style={{ fontFamily: theme.fonts.heading }}
             >
               Expert in Two<br />
-              <span className="italic font-light text-gradient-burgundy">Creative Fields.</span>
+              <span className="text-gradient-burgundy font-black">Creative Fields.</span>
             </motion.h2>
           </div>
 

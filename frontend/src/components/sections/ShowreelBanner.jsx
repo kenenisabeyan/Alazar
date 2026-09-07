@@ -56,7 +56,7 @@ export const ShowreelBanner = ({ onOpenShowreel }) => {
               style={{ fontFamily: theme.fonts.heading }}
             >
               2025 Video<br />
-              <span className="italic font-light text-gradient-burgundy">Showreel.</span>
+              <span className="text-gradient-burgundy font-black">Showreel.</span>
             </motion.h2>
           </div>
 
@@ -143,7 +143,7 @@ export const ShowreelBanner = ({ onOpenShowreel }) => {
                 style={{ fontFamily: theme.fonts.heading }}
               >
                 Alazar Asdesach<br />
-                <span className="text-[#C59A9F] italic font-light">2025 Showreel</span>
+                <span className="text-[#C59A9F] font-black">2025 Showreel</span>
               </h3>
             </div>
 

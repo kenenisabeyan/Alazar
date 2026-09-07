@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Eye, Film, Layout, Volume2, RefreshCw, Sparkles, Grid, Layers, ArrowUpRight } from 'lucide-react';
+import { Eye, Film, Layout, Volume2, RefreshCw, Sparkles, Grid, Layers, ArrowUpRight, Search, X } from 'lucide-react';
 
 import Modal from '../components/common/Modal';
 import ProjectImage from '../components/common/ProjectImage';
@@ -16,7 +16,9 @@ import alazarImg from '../assets/images/alazar.png';
 
 export default function Portfolio() {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const [filter, setFilter] = useState('all');
+  const [searchQuery, setSearchQuery] = useState('');
   const [viewMode, setViewMode] = useState('spread'); // 'spread' | 'grid'
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -28,6 +30,16 @@ export default function Portfolio() {
     try {
       const data = await api.projects.getAll();
       setProjects(data);
+
+      // Check if direct project query string exists
+      const directProjectId = searchParams.get('project');
+      if (directProjectId) {
+        const found = data.find(p => p.id === directProjectId || String(p.id) === directProjectId);
+        if (found) {
+          setActiveModalProject(found);
+          setIsModalOpen(true);
+        }
+      }
     } catch (err) {
       console.error('Error fetching projects:', err);
     } finally {
@@ -35,11 +47,20 @@ export default function Portfolio() {
     }
   };
 
-  useEffect(() => { fetchProjects(); }, []);
+  useEffect(() => { fetchProjects(); }, [searchParams]);
 
-  const filteredProjects = projects.filter(p =>
-    filter === 'all' ? true : p.category === filter
-  );
+  const filteredProjects = projects.filter(p => {
+    const matchesCategory = filter === 'all' ? true : p.category === filter;
+    const q = searchQuery.toLowerCase().trim();
+    const matchesSearch = !q || (
+      (p.title && p.title.toLowerCase().includes(q)) ||
+      (p.client && p.client.toLowerCase().includes(q)) ||
+      (p.category && p.category.toLowerCase().includes(q)) ||
+      (p.subCategory && p.subCategory.toLowerCase().includes(q)) ||
+      (p.description && p.description.toLowerCase().includes(q))
+    );
+    return matchesCategory && matchesSearch;
+  });
 
   const openModal = (project) => {
     setActiveModalProject(project);
@@ -78,7 +99,7 @@ export default function Portfolio() {
           className="text-4xl sm:text-6xl md:text-7xl font-black text-[#1C1917] mb-6 tracking-tight leading-[1.04]"
           style={{ fontFamily: theme.fonts.heading }}
         >
-          Selected <span className="italic font-light text-gradient-burgundy">Works</span>
+          Selected <span className="text-gradient-burgundy font-black">Works</span>
         </motion.h1>
 
         <motion.p
@@ -90,8 +111,29 @@ export default function Portfolio() {
           An editorial archive of commercial video cuts, color-graded masters, brand identities, book covers, packaging, and digital imaging spreads.
         </motion.p>
 
-        {/* Filter bar & View Mode Switcher */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+        {/* Search & Filter Toolbar */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-4xl mx-auto flex-wrap">
+          {/* Keyword Search Input */}
+          <div className="relative w-full sm:w-64">
+            <Search size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#78716C]" />
+            <input
+              type="text"
+              placeholder="Search works..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-9 pr-8 py-2.5 bg-white border border-[#C59A9F] rounded-full text-xs font-semibold text-[#1C1917] focus:outline-none focus:border-[#6B1D2F] shadow-sm transition-colors"
+            />
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery('')}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-[#78716C] hover:text-[#6B1D2F]"
+              >
+                <X size={13} />
+              </button>
+            )}
+          </div>
+
+          {/* Filter bar */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -108,7 +150,7 @@ export default function Portfolio() {
                 <button
                   key={cat.id}
                   onClick={() => setFilter(cat.id)}
-                  className={`relative px-5 py-2.5 rounded-full text-[11px] font-black uppercase tracking-wider transition-all flex items-center gap-1.5 ${active ? 'text-white' : 'text-[#78716C] hover:text-[#1C1917]'
+                  className={`relative px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-[11px] font-black uppercase tracking-wider transition-all flex items-center gap-1.5 ${active ? 'text-white' : 'text-[#78716C] hover:text-[#1C1917]'
                     }`}
                 >
                   {active && (
@@ -125,11 +167,11 @@ export default function Portfolio() {
             })}
           </motion.div>
 
-          {/* Presentation View Toggle */}
-          <div className="flex items-center bg-white p-1.5 rounded-full border border-[#C59A9F] shadow-sm gap-1">
+          {/* View Mode Switcher */}
+          <div className="flex items-center bg-white p-1 rounded-full border border-[#C59A9F] shadow-sm gap-1">
             <button
               onClick={() => setViewMode('grid')}
-              className={`px-3.5 py-2 rounded-full text-[11px] font-black uppercase tracking-wider transition-all flex items-center gap-1.5 ${
+              className={`px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full text-[11px] font-black uppercase tracking-wider transition-all flex items-center gap-1.5 ${
                 viewMode === 'grid' ? 'bg-[#6B1D2F] text-white shadow-sm' : 'text-[#78716C] hover:text-[#1C1917]'
               }`}
             >
@@ -137,7 +179,7 @@ export default function Portfolio() {
             </button>
             <button
               onClick={() => setViewMode('spread')}
-              className={`px-3.5 py-2 rounded-full text-[11px] font-black uppercase tracking-wider transition-all flex items-center gap-1.5 ${
+              className={`px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full text-[11px] font-black uppercase tracking-wider transition-all flex items-center gap-1.5 ${
                 viewMode === 'spread' ? 'bg-[#6B1D2F] text-white shadow-sm' : 'text-[#78716C] hover:text-[#1C1917]'
               }`}
             >
@@ -162,6 +204,24 @@ export default function Portfolio() {
             {[1, 2, 3, 4, 5, 6].map(n => (
               <div key={n} className="rounded-[2rem] aspect-[4/5] bg-[#FAFAF9] border border-[#C59A9F]/40 animate-pulse" />
             ))}
+          </div>
+        ) : filteredProjects.length === 0 ? (
+          <div className="py-20 text-center bg-white rounded-3xl border border-[#C59A9F]/40 shadow-sm max-w-xl mx-auto space-y-4">
+            <div className="w-16 h-16 rounded-full bg-[#6B1D2F]/10 border border-[#6B1D2F]/20 text-[#6B1D2F] flex items-center justify-center mx-auto">
+              <Search size={28} />
+            </div>
+            <h3 className="text-2xl font-black text-[#1C1917]" style={{ fontFamily: theme.fonts.heading }}>
+              No matching projects found
+            </h3>
+            <p className="text-[#78716C] text-sm font-light max-w-md mx-auto">
+              We couldn't find any projects matching "{searchQuery}". Try searching for different keywords or reset your filters.
+            </p>
+            <button
+              onClick={() => { setSearchQuery(''); setFilter('all'); }}
+              className="px-6 py-2.5 rounded-full bg-[#6B1D2F] text-white font-black text-xs uppercase tracking-widest hover:bg-[#8B1E3F] transition-all shadow-md"
+            >
+              Reset All Filters
+            </button>
           </div>
         ) : viewMode === 'spread' ? (
           /* 🎨 Presentation Master Board View (Exact layout matching Image 2 reference) */
@@ -191,22 +251,22 @@ export default function Portfolio() {
                 >
                   <ProjectCardMedia project={project} />
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#160508]/95 via-[#240A0F]/30 to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#160508]/95 via-[#240A0F]/40 to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
-                  <div className="absolute inset-0 p-6 sm:p-7 flex flex-col justify-between z-10 pointer-events-none">
-                    <div className="flex justify-between items-start">
+                  <div className="absolute inset-0 p-6 sm:p-7 flex flex-col justify-between z-10 opacity-0 group-hover:opacity-100 transition-all duration-400 ease-out pointer-events-none">
+                    <div className="flex justify-between items-start -translate-y-2 group-hover:translate-y-0 transition-transform duration-400">
                       <span className="text-[9.5px] uppercase tracking-[0.2em] px-3.5 py-1.5 bg-black/60 backdrop-blur-md text-[#FAFAF9] rounded-full font-black shadow-lg flex items-center gap-1.5 border border-white/15">
                         {project.category === 'video' ? <Film size={11} className="text-[#C59A9F]" /> : <Layout size={11} className="text-[#C59A9F]" />}
                         {project.subCategory || project.category}
                       </span>
                       <motion.div
                         whileHover={{ scale: 1.15, rotate: 6 }}
-                        className="w-10 h-10 rounded-full bg-white/95 text-[#6B1D2F] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-xl pointer-events-auto"
+                        className="w-10 h-10 rounded-full bg-white/95 text-[#6B1D2F] flex items-center justify-center shadow-xl pointer-events-auto"
                       >
                         {project.videoUrl || project.previewVideoUrl ? <Volume2 size={16} /> : <Eye size={16} />}
                       </motion.div>
                     </div>
-                    <div>
+                    <div className="translate-y-3 group-hover:translate-y-0 transition-transform duration-400">
                       <h3
                         className="text-xl sm:text-2xl text-white mb-1.5 font-black tracking-tight group-hover:text-[#FAFAF9] transition-colors font-serif"
                         style={{ fontFamily: theme.fonts.heading }}
@@ -240,6 +300,18 @@ export default function Portfolio() {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         project={activeModalProject}
+        onPrev={() => {
+          if (!activeModalProject || filteredProjects.length === 0) return;
+          const idx = filteredProjects.findIndex(p => p.id === activeModalProject.id);
+          const prevIdx = (idx - 1 + filteredProjects.length) % filteredProjects.length;
+          setActiveModalProject(filteredProjects[prevIdx]);
+        }}
+        onNext={() => {
+          if (!activeModalProject || filteredProjects.length === 0) return;
+          const idx = filteredProjects.findIndex(p => p.id === activeModalProject.id);
+          const nextIdx = (idx + 1) % filteredProjects.length;
+          setActiveModalProject(filteredProjects[nextIdx]);
+        }}
       />
     </motion.div>
   );

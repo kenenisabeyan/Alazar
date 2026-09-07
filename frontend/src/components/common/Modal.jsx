@@ -1,13 +1,19 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, CheckCircle2, Sparkles } from 'lucide-react';
+import { X, CheckCircle2, Sparkles, Share2, Check, ArrowRight, MessageSquare, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import Button from './Button';
 import ProjectImage from './ProjectImage';
 
-export const Modal = ({ isOpen, onClose, project }) => {
+export const Modal = ({ isOpen, onClose, project, onPrev, onNext }) => {
+  const [copied, setCopied] = useState(false);
+  const navigate = useNavigate();
+
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') onClose();
+      if (e.key === 'ArrowLeft' && onPrev) onPrev();
+      if (e.key === 'ArrowRight' && onNext) onNext();
     };
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -17,7 +23,20 @@ export const Modal = ({ isOpen, onClose, project }) => {
       document.body.style.overflow = 'unset';
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isOpen, onClose]);
+  }, [isOpen, onClose, onPrev, onNext]);
+
+  const handleCopyShare = (e) => {
+    e.stopPropagation();
+    navigator.clipboard.writeText(window.location.origin + `/portfolio?project=${project.id}`);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2500);
+  };
+
+  const handleInquire = () => {
+    onClose();
+    navigate('/contact', { state: { selectedProject: project.title } });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   if (!isOpen || !project) return null;
 
@@ -29,7 +48,7 @@ export const Modal = ({ isOpen, onClose, project }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-[#1E0A0D]/75 backdrop-blur-2xl transition-opacity"
+          className="fixed inset-0 bg-[#1E0A0D]/80 backdrop-blur-2xl transition-opacity"
           onClick={onClose}
         />
 
@@ -39,7 +58,7 @@ export const Modal = ({ isOpen, onClose, project }) => {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.94, y: 20 }}
           transition={{ type: 'spring', stiffness: 350, damping: 28 }}
-          className="relative w-full max-w-6xl max-h-[92vh] bg-white border border-[#C59A9F]/40 rounded-3xl shadow-2xl overflow-y-auto overflow-x-hidden z-10 flex flex-col my-auto border-t-2 border-t-[#6B1D2F]"
+          className="relative w-full max-w-6xl max-h-[92vh] bg-white border border-[#C59A9F]/40 rounded-3xl shadow-2xl overflow-y-auto overflow-x-hidden z-10 flex flex-col my-auto border-t-4 border-t-[#6B1D2F]"
         >
 
           {/* Sticky Header Bar */}
@@ -51,20 +70,52 @@ export const Modal = ({ isOpen, onClose, project }) => {
               <span className="text-xs text-[#78716C] font-semibold">{project.client} • {project.year || '2025'}</span>
             </div>
 
-            <button
-              onClick={onClose}
-              className="w-9 h-9 rounded-full bg-[#FAFAF9] border border-[#C59A9F] flex items-center justify-center text-[#78716C] hover:text-[#6B1D2F] hover:border-[#6B1D2F] hover:bg-[#FAFAF9] transition-all shadow-sm"
-              aria-label="Close modal"
-            >
-              <X size={18} />
-            </button>
+            <div className="flex items-center gap-2">
+              {/* Share/Copy link button */}
+              <button
+                onClick={handleCopyShare}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FAFAF9] border border-[#C59A9F]/50 text-[10px] font-black uppercase tracking-wider text-[#6B1D2F] hover:bg-[#6B1D2F] hover:text-white transition-all shadow-sm"
+                title="Copy share link"
+              >
+                {copied ? <Check size={12} className="text-emerald-500" /> : <Share2 size={12} />}
+                <span>{copied ? 'Link Copied!' : 'Share'}</span>
+              </button>
+
+              <button
+                onClick={onClose}
+                className="w-9 h-9 rounded-full bg-[#FAFAF9] border border-[#C59A9F] flex items-center justify-center text-[#78716C] hover:text-[#6B1D2F] hover:border-[#6B1D2F] hover:bg-[#FAFAF9] transition-all shadow-sm"
+                aria-label="Close modal"
+              >
+                <X size={18} />
+              </button>
+            </div>
           </div>
 
           {/* Content Body */}
           <div className="p-6 sm:p-10 space-y-8">
 
-            {/* Media Player Container */}
-            <div className="relative aspect-video rounded-3xl overflow-hidden bg-[#1E0A0D] border border-[#C59A9F]/40 shadow-2xl">
+            {/* Media Player Container with Floating Gallery Nav Arrows */}
+            <div className="group relative aspect-video rounded-3xl overflow-hidden bg-[#1E0A0D] border border-[#C59A9F]/40 shadow-2xl">
+              {onPrev && (
+                <button
+                  onClick={(e) => { e.stopPropagation(); onPrev(); }}
+                  className="absolute left-3 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-black/60 hover:bg-[#6B1D2F] backdrop-blur-md text-white flex items-center justify-center border border-white/20 transition-all opacity-0 group-hover:opacity-100 shadow-xl"
+                  title="Previous project (←)"
+                >
+                  <ChevronLeft size={20} />
+                </button>
+              )}
+
+              {onNext && (
+                <button
+                  onClick={(e) => { e.stopPropagation(); onNext(); }}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-black/60 hover:bg-[#6B1D2F] backdrop-blur-md text-white flex items-center justify-center border border-white/20 transition-all opacity-0 group-hover:opacity-100 shadow-xl"
+                  title="Next project (→)"
+                >
+                  <ChevronRight size={20} />
+                </button>
+              )}
+
               {project.videoUrl ? (
                 project.videoUrl.includes('.mp4') ? (
                   <video
@@ -128,14 +179,25 @@ export const Modal = ({ isOpen, onClose, project }) => {
                     ))}
                   </ul>
                 </div>
+
+                <button
+                  onClick={handleInquire}
+                  className="w-full py-3.5 px-4 rounded-2xl bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] text-white font-black text-xs uppercase tracking-widest flex items-center justify-center gap-2 shadow-lg shadow-[#6B1D2F]/20 hover:scale-[1.02] active:scale-98 transition-all"
+                >
+                  <MessageSquare size={15} />
+                  <span>Inquire Similar Project</span>
+                </button>
               </div>
             </div>
 
           </div>
 
           {/* Modal Footer */}
-          <div className="bg-[#FAFAF9] px-8 py-5 border-t border-[#C59A9F]/30 flex justify-end">
-            <Button variant="secondary" className="text-xs py-3 px-8 rounded-full font-black uppercase tracking-widest" onClick={onClose}>
+          <div className="bg-[#FAFAF9] px-6 sm:px-8 py-4 border-t border-[#C59A9F]/30 flex justify-between items-center">
+            <span className="text-[10px] text-[#78716C] uppercase font-bold tracking-wider hidden sm:inline-block">
+              Use ← / → keys to navigate • Esc to exit
+            </span>
+            <Button variant="secondary" className="text-xs py-2.5 px-7 rounded-full font-black uppercase tracking-widest" onClick={onClose}>
               Close Window
             </Button>
           </div>

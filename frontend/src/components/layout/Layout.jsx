@@ -3,10 +3,16 @@ import Navigation from './Navigation';
 import Footer from './Footer';
 import CustomCursor from '../common/CustomCursor';
 import SmoothScroll from '../common/SmoothScroll';
+import ScrollToTop from '../common/ScrollToTop';
+import ScrollProgress from '../common/ScrollProgress';
+import CommandPalette from '../common/CommandPalette';
 
 export const Layout = ({ children }) => {
   return (
     <SmoothScroll>
+      <ScrollToTop />
+      <ScrollProgress />
+      <CommandPalette />
       <div
         className="font-sans bg-[#FAFAF9] text-[#1C1917] selection:bg-[#6B1D2F] selection:text-white min-h-screen flex flex-col relative overflow-x-hidden"
         style={{ fontFamily: "'Roboto', sans-serif" }}

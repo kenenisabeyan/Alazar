@@ -83,7 +83,7 @@ export const WorkflowVault = () => {
               style={{ fontFamily: theme.fonts.heading }}
             >
               Simple & Transparent<br />
-              <span className="italic font-light text-gradient-burgundy">Production Workflow.</span>
+              <span className="text-gradient-burgundy font-black">Production Workflow.</span>
             </motion.h2>
           </div>
           <motion.p

@@ -107,7 +107,7 @@ export default function Home() {
                 className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] leading-[1.06] tracking-tight"
                 style={{ fontFamily: theme.fonts.heading }}
               >
-                Featured <span className="italic font-light text-gradient-burgundy">Projects</span>
+                Featured <span className="text-gradient-burgundy font-black">Projects</span>
               </h2>
             </motion.div>
 
@@ -151,37 +151,37 @@ export default function Home() {
                   {/* Media */}
                   <ProjectCardMedia project={project} />
 
-                  {/* Gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#3B0E19]/95 via-[#6B1D2F]/30 to-transparent" />
+                  {/* Gradient - Fades in on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#3B0E19]/95 via-[#6B1D2F]/40 to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
-                  {/* Live badge */}
+                  {/* Live badge - Visible only on hover */}
                   {project.previewVideoUrl && (
-                    <div className="absolute top-5 right-5 bg-[#1E0A0D]/80 backdrop-blur-md text-white text-[10px] uppercase font-black px-3 py-1.5 rounded-full flex items-center gap-1.5 z-10 border border-white/15">
+                    <div className="absolute top-5 right-5 bg-[#1E0A0D]/85 backdrop-blur-md text-white text-[10px] uppercase font-black px-3 py-1.5 rounded-full flex items-center gap-1.5 z-10 border border-white/20 opacity-0 group-hover:opacity-100 -translate-y-2 group-hover:translate-y-0 transition-all duration-400 ease-out pointer-events-none">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                       Live Reel
                     </div>
                   )}
 
-                  {/* Content */}
-                  <div className="absolute inset-0 p-7 flex flex-col justify-between z-10">
-                    <div className="flex justify-between items-start">
+                  {/* Content - Fades & slides on hover */}
+                  <div className="absolute inset-0 p-7 flex flex-col justify-between z-10 opacity-0 group-hover:opacity-100 transition-all duration-400 ease-out pointer-events-none">
+                    <div className="flex justify-between items-start -translate-y-2 group-hover:translate-y-0 transition-transform duration-400">
                       <span className="text-[10px] uppercase tracking-widest px-3.5 py-1.5 bg-[#6B1D2F] text-white rounded-full font-black shadow-md">
                         {project.category}
                       </span>
-                      <div className="w-11 h-11 rounded-full bg-white/95 text-[#6B1D2F] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-xl">
+                      <div className="w-11 h-11 rounded-full bg-white/95 text-[#6B1D2F] flex items-center justify-center shadow-xl pointer-events-auto">
                         {project.videoUrl
                           ? <Play size={18} className="fill-[#6B1D2F] text-[#6B1D2F] ml-0.5" />
                           : <Eye size={18} />}
                       </div>
                     </div>
-                    <div>
+                    <div className="translate-y-3 group-hover:translate-y-0 transition-transform duration-400">
                       <h3
                         className="text-2xl text-white mb-1.5 font-black tracking-tight group-hover:text-[#FAFAF9] transition-colors"
                         style={{ fontFamily: theme.fonts.heading }}
                       >
                         {project.title}
                       </h3>
-                      <p className="text-white/60 text-[11px] uppercase tracking-widest font-bold">{project.client}</p>
+                      <p className="text-white/80 text-[11px] uppercase tracking-widest font-bold">{project.client}</p>
                     </div>
                   </div>
                 </motion.div>

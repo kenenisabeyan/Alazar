@@ -55,7 +55,7 @@ export const ColorGradingShowcase = () => {
               style={{ fontFamily: theme.fonts.heading }}
             >
               RAW Log vs<br />
-              <span className="italic font-light text-gradient-burgundy">Graded Master.</span>
+              <span className="text-gradient-burgundy font-black">Graded Master.</span>
             </motion.h2>
           </div>
 

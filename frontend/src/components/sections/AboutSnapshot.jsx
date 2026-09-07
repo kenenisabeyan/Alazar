@@ -61,7 +61,7 @@ export const AboutSnapshot = () => {
               style={{ fontFamily: theme.fonts.heading }}
             >
               Expert Video Director<br />
-              <span className="italic font-light text-gradient-burgundy">& Graphic Designer.</span>
+              <span className="text-gradient-burgundy font-black">& Graphic Designer.</span>
             </h2>
 
             {/* Body copy */}

@@ -50,7 +50,7 @@ export const CareerTimeline = () => {
               style={{ fontFamily: theme.fonts.heading }}
             >
               Career<br />
-              <span className="italic font-light text-gradient-burgundy">Experience.</span>
+              <span className="text-gradient-burgundy font-black">Experience.</span>
             </motion.h2>
           </div>
 

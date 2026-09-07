@@ -42,7 +42,7 @@ export const SkillsSection = () => {
               style={{ fontFamily: theme.fonts.heading }}
             >
               Software &<br />
-              <span className="italic font-light text-gradient-burgundy">Skills Matrix.</span>
+              <span className="text-gradient-burgundy font-black">Skills Matrix.</span>
             </motion.h2>
           </div>
 

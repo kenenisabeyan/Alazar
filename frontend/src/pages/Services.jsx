@@ -37,7 +37,7 @@ const serviceCards = [
 function FaqAccordion({ faqs }) {
   const [open, setOpen] = useState(null);
   return (
-    <div className="space-y-3">
+    <div className="space-y-4 max-w-[1550px] mx-auto">
       {faqs.map((faq, idx) => {
         const isOpen = open === idx;
         return (
@@ -47,28 +47,28 @@ function FaqAccordion({ faqs }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: idx * 0.07 }}
-            className={`rounded-2xl border-2 overflow-hidden transition-all duration-300 ${isOpen
-                ? 'border-[#6B1D2F] bg-white shadow-lg shadow-[#6B1D2F]/08'
-                : 'border-[#C59A9F] bg-white hover:border-[#C59A9F] shadow-sm'
+            className={`rounded-3xl sm:rounded-[2rem] border-2 overflow-hidden transition-all duration-300 ${isOpen
+                ? 'border-[#6B1D2F] bg-white shadow-xl shadow-[#6B1D2F]/08'
+                : 'border-[#C59A9F]/50 bg-white hover:border-[#6B1D2F] shadow-sm hover:shadow-md'
               }`}
           >
             <button
               onClick={() => setOpen(isOpen ? null : idx)}
-              className="w-full flex items-center justify-between gap-4 p-6 text-left group"
+              className="w-full flex items-center justify-between gap-6 p-6 sm:p-8 sm:px-10 text-left group"
             >
               <h4
-                className={`text-sm font-black leading-snug transition-colors ${isOpen ? 'text-[#6B1D2F]' : 'text-[#1C1917]'
+                className={`text-base sm:text-xl font-black leading-snug transition-colors ${isOpen ? 'text-[#6B1D2F]' : 'text-[#1C1917]'
                   }`}
                 style={{ fontFamily: theme.fonts.heading }}
               >
                 {faq.q}
               </h4>
-              <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 ${isOpen
-                  ? 'bg-[#6B1D2F] text-white'
-                  : 'bg-[#FAFAF9] text-[#6B1D2F] group-hover:bg-[#6B1D2F] group-hover:text-white'
+              <div className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 ${isOpen
+                  ? 'bg-[#6B1D2F] text-white shadow-md shadow-[#6B1D2F]/25'
+                  : 'bg-[#FAFAF9] border border-[#C59A9F]/40 text-[#6B1D2F] group-hover:bg-[#6B1D2F] group-hover:text-white'
                 }`}>
                 <ChevronDown
-                  size={16}
+                  size={18}
                   className={`transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
                 />
               </div>
@@ -82,7 +82,7 @@ function FaqAccordion({ faqs }) {
                   transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                   className="overflow-hidden"
                 >
-                  <p className="px-6 pb-6 text-sm text-[#78716C] font-light leading-relaxed border-t border-[#C59A9F] pt-4">
+                  <p className="px-6 sm:px-10 pb-7 sm:pb-8 text-sm sm:text-base text-[#78716C] font-light leading-relaxed border-t border-[#C59A9F]/30 pt-5">
                     {faq.a}
                   </p>
                 </motion.div>
@@ -116,7 +116,7 @@ export default function Services() {
         <img src={alazarImg} alt="" className="w-full h-auto object-contain" />
       </motion.div>
 
-      <div className="container mx-auto px-4 sm:px-6 md:px-12 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 md:px-10 lg:px-12 max-w-[1550px] relative z-10">
 
         {/* ── Page header ──────────────────────────────────────────────── */}
         <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
@@ -136,7 +136,7 @@ export default function Services() {
             style={{ fontFamily: theme.fonts.heading }}
           >
             Services &{' '}
-            <span className="italic font-light text-gradient-burgundy">Process</span>
+            <span className="text-gradient-burgundy font-black">Process</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -220,15 +220,15 @@ export default function Services() {
         className="py-28 sm:py-36 relative overflow-hidden"
         style={{ fontFamily: theme.fonts.body, background: '#FAFAF9' }}
       >
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#6B1D2F]/06 blur-[140px] rounded-full pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#6B1D2F]/06 blur-[160px] rounded-full pointer-events-none" />
 
-        <div className="container mx-auto px-4 sm:px-6 md:px-12 max-w-4xl relative z-10">
-          <div className="text-center mb-14">
+        <div className="container mx-auto px-4 sm:px-6 md:px-10 lg:px-12 max-w-[1550px] relative z-10">
+          <div className="text-center mb-14 sm:mb-18 max-w-3xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#C59A9F]/40 text-[11px] font-black text-[#6B1D2F] uppercase tracking-widest shadow-sm mb-5"
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#C59A9F]/40 text-[11px] font-black text-[#6B1D2F] uppercase tracking-widest shadow-sm mb-5"
             >
               <HelpCircle size={12} /> Common Questions
             </motion.div>
@@ -237,11 +237,11 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.08 }}
-              className="text-4xl sm:text-5xl font-black text-[#1C1917] leading-[1.06] tracking-tight"
+              className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] leading-[1.06] tracking-tight"
               style={{ fontFamily: theme.fonts.heading }}
             >
               Frequently Asked<br />
-              <span className="italic font-light text-gradient-burgundy">Questions.</span>
+              <span className="text-gradient-burgundy font-black">Questions.</span>
             </motion.h2>
           </div>
 

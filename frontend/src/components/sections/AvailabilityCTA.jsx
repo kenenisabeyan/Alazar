@@ -64,7 +64,7 @@ export const AvailabilityCTA = () => {
                 style={{ fontFamily: theme.fonts.heading }}
               >
                 Have a Project<br />
-                <span className="italic font-light text-[#C59A9F]">in Mind?</span>
+                <span className="text-[#C59A9F] font-black">in Mind?</span>
               </motion.h2>
 
               {/* Sub-copy */}

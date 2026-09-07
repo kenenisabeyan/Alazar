@@ -32,7 +32,7 @@ const philosophyCards = [
   {
     icon: PenTool,
     title: 'Brand Identity',
-    desc: 'Building cohesive poster art, motion graphics, and graphic design systems.',
+    desc: 'Building cohesive poster art, motion graphics, and graphic design system.',
   },
 ];
 
@@ -79,7 +79,7 @@ export default function About() {
               style={{ fontFamily: theme.fonts.heading }}
             >
               Alazar Asdesach.<br />
-              <span className="italic font-light text-[#6B1D2F]">Director & Visual Artist.</span>
+              <span className="text-[#6B1D2F] font-black">Director & Visual Artist.</span>
             </h1>
 
             <p className="text-[#78716C] font-light text-base md:text-lg leading-relaxed max-w-lg">
@@ -174,14 +174,14 @@ export default function About() {
               viewport={{ once: true }}
               transition={{ delay: idx * 0.09 }}
               whileHover={{ y: -6 }}
-              className="glass-card-luxury p-7 rounded-[2rem] text-left flex flex-col gap-4"
+              className="glass-card-luxury p-6 rounded-[2rem] text-left flex items-start gap-4"
             >
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center shadow-lg shadow-[#6B1D2F]/20">
-                <Icon size={22} />
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center flex-shrink-0 shadow-lg shadow-[#6B1D2F]/20 mt-0.5">
+                <Icon size={24} />
               </div>
-              <div>
+              <div className="flex-1 min-w-0">
                 <h3
-                  className="text-lg font-black text-[#1C1917] mb-1.5"
+                  className="text-base sm:text-lg font-black text-[#1C1917] mb-1 leading-snug"
                   style={{ fontFamily: theme.fonts.heading }}
                 >
                   {title}

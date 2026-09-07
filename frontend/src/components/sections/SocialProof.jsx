@@ -71,7 +71,7 @@ export const SocialProof = () => {
               style={{ fontFamily: theme.fonts.heading }}
             >
               What Clients<br />
-              <span className="italic font-light text-gradient-burgundy">Say.</span>
+              <span className="text-gradient-burgundy font-black">Say.</span>
             </motion.h2>
           </div>
           <motion.p

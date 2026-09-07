@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowUpRight, Download, Sparkles, Moon, Sun, Briefcase } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Download, Sparkles, Moon, Sun, Briefcase, Search } from 'lucide-react';
 import Button from '../common/Button';
 import { theme } from '../../constants';
 import alazarImg from '../../assets/images/alazar.png';
@@ -126,7 +126,21 @@ export const Navigation = () => {
         </nav>
 
         {/* Right Desktop Actions & Quick Utilities */}
-        <div className="hidden md:flex items-center gap-2.5">
+        <div className="hidden md:flex items-center gap-2">
+          {/* Quick Search / Command Palette Button */}
+          <button
+            onClick={() => {
+              const event = new KeyboardEvent('keydown', { key: 'k', ctrlKey: true, bubbles: true });
+              window.dispatchEvent(event);
+            }}
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FAFAF9] dark:bg-white/10 border border-[#C59A9F]/40 text-[10px] font-black text-[#78716C] dark:text-[#A89597] hover:text-[#6B1D2F] hover:border-[#6B1D2F] transition-all shadow-sm"
+            title="Search & Commands (Ctrl + K)"
+          >
+            <Search size={12} className="text-[#6B1D2F] dark:text-[#C59A9F]" />
+            <span className="hidden lg:inline">Search</span>
+            <kbd className="px-1.5 py-0.5 rounded bg-white dark:bg-black/40 border border-[#C59A9F]/30 text-[9px] font-mono text-[#6B1D2F] dark:text-[#C59A9F]">⌘K</kbd>
+          </button>
+
           {/* Theme Switcher Button */}
           <button
             onClick={toggleTheme}

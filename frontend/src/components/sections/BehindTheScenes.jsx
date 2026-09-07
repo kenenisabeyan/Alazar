@@ -8,6 +8,8 @@ const layoutConfig = [
   { colSpan: 'md:col-span-4', rowSpan: 'md:row-span-2', aspect: 'aspect-[4/5] md:aspect-auto' },
   { colSpan: 'md:col-span-4', rowSpan: '', aspect: 'aspect-[4/3]' },
   { colSpan: 'md:col-span-4', rowSpan: '', aspect: 'aspect-[4/3]' },
+  { colSpan: 'md:col-span-4', rowSpan: '', aspect: 'aspect-[4/3]' },
+  { colSpan: 'md:col-span-4', rowSpan: '', aspect: 'aspect-[4/3]' },
 ];
 
 const disciplineTags = [
@@ -51,7 +53,7 @@ export const BehindTheScenes = () => {
               style={{ fontFamily: theme.fonts.heading }}
             >
               On Set &<br />
-              <span className="italic font-light text-gradient-burgundy">In the Studio.</span>
+              <span className="text-gradient-burgundy font-black">In the Studio.</span>
             </motion.h2>
           </div>
 
@@ -94,43 +96,43 @@ export const BehindTheScenes = () => {
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-95 group-hover:scale-105 transition-all duration-700 ease-out"
+                  className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
                 />
 
-                {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#3B0E19]/90 via-[#6B1D2F]/20 to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-500" />
+                {/* Gradient overlay - Fades in on hover */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#3B0E19]/95 via-[#6B1D2F]/40 to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
-                {/* Top tags */}
-                <div className="absolute top-5 left-5 right-5 z-10 flex items-start justify-between">
-                  <div className="flex items-center gap-1.5 bg-[#1E0A0D]/80 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/15 text-[10px] font-bold text-white/80">
+                {/* Top tags - Fades & slides down on hover */}
+                <div className="absolute top-5 left-5 right-5 z-10 flex items-start justify-between opacity-0 group-hover:opacity-100 -translate-y-2 group-hover:translate-y-0 transition-all duration-400 ease-out pointer-events-none">
+                  <div className="flex items-center gap-1.5 bg-[#1E0A0D]/85 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20 text-[10px] font-bold text-white shadow-lg">
                     <MapPin size={11} className="text-[#C59A9F]" />
                     {item.location}
                   </div>
-                  <div className="w-9 h-9 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-xl">
+                  <div className="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white flex items-center justify-center shadow-xl">
                     <ArrowRight size={14} />
                   </div>
                 </div>
 
-                {/* Bottom info */}
-                <div className="absolute bottom-0 left-0 right-0 z-10 p-6">
+                {/* Bottom info - Fades & slides up on hover */}
+                <div className="absolute bottom-0 left-0 right-0 z-10 p-6 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-400 ease-out pointer-events-none">
                   <h4
-                    className="text-lg sm:text-xl font-black text-white mb-1.5 leading-tight group-hover:text-[#FAFAF9] transition-colors"
+                    className="text-lg sm:text-xl font-black text-white mb-1.5 leading-tight"
                     style={{ fontFamily: theme.fonts.heading }}
                   >
                     {item.title}
                   </h4>
-                  <p className="text-xs text-white/55 font-light leading-relaxed line-clamp-2 max-w-xs">
+                  <p className="text-xs text-white/80 font-light leading-relaxed line-clamp-2 max-w-xs">
                     {item.caption}
                   </p>
                   {/* Expand hint */}
-                  <div className="mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-1.5 text-[10px] font-black text-[#C59A9F] uppercase tracking-widest">
+                  <div className="mt-3 flex items-center gap-1.5 text-[10px] font-black text-[#C59A9F] uppercase tracking-widest">
                     <Camera size={11} /> Click to expand
                   </div>
                 </div>
 
-                {/* Large index overlay (editorial style) */}
+                {/* Large index overlay */}
                 <div
-                  className="absolute top-4 right-4 text-[80px] font-black text-white/[0.04] leading-none pointer-events-none select-none"
+                  className="absolute top-4 right-4 text-[80px] font-black text-white/[0.04] group-hover:text-white/[0.12] leading-none pointer-events-none select-none transition-colors duration-500"
                   style={{ fontFamily: theme.fonts.heading }}
                 >
                   0{idx + 1}

@@ -84,6 +84,57 @@ export default function Contact() {
   const [submitted,   setSubmitted]   = useState(false);
   const [serverError, setServerError] = useState(null);
   const [errors,      setErrors]      = useState({});
+  const [copiedField, setCopiedField] = useState(null);
+
+  const copyToClipboard = (text, fieldName) => {
+    navigator.clipboard.writeText(text);
+    setCopiedField(fieldName);
+    setTimeout(() => setCopiedField(null), 2200);
+  };
+
+  const contactMetaItems = [
+    {
+      icon: Mail,
+      label: 'Email',
+      value: 'a.asdesach1@gmail.com',
+      content: (
+        <div className="flex items-center gap-2">
+          <a href="mailto:a.asdesach1@gmail.com" className="text-[#1C1917] font-medium hover:text-[#6B1D2F] transition-colors text-sm">
+            a.asdesach1@gmail.com
+          </a>
+          <button
+            type="button"
+            onClick={() => copyToClipboard('a.asdesach1@gmail.com', 'email')}
+            className="text-[10px] font-black uppercase px-2 py-0.5 rounded bg-[#FAFAF9] border border-[#C59A9F]/50 text-[#6B1D2F] hover:bg-[#6B1D2F] hover:text-white transition-colors"
+          >
+            {copiedField === 'email' ? 'Copied!' : 'Copy'}
+          </button>
+        </div>
+      ),
+    },
+    {
+      icon: Phone,
+      label: 'Phone / WhatsApp',
+      value: '+1 (555) 123-4567',
+      content: (
+        <div className="flex items-center gap-2">
+          <p className="text-[#1C1917] font-medium text-sm">+1 (555) 123-4567</p>
+          <button
+            type="button"
+            onClick={() => copyToClipboard('+1 (555) 123-4567', 'phone')}
+            className="text-[10px] font-black uppercase px-2 py-0.5 rounded bg-[#FAFAF9] border border-[#C59A9F]/50 text-[#6B1D2F] hover:bg-[#6B1D2F] hover:text-white transition-colors"
+          >
+            {copiedField === 'phone' ? 'Copied!' : 'Copy'}
+          </button>
+        </div>
+      ),
+    },
+    {
+      icon: Clock,
+      label: 'Response Time',
+      content: <p className="text-[#1C1917] font-medium text-sm">Within 24 hours</p>,
+    },
+  ];
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -151,7 +202,7 @@ export default function Contact() {
                 style={{ fontFamily: theme.fonts.heading }}
               >
                 Let's Build<br />
-                <span className="italic font-light text-gradient-burgundy">Something Great.</span>
+                <span className="text-gradient-burgundy font-black">Something Great.</span>
               </h1>
               <p className="text-[#78716C] font-light text-base leading-relaxed max-w-md">
                 Ready to start your next video or design project? Fill out the brief below — your inquiry goes straight into the PERN backend.
@@ -178,7 +229,7 @@ export default function Contact() {
 
             {/* Contact meta */}
             <div className="space-y-3">
-              {contactMeta.map(({ icon: Icon, label, content }) => (
+              {contactMetaItems.map(({ icon: Icon, label, content }) => (
                 <div key={label} className="flex items-center gap-3.5 p-4 bg-white rounded-2xl border border-[#C59A9F] shadow-sm">
                   <div className="w-11 h-11 bg-[#FAFAF9] border border-[#C59A9F]/40 rounded-full flex items-center justify-center text-[#6B1D2F] flex-shrink-0">
                     <Icon size={18} />

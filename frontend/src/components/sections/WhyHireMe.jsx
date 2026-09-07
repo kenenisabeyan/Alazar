@@ -51,7 +51,7 @@ export const WhyHireMe = () => {
               style={{ fontFamily: theme.fonts.heading }}
             >
               Why Hire<br />
-              <span className="italic font-light text-gradient-burgundy">Alazar?</span>
+              <span className="text-gradient-burgundy font-black">Alazar?</span>
             </motion.h2>
           </div>
           <motion.p

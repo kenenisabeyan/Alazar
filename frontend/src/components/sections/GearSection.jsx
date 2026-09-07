@@ -39,7 +39,7 @@ export const GearSection = () => {
               style={{ fontFamily: theme.fonts.heading }}
             >
               Professional-Grade<br />
-              <span className="italic font-light text-gradient-burgundy">Filming & Editing Kit.</span>
+              <span className="text-gradient-burgundy font-black">Filming & Editing Kit.</span>
             </motion.h2>
           </div>
           <motion.p

@@ -134,7 +134,7 @@ export default function Admin() {
               <Shield size={14} className="animate-pulse" /> PERN Admin Panel
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-[#1C1917]" style={{ fontFamily: theme.fonts.heading }}>
-              Project & Database <span className="italic font-light text-[#6B1D2F]">Manager</span>
+              Project & Database <span className="text-[#6B1D2F] font-black">Manager</span>
             </h1>
           </div>
 

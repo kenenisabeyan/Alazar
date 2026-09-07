@@ -257,8 +257,38 @@ const memoryStore = {
     { key_name: 'completed', value: '140+', label: 'Projects Completed' },
     { key_name: 'satisfaction', value: '98%', label: 'Client Satisfaction' },
     { key_name: 'awards', value: '12', label: 'Industry Awards' }
-  ]
+  ],
+  inquiries: [],
+  quotes: []
 };
+
+const storeFilePath = path.join(__dirname, '../db/alazar_portfolio_store.json');
+
+export function saveMemoryStoreToDisk() {
+  try {
+    fs.writeFileSync(storeFilePath, JSON.stringify(memoryStore, null, 2), 'utf8');
+  } catch (err) {
+    console.error('[Database Store] Error saving to disk:', err.message);
+  }
+}
+
+export function loadMemoryStoreFromDisk() {
+  try {
+    if (fs.existsSync(storeFilePath)) {
+      const data = fs.readFileSync(storeFilePath, 'utf8');
+      const parsed = JSON.parse(data);
+      if (Array.isArray(parsed.projects) && parsed.projects.length > 0) memoryStore.projects = parsed.projects;
+      if (Array.isArray(parsed.inquiries)) memoryStore.inquiries = parsed.inquiries;
+      if (Array.isArray(parsed.quotes)) memoryStore.quotes = parsed.quotes;
+      if (Array.isArray(parsed.testimonials) && parsed.testimonials.length > 0) memoryStore.testimonials = parsed.testimonials;
+      if (Array.isArray(parsed.stats) && parsed.stats.length > 0) memoryStore.stats = parsed.stats;
+    } else {
+      saveMemoryStoreToDisk();
+    }
+  } catch (err) {
+    console.error('[Database Store] Error loading from disk:', err.message);
+  }
+}
 
 // Ensure database exists
 async function ensureDatabaseExists() {
@@ -316,7 +346,8 @@ export async function initializeDatabase() {
     return true;
   } catch (err) {
     console.warn(`[Database Notice] PostgreSQL not yet authenticated (${err.message}). Set PGPASSWORD in backend/.env to connect directly.`);
-    console.log(`[Database] Server active with in-memory resilient data store ready for requests.`);
+    loadMemoryStoreFromDisk();
+    console.log(`[Database] Server active with persistent disk store ready for requests (${memoryStore.projects.length} projects, ${memoryStore.inquiries.length} inquiries).`);
     isDbConnected = false;
     return false;
   }
@@ -369,7 +400,7 @@ export const query = async (text, params = []) => {
 
   // Fallback simulator for memoryStore
   const upperSql = text.toUpperCase();
-  if (upperSql.includes('FROM PROJECTS')) {
+  if (upperSql.includes('PROJECTS')) {
     if (upperSql.includes('INSERT INTO PROJECTS')) {
       const newProj = {
         id: memoryStore.projects.length + 1,
@@ -387,6 +418,7 @@ export const query = async (text, params = []) => {
         created_at: new Date().toISOString()
       };
       memoryStore.projects.push(newProj);
+      saveMemoryStoreToDisk();
       return { rowCount: 1, rows: [newProj] };
     }
     if (upperSql.includes('UPDATE PROJECTS')) {
@@ -404,6 +436,7 @@ export const query = async (text, params = []) => {
         if (params[8] !== undefined && params[8] !== null) proj.deliverables = params[8];
         if (params[9] !== undefined && params[9] !== null) proj.year = params[9];
         if (params[10] !== undefined && params[10] !== null) proj.featured = params[10];
+        saveMemoryStoreToDisk();
         return { rowCount: 1, rows: [proj] };
       }
       return { rowCount: 0, rows: [] };
@@ -413,6 +446,7 @@ export const query = async (text, params = []) => {
       const index = memoryStore.projects.findIndex(p => p.id === id);
       if (index !== -1) {
         const deleted = memoryStore.projects.splice(index, 1);
+        saveMemoryStoreToDisk();
         return { rowCount: 1, rows: deleted };
       }
       return { rowCount: 0, rows: [] };
@@ -425,7 +459,7 @@ export const query = async (text, params = []) => {
     return { rowCount: memoryStore.projects.length, rows: memoryStore.projects };
   }
 
-  if (upperSql.includes('FROM INQUIRIES')) {
+  if (upperSql.includes('INQUIRIES')) {
     if (upperSql.includes('INSERT INTO INQUIRIES')) {
       const newInquiry = {
         id: memoryStore.inquiries.length + 1,
@@ -439,6 +473,7 @@ export const query = async (text, params = []) => {
         created_at: new Date().toISOString()
       };
       memoryStore.inquiries.unshift(newInquiry);
+      saveMemoryStoreToDisk();
       return { rowCount: 1, rows: [newInquiry] };
     }
     if (upperSql.includes('UPDATE INQUIRIES')) {
@@ -447,6 +482,7 @@ export const query = async (text, params = []) => {
       const inq = memoryStore.inquiries.find(i => i.id === id);
       if (inq) {
         inq.status = status;
+        saveMemoryStoreToDisk();
         return { rowCount: 1, rows: [inq] };
       }
       return { rowCount: 0, rows: [] };
@@ -456,6 +492,7 @@ export const query = async (text, params = []) => {
       const index = memoryStore.inquiries.findIndex(i => i.id === id);
       if (index !== -1) {
         memoryStore.inquiries.splice(index, 1);
+        saveMemoryStoreToDisk();
         return { rowCount: 1, rows: [] };
       }
       return { rowCount: 0, rows: [] };
@@ -463,7 +500,7 @@ export const query = async (text, params = []) => {
     return { rowCount: memoryStore.inquiries.length, rows: memoryStore.inquiries };
   }
 
-  if (upperSql.includes('FROM QUOTES')) {
+  if (upperSql.includes('QUOTES')) {
     if (upperSql.includes('INSERT INTO QUOTES')) {
       const newQuote = {
         id: memoryStore.quotes.length + 1,
@@ -478,16 +515,17 @@ export const query = async (text, params = []) => {
         created_at: new Date().toISOString()
       };
       memoryStore.quotes.unshift(newQuote);
+      saveMemoryStoreToDisk();
       return { rowCount: 1, rows: [newQuote] };
     }
     return { rowCount: memoryStore.quotes.length, rows: memoryStore.quotes };
   }
 
-  if (upperSql.includes('FROM TESTIMONIALS')) {
+  if (upperSql.includes('TESTIMONIALS')) {
     return { rowCount: memoryStore.testimonials.length, rows: memoryStore.testimonials };
   }
 
-  if (upperSql.includes('FROM STATS')) {
+  if (upperSql.includes('STATS')) {
     return { rowCount: memoryStore.stats.length, rows: memoryStore.stats };
   }
 

@@ -44,7 +44,7 @@ export const CaseStudyHighlight = () => {
               style={{ fontFamily: theme.fonts.heading }}
             >
               Real Results for<br />
-              <span className="italic font-light text-gradient-burgundy">Real Clients.</span>
+              <span className="text-gradient-burgundy font-black">Real Clients.</span>
             </motion.h2>
           </div>
           <motion.div
