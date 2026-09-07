@@ -259,7 +259,78 @@ const memoryStore = {
     { key_name: 'awards', value: '12', label: 'Industry Awards' }
   ],
   inquiries: [],
-  quotes: []
+  quotes: [],
+  // CMS tables
+  site_settings: [],
+  blog_posts: [],
+  faqs: [
+    { id: 1, question: 'How long does a video project take?', answer: 'Most video edits take between 5 to 10 business days depending on the project length and revision needs.', sort_order: 0 },
+    { id: 2, question: 'Do you work remotely or on location?', answer: 'Both! Remote video editing, color grading, sound mixing, and graphic design are available worldwide. On-set filming is available locally and for travel assignments.', sort_order: 1 },
+    { id: 3, question: 'What cameras and editing software do you use?', answer: 'I film with high-quality 8K cinema cameras and edit using DaVinci Resolve Studio and Adobe Creative Cloud.', sort_order: 2 },
+    { id: 4, question: 'How do we start a project together?', answer: 'Simply send a message using my Contact form or email me directly at a.asdesach1@gmail.com with your project goals and timeline.', sort_order: 3 }
+  ],
+  gear: [
+    { id: 1, category: 'Camera Systems', name: 'RED V-Raptor 8K', description: 'Flagship 8K cinema camera', sort_order: 0 },
+    { id: 2, category: 'Camera Systems', name: 'Sony FX6 Cinema Line', description: 'Full-frame low light cinema camera', sort_order: 1 },
+    { id: 3, category: 'Editing Suite', name: 'DaVinci Resolve Studio 19', description: 'Professional color grading and audio', sort_order: 2 }
+  ],
+  awards: [
+    { id: 1, year: '2025', title: 'Vimeo Staff Pick', project: 'The Craftsman', sort_order: 0 },
+    { id: 2, year: '2024', title: 'Telly Gold Winner', project: 'Velocity Commercial', sort_order: 1 },
+    { id: 3, year: '2024', title: 'Cannes Lions Shortlist', project: 'Urban Echoes', sort_order: 2 }
+  ],
+  skills: [
+    { id: 1, category: 'Video & Post-Production', name: 'DaVinci Resolve Studio', level: 98, description: 'Color grading, Fairlight audio & node editing', sort_order: 0 },
+    { id: 2, category: 'Video & Post-Production', name: 'Adobe Premiere Pro', level: 95, description: 'Rhythmic cutting, multicam & speed ramping', sort_order: 1 },
+    { id: 3, category: 'Graphic & Motion Design', name: 'Adobe After Effects', level: 92, description: '2D/3D motion graphics & visual FX', sort_order: 2 }
+  ],
+  career_experience: [
+    { id: 1, period: '2022 - Present', role: 'Founder & Lead Creative Director', company: 'Alazar Studio', location: 'Global / Remote', description: 'Directing, editing, and brand design for international clients.', achievements: ['Delivered 140+ client projects with 98% satisfaction', 'Led campaign for Vanguard Apparel reaching 4.8M+ views'], sort_order: 0 }
+  ],
+  client_logos: [
+    { id: 1, name: 'Vanguard Apparel', display_text: 'VANGUARD', logo_url: null, sort_order: 0 },
+    { id: 2, name: 'Lumina Tech', display_text: 'LUMINA', logo_url: null, sort_order: 1 },
+    { id: 3, name: 'Apex Motors', display_text: 'APEX MOTORS', logo_url: null, sort_order: 2 }
+  ],
+  bts_gallery: [
+    { id: 1, title: 'Directing on Set', location: 'New York Studio', image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&q=80', caption: 'Filming with dual cameras and stabilizer setup.', sort_order: 0 },
+    { id: 2, title: 'Editing & Color Suite', location: 'Alazar Studio', image: 'https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=800&q=80', caption: 'Color grading 8K video on reference monitors.', sort_order: 1 }
+  ],
+  color_grading_samples: [
+    { id: 1, title: 'Urban Echoes — High Contrast', log_image: 'https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?w=1200&q=60', graded_image: 'https://images.unsplash.com/photo-1604998103924-89e012e5265a?w=1200&q=80', camera: 'RED V-Raptor 8K', color_space: 'RED Wide Gamut -> Rec.709', lut: 'Custom Film Emulation', iso: 'ISO 800', sort_order: 0 }
+  ],
+  hiring_guarantees: [
+    { id: 1, title: '100% On-Time Delivery', description: 'Strict adherence to project deadlines with clear milestone check-ins.', sort_order: 0 },
+    { id: 2, title: 'Master Quality Files', description: 'Receive ProRes 422 HQ, 4K/8K RAW footage, and multi-format vertical social cuts.', sort_order: 1 },
+    { id: 3, title: 'Clear & Fast Communication', description: 'Direct access via Slack, email, or WhatsApp with responses under 24 hours.', sort_order: 2 }
+  ],
+  pricing_options: [
+    { id: 1, type: 'project_type', option_id: 'commercial', label: 'Commercial / Brand Video', base_price: 3500, multiplier: null, price: null, sort_order: 0 },
+    { id: 2, type: 'project_type', option_id: 'documentary', label: 'Short Documentary', base_price: 2800, multiplier: null, price: null, sort_order: 1 },
+    { id: 3, type: 'scope', option_id: 'remote', label: 'Editing Only (Remote)', base_price: null, multiplier: 1.0, price: null, sort_order: 0 },
+    { id: 4, type: 'scope', option_id: 'onset', label: 'Filming + Full Editing', base_price: null, multiplier: 1.6, price: null, sort_order: 1 },
+    { id: 5, type: 'addon', option_id: 'color', label: 'Advanced Color Grading', base_price: null, multiplier: null, price: 600, sort_order: 0 },
+    { id: 6, type: 'addon', option_id: 'sound', label: 'Sound Design & Audio Mix', base_price: null, multiplier: null, price: 500, sort_order: 1 }
+  ],
+  social_links: [
+    { id: 1, name: 'Telegram', url: 'https://t.me/Onlygrace2', handle: '@Onlygrace2', type: 'telegram', sort_order: 0 },
+    { id: 2, name: 'Facebook', url: 'https://www.facebook.com/share/169w6Q4Mqo4/', handle: 'Alazar Asdesach', type: 'facebook', sort_order: 1 }
+  ],
+  case_studies: [
+    { id: 1, client: 'Vanguard Apparel', project: 'Fall Collection Commercial', metric: '4.8M+', metric_label: 'Video Views', result: '+420% Sales Growth', deliverables: ['60s Video Cut', '3x Social Clips', 'Audio Mix'], image: 'https://images.unsplash.com/photo-1604998103924-89e012e5265a?w=800&q=80' }
+  ],
+  page_sections: [
+    { id: 1, page: 'home', section_key: 'hero', label: 'Hero Banner', visible: true, sort_order: 1 },
+    { id: 2, page: 'home', section_key: 'about_snapshot', label: 'About Snapshot', visible: true, sort_order: 2 },
+    { id: 3, page: 'home', section_key: 'expertise', label: 'Expertise Section', visible: true, sort_order: 3 },
+    { id: 4, page: 'home', section_key: 'showreel', label: 'Showreel Banner', visible: true, sort_order: 4 },
+    { id: 5, page: 'home', section_key: 'social_proof', label: 'Testimonials', visible: true, sort_order: 5 },
+    { id: 6, page: 'home', section_key: 'color_grading', label: 'Color Grading Showcase', visible: true, sort_order: 6 },
+    { id: 7, page: 'home', section_key: 'skills', label: 'Skills Section', visible: true, sort_order: 7 },
+    { id: 8, page: 'home', section_key: 'gear', label: 'Gear Section', visible: true, sort_order: 8 },
+    { id: 9, page: 'home', section_key: 'why_hire', label: 'Why Hire Me', visible: true, sort_order: 9 },
+    { id: 10, page: 'home', section_key: 'calculator', label: 'Project Calculator', visible: true, sort_order: 10 }
+  ]
 };
 
 const storeFilePath = path.join(__dirname, '../db/alazar_portfolio_store.json');
@@ -277,11 +348,28 @@ export function loadMemoryStoreFromDisk() {
     if (fs.existsSync(storeFilePath)) {
       const data = fs.readFileSync(storeFilePath, 'utf8');
       const parsed = JSON.parse(data);
+      // Core tables
       if (Array.isArray(parsed.projects) && parsed.projects.length > 0) memoryStore.projects = parsed.projects;
       if (Array.isArray(parsed.inquiries)) memoryStore.inquiries = parsed.inquiries;
       if (Array.isArray(parsed.quotes)) memoryStore.quotes = parsed.quotes;
       if (Array.isArray(parsed.testimonials) && parsed.testimonials.length > 0) memoryStore.testimonials = parsed.testimonials;
       if (Array.isArray(parsed.stats) && parsed.stats.length > 0) memoryStore.stats = parsed.stats;
+      // CMS tables
+      if (Array.isArray(parsed.site_settings)) memoryStore.site_settings = parsed.site_settings;
+      if (Array.isArray(parsed.blog_posts)) memoryStore.blog_posts = parsed.blog_posts;
+      if (Array.isArray(parsed.faqs) && parsed.faqs.length > 0) memoryStore.faqs = parsed.faqs;
+      if (Array.isArray(parsed.gear) && parsed.gear.length > 0) memoryStore.gear = parsed.gear;
+      if (Array.isArray(parsed.awards) && parsed.awards.length > 0) memoryStore.awards = parsed.awards;
+      if (Array.isArray(parsed.skills) && parsed.skills.length > 0) memoryStore.skills = parsed.skills;
+      if (Array.isArray(parsed.career_experience) && parsed.career_experience.length > 0) memoryStore.career_experience = parsed.career_experience;
+      if (Array.isArray(parsed.client_logos) && parsed.client_logos.length > 0) memoryStore.client_logos = parsed.client_logos;
+      if (Array.isArray(parsed.bts_gallery) && parsed.bts_gallery.length > 0) memoryStore.bts_gallery = parsed.bts_gallery;
+      if (Array.isArray(parsed.color_grading_samples) && parsed.color_grading_samples.length > 0) memoryStore.color_grading_samples = parsed.color_grading_samples;
+      if (Array.isArray(parsed.hiring_guarantees) && parsed.hiring_guarantees.length > 0) memoryStore.hiring_guarantees = parsed.hiring_guarantees;
+      if (Array.isArray(parsed.pricing_options) && parsed.pricing_options.length > 0) memoryStore.pricing_options = parsed.pricing_options;
+      if (Array.isArray(parsed.social_links) && parsed.social_links.length > 0) memoryStore.social_links = parsed.social_links;
+      if (Array.isArray(parsed.case_studies) && parsed.case_studies.length > 0) memoryStore.case_studies = parsed.case_studies;
+      if (Array.isArray(parsed.page_sections) && parsed.page_sections.length > 0) memoryStore.page_sections = parsed.page_sections;
     } else {
       saveMemoryStoreToDisk();
     }
@@ -522,11 +610,93 @@ export const query = async (text, params = []) => {
   }
 
   if (upperSql.includes('TESTIMONIALS')) {
+    if (upperSql.includes('INSERT INTO TESTIMONIALS')) {
+      const t = { id: memoryStore.testimonials.length + 1, quote: params[0], author: params[1], title: params[2], company: params[3], avatar: params[4], rating: params[5], created_at: new Date().toISOString() };
+      memoryStore.testimonials.push(t); saveMemoryStoreToDisk();
+      return { rowCount: 1, rows: [t] };
+    }
+    if (upperSql.includes('UPDATE TESTIMONIALS')) {
+      const id = parseInt(params[6], 10);
+      const t = memoryStore.testimonials.find(x => x.id === id);
+      if (t) { t.quote = params[0] ?? t.quote; t.author = params[1] ?? t.author; t.title = params[2] ?? t.title; t.company = params[3] ?? t.company; t.avatar = params[4] ?? t.avatar; t.rating = params[5] ?? t.rating; saveMemoryStoreToDisk(); return { rowCount: 1, rows: [t] }; }
+      return { rowCount: 0, rows: [] };
+    }
+    if (upperSql.includes('DELETE FROM TESTIMONIALS')) {
+      const id = parseInt(params[0], 10);
+      const idx = memoryStore.testimonials.findIndex(x => x.id === id);
+      if (idx !== -1) { memoryStore.testimonials.splice(idx, 1); saveMemoryStoreToDisk(); return { rowCount: 1, rows: [] }; }
+      return { rowCount: 0, rows: [] };
+    }
     return { rowCount: memoryStore.testimonials.length, rows: memoryStore.testimonials };
   }
 
   if (upperSql.includes('STATS')) {
+    if (upperSql.includes('UPDATE STATS')) {
+      const key = params[2]; const s = memoryStore.stats.find(x => x.key_name === key);
+      if (s) { s.value = params[0]; if (params[1]) s.label = params[1]; saveMemoryStoreToDisk(); return { rowCount: 1, rows: [s] }; }
+      return { rowCount: 0, rows: [] };
+    }
+    if (upperSql.includes('INSERT INTO STATS')) {
+      const existing = memoryStore.stats.find(x => x.key_name === params[0]);
+      if (!existing) { const s = { id: memoryStore.stats.length + 1, key_name: params[0], value: params[1], label: params[2] }; memoryStore.stats.push(s); saveMemoryStoreToDisk(); return { rowCount: 1, rows: [s] }; }
+      return { rowCount: 0, rows: [existing] };
+    }
     return { rowCount: memoryStore.stats.length, rows: memoryStore.stats };
+  }
+
+  if (upperSql.includes('SITE_SETTINGS')) {
+    if (upperSql.includes('INSERT INTO SITE_SETTINGS')) {
+      const key = params[0]; const val = params[1];
+      const existing = memoryStore.site_settings.find(x => x.key === key);
+      if (existing) { existing.value = val; } else { memoryStore.site_settings.push({ id: memoryStore.site_settings.length + 1, key, value: val }); }
+      saveMemoryStoreToDisk();
+      return { rowCount: 1, rows: [{ key, value: val }] };
+    }
+    const map = {}; memoryStore.site_settings.forEach(s => { map[s.key] = s.value; });
+    return { rowCount: memoryStore.site_settings.length, rows: memoryStore.site_settings };
+  }
+
+  if (upperSql.includes('BLOG_POSTS')) {
+    if (upperSql.includes('INSERT INTO BLOG_POSTS')) {
+      const post = { id: memoryStore.blog_posts.length + 1, title: params[0], slug: params[1], content: params[2], excerpt: params[3], cover_image: params[4], category: params[5], tags: params[6] || [], published: params[7], published_at: params[8], created_at: new Date().toISOString() };
+      memoryStore.blog_posts.unshift(post); saveMemoryStoreToDisk();
+      return { rowCount: 1, rows: [post] };
+    }
+    if (upperSql.includes('DELETE FROM BLOG_POSTS')) {
+      const idx = memoryStore.blog_posts.findIndex(x => x.id === parseInt(params[0], 10));
+      if (idx !== -1) { memoryStore.blog_posts.splice(idx, 1); saveMemoryStoreToDisk(); return { rowCount: 1, rows: [] }; }
+      return { rowCount: 0, rows: [] };
+    }
+    if (upperSql.includes('WHERE SLUG = $1')) { const p = memoryStore.blog_posts.find(x => x.slug === params[0]); return { rowCount: p ? 1 : 0, rows: p ? [p] : [] }; }
+    if (upperSql.includes('WHERE ID = $1')) { const p = memoryStore.blog_posts.find(x => x.id === parseInt(params[0], 10)); return { rowCount: p ? 1 : 0, rows: p ? [p] : [] }; }
+    const visible = !upperSql.includes('DRAFT') ? memoryStore.blog_posts.filter(x => x.published) : memoryStore.blog_posts;
+    return { rowCount: visible.length, rows: visible };
+  }
+
+  // Generic CMS table fallbacks
+  const CMS_TABLES = ['FAQS', 'GEAR', 'AWARDS', 'SKILLS', 'CAREER_EXPERIENCE', 'CLIENT_LOGOS', 'BTS_GALLERY', 'COLOR_GRADING_SAMPLES', 'HIRING_GUARANTEES', 'PRICING_OPTIONS', 'SOCIAL_LINKS', 'CASE_STUDIES', 'PAGE_SECTIONS'];
+  const storeKey = { FAQS: 'faqs', GEAR: 'gear', AWARDS: 'awards', SKILLS: 'skills', CAREER_EXPERIENCE: 'career_experience', CLIENT_LOGOS: 'client_logos', BTS_GALLERY: 'bts_gallery', COLOR_GRADING_SAMPLES: 'color_grading_samples', HIRING_GUARANTEES: 'hiring_guarantees', PRICING_OPTIONS: 'pricing_options', SOCIAL_LINKS: 'social_links', CASE_STUDIES: 'case_studies', PAGE_SECTIONS: 'page_sections' };
+  for (const tbl of CMS_TABLES) {
+    if (upperSql.includes(tbl)) {
+      const key = storeKey[tbl];
+      const store = memoryStore[key];
+      if (upperSql.includes('DELETE FROM')) {
+        const id = parseInt(params[0], 10); const idx = store.findIndex(x => x.id === id);
+        if (idx !== -1) { store.splice(idx, 1); saveMemoryStoreToDisk(); return { rowCount: 1, rows: [] }; }
+        return { rowCount: 0, rows: [] };
+      }
+      if (upperSql.includes('UPDATE ')) {
+        const id = parseInt(params[params.length - 1], 10); const item = store.find(x => x.id === id);
+        if (item) { Object.keys(item).forEach((k, i) => { if (params[i] !== undefined && params[i] !== null) item[k] = params[i]; }); saveMemoryStoreToDisk(); return { rowCount: 1, rows: [item] }; }
+        return { rowCount: 0, rows: [] };
+      }
+      if (upperSql.includes('INSERT INTO')) {
+        const newItem = { id: store.length + 1, created_at: new Date().toISOString() };
+        return { rowCount: 1, rows: [newItem] };
+      }
+      if (upperSql.includes('WHERE ID = $1')) { const item = store.find(x => x.id === parseInt(params[0], 10)); return { rowCount: item ? 1 : 0, rows: item ? [item] : [] }; }
+      return { rowCount: store.length, rows: store };
+    }
   }
 
   if (upperSql.includes('COUNT(*)')) {
@@ -535,3 +705,6 @@ export const query = async (text, params = []) => {
 
   return { rowCount: 0, rows: [] };
 };
+
+// Export memoryStore for direct access by controllers that need it
+export { memoryStore };
