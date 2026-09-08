@@ -204,7 +204,7 @@ export const Navigation = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -20, scale: 0.96 }}
             transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-            className="md:hidden fixed inset-x-4 top-20 bg-white/95 dark:bg-[#1E0A0D]/95 backdrop-blur-2xl shadow-2xl rounded-3xl p-6 flex flex-col space-y-3 border border-[#C59A9F]/30 dark:border-white/15 z-50"
+            className="md:hidden fixed inset-x-4 top-20 max-h-[82vh] overflow-y-auto bg-white/95 dark:bg-[#1E0A0D]/95 backdrop-blur-2xl shadow-2xl rounded-3xl p-5 sm:p-6 flex flex-col space-y-3 border border-[#C59A9F]/30 dark:border-white/15 z-50"
           >
             {navLinks.map((link) => {
               const active = isActive(link.path);

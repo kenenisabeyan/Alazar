@@ -101,11 +101,12 @@ export const ColorGradingShowcase = () => {
         >
           <div
             ref={containerRef}
-            className="relative w-full aspect-[16/10] sm:aspect-[16/9] lg:aspect-[21/10] min-h-[420px] sm:min-h-[540px] lg:min-h-[640px] rounded-3xl sm:rounded-[2.5rem] overflow-hidden shadow-2xl border border-[#C59A9F]/40 bg-[#1E0A0D] select-none cursor-ew-resize group"
+            className="relative w-full aspect-[16/10] sm:aspect-[16/9] lg:aspect-[21/10] min-h-[300px] sm:min-h-[480px] lg:min-h-[600px] rounded-3xl sm:rounded-[2.5rem] overflow-hidden shadow-2xl border border-[#C59A9F]/40 bg-[#1E0A0D] select-none cursor-ew-resize group touch-none"
             onMouseDown={(e) => { setIsDragging(true); updateSlider(e.clientX); }}
             onMouseUp={() => setIsDragging(false)}
             onMouseLeave={() => setIsDragging(false)}
             onMouseMove={(e) => { if (isDragging || e.buttons === 1) updateSlider(e.clientX); }}
+            onTouchStart={(e) => updateSlider(e.touches[0].clientX)}
             onTouchMove={(e) => updateSlider(e.touches[0].clientX)}
           >
             {/* Graded (full) */}
@@ -124,7 +125,7 @@ export const ColorGradingShowcase = () => {
                 src={currentSample.logImage}
                 alt="Camera RAW Log"
                 className="absolute inset-0 h-full object-cover"
-                style={{ width: `${10000 / sliderPosition}%`, maxWidth: 'none' }}
+                style={{ width: containerRef.current ? `${containerRef.current.offsetWidth}px` : '1000px', maxWidth: 'none' }}
               />
             </div>
 

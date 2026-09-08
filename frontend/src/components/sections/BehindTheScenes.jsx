@@ -100,11 +100,11 @@ export const BehindTheScenes = ({ data }) => {
                   className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
                 />
 
-                {/* Gradient overlay - Fades in on hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#3B0E19]/95 via-[#6B1D2F]/40 to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#3B0E19]/95 via-[#6B1D2F]/40 to-black/20 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
-                {/* Top tags - Fades & slides down on hover */}
-                <div className="absolute top-5 left-5 right-5 z-10 flex items-start justify-between opacity-0 group-hover:opacity-100 -translate-y-2 group-hover:translate-y-0 transition-all duration-400 ease-out pointer-events-none">
+                {/* Top tags */}
+                <div className="absolute top-5 left-5 right-5 z-10 flex items-start justify-between opacity-100 sm:opacity-0 sm:group-hover:opacity-100 sm:-translate-y-2 sm:group-hover:translate-y-0 transition-all duration-400 ease-out pointer-events-none">
                   <div className="flex items-center gap-1.5 bg-[#1E0A0D]/85 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20 text-[10px] font-bold text-white shadow-lg">
                     <MapPin size={11} className="text-[#C59A9F]" />
                     {item.location}
@@ -114,8 +114,8 @@ export const BehindTheScenes = ({ data }) => {
                   </div>
                 </div>
 
-                {/* Bottom info - Fades & slides up on hover */}
-                <div className="absolute bottom-0 left-0 right-0 z-10 p-6 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-400 ease-out pointer-events-none">
+                {/* Bottom info */}
+                <div className="absolute bottom-0 left-0 right-0 z-10 p-6 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 sm:translate-y-4 sm:group-hover:translate-y-0 transition-all duration-400 ease-out pointer-events-none">
                   <h4
                     className="text-lg sm:text-xl font-black text-white mb-1.5 leading-tight"
                     style={{ fontFamily: theme.fonts.heading }}

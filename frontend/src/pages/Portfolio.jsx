@@ -260,10 +260,10 @@ export default function Portfolio() {
                 >
                   <ProjectCardMedia project={project} />
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#160508]/95 via-[#240A0F]/40 to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#160508]/95 via-[#240A0F]/40 to-black/20 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
-                  <div className="absolute inset-0 p-6 sm:p-7 flex flex-col justify-between z-10 opacity-0 group-hover:opacity-100 transition-all duration-400 ease-out pointer-events-none">
-                    <div className="flex justify-between items-start -translate-y-2 group-hover:translate-y-0 transition-transform duration-400">
+                  <div className="absolute inset-0 p-6 sm:p-7 flex flex-col justify-between z-10 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-400 ease-out pointer-events-none">
+                    <div className="flex justify-between items-start sm:-translate-y-2 sm:group-hover:translate-y-0 transition-transform duration-400">
                       <span className="text-[9.5px] uppercase tracking-[0.2em] px-3.5 py-1.5 bg-black/60 backdrop-blur-md text-[#FAFAF9] rounded-full font-black shadow-lg flex items-center gap-1.5 border border-white/15">
                         {project.category === 'video' ? <Film size={11} className="text-[#C59A9F]" /> : <Layout size={11} className="text-[#C59A9F]" />}
                         {project.subCategory || project.category}

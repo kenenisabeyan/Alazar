@@ -111,7 +111,7 @@ export const HeroSection = ({ onOpenShowreel }) => {
           <div className="max-w-6xl mx-auto space-y-6 mb-12">
             <motion.h1
               variants={itemVariants}
-              className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[1.05] sm:leading-none text-[#1C1917] tracking-tight"
+              className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black leading-[1.08] sm:leading-none text-[#1C1917] tracking-tight"
               style={{ fontFamily: theme.fonts.heading }}
             >
               Cinematic Videos.<br />

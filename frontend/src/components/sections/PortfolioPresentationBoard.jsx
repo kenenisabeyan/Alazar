@@ -59,7 +59,7 @@ export const PortfolioPresentationBoard = ({ projects = [], filter = 'all', pres
               
               {/* Left Text Column */}
               <div className="md:col-span-7 space-y-6 text-left">
-                <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-tight leading-[0.9] font-serif text-[#FAFAF9] drop-shadow-2xl">
+                <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-tight leading-[0.9] font-serif text-[#FAFAF9] drop-shadow-2xl">
                   Portfolio
                 </h1>
                 
@@ -229,8 +229,8 @@ export const PortfolioPresentationBoard = ({ projects = [], filter = 'all', pres
                 <div className="absolute inset-0 bg-gradient-to-t from-[#160508]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
               </div>
 
-              {/* Presentation Card Footer - Fades in on hover (Single instance) */}
-              <div className="mt-4 pt-3.5 border-t border-white/10 flex justify-between items-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-400 ease-out">
+              {/* Presentation Card Footer */}
+              <div className="mt-4 pt-3.5 border-t border-white/10 flex justify-between items-center opacity-100 sm:opacity-0 sm:group-hover:opacity-100 sm:translate-y-2 sm:group-hover:translate-y-0 transition-all duration-400 ease-out">
                 <div>
                   <h4 className="text-sm sm:text-base font-black text-white group-hover:text-[#FAFAF9] transition-colors">{project.title}</h4>
                   <p className="text-[10px] sm:text-[11px] text-[#C59A9F] uppercase tracking-wider font-bold">{project.client}</p>

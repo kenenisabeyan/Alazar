@@ -77,13 +77,17 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    width: 100%;
+    overflow-x: hidden;
   }
 
   body {
+    width: 100%;
     overflow-x: hidden;
     background-color: var(--bg-primary);
     color: var(--text-primary);
     transition: background-color 0.35s ease, color 0.35s ease;
+    -webkit-tap-highlight-color: transparent;
   }
 
   /* Branded scrollbar */
