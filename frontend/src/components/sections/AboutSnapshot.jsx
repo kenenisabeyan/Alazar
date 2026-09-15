@@ -135,12 +135,12 @@ export const AboutSnapshot = () => {
             </div>
 
             {/* CTAs */}
-            <div className="flex flex-wrap gap-3 pt-2">
+            <div className="flex flex-row gap-3 pt-2">
               <Button
                 variant="primary"
                 icon={<ArrowRight size={16} />}
                 onClick={() => { navigate('/about'); window.scrollTo(0, 0); }}
-                className="px-8 py-4 text-xs font-black uppercase tracking-widest rounded-full shadow-xl"
+                className="flex-1 min-w-0 px-4 py-4 text-xs font-black uppercase tracking-widest rounded-full shadow-xl"
               >
                 Full Story
               </Button>
@@ -148,7 +148,7 @@ export const AboutSnapshot = () => {
                 variant="outline"
                 icon={<Camera size={16} />}
                 onClick={() => { navigate('/portfolio'); window.scrollTo(0, 0); }}
-                className="px-8 py-4 text-xs font-black uppercase tracking-widest rounded-full border-[#6B1D2F] text-[#6B1D2F]"
+                className="flex-1 min-w-0 px-4 py-4 text-xs font-black uppercase tracking-widest rounded-full border-[#6B1D2F] text-[#6B1D2F]"
               >
                 See My Work
               </Button>

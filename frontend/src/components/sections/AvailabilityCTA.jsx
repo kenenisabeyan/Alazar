@@ -47,7 +47,7 @@ export const AvailabilityCTA = ({ cta, contact }) => {
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/[0.08] backdrop-blur-md border border-white/15 text-[11px] tracking-widest text-white/80 uppercase font-black"
+                className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/[0.12] backdrop-blur-md border border-white/25 text-[11px] tracking-widest text-white uppercase font-black"
               >
                 <span className="relative flex h-2.5 w-2.5">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
@@ -75,7 +75,7 @@ export const AvailabilityCTA = ({ cta, contact }) => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.15 }}
-                className="text-white/55 font-light text-base sm:text-lg leading-relaxed max-w-xl"
+                className="text-white/90 font-light text-base sm:text-lg leading-relaxed max-w-xl"
               >
                 Let's build high-impact video edits, cinematic color grades, and brand design systems that make your audience stop scrolling. Fast turnaround. No agencies. Direct access.
               </motion.p>
@@ -91,7 +91,7 @@ export const AvailabilityCTA = ({ cta, contact }) => {
                 {guarantees.map(({ icon: Icon, text }) => (
                   <div
                     key={text}
-                    className="inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-white/[0.07] border border-white/10 text-[11px] font-bold text-white/70 hover:bg-white/[0.12] hover:text-white transition-all"
+                    className="inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-white/[0.12] border border-white/25 text-[11px] font-bold text-white hover:bg-white/[0.20] transition-all"
                   >
                     <Icon size={12} className="text-[#C59A9F]" />
                     {text}
@@ -105,23 +105,23 @@ export const AvailabilityCTA = ({ cta, contact }) => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.25 }}
-                className="flex flex-col sm:flex-row items-start gap-4"
+                className="flex flex-row items-center gap-2.5 sm:gap-4 w-full max-w-lg"
               >
                 <button
                   onClick={() => { navigate('/contact'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-                  className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] text-white text-xs font-black uppercase tracking-widest shadow-2xl shadow-[#6B1D2F]/35 hover:shadow-[#6B1D2F]/50 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
+                  className="flex-1 min-w-0 group inline-flex items-center justify-center gap-2 px-3 sm:px-8 py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] text-white text-[10.5px] sm:text-xs font-black uppercase tracking-wider sm:tracking-widest shadow-2xl shadow-[#6B1D2F]/35 hover:shadow-[#6B1D2F]/50 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
                 >
-                  <Zap size={15} className="text-[#C59A9F]" />
-                  Start a Project
-                  <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
+                  <Zap size={14} className="text-[#C59A9F] flex-shrink-0" />
+                  <span className="truncate">Start Project</span>
+                  <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform flex-shrink-0 hidden sm:inline" />
                 </button>
 
                 <a
                   href={`mailto:${primaryEmail}`}
-                  className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-full border-2 border-white/20 text-white text-xs font-black uppercase tracking-widest hover:border-white/50 hover:bg-white/[0.07] transition-all duration-300"
+                  className="flex-1 min-w-0 group inline-flex items-center justify-center gap-2 px-3 sm:px-8 py-3.5 sm:py-4 rounded-full border-2 border-white/20 text-white text-[10.5px] sm:text-xs font-black uppercase tracking-wider sm:tracking-widest hover:border-white/50 hover:bg-white/[0.07] transition-all duration-300"
                 >
-                  <Mail size={15} className="text-[#C59A9F]" />
-                  {primaryEmail}
+                  <Mail size={14} className="text-[#C59A9F] flex-shrink-0" />
+                  <span className="truncate">{primaryEmail}</span>
                 </a>
               </motion.div>
 
@@ -166,7 +166,7 @@ export const AvailabilityCTA = ({ cta, contact }) => {
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {items.map(item => (
-                      <span key={item} className="text-[10px] font-bold text-white/50 px-2.5 py-1 rounded-full bg-white/[0.05] border border-white/10 uppercase tracking-wider">
+                      <span key={item} className="text-[10px] font-bold text-white/80 px-2.5 py-1 rounded-full bg-white/[0.10] border border-white/20 uppercase tracking-wider">
                         {item}
                       </span>
                     ))}
@@ -180,7 +180,7 @@ export const AvailabilityCTA = ({ cta, contact }) => {
                   <Clock size={18} />
                 </div>
                 <div>
-                  <p className="text-[10px] font-black text-white/50 uppercase tracking-widest mb-0.5">Average Response</p>
+                  <p className="text-[10px] font-black text-white/75 uppercase tracking-widest mb-0.5">Average Response</p>
                   <p className="text-sm font-black text-white">Under 24 Hours · Worldwide</p>
                 </div>
               </div>

@@ -128,24 +128,24 @@ export const HeroSection = ({ onOpenShowreel }) => {
             {/* CTA Buttons */}
             <motion.div
               variants={itemVariants}
-              className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 pt-6 w-full sm:w-auto"
+              className="flex flex-row items-center justify-center gap-2.5 sm:gap-6 pt-6 w-full max-w-md mx-auto sm:w-auto"
             >
               <Button
                 variant="primary"
-                icon={<ArrowRight size={18} />}
+                icon={<ArrowRight size={16} />}
                 onClick={() => { navigate('/portfolio'); window.scrollTo(0, 0); }}
-                className="w-full sm:w-auto shadow-xl shadow-[#6B1D2F]/20 hover:shadow-[#6B1D2F]/35 px-9 py-4 text-xs sm:text-sm tracking-widest uppercase font-extrabold rounded-full"
+                className="flex-1 sm:flex-initial min-w-0 shadow-xl shadow-[#6B1D2F]/20 hover:shadow-[#6B1D2F]/35 px-3 sm:px-9 py-3.5 sm:py-4 text-[10.5px] sm:text-sm tracking-wider sm:tracking-widest uppercase font-extrabold rounded-full"
               >
-                Explore Selected Work
+                Explore Work
               </Button>
 
               <Button
                 variant="secondary"
-                icon={<Play size={18} className="fill-[#6B1D2F] text-[#6B1D2F]" />}
+                icon={<Play size={16} className="fill-[#6B1D2F] text-[#6B1D2F]" />}
                 onClick={onOpenShowreel}
-                className="w-full sm:w-auto bg-white/90 backdrop-blur-md border border-[#C59A9F] hover:border-[#6B1D2F] px-9 py-4 text-xs sm:text-sm tracking-widest uppercase font-extrabold shadow-sm rounded-full"
+                className="flex-1 sm:flex-initial min-w-0 bg-white/90 backdrop-blur-md border border-[#C59A9F] hover:border-[#6B1D2F] px-3 sm:px-9 py-3.5 sm:py-4 text-[10.5px] sm:text-sm tracking-wider sm:tracking-widest uppercase font-extrabold shadow-sm rounded-full"
               >
-                Watch 2025 Reel
+                Watch Reel
               </Button>
             </motion.div>
           </div>

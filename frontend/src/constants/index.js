@@ -340,26 +340,23 @@ export const gearList = [
 // ─────────────────────────────────────────────────────────────────────────────
 // Color Grading Samples
 // ─────────────────────────────────────────────────────────────────────────────
+// ── Single before/after pair — maximum RAW log vs graded master contrast ──────
+// LEFT  (RAW Log):  dark cinema interior — flat, desaturated, crushed blacks
+// RIGHT (Graded):   vivid Dolomites landscape — rich greens, vibrant sky, cinematic
 export const colorGradingSamples = [
   {
     id: 'cg-1',
-    title: 'Urban Echoes — High Contrast Look',
-    logImage: 'https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=60',
-    gradedImage: 'https://images.unsplash.com/photo-1604998103924-89e012e5265a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    title: 'Cinema Grade — Log vs Master',
+    // RAW LOG: dark, desaturated cinema interior — flat S-Log look
+    logImage:
+      'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=75&sat=-80&con=-30',
+    // GRADED MASTER: vivid cinematic landscape — full color, high contrast
+    gradedImage:
+      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=90',
     camera: 'RED V-Raptor 8K',
-    colorSpace: 'RED Wide Gamut -> Rec.709',
-    lut: 'Custom Film Emulation',
+    colorSpace: 'REDWideGamutRGB → Rec.709',
+    lut: 'Custom Cinematic LUT',
     iso: 'ISO 800',
-  },
-  {
-    id: 'cg-2',
-    title: 'The Craftsman — Warm Film Look',
-    logImage: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=60',
-    gradedImage: 'https://images.unsplash.com/photo-1535016120720-40c746a480d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-    camera: 'Sony FX6',
-    colorSpace: 'Sony S-Log3 -> Rec.709',
-    lut: 'Warm Amber Film Look',
-    iso: 'ISO 12800',
   },
 ];
 
