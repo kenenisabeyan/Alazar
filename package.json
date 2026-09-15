@@ -9,6 +9,7 @@
     "dev": "npm run backend & npm run frontend",
     "install:all": "npm install --prefix frontend && npm install --prefix backend",
     "build": "npm run build --prefix frontend",
+    "vercel-build": "npm install --prefix frontend && npm run build --prefix frontend",
     "seed": "npm run seed --prefix backend"
   },
   "dependencies": {
