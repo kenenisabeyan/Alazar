@@ -8,8 +8,8 @@
     "backend": "npm run dev --prefix backend",
     "dev": "npm run backend & npm run frontend",
     "install:all": "npm install --prefix frontend && npm install --prefix backend",
-    "build": "npm run build --prefix frontend",
-    "vercel-build": "npm install --prefix frontend && npm run build --prefix frontend",
+    "build": "cd frontend && npm install && npm run build",
+    "vercel-build": "cd frontend && npm install && npm run build",
     "seed": "npm run seed --prefix backend"
   },
   "dependencies": {
@@ -20,7 +20,21 @@
     "marked": "^18.0.11",
     "morgan": "^1.10.0",
     "multer": "^2.3.0",
-    "pg": "^8.12.0"
+    "pg": "^8.12.0",
+    "clsx": "^2.1.1",
+    "framer-motion": "^13.1.0",
+    "lenis": "^1.3.26",
+    "lucide-react": "^0.395.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-hot-toast": "^2.6.0",
+    "react-router-dom": "6.30.6",
+    "tailwind-merge": "^2.3.0",
+    "@vitejs/plugin-react": "^4.3.0",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.4",
+    "vite": "^5.2.11"
   },
   "engines": {
     "node": ">=18.0.0"
