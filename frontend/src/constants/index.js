@@ -305,34 +305,99 @@ export const gearList = [
   {
     category: 'Camera Systems',
     items: [
-      { name: 'RED V-Raptor 8K', desc: 'Flagship 8K cinema camera for high quality video' },
-      { name: 'Sony FX6 Cinema Line', desc: 'Full-frame camera for low light and high speed video' },
-      { name: 'BMPCC 6K Pro', desc: 'Compact secondary camera with built-in ND filters' },
+      {
+        name: 'RED V-Raptor 8K',
+        desc: 'Flagship 8K cinema camera for high quality video',
+        badge: '8K VV Sensor',
+        image: 'https://images.unsplash.com/photo-1585829365295-ab7cd400c167?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      },
+      {
+        name: 'Sony FX6 Cinema Line',
+        desc: 'Full-frame camera for low light and high speed video',
+        badge: 'Full Frame 4K/120p',
+        image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      },
+      {
+        name: 'BMPCC 6K Pro',
+        desc: 'Compact secondary camera with built-in ND filters',
+        badge: 'Super 35 6K',
+        image: 'https://images.unsplash.com/photo-1502920917128-1aa500764cbd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      },
     ],
   },
   {
     category: 'Lenses & Optics',
     items: [
-      { name: 'Cooke Anamorphic Lenses', desc: 'Classic cinema lens look with smooth background blur' },
-      { name: 'Sony G Master Prime Lenses', desc: 'Ultra sharp prime lenses with wide aperture' },
-      { name: 'Sirui Carbon Anamorphic', desc: 'Lightweight anamorphic lenses for cinematic flare' },
+      {
+        name: 'Cooke Anamorphic Lenses',
+        desc: 'Classic cinema lens look with smooth background blur',
+        badge: 'T2.3 Prime',
+        image: 'https://images.unsplash.com/photo-1617788138017-80ad40651399?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      },
+      {
+        name: 'Sony G Master Prime Lenses',
+        desc: 'Ultra sharp prime lenses with wide aperture',
+        badge: 'f/1.2 - f/1.4 GM',
+        image: 'https://images.unsplash.com/photo-1622838320002-a1f94553f187?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      },
+      {
+        name: 'Sirui Carbon Anamorphic',
+        desc: 'Lightweight anamorphic lenses for cinematic flare',
+        badge: '1.33x Squeeze',
+        image: 'https://images.unsplash.com/photo-1512790182412-b19e6d62bc39?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      },
     ],
   },
   {
     category: 'Editing Suite',
     items: [
-      { name: 'DaVinci Resolve Studio 19', desc: 'Professional software for color grading and audio mixing' },
-      { name: 'Mac Studio Workstation', desc: 'Fast hardware for smooth editing and fast rendering' },
-      { name: 'Flanders OLED Monitor', desc: 'Color-calibrated reference screen for accurate colors' },
-      { name: 'Adobe Creative Cloud', desc: 'Premiere Pro and After Effects for editing and graphics' },
+      {
+        name: 'DaVinci Resolve Studio 19',
+        desc: 'Professional software for color grading and audio mixing',
+        badge: 'Advanced Panel',
+        image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      },
+      {
+        name: 'Mac Studio Workstation',
+        desc: 'Fast hardware for smooth editing and fast rendering',
+        badge: 'M2 Ultra 128GB',
+        image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      },
+      {
+        name: 'Flanders OLED Monitor',
+        desc: 'Color-calibrated reference screen for accurate colors',
+        badge: 'Rec.709 / HDR',
+        image: 'https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      },
+      {
+        name: 'Adobe Creative Cloud',
+        desc: 'Premiere Pro and After Effects for editing and graphics',
+        badge: 'Pro Suite 2025',
+        image: 'https://images.unsplash.com/photo-1536240478700-b869070f9279?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      },
     ],
   },
   {
     category: 'Lighting & Gear',
     items: [
-      { name: 'DJI Mavic 3 Drone', desc: 'High-resolution drone for smooth aerial video' },
-      { name: 'Aputure Cinema Lights', desc: 'Bright, natural LED lights for video production' },
-      { name: 'DJI RS 3 Pro Gimbal', desc: 'Camera stabilizer for smooth moving shots' },
+      {
+        name: 'DJI Mavic 3 Drone',
+        desc: 'High-resolution drone for smooth aerial video',
+        badge: 'Hasselblad 5.1K',
+        image: 'https://images.unsplash.com/photo-1508614589041-895b88991e3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      },
+      {
+        name: 'Aputure Cinema Lights',
+        desc: 'Bright, natural LED lights for video production',
+        badge: '600d Pro / Bowens',
+        image: 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      },
+      {
+        name: 'DJI RS 3 Pro Gimbal',
+        desc: 'Camera stabilizer for smooth moving shots',
+        badge: 'Carbon Axis Pro',
+        image: 'https://images.unsplash.com/photo-1542038784456-1ea8e935640e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      },
     ],
   },
 ];

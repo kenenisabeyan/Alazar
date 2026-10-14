@@ -251,11 +251,28 @@ export default function About() {
       </div>
 
       {/* ── Dynamic Sub-Sections ────────────────────────────────────────── */}
+      <div id="story" />
       {isSectionVisible('CREATIVE_DISCIPLINE') && <ExpertiseSection data={aboutData?.disciplines} statistics={aboutData?.statistics} />}
-      {isSectionVisible('TECHNICAL_EXPERTISE') && <SkillsSection data={aboutData?.skillCategories} />}
-      {isSectionVisible('WORK_HISTORY') && <CareerTimeline data={aboutData?.workExperience} awards={aboutData?.awards} />}
-      {isSectionVisible('PRODUCTION_GEAR') && <GearSection data={aboutData?.gearCategories} />}
-      {isSectionVisible('BEHIND_THE_SCENES') && <BehindTheScenes data={aboutData?.behindTheScenes} />}
+      {isSectionVisible('TECHNICAL_EXPERTISE') && (
+        <div id="skills">
+          <SkillsSection data={aboutData?.skillCategories} />
+        </div>
+      )}
+      {isSectionVisible('WORK_HISTORY') && (
+        <div id="timeline">
+          <CareerTimeline data={aboutData?.workExperience} awards={aboutData?.awards} />
+        </div>
+      )}
+      {isSectionVisible('PRODUCTION_GEAR') && (
+        <div id="gear">
+          <GearSection data={aboutData?.gearCategories} />
+        </div>
+      )}
+      {isSectionVisible('BEHIND_THE_SCENES') && (
+        <div id="bts">
+          <BehindTheScenes data={aboutData?.behindTheScenes} />
+        </div>
+      )}
       {isSectionVisible('AVAILABILITY_CTA') && <AvailabilityCTA cta={aboutData?.cta} contact={aboutData?.contact} />}
     </motion.div>
   );

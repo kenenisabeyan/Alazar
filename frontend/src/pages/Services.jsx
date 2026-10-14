@@ -193,7 +193,7 @@ export default function Services() {
         </div>
 
         {/* ── Service cards ─────────────────────────────────────────────── */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-[1550px] mx-auto mb-0">
+        <div id="services-list" className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-[1550px] mx-auto mb-0">
           {cards.map((svc, idx) => (
             <motion.div
               key={svc.title}
@@ -255,15 +255,20 @@ export default function Services() {
       <ExpertiseSection />
 
       {/* ── Deep content ─────────────────────────────────────────────── */}
-      <WhyHireMe />
-      <ProjectCalculator />
+      <div id="why-hire-me">
+        <WhyHireMe />
+      </div>
+      <div id="calculator">
+        <ProjectCalculator />
+      </div>
       <WorkflowVault />
 
       {/* ── FAQ accordion ─────────────────────────────────────────────── */}
-      <section
-        className="py-28 sm:py-36 relative overflow-hidden"
-        style={{ fontFamily: theme.fonts.body, background: '#FAFAF9' }}
-      >
+      <div id="faq">
+        <section
+          className="py-28 sm:py-36 relative overflow-hidden"
+          style={{ fontFamily: theme.fonts.body, background: '#FAFAF9' }}
+        >
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#6B1D2F]/06 blur-[160px] rounded-full pointer-events-none" />
 
         <div className="container mx-auto px-4 sm:px-6 md:px-10 lg:px-12 max-w-[1550px] relative z-10">
@@ -292,6 +297,7 @@ export default function Services() {
           <FaqAccordion faqs={faqs} />
         </div>
       </section>
+      </div>
 
       <AvailabilityCTA />
     </motion.div>

@@ -18,7 +18,8 @@ import heroBg from '../assets/images/hero-bg.png';
 export default function Portfolio() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const [filter, setFilter] = useState('all');
+  const catFromUrl = searchParams.get('cat') || searchParams.get('category') || 'all';
+  const [filter, setFilter] = useState(catFromUrl);
   const [searchQuery, setSearchQuery] = useState('');
   const [viewMode, setViewMode] = useState('spread'); // 'spread' | 'grid'
   const [portfolioData, setPortfolioData] = useState(null);
@@ -56,7 +57,15 @@ export default function Portfolio() {
     }
   };
 
-  useEffect(() => { fetchProjects(); }, [searchParams]);
+  useEffect(() => {
+    fetchProjects();
+    const c = searchParams.get('cat') || searchParams.get('category');
+    if (c) {
+      setFilter(c);
+    } else {
+      setFilter('all');
+    }
+  }, [searchParams]);
 
   const filteredProjects = projects.filter(p => {
     const matchesCategory = filter === 'all' ? true : p.category === filter;

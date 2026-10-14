@@ -1,33 +1,76 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Camera, Film, Monitor, Zap, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Camera, Film, Monitor, Zap, CheckCircle2, ArrowRight, Sparkles } from 'lucide-react';
 import { gearList, theme } from '../../constants';
+import heroBg from '../../assets/images/hero-bg.png';
+import alazarImg from '../../assets/images/alazar.png';
 
 const catIcons = [Camera, Film, Monitor, Zap];
 
 export const GearSection = ({ data }) => {
   const [activeCategory, setActiveCategory] = useState(0);
-  const categories = (data && data.length) ? data.map(cat => ({
+
+  // Map dynamic or static categories, preserving rich image previews
+  const categories = (data && data.length) ? data.map((cat, catIdx) => ({
     category: cat.name,
-    items: (cat.items || []).map(i => ({
-      name: i.name,
-      desc: i.description || i.badge || 'Pro Standard Equipment'
-    }))
+    items: (cat.items || []).map((i, iIdx) => {
+      const fallbackItem = gearList[catIdx]?.items?.[iIdx] || gearList[0]?.items?.[0];
+      return {
+        name: i.name,
+        desc: i.description || i.badge || fallbackItem?.desc || 'Pro Standard Equipment',
+        badge: i.badge || fallbackItem?.badge || 'Pro Standard',
+        image: i.imageUrl || i.image || fallbackItem?.image || 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      };
+    })
   })) : gearList;
 
   return (
     <section
-      className="py-28 sm:py-36 relative overflow-hidden"
-      style={{ fontFamily: theme.fonts.body, background: '#FAFAF9' }}
+      className="py-28 sm:py-36 relative overflow-hidden bg-[#FAFAF9] mesh-bg"
+      style={{ fontFamily: theme.fonts.body }}
     >
-      {/* Dark decorative side panel */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-[#6B1D2F]/[0.03] pointer-events-none hidden lg:block" />
-      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[400px] h-[400px] bg-[#6B1D2F]/06 blur-[140px] rounded-full pointer-events-none" />
+      {/* ── Motion Flow Background Image Layer 1: hero-bg.png (Hero Section Style) ── */}
+      <motion.div
+        animate={{
+          scale: [1, 1.06, 1],
+          x: ['0%', '-2%', '0%'],
+          y: ['0%', '-1.5%', '0%'],
+        }}
+        transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
+        className="absolute inset-0 z-0 pointer-events-none opacity-25 mix-blend-multiply"
+      >
+        <img
+          src={heroBg}
+          alt="Hero Flow Texture"
+          className="w-full h-full object-cover object-center filter blur-[1px]"
+        />
+      </motion.div>
+
+      {/* ── Motion Flow Layer 2: Floating alazar.png visual element (Hero Section Style) ── */}
+      <motion.div
+        animate={{
+          y: [0, -18, 0],
+          rotate: [0, 1.5, 0],
+          scale: [1, 1.02, 1],
+        }}
+        transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
+        className="absolute -top-10 right-0 sm:right-10 md:right-20 w-[380px] sm:w-[500px] md:w-[650px] opacity-20 md:opacity-25 pointer-events-none z-0 mix-blend-luminosity filter blur-[0.5px]"
+      >
+        <img
+          src={alazarImg}
+          alt="Alazar Motion Flow"
+          className="w-full h-auto object-contain"
+        />
+      </motion.div>
+
+      {/* ── Dynamic Ambient Glow Orbs ── */}
+      <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-gradient-to-r from-[#6B1D2F]/18 via-[#8B1E3F]/12 to-[#C59A9F]/20 blur-[180px] rounded-full pointer-events-none animate-pulse-glow" />
+      <div className="absolute top-1/2 -right-20 w-[500px] h-[500px] bg-[#C59A9F]/20 blur-[150px] rounded-full pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-6 md:px-10 lg:px-12 max-w-[1550px] relative z-10">
 
         {/* ── Header ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-16 items-end">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 items-end">
           <div className="lg:col-span-7">
             <motion.span
               initial={{ opacity: 0, y: 15 }}
@@ -49,15 +92,25 @@ export const GearSection = ({ data }) => {
               <span className="text-gradient-burgundy font-black">Filming & Editing Kit.</span>
             </motion.h2>
           </div>
-          <motion.p
+
+          <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.15 }}
-            className="lg:col-span-5 text-[#78716C] font-light text-base leading-relaxed"
+            className="lg:col-span-5 flex flex-col justify-end space-y-3"
           >
-            Industry-standard cinema cameras, precision lenses, professional lighting, and a fast dedicated post-production suite — everything needed to deliver 8K master quality.
-          </motion.p>
+            {/* Visual Glassmorphism Hero Badge to eliminate empty gap */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/95 backdrop-blur-md border border-[#C59A9F]/50 text-[11px] font-black text-[#6B1D2F] uppercase tracking-widest w-fit shadow-sm shimmer-border">
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
+              <Sparkles size={13} className="text-[#6B1D2F]" />
+              <span>8K Master Cinema & Color Suite</span>
+            </div>
+
+            <p className="text-[#78716C] font-light text-base leading-relaxed">
+              Industry-standard cinema cameras, precision lenses, professional lighting, and a fast dedicated post-production suite — everything needed to deliver 8K master quality.
+            </p>
+          </motion.div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
@@ -77,7 +130,7 @@ export const GearSection = ({ data }) => {
                   onClick={() => setActiveCategory(idx)}
                   className={`flex-shrink-0 lg:flex-shrink flex items-center gap-3.5 px-5 py-4 rounded-xl border-2 transition-all duration-300 text-left w-full group ${isActive
                       ? 'bg-[#6B1D2F] border-[#6B1D2F] text-white shadow-xl shadow-[#6B1D2F]/25'
-                      : 'bg-white border-[#C59A9F]/50 text-[#1C1917] hover:border-[#6B1D2F]'
+                      : 'bg-white/90 backdrop-blur-md border-[#C59A9F]/50 text-[#1C1917] hover:border-[#6B1D2F]'
                     }`}
                 >
                   <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 transition-all ${isActive
@@ -104,8 +157,8 @@ export const GearSection = ({ data }) => {
             })}
 
             {/* Spec badge */}
-            <div className="hidden lg:flex mt-4 p-4 bg-white border border-[#C59A9F] rounded-xl items-center gap-3">
-              <div className="w-9 h-9 rounded-lg bg-[#FAFAF9] text-[#6B1D2F] flex items-center justify-center flex-shrink-0">
+            <div className="hidden lg:flex mt-4 p-4 bg-white/90 backdrop-blur-md border border-[#C59A9F]/60 rounded-xl items-center gap-3 shadow-sm">
+              <div className="w-9 h-9 rounded-lg bg-[#FAFAF9] text-[#6B1D2F] flex items-center justify-center flex-shrink-0 shadow-sm">
                 <Zap size={16} />
               </div>
               <div>
@@ -115,7 +168,7 @@ export const GearSection = ({ data }) => {
             </div>
           </div>
 
-          {/* ── Right: Gear cards ── */}
+          {/* ── Right: Gear cards with High-Def Photography ── */}
           <div className="lg:col-span-8">
             <AnimatePresence mode="wait">
               <motion.div
@@ -133,19 +186,33 @@ export const GearSection = ({ data }) => {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: idx * 0.07 }}
                     whileHover={{ y: -6 }}
-                    className="bg-white rounded-2xl border border-[#C59A9F] shadow-sm hover:border-[#C59A9F] hover:shadow-lg transition-all duration-400 overflow-hidden flex flex-col"
+                    className="group bg-white/95 backdrop-blur-md rounded-2xl border border-[#C59A9F]/60 shadow-sm hover:border-[#6B1D2F] hover:shadow-xl transition-all duration-400 overflow-hidden flex flex-col"
                   >
                     {/* Top colour band */}
                     <div className="h-1 bg-gradient-to-r from-[#6B1D2F] to-[#C59A9F]" />
 
-                    <div className="p-6 flex flex-col gap-4 flex-grow">
+                    {/* ── Gear Photo Thumbnail ── */}
+                    <div className="relative h-44 w-full overflow-hidden bg-[#1C1917]/5">
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        className="w-full h-full object-cover object-center group-hover:scale-108 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                      <span className="absolute bottom-2.5 left-3 px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md text-[10px] font-black tracking-widest uppercase text-white/95 border border-white/15 shadow-sm">
+                        {item.badge}
+                      </span>
+                    </div>
+
+                    <div className="p-5 flex flex-col gap-3.5 flex-grow">
                       {/* Icon + name */}
                       <div className="flex items-start gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center shadow-md shadow-[#6B1D2F]/20 flex-shrink-0">
-                          <CheckCircle2 size={18} />
+                        <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center shadow-md shadow-[#6B1D2F]/20 flex-shrink-0">
+                          <CheckCircle2 size={16} />
                         </div>
                         <h4
-                          className="text-sm font-black text-[#1C1917] leading-tight pt-0.5"
+                          className="text-sm font-black text-[#1C1917] leading-tight pt-0.5 group-hover:text-[#6B1D2F] transition-colors"
                           style={{ fontFamily: theme.fonts.heading }}
                         >
                           {item.name}
@@ -156,11 +223,14 @@ export const GearSection = ({ data }) => {
                         {item.desc}
                       </p>
 
-                      <div className="pt-3 border-t border-[#C59A9F] flex items-center justify-between">
+                      <div className="pt-3 border-t border-[#C59A9F]/40 flex items-center justify-between">
                         <span className="text-[10px] font-black uppercase tracking-widest text-[#6B1D2F]">
                           Pro Standard
                         </span>
-                        <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                        <div className="flex items-center gap-1.5 text-[10px] text-emerald-600 font-bold">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                          <span>Active Rig</span>
+                        </div>
                       </div>
                     </div>
                   </motion.div>
