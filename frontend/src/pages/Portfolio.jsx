@@ -119,7 +119,7 @@ export default function Portfolio() {
           scale: [1, 1.02, 1],
         }}
         transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute -top-10 right-0 sm:right-10 md:right-20 w-[380px] sm:w-[500px] md:w-[650px] opacity-20 md:opacity-25 pointer-events-none z-0 mix-blend-luminosity filter blur-[0.5px]"
+        className="absolute -top-10 right-0 sm:right-10 md:right-20 w-[380px] sm:w-[500px] md:w-[650px] opacity-10 sm:opacity-20 md:opacity-25 pointer-events-none z-0 mix-blend-multiply filter blur-[0.5px]"
       >
         <img
           src={alazarImg}
@@ -153,7 +153,7 @@ export default function Portfolio() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="text-[#78716C] max-w-2xl mx-auto font-light text-base sm:text-lg mb-8 leading-relaxed"
+          className="text-[#1C1917] max-w-2xl mx-auto font-medium text-base sm:text-lg mb-8 leading-relaxed bg-white/85 backdrop-blur-md px-6 py-3.5 rounded-2xl border border-[#C59A9F]/40 shadow-sm"
         >
           An editorial archive of commercial video cuts, color-graded masters, brand identities, book covers, packaging, and digital imaging spreads.
         </motion.p>

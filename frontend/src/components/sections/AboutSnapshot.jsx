@@ -65,7 +65,7 @@ export const AboutSnapshot = () => {
             </h2>
 
             {/* Body copy */}
-            <p className="text-base sm:text-lg text-[#78716C] font-light leading-relaxed max-w-xl">
+            <p className="text-base sm:text-lg text-[#1C1917] font-medium leading-relaxed max-w-xl bg-white/80 backdrop-blur-md px-5 py-3 rounded-2xl border border-[#C59A9F]/40 shadow-sm inline-block">
               I combine cinematic video editing, DaVinci color science, and senior-level graphic design for global brands and creative directors who refuse to compromise on quality.
             </p>
 

@@ -70,7 +70,7 @@ export const SkillsSection = ({ data }) => {
                 <button
                   key={cat.category}
                   onClick={() => setActiveCategory(idx)}
-                  className={`relative px-4 py-2.5 rounded-full text-[11px] font-black uppercase tracking-wider transition-all flex items-center gap-1.5 ${isActive ? 'text-white' : 'text-[#78716C] hover:text-[#1C1917]'
+                  className={`relative px-4 py-2.5 rounded-full text-[11px] font-black uppercase tracking-wider transition-all flex items-center gap-1.5 ${isActive ? 'text-white' : 'text-[#292524] hover:text-[#1C1917]'
                     }`}
                 >
                   {isActive && (
@@ -113,7 +113,7 @@ export const SkillsSection = ({ data }) => {
                   {(matrix[activeCategory] || matrix[0])?.category}
                 </h3>
               </div>
-              <div className="ml-auto text-[11px] text-[#78716C] font-medium">
+              <div className="ml-auto text-[11px] text-[#292524] font-bold">
                 {(matrix[activeCategory] || matrix[0])?.skills.length || 0} skills
               </div>
             </div>
@@ -141,7 +141,7 @@ export const SkillsSection = ({ data }) => {
                         >
                           {skill.name}
                         </h4>
-                        <p className="text-[10px] text-[#78716C] font-medium mt-0.5">{skill.desc}</p>
+                        <p className="text-[11px] text-[#292524] font-medium mt-0.5">{skill.desc}</p>
                       </div>
                     </div>
                     {/* Mastery badge */}
@@ -161,7 +161,7 @@ export const SkillsSection = ({ data }) => {
                         className="h-full rounded-full bg-gradient-to-r from-[#6B1D2F] via-[#8B1E3F] to-[#C59A9F]"
                       />
                     </div>
-                    <div className="flex justify-between text-[9px] font-bold text-[#C59A9F] uppercase tracking-widest">
+                    <div className="flex justify-between text-[9px] font-black text-[#6B1D2F] uppercase tracking-widest">
                       <span>Beginner</span>
                       <span className="flex items-center gap-1">
                         <Zap size={9} /> Expert Level

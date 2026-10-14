@@ -59,7 +59,7 @@ export const WhyHireMe = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.15 }}
-            className="text-[#78716C] font-light text-base max-w-sm leading-relaxed"
+            className="text-[#1C1917] font-medium text-base max-w-sm leading-relaxed bg-white/80 backdrop-blur-md px-4 py-2.5 rounded-xl border border-[#C59A9F]/40 shadow-sm"
           >
             A dedicated senior specialist — not an agency. Faster, sharper, and fully invested in your project's success.
           </motion.p>

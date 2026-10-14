@@ -323,7 +323,7 @@ export const ExpertiseSection = ({ data, statistics }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.18 }}
-            className="text-[#78716C] font-light text-base lg:text-lg max-w-sm leading-relaxed lg:text-right"
+            className="text-[#1C1917] font-medium text-base lg:text-lg max-w-sm leading-relaxed lg:text-right bg-white/80 backdrop-blur-md px-4 py-2.5 rounded-xl border border-[#C59A9F]/40 shadow-sm"
           >
             Where cinematic video production meets senior-level graphic design — two disciplines mastered under one creative vision.
           </motion.p>

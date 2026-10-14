@@ -201,7 +201,7 @@ export default function Contact() {
           scale: [1, 1.02, 1],
         }}
         transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute -top-10 right-0 sm:right-10 md:right-20 w-[380px] sm:w-[500px] md:w-[650px] opacity-20 md:opacity-25 pointer-events-none z-0 mix-blend-luminosity filter blur-[0.5px]"
+        className="absolute -top-10 right-0 sm:right-10 md:right-20 w-[380px] sm:w-[500px] md:w-[650px] opacity-10 sm:opacity-20 md:opacity-25 pointer-events-none z-0 mix-blend-multiply filter blur-[0.5px]"
       >
         <img
           src={alazarImg}
@@ -236,7 +236,7 @@ export default function Contact() {
                 Let's Build<br />
                 <span className="text-gradient-burgundy font-black">Something Great.</span>
               </h1>
-              <p className="text-[#78716C] font-light text-base leading-relaxed max-w-md">
+              <p className="text-[#1C1917] font-medium text-base sm:text-lg leading-relaxed max-w-md bg-white/85 backdrop-blur-md px-5 py-3 rounded-2xl border border-[#C59A9F]/40 shadow-sm inline-block">
                 Ready to start your next video or design project? Fill out the brief below — your inquiry goes straight into the PERN backend.
               </p>
             </div>
@@ -253,7 +253,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-xs font-black text-[#1C1917] leading-tight mb-0.5">{title}</p>
-                    <p className="text-[10px] text-[#78716C] font-medium">{sub}</p>
+                    <p className="text-[10.5px] text-[#292524] font-semibold">{sub}</p>
                   </div>
                 </div>
               ))}
@@ -267,7 +267,7 @@ export default function Contact() {
                     <Icon size={18} />
                   </div>
                   <div>
-                    <p className="text-[10px] text-[#78716C] uppercase tracking-widest font-black mb-0.5">{label}</p>
+                    <p className="text-[10px] text-[#6B1D2F] uppercase tracking-widest font-black mb-0.5">{label}</p>
                     {content}
                   </div>
                 </div>
@@ -330,7 +330,7 @@ export default function Contact() {
                       </div>
                     )}
 
-                    <p className="text-[#78716C] font-light max-w-sm mx-auto text-sm leading-relaxed">
+                    <p className="text-[#292524] font-medium max-w-sm mx-auto text-sm leading-relaxed">
                       Thank you, <strong className="text-[#1C1917]">{formData.firstName}</strong>. Your brief has been recorded in PostgreSQL — I'll review it within 24 hours.
                     </p>
                     <Button variant="outline" onClick={() => { setSubmitted(false); setFormData(defaultForm); }}>
@@ -353,7 +353,7 @@ export default function Contact() {
                       >
                         Project Inquiry
                       </h3>
-                      <p className="text-[11px] text-[#78716C] font-medium uppercase tracking-wider">
+                      <p className="text-[11px] text-[#292524] font-bold uppercase tracking-wider">
                         All fields marked * are required
                       </p>
                     </div>
@@ -374,7 +374,7 @@ export default function Contact() {
 
                     {/* Service type — custom styled buttons */}
                     <div>
-                      <label className="text-[11px] text-[#78716C] font-black tracking-widest uppercase block mb-3">
+                      <label className="text-[11px] text-[#1C1917] font-black tracking-widest uppercase block mb-3">
                         Service Type
                       </label>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -405,7 +405,7 @@ export default function Contact() {
 
                     {/* Budget */}
                     <div className="flex flex-col gap-2">
-                      <label className="text-[11px] text-[#78716C] font-black tracking-widest uppercase">
+                      <label className="text-[11px] text-[#1C1917] font-black tracking-widest uppercase">
                         Budget Range
                       </label>
                       <select

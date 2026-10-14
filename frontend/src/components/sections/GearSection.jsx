@@ -54,7 +54,7 @@ export const GearSection = ({ data }) => {
           scale: [1, 1.02, 1],
         }}
         transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute -top-10 right-0 sm:right-10 md:right-20 w-[380px] sm:w-[500px] md:w-[650px] opacity-20 md:opacity-25 pointer-events-none z-0 mix-blend-luminosity filter blur-[0.5px]"
+        className="absolute -top-10 right-0 sm:right-10 md:right-20 w-[380px] sm:w-[500px] md:w-[650px] opacity-10 sm:opacity-15 md:opacity-20 pointer-events-none z-0 mix-blend-multiply filter blur-[0.5px]"
       >
         <img
           src={alazarImg}
@@ -107,7 +107,7 @@ export const GearSection = ({ data }) => {
               <span>8K Master Cinema & Color Suite</span>
             </div>
 
-            <p className="text-[#78716C] font-light text-base leading-relaxed">
+            <p className="text-[#1C1917] font-medium text-base leading-relaxed bg-white/85 backdrop-blur-md px-5 py-3 rounded-2xl border border-[#C59A9F]/40 shadow-sm">
               Industry-standard cinema cameras, precision lenses, professional lighting, and a fast dedicated post-production suite — everything needed to deliver 8K master quality.
             </p>
           </motion.div>

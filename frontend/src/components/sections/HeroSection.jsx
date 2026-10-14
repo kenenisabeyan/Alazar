@@ -167,7 +167,7 @@ export const HeroSection = ({ onOpenShowreel }) => {
                   </span>
                   <Award size={16} className="text-[#C59A9F]" />
                 </div>
-                <p className="text-[11px] text-[#78716C] uppercase tracking-widest font-bold">{stat.label}</p>
+                <p className="text-[11px] text-[#292524] uppercase tracking-widest font-black">{stat.label}</p>
               </motion.div>
             ))}
           </motion.div>

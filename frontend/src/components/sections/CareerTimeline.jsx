@@ -118,15 +118,15 @@ export const CareerTimeline = ({ data, awards: awardsProp }) => {
                       >
                         {exp.role}
                       </h3>
-                      <p className="text-xs font-semibold text-[#78716C]">{exp.company}</p>
+                      <p className="text-xs font-bold text-[#292524]">{exp.company}</p>
                     </div>
 
                     <div className="flex flex-col items-end gap-1.5 flex-shrink-0">
-                      <span className="flex items-center gap-1 text-[10px] font-bold text-[#78716C] bg-[#FAFAF9] px-2.5 py-1 rounded-full">
+                      <span className="flex items-center gap-1 text-[10px] font-bold text-[#292524] bg-[#FAFAF9] px-2.5 py-1 rounded-full border border-[#C59A9F]/40">
                         <Calendar size={10} className="text-[#6B1D2F]" />
                         {exp.period}
                       </span>
-                      <span className="flex items-center gap-1 text-[10px] font-bold text-[#78716C] bg-[#FAFAF9] px-2.5 py-1 rounded-full">
+                      <span className="flex items-center gap-1 text-[10px] font-bold text-[#292524] bg-[#FAFAF9] px-2.5 py-1 rounded-full border border-[#C59A9F]/40">
                         <MapPin size={10} className="text-[#6B1D2F]" />
                         {exp.location}
                       </span>
@@ -149,7 +149,7 @@ export const CareerTimeline = ({ data, awards: awardsProp }) => {
                         className="overflow-hidden"
                       >
                         <div className="px-6 pb-7 pt-0 space-y-5 border-t border-[#C59A9F]">
-                          <p className="text-sm text-[#78716C] font-light leading-relaxed pt-5">
+                          <p className="text-sm text-[#292524] font-medium leading-relaxed pt-5">
                             {exp.description}
                           </p>
 

@@ -94,7 +94,7 @@ export default function About() {
           scale: [1, 1.02, 1],
         }}
         transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute -top-10 right-0 sm:right-10 md:right-20 w-[380px] sm:w-[500px] md:w-[650px] opacity-20 md:opacity-25 pointer-events-none z-0 mix-blend-luminosity filter blur-[0.5px]"
+        className="absolute -top-10 right-0 sm:right-10 md:right-20 w-[380px] sm:w-[500px] md:w-[650px] opacity-10 sm:opacity-20 md:opacity-25 pointer-events-none z-0 mix-blend-multiply filter blur-[0.5px]"
       >
         <img
           src={profile.profileImage || alazarImg}
@@ -133,7 +133,7 @@ export default function About() {
                 <span className="text-[#6B1D2F] font-black">{profile.headline || 'Director & Visual Artist.'}</span>
               </h1>
 
-              <p className="text-[#78716C] font-light text-base md:text-lg leading-relaxed max-w-lg">
+              <p className="text-[#1C1917] font-medium text-base md:text-lg leading-relaxed max-w-lg bg-white/85 backdrop-blur-md px-5 py-3 rounded-2xl border border-[#C59A9F]/40 shadow-sm inline-block">
                 {profile.shortDescription}
               </p>
 
@@ -148,7 +148,7 @@ export default function About() {
                     </div>
                     <div>
                       <p className="text-xs font-black text-[#1C1917]">{title}</p>
-                      <p className="text-[10px] text-[#78716C] font-bold uppercase tracking-wider">{sub}</p>
+                      <p className="text-[10.5px] text-[#292524] font-bold uppercase tracking-wider">{sub}</p>
                     </div>
                   </div>
                 ))}
@@ -241,7 +241,7 @@ export default function About() {
                     >
                       {item.title}
                     </h3>
-                    <p className="text-xs text-[#78716C] font-light leading-relaxed">{item.description || item.desc}</p>
+                    <p className="text-xs text-[#292524] font-normal leading-relaxed">{item.description || item.desc}</p>
                   </div>
                 </motion.div>
               );
