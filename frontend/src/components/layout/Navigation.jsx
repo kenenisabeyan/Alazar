@@ -53,28 +53,25 @@ export const Navigation = () => {
 
   /* ─────────────────────────────────────────────────────────────────────────
      NAV APPEARANCE STATES
-     • At top (not scrolled): fully transparent, text white — sits on hero dark bg
-     • Scrolled: semi-transparent dark pill with blur — stays readable over content
+     • High-contrast frosted dark pill dock — crystal clear text visibility at all times
   ───────────────────────────────────────────────────────────────────────── */
   const navWrapCls = isScrolled
-    ? // Scrolled: frosted dark pill, matches Alazar's #1E0A0D dark bg
-    'bg-[#1E0A0D]/80 backdrop-blur-2xl border border-white/[0.09] shadow-2xl shadow-[#1E0A0D]/60 rounded-full'
-    : // Top: fully transparent — hero bleeds through, no pill visible
-    'bg-transparent border-transparent';
+    ? 'bg-[#1E0A0D]/85 backdrop-blur-2xl border border-white/[0.12] shadow-2xl shadow-[#1E0A0D]/60 rounded-full py-2.5 sm:py-3'
+    : 'bg-[#1E0A0D]/75 backdrop-blur-xl border border-white/10 shadow-lg shadow-[#1E0A0D]/25 rounded-full py-3';
 
-  /* Link text color — always light so it reads on both hero dark bg and scrolled dark pill */
-  const linkBase = 'text-[#F5F0F1]/70 hover:text-[#F5F0F1] transition-all duration-200';
-  const linkActive = 'text-[#F5F0F1]';
+  /* Link text color — crisp high-contrast off-white over dark pill dock */
+  const linkBase = 'text-[#F5F0F1]/80 hover:text-white transition-all duration-200 font-extrabold';
+  const linkActive = 'text-white font-extrabold';
 
-  /* Icon button base — transparent bg, subtle border only when scrolled */
+  /* Icon button base — subtle frosted pill button */
   const iconBtn = isScrolled
-    ? 'bg-white/[0.07] border border-white/[0.12] hover:bg-white/[0.13] text-[#F5F0F1]'
-    : 'bg-transparent border border-white/20 hover:bg-white/[0.09] text-[#F5F0F1]';
+    ? 'bg-white/[0.08] border border-white/[0.15] hover:bg-white/[0.14] text-[#F5F0F1]'
+    : 'bg-white/[0.05] border border-white/15 hover:bg-white/[0.10] text-[#F5F0F1]';
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center py-4 px-3 sm:px-6 md:px-10 transition-all duration-500">
+    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center py-3 sm:py-4 px-3 sm:px-6 md:px-10 transition-all duration-500">
 
-      <div className={`w-full max-w-[1550px] flex items-center justify-between gap-4 px-5 sm:px-7 py-3 transition-all duration-500 ${navWrapCls}`}>
+      <div className={`w-full max-w-[1550px] flex items-center justify-between gap-4 px-5 sm:px-7 transition-all duration-500 ${navWrapCls}`}>
 
         {/* ── Brand mark ────────────────────────────────────────────────── */}
         <Link
@@ -97,7 +94,7 @@ export const Navigation = () => {
             <span className="text-base sm:text-lg font-black tracking-[0.22em] text-[#F5F0F1]">
               ALAZAR
             </span>
-            <span className="hidden lg:block text-[9px] font-bold uppercase tracking-[0.2em] text-[#A89597] mt-0.5">
+            <span className="hidden lg:block text-[9.5px] font-black uppercase tracking-[0.2em] text-[#C59A9F] mt-0.5">
               DIRECTOR & DESIGNER
             </span>
           </div>

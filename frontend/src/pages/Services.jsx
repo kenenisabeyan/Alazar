@@ -11,6 +11,7 @@ import WhyHireMe from '../components/sections/WhyHireMe';
 import AvailabilityCTA from '../components/sections/AvailabilityCTA';
 import { theme, faqs } from '../constants';
 import alazarImg from '../assets/images/alazar.png';
+import heroBg from '../assets/images/hero-bg.png';
 import api from '../api';
 
 const serviceCards = [
@@ -118,17 +119,46 @@ export default function Services() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="min-h-screen bg-[#FAFAF9] pt-28 sm:pt-36 pb-0 relative overflow-hidden"
+      className="min-h-screen bg-[#FAFAF9] mesh-bg pt-28 sm:pt-36 pb-0 relative overflow-hidden"
       style={{ fontFamily: theme.fonts.body }}
     >
-      {/* Floating portrait */}
+      {/* Motion Flow Background Image Layer 1: hero-bg.png */}
       <motion.div
-        animate={{ y: [0, -18, 0], rotate: [0, 2, 0] }}
-        transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute top-10 right-0 w-[450px] md:w-[600px] opacity-[0.06] pointer-events-none z-0 mix-blend-luminosity"
+        animate={{
+          scale: [1, 1.06, 1],
+          x: ['0%', '-2%', '0%'],
+          y: ['0%', '-1.5%', '0%'],
+        }}
+        transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
+        className="absolute inset-0 z-0 pointer-events-none opacity-25 mix-blend-multiply"
       >
-        <img src={alazarImg} alt="" className="w-full h-auto object-contain" />
+        <img
+          src={heroBg}
+          alt="Hero Flow Texture"
+          className="w-full h-full object-cover object-center filter blur-[1px]"
+        />
       </motion.div>
+
+      {/* Motion Flow Layer 2: Floating alazar.png visual element */}
+      <motion.div
+        animate={{
+          y: [0, -18, 0],
+          rotate: [0, 1.5, 0],
+          scale: [1, 1.02, 1],
+        }}
+        transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
+        className="absolute -top-10 right-0 sm:right-10 md:right-20 w-[380px] sm:w-[500px] md:w-[650px] opacity-20 md:opacity-25 pointer-events-none z-0 mix-blend-luminosity filter blur-[0.5px]"
+      >
+        <img
+          src={alazarImg}
+          alt="Alazar Motion Flow"
+          className="w-full h-auto object-contain"
+        />
+      </motion.div>
+
+      {/* Dynamic Ambient Glow Orbs */}
+      <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-gradient-to-r from-[#6B1D2F]/18 via-[#8B1E3F]/12 to-[#C59A9F]/20 blur-[180px] rounded-full pointer-events-none animate-pulse-glow" />
+      <div className="absolute top-1/2 -right-20 w-[500px] h-[500px] bg-[#C59A9F]/20 blur-[150px] rounded-full pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-6 md:px-10 lg:px-12 max-w-[1550px] relative z-10">
 
