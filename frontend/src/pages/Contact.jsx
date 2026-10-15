@@ -201,7 +201,7 @@ export default function Contact() {
           scale: [1, 1.02, 1],
         }}
         transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute -top-10 right-0 sm:right-10 md:right-20 w-[380px] sm:w-[500px] md:w-[650px] opacity-10 sm:opacity-20 md:opacity-25 pointer-events-none z-0 mix-blend-multiply filter blur-[0.5px]"
+        className="absolute -top-10 right-0 sm:right-10 md:right-20 w-[260px] xs:w-[340px] sm:w-[500px] md:w-[650px] opacity-10 sm:opacity-20 md:opacity-25 pointer-events-none z-0 mix-blend-multiply filter blur-[0.5px]"
       >
         <img
           src={alazarImg}
@@ -215,14 +215,14 @@ export default function Contact() {
       <div className="absolute top-1/2 -right-20 w-[500px] h-[500px] bg-[#C59A9F]/20 blur-[150px] rounded-full pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-6 md:px-10 lg:px-12 max-w-[1550px] mb-20 sm:mb-28 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
 
           {/* ── Left info panel ─────────────────────────────────────── */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
-            className="lg:col-span-5 space-y-8"
+            className="lg:col-span-5 space-y-6 sm:space-y-8"
           >
             {/* Badge */}
             <div>
@@ -230,30 +230,30 @@ export default function Contact() {
                 <Database size={12} /> Direct PostgreSQL Sync
               </div>
               <h1
-                className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] mb-5 leading-[1.06] tracking-tight"
+                className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] mb-4 sm:mb-5 leading-[1.06] tracking-tight break-words"
                 style={{ fontFamily: theme.fonts.heading }}
               >
                 Let's Build<br />
                 <span className="text-gradient-burgundy font-black">Something Great.</span>
               </h1>
-              <p className="text-[#1C1917] font-medium text-base sm:text-lg leading-relaxed max-w-md bg-white/85 backdrop-blur-md px-5 py-3 rounded-2xl border border-[#C59A9F]/40 shadow-sm inline-block">
+              <p className="text-[#1C1917] font-medium text-sm sm:text-base md:text-lg leading-relaxed max-w-md bg-white/85 backdrop-blur-md px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl border border-[#C59A9F]/40 shadow-sm inline-block max-w-full break-words">
                 Ready to start your next video or design project? Fill out the brief below — your inquiry goes straight into the PERN backend.
               </p>
             </div>
 
             {/* Discipline mini-cards */}
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
               {[
                 { icon: Film,    title: 'Video Production',  sub: 'Editing · Grading · Sound' },
                 { icon: PenTool, title: 'Graphic Design',    sub: 'Brand · Motion · 3D Art'   },
               ].map(({ icon: Icon, title, sub }) => (
-                <div key={title} className="flex items-start gap-3 p-4 bg-white rounded-2xl border border-[#C59A9F] shadow-sm hover:border-[#C59A9F] transition-colors">
-                  <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center flex-shrink-0 shadow-md shadow-[#6B1D2F]/20">
+                <div key={title} className="flex flex-col items-center justify-center text-center p-3 sm:p-4 bg-white rounded-2xl border border-[#C59A9F] shadow-sm hover:border-[#6B1D2F] transition-colors">
+                  <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center flex-shrink-0 shadow-md shadow-[#6B1D2F]/20 mb-1.5 sm:mb-2">
                     <Icon size={16} />
                   </div>
-                  <div>
-                    <p className="text-xs font-black text-[#1C1917] leading-tight mb-0.5">{title}</p>
-                    <p className="text-[10.5px] text-[#292524] font-semibold">{sub}</p>
+                  <div className="w-full">
+                    <p className="text-xs font-black text-[#1C1917] leading-tight mb-0.5 text-center break-words">{title}</p>
+                    <p className="text-[10px] text-[#292524] font-semibold text-center">{sub}</p>
                   </div>
                 </div>
               ))}
@@ -262,11 +262,11 @@ export default function Contact() {
             {/* Contact meta */}
             <div className="space-y-3">
               {contactMetaItems.map(({ icon: Icon, label, content }) => (
-                <div key={label} className="flex items-center gap-3.5 p-4 bg-white rounded-2xl border border-[#C59A9F] shadow-sm">
-                  <div className="w-11 h-11 bg-[#FAFAF9] border border-[#C59A9F]/40 rounded-full flex items-center justify-center text-[#6B1D2F] flex-shrink-0">
-                    <Icon size={18} />
+                <div key={label} className="flex items-center gap-3 sm:gap-3.5 p-3.5 sm:p-4 bg-white rounded-2xl border border-[#C59A9F] shadow-sm">
+                  <div className="w-10 h-10 sm:w-11 sm:h-11 bg-[#FAFAF9] border border-[#C59A9F]/40 rounded-full flex items-center justify-center text-[#6B1D2F] flex-shrink-0">
+                    <Icon size={17} />
                   </div>
-                  <div>
+                  <div className="min-w-0 flex-1">
                     <p className="text-[10px] text-[#6B1D2F] uppercase tracking-widest font-black mb-0.5">{label}</p>
                     {content}
                   </div>
@@ -275,14 +275,14 @@ export default function Contact() {
             </div>
 
             {/* Availability pulse */}
-            <div className="flex items-center gap-3 p-4 bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] rounded-2xl shadow-lg shadow-[#6B1D2F]/20">
+            <div className="flex items-center gap-3 p-3.5 sm:p-4 bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] rounded-2xl shadow-lg shadow-[#6B1D2F]/20">
               <div className="relative flex-shrink-0">
                 <span className="absolute inline-flex h-3 w-3 rounded-full bg-emerald-400 opacity-75 animate-ping" />
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500" />
               </div>
-              <div>
+              <div className="min-w-0">
                 <p className="text-[10px] font-black text-white/70 uppercase tracking-widest mb-0.5">Current Status</p>
-                <p className="text-sm font-black text-white">Accepting Q3 / Q4 Projects Worldwide</p>
+                <p className="text-xs sm:text-sm font-black text-white">Accepting Q3 / Q4 Projects Worldwide</p>
               </div>
             </div>
           </motion.div>
@@ -297,7 +297,7 @@ export default function Contact() {
             {/* Top accent */}
             <div className="h-1 bg-gradient-to-r from-[#6B1D2F] via-[#C59A9F] to-[#8B1E3F]" />
 
-            <div className="p-7 sm:p-10 md:p-12">
+            <div className="p-5 sm:p-8 md:p-12">
               <AnimatePresence mode="wait">
                 {submitted ? (
                   <motion.div
@@ -377,7 +377,7 @@ export default function Contact() {
                       <label className="text-[11px] text-[#1C1917] font-black tracking-widest uppercase block mb-3">
                         Service Type
                       </label>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                      <div className="grid grid-cols-2 gap-2.5">
                         {serviceOptions.map(({ value, label, icon: Icon }) => {
                           const active = formData.projectType === value;
                           return (
@@ -385,18 +385,18 @@ export default function Contact() {
                               key={value}
                               type="button"
                               onClick={() => setFormData(p => ({ ...p, projectType: value }))}
-                              className={`flex items-center gap-3 px-4 py-3 rounded-xl border-2 text-xs font-black text-left transition-all ${
+                              className={`flex flex-col items-center justify-center text-center p-3 sm:p-3.5 rounded-xl border-2 text-xs font-black transition-all ${
                                 active
                                   ? 'bg-[#6B1D2F] border-[#6B1D2F] text-white shadow-md'
                                   : 'bg-white border-[#C59A9F]/50 text-[#1C1917] hover:border-[#6B1D2F]'
                               }`}
                             >
-                              <div className={`w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 ${
+                              <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mb-1.5 sm:mb-2 ${
                                 active ? 'bg-white/20 text-white' : 'bg-[#FAFAF9] text-[#6B1D2F]'
                               }`}>
-                                <Icon size={14} />
+                                <Icon size={15} />
                               </div>
-                              {label}
+                              <span className="text-[11px] sm:text-xs leading-tight text-center">{label}</span>
                             </button>
                           );
                         })}

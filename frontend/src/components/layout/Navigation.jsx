@@ -186,27 +186,27 @@ export const Navigation = () => {
   return (
     <>
       <header className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 pointer-events-none ${headerCls}`}>
-        <div className="w-full max-w-[1550px] mx-auto px-6 sm:px-10 md:px-12 py-4 sm:py-5 flex items-center justify-between pointer-events-auto">
+        <div className="w-full max-w-[1550px] mx-auto px-3.5 sm:px-8 md:px-12 py-3 sm:py-5 flex items-center justify-between pointer-events-auto">
 
           {/* ── Brand mark: Alazar Photo & Logo (no box container) ─────────── */}
           <Link
             to="/"
-            className="flex items-center gap-3 group focus:outline-none select-none flex-shrink-0"
+            className="flex items-center gap-2 sm:gap-3 group focus:outline-none select-none flex-shrink-0"
             aria-label="Home"
             style={{ fontFamily: theme.fonts.heading }}
           >
             <div className="relative group-hover:scale-105 transition-transform duration-300">
-              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full p-[2px] bg-gradient-to-tr from-[#6B1D2F] to-[#C59A9F] shadow-md shadow-[#6B1D2F]/20">
+              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-full p-[2px] bg-gradient-to-tr from-[#6B1D2F] to-[#C59A9F] shadow-md shadow-[#6B1D2F]/20">
                 <img
                   src={alazarImg}
                   alt="Alazar"
                   className="w-full h-full rounded-full object-cover object-top"
                 />
               </div>
-              <span className="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-emerald-500 border-2 border-white dark:border-[#1E0A0D] animate-pulse" />
+              <span className="absolute bottom-0 right-0 w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-emerald-500 border-2 border-white dark:border-[#1E0A0D] animate-pulse" />
             </div>
             <div className="flex flex-col leading-none">
-              <span className="text-lg sm:text-xl font-black tracking-[0.22em] text-[#1C1917] dark:text-[#F5F0F1]">
+              <span className="text-base sm:text-xl font-black tracking-[0.16em] sm:tracking-[0.22em] text-[#1C1917] dark:text-[#F5F0F1]">
                 ALAZAR
               </span>
               <span className="hidden sm:block text-[9.5px] font-black uppercase tracking-[0.2em] text-[#6B1D2F] dark:text-[#C59A9F] mt-0.5">
@@ -216,19 +216,19 @@ export const Navigation = () => {
           </Link>
 
           {/* ── The Two Icons: Theme Toggle + Menu Drawer Opener ─────────── */}
-          <div className="flex items-center gap-2.5 sm:gap-3 flex-shrink-0">
+          <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
             {/* 1. Theme toggle icon */}
             <button
               id="theme-toggle-btn"
               onClick={toggleTheme}
-              className={`w-10 h-10 sm:w-11 sm:h-11 rounded-full flex items-center justify-center cursor-pointer hover:scale-105 active:scale-95 ${iconBtn}`}
+              className={`w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center cursor-pointer hover:scale-105 active:scale-95 ${iconBtn}`}
               aria-label="Toggle theme"
               title="Toggle dark/light mode"
             >
               {isDarkMode ? (
-                <Sun size={17} className="text-amber-400" />
+                <Sun size={16} className="text-amber-400" />
               ) : (
-                <Moon size={17} className="text-[#6B1D2F] dark:text-[#C59A9F]" />
+                <Moon size={16} className="text-[#6B1D2F] dark:text-[#C59A9F]" />
               )}
             </button>
 
@@ -236,11 +236,11 @@ export const Navigation = () => {
             <button
               id="menu-hamburger-btn"
               onClick={() => setMobileMenuOpen(true)}
-              className={`w-10 h-10 sm:w-11 sm:h-11 rounded-full flex items-center justify-center cursor-pointer hover:scale-105 active:scale-95 ${iconBtn}`}
+              className={`w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center cursor-pointer hover:scale-105 active:scale-95 ${iconBtn}`}
               aria-label="Open menu drawer"
               title="Open Navigation Menu"
             >
-              <Menu size={20} className="text-[#1C1917] dark:text-[#F5F0F1]" />
+              <Menu size={18} className="text-[#1C1917] dark:text-[#F5F0F1] sm:scale-110" />
             </button>
           </div>
 

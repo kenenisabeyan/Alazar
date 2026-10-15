@@ -60,7 +60,7 @@ export const CareerTimeline = ({ data, awards: awardsProp }) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.08 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] leading-[1.06] tracking-tight"
+              className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] leading-[1.06] tracking-tight break-words"
               style={{ fontFamily: theme.fonts.heading }}
             >
               Career<br />
@@ -80,7 +80,7 @@ export const CareerTimeline = ({ data, awards: awardsProp }) => {
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
 
           {/* ── Left: accordion timeline ── */}
           <div className="lg:col-span-7 space-y-4">
@@ -101,17 +101,34 @@ export const CareerTimeline = ({ data, awards: awardsProp }) => {
                   {/* Clickable header */}
                   <button
                     onClick={() => setExpanded(isOpen ? -1 : idx)}
-                    className="w-full flex items-center gap-4 p-6 text-left group"
+                    className="w-full flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 p-4 sm:p-6 text-left group"
                   >
-                    {/* Index dot */}
-                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 font-black text-sm transition-all ${isOpen
-                        ? 'bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white shadow-lg shadow-[#6B1D2F]/25'
-                        : 'bg-[#FAFAF9] text-[#6B1D2F] group-hover:bg-[#6B1D2F] group-hover:text-white'
-                      }`}>
-                      0{idx + 1}
+                    <div className="flex items-center gap-3 w-full sm:w-auto">
+                      {/* Index dot */}
+                      <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center flex-shrink-0 font-black text-xs sm:text-sm transition-all ${isOpen
+                          ? 'bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white shadow-lg shadow-[#6B1D2F]/25'
+                          : 'bg-[#FAFAF9] text-[#6B1D2F] group-hover:bg-[#6B1D2F] group-hover:text-white'
+                        }`}>
+                        0{idx + 1}
+                      </div>
+
+                      <div className="flex-1 min-w-0 sm:hidden">
+                        <h3
+                          className={`text-sm font-black leading-tight mb-0.5 ${isOpen ? 'text-[#6B1D2F]' : 'text-[#1C1917]'}`}
+                          style={{ fontFamily: theme.fonts.heading }}
+                        >
+                          {exp.role}
+                        </h3>
+                        <p className="text-xs font-bold text-[#292524]">{exp.company}</p>
+                      </div>
+
+                      <ArrowRight
+                        size={16}
+                        className={`sm:hidden ml-auto flex-shrink-0 transition-all duration-300 text-[#C59A9F] ${isOpen ? 'rotate-90' : 'group-hover:translate-x-1'}`}
+                      />
                     </div>
 
-                    <div className="flex-1 min-w-0">
+                    <div className="hidden sm:block flex-1 min-w-0">
                       <h3
                         className={`text-base font-black leading-tight mb-1 ${isOpen ? 'text-[#6B1D2F]' : 'text-[#1C1917]'}`}
                         style={{ fontFamily: theme.fonts.heading }}
@@ -121,7 +138,7 @@ export const CareerTimeline = ({ data, awards: awardsProp }) => {
                       <p className="text-xs font-bold text-[#292524]">{exp.company}</p>
                     </div>
 
-                    <div className="flex flex-col items-end gap-1.5 flex-shrink-0">
+                    <div className="flex flex-wrap sm:flex-col items-start sm:items-end gap-1.5 flex-shrink-0 pt-1 sm:pt-0">
                       <span className="flex items-center gap-1 text-[10px] font-bold text-[#292524] bg-[#FAFAF9] px-2.5 py-1 rounded-full border border-[#C59A9F]/40">
                         <Calendar size={10} className="text-[#6B1D2F]" />
                         {exp.period}
@@ -134,7 +151,7 @@ export const CareerTimeline = ({ data, awards: awardsProp }) => {
 
                     <ArrowRight
                       size={16}
-                      className={`flex-shrink-0 transition-all duration-300 text-[#C59A9F] ${isOpen ? 'rotate-90' : 'group-hover:translate-x-1'}`}
+                      className={`hidden sm:block flex-shrink-0 transition-all duration-300 text-[#C59A9F] ${isOpen ? 'rotate-90' : 'group-hover:translate-x-1'}`}
                     />
                   </button>
 

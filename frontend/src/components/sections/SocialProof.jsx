@@ -67,7 +67,7 @@ export const SocialProof = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.08 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] leading-[1.06] tracking-tight"
+              className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] leading-[1.06] tracking-tight break-words"
               style={{ fontFamily: theme.fonts.heading }}
             >
               What Clients<br />
@@ -97,19 +97,19 @@ export const SocialProof = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="lg:col-span-7 relative bg-gradient-to-br from-[#6B1D2F] via-[#521523] to-[#3B0E19] rounded-[2rem] overflow-hidden shadow-2xl shadow-[#6B1D2F]/20 flex flex-col min-h-[440px] border border-[#C59A9F]/30"
+            className="lg:col-span-7 relative bg-gradient-to-br from-[#6B1D2F] via-[#521523] to-[#3B0E19] rounded-[2rem] overflow-hidden shadow-2xl shadow-[#6B1D2F]/20 flex flex-col min-h-[340px] sm:min-h-[440px] border border-[#C59A9F]/30"
           >
             {/* Ambient inner glow */}
             <div className="absolute -top-20 -left-20 w-64 h-64 bg-[#6B1D2F]/40 blur-[80px] rounded-full pointer-events-none" />
             <div className="absolute -bottom-10 right-0 w-48 h-48 bg-[#8B1E3F]/25 blur-[60px] rounded-full pointer-events-none" />
 
-            <div className="relative z-10 p-8 sm:p-12 flex flex-col justify-between h-full flex-grow">
+            <div className="relative z-10 p-5 sm:p-8 md:p-12 flex flex-col justify-between h-full flex-grow">
 
               {/* Top row */}
-              <div className="flex items-start justify-between mb-8">
+              <div className="flex items-start justify-between mb-6 sm:mb-8">
                 {/* Quote icon */}
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center shadow-xl shadow-[#6B1D2F]/30 border border-white/10">
-                  <Quote size={24} className="fill-white/20" />
+                <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center shadow-xl shadow-[#6B1D2F]/30 border border-white/10">
+                  <Quote size={20} className="sm:scale-125 fill-white/20" />
                 </div>
 
                 {/* Discipline badge */}
@@ -129,7 +129,7 @@ export const SocialProof = () => {
                     animate="center"
                     exit="exit"
                     transition={{ x: { type: 'spring', stiffness: 320, damping: 28 }, opacity: { duration: 0.3 } }}
-                    className="space-y-8"
+                    className="space-y-6 sm:space-y-8"
                   >
                     {/* 5 stars */}
                     <div className="flex gap-1">
@@ -140,22 +140,22 @@ export const SocialProof = () => {
                           animate={{ opacity: 1, scale: 1 }}
                           transition={{ delay: i * 0.06 }}
                         >
-                          <Star size={16} className="fill-[#C59A9F] text-[#C59A9F]" />
+                          <Star size={15} className="fill-[#C59A9F] text-[#C59A9F]" />
                         </motion.div>
                       ))}
                     </div>
 
-                    <blockquote className="text-lg sm:text-xl md:text-2xl text-white font-medium italic leading-relaxed">
+                    <blockquote className="text-base sm:text-xl md:text-2xl text-white font-medium italic leading-relaxed">
                       "{cur.quote}"
                     </blockquote>
 
                     {/* Author */}
-                    <div className="flex items-center gap-4">
-                      <div className="p-0.5 bg-gradient-to-tr from-[#6B1D2F] to-[#C59A9F] rounded-full shadow-lg">
+                    <div className="flex items-center gap-3 sm:gap-4">
+                      <div className="p-0.5 bg-gradient-to-tr from-[#6B1D2F] to-[#C59A9F] rounded-full shadow-lg flex-shrink-0">
                         <img
                           src={cur.avatar}
                           alt={cur.author}
-                          className="w-14 h-14 rounded-full object-cover border-2 border-[#1C1917]"
+                          className="w-10 h-10 sm:w-14 sm:h-14 rounded-full object-cover border-2 border-[#1C1917]"
                         />
                       </div>
                       <div>

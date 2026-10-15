@@ -31,8 +31,8 @@ export const Footer = () => {
         Alazar
       </div>
 
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-20">
+      <div className="container mx-auto px-4 sm:px-6 md:px-12 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 sm:gap-12 mb-12 sm:mb-20">
 
           {/* Brand Info */}
           <div className="md:col-span-6 lg:col-span-5 pr-0 md:pr-10">

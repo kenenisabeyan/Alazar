@@ -56,16 +56,16 @@ function FaqAccordion({ faqs }) {
           >
             <button
               onClick={() => setOpen(isOpen ? null : idx)}
-              className="w-full flex items-center justify-between gap-6 p-6 sm:p-8 sm:px-10 text-left group"
+              className="w-full flex items-center justify-between gap-4 sm:gap-6 p-4 sm:p-7 sm:px-10 text-left group"
             >
               <h4
-                className={`text-base sm:text-xl font-black leading-snug transition-colors ${isOpen ? 'text-[#6B1D2F]' : 'text-[#1C1917]'
+                className={`text-sm sm:text-lg md:text-xl font-black leading-snug transition-colors break-words ${isOpen ? 'text-[#6B1D2F]' : 'text-[#1C1917]'
                   }`}
                 style={{ fontFamily: theme.fonts.heading }}
               >
                 {faq.q}
               </h4>
-              <div className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 ${isOpen
+              <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 ${isOpen
                   ? 'bg-[#6B1D2F] text-white shadow-md shadow-[#6B1D2F]/25'
                   : 'bg-[#FAFAF9] border border-[#C59A9F]/40 text-[#6B1D2F] group-hover:bg-[#6B1D2F] group-hover:text-white'
                 }`}>
@@ -84,7 +84,7 @@ function FaqAccordion({ faqs }) {
                   transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                   className="overflow-hidden"
                 >
-                  <p className="px-6 sm:px-10 pb-7 sm:pb-8 text-sm sm:text-base text-[#292524] font-medium leading-relaxed border-t border-[#C59A9F]/30 pt-5">
+                  <p className="px-4 sm:px-10 pb-5 sm:pb-8 text-xs sm:text-base text-[#292524] font-medium leading-relaxed border-t border-[#C59A9F]/30 pt-4 sm:pt-5 break-words">
                     {faq.a}
                   </p>
                 </motion.div>
@@ -147,7 +147,7 @@ export default function Services() {
           scale: [1, 1.02, 1],
         }}
         transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute -top-10 right-0 sm:right-10 md:right-20 w-[380px] sm:w-[500px] md:w-[650px] opacity-10 sm:opacity-20 md:opacity-25 pointer-events-none z-0 mix-blend-multiply filter blur-[0.5px]"
+        className="absolute -top-10 right-0 sm:right-10 md:right-20 w-[260px] xs:w-[340px] sm:w-[500px] md:w-[650px] opacity-10 sm:opacity-20 md:opacity-25 pointer-events-none z-0 mix-blend-multiply filter blur-[0.5px]"
       >
         <img
           src={alazarImg}
@@ -176,7 +176,7 @@ export default function Services() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-4xl sm:text-6xl md:text-7xl font-black text-[#1C1917] mb-5 tracking-tight leading-[1.04]"
+            className="text-3xl sm:text-5xl md:text-7xl font-black text-[#1C1917] mb-5 tracking-tight leading-[1.04] break-words"
             style={{ fontFamily: theme.fonts.heading }}
           >
             Services &{' '}
@@ -186,7 +186,7 @@ export default function Services() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-[#1C1917] font-medium text-base md:text-lg leading-relaxed max-w-2xl mx-auto bg-white/85 backdrop-blur-md px-6 py-3.5 rounded-2xl border border-[#C59A9F]/40 shadow-sm"
+            className="text-[#1C1917] font-medium text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto bg-white/85 backdrop-blur-md px-4 sm:px-6 py-2.5 sm:py-3.5 rounded-2xl border border-[#C59A9F]/40 shadow-sm max-w-full break-words"
           >
             Whether you need remote video editing or full on-set production — senior-level creative work, transparent pricing, and on-time delivery every time.
           </motion.p>
@@ -207,7 +207,7 @@ export default function Services() {
               {/* Top accent bar */}
               <div className="h-1 bg-gradient-to-r from-[#6B1D2F] via-[#8B1E3F] to-[#C59A9F]" />
 
-              <div className="p-8 sm:p-10 flex flex-col flex-grow">
+              <div className="p-5 sm:p-8 md:p-10 flex flex-col flex-grow">
                 <div className="flex items-center justify-between mb-6">
                   <span className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-[11px] font-black uppercase tracking-widest ${svc.badgeDark
                       ? 'bg-[#6B1D2F] text-white shadow-md shadow-[#6B1D2F]/25'
@@ -218,7 +218,7 @@ export default function Services() {
                 </div>
 
                 <h2
-                  className="text-2xl sm:text-3xl font-black text-[#1C1917] mb-4 leading-tight"
+                  className="text-2xl sm:text-3xl font-black text-[#1C1917] mb-4 leading-tight break-words"
                   style={{ fontFamily: theme.fonts.heading }}
                 >
                   {svc.title}
@@ -286,7 +286,7 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.08 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] leading-[1.06] tracking-tight"
+              className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] leading-[1.06] tracking-tight break-words"
               style={{ fontFamily: theme.fonts.heading }}
             >
               Frequently Asked<br />

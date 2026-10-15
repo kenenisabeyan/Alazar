@@ -78,7 +78,7 @@ export const ProjectCalculator = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.08 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] leading-[1.06] tracking-tight"
+              className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] leading-[1.06] tracking-tight break-words"
               style={{ fontFamily: theme.fonts.heading }}
             >
               Interactive<br />
@@ -105,13 +105,13 @@ export const ProjectCalculator = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.65 }}
-            className="lg:col-span-7 bg-white rounded-[2rem] border border-[#C59A9F]/60 shadow-xl p-8 sm:p-10 space-y-10"
+            className="lg:col-span-7 bg-white rounded-[2rem] border border-[#C59A9F]/60 shadow-xl p-5 sm:p-8 md:p-10 space-y-8 sm:space-y-10"
           >
 
             {/* Step 1 – project type */}
             <div>
               <SectionLabel step="1">Production Category</SectionLabel>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="grid grid-cols-2 gap-2.5 sm:gap-3.5">
                 {calculatorOptions.projectTypes.map((t) => {
                   const isActive = selectedType === t.id;
                   const Icon = t.id.includes('design') ? PenTool : Film;
@@ -121,21 +121,21 @@ export const ProjectCalculator = () => {
                       {isActive && (
                         <div className="absolute inset-0 bg-gradient-to-br from-white/15 to-transparent pointer-events-none" />
                       )}
-                      <div className="flex items-center gap-3 relative z-10">
-                        <div className={`w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 transition-all ${isActive ? 'bg-white/20 text-white shadow-md' : 'bg-[#FAFAF9] text-[#6B1D2F]'
+                      <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 relative z-10 w-full sm:w-auto">
+                        <div className={`w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 transition-all mx-auto sm:mx-0 ${isActive ? 'bg-white/20 text-white shadow-md' : 'bg-[#FAFAF9] text-[#6B1D2F]'
                           }`}>
                           <Icon size={16} />
                         </div>
-                        <div>
-                          <span className={`leading-snug block text-xs font-black ${isActive ? 'text-white' : 'text-[#1C1917]'}`}>
+                        <div className="min-w-0">
+                          <span className={`leading-snug block text-xs font-black break-normal whitespace-normal ${isActive ? 'text-white' : 'text-[#1C1917]'}`}>
                             {t.label}
                           </span>
-                          <span className={`text-[10px] font-bold ${isActive ? 'text-[#FAFAF9]/80' : 'text-[#292524]'}`}>
+                          <span className={`text-[10px] font-bold block mt-0.5 ${isActive ? 'text-[#FAFAF9]/80' : 'text-[#292524]'}`}>
                             from ${t.basePrice.toLocaleString()}
                           </span>
                         </div>
                       </div>
-                      <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center flex-shrink-0 relative z-10 transition-all ${isActive ? 'border-white bg-white/30' : 'border-[#C59A9F]/60 bg-white'
+                      <div className={`w-5 h-5 rounded-full border-2 items-center justify-center flex-shrink-0 relative z-10 transition-all hidden sm:flex ${isActive ? 'border-white bg-white/30' : 'border-[#C59A9F]/60 bg-white'
                         }`}>
                         {isActive && <div className="w-2 h-2 rounded-full bg-white" />}
                       </div>
@@ -148,19 +148,19 @@ export const ProjectCalculator = () => {
             {/* Step 2 – scope */}
             <div>
               <SectionLabel step="2">Project Scope</SectionLabel>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="grid grid-cols-2 gap-2.5 sm:gap-3.5">
                 {calculatorOptions.scopes.map((s) => {
                   const isActive = selectedScope === s.id;
                   return (
                     <button key={s.id} type="button" onClick={() => setSelectedScope(s.id)} className={optBtn(isActive)}>
                       {isActive && <div className="absolute inset-0 bg-gradient-to-br from-white/15 to-transparent pointer-events-none" />}
-                      <div className="relative z-10 flex-1">
-                        <span className={`block text-xs font-black mb-0.5 ${isActive ? 'text-white' : 'text-[#1C1917]'}`}>{s.label}</span>
-                        <span className={`text-[10px] font-bold ${isActive ? 'text-[#FAFAF9]/80' : 'text-[#292524]'}`}>
+                      <div className="relative z-10 flex-1 w-full text-center sm:text-left">
+                        <span className={`block text-xs font-black mb-0.5 break-normal whitespace-normal ${isActive ? 'text-white' : 'text-[#1C1917]'}`}>{s.label}</span>
+                        <span className={`text-[10px] font-bold block ${isActive ? 'text-[#FAFAF9]/80' : 'text-[#292524]'}`}>
                           ×{s.multiplier} base rate
                         </span>
                       </div>
-                      <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center flex-shrink-0 relative z-10 transition-all ${isActive ? 'border-white bg-white/30' : 'border-[#C59A9F]/60 bg-white'
+                      <div className={`w-5 h-5 rounded-full border-2 items-center justify-center flex-shrink-0 relative z-10 transition-all hidden sm:flex ${isActive ? 'border-white bg-white/30' : 'border-[#C59A9F]/60 bg-white'
                         }`}>
                         {isActive && <div className="w-2 h-2 rounded-full bg-white" />}
                       </div>
@@ -173,20 +173,20 @@ export const ProjectCalculator = () => {
             {/* Step 3 – add-ons */}
             <div>
               <SectionLabel step="3">Optional Add-on Modules</SectionLabel>
-              <div className="space-y-3">
+              <div className="grid grid-cols-2 gap-2.5 sm:gap-3.5">
                 {calculatorOptions.addons.map((a) => {
                   const checked = selectedAddons.includes(a.id);
                   return (
                     <div
                       key={a.id}
                       onClick={() => toggleAddon(a.id)}
-                      className={`flex items-center justify-between gap-4 rounded-2xl border-2 p-4 cursor-pointer transition-all duration-300 group ${checked
+                      className={`flex flex-col sm:flex-row items-center justify-between text-center sm:text-left gap-2 sm:gap-4 rounded-2xl border-2 p-3 sm:p-4 cursor-pointer transition-all duration-300 group ${checked
                           ? 'bg-[#6B1D2F] border-[#6B1D2F] text-white shadow-lg shadow-[#6B1D2F]/20'
                           : 'bg-white border-[#C59A9F]/50 hover:border-[#6B1D2F] hover:shadow-sm'
                         }`}
                     >
-                      <div className="flex items-center gap-3 flex-1 min-w-0">
-                        <div className={`w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0 transition-all ${checked
+                      <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 flex-1 min-w-0 w-full sm:w-auto">
+                        <div className={`w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0 transition-all mx-auto sm:mx-0 ${checked
                             ? 'bg-white/20 text-white shadow-sm'
                             : 'bg-[#FAFAF9] text-[#6B1D2F] group-hover:bg-[#6B1D2F] group-hover:text-white'
                           }`}>
@@ -194,13 +194,13 @@ export const ProjectCalculator = () => {
                             ? <CheckCircle2 size={15} />
                             : <Plus size={15} />}
                         </div>
-                        <span className={`text-xs font-black truncate ${checked ? 'text-white' : 'text-[#1C1917]'}`}>
+                        <span className={`text-xs font-black break-normal whitespace-normal leading-tight ${checked ? 'text-white' : 'text-[#1C1917]'}`}>
                           {a.label}
                         </span>
                       </div>
-                      <span className={`text-xs font-black flex-shrink-0 flex items-center gap-1 ${checked ? 'text-[#FAFAF9]/90' : 'text-[#6B1D2F]'
+                      <span className={`text-[11px] sm:text-xs font-black flex-shrink-0 flex items-center justify-center gap-1 mt-1 sm:mt-0 ${checked ? 'text-[#FAFAF9]/90' : 'text-[#6B1D2F]'
                         }`}>
-                        {checked ? <Minus size={12} /> : <Plus size={12} />}
+                        {checked ? <Minus size={11} /> : <Plus size={11} />}
                         ${a.price.toLocaleString()}
                       </span>
                     </div>
@@ -225,7 +225,7 @@ export const ProjectCalculator = () => {
             {/* Ambient glow inside */}
             <div className="absolute top-0 right-0 w-48 h-48 bg-white/10 blur-[80px] rounded-full pointer-events-none" />
 
-            <div className="relative z-10 p-8 sm:p-10 flex flex-col gap-8 flex-grow">
+            <div className="relative z-10 p-5 sm:p-8 md:p-10 flex flex-col gap-6 sm:gap-8 flex-grow">
 
               {/* Header */}
               <div className="flex items-center justify-between">
@@ -252,7 +252,7 @@ export const ProjectCalculator = () => {
                     className="flex items-end gap-2"
                   >
                     <span
-                      className="text-5xl sm:text-6xl font-black text-white tracking-tight leading-none"
+                      className="text-4xl sm:text-6xl font-black text-white tracking-tight leading-none"
                       style={{ fontFamily: theme.fonts.heading }}
                     >
                       ${grandTotal.toLocaleString()}

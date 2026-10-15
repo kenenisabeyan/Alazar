@@ -53,7 +53,7 @@ export const ColorGradingShowcase = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.08 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] leading-[1.06] tracking-tight"
+              className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] leading-[1.06] tracking-tight break-words"
               style={{ fontFamily: theme.fonts.heading }}
             >
               RAW Log vs<br />
@@ -83,8 +83,7 @@ export const ColorGradingShowcase = () => {
           <div
             ref={containerRef}
             /* ── Full-width, tall, rounded exactly like the screenshot ── */
-            className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden bg-[#1E0A0D] select-none cursor-ew-resize group shadow-2xl shadow-[#1E0A0D]/40"
-            style={{ aspectRatio: '16 / 7.5' }}
+            className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden bg-[#1E0A0D] select-none cursor-ew-resize group shadow-2xl shadow-[#1E0A0D]/40 aspect-[4/3] sm:aspect-[16/9] lg:aspect-[16/7.5]"
             onMouseDown={(e) => { setIsDragging(true); updateFromClient(e.clientX); }}
             onMouseUp={() => setIsDragging(false)}
             onMouseLeave={() => setIsDragging(false)}
@@ -186,21 +185,21 @@ export const ColorGradingShowcase = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4"
+          className="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4"
         >
           {metaItems.map(({ icon: Icon, label, value }) => (
             <div
               key={label}
-              className="glass-card-luxury rounded-2xl p-4 sm:p-5 flex items-center gap-3"
+              className="glass-card-luxury rounded-2xl p-3 sm:p-5 flex flex-col sm:flex-row items-center justify-center sm:justify-start text-center sm:text-left gap-2 sm:gap-3"
             >
-              <div className="w-9 h-9 rounded-xl bg-[#FAFAF9] text-[#6B1D2F] flex items-center justify-center flex-shrink-0 border border-[#C59A9F]/40">
+              <div className="w-9 h-9 rounded-xl bg-[#FAFAF9] dark:bg-[#1E0A0D] text-[#6B1D2F] dark:text-[#F5F0F1] flex items-center justify-center flex-shrink-0 border border-[#C59A9F]/40 mx-auto sm:mx-0">
                 <Icon size={16} />
               </div>
-              <div className="min-w-0">
-                <p className="text-[9px] text-[#292524] uppercase font-black tracking-[0.18em] mb-0.5 truncate">
+              <div className="min-w-0 w-full">
+                <p className="text-[9px] text-[#292524] dark:text-[#A89597] uppercase font-black tracking-[0.18em] mb-0.5 truncate">
                   {label}
                 </p>
-                <p className="text-xs sm:text-sm text-[#1C1917] font-black truncate">{value}</p>
+                <p className="text-xs sm:text-sm text-[#1C1917] dark:text-[#F5F0F1] font-black truncate">{value}</p>
               </div>
             </div>
           ))}

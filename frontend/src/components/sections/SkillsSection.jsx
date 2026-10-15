@@ -47,7 +47,7 @@ export const SkillsSection = ({ data }) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.08 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] leading-[1.06] tracking-tight"
+              className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] leading-[1.06] tracking-tight break-words"
               style={{ fontFamily: theme.fonts.heading }}
             >
               Software &<br />
@@ -61,7 +61,7 @@ export const SkillsSection = ({ data }) => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.15 }}
-            className="inline-flex bg-white border border-[#C59A9F] rounded-full p-1.5 shadow-sm gap-1"
+            className="inline-flex bg-white border border-[#C59A9F] rounded-full p-1.5 shadow-sm gap-1 max-w-full overflow-x-auto"
           >
             {matrix.map((cat, idx) => {
               const Icon = catIcons[idx % catIcons.length];
@@ -70,7 +70,7 @@ export const SkillsSection = ({ data }) => {
                 <button
                   key={cat.category}
                   onClick={() => setActiveCategory(idx)}
-                  className={`relative px-4 py-2.5 rounded-full text-[11px] font-black uppercase tracking-wider transition-all flex items-center gap-1.5 ${isActive ? 'text-white' : 'text-[#292524] hover:text-[#1C1917]'
+                  className={`relative px-3 sm:px-4 py-2 sm:py-2.5 rounded-full text-[10.5px] sm:text-[11px] font-black uppercase tracking-wider transition-all flex items-center gap-1.5 flex-shrink-0 ${isActive ? 'text-white' : 'text-[#292524] hover:text-[#1C1917]'
                     }`}
                 >
                   {isActive && (
@@ -81,7 +81,7 @@ export const SkillsSection = ({ data }) => {
                     />
                   )}
                   <Icon size={12} />
-                  <span className="hidden sm:inline">{cat.category.split(' ')[0]}</span>
+                  <span>{cat.category.split(' ')[0]}</span>
                 </button>
               );
             })}
@@ -136,23 +136,23 @@ export const SkillsSection = ({ data }) => {
                       </div>
                       <div>
                         <h4
-                          className="text-sm font-black text-[#1C1917] leading-tight"
+                          className="text-sm font-black text-[#1C1917] dark:text-[#F5F0F1] leading-tight"
                           style={{ fontFamily: theme.fonts.heading }}
                         >
                           {skill.name}
                         </h4>
-                        <p className="text-[11px] text-[#292524] font-medium mt-0.5">{skill.desc}</p>
+                        <p className="text-[11px] text-[#292524] dark:text-[#A89597] font-medium mt-0.5">{skill.desc}</p>
                       </div>
                     </div>
                     {/* Mastery badge */}
-                    <span className="flex-shrink-0 text-xs font-black text-[#6B1D2F] bg-[#FAFAF9] border border-[#C59A9F]/40 px-3 py-1 rounded-full">
+                    <span className="flex-shrink-0 text-xs font-black text-[#6B1D2F] dark:text-[#F5F0F1] bg-[#FAFAF9] dark:bg-[#1E0A0D] border border-[#C59A9F]/40 px-3 py-1 rounded-full">
                       {skill.level}%
                     </span>
                   </div>
 
                   {/* Progress bar */}
                   <div className="space-y-1.5">
-                    <div className="w-full bg-[#FAFAF9] rounded-full h-2 overflow-hidden border border-[#C59A9F]">
+                    <div className="w-full bg-[#FAFAF9] dark:bg-[#1E0A0D]/50 rounded-full h-2 overflow-hidden border border-[#C59A9F]">
                       <motion.div
                         initial={{ width: 0 }}
                         whileInView={{ width: `${skill.level}%` }}
@@ -161,7 +161,7 @@ export const SkillsSection = ({ data }) => {
                         className="h-full rounded-full bg-gradient-to-r from-[#6B1D2F] via-[#8B1E3F] to-[#C59A9F]"
                       />
                     </div>
-                    <div className="flex justify-between text-[9px] font-black text-[#6B1D2F] uppercase tracking-widest">
+                    <div className="flex justify-between text-[9px] font-black text-[#6B1D2F] dark:text-[#C59A9F] uppercase tracking-widest">
                       <span>Beginner</span>
                       <span className="flex items-center gap-1">
                         <Zap size={9} /> Expert Level

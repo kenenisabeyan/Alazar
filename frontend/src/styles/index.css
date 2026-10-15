@@ -175,6 +175,7 @@
       rgba(30, 10, 13, 0.88) 100%
     );
     border-color: rgba(139, 30, 63, 0.25);
+    color: #F5F0F1;
   }
 
   .dark .glass-card-luxury:hover {
@@ -182,6 +183,22 @@
     box-shadow:
       0 30px 60px -15px rgba(0, 0, 0, 0.40),
       0  8px 24px       rgba(139, 30, 63, 0.20);
+  }
+
+  /* Guarantee visible text inside dark glass cards */
+  .dark .glass-card-luxury .text-\[\#6B1D2F\],
+  .dark .glass-card .text-\[\#6B1D2F\] {
+    color: #F5F0F1 !important;
+  }
+
+  .dark .glass-card-luxury .text-\[\#292524\],
+  .dark .glass-card .text-\[\#292524\] {
+    color: #A89597 !important;
+  }
+
+  .dark .glass-card-luxury .text-\[\#1C1917\],
+  .dark .glass-card .text-\[\#1C1917\] {
+    color: #F5F0F1 !important;
   }
 
   /* ── Base glass card ───────────────────────────────────── */

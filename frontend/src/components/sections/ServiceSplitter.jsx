@@ -75,7 +75,7 @@ export const ServiceSplitter = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.08 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] leading-[1.06] tracking-tight"
+              className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] leading-[1.06] tracking-tight break-words"
               style={{ fontFamily: theme.fonts.heading }}
             >
               Two Disciplines.<br />
@@ -87,7 +87,7 @@ export const ServiceSplitter = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.15 }}
-            className="text-[#1C1917] font-medium text-base max-w-xs leading-relaxed bg-white/80 backdrop-blur-md px-4 py-2.5 rounded-xl border border-[#C59A9F]/40 shadow-sm"
+            className="text-[#1C1917] font-medium text-sm sm:text-base max-w-xs leading-relaxed bg-white/80 backdrop-blur-md px-4 py-2.5 rounded-xl border border-[#C59A9F]/40 shadow-sm max-w-full break-words"
           >
             Every project benefits from both cinematic video mastery and senior-level graphic design thinking.
           </motion.p>
@@ -114,7 +114,7 @@ export const ServiceSplitter = () => {
                 {/* Top accent bar */}
                 <div className="h-1 w-full bg-gradient-to-r from-[#6B1D2F] via-[#8B1E3F] to-[#C59A9F]" />
 
-                <div className="p-8 sm:p-10 flex flex-col h-full">
+                <div className="p-5 sm:p-8 md:p-10 flex flex-col h-full">
                   {/* Label pill + icon */}
                   <div className="flex items-center justify-between mb-8">
                     <span className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-[11px] font-black uppercase tracking-widest ${svc.dark
@@ -141,14 +141,14 @@ export const ServiceSplitter = () => {
                   </p>
 
                   {/* Items list */}
-                  <ul className="space-y-3 mb-10 flex-grow">
+                  <ul className="grid grid-cols-2 gap-2 sm:gap-3 mb-8 sm:mb-10 flex-grow">
                     {svc.items.map(({ icon: ItemIcon, text }) => (
-                      <li key={text} className={`flex items-center gap-3 text-sm font-medium ${svc.dark ? 'text-white/90' : 'text-[#1C1917]'}`}>
-                        <div className={`w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 ${svc.dark ? 'bg-white/20 text-white' : 'bg-[#FAFAF9] text-[#6B1D2F]'
+                      <li key={text} className={`flex flex-col sm:flex-row items-center justify-center sm:justify-start text-center sm:text-left gap-2 sm:gap-3 text-xs sm:text-sm font-medium p-2.5 sm:p-0 rounded-xl ${svc.dark ? 'bg-white/[0.08] sm:bg-transparent text-white/90' : 'bg-[#FAFAF9] sm:bg-transparent text-[#1C1917]'}`}>
+                        <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mx-auto sm:mx-0 ${svc.dark ? 'bg-white/20 text-white' : 'bg-[#FAFAF9] text-[#6B1D2F] border border-[#C59A9F]/30'
                           }`}>
-                          <ItemIcon size={13} />
+                          <ItemIcon size={14} />
                         </div>
-                        {text}
+                        <span className="break-normal whitespace-normal leading-tight">{text}</span>
                       </li>
                     ))}
                   </ul>

@@ -47,7 +47,7 @@ export const WhyHireMe = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.08 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] leading-[1.06] tracking-tight"
+              className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] leading-[1.06] tracking-tight break-words"
               style={{ fontFamily: theme.fonts.heading }}
             >
               Why Hire<br />
@@ -69,7 +69,7 @@ export const WhyHireMe = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
 
           {/* Left: Guarantee cards */}
-          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div className="lg:col-span-7 grid grid-cols-2 gap-2.5 sm:gap-5">
             {hiringGuarantees.map((item, idx) => {
               const Icon = guaranteeIcons[idx % guaranteeIcons.length];
               return (
@@ -80,24 +80,23 @@ export const WhyHireMe = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.55, delay: idx * 0.1 }}
                   whileHover={{ y: -5 }}
-                  className="glass-card-luxury p-7 rounded-2xl flex flex-col gap-4"
+                  className="glass-card-luxury p-3 sm:p-5 md:p-6 rounded-2xl flex flex-col items-center justify-center text-center"
                 >
-                  <div className="flex items-center gap-3">
-                    <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center shadow-lg shadow-[#6B1D2F]/25 flex-shrink-0">
-                      <Icon size={20} />
-                    </div>
-                    <h4
-                      className="text-base font-black text-[#1C1917] leading-tight"
-                      style={{ fontFamily: theme.fonts.heading }}
-                    >
-                      {item.title}
-                    </h4>
+                  <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center shadow-md shadow-[#6B1D2F]/25 flex-shrink-0 mb-2 sm:mb-3">
+                    <Icon size={18} />
                   </div>
-                  <p className="text-xs text-[#292524] font-medium leading-relaxed">
+                  <h4
+                    className="text-xs sm:text-base font-black text-[#1C1917] dark:text-[#F5F0F1] leading-tight mb-1 text-center break-words"
+                    style={{ fontFamily: theme.fonts.heading }}
+                  >
+                    {item.title}
+                  </h4>
+                  <p className="text-[10px] sm:text-xs text-[#292524] dark:text-[#A89597] font-medium leading-relaxed mb-2 text-center line-clamp-3 sm:line-clamp-none">
                     {item.desc}
                   </p>
-                  <div className="flex items-center gap-1.5 text-[10px] text-[#6B1D2F] font-black uppercase tracking-widest">
-                    <ShieldCheck size={12} /> Guaranteed Standard
+                  <div className="flex items-center justify-center gap-1 text-[8.5px] sm:text-[10px] text-[#6B1D2F] dark:text-[#C59A9F] font-black uppercase tracking-wider text-center mt-auto">
+                    <ShieldCheck size={11} className="flex-shrink-0" />
+                    <span>Guaranteed</span>
                   </div>
                 </motion.div>
               );
@@ -110,7 +109,7 @@ export const WhyHireMe = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="lg:col-span-5 bg-gradient-to-br from-[#6B1D2F] via-[#521523] to-[#3B0E19] rounded-2xl p-8 sm:p-10 flex flex-col justify-between relative overflow-hidden shadow-xl shadow-[#6B1D2F]/20 border border-[#C59A9F]/20"
+            className="lg:col-span-5 bg-gradient-to-br from-[#6B1D2F] via-[#521523] to-[#3B0E19] rounded-2xl p-5 sm:p-8 md:p-10 flex flex-col justify-between relative overflow-hidden shadow-xl shadow-[#6B1D2F]/20 border border-[#C59A9F]/20"
           >
             <div className="absolute -top-16 -right-16 w-48 h-48 bg-white/10 blur-[80px] rounded-full pointer-events-none" />
 
@@ -160,7 +159,7 @@ export const WhyHireMe = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="flex flex-col sm:flex-row items-center justify-between gap-6 p-7 sm:p-8 bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] rounded-2xl shadow-xl shadow-[#6B1D2F]/20"
+          className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6 p-5 sm:p-8 bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] rounded-2xl shadow-xl shadow-[#6B1D2F]/20"
         >
           <div className="text-center sm:text-left">
             <h3 className="text-xl font-black text-white mb-1" style={{ fontFamily: theme.fonts.heading }}>

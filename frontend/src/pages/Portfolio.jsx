@@ -119,7 +119,7 @@ export default function Portfolio() {
           scale: [1, 1.02, 1],
         }}
         transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute -top-10 right-0 sm:right-10 md:right-20 w-[380px] sm:w-[500px] md:w-[650px] opacity-10 sm:opacity-20 md:opacity-25 pointer-events-none z-0 mix-blend-multiply filter blur-[0.5px]"
+        className="absolute -top-10 right-0 sm:right-10 md:right-20 w-[260px] xs:w-[340px] sm:w-[500px] md:w-[650px] opacity-10 sm:opacity-20 md:opacity-25 pointer-events-none z-0 mix-blend-multiply filter blur-[0.5px]"
       >
         <img
           src={alazarImg}
@@ -134,7 +134,7 @@ export default function Portfolio() {
 
       {/* ── Page header ────────────────────────────────────────────────── */}
       <div className="container mx-auto px-4 sm:px-6 md:px-12 mb-10 text-center relative z-10">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white border border-[#C59A9F]/40 rounded-full text-[11px] text-[#6B1D2F] font-black mb-6 shadow-sm shimmer-border">
+        <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 bg-white border border-[#C59A9F]/40 rounded-full text-[10px] sm:text-[11px] text-[#6B1D2F] font-black mb-6 shadow-sm shimmer-border">
           <Sparkles size={12} className="animate-pulse" />
           Graphic Design & Video Portfolio Presentation
         </div>
@@ -143,7 +143,7 @@ export default function Portfolio() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="text-4xl sm:text-6xl md:text-7xl font-black text-[#1C1917] mb-6 tracking-tight leading-[1.04]"
+          className="text-3xl sm:text-6xl md:text-7xl font-black text-[#1C1917] mb-6 tracking-tight leading-[1.04] break-words"
           style={{ fontFamily: theme.fonts.heading }}
         >
           Selected <span className="text-gradient-burgundy font-black">Works</span>
@@ -153,7 +153,7 @@ export default function Portfolio() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="text-[#1C1917] max-w-2xl mx-auto font-medium text-base sm:text-lg mb-8 leading-relaxed bg-white/85 backdrop-blur-md px-6 py-3.5 rounded-2xl border border-[#C59A9F]/40 shadow-sm"
+          className="text-[#1C1917] max-w-2xl mx-auto font-medium text-sm sm:text-lg mb-8 leading-relaxed bg-white/85 backdrop-blur-md px-4 sm:px-6 py-2.5 sm:py-3.5 rounded-2xl border border-[#C59A9F]/40 shadow-sm max-w-full break-words"
         >
           An editorial archive of commercial video cuts, color-graded masters, brand identities, book covers, packaging, and digital imaging spreads.
         </motion.p>

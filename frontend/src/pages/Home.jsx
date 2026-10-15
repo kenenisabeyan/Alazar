@@ -107,7 +107,7 @@ export default function Home() {
                   <span className="w-8 h-px bg-[#6B1D2F] inline-block" /> Selected Works
                 </span>
                 <h2
-                  className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] leading-[1.06] tracking-tight"
+                  className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] leading-[1.06] tracking-tight break-words"
                   style={{ fontFamily: theme.fonts.heading }}
                 >
                   Featured <span className="text-gradient-burgundy font-black">Projects</span>

@@ -87,7 +87,7 @@ const VideoCard = ({ navigate, cardData }) => {
       <div className="absolute -top-20 -left-20 w-64 h-64 bg-white/10 blur-[80px] rounded-full pointer-events-none" />
       <div className="absolute -bottom-10 right-0 w-48 h-48 bg-white/05 blur-[60px] rounded-full pointer-events-none" />
 
-      <div className="relative z-20 p-8 sm:p-10 flex flex-col h-full">
+      <div className="relative z-20 p-5 sm:p-8 md:p-10 flex flex-col h-full">
         {/* Top badge row */}
         <div className="flex items-center justify-between mb-8">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/20 border border-white/30 text-[11px] font-black text-white uppercase tracking-widest shadow-lg">
@@ -101,27 +101,27 @@ const VideoCard = ({ navigate, cardData }) => {
         </div>
 
         {/* Discipline title */}
-        <h3 className="text-3xl sm:text-4xl font-black text-white leading-tight mb-3" style={{ fontFamily: theme.fonts.heading }}>
+        <h3 className="text-2xl sm:text-4xl font-black text-white leading-tight mb-3" style={{ fontFamily: theme.fonts.heading }}>
           {d.headline}<br />
           <span className="text-[#C59A9F] font-black">{d.headlineAccent}</span>
         </h3>
 
-        <p className="text-white/95 text-sm font-normal leading-relaxed mb-8 max-w-md">
+        <p className="text-white/95 text-xs sm:text-sm font-normal leading-relaxed mb-8 max-w-md">
           {d.description}
         </p>
 
         {/* Core competencies grid */}
-        <div className="grid grid-cols-2 gap-3 mb-8">
+        <div className="grid grid-cols-2 gap-2.5 sm:gap-3 mb-8">
           {(d.competencies || defaultVideoCard.competencies).map(({ icon, label, sub }) => {
             const Icon = getIcon(icon);
             return (
-              <div key={label} className="flex items-center gap-3 bg-white/10 hover:bg-white/15 border border-white/15 rounded-xl px-3.5 py-3 transition-colors">
-                <div className="w-8 h-8 rounded-lg bg-white/20 text-white flex items-center justify-center flex-shrink-0">
-                  <Icon size={15} />
+              <div key={label} className="flex flex-col items-center justify-center text-center bg-white/10 hover:bg-white/15 border border-white/15 rounded-xl p-2.5 sm:p-3 transition-colors">
+                <div className="w-8 h-8 rounded-lg bg-white/20 text-white flex items-center justify-center mb-1.5 flex-shrink-0">
+                  <Icon size={16} />
                 </div>
-                <div>
-                  <p className="text-[11px] font-black text-white leading-none mb-0.5">{label}</p>
-                  <p className="text-[10px] text-white/60 font-medium">{sub}</p>
+                <div className="w-full">
+                  <p className="text-[11px] sm:text-xs font-black text-white leading-tight mb-0.5 text-center break-words">{label}</p>
+                  <p className="text-[9.5px] sm:text-[10px] text-white/70 font-medium text-center">{sub}</p>
                 </div>
               </div>
             );
@@ -169,7 +169,7 @@ const DesignCard = ({ navigate, cardData }) => {
       {/* Top accent stripe */}
       <div className="h-1.5 w-full bg-gradient-to-r from-[#6B1D2F] via-[#8B1E3F] to-[#C59A9F]" />
 
-      <div className="relative p-8 sm:p-10 flex flex-col h-full">
+      <div className="relative p-5 sm:p-8 md:p-10 flex flex-col h-full">
         {/* Top badge row */}
         <div className="flex items-center justify-between mb-8">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAFAF9] border border-[#C59A9F]/50 text-[11px] font-black text-[#6B1D2F] uppercase tracking-widest shadow-sm">
@@ -183,27 +183,27 @@ const DesignCard = ({ navigate, cardData }) => {
         </div>
 
         {/* Discipline title */}
-        <h3 className="text-3xl sm:text-4xl font-black text-[#1C1917] leading-tight mb-3" style={{ fontFamily: theme.fonts.heading }}>
+        <h3 className="text-2xl sm:text-4xl font-black text-[#1C1917] leading-tight mb-3" style={{ fontFamily: theme.fonts.heading }}>
           {d.headline}<br />
           <span className="text-[#6B1D2F] font-black">{d.headlineAccent}</span>
         </h3>
 
-        <p className="text-[#292524] text-sm font-normal leading-relaxed mb-8 max-w-md">
+        <p className="text-[#292524] text-xs sm:text-sm font-normal leading-relaxed mb-8 max-w-md">
           {d.description}
         </p>
 
         {/* Core competencies grid */}
-        <div className="grid grid-cols-2 gap-3 mb-8">
+        <div className="grid grid-cols-2 gap-2.5 sm:gap-3 mb-8">
           {(d.competencies || defaultDesignCard.competencies).map(({ icon, label, sub }) => {
             const Icon = getIcon(icon);
             return (
-              <div key={label} className="flex items-center gap-3 bg-[#FAFAF9] hover:bg-[#FAFAF9]/50 border border-[#C59A9F] rounded-xl px-3.5 py-3 transition-colors">
-                <div className="w-8 h-8 rounded-lg bg-[#FAFAF9] text-[#6B1D2F] flex items-center justify-center flex-shrink-0">
-                  <Icon size={15} />
+              <div key={label} className="flex flex-col items-center justify-center text-center bg-[#FAFAF9] hover:bg-[#FAFAF9]/50 border border-[#C59A9F] rounded-xl p-2.5 sm:p-3 transition-colors">
+                <div className="w-8 h-8 rounded-lg bg-[#FAFAF9] text-[#6B1D2F] flex items-center justify-center mb-1.5 flex-shrink-0 shadow-sm">
+                  <Icon size={16} />
                 </div>
-                <div>
-                  <p className="text-[11px] font-black text-[#1C1917] leading-none mb-0.5">{label}</p>
-                  <p className="text-[10px] text-[#292524] font-semibold">{sub}</p>
+                <div className="w-full">
+                  <p className="text-[11px] sm:text-xs font-black text-[#1C1917] leading-tight mb-0.5 text-center break-words">{label}</p>
+                  <p className="text-[9.5px] sm:text-[10px] text-[#292524] font-semibold text-center">{sub}</p>
                 </div>
               </div>
             );
@@ -310,7 +310,7 @@ export const ExpertiseSection = ({ data, statistics }) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.08 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] leading-[1.06] tracking-tight"
+              className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] leading-[1.06] tracking-tight break-words"
               style={{ fontFamily: theme.fonts.heading }}
             >
               Expert in Two<br />
@@ -341,7 +341,7 @@ export const ExpertiseSection = ({ data, statistics }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16"
+          className="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4 mb-12 sm:mb-16"
         >
           {stats.map(({ value, label, icon: Icon }, idx) => (
             <motion.div
@@ -351,15 +351,15 @@ export const ExpertiseSection = ({ data, statistics }) => {
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
               whileHover={{ y: -4 }}
-              className="glass-card-luxury rounded-2xl p-6 text-center"
+              className="glass-card-luxury rounded-2xl p-3.5 sm:p-6 flex flex-col items-center justify-center text-center"
             >
-              <div className="w-10 h-10 rounded-xl bg-[#FAFAF9] text-[#6B1D2F] flex items-center justify-center mx-auto mb-3 shadow-sm">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center mx-auto mb-2 sm:mb-2.5 shadow-md shadow-[#6B1D2F]/20">
                 <Icon size={18} />
               </div>
-              <p className="text-3xl font-black text-[#6B1D2F] mb-1" style={{ fontFamily: theme.fonts.heading }}>
+              <p className="text-2xl sm:text-3xl font-black text-[#6B1D2F] dark:text-[#F5F0F1] mb-1 leading-none text-center" style={{ fontFamily: theme.fonts.heading }}>
                 {value}
               </p>
-              <p className="text-[11px] text-[#292524] font-black uppercase tracking-widest">{label}</p>
+              <p className="text-[10px] sm:text-[11px] text-[#292524] dark:text-[#A89597] font-black uppercase tracking-wider text-center leading-tight">{label}</p>
             </motion.div>
           ))}
         </motion.div>

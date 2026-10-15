@@ -94,7 +94,7 @@ export default function About() {
           scale: [1, 1.02, 1],
         }}
         transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute -top-10 right-0 sm:right-10 md:right-20 w-[380px] sm:w-[500px] md:w-[650px] opacity-10 sm:opacity-20 md:opacity-25 pointer-events-none z-0 mix-blend-multiply filter blur-[0.5px]"
+        className="absolute -top-10 right-0 sm:right-10 md:right-20 w-[260px] xs:w-[340px] sm:w-[500px] md:w-[650px] opacity-10 sm:opacity-20 md:opacity-25 pointer-events-none z-0 mix-blend-multiply filter blur-[0.5px]"
       >
         <img
           src={profile.profileImage || alazarImg}
@@ -126,29 +126,29 @@ export default function About() {
               </div>
 
               <h1
-                className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] leading-[1.08] tracking-tight"
+                className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] leading-[1.08] tracking-tight break-words"
                 style={{ fontFamily: theme.fonts.heading }}
               >
                 {profile.fullName || 'Alazar Asdesach'}.<br />
                 <span className="text-[#6B1D2F] font-black">{profile.headline || 'Director & Visual Artist.'}</span>
               </h1>
 
-              <p className="text-[#1C1917] font-medium text-base md:text-lg leading-relaxed max-w-lg bg-white/85 backdrop-blur-md px-5 py-3 rounded-2xl border border-[#C59A9F]/40 shadow-sm inline-block">
+              <p className="text-sm sm:text-base md:text-lg text-[#1C1917] font-medium leading-relaxed max-w-lg bg-white/85 backdrop-blur-md px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl border border-[#C59A9F]/40 shadow-sm inline-block max-w-full break-words">
                 {profile.shortDescription}
               </p>
 
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
                 {[
                   { icon: Film, title: 'Video Production', sub: 'DaVinci & RED 8K' },
                   { icon: PenTool, title: 'Brand & Graphic', sub: 'Identity Systems' },
                 ].map(({ icon: Icon, title, sub }) => (
-                  <div key={title} className="flex items-center gap-2.5 p-3.5 rounded-2xl bg-white border border-[#C59A9F]/30 shadow-sm">
-                    <div className="w-9 h-9 rounded-xl bg-[#FAFAF9] text-[#6B1D2F] flex items-center justify-center flex-shrink-0">
-                      <Icon size={17} />
+                  <div key={title} className="flex flex-col items-center justify-center text-center p-3 sm:p-3.5 rounded-2xl bg-white border border-[#C59A9F]/30 shadow-sm">
+                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#FAFAF9] text-[#6B1D2F] flex items-center justify-center flex-shrink-0 mb-1.5 shadow-sm">
+                      <Icon size={16} />
                     </div>
-                    <div>
-                      <p className="text-xs font-black text-[#1C1917]">{title}</p>
-                      <p className="text-[10.5px] text-[#292524] font-bold uppercase tracking-wider">{sub}</p>
+                    <div className="w-full">
+                      <p className="text-xs font-black text-[#1C1917] leading-tight mb-0.5 text-center break-words">{title}</p>
+                      <p className="text-[10px] text-[#292524] font-bold uppercase tracking-wider text-center">{sub}</p>
                     </div>
                   </div>
                 ))}
@@ -218,7 +218,7 @@ export default function About() {
 
         {/* ── Core philosophy cards ─────────────────────────────────────── */}
         {isSectionVisible('CREATIVE_CAPABILITIES') && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-20 sm:mb-28">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-5 mb-20 sm:mb-28">
             {capabilities.map((item, idx) => {
               const IconComp = iconMap[item.iconName] || item.icon || Film;
               return (
@@ -229,19 +229,22 @@ export default function About() {
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.09 }}
                   whileHover={{ y: -6 }}
-                  className="glass-card-luxury p-6 rounded-[2rem] text-left flex items-start gap-4"
+                  className="glass-card-luxury p-3.5 sm:p-6 rounded-2xl sm:rounded-[2rem] flex flex-col items-center justify-center text-center"
                 >
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center flex-shrink-0 shadow-lg shadow-[#6B1D2F]/20 mt-0.5">
-                    <IconComp size={24} />
+                  <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center flex-shrink-0 shadow-md sm:shadow-lg shadow-[#6B1D2F]/20 mb-2 sm:mb-3">
+                    <IconComp size={20} className="sm:hidden" />
+                    <IconComp size={24} className="hidden sm:inline" />
                   </div>
-                  <div className="flex-1 min-w-0">
+                  <div className="w-full">
                     <h3
-                      className="text-base sm:text-lg font-black text-[#1C1917] mb-1 leading-snug"
+                      className="text-xs sm:text-lg font-black text-[#1C1917] dark:text-[#F5F0F1] mb-1 leading-snug text-center break-words"
                       style={{ fontFamily: theme.fonts.heading }}
                     >
                       {item.title}
                     </h3>
-                    <p className="text-xs text-[#292524] font-normal leading-relaxed">{item.description || item.desc}</p>
+                    <p className="text-[10px] sm:text-xs text-[#292524] dark:text-[#A89597] font-normal leading-relaxed text-center line-clamp-3 sm:line-clamp-none">
+                      {item.description || item.desc}
+                    </p>
                   </div>
                 </motion.div>
               );

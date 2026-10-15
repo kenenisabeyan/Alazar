@@ -40,7 +40,7 @@ export const CaseStudyHighlight = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.08 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] leading-[1.06] tracking-tight"
+              className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] leading-[1.06] tracking-tight break-words"
               style={{ fontFamily: theme.fonts.heading }}
             >
               Real Results for<br />
@@ -58,7 +58,7 @@ export const CaseStudyHighlight = () => {
               <button
                 key={cs.id}
                 onClick={() => setActive(idx)}
-                className={`px-4 py-2 rounded-full text-[11px] font-black uppercase tracking-wider transition-all ${active === idx
+                className={`px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full text-[10px] sm:text-[11px] font-black uppercase tracking-wider transition-all ${active === idx
                     ? 'bg-[#6B1D2F] text-white shadow-lg shadow-[#6B1D2F]/25'
                     : 'bg-white border border-[#C59A9F] text-[#292524] hover:border-[#6B1D2F] hover:text-[#6B1D2F]'
                   }`}
@@ -80,7 +80,7 @@ export const CaseStudyHighlight = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4 }}
-              className="lg:col-span-7 relative rounded-[2rem] overflow-hidden min-h-[420px] bg-gradient-to-br from-[#6B1D2F] via-[#521523] to-[#3B0E19] shadow-2xl shadow-[#6B1D2F]/25 flex flex-col justify-end border border-[#C59A9F]/30"
+              className="lg:col-span-7 relative rounded-[2rem] overflow-hidden min-h-[340px] sm:min-h-[420px] bg-gradient-to-br from-[#6B1D2F] via-[#521523] to-[#3B0E19] shadow-2xl shadow-[#6B1D2F]/25 flex flex-col justify-end border border-[#C59A9F]/30"
             >
               {/* Background image */}
               <img
@@ -93,8 +93,8 @@ export const CaseStudyHighlight = () => {
               {/* Ambient glow */}
               <div className="absolute top-0 right-0 w-64 h-64 bg-[#6B1D2F]/30 blur-[80px] rounded-full pointer-events-none" />
 
-              <div className="relative z-10 p-8 sm:p-10">
-                <div className="flex items-center gap-3 mb-6">
+              <div className="relative z-10 p-5 sm:p-8 md:p-10">
+                <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 mb-4 sm:mb-6">
                   <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#6B1D2F] text-[10px] font-black text-white uppercase tracking-widest">
                     <Icon size={11} /> {current.client}
                   </span>
@@ -104,7 +104,7 @@ export const CaseStudyHighlight = () => {
                 </div>
 
                 <h3
-                  className="text-3xl sm:text-4xl font-black text-white mb-3 leading-tight"
+                  className="text-2xl sm:text-4xl font-black text-white mb-3 leading-tight"
                   style={{ fontFamily: theme.fonts.heading }}
                 >
                   {current.project}

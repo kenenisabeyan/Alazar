@@ -10,6 +10,9 @@ export default {
 
   theme: {
     extend: {
+      screens: {
+        'xs': '420px',
+      },
 
       // ── CSS-var-driven color tokens ─────────────────────────────────────
       // Every token maps to the CSS variable declared in index.css,

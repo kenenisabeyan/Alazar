@@ -50,7 +50,7 @@ export const BehindTheScenes = ({ data }) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.08 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] leading-[1.06] tracking-tight"
+              className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] leading-[1.06] tracking-tight break-words"
               style={{ fontFamily: theme.fonts.heading }}
             >
               On Set &<br />
@@ -149,25 +149,28 @@ export const BehindTheScenes = ({ data }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4"
+          className="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4"
         >
           {[
-            { value: '140+', label: 'Projects Shot' },
-            { value: '8K', label: 'Max Resolution' },
-            { value: '3', label: 'Cinema Cameras' },
-            { value: '4', label: 'Continents Filmed' },
-          ].map(({ value, label }) => (
+            { icon: Film, value: '140+', label: 'Projects Shot' },
+            { icon: Zap, value: '8K', label: 'Max Resolution' },
+            { icon: Camera, value: '3', label: 'Cinema Cameras' },
+            { icon: MapPin, value: '4', label: 'Continents Filmed' },
+          ].map(({ icon: Icon, value, label }) => (
             <div
               key={label}
-              className="glass-card-luxury rounded-2xl p-5 text-center"
+              className="glass-card-luxury rounded-2xl p-3.5 sm:p-5 flex flex-col items-center justify-center text-center"
             >
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center flex-shrink-0 shadow-md shadow-[#6B1D2F]/20 mb-2">
+                <Icon size={16} />
+              </div>
               <p
-                className="text-3xl font-black text-[#6B1D2F] mb-1 leading-none"
+                className="text-2xl sm:text-3xl font-black text-[#6B1D2F] dark:text-[#F5F0F1] mb-1 leading-none text-center"
                 style={{ fontFamily: theme.fonts.heading }}
               >
                 {value}
               </p>
-              <p className="text-[10px] text-[#292524] font-black uppercase tracking-widest">{label}</p>
+              <p className="text-[9.5px] sm:text-[10px] text-[#292524] dark:text-[#A89597] font-black uppercase tracking-wider sm:tracking-widest text-center leading-tight">{label}</p>
             </div>
           ))}
         </motion.div>

@@ -79,7 +79,7 @@ export const WorkflowVault = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.08 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] leading-[1.06] tracking-tight"
+              className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] leading-[1.06] tracking-tight break-words"
               style={{ fontFamily: theme.fonts.heading }}
             >
               Simple & Transparent<br />
@@ -101,7 +101,7 @@ export const WorkflowVault = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
 
           {/* Left: step selectors */}
-          <div className="lg:col-span-5 flex flex-col gap-3">
+          <div className="lg:col-span-5 grid grid-cols-2 lg:flex lg:flex-col gap-2.5 sm:gap-3">
             {steps.map((s, idx) => {
               const StepIcon = s.icon;
               const isActive = idx === activeStep;
@@ -113,30 +113,30 @@ export const WorkflowVault = () => {
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.08 }}
                   onClick={() => setActiveStep(idx)}
-                  className={`w-full text-left flex items-center gap-4 p-5 rounded-2xl border-2 transition-all duration-300 group ${isActive
+                  className={`w-full text-center lg:text-left flex flex-col lg:flex-row items-center justify-center lg:justify-start gap-2 sm:gap-4 p-3 sm:p-5 rounded-2xl border-2 transition-all duration-300 group ${isActive
                       ? 'bg-[#6B1D2F] border-[#6B1D2F] text-white shadow-xl shadow-[#6B1D2F]/25'
                       : 'bg-white border-[#C59A9F]/50 text-[#1C1917] hover:border-[#6B1D2F]'
                     }`}
                 >
                   {/* Number badge */}
-                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 font-black text-sm transition-all ${isActive
+                  <div className={`w-9 h-9 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center mx-auto lg:mx-0 flex-shrink-0 font-black text-xs sm:text-sm transition-all ${isActive
                       ? 'bg-white/20 text-white shadow-md'
                       : 'bg-[#FAFAF9] text-[#6B1D2F] group-hover:bg-[#6B1D2F] group-hover:text-white'
                     }`}>
                     {s.number}
                   </div>
 
-                  <div className="flex-1 min-w-0">
-                    <p className={`text-[10px] font-black uppercase tracking-widest mb-0.5 ${isActive ? 'text-[#FAFAF9]/80' : 'text-[#292524]'}`}>
+                  <div className="flex-1 min-w-0 w-full">
+                    <p className={`text-[9px] sm:text-[10px] font-black uppercase tracking-widest mb-0.5 ${isActive ? 'text-[#FAFAF9]/80' : 'text-[#292524]'}`}>
                       {s.subtitle}
                     </p>
-                    <h4 className={`text-sm font-black leading-tight ${isActive ? 'text-white' : 'text-[#1C1917]'}`}
+                    <h4 className={`text-xs sm:text-sm font-black leading-tight break-normal whitespace-normal ${isActive ? 'text-white' : 'text-[#1C1917]'}`}
                       style={{ fontFamily: theme.fonts.heading }}>
                       {s.title}
                     </h4>
                   </div>
 
-                  <div className={`text-[10px] font-bold px-2.5 py-1 rounded-full flex-shrink-0 ${isActive
+                  <div className={`text-[9px] sm:text-[10px] font-bold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full mt-1 lg:mt-0 flex-shrink-0 ${isActive
                       ? 'bg-white/20 text-white'
                       : 'bg-[#FAFAF9] text-[#6B1D2F]'
                     }`}>
@@ -156,13 +156,13 @@ export const WorkflowVault = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -30 }}
                 transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                className="h-full bg-white rounded-[2rem] border border-[#C59A9F] shadow-xl p-8 sm:p-10 flex flex-col"
+                className="h-full bg-white rounded-[2rem] border border-[#C59A9F] shadow-xl p-5 sm:p-8 md:p-10 flex flex-col"
               >
                 {/* Icon + step */}
-                <div className="flex items-start justify-between mb-8">
-                  <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center shadow-xl shadow-[#6B1D2F]/25">
-                      <Icon size={28} />
+                <div className="flex flex-wrap items-start justify-between gap-3 mb-6 sm:mb-8">
+                  <div className="flex items-center gap-3 sm:gap-4">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center shadow-xl shadow-[#6B1D2F]/25 flex-shrink-0">
+                      <Icon size={22} className="sm:scale-125" />
                     </div>
                     <div>
                       <p className="text-[10px] font-black uppercase tracking-widest text-[#6B1D2F] mb-0.5">
@@ -189,11 +189,11 @@ export const WorkflowVault = () => {
                   <p className="text-[10px] font-black uppercase tracking-widest text-[#6B1D2F] mb-4">
                     What's Included
                   </p>
-                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  <ul className="grid grid-cols-2 gap-2 sm:gap-2.5">
                     {step.details.map((d, i) => (
-                      <li key={i} className="flex items-center gap-2.5 text-xs text-[#1C1917] font-medium">
-                        <CheckCircle2 size={14} className="text-[#6B1D2F] flex-shrink-0" />
-                        {d}
+                      <li key={i} className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-1.5 sm:gap-2.5 text-xs text-[#1C1917] font-medium p-2.5 sm:p-0 rounded-xl bg-[#FAFAF9] sm:bg-transparent border border-[#C59A9F]/20 sm:border-0">
+                        <CheckCircle2 size={13} className="text-[#6B1D2F] flex-shrink-0 mx-auto sm:mx-0" />
+                        <span className="break-normal whitespace-normal">{d}</span>
                       </li>
                     ))}
                   </ul>

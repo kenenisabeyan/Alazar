@@ -54,7 +54,7 @@ export const GearSection = ({ data }) => {
           scale: [1, 1.02, 1],
         }}
         transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute -top-10 right-0 sm:right-10 md:right-20 w-[380px] sm:w-[500px] md:w-[650px] opacity-10 sm:opacity-15 md:opacity-20 pointer-events-none z-0 mix-blend-multiply filter blur-[0.5px]"
+        className="absolute -top-10 right-0 sm:right-10 md:right-20 w-[260px] xs:w-[340px] sm:w-[500px] md:w-[650px] opacity-10 sm:opacity-15 md:opacity-20 pointer-events-none z-0 mix-blend-multiply filter blur-[0.5px]"
       >
         <img
           src={alazarImg}
@@ -70,7 +70,7 @@ export const GearSection = ({ data }) => {
       <div className="container mx-auto px-4 sm:px-6 md:px-10 lg:px-12 max-w-[1550px] relative z-10">
 
         {/* ── Header ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 items-end">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 mb-12 sm:mb-16 items-end">
           <div className="lg:col-span-7">
             <motion.span
               initial={{ opacity: 0, y: 15 }}
@@ -85,7 +85,7 @@ export const GearSection = ({ data }) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.08 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] leading-[1.06] tracking-tight"
+              className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] leading-[1.06] tracking-tight break-words"
               style={{ fontFamily: theme.fonts.heading }}
             >
               Professional-Grade<br />
@@ -101,13 +101,13 @@ export const GearSection = ({ data }) => {
             className="lg:col-span-5 flex flex-col justify-end space-y-3"
           >
             {/* Visual Glassmorphism Hero Badge to eliminate empty gap */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/95 backdrop-blur-md border border-[#C59A9F]/50 text-[11px] font-black text-[#6B1D2F] uppercase tracking-widest w-fit shadow-sm shimmer-border">
+            <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-full bg-white/95 backdrop-blur-md border border-[#C59A9F]/50 text-[10px] sm:text-[11px] font-black text-[#6B1D2F] uppercase tracking-widest w-fit shadow-sm shimmer-border">
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
               <Sparkles size={13} className="text-[#6B1D2F]" />
               <span>8K Master Cinema & Color Suite</span>
             </div>
 
-            <p className="text-[#1C1917] font-medium text-base leading-relaxed bg-white/85 backdrop-blur-md px-5 py-3 rounded-2xl border border-[#C59A9F]/40 shadow-sm">
+            <p className="text-[#1C1917] font-medium text-sm sm:text-base leading-relaxed bg-white/85 backdrop-blur-md px-4 sm:px-5 py-3 rounded-2xl border border-[#C59A9F]/40 shadow-sm max-w-full break-words">
               Industry-standard cinema cameras, precision lenses, professional lighting, and a fast dedicated post-production suite — everything needed to deliver 8K master quality.
             </p>
           </motion.div>
@@ -116,7 +116,7 @@ export const GearSection = ({ data }) => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
           {/* ── Left: Category nav ── */}
-          <div className="lg:col-span-4 flex flex-row lg:flex-col gap-3 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0">
+          <div className="lg:col-span-4 grid grid-cols-2 lg:flex lg:flex-col gap-2.5 sm:gap-3">
             {categories.map((cat, idx) => {
               const Icon = catIcons[idx % catIcons.length];
               const isActive = idx === activeCategory;
@@ -128,29 +128,29 @@ export const GearSection = ({ data }) => {
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.07 }}
                   onClick={() => setActiveCategory(idx)}
-                  className={`flex-shrink-0 lg:flex-shrink flex items-center gap-3.5 px-5 py-4 rounded-xl border-2 transition-all duration-300 text-left w-full group ${isActive
+                  className={`flex flex-col lg:flex-row items-center justify-center lg:justify-start text-center lg:text-left gap-2 sm:gap-3.5 p-3 sm:px-5 sm:py-4 rounded-2xl sm:rounded-xl border-2 transition-all duration-300 w-full group ${isActive
                       ? 'bg-[#6B1D2F] border-[#6B1D2F] text-white shadow-xl shadow-[#6B1D2F]/25'
                       : 'bg-white/90 backdrop-blur-md border-[#C59A9F]/50 text-[#1C1917] hover:border-[#6B1D2F]'
                     }`}
                 >
-                  <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 transition-all ${isActive
+                  <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center mx-auto lg:mx-0 flex-shrink-0 transition-all ${isActive
                       ? 'bg-white/20 text-white shadow-md'
                       : 'bg-[#FAFAF9] text-[#6B1D2F] group-hover:bg-[#6B1D2F] group-hover:text-white'
                     }`}>
                     <Icon size={18} />
                   </div>
-                  <div className="min-w-0">
-                    <p className={`text-[10px] font-black uppercase tracking-widest mb-0.5 ${isActive ? 'text-[#FAFAF9]/80' : 'text-[#292524]'}`}>
+                  <div className="min-w-0 w-full">
+                    <p className={`text-[9px] sm:text-[10px] font-black uppercase tracking-widest mb-0.5 ${isActive ? 'text-[#FAFAF9]/80' : 'text-[#292524]'}`}>
                       {idx + 1} of {categories.length}
                     </p>
-                    <h4 className={`text-sm font-black truncate leading-tight ${isActive ? 'text-white' : 'text-[#1C1917]'}`}
+                    <h4 className={`text-xs sm:text-sm font-black leading-tight break-normal whitespace-normal ${isActive ? 'text-white' : 'text-[#1C1917]'}`}
                       style={{ fontFamily: theme.fonts.heading }}>
                       {cat.category}
                     </h4>
                   </div>
                   <ArrowRight
                     size={14}
-                    className={`ml-auto flex-shrink-0 transition-all ${isActive ? 'text-[#C59A9F]' : 'text-[#C59A9F]/0 group-hover:text-[#C59A9F]'}`}
+                    className={`hidden lg:block ml-auto flex-shrink-0 transition-all ${isActive ? 'text-[#C59A9F]' : 'text-[#C59A9F]/0 group-hover:text-[#C59A9F]'}`}
                   />
                 </motion.button>
               );

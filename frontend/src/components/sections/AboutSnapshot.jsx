@@ -57,7 +57,7 @@ export const AboutSnapshot = () => {
 
             {/* Headline */}
             <h2
-              className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] tracking-tight leading-[1.04]"
+              className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] tracking-tight leading-[1.04] break-words"
               style={{ fontFamily: theme.fonts.heading }}
             >
               Expert Video Director<br />
@@ -65,35 +65,35 @@ export const AboutSnapshot = () => {
             </h2>
 
             {/* Body copy */}
-            <p className="text-base sm:text-lg text-[#1C1917] font-medium leading-relaxed max-w-xl bg-white/80 backdrop-blur-md px-5 py-3 rounded-2xl border border-[#C59A9F]/40 shadow-sm inline-block">
+            <p className="text-sm sm:text-lg text-[#1C1917] font-medium leading-relaxed max-w-xl bg-white/80 backdrop-blur-md px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl border border-[#C59A9F]/40 shadow-sm inline-block max-w-full break-words">
               I combine cinematic video editing, DaVinci color science, and senior-level graphic design for global brands and creative directors who refuse to compromise on quality.
             </p>
 
             {/* Discipline cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-2.5 sm:gap-4">
               {disciplines.map(({ icon: Icon, label, tags, dark }) => (
                 <div
                   key={label}
-                  className={`relative rounded-3xl p-6 overflow-hidden border transition-all duration-300 hover:-translate-y-1 ${dark
+                  className={`relative rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 overflow-hidden border transition-all duration-300 hover:-translate-y-1 flex flex-col items-center justify-center text-center ${dark
                       ? 'bg-gradient-to-br from-[#6B1D2F] via-[#521523] to-[#3B0E19] border-[#C59A9F]/30 shadow-xl shadow-[#6B1D2F]/20'
                       : 'bg-white border-[#C59A9F] shadow-md hover:border-[#6B1D2F]'
                     }`}
                 >
                   {dark && <div className="absolute -top-6 -right-6 w-24 h-24 bg-white/10 blur-[40px] rounded-full pointer-events-none" />}
-                  <div className="relative z-10">
-                    <div className={`w-10 h-10 rounded-2xl flex items-center justify-center mb-3.5 ${dark ? 'bg-white/20 text-white shadow-md' : 'bg-[#FAFAF9] text-[#6B1D2F]'
+                  <div className="relative z-10 w-full flex flex-col items-center">
+                    <div className={`w-9 h-9 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-2 sm:mb-3.5 ${dark ? 'bg-white/20 text-white shadow-md' : 'bg-[#FAFAF9] text-[#6B1D2F]'
                       }`}>
                       <Icon size={18} />
                     </div>
                     <h4
-                      className={`text-base font-black mb-2.5 leading-tight ${dark ? 'text-white' : 'text-[#1C1917]'}`}
+                      className={`text-xs sm:text-base font-black mb-1.5 sm:mb-2.5 leading-tight text-center break-words ${dark ? 'text-white' : 'text-[#1C1917]'}`}
                       style={{ fontFamily: theme.fonts.heading }}
                     >
                       {label}
                     </h4>
-                    <div className="flex flex-wrap gap-1.5">
+                    <div className="flex flex-wrap justify-center gap-1 sm:gap-1.5">
                       {tags.map(t => (
-                        <span key={t} className={`text-[9.5px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full ${dark ? 'bg-white/20 text-white' : 'bg-[#FAFAF9] text-[#6B1D2F]'
+                        <span key={t} className={`text-[8.5px] sm:text-[9.5px] font-black uppercase tracking-wider px-2 sm:px-2.5 py-0.5 rounded-full ${dark ? 'bg-white/20 text-white' : 'bg-[#FAFAF9] text-[#6B1D2F]'
                           }`}>{t}</span>
                       ))}
                     </div>
@@ -103,31 +103,31 @@ export const AboutSnapshot = () => {
             </div>
 
             {/* Director's creed */}
-            <div className="flex items-center gap-4 p-4 sm:p-5 rounded-3xl bg-white border border-[#C59A9F]/40 shadow-sm">
-              <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center flex-shrink-0 shadow-md shadow-[#6B1D2F]/25">
-                <Quote size={20} />
+            <div className="flex items-center gap-3.5 sm:gap-4 p-4 sm:p-5 rounded-2xl sm:rounded-3xl bg-white border border-[#C59A9F]/40 shadow-sm">
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center flex-shrink-0 shadow-md shadow-[#6B1D2F]/25">
+                <Quote size={18} />
               </div>
-              <div>
+              <div className="min-w-0 flex-1">
                 <p className="text-[10px] uppercase tracking-[0.2em] text-[#6B1D2F] font-black mb-0.5">
                   Director's Creed
                 </p>
-                <p className="text-sm sm:text-base text-[#1C1917] italic font-bold leading-snug">
+                <p className="text-xs sm:text-base text-[#1C1917] italic font-bold leading-snug break-words">
                   "Paced storytelling, vivid color science, and purposeful design."
                 </p>
               </div>
             </div>
 
             {/* Stats row */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-1">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 pt-1">
               {statistics.map(({ value, label }) => (
-                <div key={label} className="text-center p-3.5 rounded-2xl bg-white border border-[#C59A9F] shadow-sm">
+                <div key={label} className="text-center p-3 sm:p-3.5 rounded-2xl bg-white border border-[#C59A9F] shadow-sm flex flex-col items-center justify-center">
                   <p
-                    className="text-2xl font-black text-[#6B1D2F] leading-none mb-1"
+                    className="text-xl sm:text-2xl font-black text-[#6B1D2F] leading-none mb-1 text-center"
                     style={{ fontFamily: theme.fonts.heading }}
                   >
                     {value}
                   </p>
-                  <p className="text-[9.5px] text-[#292524] font-black uppercase tracking-wider leading-tight">
+                  <p className="text-[9px] sm:text-[9.5px] text-[#292524] font-black uppercase tracking-wider leading-tight text-center">
                     {label}
                   </p>
                 </div>
@@ -135,12 +135,12 @@ export const AboutSnapshot = () => {
             </div>
 
             {/* CTAs */}
-            <div className="flex flex-row gap-3 pt-2">
+            <div className="flex flex-col sm:flex-row gap-3 pt-2">
               <Button
                 variant="primary"
                 icon={<ArrowRight size={16} />}
                 onClick={() => { navigate('/about'); window.scrollTo(0, 0); }}
-                className="flex-1 min-w-0 px-4 py-4 text-xs font-black uppercase tracking-widest rounded-full shadow-xl"
+                className="w-full sm:flex-1 min-w-0 px-4 py-3.5 sm:py-4 text-xs font-black uppercase tracking-widest rounded-full shadow-xl"
               >
                 Full Story
               </Button>
@@ -148,7 +148,7 @@ export const AboutSnapshot = () => {
                 variant="outline"
                 icon={<Camera size={16} />}
                 onClick={() => { navigate('/portfolio'); window.scrollTo(0, 0); }}
-                className="flex-1 min-w-0 px-4 py-4 text-xs font-black uppercase tracking-widest rounded-full border-[#6B1D2F] text-[#6B1D2F]"
+                className="w-full sm:flex-1 min-w-0 px-4 py-3.5 sm:py-4 text-xs font-black uppercase tracking-widest rounded-full border-[#6B1D2F] text-[#6B1D2F]"
               >
                 See My Work
               </Button>
@@ -161,7 +161,7 @@ export const AboutSnapshot = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-6 relative flex items-center justify-center py-6 px-2 sm:px-6"
+            className="lg:col-span-6 relative flex items-center justify-center py-6 px-1 sm:px-6"
           >
             {/* Glow disk */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -172,14 +172,14 @@ export const AboutSnapshot = () => {
             <motion.div
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-              className="absolute -top-3 left-2 sm:-left-4 z-30 bg-white border border-[#C59A9F]/50 rounded-2xl px-4 py-2.5 shadow-xl flex items-center gap-2.5"
+              className="absolute -top-3 left-1 sm:-left-4 z-30 bg-white border border-[#C59A9F]/50 rounded-2xl px-3 sm:px-4 py-2 sm:py-2.5 shadow-xl flex items-center gap-2 sm:gap-2.5"
             >
-              <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center shadow-md">
-                <Film size={15} />
+              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center shadow-md">
+                <Film size={14} />
               </div>
               <div>
-                <p className="text-[10px] font-black text-[#6B1D2F] uppercase tracking-wider">Video Editor</p>
-                <p className="text-[9px] text-[#292524] font-bold">8K · DaVinci</p>
+                <p className="text-[9.5px] sm:text-[10px] font-black text-[#6B1D2F] uppercase tracking-wider">Video Editor</p>
+                <p className="text-[8.5px] sm:text-[9px] text-[#292524] font-bold">8K · DaVinci</p>
               </div>
             </motion.div>
 
@@ -187,14 +187,14 @@ export const AboutSnapshot = () => {
             <motion.div
               animate={{ y: [0, 8, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-              className="absolute -bottom-4 right-2 sm:-right-4 z-30 bg-[#6B1D2F] rounded-2xl px-4 py-2.5 shadow-xl flex items-center gap-2.5 border border-white/20 text-white"
+              className="absolute -bottom-4 right-1 sm:-right-4 z-30 bg-[#6B1D2F] rounded-2xl px-3 sm:px-4 py-2 sm:py-2.5 shadow-xl flex items-center gap-2 sm:gap-2.5 border border-white/20 text-white"
             >
-              <div className="w-8 h-8 rounded-xl bg-white/20 text-white flex items-center justify-center shadow-md">
-                <Award size={15} />
+              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-white/20 text-white flex items-center justify-center shadow-md">
+                <Award size={14} />
               </div>
               <div>
-                <p className="text-[10px] font-black text-white uppercase tracking-wider">Telly Gold</p>
-                <p className="text-[9px] text-white/70 font-semibold">Industry Award</p>
+                <p className="text-[9.5px] sm:text-[10px] font-black text-white uppercase tracking-wider">Telly Gold</p>
+                <p className="text-[8.5px] sm:text-[9px] text-white/70 font-semibold">Industry Award</p>
               </div>
             </motion.div>
 
@@ -202,14 +202,14 @@ export const AboutSnapshot = () => {
             <motion.div
               animate={{ y: [0, -6, 0] }}
               transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-              className="absolute -bottom-4 left-2 sm:-left-4 z-30 bg-white border border-[#C59A9F]/50 rounded-2xl px-4 py-2.5 shadow-xl flex items-center gap-2.5"
+              className="hidden xs:flex absolute -bottom-4 left-1 sm:-left-4 z-30 bg-white border border-[#C59A9F]/50 rounded-2xl px-3 sm:px-4 py-2 sm:py-2.5 shadow-xl items-center gap-2 sm:gap-2.5"
             >
-              <div className="w-8 h-8 rounded-xl bg-[#FAFAF9] text-[#6B1D2F] flex items-center justify-center shadow-sm">
-                <PenTool size={15} />
+              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#FAFAF9] text-[#6B1D2F] flex items-center justify-center shadow-sm">
+                <PenTool size={14} />
               </div>
               <div>
-                <p className="text-[10px] font-black text-[#6B1D2F] uppercase tracking-wider">Sr. Designer</p>
-                <p className="text-[9px] text-[#292524] font-bold">Brand · 3D · Motion</p>
+                <p className="text-[9.5px] sm:text-[10px] font-black text-[#6B1D2F] uppercase tracking-wider">Sr. Designer</p>
+                <p className="text-[8.5px] sm:text-[9px] text-[#292524] font-bold">Brand · 3D · Motion</p>
               </div>
             </motion.div>
 
@@ -217,7 +217,7 @@ export const AboutSnapshot = () => {
             <motion.div
               animate={{ scale: [1, 1.05, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
-              className="absolute -top-3 right-2 sm:-right-2 z-30 flex items-center gap-2 bg-white border border-[#C59A9F] rounded-full px-3.5 py-1.5 shadow-md"
+              className="absolute -top-3 right-1 sm:-right-2 z-30 flex items-center gap-1.5 sm:gap-2 bg-white border border-[#C59A9F] rounded-full px-2.5 sm:px-3.5 py-1 sm:py-1.5 shadow-md"
             >
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shadow-sm shadow-emerald-500/50" />
               <span className="text-[9.5px] font-black text-[#1C1917] uppercase tracking-wider">Available Now</span>
