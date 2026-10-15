@@ -169,7 +169,7 @@ export default function InquiriesAdmin() {
 
   if (loading) {
     return (
-      <div className="p-12 text-center text-[#78716C]">
+      <div className="p-12 text-center text-[#292524]">
         <RefreshCw size={28} className="animate-spin mx-auto mb-3 text-[#6B1D2F]" />
         <p className="font-bold text-sm uppercase tracking-widest">Loading Client Inquiry CRM...</p>
       </div>
@@ -218,7 +218,7 @@ export default function InquiriesAdmin() {
             Client Inquiry Pipeline & CRM
           </div>
           <h1 className="text-3xl sm:text-4xl font-black text-white tracking-tight">Client Leads & Inquiries</h1>
-          <p className="text-xs text-[#C59A9F] mt-1 font-light max-w-xl">
+          <p className="text-xs text-[#E8B4BE] mt-1 font-medium max-w-xl">
             Track incoming project briefs, lead statuses, reference codes, quote estimations, and communication activity.
           </p>
         </div>
@@ -248,9 +248,9 @@ export default function InquiriesAdmin() {
           { label: 'Won Projects', value: wonCount, sub: 'Converted clients', color: 'text-[#6B1D2F]' }
         ].map((kpi, idx) => (
           <div key={idx} className="p-6 rounded-2xl bg-white border border-[#C59A9F]/30 shadow-sm flex flex-col justify-between">
-            <p className="text-[10px] font-black uppercase tracking-widest text-[#78716C] mb-1">{kpi.label}</p>
+            <p className="text-[10px] font-black uppercase tracking-widest text-[#292524] mb-1">{kpi.label}</p>
             <p className={`text-3xl font-black ${kpi.color}`}>{kpi.value}</p>
-            <p className="text-[10px] text-[#78716C] mt-2 font-medium">{kpi.sub}</p>
+            <p className="text-[10px] text-[#292524] mt-2 font-semibold">{kpi.sub}</p>
           </div>
         ))}
       </div>
@@ -261,7 +261,7 @@ export default function InquiriesAdmin() {
           <button
             onClick={() => setViewMode('table')}
             className={`px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wider flex items-center gap-2 transition-all ${
-              viewMode === 'table' ? 'bg-[#6B1D2F] text-white shadow-md' : 'bg-[#FAFAF9] text-[#78716C] border border-[#C59A9F]/40'
+              viewMode === 'table' ? 'bg-[#6B1D2F] text-white shadow-md' : 'bg-[#FAFAF9] text-[#292524] border border-[#C59A9F]/40'
             }`}
           >
             <List size={14} /> Table View
@@ -270,7 +270,7 @@ export default function InquiriesAdmin() {
           <button
             onClick={() => setViewMode('kanban')}
             className={`px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wider flex items-center gap-2 transition-all ${
-              viewMode === 'kanban' ? 'bg-[#6B1D2F] text-white shadow-md' : 'bg-[#FAFAF9] text-[#78716C] border border-[#C59A9F]/40'
+              viewMode === 'kanban' ? 'bg-[#6B1D2F] text-white shadow-md' : 'bg-[#FAFAF9] text-[#292524] border border-[#C59A9F]/40'
             }`}
           >
             <LayoutGrid size={14} /> Kanban Board
@@ -279,7 +279,7 @@ export default function InquiriesAdmin() {
           <button
             onClick={() => setViewMode('settings')}
             className={`px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wider flex items-center gap-2 transition-all ${
-              viewMode === 'settings' ? 'bg-[#6B1D2F] text-white shadow-md' : 'bg-[#FAFAF9] text-[#78716C] border border-[#C59A9F]/40'
+              viewMode === 'settings' ? 'bg-[#6B1D2F] text-white shadow-md' : 'bg-[#FAFAF9] text-[#292524] border border-[#C59A9F]/40'
             }`}
           >
             <Settings size={14} /> Contact Page CMS
@@ -289,7 +289,7 @@ export default function InquiriesAdmin() {
         {viewMode !== 'settings' && (
           <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto">
             <div className="relative w-full sm:w-64">
-              <Search size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#78716C]" />
+              <Search size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#292524]" />
               <input
                 type="text"
                 placeholder="Search by client, email, ref..."
@@ -321,7 +321,7 @@ export default function InquiriesAdmin() {
         <div className="bg-white rounded-3xl border border-[#C59A9F]/30 shadow-sm overflow-hidden">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="bg-[#FAFAF9] border-b border-[#C59A9F]/20 text-[10px] font-black uppercase tracking-widest text-[#78716C]">
+              <tr className="bg-[#FAFAF9] border-b border-[#C59A9F]/20 text-[10px] font-black uppercase tracking-widest text-[#292524]">
                 <th className="py-4 px-6">Reference</th>
                 <th className="py-4 px-4">Client Name</th>
                 <th className="py-4 px-4">Project Type</th>
@@ -334,7 +334,7 @@ export default function InquiriesAdmin() {
             <tbody className="divide-y divide-[#C59A9F]/15 text-xs font-medium text-[#1C1917]">
               {filteredInquiries.length === 0 ? (
                 <tr>
-                  <td colSpan={7} className="py-12 text-center text-[#78716C] font-light">
+                  <td colSpan={7} className="py-12 text-center text-[#292524] font-medium">
                     No client inquiries match your criteria.
                   </td>
                 </tr>
@@ -350,11 +350,11 @@ export default function InquiriesAdmin() {
                         <p className="font-black text-[#1C1917] text-sm">
                           {inq.first_name || inq.firstName} {inq.last_name || inq.lastName}
                         </p>
-                        <p className="text-[10px] text-[#78716C] font-semibold">{inq.email}</p>
+                        <p className="text-[10px] text-[#292524] font-semibold">{inq.email}</p>
                       </div>
                     </td>
 
-                    <td className="py-4 px-4 uppercase font-bold text-[11px] text-[#78716C]">
+                    <td className="py-4 px-4 uppercase font-bold text-[11px] text-[#292524]">
                       {inq.project_type || inq.projectType || 'freelance-video'}
                     </td>
 
@@ -379,7 +379,7 @@ export default function InquiriesAdmin() {
                       </select>
                     </td>
 
-                    <td className="py-4 px-4 text-[#78716C] text-[11px]">
+                    <td className="py-4 px-4 text-[#292524] text-[11px] font-semibold">
                       {inq.created_at ? new Date(inq.created_at).toLocaleDateString() : 'Recent'}
                     </td>
 
@@ -418,14 +418,14 @@ export default function InquiriesAdmin() {
                 <div>
                   <div className={`border-l-4 ${stage.color} pl-2 mb-4 flex items-center justify-between`}>
                     <h3 className="font-black text-xs uppercase tracking-wider text-[#1C1917]">{stage.label}</h3>
-                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-white text-[#78716C] border">
+                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-white text-[#292524] border">
                       {stageInquiries.length}
                     </span>
                   </div>
 
                   <div className="space-y-3">
                     {stageInquiries.length === 0 ? (
-                      <p className="text-[11px] text-[#78716C] font-light text-center py-6">No leads in stage</p>
+                      <p className="text-[11px] text-[#292524] font-medium text-center py-6">No leads in stage</p>
                     ) : (
                       stageInquiries.map((inq) => (
                         <div
@@ -437,14 +437,14 @@ export default function InquiriesAdmin() {
                             <span className="text-[9px] font-mono font-bold text-[#6B1D2F]">
                               {inq.reference_number || `INQ-${inq.id}`}
                             </span>
-                            <span className="text-[10px] font-bold text-[#78716C]">{inq.budget}</span>
+                            <span className="text-[10px] font-bold text-[#292524]">{inq.budget}</span>
                           </div>
 
                           <p className="font-black text-xs text-[#1C1917] leading-tight">
                             {inq.first_name || inq.firstName} {inq.last_name || inq.lastName}
                           </p>
 
-                          <p className="text-[10px] text-[#78716C] uppercase font-bold truncate">
+                          <p className="text-[10px] text-[#292524] uppercase font-bold truncate">
                             {inq.project_type || inq.projectType}
                           </p>
                         </div>
@@ -463,7 +463,7 @@ export default function InquiriesAdmin() {
         <form onSubmit={handleSaveSettings} className="bg-white rounded-3xl p-8 border border-[#C59A9F]/30 shadow-sm space-y-6 max-w-3xl">
           <div className="border-b border-[#C59A9F]/20 pb-4">
             <h2 className="text-xl font-black text-[#1C1917]">Contact Page Content & Hero CMS</h2>
-            <p className="text-xs text-[#78716C] mt-1">Manage public contact hero, eyebrow, availability status text, and contact information without editing source code.</p>
+            <p className="text-xs text-[#292524] mt-1 font-medium">Manage public contact hero, eyebrow, availability status text, and contact information without editing source code.</p>
           </div>
 
           {/* Hero settings */}
@@ -471,7 +471,7 @@ export default function InquiriesAdmin() {
             <h3 className="text-xs font-black uppercase tracking-wider text-[#6B1D2F]">Hero Section Settings</h3>
 
             <div>
-              <label className="block text-[11px] font-bold uppercase tracking-wider text-[#78716C] mb-1">Eyebrow Text</label>
+              <label className="block text-[11px] font-black uppercase tracking-wider text-[#1C1917] mb-1">Eyebrow Text</label>
               <input
                 type="text"
                 value={contactSettings.hero?.eyebrow || ''}
@@ -481,7 +481,7 @@ export default function InquiriesAdmin() {
             </div>
 
             <div>
-              <label className="block text-[11px] font-bold uppercase tracking-wider text-[#78716C] mb-1">Hero Title</label>
+              <label className="block text-[11px] font-black uppercase tracking-wider text-[#1C1917] mb-1">Hero Title</label>
               <input
                 type="text"
                 value={contactSettings.hero?.title || ''}
@@ -491,7 +491,7 @@ export default function InquiriesAdmin() {
             </div>
 
             <div>
-              <label className="block text-[11px] font-bold uppercase tracking-wider text-[#78716C] mb-1">Hero Description</label>
+              <label className="block text-[11px] font-black uppercase tracking-wider text-[#1C1917] mb-1">Hero Description</label>
               <textarea
                 rows={3}
                 value={contactSettings.hero?.description || ''}
@@ -506,7 +506,7 @@ export default function InquiriesAdmin() {
             <h3 className="text-xs font-black uppercase tracking-wider text-[#6B1D2F]">Availability Status Badge</h3>
 
             <div>
-              <label className="block text-[11px] font-bold uppercase tracking-wider text-[#78716C] mb-1">Current Status Text</label>
+              <label className="block text-[11px] font-black uppercase tracking-wider text-[#1C1917] mb-1">Current Status Text</label>
               <input
                 type="text"
                 value={contactSettings.availability?.statusText || ''}
@@ -545,7 +545,7 @@ export default function InquiriesAdmin() {
                   {selectedInquiry.first_name || selectedInquiry.firstName} {selectedInquiry.last_name || selectedInquiry.lastName}
                 </h3>
               </div>
-              <button onClick={() => setSelectedInquiry(null)} className="text-[#78716C] hover:text-[#6B1D2F]">
+              <button onClick={() => setSelectedInquiry(null)} className="text-[#292524] hover:text-[#6B1D2F]">
                 <X size={20} />
               </button>
             </div>
@@ -553,7 +553,7 @@ export default function InquiriesAdmin() {
             {/* Client Info Grid */}
             <div className="grid grid-cols-2 gap-4 p-4 rounded-2xl bg-[#FAFAF9] border border-[#C59A9F]/30 text-xs">
               <div>
-                <span className="text-[10px] uppercase font-bold text-[#78716C] block">Client Email</span>
+                <span className="text-[10px] uppercase font-black text-[#292524] block">Client Email</span>
                 <div className="flex items-center gap-2 mt-0.5">
                   <a href={`mailto:${selectedInquiry.email}`} className="font-bold text-[#1C1917] hover:underline">
                     {selectedInquiry.email}
@@ -568,17 +568,17 @@ export default function InquiriesAdmin() {
               </div>
 
               <div>
-                <span className="text-[10px] uppercase font-bold text-[#78716C] block">Budget Target</span>
+                <span className="text-[10px] uppercase font-black text-[#292524] block">Budget Target</span>
                 <p className="font-bold text-[#1C1917] mt-0.5">{selectedInquiry.budget || '$3k - $5k'}</p>
               </div>
 
               <div>
-                <span className="text-[10px] uppercase font-bold text-[#78716C] block">Service Type</span>
+                <span className="text-[10px] uppercase font-black text-[#292524] block">Service Type</span>
                 <p className="font-bold text-[#6B1D2F] uppercase mt-0.5">{selectedInquiry.project_type || selectedInquiry.projectType}</p>
               </div>
 
               <div>
-                <span className="text-[10px] uppercase font-bold text-[#78716C] block">Submission Date</span>
+                <span className="text-[10px] uppercase font-black text-[#292524] block">Submission Date</span>
                 <p className="font-bold text-[#1C1917] mt-0.5">
                   {selectedInquiry.created_at ? new Date(selectedInquiry.created_at).toLocaleString() : 'Recent'}
                 </p>
@@ -587,7 +587,7 @@ export default function InquiriesAdmin() {
 
             {/* Project Details Brief */}
             <div className="space-y-2">
-              <h4 className="text-xs font-black uppercase tracking-wider text-[#78716C]">Project Brief & Goals</h4>
+              <h4 className="text-xs font-black uppercase tracking-wider text-[#292524]">Project Brief & Goals</h4>
               <div className="p-5 rounded-2xl bg-[#FAFAF9] border border-[#C59A9F]/30 text-sm text-[#1C1917] font-normal leading-relaxed whitespace-pre-wrap">
                 {selectedInquiry.details}
               </div>
@@ -596,7 +596,7 @@ export default function InquiriesAdmin() {
             {/* Actions & Status */}
             <div className="flex flex-wrap justify-between items-center pt-4 border-t border-[#C59A9F]/20 gap-4">
               <div className="flex items-center gap-2">
-                <span className="text-xs font-bold text-[#78716C]">Change Status:</span>
+                <span className="text-xs font-bold text-[#292524]">Change Status:</span>
                 <select
                   value={selectedInquiry.status || 'new'}
                   onChange={(e) => handleStatusChange(selectedInquiry.id, e.target.value)}

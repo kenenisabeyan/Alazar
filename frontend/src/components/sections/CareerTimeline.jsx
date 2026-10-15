@@ -246,7 +246,7 @@ export const CareerTimeline = ({ data, awards: awardsProp }) => {
                 <p className="text-sm font-black text-[#1C1917]">
                   Accepting Q3 / Q4 Projects
                 </p>
-                <p className="text-xs text-[#78716C] font-light mt-0.5">
+                <p className="text-xs text-[#292524] font-medium mt-0.5">
                   Available Globally — Remote & On-Site
                 </p>
               </div>

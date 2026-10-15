@@ -84,7 +84,7 @@ function FaqAccordion({ faqs }) {
                   transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                   className="overflow-hidden"
                 >
-                  <p className="px-6 sm:px-10 pb-7 sm:pb-8 text-sm sm:text-base text-[#78716C] font-light leading-relaxed border-t border-[#C59A9F]/30 pt-5">
+                  <p className="px-6 sm:px-10 pb-7 sm:pb-8 text-sm sm:text-base text-[#292524] font-medium leading-relaxed border-t border-[#C59A9F]/30 pt-5">
                     {faq.a}
                   </p>
                 </motion.div>
@@ -223,7 +223,7 @@ export default function Services() {
                 >
                   {svc.title}
                 </h2>
-                <p className="text-[#78716C] mb-8 font-light leading-relaxed text-sm">
+                <p className="text-[#292524] mb-8 font-normal leading-relaxed text-sm">
                   {svc.desc}
                 </p>
 

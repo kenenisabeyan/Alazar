@@ -93,7 +93,7 @@ export const WhyHireMe = () => {
                       {item.title}
                     </h4>
                   </div>
-                  <p className="text-xs text-[#78716C] font-light leading-relaxed">
+                  <p className="text-xs text-[#292524] font-medium leading-relaxed">
                     {item.desc}
                   </p>
                   <div className="flex items-center gap-1.5 text-[10px] text-[#6B1D2F] font-black uppercase tracking-widest">
@@ -134,7 +134,7 @@ export const WhyHireMe = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.07 }}
-                    className="flex items-start gap-3 text-sm text-white/85 font-light leading-relaxed"
+                    className="flex items-start gap-3 text-sm text-white/95 font-normal leading-relaxed"
                   >
                     <CheckCircle2 size={16} className="text-[#C59A9F] mt-0.5 flex-shrink-0" />
                     {d}
@@ -166,7 +166,7 @@ export const WhyHireMe = () => {
             <h3 className="text-xl font-black text-white mb-1" style={{ fontFamily: theme.fonts.heading }}>
               Ready to Build Something Exceptional?
             </h3>
-            <p className="text-white/70 text-xs font-light">
+            <p className="text-white/90 text-xs font-medium">
               Get a free estimate within 24 hours. Currently accepting Q3/Q4 projects.
             </p>
           </div>

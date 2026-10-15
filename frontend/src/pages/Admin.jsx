@@ -620,7 +620,7 @@ function MediaPanel() {
               )}
               <div className="p-3">
                 <div className="text-xs text-[#A89597] truncate">{f.filename}</div>
-                <div className="text-[10px] text-[#78716C] mt-0.5">{(f.size / 1024).toFixed(1)} KB</div>
+                <div className="text-[10px] text-[#A89597] mt-0.5">{(f.size / 1024).toFixed(1)} KB</div>
               </div>
               <div className="absolute inset-0 bg-[#1E0A0D]/80 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
                 <button onClick={() => copyUrl(f.url)} className="p-2 rounded-lg bg-[#6B1D2F] text-white hover:bg-[#8B1E3F] transition-colors" title="Copy URL"><ExternalLink size={14} /></button>
@@ -668,7 +668,7 @@ function SectionsPanel() {
             {secs.map(s => (
               <div key={s.id} className="flex items-center justify-between py-2 px-3 rounded-xl hover:bg-[#1E0A0D] transition-colors">
                 <div className="flex items-center gap-3">
-                  <GripVertical size={14} className="text-[#78716C]" />
+                  <GripVertical size={14} className="text-[#A89597]" />
                   <span className="text-sm text-[#F5F0F1]">{s.label}</span>
                 </div>
                 <button onClick={() => toggle(s)}
@@ -708,7 +708,7 @@ function InquiriesPanel({ inquiries, onRefresh }) {
                   <div className="min-w-0 flex-1">
                     <div className="font-semibold text-[#F5F0F1]">{inq.first_name} {inq.last_name}</div>
                     <div className="text-sm text-[#A89597]">{inq.email}</div>
-                    <div className="flex gap-3 mt-2 text-xs text-[#78716C]">
+                    <div className="flex gap-3 mt-2 text-xs text-[#D4C5C7]">
                       <span>📋 {inq.project_type}</span>
                       <span>💰 {inq.budget}</span>
                     </div>
@@ -995,7 +995,7 @@ export default function Admin() {
                 const groupItems = NAV_ITEMS.filter(i => i.group === group);
                 return (
                   <div key={group}>
-                    <div className="text-[10px] font-bold uppercase tracking-widest text-[#78716C] px-3 py-2 mt-3">{group}</div>
+                    <div className="text-[10px] font-black uppercase tracking-widest text-[#A89597] px-3 py-2 mt-3">{group}</div>
                     {groupItems.map(item => (
                       <button key={item.id} onClick={() => setActiveSection(item.id)}
                         className={cls(
@@ -1040,7 +1040,7 @@ export default function Admin() {
             {sidebarOpen ? <X size={18} /> : <Menu size={18} />}
           </button>
           <div className="flex-1 min-w-0">
-            <div className="text-xs text-[#78716C] uppercase tracking-widest">Admin Dashboard</div>
+            <div className="text-xs text-[#A89597] uppercase tracking-widest font-black">Admin Dashboard</div>
             <div className="text-sm font-semibold text-[#F5F0F1] capitalize">{NAV_ITEMS.find(i => i.id === activeSection)?.label || 'Dashboard'}</div>
           </div>
           <div className="flex items-center gap-2 text-xs">

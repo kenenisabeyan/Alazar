@@ -66,7 +66,7 @@ export const ColorGradingShowcase = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.15 }}
-            className="text-[#78716C] font-light text-sm sm:text-base max-w-xs leading-relaxed"
+            className="text-[#1C1917] font-medium text-sm sm:text-base max-w-xs leading-relaxed bg-white/85 backdrop-blur-md px-5 py-3 rounded-2xl border border-[#C59A9F]/40 shadow-sm"
           >
             Drag the handle to reveal the difference between a flat camera log recording and a fully graded cinematic master.
           </motion.p>
@@ -197,7 +197,7 @@ export const ColorGradingShowcase = () => {
                 <Icon size={16} />
               </div>
               <div className="min-w-0">
-                <p className="text-[9px] text-[#78716C] uppercase font-black tracking-[0.18em] mb-0.5 truncate">
+                <p className="text-[9px] text-[#292524] uppercase font-black tracking-[0.18em] mb-0.5 truncate">
                   {label}
                 </p>
                 <p className="text-xs sm:text-sm text-[#1C1917] font-black truncate">{value}</p>

@@ -106,7 +106,7 @@ const VideoCard = ({ navigate, cardData }) => {
           <span className="text-[#C59A9F] font-black">{d.headlineAccent}</span>
         </h3>
 
-        <p className="text-white/80 text-sm font-light leading-relaxed mb-8 max-w-md">
+        <p className="text-white/95 text-sm font-normal leading-relaxed mb-8 max-w-md">
           {d.description}
         </p>
 
@@ -176,7 +176,7 @@ const DesignCard = ({ navigate, cardData }) => {
             <PenTool size={12} />
             {d.badge}
           </div>
-          <div className="flex items-center gap-1.5 text-[10px] font-black text-[#78716C] uppercase tracking-widest">
+          <div className="flex items-center gap-1.5 text-[10px] font-black text-[#292524] uppercase tracking-widest">
             <Star size={11} className="text-[#6B1D2F] fill-[#6B1D2F]" />
             {d.experienceLabel}
           </div>
@@ -188,7 +188,7 @@ const DesignCard = ({ navigate, cardData }) => {
           <span className="text-[#6B1D2F] font-black">{d.headlineAccent}</span>
         </h3>
 
-        <p className="text-[#78716C] text-sm font-light leading-relaxed mb-8 max-w-md">
+        <p className="text-[#292524] text-sm font-normal leading-relaxed mb-8 max-w-md">
           {d.description}
         </p>
 
@@ -203,7 +203,7 @@ const DesignCard = ({ navigate, cardData }) => {
                 </div>
                 <div>
                   <p className="text-[11px] font-black text-[#1C1917] leading-none mb-0.5">{label}</p>
-                  <p className="text-[10px] text-[#78716C] font-medium">{sub}</p>
+                  <p className="text-[10px] text-[#292524] font-semibold">{sub}</p>
                 </div>
               </div>
             );
@@ -219,7 +219,7 @@ const DesignCard = ({ navigate, cardData }) => {
 
         {/* Award strip */}
         <div className="mt-auto pt-6 border-t border-[#C59A9F] flex items-center justify-between">
-          <div className="flex items-center gap-2 text-xs text-[#78716C]">
+          <div className="flex items-center gap-2 text-xs text-[#292524] font-medium">
             <Award size={14} className="text-[#6B1D2F]" />
             <span>{d.awardText}</span>
           </div>
@@ -359,7 +359,7 @@ export const ExpertiseSection = ({ data, statistics }) => {
               <p className="text-3xl font-black text-[#6B1D2F] mb-1" style={{ fontFamily: theme.fonts.heading }}>
                 {value}
               </p>
-              <p className="text-[11px] text-[#78716C] font-bold uppercase tracking-widest">{label}</p>
+              <p className="text-[11px] text-[#292524] font-black uppercase tracking-widest">{label}</p>
             </motion.div>
           ))}
         </motion.div>

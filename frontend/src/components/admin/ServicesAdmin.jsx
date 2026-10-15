@@ -132,7 +132,7 @@ export default function ServicesAdmin() {
 
   if (loading) {
     return (
-      <div className="p-12 text-center text-[#78716C]">
+      <div className="p-12 text-center text-[#292524]">
         <RefreshCw size={28} className="animate-spin mx-auto mb-3 text-[#6B1D2F]" />
         <p className="font-bold text-sm uppercase tracking-widest">Loading Services CMS Dashboard...</p>
       </div>
@@ -164,7 +164,7 @@ export default function ServicesAdmin() {
             Services & Workflow CMS
           </div>
           <h1 className="text-3xl sm:text-4xl font-black text-white tracking-tight">Service Manager</h1>
-          <p className="text-xs text-[#C59A9F] mt-1 font-light max-w-xl">
+          <p className="text-xs text-[#E8B4BE] mt-1 font-medium max-w-xl">
             Control service packages, pricing calculators, process steps, client assurance guarantees, and FAQs.
           </p>
         </div>
@@ -204,7 +204,7 @@ export default function ServicesAdmin() {
                 </div>
               </div>
               <h3 className="text-xl font-black text-[#1C1917] mb-2">{svc.title}</h3>
-              <p className="text-xs text-[#78716C] font-light leading-relaxed mb-4">{svc.desc}</p>
+              <p className="text-xs text-[#292524] font-medium leading-relaxed mb-4">{svc.desc}</p>
               
               <div className="space-y-1.5 pt-2 border-t border-[#C59A9F]/20">
                 {(Array.isArray(svc.items) ? svc.items : []).map((item, idx) => (
@@ -217,7 +217,7 @@ export default function ServicesAdmin() {
             </div>
 
             <div className="pt-4 border-t border-[#C59A9F]/20 flex justify-between items-center">
-              <span className="text-[10px] uppercase font-bold text-[#78716C]">CTA Button: {svc.cta}</span>
+              <span className="text-[10px] uppercase font-black text-[#292524]">CTA Button: {svc.cta}</span>
               <span className="text-[10px] uppercase font-bold px-2.5 py-1 rounded-lg bg-[#FAFAF9] text-[#6B1D2F] border border-[#C59A9F]/30">{svc.ctaVariant}</span>
             </div>
           </div>
@@ -236,14 +236,14 @@ export default function ServicesAdmin() {
               <h3 className="text-xl font-black text-[#1C1917]">
                 {editingService ? 'Edit Service Package' : 'Create New Service Package'}
               </h3>
-              <button onClick={() => setServiceModalOpen(false)} className="text-[#78716C] hover:text-[#6B1D2F]">
+              <button onClick={() => setServiceModalOpen(false)} className="text-[#292524] hover:text-[#6B1D2F]">
                 <X size={20} />
               </button>
             </div>
 
             <form onSubmit={handleSaveService} className="space-y-4 text-xs font-semibold">
               <div>
-                <label className="block text-[#78716C] uppercase font-black tracking-wider text-[10px] mb-1">Badge Text</label>
+                <label className="block text-[#1C1917] uppercase font-black tracking-wider text-[10px] mb-1">Badge Text</label>
                 <input
                   type="text"
                   required
@@ -254,7 +254,7 @@ export default function ServicesAdmin() {
               </div>
 
               <div>
-                <label className="block text-[#78716C] uppercase font-black tracking-wider text-[10px] mb-1">Service Title</label>
+                <label className="block text-[#1C1917] uppercase font-black tracking-wider text-[10px] mb-1">Service Title</label>
                 <input
                   type="text"
                   required
@@ -265,7 +265,7 @@ export default function ServicesAdmin() {
               </div>
 
               <div>
-                <label className="block text-[#78716C] uppercase font-black tracking-wider text-[10px] mb-1">Description</label>
+                <label className="block text-[#1C1917] uppercase font-black tracking-wider text-[10px] mb-1">Description</label>
                 <textarea
                   rows={3}
                   value={formData.desc}
@@ -275,7 +275,7 @@ export default function ServicesAdmin() {
               </div>
 
               <div>
-                <label className="block text-[#78716C] uppercase font-black tracking-wider text-[10px] mb-1">Deliverable Bullet Points (comma separated)</label>
+                <label className="block text-[#1C1917] uppercase font-black tracking-wider text-[10px] mb-1">Deliverable Bullet Points (comma separated)</label>
                 <input
                   type="text"
                   value={formData.items}
@@ -286,7 +286,7 @@ export default function ServicesAdmin() {
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-[#78716C] uppercase font-black tracking-wider text-[10px] mb-1">CTA Label</label>
+                  <label className="block text-[#1C1917] uppercase font-black tracking-wider text-[10px] mb-1">CTA Label</label>
                   <input
                     type="text"
                     value={formData.cta}
@@ -296,7 +296,7 @@ export default function ServicesAdmin() {
                 </div>
 
                 <div>
-                  <label className="block text-[#78716C] uppercase font-black tracking-wider text-[10px] mb-1">CTA Variant</label>
+                  <label className="block text-[#1C1917] uppercase font-black tracking-wider text-[10px] mb-1">CTA Variant</label>
                   <select
                     value={formData.ctaVariant}
                     onChange={e => setFormData({ ...formData, ctaVariant: e.target.value })}
@@ -324,7 +324,7 @@ export default function ServicesAdmin() {
                 <button
                   type="button"
                   onClick={() => setServiceModalOpen(false)}
-                  className="px-6 py-2.5 rounded-full bg-[#FAFAF9] border border-[#C59A9F]/40 text-[#78716C] font-black text-xs uppercase tracking-widest"
+                  className="px-6 py-2.5 rounded-full bg-[#FAFAF9] border border-[#C59A9F]/40 text-[#292524] font-black text-xs uppercase tracking-widest"
                 >
                   Cancel
                 </button>

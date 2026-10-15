@@ -60,7 +60,7 @@ export const CaseStudyHighlight = () => {
                 onClick={() => setActive(idx)}
                 className={`px-4 py-2 rounded-full text-[11px] font-black uppercase tracking-wider transition-all ${active === idx
                     ? 'bg-[#6B1D2F] text-white shadow-lg shadow-[#6B1D2F]/25'
-                    : 'bg-white border border-[#C59A9F] text-[#78716C] hover:border-[#6B1D2F] hover:text-[#6B1D2F]'
+                    : 'bg-white border border-[#C59A9F] text-[#292524] hover:border-[#6B1D2F] hover:text-[#6B1D2F]'
                   }`}
               >
                 {cs.client}
@@ -168,7 +168,7 @@ export const CaseStudyHighlight = () => {
                     <CsIcon size={24} />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className={`text-[10px] font-black uppercase tracking-widest mb-1 ${isActive ? 'text-white/60' : 'text-[#78716C]'}`}>
+                    <p className={`text-[10px] font-black uppercase tracking-widest mb-1 ${isActive ? 'text-white/60' : 'text-[#292524]'}`}>
                       {cs.client}
                     </p>
                     <h4 className={`text-sm font-black truncate ${isActive ? 'text-white' : 'text-[#1C1917]'}`}

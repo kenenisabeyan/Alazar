@@ -67,7 +67,7 @@ export const Modal = ({ isOpen, onClose, project, onPrev, onNext }) => {
               <span className="text-[10px] uppercase tracking-[0.2em] px-3.5 py-1 bg-[#6B1D2F] text-white rounded-full font-black shadow-sm">
                 {project.category}
               </span>
-              <span className="text-xs text-[#78716C] font-semibold">{project.client} • {project.year || '2025'}</span>
+              <span className="text-xs text-[#292524] font-bold">{project.client} • {project.year || '2025'}</span>
             </div>
 
             <div className="flex items-center gap-2">
@@ -83,7 +83,7 @@ export const Modal = ({ isOpen, onClose, project, onPrev, onNext }) => {
 
               <button
                 onClick={onClose}
-                className="w-9 h-9 rounded-full bg-[#FAFAF9] border border-[#C59A9F] flex items-center justify-center text-[#78716C] hover:text-[#6B1D2F] hover:border-[#6B1D2F] hover:bg-[#FAFAF9] transition-all shadow-sm"
+                className="w-9 h-9 rounded-full bg-[#FAFAF9] border border-[#C59A9F] flex items-center justify-center text-[#292524] hover:text-[#6B1D2F] hover:border-[#6B1D2F] hover:bg-[#FAFAF9] transition-all shadow-sm"
                 aria-label="Close modal"
               >
                 <X size={18} />
@@ -153,7 +153,7 @@ export const Modal = ({ isOpen, onClose, project, onPrev, onNext }) => {
                 <h2 className="text-3xl sm:text-5xl font-black text-[#1C1917] tracking-tight font-serif">
                   {project.title}
                 </h2>
-                <p className="text-[#78716C] font-light leading-relaxed text-base sm:text-lg">
+                <p className="text-[#292524] font-medium leading-relaxed text-base sm:text-lg">
                   {project.description}
                 </p>
               </div>
@@ -194,7 +194,7 @@ export const Modal = ({ isOpen, onClose, project, onPrev, onNext }) => {
 
           {/* Modal Footer */}
           <div className="bg-[#FAFAF9] px-6 sm:px-8 py-4 border-t border-[#C59A9F]/30 flex justify-between items-center">
-            <span className="text-[10px] text-[#78716C] uppercase font-bold tracking-wider hidden sm:inline-block">
+            <span className="text-[10px] text-[#292524] uppercase font-black tracking-wider hidden sm:inline-block">
               Use ← / → keys to navigate • Esc to exit
             </span>
             <Button variant="secondary" className="text-xs py-2.5 px-7 rounded-full font-black uppercase tracking-widest" onClick={onClose}>

@@ -86,7 +86,7 @@ export default function AboutAdmin() {
 
   if (loading) {
     return (
-      <div className="p-12 text-center text-[#78716C]">
+      <div className="p-12 text-center text-[#292524]">
         <div className="w-8 h-8 border-2 border-[#6B1D2F] border-t-transparent rounded-full animate-spin mx-auto mb-4" />
         <p className="text-sm font-semibold">Loading About CMS Management System...</p>
       </div>
@@ -128,7 +128,7 @@ export default function AboutAdmin() {
           <h1 className="text-2xl sm:text-3xl font-black text-stone-900 tracking-tight">
             Creative Profile & Content Manager
           </h1>
-          <p className="text-sm text-stone-500 font-light">
+          <p className="text-sm text-stone-700 font-medium">
             Manage profile details, skills, work timeline, awards, gear, gallery, and section visibility.
           </p>
         </div>
@@ -276,7 +276,7 @@ export default function AboutAdmin() {
                 <div>
                   <span className="text-xs font-black text-[#6B1D2F] uppercase">{cap.iconName || 'Icon'}</span>
                   <h4 className="font-bold text-stone-900 text-sm mt-0.5">{cap.title}</h4>
-                  <p className="text-xs text-stone-500 font-light mt-1">{cap.description}</p>
+                  <p className="text-xs text-stone-700 font-medium mt-1">{cap.description}</p>
                 </div>
                 <div className="flex items-center gap-2">
                   <button
@@ -309,10 +309,10 @@ export default function AboutAdmin() {
                   <span className="px-3 py-1 rounded-full bg-[#6B1D2F] text-white text-[10px] font-black uppercase">
                     {disc.badge}
                   </span>
-                  <span className="text-xs text-stone-500 font-bold">{disc.experienceLabel}</span>
+                  <span className="text-xs text-stone-700 font-bold">{disc.experienceLabel}</span>
                 </div>
                 <h3 className="text-xl font-black text-stone-900">{disc.headline}</h3>
-                <p className="text-xs text-stone-600 leading-relaxed font-light">{disc.description}</p>
+                <p className="text-xs text-stone-700 leading-relaxed font-normal">{disc.description}</p>
                 <div className="pt-2 flex justify-end gap-2">
                   <button
                     onClick={() => handleToggle('disciplines', disc.id, disciplines, 'creative_disciplines')}
@@ -356,7 +356,7 @@ export default function AboutAdmin() {
                       {sk.percentage}%
                     </span>
                   </div>
-                  <p className="text-xs text-stone-500 font-light mt-0.5">{sk.description}</p>
+                  <p className="text-xs text-stone-700 font-medium mt-0.5">{sk.description}</p>
                 </div>
                 <div className="flex items-center gap-2">
                   <button
@@ -419,7 +419,7 @@ export default function AboutAdmin() {
                 </div>
                 <h3 className="text-lg font-black text-stone-900">{w.position}</h3>
                 <p className="text-xs font-bold text-stone-600">{w.company} • {w.location}</p>
-                <p className="text-xs text-stone-500 leading-relaxed font-light">{w.description}</p>
+                <p className="text-xs text-stone-700 leading-relaxed font-medium">{w.description}</p>
               </div>
             ))}
           </div>
@@ -452,7 +452,7 @@ export default function AboutAdmin() {
                 <div>
                   <span className="text-[10px] font-black text-[#6B1D2F] uppercase">{aw.year}</span>
                   <h4 className="font-black text-stone-900 text-sm">{aw.title}</h4>
-                  <p className="text-xs text-stone-500 font-light">{aw.projectName || 'Project'}</p>
+                  <p className="text-xs text-stone-700 font-medium">{aw.projectName || 'Project'}</p>
                 </div>
                 <div className="flex items-center gap-2">
                   <button
@@ -499,7 +499,7 @@ export default function AboutAdmin() {
                 <div>
                   <span className="text-[10px] font-black text-[#6B1D2F] uppercase">{g.badge || 'Gear'}</span>
                   <h4 className="font-black text-stone-900 text-sm">{g.name}</h4>
-                  <p className="text-xs text-stone-500 font-light mt-0.5">{g.description}</p>
+                  <p className="text-xs text-stone-700 font-medium mt-0.5">{g.description}</p>
                 </div>
                 <div className="flex items-center gap-2">
                   <button
@@ -545,7 +545,7 @@ export default function AboutAdmin() {
               <div key={m.id} className="rounded-xl border border-stone-200 bg-stone-50 overflow-hidden space-y-2 p-3">
                 {m.image && <img src={m.image} alt="" className="w-full h-36 object-cover rounded-lg" />}
                 <h4 className="font-bold text-stone-900 text-xs">{m.title}</h4>
-                <p className="text-[10px] text-stone-500">{m.caption}</p>
+                <p className="text-[10px] text-stone-700 font-medium">{m.caption}</p>
                 <div className="flex justify-end gap-2 pt-2">
                   <button
                     onClick={() => handleToggle('bts-media', m.id, bts, 'behind_the_scenes_media')}

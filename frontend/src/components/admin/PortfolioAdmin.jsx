@@ -163,7 +163,7 @@ export default function PortfolioAdmin() {
 
   if (loading) {
     return (
-      <div className="p-12 text-center text-[#78716C]">
+      <div className="p-12 text-center text-[#292524]">
         <RefreshCw size={28} className="animate-spin mx-auto mb-3 text-[#6B1D2F]" />
         <p className="font-bold text-sm uppercase tracking-widest">Loading Portfolio CMS Dashboard...</p>
       </div>
@@ -205,7 +205,7 @@ export default function PortfolioAdmin() {
             Master Portfolio CMS
           </div>
           <h1 className="text-3xl sm:text-4xl font-black text-white tracking-tight">Portfolio Manager</h1>
-          <p className="text-xs text-[#C59A9F] mt-1 font-light max-w-xl">
+          <p className="text-xs text-[#E8B4BE] mt-1 font-medium max-w-xl">
             Control all portfolio projects, categories, client case studies, editorial presentation boards, and featured showreels.
           </p>
         </div>
@@ -235,7 +235,7 @@ export default function PortfolioAdmin() {
               className={`px-5 py-2.5 rounded-2xl text-xs font-black uppercase tracking-wider transition-all flex items-center gap-2 ${
                 active
                   ? 'bg-[#6B1D2F] text-white shadow-md shadow-[#6B1D2F]/25'
-                  : 'bg-white text-[#78716C] border border-[#C59A9F]/30 hover:text-[#1C1917]'
+                  : 'bg-white text-[#292524] border border-[#C59A9F]/30 hover:text-[#1C1917]'
               }`}
             >
               <IconComp size={14} />
@@ -251,7 +251,7 @@ export default function PortfolioAdmin() {
           {/* Controls Bar */}
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 bg-white p-4 rounded-2xl border border-[#C59A9F]/30 shadow-sm">
             <div className="relative w-full sm:w-80">
-              <Search size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#78716C]" />
+              <Search size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#292524]" />
               <input
                 type="text"
                 placeholder="Search projects by title, client..."
@@ -265,7 +265,7 @@ export default function PortfolioAdmin() {
               <button
                 onClick={() => setFilterCategory('all')}
                 className={`px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wider transition-all ${
-                  filterCategory === 'all' ? 'bg-[#6B1D2F] text-white' : 'bg-[#FAFAF9] text-[#78716C] border border-[#C59A9F]/40'
+                  filterCategory === 'all' ? 'bg-[#6B1D2F] text-white' : 'bg-[#FAFAF9] text-[#292524] border border-[#C59A9F]/40'
                 }`}
               >
                 All ({projects.length})
@@ -273,7 +273,7 @@ export default function PortfolioAdmin() {
               <button
                 onClick={() => setFilterCategory('video')}
                 className={`px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wider transition-all ${
-                  filterCategory === 'video' ? 'bg-[#6B1D2F] text-white' : 'bg-[#FAFAF9] text-[#78716C] border border-[#C59A9F]/40'
+                  filterCategory === 'video' ? 'bg-[#6B1D2F] text-white' : 'bg-[#FAFAF9] text-[#292524] border border-[#C59A9F]/40'
                 }`}
               >
                 Video ({projects.filter(p => p.category === 'video').length})
@@ -281,7 +281,7 @@ export default function PortfolioAdmin() {
               <button
                 onClick={() => setFilterCategory('design')}
                 className={`px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wider transition-all ${
-                  filterCategory === 'design' ? 'bg-[#6B1D2F] text-white' : 'bg-[#FAFAF9] text-[#78716C] border border-[#C59A9F]/40'
+                  filterCategory === 'design' ? 'bg-[#6B1D2F] text-white' : 'bg-[#FAFAF9] text-[#292524] border border-[#C59A9F]/40'
                 }`}
               >
                 Design ({projects.filter(p => p.category === 'design').length})
@@ -293,7 +293,7 @@ export default function PortfolioAdmin() {
           <div className="bg-white rounded-3xl border border-[#C59A9F]/30 shadow-sm overflow-hidden">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="bg-[#FAFAF9] border-b border-[#C59A9F]/20 text-[10px] font-black uppercase tracking-widest text-[#78716C]">
+                <tr className="bg-[#FAFAF9] border-b border-[#C59A9F]/20 text-[10px] font-black uppercase tracking-widest text-[#292524]">
                   <th className="py-4 px-6">Project</th>
                   <th className="py-4 px-4">Category</th>
                   <th className="py-4 px-4">Client</th>
@@ -316,7 +316,7 @@ export default function PortfolioAdmin() {
                         </div>
                         <div>
                           <p className="font-black text-[#1C1917] text-sm">{p.title}</p>
-                          <p className="text-[10px] text-[#78716C] font-semibold">{p.role}</p>
+                          <p className="text-[10px] text-[#292524] font-semibold">{p.role}</p>
                         </div>
                       </div>
                     </td>
@@ -330,7 +330,7 @@ export default function PortfolioAdmin() {
                       </span>
                     </td>
 
-                    <td className="py-4 px-4 font-semibold text-[#78716C]">
+                    <td className="py-4 px-4 font-bold text-[#292524]">
                       {p.client}
                     </td>
 
@@ -344,7 +344,7 @@ export default function PortfolioAdmin() {
                         className={`p-2 rounded-xl border transition-all ${
                           p.featured
                             ? 'bg-amber-500/10 border-amber-500/40 text-amber-600'
-                            : 'bg-[#FAFAF9] border-[#C59A9F]/30 text-[#78716C]'
+                            : 'bg-[#FAFAF9] border-[#C59A9F]/30 text-[#292524]'
                         }`}
                         title="Toggle Featured"
                       >
@@ -390,7 +390,7 @@ export default function PortfolioAdmin() {
               <h3 className="text-xl font-black text-[#1C1917]">
                 {editingProject ? 'Edit Portfolio Project' : 'Create New Portfolio Project'}
               </h3>
-              <button onClick={() => setProjectModalOpen(false)} className="text-[#78716C] hover:text-[#6B1D2F]">
+              <button onClick={() => setProjectModalOpen(false)} className="text-[#292524] hover:text-[#6B1D2F]">
                 <X size={20} />
               </button>
             </div>
@@ -398,7 +398,7 @@ export default function PortfolioAdmin() {
             <form onSubmit={handleSaveProject} className="space-y-4 text-xs font-semibold">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-[#78716C] uppercase font-black tracking-wider text-[10px] mb-1">Project Title</label>
+                  <label className="block text-[#1C1917] uppercase font-black tracking-wider text-[10px] mb-1">Project Title</label>
                   <input
                     type="text"
                     required
@@ -409,7 +409,7 @@ export default function PortfolioAdmin() {
                 </div>
 
                 <div>
-                  <label className="block text-[#78716C] uppercase font-black tracking-wider text-[10px] mb-1">Category</label>
+                  <label className="block text-[#1C1917] uppercase font-black tracking-wider text-[10px] mb-1">Category</label>
                   <select
                     value={formData.category}
                     onChange={e => setFormData({ ...formData, category: e.target.value })}
@@ -423,7 +423,7 @@ export default function PortfolioAdmin() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-[#78716C] uppercase font-black tracking-wider text-[10px] mb-1">Client Name</label>
+                  <label className="block text-[#1C1917] uppercase font-black tracking-wider text-[10px] mb-1">Client Name</label>
                   <input
                     type="text"
                     required
@@ -434,7 +434,7 @@ export default function PortfolioAdmin() {
                 </div>
 
                 <div>
-                  <label className="block text-[#78716C] uppercase font-black tracking-wider text-[10px] mb-1">Year</label>
+                  <label className="block text-[#1C1917] uppercase font-black tracking-wider text-[10px] mb-1">Year</label>
                   <input
                     type="text"
                     value={formData.year}
@@ -445,7 +445,7 @@ export default function PortfolioAdmin() {
               </div>
 
               <div>
-                <label className="block text-[#78716C] uppercase font-black tracking-wider text-[10px] mb-1">Role</label>
+                <label className="block text-[#1C1917] uppercase font-black tracking-wider text-[10px] mb-1">Role</label>
                 <input
                   type="text"
                   value={formData.role}
@@ -455,7 +455,7 @@ export default function PortfolioAdmin() {
               </div>
 
               <div>
-                <label className="block text-[#78716C] uppercase font-black tracking-wider text-[10px] mb-1">Description</label>
+                <label className="block text-[#1C1917] uppercase font-black tracking-wider text-[10px] mb-1">Description</label>
                 <textarea
                   rows={3}
                   value={formData.description}
@@ -465,7 +465,7 @@ export default function PortfolioAdmin() {
               </div>
 
               <div>
-                <label className="block text-[#78716C] uppercase font-black tracking-wider text-[10px] mb-1">Deliverables (comma separated)</label>
+                <label className="block text-[#1C1917] uppercase font-black tracking-wider text-[10px] mb-1">Deliverables (comma separated)</label>
                 <input
                   type="text"
                   value={formData.deliverables}
@@ -476,7 +476,7 @@ export default function PortfolioAdmin() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-[#78716C] uppercase font-black tracking-wider text-[10px] mb-1">Thumbnail Image URL</label>
+                  <label className="block text-[#1C1917] uppercase font-black tracking-wider text-[10px] mb-1">Thumbnail Image URL</label>
                   <input
                     type="text"
                     value={formData.thumbnail}
@@ -486,7 +486,7 @@ export default function PortfolioAdmin() {
                 </div>
 
                 <div>
-                  <label className="block text-[#78716C] uppercase font-black tracking-wider text-[10px] mb-1">Video URL (mp4 / showreel)</label>
+                  <label className="block text-[#1C1917] uppercase font-black tracking-wider text-[10px] mb-1">Video URL (mp4 / showreel)</label>
                   <input
                     type="text"
                     value={formData.video_url}
@@ -511,7 +511,7 @@ export default function PortfolioAdmin() {
                 <button
                   type="button"
                   onClick={() => setProjectModalOpen(false)}
-                  className="px-6 py-2.5 rounded-full bg-[#FAFAF9] border border-[#C59A9F]/40 text-[#78716C] font-black text-xs uppercase tracking-widest"
+                  className="px-6 py-2.5 rounded-full bg-[#FAFAF9] border border-[#C59A9F]/40 text-[#292524] font-black text-xs uppercase tracking-widest"
                 >
                   Cancel
                 </button>

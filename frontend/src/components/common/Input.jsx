@@ -14,12 +14,12 @@ export const Input = ({
   className = '',
   ...props
 }) => {
-  const baseClasses = "w-full bg-[#FAFAF9] border border-[#C59A9F] rounded-lg px-4 py-3 text-[#1C1917] focus:outline-none focus:border-[#6B1D2F] focus:ring-1 focus:ring-[#6B1D2F] transition-all duration-300 placeholder:text-[#78716C]/40 text-sm";
+  const baseClasses = "w-full bg-[#FAFAF9] border border-[#C59A9F] rounded-lg px-4 py-3 text-[#1C1917] focus:outline-none focus:border-[#6B1D2F] focus:ring-1 focus:ring-[#6B1D2F] transition-all duration-300 placeholder:text-[#292524]/50 text-sm";
   
   return (
     <div className={`flex flex-col gap-2 ${className}`}>
       {label && (
-        <label className="text-xs text-[#78716C] font-semibold tracking-widest uppercase flex justify-between">
+        <label className="text-xs text-[#1C1917] font-black tracking-widest uppercase flex justify-between">
           <span>{label} {required && <span className="text-[#6B1D2F]">*</span>}</span>
         </label>
       )}

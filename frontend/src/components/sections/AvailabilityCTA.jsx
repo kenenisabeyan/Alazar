@@ -75,7 +75,7 @@ export const AvailabilityCTA = ({ cta, contact }) => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.15 }}
-                className="text-white/90 font-light text-base sm:text-lg leading-relaxed max-w-xl"
+                className="text-white/95 font-normal text-base sm:text-lg leading-relaxed max-w-xl"
               >
                 Let's build high-impact video edits, cinematic color grades, and brand design systems that make your audience stop scrolling. Fast turnaround. No agencies. Direct access.
               </motion.p>
@@ -203,7 +203,7 @@ export const AvailabilityCTA = ({ cta, contact }) => {
             >
               Alazar<span className="text-[#6B1D2F]">.</span>
             </span>
-            <span className="text-[11px] text-[#78716C] font-medium ml-2 hidden sm:inline">
+            <span className="text-[11px] text-[#292524] font-semibold ml-2 hidden sm:inline">
               Video Director & Senior Graphic Designer
             </span>
           </div>
@@ -217,7 +217,7 @@ export const AvailabilityCTA = ({ cta, contact }) => {
                 target="_blank"
                 rel="noreferrer"
                 aria-label={label}
-                className="w-9 h-9 rounded-full bg-white border border-[#C59A9F] flex items-center justify-center text-[#78716C] hover:bg-[#6B1D2F] hover:text-white hover:border-[#6B1D2F] hover:shadow-lg hover:shadow-[#6B1D2F]/20 transition-all duration-300"
+                className="w-9 h-9 rounded-full bg-white border border-[#C59A9F] flex items-center justify-center text-[#292524] hover:bg-[#6B1D2F] hover:text-white hover:border-[#6B1D2F] hover:shadow-lg hover:shadow-[#6B1D2F]/20 transition-all duration-300"
               >
                 <Icon size={15} />
               </a>
@@ -225,7 +225,7 @@ export const AvailabilityCTA = ({ cta, contact }) => {
           </div>
 
           {/* Copyright */}
-          <p className="text-[11px] text-[#78716C] font-medium uppercase tracking-wider">
+          <p className="text-[11px] text-[#292524] font-bold uppercase tracking-wider">
             © {new Date().getFullYear()} Alazar Asdesach
           </p>
         </div>

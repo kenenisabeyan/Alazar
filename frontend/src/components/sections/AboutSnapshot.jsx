@@ -127,7 +127,7 @@ export const AboutSnapshot = () => {
                   >
                     {value}
                   </p>
-                  <p className="text-[9.5px] text-[#78716C] font-bold uppercase tracking-wider leading-tight">
+                  <p className="text-[9.5px] text-[#292524] font-black uppercase tracking-wider leading-tight">
                     {label}
                   </p>
                 </div>
@@ -179,7 +179,7 @@ export const AboutSnapshot = () => {
               </div>
               <div>
                 <p className="text-[10px] font-black text-[#6B1D2F] uppercase tracking-wider">Video Editor</p>
-                <p className="text-[9px] text-[#78716C] font-semibold">8K · DaVinci</p>
+                <p className="text-[9px] text-[#292524] font-bold">8K · DaVinci</p>
               </div>
             </motion.div>
 
@@ -209,7 +209,7 @@ export const AboutSnapshot = () => {
               </div>
               <div>
                 <p className="text-[10px] font-black text-[#6B1D2F] uppercase tracking-wider">Sr. Designer</p>
-                <p className="text-[9px] text-[#78716C] font-semibold">Brand · 3D · Motion</p>
+                <p className="text-[9px] text-[#292524] font-bold">Brand · 3D · Motion</p>
               </div>
             </motion.div>
 

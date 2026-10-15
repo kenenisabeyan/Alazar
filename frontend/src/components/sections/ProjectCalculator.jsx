@@ -90,7 +90,7 @@ export const ProjectCalculator = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.15 }}
-            className="text-[#78716C] font-light text-base max-w-xs leading-relaxed"
+            className="text-[#1C1917] font-medium text-sm sm:text-base max-w-xs leading-relaxed bg-white/85 backdrop-blur-md px-5 py-3 rounded-2xl border border-[#C59A9F]/40 shadow-sm"
           >
             Configure your production scope in real-time for an instant budgetary estimate — no gatekeeping.
           </motion.p>
@@ -130,7 +130,7 @@ export const ProjectCalculator = () => {
                           <span className={`leading-snug block text-xs font-black ${isActive ? 'text-white' : 'text-[#1C1917]'}`}>
                             {t.label}
                           </span>
-                          <span className={`text-[10px] font-bold ${isActive ? 'text-[#FAFAF9]/80' : 'text-[#78716C]'}`}>
+                          <span className={`text-[10px] font-bold ${isActive ? 'text-[#FAFAF9]/80' : 'text-[#292524]'}`}>
                             from ${t.basePrice.toLocaleString()}
                           </span>
                         </div>
@@ -156,7 +156,7 @@ export const ProjectCalculator = () => {
                       {isActive && <div className="absolute inset-0 bg-gradient-to-br from-white/15 to-transparent pointer-events-none" />}
                       <div className="relative z-10 flex-1">
                         <span className={`block text-xs font-black mb-0.5 ${isActive ? 'text-white' : 'text-[#1C1917]'}`}>{s.label}</span>
-                        <span className={`text-[10px] font-bold ${isActive ? 'text-[#FAFAF9]/80' : 'text-[#78716C]'}`}>
+                        <span className={`text-[10px] font-bold ${isActive ? 'text-[#FAFAF9]/80' : 'text-[#292524]'}`}>
                           ×{s.multiplier} base rate
                         </span>
                       </div>

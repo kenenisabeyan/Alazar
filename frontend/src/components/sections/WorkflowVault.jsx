@@ -91,7 +91,7 @@ export const WorkflowVault = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.15 }}
-            className="text-[#78716C] font-light text-base max-w-xs leading-relaxed"
+            className="text-[#1C1917] font-medium text-sm sm:text-base max-w-xs leading-relaxed bg-white/85 backdrop-blur-md px-5 py-3 rounded-2xl border border-[#C59A9F]/40 shadow-sm"
           >
             Four clear phases from initial brief to final delivery — zero confusion, full transparency.
           </motion.p>
@@ -127,7 +127,7 @@ export const WorkflowVault = () => {
                   </div>
 
                   <div className="flex-1 min-w-0">
-                    <p className={`text-[10px] font-black uppercase tracking-widest mb-0.5 ${isActive ? 'text-[#FAFAF9]/80' : 'text-[#78716C]'}`}>
+                    <p className={`text-[10px] font-black uppercase tracking-widest mb-0.5 ${isActive ? 'text-[#FAFAF9]/80' : 'text-[#292524]'}`}>
                       {s.subtitle}
                     </p>
                     <h4 className={`text-sm font-black leading-tight ${isActive ? 'text-white' : 'text-[#1C1917]'}`}
@@ -181,7 +181,7 @@ export const WorkflowVault = () => {
                   </span>
                 </div>
 
-                <p className="text-[#78716C] font-light leading-relaxed mb-8 text-sm sm:text-base flex-grow">
+                <p className="text-[#292524] font-medium leading-relaxed mb-8 text-sm sm:text-base flex-grow">
                   {step.desc}
                 </p>
 
@@ -204,7 +204,7 @@ export const WorkflowVault = () => {
                   <button
                     disabled={activeStep === 0}
                     onClick={() => setActiveStep(s => s - 1)}
-                    className="w-9 h-9 rounded-full border border-[#C59A9F] flex items-center justify-center text-[#78716C] hover:border-[#6B1D2F] hover:text-[#6B1D2F] disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+                    className="w-9 h-9 rounded-full border border-[#C59A9F] flex items-center justify-center text-[#292524] hover:border-[#6B1D2F] hover:text-[#6B1D2F] disabled:opacity-30 disabled:cursor-not-allowed transition-all"
                   >
                     <ArrowRight size={14} className="rotate-180" />
                   </button>
@@ -221,7 +221,7 @@ export const WorkflowVault = () => {
                   <button
                     disabled={activeStep === steps.length - 1}
                     onClick={() => setActiveStep(s => s + 1)}
-                    className="w-9 h-9 rounded-full border border-[#C59A9F] flex items-center justify-center text-[#78716C] hover:border-[#6B1D2F] hover:text-[#6B1D2F] disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+                    className="w-9 h-9 rounded-full border border-[#C59A9F] flex items-center justify-center text-[#292524] hover:border-[#6B1D2F] hover:text-[#6B1D2F] disabled:opacity-30 disabled:cursor-not-allowed transition-all"
                   >
                     <ArrowRight size={14} />
                   </button>

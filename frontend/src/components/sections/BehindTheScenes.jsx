@@ -69,7 +69,7 @@ export const BehindTheScenes = ({ data }) => {
             {disciplineTags.map(({ icon: Icon, text }) => (
               <div
                 key={text}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-[#C59A9F] text-[10px] font-black text-[#78716C] uppercase tracking-wider shadow-sm hover:border-[#6B1D2F] hover:text-[#6B1D2F] transition-colors"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-[#C59A9F] text-[10px] font-black text-[#292524] uppercase tracking-wider shadow-sm hover:border-[#6B1D2F] hover:text-[#6B1D2F] transition-colors"
               >
                 <Icon size={11} className="text-[#6B1D2F]" /> {text}
               </div>
@@ -122,7 +122,7 @@ export const BehindTheScenes = ({ data }) => {
                   >
                     {item.title}
                   </h4>
-                  <p className="text-xs text-white/80 font-light leading-relaxed line-clamp-2 max-w-xs">
+                  <p className="text-xs text-white/95 font-normal leading-relaxed line-clamp-2 max-w-xs">
                     {item.caption}
                   </p>
                   {/* Expand hint */}
@@ -167,7 +167,7 @@ export const BehindTheScenes = ({ data }) => {
               >
                 {value}
               </p>
-              <p className="text-[10px] text-[#78716C] font-black uppercase tracking-widest">{label}</p>
+              <p className="text-[10px] text-[#292524] font-black uppercase tracking-widest">{label}</p>
             </div>
           ))}
         </motion.div>
@@ -210,7 +210,7 @@ export const BehindTheScenes = ({ data }) => {
                 >
                   {lightboxItem.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-white/80 font-light leading-relaxed max-w-xl">
+                <p className="text-xs sm:text-sm text-white/95 font-normal leading-relaxed max-w-xl">
                   {lightboxItem.caption}
                 </p>
               </div>

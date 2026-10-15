@@ -140,7 +140,7 @@ export const GearSection = ({ data }) => {
                     <Icon size={18} />
                   </div>
                   <div className="min-w-0">
-                    <p className={`text-[10px] font-black uppercase tracking-widest mb-0.5 ${isActive ? 'text-[#FAFAF9]/80' : 'text-[#78716C]'}`}>
+                    <p className={`text-[10px] font-black uppercase tracking-widest mb-0.5 ${isActive ? 'text-[#FAFAF9]/80' : 'text-[#292524]'}`}>
                       {idx + 1} of {categories.length}
                     </p>
                     <h4 className={`text-sm font-black truncate leading-tight ${isActive ? 'text-white' : 'text-[#1C1917]'}`}
@@ -219,7 +219,7 @@ export const GearSection = ({ data }) => {
                         </h4>
                       </div>
 
-                      <p className="text-xs text-[#78716C] font-light leading-relaxed flex-grow">
+                      <p className="text-xs text-[#292524] font-medium leading-relaxed flex-grow">
                         {item.desc}
                       </p>
 

@@ -163,11 +163,11 @@ export const CommandPalette = () => {
               placeholder="Type a command or search (e.g. Portfolio, Resume, Video)..."
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              className="w-full bg-transparent text-[#1C1917] placeholder-[#78716C] font-semibold text-sm focus:outline-none"
+              className="w-full bg-transparent text-[#1C1917] placeholder-[#292524]/60 font-semibold text-sm focus:outline-none"
             />
             <button
               onClick={() => setIsOpen(false)}
-              className="w-7 h-7 rounded-full bg-white border border-[#C59A9F]/40 text-[#78716C] hover:text-[#6B1D2F] flex items-center justify-center ml-2"
+              className="w-7 h-7 rounded-full bg-white border border-[#C59A9F]/40 text-[#292524] hover:text-[#6B1D2F] flex items-center justify-center ml-2"
             >
               <X size={14} />
             </button>
@@ -176,7 +176,7 @@ export const CommandPalette = () => {
           {/* Items List */}
           <div className="max-h-[380px] overflow-y-auto p-3 space-y-1">
             {filteredItems.length === 0 ? (
-              <div className="py-12 text-center text-[#78716C] text-sm font-medium">
+              <div className="py-12 text-center text-[#292524] text-sm font-semibold">
                 No matching commands found for "{query}"
               </div>
             ) : (
@@ -202,7 +202,7 @@ export const CommandPalette = () => {
                       </div>
                       <div>
                         <p className="text-xs font-black tracking-tight">{item.label}</p>
-                        <p className={`text-[10px] font-medium ${isSelected ? 'text-white/80' : 'text-[#78716C]'}`}>
+                        <p className={`text-[10px] font-semibold ${isSelected ? 'text-white/90' : 'text-[#292524]'}`}>
                           {item.category}
                         </p>
                       </div>
@@ -221,7 +221,7 @@ export const CommandPalette = () => {
           </div>
 
           {/* Footer Shortcuts */}
-          <div className="px-6 py-3 bg-[#FAFAF9] border-t border-[#C59A9F]/30 flex items-center justify-between text-[10px] text-[#78716C] font-bold uppercase tracking-wider">
+          <div className="px-6 py-3 bg-[#FAFAF9] border-t border-[#C59A9F]/30 flex items-center justify-between text-[10px] text-[#292524] font-black uppercase tracking-wider">
             <div className="flex items-center gap-3">
               <span>↑↓ to navigate</span>
               <span>↵ to select</span>

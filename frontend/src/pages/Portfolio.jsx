@@ -162,7 +162,7 @@ export default function Portfolio() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-4xl mx-auto flex-wrap">
           {/* Keyword Search Input */}
           <div className="relative w-full sm:w-64">
-            <Search size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#78716C]" />
+            <Search size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#292524]" />
             <input
               type="text"
               placeholder="Search works..."
@@ -173,7 +173,7 @@ export default function Portfolio() {
             {searchQuery && (
               <button
                 onClick={() => setSearchQuery('')}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-[#78716C] hover:text-[#6B1D2F]"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-[#292524] hover:text-[#6B1D2F]"
               >
                 <X size={13} />
               </button>
@@ -197,7 +197,7 @@ export default function Portfolio() {
                 <button
                   key={cat.id}
                   onClick={() => setFilter(cat.id)}
-                  className={`relative px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-[11px] font-black uppercase tracking-wider transition-all flex items-center gap-1.5 ${active ? 'text-white' : 'text-[#78716C] hover:text-[#1C1917]'
+                  className={`relative px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-[11px] font-black uppercase tracking-wider transition-all flex items-center gap-1.5 ${active ? 'text-white' : 'text-[#292524] hover:text-[#6B1D2F]'
                     }`}
                 >
                   {active && (
@@ -219,7 +219,7 @@ export default function Portfolio() {
             <button
               onClick={() => setViewMode('grid')}
               className={`px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full text-[11px] font-black uppercase tracking-wider transition-all flex items-center gap-1.5 ${
-                viewMode === 'grid' ? 'bg-[#6B1D2F] text-white shadow-sm' : 'text-[#78716C] hover:text-[#1C1917]'
+                viewMode === 'grid' ? 'bg-[#6B1D2F] text-white shadow-sm' : 'text-[#292524] hover:text-[#6B1D2F]'
               }`}
             >
               <Grid size={13} /> Grid
@@ -227,7 +227,7 @@ export default function Portfolio() {
             <button
               onClick={() => setViewMode('spread')}
               className={`px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full text-[11px] font-black uppercase tracking-wider transition-all flex items-center gap-1.5 ${
-                viewMode === 'spread' ? 'bg-[#6B1D2F] text-white shadow-sm' : 'text-[#78716C] hover:text-[#1C1917]'
+                viewMode === 'spread' ? 'bg-[#6B1D2F] text-white shadow-sm' : 'text-[#292524] hover:text-[#6B1D2F]'
               }`}
             >
               <Layers size={13} /> Presentation Sheet
@@ -237,7 +237,7 @@ export default function Portfolio() {
           <button
             onClick={fetchProjects}
             title="Sync latest"
-            className="p-3 rounded-full bg-white border border-[#C59A9F] text-[#78716C] hover:border-[#6B1D2F] hover:text-[#6B1D2F] transition-all shadow-sm"
+            className="p-3 rounded-full bg-white border border-[#C59A9F] text-[#292524] hover:border-[#6B1D2F] hover:text-[#6B1D2F] transition-all shadow-sm"
           >
             <RefreshCw size={15} className={loading ? 'animate-spin text-[#6B1D2F]' : ''} />
           </button>
@@ -260,7 +260,7 @@ export default function Portfolio() {
             <h3 className="text-2xl font-black text-[#1C1917]" style={{ fontFamily: theme.fonts.heading }}>
               No matching projects found
             </h3>
-            <p className="text-[#78716C] text-sm font-light max-w-md mx-auto">
+            <p className="text-[#292524] text-sm font-normal max-w-md mx-auto">
               We couldn't find any projects matching "{searchQuery}". Try searching for different keywords or reset your filters.
             </p>
             <button

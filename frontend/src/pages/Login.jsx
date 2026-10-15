@@ -157,7 +157,7 @@ export default function Login() {
           </form>
 
           {/* Footer note */}
-          <p className="text-center text-[#78716C] text-xs mt-8">
+          <p className="text-center text-[#292524] font-medium text-xs mt-8">
             Credentials are set in the server environment variables.
           </p>
         </div>

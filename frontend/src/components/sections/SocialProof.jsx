@@ -79,7 +79,7 @@ export const SocialProof = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.15 }}
-            className="text-[#78716C] font-light text-base max-w-xs leading-relaxed"
+            className="text-[#1C1917] font-medium text-sm sm:text-base max-w-xs leading-relaxed bg-white/85 backdrop-blur-md px-5 py-3 rounded-2xl border border-[#C59A9F]/40 shadow-sm"
           >
             Feedback from creative directors, brand leads, and agency partners across video and design projects.
           </motion.p>
@@ -256,10 +256,10 @@ export const SocialProof = () => {
                         <DIcon size={9} /> {d.label.split(' ')[0]}
                       </span>
                     </div>
-                    <p className={`text-[10px] font-semibold mb-2 ${isActive ? 'text-white/60' : 'text-[#78716C]'}`}>
+                    <p className={`text-[10px] font-bold mb-2 ${isActive ? 'text-white/80' : 'text-[#292524]'}`}>
                       {t.title} · {t.company}
                     </p>
-                    <p className={`text-xs font-light line-clamp-2 leading-relaxed ${isActive ? 'text-white/70' : 'text-[#78716C]'}`}>
+                    <p className={`text-xs font-normal line-clamp-2 leading-relaxed ${isActive ? 'text-white/90' : 'text-[#1C1917]'}`}>
                       "{t.quote}"
                     </p>
                   </div>
@@ -290,7 +290,7 @@ export const SocialProof = () => {
           transition={{ delay: 0.2 }}
           className="mt-14 pt-10 border-t border-[#C59A9F]"
         >
-          <p className="text-[10px] font-black uppercase tracking-widest text-[#78716C] text-center mb-7">
+          <p className="text-[10px] font-black uppercase tracking-widest text-[#292524] text-center mb-7">
             Trusted by Brands &amp; Creators Worldwide
           </p>
           <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10">

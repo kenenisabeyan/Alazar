@@ -71,7 +71,7 @@ export const ShowreelBanner = ({ onOpenShowreel }) => {
             <button
               onClick={toggleSound}
               className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full border text-[11px] font-black uppercase tracking-wider transition-all ${isMuted
-                  ? 'bg-white border-[#C59A9F] text-[#78716C] hover:border-[#6B1D2F] hover:text-[#6B1D2F]'
+                  ? 'bg-white border-[#C59A9F] text-[#292524] hover:border-[#6B1D2F] hover:text-[#6B1D2F]'
                   : 'bg-[#6B1D2F] border-[#6B1D2F] text-white'
                 }`}
             >
@@ -221,7 +221,7 @@ export const ShowreelBanner = ({ onOpenShowreel }) => {
                 <Icon size={17} />
               </div>
               <div className="min-w-0">
-                <p className="text-[9px] text-[#78716C] uppercase font-black tracking-wider mb-0.5 truncate">
+                <p className="text-[9px] text-[#292524] uppercase font-black tracking-wider mb-0.5 truncate">
                   {label}
                 </p>
                 <p className="text-sm text-[#1C1917] font-black truncate">{value}</p>

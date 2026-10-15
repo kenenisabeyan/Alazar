@@ -136,7 +136,7 @@ export const ServiceSplitter = () => {
                   >
                     {svc.title}
                   </h3>
-                  <p className={`text-sm font-light leading-relaxed mb-8 ${svc.dark ? 'text-white/80' : 'text-[#78716C]'}`}>
+                  <p className={`text-sm font-medium leading-relaxed mb-8 ${svc.dark ? 'text-white/95' : 'text-[#292524]'}`}>
                     {svc.desc}
                   </p>
 

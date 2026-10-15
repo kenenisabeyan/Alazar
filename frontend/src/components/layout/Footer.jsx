@@ -8,7 +8,7 @@ export const Footer = () => {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
   const socialBtn =
-    'w-11 h-11 rounded-full bg-white/80 border border-[#C59A9F] flex items-center justify-center text-[#78716C] hover:bg-[#6B1D2F] hover:text-white hover:border-[#6B1D2F] hover:shadow-lg hover:shadow-[#6B1D2F]/20 transition-all duration-300';
+    'w-11 h-11 rounded-full bg-white/80 border border-[#C59A9F] flex items-center justify-center text-[#292524] hover:bg-[#6B1D2F] hover:text-white hover:border-[#6B1D2F] hover:shadow-lg hover:shadow-[#6B1D2F]/20 transition-all duration-300';
 
   const navLinks = [
     { label: 'Home', path: '/' },
@@ -45,7 +45,7 @@ export const Footer = () => {
               <span className="w-3 h-3 rounded-full bg-[#6B1D2F]" />
               Alazar<span className="text-[#6B1D2F]">.</span>
             </Link>
-            <p className="text-[#78716C] max-w-md mb-8 mt-4 leading-relaxed font-light text-sm md:text-base">
+            <p className="text-[#292524] max-w-md mb-8 mt-4 leading-relaxed font-normal text-sm md:text-base">
               Crafting clean, cinematic video edits, color grading, and high-impact graphic design
               solutions for ambitious creators and global brands.
             </p>
@@ -92,7 +92,7 @@ export const Footer = () => {
               <h4 className="text-xs uppercase tracking-widest font-extrabold text-[#6B1D2F] mb-6 flex items-center gap-2">
                 <Sparkles size={12} /> Navigation
               </h4>
-              <ul className="space-y-3.5 text-sm text-[#78716C] font-medium">
+              <ul className="space-y-3.5 text-sm text-[#292524] font-semibold">
                 {navLinks.map(({ label, path }) => (
                   <li key={path}>
                     <Link
@@ -112,7 +112,7 @@ export const Footer = () => {
               <h4 className="text-xs uppercase tracking-widest font-extrabold text-[#6B1D2F] mb-6 flex items-center gap-2">
                 <Sparkles size={12} /> Expertise
               </h4>
-              <ul className="space-y-3.5 text-sm text-[#78716C] font-light">
+              <ul className="space-y-3.5 text-sm text-[#292524] font-medium">
                 <li>Commercial Editing</li>
                 <li>Cinematic Color Grading</li>
                 <li>Visual Identity & Motion</li>
@@ -124,7 +124,7 @@ export const Footer = () => {
               <h4 className="text-xs uppercase tracking-widest font-extrabold text-[#6B1D2F] mb-6 flex items-center gap-2">
                 <Sparkles size={12} /> Availability
               </h4>
-              <p className="text-sm text-[#78716C] font-light leading-relaxed mb-4">
+              <p className="text-sm text-[#292524] font-medium leading-relaxed mb-4">
                 Available Globally (Remote)<br />
                 In-Person Consultancy Available
               </p>
@@ -137,7 +137,7 @@ export const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-[#C59A9F] pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-[#78716C] tracking-wider uppercase font-semibold">
+        <div className="border-t border-[#C59A9F] pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-[#292524] tracking-wider uppercase font-bold">
           <p>&copy; {new Date().getFullYear()} Alazar Asdesach. All rights reserved.</p>
           <button
             onClick={scrollToTop}
