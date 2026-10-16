@@ -28,7 +28,8 @@ export const ShowreelBanner = ({ onOpenShowreel }) => {
 
   return (
     <section
-      className="py-20 sm:py-28 relative overflow-hidden"
+      id="showreel"
+      className="py-20 sm:py-28 relative overflow-hidden scroll-mt-20"
       style={{ fontFamily: theme.fonts.body, background: '#FAFAF9' }}
     >
       {/* Ambient blob */}

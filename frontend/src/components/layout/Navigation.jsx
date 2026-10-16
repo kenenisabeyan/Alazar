@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import { theme } from '../../constants';
 import alazarImg from '../../assets/images/alazar.png';
+import { navigateToSection } from '../../utils/navigation';
 
 export const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -36,7 +37,6 @@ export const Navigation = () => {
   useEffect(() => {
     setMobileMenuOpen(false);
     setExpandedSection(null);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [location.pathname]);
 
   // Lock body scroll when drawer is open
@@ -97,9 +97,9 @@ export const Navigation = () => {
       name: 'Portfolio',
       path: '/portfolio',
       subLinks: [
-        { name: 'All Featured Projects', path: '/portfolio' },
-        { name: 'Commercial & Video', path: '/portfolio?cat=video' },
-        { name: 'Graphic Design & 3D', path: '/portfolio?cat=design' },
+        { name: 'All Featured Projects', path: '/portfolio#portfolio-grid' },
+        { name: 'Commercial & Video', path: '/portfolio?cat=video#portfolio-grid' },
+        { name: 'Graphic Design & 3D', path: '/portfolio?cat=design#portfolio-grid' },
         { name: 'Color Grading Showcase', path: '/#colorgrading' },
       ],
     },
@@ -107,10 +107,10 @@ export const Navigation = () => {
       name: 'Services',
       path: '/services',
       subLinks: [
-        { name: 'All Services & Packages', path: '/services' },
+        { name: 'All Services & Packages', path: '/services#services-list' },
         { name: 'Video Editing & Directing', path: '/services#services-list' },
         { name: 'Why Hire Me & Guarantees', path: '/services#why-hire-me' },
-        { name: 'Interactive Cost Calculator', path: '/#calculator' },
+        { name: 'Interactive Cost Calculator', path: '/services#calculator' },
         { name: 'Frequently Asked Questions', path: '/services#faq' },
       ],
     },
@@ -120,7 +120,7 @@ export const Navigation = () => {
     },
     {
       name: 'Contact Us',
-      path: '/contact',
+      path: '/contact#contact-form',
     },
   ];
 
@@ -129,36 +129,7 @@ export const Navigation = () => {
 
   const handleNavClick = (path) => {
     setMobileMenuOpen(false);
-
-    if (path.includes('?')) {
-      navigate(path);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      return;
-    }
-
-    if (path.includes('#')) {
-      const [route, hash] = path.split('#');
-      const targetRoute = route || '/';
-
-      const scrollToTarget = () => {
-        setTimeout(() => {
-          const el = document.getElementById(hash);
-          if (el) {
-            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-        }, 180);
-      };
-
-      if (location.pathname !== targetRoute) {
-        navigate(targetRoute);
-        setTimeout(scrollToTarget, 280);
-      } else {
-        scrollToTarget();
-      }
-    } else {
-      navigate(path);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    navigateToSection(navigate, path);
   };
 
   const handleDownloadCV = () => {
@@ -370,7 +341,7 @@ export const Navigation = () => {
                   <button
                     onClick={() => {
                       setMobileMenuOpen(false);
-                      navigate('/contact');
+                      navigateToSection(navigate, '/contact#contact-form');
                     }}
                     className="w-full py-2.5 px-4 rounded-lg bg-[#6B1D2F] hover:bg-[#8B1E3F] text-white text-xs font-semibold tracking-wider uppercase transition-colors flex items-center justify-center gap-1.5 shadow-md"
                   >

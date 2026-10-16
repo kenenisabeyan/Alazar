@@ -8,6 +8,7 @@ import {
 import Button from '../common/Button';
 import { theme, statistics } from '../../constants';
 import alazarImg from '../../assets/images/alazar.png';
+import { navigateToSection } from '../../utils/navigation';
 
 const disciplines = [
   {
@@ -31,7 +32,8 @@ export const AboutSnapshot = () => {
 
   return (
     <section
-      className="py-28 sm:py-36 relative overflow-hidden"
+      id="about-snapshot"
+      className="py-28 sm:py-36 relative overflow-hidden scroll-mt-20"
       style={{ fontFamily: theme.fonts.body, background: '#FAFAF9' }}
     >
       {/* Ambient blobs */}
@@ -139,7 +141,7 @@ export const AboutSnapshot = () => {
               <Button
                 variant="primary"
                 icon={<ArrowRight size={16} />}
-                onClick={() => { navigate('/about'); window.scrollTo(0, 0); }}
+                onClick={() => navigateToSection(navigate, '/about#story')}
                 className="w-full sm:flex-1 min-w-0 px-4 py-3.5 sm:py-4 text-xs font-black uppercase tracking-widest rounded-full shadow-xl"
               >
                 Full Story
@@ -147,7 +149,7 @@ export const AboutSnapshot = () => {
               <Button
                 variant="outline"
                 icon={<Camera size={16} />}
-                onClick={() => { navigate('/portfolio'); window.scrollTo(0, 0); }}
+                onClick={() => navigateToSection(navigate, '/portfolio#portfolio-grid')}
                 className="w-full sm:flex-1 min-w-0 px-4 py-3.5 sm:py-4 text-xs font-black uppercase tracking-widest rounded-full border-[#6B1D2F] text-[#6B1D2F]"
               >
                 See My Work

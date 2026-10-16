@@ -6,6 +6,7 @@ import Button from '../common/Button';
 import { theme, statistics } from '../../constants';
 import heroBg from '../../assets/images/hero-bg.png';
 import alazarImg from '../../assets/images/alazar.png';
+import { navigateToSection } from '../../utils/navigation';
 
 export const HeroSection = ({ onOpenShowreel }) => {
   const containerRef = useRef(null);
@@ -39,6 +40,7 @@ export const HeroSection = ({ onOpenShowreel }) => {
 
   return (
     <section
+      id="hero"
       ref={containerRef}
       className="relative min-h-[95vh] flex flex-col justify-center pt-36 pb-24 overflow-hidden bg-[#FAFAF9] mesh-bg"
       style={{ fontFamily: theme.fonts.body }}
@@ -133,7 +135,7 @@ export const HeroSection = ({ onOpenShowreel }) => {
               <Button
                 variant="primary"
                 icon={<ArrowRight size={16} />}
-                onClick={() => { navigate('/portfolio'); window.scrollTo(0, 0); }}
+                onClick={() => navigateToSection(navigate, '/portfolio#portfolio-grid')}
                 className="w-full sm:w-auto flex-1 sm:flex-initial min-w-0 shadow-xl shadow-[#6B1D2F]/20 hover:shadow-[#6B1D2F]/35 px-6 sm:px-9 py-3.5 sm:py-4 text-xs sm:text-sm tracking-wider sm:tracking-widest uppercase font-extrabold rounded-full"
               >
                 Explore Work

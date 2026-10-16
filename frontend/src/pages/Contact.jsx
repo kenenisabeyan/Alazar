@@ -78,8 +78,35 @@ export default function Contact() {
         details: `Calculator Estimate: $${est.toLocaleString()} USD (${location.state.typeName || 'Production'} — ${location.state.scope || 'Scope'}).`,
       };
     }
+    if (location.state?.selectedProject) {
+      return {
+        ...defaultForm,
+        details: `Hello Alazar, I saw your project "${location.state.selectedProject}" and would like to discuss a similar production/design for my project.`,
+      };
+    }
+    if (location.state?.projectType) {
+      return {
+        ...defaultForm,
+        projectType: location.state.projectType,
+      };
+    }
     return defaultForm;
   });
+
+  // Keep formData in sync if user navigates with new state
+  React.useEffect(() => {
+    if (location.state?.selectedProject) {
+      setFormData(prev => ({
+        ...prev,
+        details: `Hello Alazar, I saw your project "${location.state.selectedProject}" and would like to discuss a similar production/design for my project.`,
+      }));
+    } else if (location.state?.projectType) {
+      setFormData(prev => ({
+        ...prev,
+        projectType: location.state.projectType,
+      }));
+    }
+  }, [location.state]);
 
   const [loading,     setLoading]     = useState(false);
   const [submitted,   setSubmitted]   = useState(false);
@@ -169,6 +196,7 @@ export default function Contact() {
 
   return (
     <motion.div
+      id="contact"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -289,11 +317,14 @@ export default function Contact() {
 
           {/* ── Right form panel ───────────────────────────────────── */}
           <motion.div
+            id="contact-form"
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
-            className="lg:col-span-7 bg-white rounded-[2rem] border-2 border-[#C59A9F] shadow-xl overflow-hidden"
+            className="lg:col-span-7 bg-white rounded-[2rem] border-2 border-[#C59A9F] shadow-xl overflow-hidden scroll-mt-24 relative"
           >
+            {/* Direct alias for #form links */}
+            <div id="form" className="absolute -top-24 left-0 pointer-events-none" />
             {/* Top accent */}
             <div className="h-1 bg-gradient-to-r from-[#6B1D2F] via-[#C59A9F] to-[#8B1E3F]" />
 

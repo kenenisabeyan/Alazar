@@ -362,3 +362,22 @@
 .delay-300 { animation-delay:  300ms; }
 .delay-400 { animation-delay:  400ms; }
 .delay-500 { animation-delay:  500ms; }
+
+/* Target Section Focus Pulse */
+@keyframes sectionTargetGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(107, 29, 47, 0.45);
+  }
+  30% {
+    box-shadow: 0 0 0 10px rgba(107, 29, 47, 0.18), 0 20px 40px rgba(107, 29, 47, 0.12);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(107, 29, 47, 0);
+  }
+}
+
+.section-target-highlight {
+  animation: sectionTargetGlow 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  scroll-margin-top: 90px;
+}
+
