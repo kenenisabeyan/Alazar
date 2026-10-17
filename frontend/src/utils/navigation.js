@@ -81,11 +81,20 @@ export function navigateToSection(navigate, toPath, options = {}) {
   }
 
   const currentPathname = window.location.pathname;
+  const currentSearch = window.location.search;
+  const currentFull = currentPathname + currentSearch;
+
   const [routePart, hashPart] = toPath.split('#');
   const targetRoute = routePart || '/';
 
+  // Check if target is same page (including query params)
+  const isExactSameRoute =
+    (targetRoute === currentPathname && !currentSearch) ||
+    targetRoute === currentFull ||
+    (!routePart);
+
   // Case 1: Same page navigation to section
-  if (hashPart && (currentPathname === targetRoute || !routePart)) {
+  if (hashPart && isExactSameRoute) {
     // Scroll immediately
     scrollToTarget(hashPart, options);
 
@@ -102,9 +111,9 @@ export function navigateToSection(navigate, toPath, options = {}) {
     replace: options.replace || false,
   });
 
-  // If no hash, scroll to top will be handled by ScrollManager
+  // If no hash, scroll to top immediately
   if (!hashPart) {
-    if (window.lenis) {
+    if (window.lenis && typeof window.lenis.scrollTo === 'function') {
       window.lenis.scrollTo(0, { immediate: false });
     } else {
       window.scrollTo({ top: 0, behavior: 'smooth' });

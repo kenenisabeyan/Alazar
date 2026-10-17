@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { scrollToTarget } from '../../utils/navigation';
 
 export default function ScrollToTop() {
-  const { pathname, hash } = useLocation();
+  const { pathname, hash, search } = useLocation();
 
   useEffect(() => {
     if (hash) {
@@ -24,7 +24,7 @@ export default function ScrollToTop() {
       };
 
       // Slight initial tick to allow React component mounting
-      timer = setTimeout(tryScroll, 30);
+      timer = setTimeout(tryScroll, 40);
 
       return () => {
         if (timer) clearTimeout(timer);
@@ -41,7 +41,7 @@ export default function ScrollToTop() {
         });
       }
     }
-  }, [pathname, hash]);
+  }, [pathname, hash, search]);
 
   return null;
 }

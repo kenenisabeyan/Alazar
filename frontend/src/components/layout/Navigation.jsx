@@ -86,6 +86,7 @@ export const Navigation = () => {
       name: 'About',
       path: '/about',
       subLinks: [
+        { name: 'All About Alazar', path: '/about' },
         { name: 'Story & Background', path: '/about#story' },
         { name: 'Career Timeline', path: '/about#timeline' },
         { name: 'Studio Gear & Cameras', path: '/about#gear' },
@@ -97,7 +98,7 @@ export const Navigation = () => {
       name: 'Portfolio',
       path: '/portfolio',
       subLinks: [
-        { name: 'All Featured Projects', path: '/portfolio#portfolio-grid' },
+        { name: 'All Featured Projects', path: '/portfolio' },
         { name: 'Commercial & Video', path: '/portfolio?cat=video#portfolio-grid' },
         { name: 'Graphic Design & 3D', path: '/portfolio?cat=design#portfolio-grid' },
         { name: 'Color Grading Showcase', path: '/#colorgrading' },
@@ -107,7 +108,7 @@ export const Navigation = () => {
       name: 'Services',
       path: '/services',
       subLinks: [
-        { name: 'All Services & Packages', path: '/services#services-list' },
+        { name: 'All Services & Packages', path: '/services' },
         { name: 'Video Editing & Directing', path: '/services#services-list' },
         { name: 'Why Hire Me & Guarantees', path: '/services#why-hire-me' },
         { name: 'Interactive Cost Calculator', path: '/services#calculator' },
@@ -120,7 +121,7 @@ export const Navigation = () => {
     },
     {
       name: 'Contact Us',
-      path: '/contact#contact-form',
+      path: '/contact',
     },
   ];
 
@@ -186,8 +187,37 @@ export const Navigation = () => {
             </div>
           </Link>
 
-          {/* ── The Two Icons: Theme Toggle + Menu Drawer Opener ─────────── */}
+          {/* ── Desktop Header Navigation Links (Navigates directly to exact pages) ── */}
+          <nav className="hidden md:flex items-center gap-1 lg:gap-2">
+            {navLinks.map((link) => {
+              const active = isActive(link.path);
+              return (
+                <button
+                  key={link.name}
+                  onClick={() => handleNavClick(link.path)}
+                  className={`px-3.5 lg:px-4 py-2 rounded-full text-[13px] font-medium tracking-wide transition-all cursor-pointer ${
+                    active
+                      ? 'text-[#6B1D2F] dark:text-[#F5F0F1] font-bold bg-[#6B1D2F]/10 dark:bg-white/10 shadow-sm'
+                      : 'text-[#44403C] dark:text-white/70 hover:text-[#1C1917] dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5'
+                  }`}
+                >
+                  {link.name}
+                </button>
+              );
+            })}
+          </nav>
+
+          {/* ── Right Actions: Desktop Hire Me + Theme Toggle + Menu Drawer Opener ─────────── */}
           <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+            {/* Desktop Hire Me CTA */}
+            <button
+              onClick={() => handleNavClick('/contact')}
+              className="hidden lg:flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#6B1D2F] hover:bg-[#8B1E3F] text-white text-xs font-semibold tracking-wider uppercase shadow-sm transition-all hover:scale-105 active:scale-95 cursor-pointer"
+            >
+              <span>Hire Me</span>
+              <ArrowUpRight size={13} />
+            </button>
+
             {/* 1. Theme toggle icon */}
             <button
               id="theme-toggle-btn"
@@ -208,7 +238,7 @@ export const Navigation = () => {
               id="menu-hamburger-btn"
               onClick={() => setMobileMenuOpen(true)}
               className={`w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center cursor-pointer hover:scale-105 active:scale-95 ${iconBtn}`}
-              aria-label="Open menu drawer"
+              aria-label="Open navigation menu drawer"
               title="Open Navigation Menu"
             >
               <Menu size={18} className="text-[#1C1917] dark:text-[#F5F0F1] sm:scale-110" />
@@ -218,7 +248,7 @@ export const Navigation = () => {
         </div>
       </header>
 
-      {/* ── Right-Side Slide-Over Navigation Drawer (Iceaddis Style) ───────── */}
+      {/* ── Right-Side Slide-Over Navigation Drawer ───────── */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <div className="fixed inset-0 z-[100] flex justify-end">
@@ -233,7 +263,7 @@ export const Navigation = () => {
               aria-label="Close navigation overlay"
             />
 
-            {/* Slide-In Drawer Panel from Right Edge (matches Iceaddis Image 2 proportion ~68vw on mobile) */}
+            {/* Slide-In Drawer Panel from Right Edge */}
             <motion.aside
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
@@ -242,7 +272,7 @@ export const Navigation = () => {
               className="relative w-[68vw] min-w-[215px] max-w-[265px] sm:max-w-[320px] md:max-w-[360px] h-full bg-[#181818] dark:bg-[#141414] border-l border-white/[0.08] shadow-2xl flex flex-col overflow-y-auto z-10 select-none scrollbar-none"
               style={{ fontFamily: theme.fonts.body }}
             >
-              {/* Clean Top Bar with ONLY the bare 'X' Close Button at top right (exact match to Image 2) */}
+              {/* Clean Top Bar with ONLY the bare 'X' Close Button at top right */}
               <div className="flex justify-end pt-7 pb-3 px-5 sm:px-6">
                 <button
                   id="drawer-close-btn"
@@ -254,13 +284,13 @@ export const Navigation = () => {
                 </button>
               </div>
 
-              {/* Navigation Menu Links (Vertical stack with clean borders matching Image 2) */}
+              {/* Navigation Menu Links */}
               <nav className="flex-1 px-5 sm:px-6 py-1">
                 {/* Home link */}
                 <div className="border-b border-white/[0.08] py-3.5">
                   <button
                     onClick={() => handleNavClick('/')}
-                    className={`w-full text-left text-[15px] sm:text-base font-normal tracking-wide transition-colors ${
+                    className={`w-full text-left text-[15px] sm:text-base font-normal tracking-wide transition-colors cursor-pointer ${
                       location.pathname === '/' ? 'text-white font-medium' : 'text-[#E5E5E5]/85 hover:text-white'
                     }`}
                   >
@@ -268,7 +298,7 @@ export const Navigation = () => {
                   </button>
                 </div>
 
-                {/* Structured Links (About +, Portfolio +, Services +, etc.) */}
+                {/* Structured Links (About, Portfolio, Services, Behind The Scenes, Contact Us) */}
                 {drawerLinks.map((item) => {
                   const isExpanded = expandedSection === item.name;
                   const active = isActive(item.path);
@@ -276,32 +306,30 @@ export const Navigation = () => {
                   return (
                     <div key={item.name} className="border-b border-white/[0.08] py-3.5">
                       <div className="flex items-center justify-between">
+                        {/* Title button: directly navigates to the exact page */}
                         <button
-                          onClick={() => {
-                            if (item.subLinks) {
-                              toggleSection(item.name);
-                            } else {
-                              handleNavClick(item.path);
-                            }
-                          }}
-                          className={`text-left text-[15px] sm:text-base font-normal tracking-wide transition-colors ${
+                          onClick={() => handleNavClick(item.path)}
+                          className={`flex-1 text-left text-[15px] sm:text-base font-normal tracking-wide transition-colors cursor-pointer py-0.5 ${
                             active ? 'text-white font-medium' : 'text-[#E5E5E5]/85 hover:text-white'
                           }`}
                         >
                           {item.name}
                         </button>
 
-                        {/* Bare subtle '+' / '−' Icon (exact match to Image 2, no circles) */}
+                        {/* Plus/Minus Toggle: Expands/collapses submenu */}
                         {item.subLinks && (
                           <button
-                            onClick={() => toggleSection(item.name)}
-                            className="p-1 text-white/45 hover:text-white transition-colors cursor-pointer"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              toggleSection(item.name);
+                            }}
+                            className="p-1.5 text-white/50 hover:text-white transition-colors cursor-pointer ml-2 flex-shrink-0"
                             aria-label={`Toggle ${item.name} sub-menu`}
                           >
                             {isExpanded ? (
-                              <Minus size={14} strokeWidth={1.5} />
+                              <Minus size={15} strokeWidth={1.5} />
                             ) : (
-                              <Plus size={14} strokeWidth={1.5} />
+                              <Plus size={15} strokeWidth={1.5} />
                             )}
                           </button>
                         )}
@@ -321,7 +349,7 @@ export const Navigation = () => {
                               <button
                                 key={sub.name}
                                 onClick={() => handleNavClick(sub.path)}
-                                className="block w-full text-left text-[13px] text-white/60 hover:text-white transition-colors py-1 font-normal tracking-wide flex items-center justify-between group"
+                                className="block w-full text-left text-[13px] text-white/60 hover:text-white transition-colors py-1 font-normal tracking-wide flex items-center justify-between group cursor-pointer"
                               >
                                 <span className="group-hover:translate-x-1 transition-transform">
                                   {sub.name}
@@ -339,11 +367,8 @@ export const Navigation = () => {
                 {/* Additional Quick Actions in the menu stream (Hire Me & CV) */}
                 <div className="pt-6 pb-8 space-y-3">
                   <button
-                    onClick={() => {
-                      setMobileMenuOpen(false);
-                      navigateToSection(navigate, '/contact#contact-form');
-                    }}
-                    className="w-full py-2.5 px-4 rounded-lg bg-[#6B1D2F] hover:bg-[#8B1E3F] text-white text-xs font-semibold tracking-wider uppercase transition-colors flex items-center justify-center gap-1.5 shadow-md"
+                    onClick={() => handleNavClick('/contact')}
+                    className="w-full py-2.5 px-4 rounded-lg bg-[#6B1D2F] hover:bg-[#8B1E3F] text-white text-xs font-semibold tracking-wider uppercase transition-colors flex items-center justify-center gap-1.5 shadow-md cursor-pointer"
                   >
                     <span>Hire Me</span>
                     <ArrowUpRight size={13} />
@@ -352,7 +377,7 @@ export const Navigation = () => {
                   <div className="flex items-center justify-between text-xs text-white/50 pt-2 border-t border-white/[0.08]">
                     <button
                       onClick={handleDownloadCV}
-                      className="flex items-center gap-1 text-[11px] text-white/70 hover:text-white tracking-wider uppercase font-medium transition-colors"
+                      className="flex items-center gap-1 text-[11px] text-white/70 hover:text-white tracking-wider uppercase font-medium transition-colors cursor-pointer"
                     >
                       <Download size={11} />
                       <span>CV Resume</span>
