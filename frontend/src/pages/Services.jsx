@@ -19,7 +19,7 @@ const serviceCards = [
     badge: 'Remote Post-Production',
     badgeDark: false,
     title: 'Video Editing & Post-Production',
-    desc: 'High-quality video editing, color grading, sound mixing, and graphic design delivered globally — no travel required.',
+    desc: 'High-quality video editing, color grading, sound mixing, and graphic design delivered globally with no travel required.',
     items: ['Cinematic Color Grading', 'Commercial & Documentary Editing', 'Brand Identity & Logo Design', 'Social Media Motion Edits', 'Audio Mixing & Sound Design'],
     cta: 'Request Remote Quote',
     ctaVariant: 'outline',
@@ -28,7 +28,7 @@ const serviceCards = [
     badge: 'On-Location Filming',
     badgeDark: true,
     title: 'On-Set Filming & Directing',
-    desc: 'On-set camera operation, lighting, live event videography, and full creative direction — available globally.',
+    desc: 'On-set camera operation, lighting, live event videography, and full creative direction, available globally.',
     items: ['On-Set Filming & Camera Operation', 'Creative Strategy & Art Direction', 'Live Event & Music Coverage', 'Brand Photoshoots & Video Direction', 'Video Production Consulting'],
     cta: 'Contact for On-Site',
     ctaVariant: 'primary',
@@ -169,7 +169,6 @@ export default function Services() {
             animate={{ opacity: 1, y: 0 }}
             className="inline-flex items-center gap-2 text-[11px] uppercase tracking-widest text-[#6B1D2F] font-black mb-4 block justify-center"
           >
-            <span className="w-8 h-px bg-[#6B1D2F] inline-block" />
             My Services
           </motion.span>
           <motion.h1
@@ -188,7 +187,7 @@ export default function Services() {
             transition={{ delay: 0.2 }}
             className="text-[#1C1917] font-medium text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto bg-white/85 backdrop-blur-md px-4 sm:px-6 py-2.5 sm:py-3.5 rounded-2xl border border-[#C59A9F]/40 shadow-sm max-w-full break-words"
           >
-            Whether you need remote video editing or full on-set production — senior-level creative work, transparent pricing, and on-time delivery every time.
+            Whether you need remote video editing or full on-set production, get senior-level creative work, transparent pricing, and on-time delivery every time.
           </motion.p>
         </div>
 

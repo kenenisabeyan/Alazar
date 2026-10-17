@@ -50,7 +50,7 @@ export default function Home() {
   const handleOpenShowreel = () => {
     handleOpenProjectModal({
       id: 'showreel',
-      title: 'Alazar Asdesach — 2025 Showreel',
+      title: 'Alazar Asdesach: 2025 Showreel',
       category: 'Showreel',
       client: 'Alazar Studio',
       videoUrl: '/assets/sample-showreel.mp4',
@@ -104,7 +104,7 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
               >
                 <span className="inline-flex items-center gap-2 text-[11px] uppercase tracking-widest text-[#6B1D2F] font-black mb-3 block">
-                  <span className="w-8 h-px bg-[#6B1D2F] inline-block" /> Selected Works
+                  Selected Works
                 </span>
                 <h2
                   className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] leading-[1.06] tracking-tight break-words"
