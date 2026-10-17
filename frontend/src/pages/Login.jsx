@@ -74,7 +74,7 @@ export default function Login() {
             <h1 className="text-3xl font-black text-[#F5F0F1] tracking-tight">
               Alazar <span className="text-[#8B1E3F]">Studio</span>
             </h1>
-            <p className="text-[#A89597] text-sm mt-1">CMS Dashboard — v2.0</p>
+            <p className="text-[#A89597] text-sm mt-1">CMS Dashboard v2.0</p>
           </div>
 
           {/* Form */}

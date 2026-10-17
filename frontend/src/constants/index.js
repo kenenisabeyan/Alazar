@@ -411,7 +411,7 @@ export const gearList = [
 export const colorGradingSamples = [
   {
     id: 'cg-1',
-    title: 'Cinema Grade — Log vs Master',
+    title: 'Cinema Grade: Log vs Master',
     // RAW LOG: dark, desaturated cinema interior — flat S-Log look
     logImage:
       'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=75&sat=-80&con=-30',

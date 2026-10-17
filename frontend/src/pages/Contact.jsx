@@ -75,7 +75,7 @@ export default function Contact() {
         ...defaultForm,
         projectType: typeMap[location.state.projectType] || 'freelance-video',
         budget: budgetVal,
-        details: `Calculator Estimate: $${est.toLocaleString()} USD (${location.state.typeName || 'Production'} — ${location.state.scope || 'Scope'}).`,
+        details: `Calculator Estimate: $${est.toLocaleString()} USD (${location.state.typeName || 'Production'}, ${location.state.scope || 'Scope'}).`,
       };
     }
     if (location.state?.selectedProject) {
@@ -266,7 +266,7 @@ export default function Contact() {
                 <span className="text-gradient-burgundy font-black">Something Great.</span>
               </h1>
               <p className="text-[#1C1917] font-medium text-sm sm:text-base md:text-lg leading-relaxed max-w-md bg-white/85 backdrop-blur-md px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl border border-[#C59A9F]/40 shadow-sm inline-block max-w-full break-words">
-                Ready to start your next video or design project? Fill out the brief below — your inquiry goes straight into the PERN backend.
+                Ready to start your next video or design project? Fill out the brief below, your inquiry goes straight into the PERN backend.
               </p>
             </div>
 
@@ -363,7 +363,7 @@ export default function Contact() {
                     )}
 
                     <p className="text-[#292524] font-medium max-w-sm mx-auto text-sm leading-relaxed">
-                      Thank you, <strong className="text-[#1C1917]">{formData.firstName}</strong>. Your brief has been recorded in PostgreSQL — I'll review it within 24 hours.
+                      Thank you, <strong className="text-[#1C1917]">{formData.firstName}</strong>. Your brief has been recorded in PostgreSQL, I'll review it within 24 hours.
                     </p>
                     <Button variant="outline" onClick={() => { setSubmitted(false); setFormData(defaultForm); }}>
                       Send Another Inquiry

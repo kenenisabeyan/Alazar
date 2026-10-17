@@ -45,7 +45,7 @@ export default function InquiriesAdmin() {
     hero: {
       eyebrow: "Direct PostgreSQL Sync",
       title: "Let's Build Something Great.",
-      description: "Ready to start your next video or design project? Fill out the brief below — your inquiry goes straight into the PERN backend."
+      description: "Ready to start your next video or design project? Fill out the brief below, your inquiry goes straight into the PERN backend."
     },
     availability: {
       statusText: "Accepting Q3 / Q4 Projects Worldwide",

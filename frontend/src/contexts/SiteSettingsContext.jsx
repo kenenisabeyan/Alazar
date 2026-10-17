@@ -17,7 +17,7 @@ const DEFAULT_SETTINGS = {
   // Hero
   'hero.headline':         'Cinematic Videos.',
   'hero.headline2':        'Clear Design.',
-  'hero.subtext':          'Senior Video Director & Graphic Designer — crafting award-winning visuals for global brands.',
+  'hero.subtext':          'Senior Video Director & Graphic Designer, crafting award-winning visuals for global brands.',
   'hero.cta_primary':      'View My Work',
   'hero.cta_secondary':    'Get in Touch',
   'hero.showreel_url':     '',

@@ -67,7 +67,7 @@ export default function ServicesAdmin() {
         badge: 'Remote Post-Production',
         badgeDark: false,
         title: 'Video Editing & Post-Production',
-        desc: 'High-quality video editing, color grading, sound mixing, and graphic design delivered globally — no travel required.',
+        desc: 'High-quality video editing, color grading, sound mixing, and graphic design delivered globally, no travel required.',
         items: 'Cinematic Color Grading, Commercial Editing, Brand Identity, Motion Edits, Audio Mixing',
         cta: 'Request Remote Quote',
         ctaVariant: 'outline'
