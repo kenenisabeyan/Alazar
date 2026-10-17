@@ -14,7 +14,7 @@ const services = [
     accentLight: '#FAFAF9',
     label: 'Post-Production',
     title: 'Video Editing & Motion',
-    desc: 'High-octane commercial reels, music video cuts, cinematic color grading, and broadcast-ready sound design — all delivered in 8K master exports.',
+    desc: 'High-octane commercial reels, music video cuts, cinematic color grading, and broadcast-ready sound design, all delivered in 8K master exports.',
     items: [
       { icon: Film, text: 'Commercial & Documentary Editing' },
       { icon: Sliders, text: 'Cinematic Color Grading (RAW → Master)' },
@@ -65,9 +65,8 @@ export const ServiceSplitter = () => {
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#6B1D2F] font-black mb-4 block"
+              className="text-xs uppercase tracking-widest text-[#6B1D2F] font-black mb-4 block"
             >
-              <span className="w-8 h-px bg-[#6B1D2F] inline-block" />
               Core Disciplines
             </motion.span>
             <motion.h2
