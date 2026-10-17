@@ -37,7 +37,6 @@ export const Navigation = () => {
   useEffect(() => {
     setMobileMenuOpen(false);
     setExpandedSection(null);
-    setDesktopDropdown(null);
   }, [location.pathname]);
 
   // Lock body scroll when drawer is open
@@ -55,14 +54,13 @@ export const Navigation = () => {
   // Handle ESC key to close drawer
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.key === 'Escape') {
-        if (mobileMenuOpen) setMobileMenuOpen(false);
-        if (desktopDropdown) setDesktopDropdown(null);
+      if (e.key === 'Escape' && mobileMenuOpen) {
+        setMobileMenuOpen(false);
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [mobileMenuOpen, desktopDropdown]);
+  }, [mobileMenuOpen]);
 
   const toggleTheme = () => {
     const next = !isDarkMode;
@@ -146,7 +144,6 @@ export const Navigation = () => {
 
   const handleNavClick = (path) => {
     setMobileMenuOpen(false);
-    setDesktopDropdown(null);
     navigateToSection(navigate, path);
   };
 
@@ -204,74 +201,25 @@ export const Navigation = () => {
             </div>
           </Link>
 
-          {/* ── Desktop Header Navigation Links with Section Dropdowns ── */}
+          {/* ── Desktop Header Navigation Links (Clean & Direct, no dropdown popups) ── */}
           <nav className="hidden md:flex items-center gap-1 lg:gap-2">
             {navSections
               .filter((i) => i.name !== 'Behind The Scenes')
               .map((link) => {
                 const active = isActive(link.path);
-                const hasSub = link.subLinks && link.subLinks.length > 0;
-                const isMenuOpen = desktopDropdown === link.name;
 
                 return (
-                  <div
+                  <button
                     key={link.name}
-                    className="relative group"
-                    onMouseEnter={() => setDesktopDropdown(link.name)}
-                    onMouseLeave={() => setDesktopDropdown(null)}
+                    onClick={() => handleNavClick(link.path)}
+                    className={`px-3.5 lg:px-4 py-2 rounded-full text-[13px] font-medium tracking-wide transition-all cursor-pointer ${
+                      active
+                        ? 'text-[#6B1D2F] dark:text-[#F5F0F1] font-bold bg-[#6B1D2F]/10 dark:bg-white/10 shadow-sm'
+                        : 'text-[#44403C] dark:text-white/70 hover:text-[#1C1917] dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5'
+                    }`}
                   >
-                    <button
-                      onClick={() => handleNavClick(link.path)}
-                      className={`px-3 lg:px-4 py-2 rounded-full text-[13px] font-medium tracking-wide transition-all cursor-pointer flex items-center gap-1.5 ${
-                        active
-                          ? 'text-[#6B1D2F] dark:text-[#F5F0F1] font-bold bg-[#6B1D2F]/10 dark:bg-white/10 shadow-sm'
-                          : 'text-[#44403C] dark:text-white/70 hover:text-[#1C1917] dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5'
-                      }`}
-                    >
-                      <span>{link.name}</span>
-                      {hasSub && (
-                        <ChevronDown
-                          size={12}
-                          className={`transition-transform duration-200 opacity-60 group-hover:opacity-100 ${
-                            isMenuOpen ? 'rotate-180 text-[#6B1D2F] dark:text-[#C59A9F]' : ''
-                          }`}
-                        />
-                      )}
-                    </button>
-
-                    {/* Desktop Dropdown Panel listing sections inside this page */}
-                    <AnimatePresence>
-                      {hasSub && isMenuOpen && (
-                        <motion.div
-                          initial={{ opacity: 0, y: 8, scale: 0.96 }}
-                          animate={{ opacity: 1, y: 0, scale: 1 }}
-                          exit={{ opacity: 0, y: 8, scale: 0.96 }}
-                          transition={{ duration: 0.16, ease: 'easeOut' }}
-                          className="absolute top-full left-0 mt-1.5 w-60 py-2 bg-white/95 dark:bg-[#181818]/95 backdrop-blur-xl rounded-2xl shadow-xl border border-[#C59A9F]/30 dark:border-white/10 z-50 overflow-hidden"
-                        >
-                          <div className="px-3.5 py-1.5 text-[10px] font-black uppercase tracking-wider text-[#6B1D2F] dark:text-[#C59A9F] border-b border-[#C59A9F]/15 dark:border-white/10 mb-1 flex items-center justify-between">
-                            <span>{link.name} Sections</span>
-                            <span className="text-[9px] opacity-60">Jump to</span>
-                          </div>
-                          {link.subLinks.map((sub) => (
-                            <button
-                              key={sub.name}
-                              onClick={() => {
-                                setDesktopDropdown(null);
-                                handleNavClick(sub.path);
-                              }}
-                              className="w-full text-left px-3.5 py-2 text-xs text-[#292524] dark:text-white/75 hover:text-[#6B1D2F] dark:hover:text-white hover:bg-[#6B1D2F]/08 dark:hover:bg-white/08 transition-colors flex items-center justify-between group/sub cursor-pointer"
-                            >
-                              <span className="font-normal group-hover/sub:translate-x-0.5 transition-transform">
-                                {sub.name}
-                              </span>
-                              <ChevronRight size={12} className="opacity-0 group-hover/sub:opacity-60 transition-opacity" />
-                            </button>
-                          ))}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
+                    {link.name}
+                  </button>
                 );
               })}
           </nav>
