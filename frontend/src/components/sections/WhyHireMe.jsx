@@ -10,10 +10,10 @@ import { hiringGuarantees, theme } from '../../constants';
 const guaranteeIcons = [Clock, FileCheck, MessageCircle, Music];
 
 const differentiators = [
-  'Direct 1-on-1 communication — no agency middlemen',
+  'Direct 1-on-1 communication, no agency middlemen',
   '8K RAW master delivery as standard',
   'Broadcast & streaming colour-space compliance',
-  'Rapid prototyping — first rough cut in 48 hours',
+  'Rapid prototyping: first rough cut in 48 hours',
   'Parallel video + design capability in one workflow',
   '100% on-time record across 140+ projects',
 ];
@@ -61,7 +61,7 @@ export const WhyHireMe = () => {
             transition={{ delay: 0.15 }}
             className="text-[#1C1917] font-medium text-base max-w-sm leading-relaxed bg-white/80 backdrop-blur-md px-4 py-2.5 rounded-xl border border-[#C59A9F]/40 shadow-sm"
           >
-            A dedicated senior specialist — not an agency. Faster, sharper, and fully invested in your project's success.
+            A dedicated senior specialist, not an agency. Faster, sharper, and fully invested in your project's success.
           </motion.p>
         </div>
 
@@ -122,7 +122,7 @@ export const WhyHireMe = () => {
                 className="text-2xl font-black text-white mb-8 leading-tight"
                 style={{ fontFamily: theme.fonts.heading }}
               >
-                The senior freelancer advantage — no agency overhead, full creative control.
+                The senior freelancer advantage: no agency overhead, full creative control.
               </h3>
 
               <ul className="space-y-4">

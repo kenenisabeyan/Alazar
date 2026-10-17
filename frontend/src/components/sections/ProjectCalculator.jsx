@@ -92,7 +92,7 @@ export const ProjectCalculator = () => {
             transition={{ delay: 0.15 }}
             className="text-[#1C1917] font-medium text-sm sm:text-base max-w-xs leading-relaxed bg-white/85 backdrop-blur-md px-5 py-3 rounded-2xl border border-[#C59A9F]/40 shadow-sm"
           >
-            Configure your production scope in real-time for an instant budgetary estimate — no gatekeeping.
+            Configure your production scope in real-time for an instant budgetary estimate with complete transparency.
           </motion.p>
         </div>
 

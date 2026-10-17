@@ -22,7 +22,7 @@ const steps = [
     icon: Layers,
     title: 'Draft & Review',
     subtitle: 'Collaborative Iteration',
-    desc: 'Review annotated video drafts and design concepts online with timecoded feedback — no email chains. Direct, frame-accurate collaboration.',
+    desc: 'Review annotated video drafts and design concepts online with timecoded feedback instead of email chains. Direct, frame-accurate collaboration.',
     details: ['Frame.io timecoded review link provided', 'Unlimited annotation comments', '2 structured revision rounds included', 'Screen-share sessions available on demand'],
     duration: '2–4 Days',
     color: '#8B1E3F',
@@ -42,7 +42,7 @@ const steps = [
     icon: Download,
     title: 'Final Delivery',
     subtitle: 'Master Archive Package',
-    desc: 'Secure cloud delivery of all finished assets — master files, social cuts, project sources, and audio stems — fully organized and archived.',
+    desc: 'Secure cloud delivery of all finished assets including master files, social cuts, project sources, and audio stems, fully organized and archived.',
     details: ['ProRes 422 HQ 4K/8K master files', 'All social media format cuts included', 'Source project files & RAW footage', 'Permanent secure archive link'],
     duration: '1 Day',
     color: '#6B1D2F',
@@ -93,7 +93,7 @@ export const WorkflowVault = () => {
             transition={{ delay: 0.15 }}
             className="text-[#1C1917] font-medium text-sm sm:text-base max-w-xs leading-relaxed bg-white/85 backdrop-blur-md px-5 py-3 rounded-2xl border border-[#C59A9F]/40 shadow-sm"
           >
-            Four clear phases from initial brief to final delivery — zero confusion, full transparency.
+            Four clear phases from initial brief to final delivery with zero confusion and full transparency.
           </motion.p>
         </div>
 

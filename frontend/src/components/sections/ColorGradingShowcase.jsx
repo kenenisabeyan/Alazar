@@ -43,9 +43,8 @@ export const ColorGradingShowcase = () => {
               initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-[11px] font-black uppercase tracking-[0.28em] text-[#6B1D2F] mb-4 flex items-center gap-2"
+              className="text-[11px] font-black uppercase tracking-[0.28em] text-[#6B1D2F] mb-4"
             >
-              <span className="inline-block w-8 h-px bg-[#6B1D2F]" />
               Color Grading Suite
             </motion.p>
             <motion.h2
@@ -95,7 +94,7 @@ export const ColorGradingShowcase = () => {
             {/* ── RIGHT side: GRADED MASTER (vivid, full color) ── */}
             <img
               src={sample.gradedImage}
-              alt="Final Color Grade — Cinematic Master"
+              alt="Final Color Grade: Cinematic Master"
               className="absolute inset-0 w-full h-full object-cover"
               draggable={false}
             />
@@ -112,7 +111,7 @@ export const ColorGradingShowcase = () => {
               */}
               <img
                 src={sample.logImage}
-                alt="Camera RAW Log — Flat S-Log"
+                alt="Camera RAW Log: Flat S-Log"
                 className="absolute inset-0 h-full object-cover"
                 style={{
                   width: containerRef.current
