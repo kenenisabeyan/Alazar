@@ -48,7 +48,7 @@ export default function About() {
     fullName: 'Alazar Asdesach',
     professionalTitle: 'Video Director & Senior Graphic Designer',
     headline: 'Director & Visual Artist.',
-    shortDescription: 'With over 8 years of experience in video production, cinematic color science, and senior-level brand design — crafting visual assets that communicate identity with precision.',
+    shortDescription: 'With over 8 years of experience in video production, cinematic color science, and senior-level brand design, crafting visual assets that communicate identity with precision.',
     profileImage: alazarImg,
   };
 

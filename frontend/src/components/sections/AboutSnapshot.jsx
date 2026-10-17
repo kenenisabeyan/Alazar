@@ -248,7 +248,7 @@ export const AboutSnapshot = () => {
                 group-hover:scale-[1.02] transition-all duration-500 ease-out z-20">
                 <img
                   src={alazarImg}
-                  alt="Alazar Asdesach — Video Director & Senior Graphic Designer"
+                  alt="Alazar Asdesach: Video Director & Senior Graphic Designer"
                   className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1C1917]/70 via-transparent to-transparent" />
