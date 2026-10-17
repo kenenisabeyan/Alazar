@@ -15,7 +15,6 @@ import {
   Facebook,
   Mail,
   ChevronRight,
-  ChevronDown,
 } from 'lucide-react';
 import { theme } from '../../constants';
 import alazarImg from '../../assets/images/alazar.png';
@@ -25,7 +24,6 @@ export const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [expandedSection, setExpandedSection] = useState(null);
-  const [desktopDropdown, setDesktopDropdown] = useState(null);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
