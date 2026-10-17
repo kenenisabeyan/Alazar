@@ -264,7 +264,7 @@ export const CareerTimeline = ({ data, awards: awardsProp }) => {
                   Accepting Q3 / Q4 Projects
                 </p>
                 <p className="text-xs text-[#292524] font-medium mt-0.5">
-                  Available Globally — Remote & On-Site
+                  Available Globally, Remote & On-Site
                 </p>
               </div>
               <div className="ml-auto flex-shrink-0 w-3 h-3 rounded-full bg-emerald-500 animate-pulse shadow-lg shadow-emerald-500/40" />

@@ -25,7 +25,7 @@ const defaultVideoCard = {
   experienceLabel: '8+ Yrs Experience',
   headline: 'Senior Video Editor',
   headlineAccent: '& Colorist',
-  description: 'Mastery in cinematic editing, rhythm-perfect cuts, high-dynamic-range color grading from RAW log to broadcast master, and professional sound design — on RED 8K and Sony cinema cameras.',
+  description: 'Mastery in cinematic editing, rhythm-perfect cuts, high-dynamic-range color grading from RAW log to broadcast master, and professional sound design on RED 8K and Sony cinema cameras.',
   competencies: [
     { icon: 'Sliders', label: 'Color Grading', sub: 'DaVinci Resolve Studio' },
     { icon: 'Film',    label: 'Commercial Edit', sub: 'Premiere Pro / Resolve' },
@@ -43,7 +43,7 @@ const defaultDesignCard = {
   experienceLabel: 'Senior Level',
   headline: 'Senior Graphics',
   headlineAccent: 'Designer & Director',
-  description: 'Comprehensive brand identity systems, editorial poster design, 3D visual concepts, motion graphics, and digital UI kits — built to last and scale across every brand touchpoint.',
+  description: 'Comprehensive brand identity systems, editorial poster design, 3D visual concepts, motion graphics, and digital UI kits, built to last and scale across every brand touchpoint.',
   competencies: [
     { icon: 'PenTool', label: 'Brand Identity',   sub: 'Illustrator / Figma' },
     { icon: 'Layers',  label: 'Motion Graphics',  sub: 'After Effects / C4D' },
@@ -325,7 +325,7 @@ export const ExpertiseSection = ({ data, statistics }) => {
             transition={{ delay: 0.18 }}
             className="text-[#1C1917] font-medium text-base lg:text-lg max-w-sm leading-relaxed lg:text-right bg-white/80 backdrop-blur-md px-4 py-2.5 rounded-xl border border-[#C59A9F]/40 shadow-sm"
           >
-            Where cinematic video production meets senior-level graphic design — two disciplines mastered under one creative vision.
+            Where cinematic video production meets senior-level graphic design, two disciplines mastered under one creative vision.
           </motion.p>
         </div>
 
