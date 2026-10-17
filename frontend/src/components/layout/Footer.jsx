@@ -1,11 +1,24 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Facebook, Send, ArrowUp, Sparkles } from 'lucide-react';
+import { Facebook, Send, ArrowUp, Sparkles, ArrowUpRight } from 'lucide-react';
 import { theme } from '../../constants';
+import { navigateToSection } from '../../utils/navigation';
 
 export const Footer = () => {
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+  const navigate = useNavigate();
+
+  const scrollToTop = () => {
+    if (window.lenis && typeof window.lenis.scrollTo === 'function') {
+      window.lenis.scrollTo(0, { immediate: false });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  const handleLink = (path) => {
+    navigateToSection(navigate, path);
+  };
 
   const socialBtn =
     'w-11 h-11 rounded-full bg-white/80 border border-[#C59A9F] flex items-center justify-center text-[#292524] hover:bg-[#6B1D2F] hover:text-white hover:border-[#6B1D2F] hover:shadow-lg hover:shadow-[#6B1D2F]/20 transition-all duration-300';
@@ -16,6 +29,13 @@ export const Footer = () => {
     { label: 'Portfolio', path: '/portfolio' },
     { label: 'Services', path: '/services' },
     { label: 'Contact', path: '/contact' },
+  ];
+
+  const expertiseLinks = [
+    { label: 'Commercial Editing', path: '/portfolio?cat=video#portfolio-grid' },
+    { label: 'Cinematic Color Grading', path: '/#colorgrading' },
+    { label: 'Visual Identity & Motion', path: '/services#services-list' },
+    { label: '3D Product Visuals', path: '/portfolio?cat=design#portfolio-grid' },
   ];
 
   return (
@@ -36,15 +56,14 @@ export const Footer = () => {
 
           {/* Brand Info */}
           <div className="md:col-span-6 lg:col-span-5 pr-0 md:pr-10">
-            <Link
-              to="/"
-              className="text-3xl font-black tracking-widest text-[#1C1917] uppercase mb-6 hover:opacity-90 transition-opacity flex items-center gap-2 w-fit"
+            <button
+              onClick={() => handleLink('/')}
+              className="text-3xl font-black tracking-widest text-[#1C1917] uppercase mb-6 hover:opacity-90 transition-opacity flex items-center gap-2 w-fit cursor-pointer"
               style={{ fontFamily: theme.fonts.heading }}
-              onClick={scrollToTop}
             >
               <span className="w-3 h-3 rounded-full bg-[#6B1D2F]" />
               Alazar<span className="text-[#6B1D2F]">.</span>
-            </Link>
+            </button>
             <p className="text-[#292524] max-w-md mb-8 mt-4 leading-relaxed font-normal text-sm md:text-base">
               Crafting clean, cinematic video edits, color grading, and high-impact graphic design
               solutions for ambitious creators and global brands.
@@ -95,14 +114,13 @@ export const Footer = () => {
               <ul className="space-y-3.5 text-sm text-[#292524] font-semibold">
                 {navLinks.map(({ label, path }) => (
                   <li key={path}>
-                    <Link
-                      to={path}
-                      onClick={scrollToTop}
-                      className="hover:text-[#6B1D2F] transition-colors capitalize tracking-wide flex items-center gap-1.5 group"
+                    <button
+                      onClick={() => handleLink(path)}
+                      className="hover:text-[#6B1D2F] transition-colors capitalize tracking-wide flex items-center gap-1.5 group cursor-pointer text-left"
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-[#6B1D2F] opacity-0 group-hover:opacity-100 transition-opacity" />
                       {label}
-                    </Link>
+                    </button>
                   </li>
                 ))}
               </ul>
@@ -113,10 +131,17 @@ export const Footer = () => {
                 <Sparkles size={12} /> Expertise
               </h4>
               <ul className="space-y-3.5 text-sm text-[#292524] font-medium">
-                <li>Commercial Editing</li>
-                <li>Cinematic Color Grading</li>
-                <li>Visual Identity & Motion</li>
-                <li>3D Product Visuals</li>
+                {expertiseLinks.map(({ label, path }) => (
+                  <li key={label}>
+                    <button
+                      onClick={() => handleLink(path)}
+                      className="hover:text-[#6B1D2F] transition-colors text-left cursor-pointer group flex items-center gap-1.5"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#6B1D2F] opacity-0 group-hover:opacity-100 transition-opacity" />
+                      {label}
+                    </button>
+                  </li>
+                ))}
               </ul>
             </div>
 
@@ -128,8 +153,17 @@ export const Footer = () => {
                 Available Globally (Remote)<br />
                 In-Person Consultancy Available
               </p>
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-emerald-50 border border-emerald-200 rounded-full text-[11px] font-bold text-emerald-800">
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-emerald-50 border border-emerald-200 rounded-full text-[11px] font-bold text-emerald-800 mb-4">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" /> Accepting Q3 Projects
+              </div>
+              <div>
+                <button
+                  onClick={() => handleLink('/contact')}
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#6B1D2F] hover:bg-[#8B1E3F] text-white text-xs font-bold tracking-wider uppercase shadow-sm transition-all hover:scale-105 active:scale-95 cursor-pointer"
+                >
+                  <span>Book Project</span>
+                  <ArrowUpRight size={13} />
+                </button>
               </div>
             </div>
           </div>

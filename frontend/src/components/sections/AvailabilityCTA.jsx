@@ -6,6 +6,7 @@ import {
   Film, PenTool, CheckCircle2, Zap, Clock,
 } from 'lucide-react';
 import { theme } from '../../constants';
+import { navigateToSection } from '../../utils/navigation';
 
 const socialLinks = [
   { icon: Send, href: 'https://t.me/Onlygrace2', label: 'Telegram @Onlygrace2' },
@@ -108,8 +109,8 @@ export const AvailabilityCTA = ({ cta, contact }) => {
                 className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full max-w-lg"
               >
                 <button
-                  onClick={() => { navigate('/contact'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-                  className="w-full sm:w-auto flex-1 min-w-0 group inline-flex items-center justify-center gap-2 px-4 sm:px-8 py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] text-white text-xs font-black uppercase tracking-wider sm:tracking-widest shadow-2xl shadow-[#6B1D2F]/35 hover:shadow-[#6B1D2F]/50 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
+                  onClick={() => navigateToSection(navigate, '/contact')}
+                  className="w-full sm:w-auto flex-1 min-w-0 group inline-flex items-center justify-center gap-2 px-4 sm:px-8 py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] text-white text-xs font-black uppercase tracking-wider sm:tracking-widest shadow-2xl shadow-[#6B1D2F]/35 hover:shadow-[#6B1D2F]/50 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer"
                 >
                   <Zap size={14} className="text-[#C59A9F] flex-shrink-0" />
                   <span className="truncate">Start Project</span>
