@@ -15,6 +15,7 @@ import {
   Facebook,
   Mail,
   ChevronRight,
+  ChevronDown,
 } from 'lucide-react';
 import { theme } from '../../constants';
 import alazarImg from '../../assets/images/alazar.png';
@@ -24,6 +25,7 @@ export const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [expandedSection, setExpandedSection] = useState(null);
+  const [desktopDropdown, setDesktopDropdown] = useState(null);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
@@ -37,6 +39,7 @@ export const Navigation = () => {
   useEffect(() => {
     setMobileMenuOpen(false);
     setExpandedSection(null);
+    setDesktopDropdown(null);
   }, [location.pathname]);
 
   // Lock body scroll when drawer is open
@@ -54,13 +57,14 @@ export const Navigation = () => {
   // Handle ESC key to close drawer
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.key === 'Escape' && mobileMenuOpen) {
-        setMobileMenuOpen(false);
+      if (e.key === 'Escape') {
+        if (mobileMenuOpen) setMobileMenuOpen(false);
+        if (desktopDropdown) setDesktopDropdown(null);
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [mobileMenuOpen]);
+  }, [mobileMenuOpen, desktopDropdown]);
 
   const toggleTheme = () => {
     const next = !isDarkMode;
@@ -73,15 +77,24 @@ export const Navigation = () => {
     setExpandedSection((prev) => (prev === name ? null : name));
   };
 
-  const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'Portfolio', path: '/portfolio' },
-    { name: 'Services', path: '/services' },
-    { name: 'Contact', path: '/contact' },
-  ];
-
-  const drawerLinks = [
+  /**
+   * Complete list of site pages and their respective page sections
+   * Displayed with expandable dropdowns in both Drawer menu and Desktop navbar
+   */
+  const navSections = [
+    {
+      name: 'Home',
+      path: '/',
+      subLinks: [
+        { name: 'Home Overview', path: '/' },
+        { name: 'Featured Film Showreel', path: '/#showreel' },
+        { name: 'Color Grading Showcase', path: '/#colorgrading' },
+        { name: 'Selected Works Spread', path: '/#projects' },
+        { name: 'Director Profile Snapshot', path: '/#about-snapshot' },
+        { name: 'Project Rate Calculator', path: '/#calculator' },
+        { name: 'Client Testimonials', path: '/#testimonials' },
+      ],
+    },
     {
       name: 'About',
       path: '/about',
@@ -99,8 +112,8 @@ export const Navigation = () => {
       path: '/portfolio',
       subLinks: [
         { name: 'All Featured Projects', path: '/portfolio' },
-        { name: 'Commercial & Video', path: '/portfolio?cat=video#portfolio-grid' },
-        { name: 'Graphic Design & 3D', path: '/portfolio?cat=design#portfolio-grid' },
+        { name: 'Commercial & Video Work', path: '/portfolio?cat=video#portfolio-grid' },
+        { name: 'Brand Graphic Design & 3D', path: '/portfolio?cat=design#portfolio-grid' },
         { name: 'Color Grading Showcase', path: '/#colorgrading' },
       ],
     },
@@ -122,6 +135,11 @@ export const Navigation = () => {
     {
       name: 'Contact Us',
       path: '/contact',
+      subLinks: [
+        { name: 'Contact Overview & Channels', path: '/contact' },
+        { name: 'Send Project Inquiry Form', path: '/contact#contact-form' },
+        { name: 'Direct Email & Phone Info', path: '/contact#contact-info' },
+      ],
     },
   ];
 
@@ -130,6 +148,7 @@ export const Navigation = () => {
 
   const handleNavClick = (path) => {
     setMobileMenuOpen(false);
+    setDesktopDropdown(null);
     navigateToSection(navigate, path);
   };
 
@@ -187,24 +206,76 @@ export const Navigation = () => {
             </div>
           </Link>
 
-          {/* ── Desktop Header Navigation Links (Navigates directly to exact pages) ── */}
+          {/* ── Desktop Header Navigation Links with Section Dropdowns ── */}
           <nav className="hidden md:flex items-center gap-1 lg:gap-2">
-            {navLinks.map((link) => {
-              const active = isActive(link.path);
-              return (
-                <button
-                  key={link.name}
-                  onClick={() => handleNavClick(link.path)}
-                  className={`px-3.5 lg:px-4 py-2 rounded-full text-[13px] font-medium tracking-wide transition-all cursor-pointer ${
-                    active
-                      ? 'text-[#6B1D2F] dark:text-[#F5F0F1] font-bold bg-[#6B1D2F]/10 dark:bg-white/10 shadow-sm'
-                      : 'text-[#44403C] dark:text-white/70 hover:text-[#1C1917] dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5'
-                  }`}
-                >
-                  {link.name}
-                </button>
-              );
-            })}
+            {navSections
+              .filter((i) => i.name !== 'Behind The Scenes')
+              .map((link) => {
+                const active = isActive(link.path);
+                const hasSub = link.subLinks && link.subLinks.length > 0;
+                const isMenuOpen = desktopDropdown === link.name;
+
+                return (
+                  <div
+                    key={link.name}
+                    className="relative group"
+                    onMouseEnter={() => setDesktopDropdown(link.name)}
+                    onMouseLeave={() => setDesktopDropdown(null)}
+                  >
+                    <button
+                      onClick={() => handleNavClick(link.path)}
+                      className={`px-3 lg:px-4 py-2 rounded-full text-[13px] font-medium tracking-wide transition-all cursor-pointer flex items-center gap-1.5 ${
+                        active
+                          ? 'text-[#6B1D2F] dark:text-[#F5F0F1] font-bold bg-[#6B1D2F]/10 dark:bg-white/10 shadow-sm'
+                          : 'text-[#44403C] dark:text-white/70 hover:text-[#1C1917] dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5'
+                      }`}
+                    >
+                      <span>{link.name}</span>
+                      {hasSub && (
+                        <ChevronDown
+                          size={12}
+                          className={`transition-transform duration-200 opacity-60 group-hover:opacity-100 ${
+                            isMenuOpen ? 'rotate-180 text-[#6B1D2F] dark:text-[#C59A9F]' : ''
+                          }`}
+                        />
+                      )}
+                    </button>
+
+                    {/* Desktop Dropdown Panel listing sections inside this page */}
+                    <AnimatePresence>
+                      {hasSub && isMenuOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 8, scale: 0.96 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: 8, scale: 0.96 }}
+                          transition={{ duration: 0.16, ease: 'easeOut' }}
+                          className="absolute top-full left-0 mt-1.5 w-60 py-2 bg-white/95 dark:bg-[#181818]/95 backdrop-blur-xl rounded-2xl shadow-xl border border-[#C59A9F]/30 dark:border-white/10 z-50 overflow-hidden"
+                        >
+                          <div className="px-3.5 py-1.5 text-[10px] font-black uppercase tracking-wider text-[#6B1D2F] dark:text-[#C59A9F] border-b border-[#C59A9F]/15 dark:border-white/10 mb-1 flex items-center justify-between">
+                            <span>{link.name} Sections</span>
+                            <span className="text-[9px] opacity-60">Jump to</span>
+                          </div>
+                          {link.subLinks.map((sub) => (
+                            <button
+                              key={sub.name}
+                              onClick={() => {
+                                setDesktopDropdown(null);
+                                handleNavClick(sub.path);
+                              }}
+                              className="w-full text-left px-3.5 py-2 text-xs text-[#292524] dark:text-white/75 hover:text-[#6B1D2F] dark:hover:text-white hover:bg-[#6B1D2F]/08 dark:hover:bg-white/08 transition-colors flex items-center justify-between group/sub cursor-pointer"
+                            >
+                              <span className="font-normal group-hover/sub:translate-x-0.5 transition-transform">
+                                {sub.name}
+                              </span>
+                              <ChevronRight size={12} className="opacity-0 group-hover/sub:opacity-60 transition-opacity" />
+                            </button>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              })}
           </nav>
 
           {/* ── Right Actions: Desktop Hire Me + Theme Toggle + Menu Drawer Opener ─────────── */}
@@ -284,22 +355,9 @@ export const Navigation = () => {
                 </button>
               </div>
 
-              {/* Navigation Menu Links */}
+              {/* Navigation Menu Links (All pages with dropdown section lists) */}
               <nav className="flex-1 px-5 sm:px-6 py-1">
-                {/* Home link */}
-                <div className="border-b border-white/[0.08] py-3.5">
-                  <button
-                    onClick={() => handleNavClick('/')}
-                    className={`w-full text-left text-[15px] sm:text-base font-normal tracking-wide transition-colors cursor-pointer ${
-                      location.pathname === '/' ? 'text-white font-medium' : 'text-[#E5E5E5]/85 hover:text-white'
-                    }`}
-                  >
-                    Home
-                  </button>
-                </div>
-
-                {/* Structured Links (About, Portfolio, Services, Behind The Scenes, Contact Us) */}
-                {drawerLinks.map((item) => {
+                {navSections.map((item) => {
                   const isExpanded = expandedSection === item.name;
                   const active = isActive(item.path);
 
@@ -316,7 +374,7 @@ export const Navigation = () => {
                           {item.name}
                         </button>
 
-                        {/* Plus/Minus Toggle: Expands/collapses submenu */}
+                        {/* Plus/Minus Toggle: Expands/collapses sections dropdown */}
                         {item.subLinks && (
                           <button
                             onClick={(e) => {
@@ -335,7 +393,7 @@ export const Navigation = () => {
                         )}
                       </div>
 
-                      {/* Expandable sub-items */}
+                      {/* Expandable sub-items (sections inside this page) */}
                       <AnimatePresence>
                         {item.subLinks && isExpanded && (
                           <motion.div

@@ -247,10 +247,11 @@ export default function Contact() {
 
           {/* ── Left info panel ─────────────────────────────────────── */}
           <motion.div
+            id="contact-info"
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
-            className="lg:col-span-5 space-y-6 sm:space-y-8"
+            className="lg:col-span-5 space-y-6 sm:space-y-8 scroll-mt-28"
           >
             {/* Badge */}
             <div>
