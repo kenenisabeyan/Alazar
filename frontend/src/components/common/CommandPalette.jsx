@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, Film, Layout, User, Send, Download, Moon, Sun, Calculator, Command, X, ArrowRight, Sparkles } from 'lucide-react';
+import { Search, Film, Layout, User, Send, Download, Moon, Sun, Calculator, Command, X, ArrowRight, Sparkles, Camera, Clapperboard, HelpCircle } from 'lucide-react';
+import { navigateToSection } from '../../utils/navigation';
 
 export const CommandPalette = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,52 +29,94 @@ export const CommandPalette = () => {
   const commandItems = [
     {
       id: 'nav-home',
-      label: 'Go to Home',
+      label: 'Go to Home Page',
       category: 'Navigation',
       icon: User,
-      action: () => navigate('/'),
+      action: () => navigateToSection(navigate, '/'),
     },
     {
       id: 'nav-about',
-      label: 'Go to About & Philosophy',
+      label: 'Go to About & Biography',
       category: 'Navigation',
       icon: User,
-      action: () => navigate('/about'),
+      action: () => navigateToSection(navigate, '/about'),
     },
     {
       id: 'nav-portfolio',
       label: 'Browse Portfolio Archive',
       category: 'Navigation',
       icon: Film,
-      action: () => navigate('/portfolio'),
+      action: () => navigateToSection(navigate, '/portfolio'),
     },
     {
       id: 'nav-services',
-      label: 'Services & Pricing',
+      label: 'Services & Offerings',
       category: 'Navigation',
       icon: Layout,
-      action: () => navigate('/services'),
+      action: () => navigateToSection(navigate, '/services'),
     },
     {
       id: 'nav-contact',
-      label: 'Hire Me / Contact Brief',
+      label: 'Hire Me / Contact Form',
       category: 'Navigation',
       icon: Send,
-      action: () => navigate('/contact'),
+      action: () => navigateToSection(navigate, '/contact'),
+    },
+    {
+      id: 'sec-colorgrading',
+      label: 'Color Grading Showcase & Sliders',
+      category: 'Sections',
+      icon: Sparkles,
+      action: () => navigateToSection(navigate, '/#colorgrading'),
+    },
+    {
+      id: 'sec-showreel',
+      label: 'Watch Cinematic Showreel',
+      category: 'Sections',
+      icon: Clapperboard,
+      action: () => navigateToSection(navigate, '/#showreel'),
+    },
+    {
+      id: 'sec-gear',
+      label: 'Studio Gear & Cameras',
+      category: 'Sections',
+      icon: Camera,
+      action: () => navigateToSection(navigate, '/about#gear'),
+    },
+    {
+      id: 'sec-bts',
+      label: 'Behind The Scenes Reel',
+      category: 'Sections',
+      icon: Film,
+      action: () => navigateToSection(navigate, '/about#bts'),
+    },
+    {
+      id: 'sec-faq',
+      label: 'Frequently Asked Questions (FAQ)',
+      category: 'Sections',
+      icon: HelpCircle,
+      action: () => navigateToSection(navigate, '/services#faq'),
     },
     {
       id: 'filter-video',
       label: 'Filter Works: Video Editing & Grading',
       category: 'Portfolio',
       icon: Film,
-      action: () => navigate('/portfolio?category=video'),
+      action: () => navigateToSection(navigate, '/portfolio?cat=video#portfolio-grid'),
     },
     {
       id: 'filter-design',
       label: 'Filter Works: Graphic Design & Branding',
       category: 'Portfolio',
       icon: Layout,
-      action: () => navigate('/portfolio?category=design'),
+      action: () => navigateToSection(navigate, '/portfolio?cat=design#portfolio-grid'),
+    },
+    {
+      id: 'action-calculator',
+      label: 'Interactive Project Budget Calculator',
+      category: 'Actions',
+      icon: Calculator,
+      action: () => navigateToSection(navigate, '/services#calculator'),
     },
     {
       id: 'action-download-cv',
@@ -85,19 +128,6 @@ export const CommandPalette = () => {
         link.href = '/resume.pdf';
         link.download = 'Alazar_Asdesach_Resume.pdf';
         link.click();
-      },
-    },
-    {
-      id: 'action-[#calculator]',
-      label: 'Project Budget Estimator',
-      category: 'Actions',
-      icon: Calculator,
-      action: () => {
-        navigate('/services');
-        setTimeout(() => {
-          const el = document.getElementById('project-calculator');
-          if (el) el.scrollIntoView({ behavior: 'smooth' });
-        }, 150);
       },
     },
   ];
