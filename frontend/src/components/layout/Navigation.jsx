@@ -201,39 +201,8 @@ export const Navigation = () => {
             </div>
           </Link>
 
-          {/* ── Desktop Header Navigation Links (Clean & Direct, no dropdown popups) ── */}
-          <nav className="hidden md:flex items-center gap-1 lg:gap-2">
-            {navSections
-              .filter((i) => i.name !== 'Behind The Scenes')
-              .map((link) => {
-                const active = isActive(link.path);
-
-                return (
-                  <button
-                    key={link.name}
-                    onClick={() => handleNavClick(link.path)}
-                    className={`px-3.5 lg:px-4 py-2 rounded-full text-[13px] font-medium tracking-wide transition-all cursor-pointer ${
-                      active
-                        ? 'text-[#6B1D2F] dark:text-[#F5F0F1] font-bold bg-[#6B1D2F]/10 dark:bg-white/10 shadow-sm'
-                        : 'text-[#44403C] dark:text-white/70 hover:text-[#1C1917] dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5'
-                    }`}
-                  >
-                    {link.name}
-                  </button>
-                );
-              })}
-          </nav>
-
-          {/* ── Right Actions: Desktop Hire Me + Theme Toggle + Menu Drawer Opener ─────────── */}
+          {/* ── The Two Icons: Theme Toggle + Three-Line Menu Hamburger Drawer Opener ─────────── */}
           <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
-            {/* Desktop Hire Me CTA */}
-            <button
-              onClick={() => handleNavClick('/contact')}
-              className="hidden lg:flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#6B1D2F] hover:bg-[#8B1E3F] text-white text-xs font-semibold tracking-wider uppercase shadow-sm transition-all hover:scale-105 active:scale-95 cursor-pointer"
-            >
-              <span>Hire Me</span>
-              <ArrowUpRight size={13} />
-            </button>
 
             {/* 1. Theme toggle icon */}
             <button
