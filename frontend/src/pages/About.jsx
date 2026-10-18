@@ -226,7 +226,7 @@ export default function About() {
                   whileHover={{ y: -6 }}
                   className="glass-card-luxury p-3.5 sm:p-6 rounded-2xl sm:rounded-[2rem] flex flex-col items-center justify-center text-center"
                 >
-                  <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center flex-shrink-0 shadow-md sm:shadow-lg shadow-[#6B1D2F]/20 mb-2 sm:mb-3">
+                  <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-none bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center flex-shrink-0 shadow-md sm:shadow-lg shadow-[#6B1D2F]/20 mb-2 sm:mb-3">
                     <IconComp size={20} className="sm:hidden" />
                     <IconComp size={24} className="hidden sm:inline" />
                   </div>

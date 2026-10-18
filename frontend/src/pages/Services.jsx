@@ -65,7 +65,7 @@ function FaqAccordion({ faqs }) {
               >
                 {faq.q}
               </h4>
-              <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 ${isOpen
+              <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-none flex items-center justify-center flex-shrink-0 transition-all duration-300 ${isOpen
                   ? 'bg-[#6B1D2F] text-white shadow-md shadow-[#6B1D2F]/25'
                   : 'bg-[#FAFAF9] border border-[#C59A9F]/40 text-[#6B1D2F] group-hover:bg-[#6B1D2F] group-hover:text-white'
                 }`}>
@@ -222,7 +222,7 @@ export default function Services() {
                 <ul className="space-y-3 mb-10 flex-grow">
                   {svc.items.map(item => (
                     <li key={item} className="flex items-center gap-3 text-sm text-[#1C1917] font-medium">
-                      <div className="w-6 h-6 rounded-lg bg-[#FAFAF9] text-[#6B1D2F] flex items-center justify-center flex-shrink-0">
+                      <div className="w-6 h-6 rounded-none bg-[#FAFAF9] text-[#6B1D2F] flex items-center justify-center flex-shrink-0">
                         <CheckCircle2 size={14} />
                       </div>
                       {item}
