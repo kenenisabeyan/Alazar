@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
   Mail, ArrowRight, Facebook, Send,
-  Film, PenTool, CheckCircle2, Zap, Clock,
+  Film, Palette, CheckCircle2, Sparkles, Clock,
 } from 'lucide-react';
 import { theme } from '../../constants';
 import { navigateToSection } from '../../utils/navigation';
@@ -17,7 +17,7 @@ const socialLinks = [
 const guarantees = [
   { icon: CheckCircle2, text: '100% On-Time Delivery' },
   { icon: Film, text: '8K Master File Delivery' },
-  { icon: PenTool, text: 'Video + Design in One' },
+  { icon: Sparkles, text: 'Video + Design in One' },
   { icon: Clock, text: 'Reply within 24 Hours' },
 ];
 
@@ -98,7 +98,7 @@ export const AvailabilityCTA = ({ cta, contact }) => {
                   onClick={() => navigateToSection(navigate, '/contact')}
                   className="w-full sm:w-auto flex-1 min-w-0 group inline-flex items-center justify-center gap-2 px-4 sm:px-8 py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] text-white text-xs font-black uppercase tracking-wider sm:tracking-widest shadow-2xl shadow-[#6B1D2F]/35 hover:shadow-[#6B1D2F]/50 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer"
                 >
-                  <Zap size={14} className="text-[#C59A9F] flex-shrink-0" />
+                  <Sparkles size={14} className="text-[#C59A9F] flex-shrink-0" />
                   <span className="truncate">Start Project</span>
                   <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform flex-shrink-0 hidden sm:inline" />
                 </button>
@@ -130,7 +130,7 @@ export const AvailabilityCTA = ({ cta, contact }) => {
                   dark: true,
                 },
                 {
-                  icon: PenTool,
+                  icon: Palette,
                   title: 'Graphic Design',
                   items: ['Brand Identity', 'Poster & Key Art', '3D Motion Graphics', 'UI Design Kits'],
                   dark: false,
