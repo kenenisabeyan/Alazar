@@ -135,7 +135,7 @@ export default function About() {
               <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
                 {[
                   { icon: Film, title: 'Video Production', sub: 'DaVinci & RED 8K' },
-                  { icon: Palette, title: 'Brand & Graphic', sub: 'Identity Systems' },
+                  { icon: Shapes, title: 'Brand & Graphic', sub: 'Identity Systems' },
                 ].map(({ icon: Icon, title, sub }) => (
                   <div key={title} className="flex flex-col items-center justify-center text-center p-3 sm:p-3.5 rounded-2xl bg-white border border-[#C59A9F]/30 shadow-sm">
                     <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#FAFAF9] text-[#6B1D2F] flex items-center justify-center flex-shrink-0 mb-1.5 shadow-sm">

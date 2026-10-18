@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 import {
   LayoutDashboard, Film, PenSquare, MessageSquare, BarChart2, Briefcase,
   HelpCircle, Wrench, Trophy, Cpu, Clock, DollarSign, ImageIcon,
-  Play, User, Link2, Globe, Navigation, Layers, Palette, Camera,
+  Play, User, Link2, Globe, Navigation, Layers, Sliders, Camera,
   Mail, Calculator, LogOut, Menu, X, RefreshCw, Plus, Trash2,
   Edit3, Save, CheckCircle, Shield, ChevronRight, Eye, EyeOff,
   Upload, Star, GripVertical, Minus, ExternalLink,
@@ -46,7 +46,7 @@ const NAV_ITEMS = [
   { id: 'career',       label: 'Experience',      icon: Clock,           group: 'Content'   },
   { id: 'pricing',      label: 'Pricing',         icon: DollarSign,      group: 'Content'   },
   { id: 'media',        label: 'Media Library',   icon: ImageIcon,       group: 'Content'   },
-  { id: 'color-grading',label: 'Color Grading',   icon: Palette,         group: 'Content'   },
+  { id: 'color-grading',label: 'Color Grading',   icon: Sliders,         group: 'Content'   },
   { id: 'bts',          label: 'BTS Gallery',     icon: Camera,          group: 'Content'   },
   { id: 'guarantees',   label: 'Guarantees',      icon: CheckCircle,     group: 'Content'   },
   { id: 'client-logos', label: 'Client Logos',    icon: Star,            group: 'Content'   },
