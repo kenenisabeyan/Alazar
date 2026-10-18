@@ -152,14 +152,14 @@ export default function About() {
               <div className="flex flex-row gap-2.5 sm:gap-3 pt-2 w-full max-w-md">
                 <Button
                   variant="primary"
-                  className="flex-1 min-w-0 px-3 sm:px-9 py-3.5 sm:py-4 rounded-full font-black uppercase text-[10.5px] sm:text-xs tracking-wider sm:tracking-widest shadow-xl"
+                  className="flex-1 min-w-0 px-3 sm:px-9 py-3.5 sm:py-4 rounded-none font-black uppercase text-[10.5px] sm:text-xs tracking-wider sm:tracking-widest shadow-xl"
                   onClick={() => { navigate('/portfolio'); window.scrollTo(0, 0); }}
                 >
                   View Portfolio
                 </Button>
                 <Button
                   variant="secondary"
-                  className="flex-1 min-w-0 px-3 sm:px-9 py-3.5 sm:py-4 rounded-full font-black uppercase text-[10.5px] sm:text-xs tracking-wider sm:tracking-widest"
+                  className="flex-1 min-w-0 px-3 sm:px-9 py-3.5 sm:py-4 rounded-none font-black uppercase text-[10.5px] sm:text-xs tracking-wider sm:tracking-widest"
                   onClick={() => { navigate('/contact'); window.scrollTo(0, 0); }}
                 >
                   Get In Touch
