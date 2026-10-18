@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Calculator, CheckCircle2, ArrowRight,
-  Clock, ShieldCheck, Zap, Film, PenTool,
+  Clock, ShieldCheck, Tv, Film, Palette,
   Plus, Minus, ChevronRight,
 } from 'lucide-react';
 import { calculatorOptions, theme } from '../../constants';
@@ -106,7 +106,7 @@ export const ProjectCalculator = () => {
               <div className="grid grid-cols-2 gap-2.5 sm:gap-3.5">
                 {calculatorOptions.projectTypes.map((t) => {
                   const isActive = selectedType === t.id;
-                  const Icon = t.id.includes('design') ? PenTool : Film;
+                  const Icon = t.id.includes('design') ? Palette : Film;
                   return (
                     <button key={t.id} type="button" onClick={() => setSelectedType(t.id)} className={optBtn(isActive)}>
                       {/* Active glow blob */}
@@ -315,7 +315,7 @@ export const ProjectCalculator = () => {
                 {[
                   { icon: Clock, text: `Turnaround: ${estimatedDays}` },
                   { icon: ShieldCheck, text: '2 revision rounds · Full master delivery' },
-                  { icon: Zap, text: 'Broadcast-ready 4K & RAW exports' },
+                  { icon: Tv, text: 'Broadcast-ready 4K & RAW exports' },
                 ].map(({ icon: Icon, text }) => (
                   <div key={text} className="flex items-center gap-3 text-xs text-white/80 font-medium">
                     <Icon size={14} className="text-[#C59A9F] flex-shrink-0" />
