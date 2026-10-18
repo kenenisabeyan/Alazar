@@ -188,7 +188,7 @@ const DesignCard = ({ navigate, cardData }) => {
       <div className="relative p-5 sm:p-8 md:p-10 flex flex-col h-full">
         {/* Top badge row */}
         <div className="flex items-center justify-between mb-8">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAFAF9] border border-[#C59A9F]/50 text-[11px] font-black text-[#6B1D2F] uppercase tracking-widest shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-none bg-[#FAFAF9] border border-[#C59A9F]/50 text-[11px] font-black text-[#6B1D2F] uppercase tracking-widest shadow-sm">
             <Shapes size={12} />
             {d.badge}
           </div>
@@ -213,8 +213,8 @@ const DesignCard = ({ navigate, cardData }) => {
           {(d.competencies || defaultDesignCard.competencies).map(({ icon, label, sub }) => {
             const Icon = getIcon(icon);
             return (
-              <div key={label} className="flex flex-col items-center justify-center text-center bg-[#FAFAF9] hover:bg-[#FAFAF9]/50 border border-[#C59A9F] rounded-xl p-2.5 sm:p-3 transition-colors">
-                <div className="w-8 h-8 rounded-lg bg-[#FAFAF9] text-[#6B1D2F] flex items-center justify-center mb-1.5 flex-shrink-0 shadow-sm">
+              <div key={label} className="flex flex-col items-center justify-center text-center bg-[#FAFAF9] hover:bg-[#FAFAF9]/50 border border-[#C59A9F] rounded-none p-2.5 sm:p-3 transition-colors">
+                <div className="w-8 h-8 rounded-none bg-[#FAFAF9] text-[#6B1D2F] flex items-center justify-center mb-1.5 flex-shrink-0 shadow-sm">
                   <Icon size={16} />
                 </div>
                 <div className="w-full">

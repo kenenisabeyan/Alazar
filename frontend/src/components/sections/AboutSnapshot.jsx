@@ -198,9 +198,9 @@ export const AboutSnapshot = () => {
             <motion.div
               animate={{ y: [0, -6, 0] }}
               transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-              className="hidden xs:flex absolute -bottom-4 left-1 sm:-left-4 z-30 bg-white border border-[#C59A9F]/50 rounded-2xl px-3 sm:px-4 py-2 sm:py-2.5 shadow-xl items-center gap-2 sm:gap-2.5"
+              className="hidden xs:flex absolute -bottom-4 left-1 sm:-left-4 z-30 bg-white border border-[#C59A9F]/50 rounded-none px-3 sm:px-4 py-2 sm:py-2.5 shadow-xl items-center gap-2 sm:gap-2.5"
             >
-              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#FAFAF9] text-[#6B1D2F] flex items-center justify-center shadow-sm">
+              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-none bg-[#FAFAF9] text-[#6B1D2F] flex items-center justify-center shadow-sm">
                 <Shapes size={14} />
               </div>
               <div>
@@ -213,7 +213,7 @@ export const AboutSnapshot = () => {
             <motion.div
               animate={{ scale: [1, 1.05, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
-              className="absolute -top-3 right-1 sm:-right-2 z-30 flex items-center gap-1.5 sm:gap-2 bg-white border border-[#C59A9F] rounded-full px-2.5 sm:px-3.5 py-1 sm:py-1.5 shadow-md"
+              className="absolute -top-3 right-1 sm:-right-2 z-30 flex items-center gap-1.5 sm:gap-2 bg-white border border-[#C59A9F] rounded-none px-2.5 sm:px-3.5 py-1 sm:py-1.5 shadow-md"
             >
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shadow-sm shadow-emerald-500/50" />
               <span className="text-[9.5px] font-black text-[#1C1917] uppercase tracking-wider">Available Now</span>
