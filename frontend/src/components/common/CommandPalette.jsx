@@ -181,7 +181,7 @@ export const CommandPalette = () => {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: -20 }}
           transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-          className="relative w-full max-w-2xl bg-white border border-[#C59A9F]/40 rounded-3xl shadow-2xl overflow-hidden z-10 border-t-4 border-t-[#6B1D2F]"
+          className="relative w-full max-w-2xl bg-white border border-[#C59A9F]/40 rounded-none shadow-2xl overflow-hidden z-10 border-t-4 border-t-[#6B1D2F]"
           onKeyDown={handleArrowKeys}
         >
           {/* Header Search Input */}
@@ -197,7 +197,7 @@ export const CommandPalette = () => {
             />
             <button
               onClick={() => setIsOpen(false)}
-              className="w-7 h-7 rounded-full bg-white border border-[#C59A9F]/40 text-[#292524] hover:text-[#6B1D2F] flex items-center justify-center ml-2"
+              className="w-7 h-7 rounded-none bg-white border border-[#C59A9F]/40 text-[#292524] hover:text-[#6B1D2F] flex items-center justify-center ml-2"
             >
               <X size={14} />
             </button>
@@ -218,14 +218,14 @@ export const CommandPalette = () => {
                     key={item.id}
                     onClick={() => handleSelect(item)}
                     onMouseEnter={() => setSelectedIndex(idx)}
-                    className={`w-full px-4 py-3 rounded-2xl text-left transition-all flex items-center justify-between group ${
+                    className={`w-full px-4 py-3 rounded-none text-left transition-all flex items-center justify-between group ${
                       isSelected
                         ? 'bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] text-white shadow-md'
                         : 'text-[#1C1917] hover:bg-[#FAFAF9]'
                     }`}
                   >
                     <div className="flex items-center gap-3">
-                      <div className={`w-8 h-8 rounded-xl flex items-center justify-center ${
+                      <div className={`w-8 h-8 rounded-none flex items-center justify-center ${
                         isSelected ? 'bg-white/20 text-white' : 'bg-[#FAFAF9] text-[#6B1D2F] border border-[#C59A9F]/30'
                       }`}>
                         <Icon size={15} />
