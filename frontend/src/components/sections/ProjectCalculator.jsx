@@ -46,7 +46,7 @@ export const ProjectCalculator = () => {
 
   // ── Shared button classes ─────────────────────────────────────────────────
   const optBtn = (active) =>
-    `relative overflow-hidden rounded-2xl border-2 text-left text-xs font-black transition-all duration-300 flex items-center justify-between gap-3 group cursor-pointer p-4 ${active
+    `relative overflow-hidden rounded-none border-2 text-left text-xs font-black transition-all duration-300 flex items-center justify-between gap-3 group cursor-pointer p-4 ${active
       ? 'bg-[#6B1D2F] border-[#6B1D2F] text-white shadow-xl shadow-[#6B1D2F]/25'
       : 'bg-white border-[#C59A9F]/50 text-[#1C1917] hover:border-[#6B1D2F] hover:shadow-md'
     }`;
@@ -82,7 +82,7 @@ export const ProjectCalculator = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.15 }}
-            className="text-[#1C1917] font-medium text-sm sm:text-base max-w-xs leading-relaxed bg-white/85 backdrop-blur-md px-5 py-3 rounded-2xl border border-[#C59A9F]/40 shadow-sm"
+            className="text-[#1C1917] font-medium text-sm sm:text-base max-w-xs leading-relaxed bg-white/85 backdrop-blur-md px-5 py-3 rounded-none border border-[#C59A9F]/40 shadow-sm"
           >
             Configure your production scope in real-time for an instant budgetary estimate with complete transparency.
           </motion.p>
@@ -97,7 +97,7 @@ export const ProjectCalculator = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.65 }}
-            className="lg:col-span-7 bg-white rounded-[2rem] border border-[#C59A9F]/60 shadow-xl p-5 sm:p-8 md:p-10 space-y-8 sm:space-y-10"
+            className="lg:col-span-7 bg-white rounded-none border border-[#C59A9F]/60 shadow-xl p-5 sm:p-8 md:p-10 space-y-8 sm:space-y-10"
           >
 
             {/* Step 1 – project type */}
@@ -172,7 +172,7 @@ export const ProjectCalculator = () => {
                     <div
                       key={a.id}
                       onClick={() => toggleAddon(a.id)}
-                      className={`flex flex-col sm:flex-row items-center justify-between text-center sm:text-left gap-2 sm:gap-4 rounded-2xl border-2 p-3 sm:p-4 cursor-pointer transition-all duration-300 group ${checked
+                      className={`flex flex-col sm:flex-row items-center justify-between text-center sm:text-left gap-2 sm:gap-4 rounded-none border-2 p-3 sm:p-4 cursor-pointer transition-all duration-300 group ${checked
                           ? 'bg-[#6B1D2F] border-[#6B1D2F] text-white shadow-lg shadow-[#6B1D2F]/20'
                           : 'bg-white border-[#C59A9F]/50 hover:border-[#6B1D2F] hover:shadow-sm'
                         }`}
@@ -209,7 +209,7 @@ export const ProjectCalculator = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.65, delay: 0.1 }}
-            className="lg:col-span-5 bg-gradient-to-br from-[#6B1D2F] via-[#521523] to-[#3B0E19] text-white rounded-[2rem] overflow-hidden shadow-2xl shadow-[#6B1D2F]/20 border border-[#C59A9F]/30 flex flex-col sticky top-28"
+            className="lg:col-span-5 bg-gradient-to-br from-[#6B1D2F] via-[#521523] to-[#3B0E19] text-white rounded-none overflow-hidden shadow-2xl shadow-[#6B1D2F]/20 border border-[#C59A9F]/30 flex flex-col sticky top-28"
           >
             {/* Top accent stripe */}
             <div className="h-1 w-full bg-gradient-to-r from-[#8B1E3F] via-[#C59A9F] to-[#8B1E3F]" />
@@ -255,7 +255,7 @@ export const ProjectCalculator = () => {
               </div>
 
               {/* Breakdown rows */}
-              <div className="space-y-3 p-5 bg-[#1E0A0D]/30 border border-white/15 rounded-2xl">
+              <div className="space-y-3 p-5 bg-[#1E0A0D]/30 border border-white/15 rounded-none">
                 <p className="text-[10px] font-black uppercase tracking-widest text-white/50 mb-3">
                   Price Breakdown
                 </p>
@@ -338,7 +338,7 @@ export const ProjectCalculator = () => {
                   });
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
-                className="mt-auto w-full py-4 rounded-2xl bg-white text-[#6B1D2F] text-xs font-black uppercase tracking-widest flex items-center justify-center gap-2.5 transition-all duration-300 hover:bg-[#FAFAF9] shadow-xl group"
+                className="mt-auto w-full py-4 rounded-none bg-white text-[#6B1D2F] text-xs font-black uppercase tracking-widest flex items-center justify-center gap-2.5 transition-all duration-300 hover:bg-[#FAFAF9] shadow-xl group"
               >
                 Lock In This Estimate
                 <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />

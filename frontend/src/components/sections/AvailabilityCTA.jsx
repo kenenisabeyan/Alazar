@@ -96,7 +96,7 @@ export const AvailabilityCTA = ({ cta, contact }) => {
               >
                 <button
                   onClick={() => navigateToSection(navigate, '/contact')}
-                  className="w-full sm:w-auto flex-1 min-w-0 group inline-flex items-center justify-center gap-2 px-4 sm:px-8 py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] text-white text-xs font-black uppercase tracking-wider sm:tracking-widest shadow-2xl shadow-[#6B1D2F]/35 hover:shadow-[#6B1D2F]/50 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer"
+                  className="w-full sm:w-auto flex-1 min-w-0 group inline-flex items-center justify-center gap-2 px-4 sm:px-8 py-3.5 sm:py-4 rounded-none bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] text-white text-xs font-black uppercase tracking-wider sm:tracking-widest shadow-2xl shadow-[#6B1D2F]/35 hover:shadow-[#6B1D2F]/50 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer"
                 >
                   <Send size={14} className="text-[#C59A9F] flex-shrink-0" />
                   <span className="truncate">Start Project</span>
@@ -105,7 +105,7 @@ export const AvailabilityCTA = ({ cta, contact }) => {
 
                 <a
                   href={`mailto:${primaryEmail}`}
-                  className="w-full sm:w-auto flex-1 min-w-0 group inline-flex items-center justify-center gap-2 px-4 sm:px-8 py-3.5 sm:py-4 rounded-full border-2 border-white/20 text-white text-xs font-black uppercase tracking-wider sm:tracking-widest hover:border-white/50 hover:bg-white/[0.07] transition-all duration-300"
+                  className="w-full sm:w-auto flex-1 min-w-0 group inline-flex items-center justify-center gap-2 px-4 sm:px-8 py-3.5 sm:py-4 rounded-none border-2 border-white/20 text-white text-xs font-black uppercase tracking-wider sm:tracking-widest hover:border-white/50 hover:bg-white/[0.07] transition-all duration-300"
                 >
                   <Mail size={14} className="text-[#C59A9F] flex-shrink-0" />
                   <span className="truncate">{primaryEmail}</span>
@@ -138,7 +138,7 @@ export const AvailabilityCTA = ({ cta, contact }) => {
               ].map(({ icon: Icon, title, items, dark }) => (
                 <div
                   key={title}
-                  className={`rounded-2xl p-6 border transition-all duration-300 hover:-translate-y-1 ${dark
+                  className={`rounded-none p-6 border transition-all duration-300 hover:-translate-y-1 ${dark
                       ? 'bg-white/[0.06] border-white/10 hover:bg-white/[0.09]'
                       : 'bg-white/[0.04] border-white/10 hover:bg-white/[0.08]'
                     }`}
@@ -162,7 +162,7 @@ export const AvailabilityCTA = ({ cta, contact }) => {
               ))}
 
               {/* Response time card */}
-              <div className="rounded-2xl p-5 border border-white/10 bg-gradient-to-r from-[#6B1D2F]/30 to-[#8B1E3F]/20 flex items-center gap-4">
+              <div className="rounded-none p-5 border border-white/10 bg-gradient-to-r from-[#6B1D2F]/30 to-[#8B1E3F]/20 flex items-center gap-4">
                 <div className="w-10 h-10 rounded-none bg-[#6B1D2F] text-white flex items-center justify-center shadow-lg shadow-[#6B1D2F]/30 flex-shrink-0">
                   <Clock size={18} />
                 </div>
