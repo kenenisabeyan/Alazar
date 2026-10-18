@@ -125,7 +125,7 @@ export const ShowreelBanner = ({ onOpenShowreel }) => {
 
             {/* Top-left — title overlay */}
             <div className="absolute top-3 left-3 sm:top-6 sm:left-7 z-10 pointer-events-none">
-              <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-red-500/30 text-[8.5px] sm:text-[9.5px] font-black text-white uppercase tracking-[0.16em] sm:tracking-[0.2em] mb-2 shadow-lg">
+              <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-none bg-black/60 backdrop-blur-md border border-red-500/30 text-[8.5px] sm:text-[9.5px] font-black text-white uppercase tracking-[0.16em] sm:tracking-[0.2em] mb-2 shadow-lg">
                 <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
                 <span className="text-red-400 font-mono">REC</span>
                 <span className="text-white/30">|</span>
@@ -142,7 +142,7 @@ export const ShowreelBanner = ({ onOpenShowreel }) => {
 
             {/* Top-right — duration badge (desktop only to prevent center collision on mobile) */}
             <div className="hidden sm:block absolute top-6 right-7 z-10 pointer-events-none">
-              <div className="px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-[#FAFAF9] text-[10px] font-mono font-black uppercase tracking-widest shadow-xl flex items-center gap-2">
+              <div className="px-3.5 py-1.5 rounded-none bg-black/60 backdrop-blur-md border border-white/20 text-[#FAFAF9] text-[10px] font-mono font-black uppercase tracking-widest shadow-xl flex items-center gap-2">
                 <span className="text-emerald-400">00:02:14:00</span>
                 <span className="text-white/30">|</span>
                 <span className="text-[#C59A9F]">24.00 FPS</span>
