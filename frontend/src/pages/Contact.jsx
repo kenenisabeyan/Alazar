@@ -335,7 +335,7 @@ export default function Contact() {
                     exit={{ opacity: 0, scale: 0.95 }}
                     className="py-16 text-center space-y-6"
                   >
-                    <div className="w-20 h-20 bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white rounded-full flex items-center justify-center mx-auto shadow-2xl shadow-[#6B1D2F]/30">
+                    <div className="w-20 h-20 bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white rounded-none flex items-center justify-center mx-auto shadow-2xl shadow-[#6B1D2F]/30">
                       <CheckCircle2 size={36} />
                     </div>
                     <h3
@@ -346,7 +346,7 @@ export default function Contact() {
                     </h3>
 
                     {inquiryRef && (
-                      <div className="inline-flex items-center gap-3 px-4 py-2 bg-[#FAFAF9] border border-[#C59A9F] rounded-full text-xs font-mono font-bold text-[#6B1D2F] shadow-sm">
+                      <div className="inline-flex items-center gap-3 px-4 py-2 bg-[#FAFAF9] border border-[#C59A9F] rounded-none text-xs font-mono font-bold text-[#6B1D2F] shadow-sm">
                         <span>Reference Code: <strong>{inquiryRef}</strong></span>
                         <button
                           type="button"
