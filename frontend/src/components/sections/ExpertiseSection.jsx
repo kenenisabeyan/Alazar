@@ -29,7 +29,7 @@ const getIcon = (name) => iconMap[name] || Film;
 
 // ─── Specialist tag pill ────────────────────────────────────────────────────
 const Tag = ({ label }) => (
-  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FAFAF9] border border-[#C59A9F]/50 text-[10px] font-black text-[#6B1D2F] uppercase tracking-widest">
+  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-none border border-[#C59A9F]/50 text-[10px] font-black text-[#6B1D2F] uppercase tracking-widest">
     <CheckCircle2 size={10} className="text-[#6B1D2F]" />
     {label}
   </span>
@@ -106,7 +106,7 @@ const VideoCard = ({ navigate, cardData }) => {
       <div className="relative z-20 p-5 sm:p-8 md:p-10 flex flex-col h-full">
         {/* Top badge row */}
         <div className="flex items-center justify-between mb-8">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/20 border border-white/30 text-[11px] font-black text-white uppercase tracking-widest shadow-lg">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-none bg-white/20 border border-white/30 text-[11px] font-black text-white uppercase tracking-widest shadow-lg">
             <Film size={12} />
             {d.badge}
           </div>
@@ -131,8 +131,8 @@ const VideoCard = ({ navigate, cardData }) => {
           {(d.competencies || defaultVideoCard.competencies).map(({ icon, label, sub }) => {
             const Icon = getIcon(icon);
             return (
-              <div key={label} className="flex flex-col items-center justify-center text-center bg-white/10 hover:bg-white/15 border border-white/15 rounded-xl p-2.5 sm:p-3 transition-colors">
-                <div className="w-8 h-8 rounded-lg bg-white/20 text-white flex items-center justify-center mb-1.5 flex-shrink-0">
+              <div key={label} className="flex flex-col items-center justify-center text-center bg-white/10 hover:bg-white/15 border border-white/15 rounded-none p-2.5 sm:p-3 transition-colors">
+                <div className="w-8 h-8 rounded-none bg-white/20 text-white flex items-center justify-center mb-1.5 flex-shrink-0">
                   <Icon size={16} />
                 </div>
                 <div className="w-full">
@@ -147,7 +147,7 @@ const VideoCard = ({ navigate, cardData }) => {
         {/* Specialty tags */}
         <div className="flex flex-wrap gap-2 mb-8">
           {(d.tags || defaultVideoCard.tags).map(t => (
-            <span key={t} className="px-2.5 py-1 rounded-full bg-white/15 border border-white/20 text-[10px] font-bold text-white uppercase tracking-wider">
+            <span key={t} className="px-2.5 py-1 rounded-none bg-white/15 border border-white/20 text-[10px] font-bold text-white uppercase tracking-wider">
               {t}
             </span>
           ))}
