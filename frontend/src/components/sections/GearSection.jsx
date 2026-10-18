@@ -100,7 +100,7 @@ export const GearSection = ({ data }) => {
             transition={{ delay: 0.15 }}
             className="lg:col-span-5 flex flex-col justify-end space-y-3"
           >
-            <p className="text-[#1C1917] font-medium text-sm sm:text-base leading-relaxed bg-white/85 backdrop-blur-md px-4 sm:px-5 py-3 rounded-2xl border border-[#C59A9F]/40 shadow-sm max-w-full break-words">
+            <p className="text-[#1C1917] font-medium text-sm sm:text-base leading-relaxed bg-white/85 backdrop-blur-md px-4 sm:px-5 py-3 rounded-none border border-[#C59A9F]/40 shadow-sm max-w-full break-words">
               Industry-standard cinema cameras, precision lenses, professional lighting, and a fast dedicated post-production suite, providing everything needed to deliver 8K master quality.
             </p>
           </motion.div>
