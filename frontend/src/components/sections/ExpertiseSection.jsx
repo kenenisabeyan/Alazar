@@ -295,16 +295,6 @@ export const ExpertiseSection = ({ data, statistics }) => {
         {/* ── Section header ── */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 mb-16">
           <div className="max-w-2xl">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white border border-[#C59A9F]/50 text-[11px] font-black text-[#6B1D2F] uppercase tracking-widest shadow-sm shimmer-border mb-6"
-            >
-              <Zap size={13} className="text-[#6B1D2F]" />
-              Dual Creative Disciplines
-            </motion.div>
-
             <motion.h2
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
