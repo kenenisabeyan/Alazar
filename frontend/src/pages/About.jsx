@@ -120,11 +120,6 @@ export default function About() {
               transition={{ duration: 0.7 }}
               className="lg:col-span-6 space-y-6 text-left"
             >
-              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white border border-[#C59A9F]/50 text-[11px] tracking-widest text-[#6B1D2F] uppercase font-black shadow-sm shimmer-border">
-                <Sparkles size={13} className="animate-pulse" />
-                {profile.professionalTitle}
-              </div>
-
               <h1
                 className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] leading-[1.08] tracking-tight break-words"
                 style={{ fontFamily: theme.fonts.heading }}

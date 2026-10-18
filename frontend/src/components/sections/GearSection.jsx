@@ -100,13 +100,6 @@ export const GearSection = ({ data }) => {
             transition={{ delay: 0.15 }}
             className="lg:col-span-5 flex flex-col justify-end space-y-3"
           >
-            {/* Visual Glassmorphism Hero Badge to eliminate empty gap */}
-            <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-full bg-white/95 backdrop-blur-md border border-[#C59A9F]/50 text-[10px] sm:text-[11px] font-black text-[#6B1D2F] uppercase tracking-widest w-fit shadow-sm shimmer-border">
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-              <Sparkles size={13} className="text-[#6B1D2F]" />
-              <span>8K Master Cinema & Color Suite</span>
-            </div>
-
             <p className="text-[#1C1917] font-medium text-sm sm:text-base leading-relaxed bg-white/85 backdrop-blur-md px-4 sm:px-5 py-3 rounded-2xl border border-[#C59A9F]/40 shadow-sm max-w-full break-words">
               Industry-standard cinema cameras, precision lenses, professional lighting, and a fast dedicated post-production suite, providing everything needed to deliver 8K master quality.
             </p>

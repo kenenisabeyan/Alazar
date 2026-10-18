@@ -99,16 +99,6 @@ export const HeroSection = ({ onOpenShowreel }) => {
           animate="visible"
           className="flex flex-col items-center w-full max-w-5xl"
         >
-          {/* Shimmer Subtitle Pill */}
-          <motion.div
-            variants={itemVariants}
-            className="inline-flex items-center justify-center gap-2 sm:gap-2.5 px-3.5 sm:px-6 py-2 sm:py-2.5 rounded-full bg-white/95 backdrop-blur-md border border-[#C59A9F]/50 text-[10px] sm:text-xs tracking-wider sm:tracking-widest text-[#6B1D2F] uppercase mb-8 sm:mb-10 shadow-sm hover:border-[#6B1D2F] transition-all shimmer-border group max-w-full text-center"
-          >
-            <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-emerald-500 animate-pulse flex-shrink-0" />
-            <Sparkles size={13} className="text-[#6B1D2F] group-hover:rotate-12 transition-transform flex-shrink-0" />
-            <span className="font-extrabold tracking-wider">Video Director & Graphic Designer</span>
-          </motion.div>
-
           {/* Headline & Subtitle Text (Clean spacious design without bulky box) */}
           <div className="max-w-6xl mx-auto space-y-6 mb-10 sm:mb-12 w-full px-1 sm:px-0">
             <motion.h1
