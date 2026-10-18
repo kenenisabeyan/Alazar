@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Cpu, CheckCircle2, Star, Film, Palette, Camera } from 'lucide-react';
+import { CheckCircle2, Award, Film, Shapes, Camera } from 'lucide-react';
 import { skillsMatrix, theme } from '../../constants';
 
-const catIcons = [Film, Palette, Camera];
+const catIcons = [Film, Shapes, Camera];
 
 export const SkillsSection = ({ data }) => {
   const [activeCategory, setActiveCategory] = useState(0);
@@ -156,7 +156,7 @@ export const SkillsSection = ({ data }) => {
                     <div className="flex justify-between text-[9px] font-black text-[#6B1D2F] dark:text-[#C59A9F] uppercase tracking-widest">
                       <span>Beginner</span>
                       <span className="flex items-center gap-1">
-                        <Star size={9} /> Expert Level
+                        <Award size={9} /> Expert Level
                       </span>
                     </div>
                   </div>

@@ -130,7 +130,7 @@ export const AvailabilityCTA = ({ cta, contact }) => {
                   dark: true,
                 },
                 {
-                  icon: Palette,
+                  icon: Shapes,
                   title: 'Graphic Design',
                   items: ['Brand Identity', 'Poster & Key Art', '3D Motion Graphics', 'UI Design Kits'],
                   dark: false,
