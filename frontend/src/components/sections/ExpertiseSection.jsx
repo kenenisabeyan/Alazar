@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import {
-  Film, Palette, Sliders, Layers, Monitor, Camera,
+  Film, Shapes, Sliders, Layers, Monitor, Camera,
   CheckCircle2, ArrowRight, Box, Trophy, Award, Star,
 } from 'lucide-react';
 import { theme } from '../../constants';
@@ -10,7 +10,7 @@ import { theme } from '../../constants';
 // Icon lookup for dynamic discipline data
 const iconMap = {
   Film,
-  Palette,
+  Shapes,
   Sliders,
   Layers,
   Monitor,
@@ -21,7 +21,8 @@ const iconMap = {
   Star,
   CheckCircle2,
   // Fallbacks for legacy/backend strings
-  PenTool: Palette,
+  Palette: Shapes,
+  PenTool: Shapes,
   Zap: Sliders,
 };
 const getIcon = (name) => iconMap[name] || Film;
@@ -60,7 +61,7 @@ const defaultDesignCard = {
   headlineAccent: 'Designer & Director',
   description: 'Comprehensive brand identity systems, editorial poster design, 3D visual concepts, motion graphics, and digital UI kits, built to last and scale across every brand touchpoint.',
   competencies: [
-    { icon: 'Palette', label: 'Brand Identity',   sub: 'Illustrator / Figma' },
+    { icon: 'Shapes', label: 'Brand Identity',   sub: 'Illustrator / Figma' },
     { icon: 'Layers',  label: 'Motion Graphics',  sub: 'After Effects / C4D' },
     { icon: 'Monitor', label: 'Print & Editorial', sub: 'InDesign / Photoshop' },
     { icon: 'Box',     label: '3D Art Direction',  sub: 'Blender / Octane' },
@@ -188,7 +189,7 @@ const DesignCard = ({ navigate, cardData }) => {
         {/* Top badge row */}
         <div className="flex items-center justify-between mb-8">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAFAF9] border border-[#C59A9F]/50 text-[11px] font-black text-[#6B1D2F] uppercase tracking-widest shadow-sm">
-            <Palette size={12} />
+            <Shapes size={12} />
             {d.badge}
           </div>
           <div className="flex items-center gap-1.5 text-[10px] font-black text-[#292524] uppercase tracking-widest">

@@ -2,8 +2,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
-  Film, Palette, ArrowRight, CheckCircle2,
-  Sliders, Monitor, Layers, Smartphone, Shapes, Layout,
+  Film, Layout, ArrowRight, CheckCircle2,
+  Sliders, Monitor, Layers, Smartphone, Shapes, Crop,
 } from 'lucide-react';
 import { theme } from '../../constants';
 
@@ -26,7 +26,7 @@ const services = [
     dark: true,
   },
   {
-    icon: Palette,
+    icon: Layout,
     accent: '#6B1D2F',
     accentLight: '#FAFAF9',
     label: 'Brand & Identity',
@@ -36,7 +36,7 @@ const services = [
       { icon: Shapes, text: 'Brand Identity & Logo Systems' },
       { icon: Layers, text: 'Poster Art & 3D Motion Graphics' },
       { icon: Monitor, text: 'Magazine & Editorial Print Layouts' },
-      { icon: Layout, text: 'Digital UI Kits & Design Systems' },
+      { icon: Crop, text: 'Digital UI Kits & Design Systems' },
     ],
     cta: 'View Design Projects',
     path: '/portfolio',

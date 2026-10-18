@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
   Mail, ArrowRight, Facebook, Send,
-  Film, Palette, CheckCircle2, Layers, Clock,
+  Film, Shapes, CheckCircle2, Layers, Clock,
 } from 'lucide-react';
 import { theme } from '../../constants';
 import { navigateToSection } from '../../utils/navigation';

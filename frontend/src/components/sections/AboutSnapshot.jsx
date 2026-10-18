@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
-  Film, Palette, Quote, ArrowRight,
+  Film, Shapes, Quote, ArrowRight,
   Layers, CheckCircle2, Award, Camera,
 } from 'lucide-react';
 import Button from '../common/Button';
@@ -19,7 +19,7 @@ const disciplines = [
     dark: true,
   },
   {
-    icon: Palette,
+    icon: Shapes,
     label: 'Senior Graphic Designer',
     tags: ['Brand Identity', '3D Motion', 'Print & Editorial', 'UI Systems'],
     bg: '#FFFFFF',
@@ -201,7 +201,7 @@ export const AboutSnapshot = () => {
               className="hidden xs:flex absolute -bottom-4 left-1 sm:-left-4 z-30 bg-white border border-[#C59A9F]/50 rounded-2xl px-3 sm:px-4 py-2 sm:py-2.5 shadow-xl items-center gap-2 sm:gap-2.5"
             >
               <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#FAFAF9] text-[#6B1D2F] flex items-center justify-center shadow-sm">
-                <Palette size={14} />
+                <Shapes size={14} />
               </div>
               <div>
                 <p className="text-[9.5px] sm:text-[10px] font-black text-[#6B1D2F] uppercase tracking-wider">Sr. Designer</p>
