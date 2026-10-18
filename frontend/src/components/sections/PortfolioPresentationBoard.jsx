@@ -43,12 +43,12 @@ export const PortfolioPresentationBoard = ({ projects = [], filter = 'all', pres
 
             {/* Top Bar Header */}
             <div className="relative z-10 flex flex-wrap justify-between items-center gap-2.5 sm:gap-3">
-              <div className="inline-flex items-center gap-2 sm:gap-2.5 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-md shadow-md shimmer-border max-w-full">
+              <div className="inline-flex items-center gap-2 sm:gap-2.5 px-3 sm:px-4 py-1.5 sm:py-2 rounded-none bg-white/10 border border-white/20 backdrop-blur-md shadow-md shimmer-border max-w-full">
                 <span className="text-[9px] sm:text-[11px] font-black uppercase tracking-[0.18em] sm:tracking-[0.25em] text-[#FAFAF9] truncate">
                   CREATIVE DIRECTION & EDITORIAL DESIGN
                 </span>
               </div>
-              <span className="text-[9.5px] sm:text-[11px] font-mono font-black uppercase tracking-widest text-[#E8B4BE] bg-black/60 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-white/15 shadow-sm">
+              <span className="text-[9.5px] sm:text-[11px] font-mono font-black uppercase tracking-widest text-[#E8B4BE] bg-black/60 px-3 sm:px-4 py-1.5 sm:py-2 rounded-none border border-white/15 shadow-sm">
                 01 / MASTER SPREAD
               </span>
             </div>
@@ -63,15 +63,15 @@ export const PortfolioPresentationBoard = ({ projects = [], filter = 'all', pres
                 </h1>
                 
                 <div className="flex items-center gap-1.5 sm:gap-2.5 text-[9px] sm:text-xs font-black tracking-[0.16em] sm:tracking-[0.22em] uppercase text-[#FAFAF9] flex-wrap pt-1">
-                  <div className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl bg-white/10 border border-white/20 backdrop-blur-md shadow-sm">
+                  <div className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-none bg-white/10 border border-white/20 backdrop-blur-md shadow-sm">
                     <Paintbrush size={11} className="text-[#C59A9F]" />
                     <span>ILLUSTRATOR</span>
                   </div>
-                  <div className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl bg-white/10 border border-white/20 backdrop-blur-md shadow-sm">
+                  <div className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-none bg-white/10 border border-white/20 backdrop-blur-md shadow-sm">
                     <Layers size={11} className="text-[#C59A9F]" />
                     <span>GRAPHIC DESIGNER</span>
                   </div>
-                  <div className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl bg-white/10 border border-white/20 backdrop-blur-md shadow-sm">
+                  <div className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-none bg-white/10 border border-white/20 backdrop-blur-md shadow-sm">
                     <Film size={11} className="text-[#C59A9F]" />
                     <span>VIDEO EDITOR</span>
                   </div>
@@ -89,7 +89,7 @@ export const PortfolioPresentationBoard = ({ projects = [], filter = 'all', pres
                     className="w-full h-full object-cover object-top filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)] group-hover:scale-105 transition-transform duration-500"
                   />
 
-                  <div className="absolute bottom-3 inset-x-3 py-1.5 sm:py-2 px-2.5 sm:px-3 rounded-xl bg-black/80 backdrop-blur-md border border-white/20 text-center text-[9px] sm:text-[10px] font-mono font-black uppercase tracking-[0.16em] sm:tracking-[0.2em] text-[#FAFAF9] shadow-xl z-20">
+                  <div className="absolute bottom-3 inset-x-3 py-1.5 sm:py-2 px-2.5 sm:px-3 rounded-none bg-black/80 backdrop-blur-md border border-white/20 text-center text-[9px] sm:text-[10px] font-mono font-black uppercase tracking-[0.16em] sm:tracking-[0.2em] text-[#FAFAF9] shadow-xl z-20">
                     {profileName.toUpperCase()}
                   </div>
                 </div>
@@ -103,7 +103,7 @@ export const PortfolioPresentationBoard = ({ projects = [], filter = 'all', pres
                 <span className="text-white/30">•</span>
                 <span className="text-[#C59A9F]">SELECTED WORKS</span>
               </div>
-              <div className="text-[9.5px] sm:text-[10px] font-black uppercase tracking-widest text-[#FAFAF9] bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] px-3.5 sm:px-4.5 py-1.5 rounded-full border border-white/20 shadow-lg">
+              <div className="text-[9.5px] sm:text-[10px] font-black uppercase tracking-widest text-[#FAFAF9] bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] px-3.5 sm:px-4.5 py-1.5 rounded-none border border-white/20 shadow-lg">
                 {edition}
               </div>
             </div>
@@ -124,7 +124,7 @@ export const PortfolioPresentationBoard = ({ projects = [], filter = 'all', pres
                   <span className="w-2.5 h-2.5 rounded-full bg-[#C59A9F] shadow-sm shadow-[#C59A9F]" />
                   INTRODUCTION
                 </h3>
-                <span className="text-[9px] sm:text-[9.5px] font-black uppercase tracking-widest text-[#FAFAF9] bg-white/10 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full border border-white/20 backdrop-blur-md">
+                <span className="text-[9px] sm:text-[9.5px] font-black uppercase tracking-widest text-[#FAFAF9] bg-white/10 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-none border border-white/20 backdrop-blur-md">
                   PROFILE
                 </span>
               </div>
@@ -166,7 +166,7 @@ export const PortfolioPresentationBoard = ({ projects = [], filter = 'all', pres
                   <span className="w-2.5 h-2.5 rounded-full bg-[#6B1D2F] shadow-sm shadow-[#6B1D2F]" />
                   CONTENT INDEX
                 </h3>
-                <span className="text-[9.5px] font-black uppercase tracking-widest text-[#E8B4BE] bg-white/10 px-3 py-1.5 rounded-full border border-white/20 backdrop-blur-md">
+                <span className="text-[9.5px] font-black uppercase tracking-widest text-[#E8B4BE] bg-white/10 px-3 py-1.5 rounded-none border border-white/20 backdrop-blur-md">
                   CHAPTERS
                 </span>
               </div>
@@ -187,7 +187,7 @@ export const PortfolioPresentationBoard = ({ projects = [], filter = 'all', pres
               </div>
 
               <div className="text-[10.5px] font-black text-white/80 tracking-[0.22em] text-center uppercase border-t border-white/15 pt-3.5">
-                CURRENT VIEW: <span className="text-[#FAFAF9] bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] px-3 py-1 rounded-lg font-mono border border-white/20 shadow-sm">{filter.toUpperCase()} ({displayProjects.length})</span>
+                CURRENT VIEW: <span className="text-[#FAFAF9] bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] px-3 py-1 rounded-none font-mono border border-white/20 shadow-sm">{filter.toUpperCase()} ({displayProjects.length})</span>
               </div>
             </motion.div>
 
@@ -212,7 +212,7 @@ export const PortfolioPresentationBoard = ({ projects = [], filter = 'all', pres
                   <span className="w-1.5 h-1.5 rounded-full bg-[#C59A9F]" />
                   {idx < 9 ? `0${idx + 1}` : idx + 1}. {project.subCategory || project.category}
                 </span>
-                <div className="w-8 h-8 rounded-full bg-white/10 group-hover:bg-[#6B1D2F] flex items-center justify-center transition-colors">
+                <div className="w-8 h-8 rounded-none bg-white/10 group-hover:bg-[#6B1D2F] flex items-center justify-center transition-colors">
                   <ArrowUpRight size={15} className="text-[#C59A9F] group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                 </div>
               </div>
@@ -231,7 +231,7 @@ export const PortfolioPresentationBoard = ({ projects = [], filter = 'all', pres
                   <h4 className="text-sm sm:text-base font-black text-white group-hover:text-[#FAFAF9] transition-colors">{project.title}</h4>
                   <p className="text-[10px] sm:text-[11px] text-[#C59A9F] uppercase tracking-wider font-bold">{project.client}</p>
                 </div>
-                <span className="text-[9.5px] uppercase font-black px-3 py-1 rounded-full bg-white/10 text-[#FAFAF9] border border-white/15 font-mono">
+                <span className="text-[9.5px] uppercase font-black px-3 py-1 rounded-none bg-white/10 text-[#FAFAF9] border border-white/15 font-mono">
                   {project.year || '2025'}
                 </span>
               </div>

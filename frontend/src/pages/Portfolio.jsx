@@ -232,7 +232,7 @@ export default function Portfolio() {
           <button
             onClick={fetchProjects}
             title="Sync latest"
-            className="p-3 rounded-full bg-white border border-[#C59A9F] text-[#292524] hover:border-[#6B1D2F] hover:text-[#6B1D2F] transition-all shadow-sm"
+            className="p-3 rounded-none bg-white border border-[#C59A9F] text-[#292524] hover:border-[#6B1D2F] hover:text-[#6B1D2F] transition-all shadow-sm"
           >
             <RefreshCw size={15} className={loading ? 'animate-spin text-[#6B1D2F]' : ''} />
           </button>
@@ -249,7 +249,7 @@ export default function Portfolio() {
           </div>
         ) : filteredProjects.length === 0 ? (
           <div className="py-20 text-center bg-white rounded-3xl border border-[#C59A9F]/40 shadow-sm max-w-xl mx-auto space-y-4">
-            <div className="w-16 h-16 rounded-full bg-[#6B1D2F]/10 border border-[#6B1D2F]/20 text-[#6B1D2F] flex items-center justify-center mx-auto">
+            <div className="w-16 h-16 rounded-none bg-[#6B1D2F]/10 border border-[#6B1D2F]/20 text-[#6B1D2F] flex items-center justify-center mx-auto">
               <Search size={28} />
             </div>
             <h3 className="text-2xl font-black text-[#1C1917]" style={{ fontFamily: theme.fonts.heading }}>
@@ -260,7 +260,7 @@ export default function Portfolio() {
             </p>
             <button
               onClick={() => { setSearchQuery(''); setFilter('all'); }}
-              className="px-6 py-2.5 rounded-full bg-[#6B1D2F] text-white font-black text-xs uppercase tracking-widest hover:bg-[#8B1E3F] transition-all shadow-md"
+              className="px-6 py-2.5 rounded-none bg-[#6B1D2F] text-white font-black text-xs uppercase tracking-widest hover:bg-[#8B1E3F] transition-all shadow-md"
             >
               Reset All Filters
             </button>
