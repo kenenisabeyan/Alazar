@@ -124,14 +124,14 @@ export const ColorGradingShowcase = () => {
 
             {/* ── LEFT label — Camera RAW LOG ── */}
             <div className="absolute bottom-5 left-5 z-20 pointer-events-none">
-              <span className="inline-flex items-center gap-1.5 bg-black/70 backdrop-blur-md text-[#F5F0F1] border border-white/20 text-[9px] sm:text-[10px] uppercase tracking-[0.22em] px-3.5 py-2 rounded-full font-black font-mono shadow-lg">
+              <span className="inline-flex items-center gap-1.5 bg-black/70 backdrop-blur-md text-[#F5F0F1] border border-white/20 text-[9px] sm:text-[10px] uppercase tracking-[0.22em] px-3.5 py-2 rounded-none font-black font-mono shadow-lg">
                 CAMERA RAW LOG
               </span>
             </div>
 
             {/* ── RIGHT label — Final Color Grade ── */}
             <div className="absolute bottom-5 right-5 z-20 pointer-events-none">
-              <span className="inline-flex items-center gap-2 bg-[#6B1D2F] text-[#F5F0F1] border border-white/20 text-[9px] sm:text-[10px] uppercase tracking-[0.22em] px-3.5 py-2 rounded-full font-black font-mono shadow-xl">
+              <span className="inline-flex items-center gap-2 bg-[#6B1D2F] text-[#F5F0F1] border border-white/20 text-[9px] sm:text-[10px] uppercase tracking-[0.22em] px-3.5 py-2 rounded-none font-black font-mono shadow-xl">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse flex-shrink-0" />
                 FINAL COLOR GRADE
               </span>
@@ -159,7 +159,7 @@ export const ColorGradingShowcase = () => {
               transition={{ delay: 2.2, duration: 0.9 }}
               className="absolute inset-0 flex items-center justify-center pointer-events-none z-20"
             >
-              <div className="flex items-center gap-2 bg-[#1E0A0D]/80 backdrop-blur-md text-[#F5F0F1] text-[11px] font-black uppercase tracking-widest px-6 py-3 rounded-full border border-white/20 shadow-xl">
+              <div className="flex items-center gap-2 bg-[#1E0A0D]/80 backdrop-blur-md text-[#F5F0F1] text-[11px] font-black uppercase tracking-widest px-6 py-3 rounded-none border border-white/20 shadow-xl">
                 <ArrowLeft size={14} />
                 <Sliders size={13} className="text-[#C59A9F]" />
                 Drag to Compare
@@ -183,7 +183,7 @@ export const ColorGradingShowcase = () => {
               key={label}
               className="glass-card-luxury rounded-2xl p-3 sm:p-5 flex flex-col sm:flex-row items-center justify-center sm:justify-start text-center sm:text-left gap-2 sm:gap-3"
             >
-              <div className="w-9 h-9 rounded-xl bg-[#FAFAF9] dark:bg-[#1E0A0D] text-[#6B1D2F] dark:text-[#F5F0F1] flex items-center justify-center flex-shrink-0 border border-[#C59A9F]/40 mx-auto sm:mx-0">
+              <div className="w-9 h-9 rounded-none bg-[#FAFAF9] dark:bg-[#1E0A0D] text-[#6B1D2F] dark:text-[#F5F0F1] flex items-center justify-center flex-shrink-0 border border-[#C59A9F]/40 mx-auto sm:mx-0">
                 <Icon size={16} />
               </div>
               <div className="min-w-0 w-full">

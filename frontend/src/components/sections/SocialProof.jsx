@@ -100,7 +100,7 @@ export const SocialProof = () => {
               {/* Top row */}
               <div className="flex items-start justify-between mb-6 sm:mb-8">
                 {/* Quote icon */}
-                <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center shadow-xl shadow-[#6B1D2F]/30 border border-white/10">
+                <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-none bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center shadow-xl shadow-[#6B1D2F]/30 border border-white/10">
                   <Quote size={20} className="sm:scale-125 fill-white/20" />
                 </div>
 
