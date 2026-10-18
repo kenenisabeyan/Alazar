@@ -356,7 +356,7 @@ function initAboutStore() {
     memoryStore.footer_expertise = [
       { id: 1, title: 'Commercial Editing', description: 'Paced rhythmic cuts for broadcast', icon: 'Film', displayOrder: 0, isVisible: true },
       { id: 2, title: 'Cinematic Color Grading', description: 'HDR color science & LUT creation', icon: 'Sliders', displayOrder: 1, isVisible: true },
-      { id: 3, title: 'Visual Identity & Motion', description: 'Logo systems & 2D/3D motion graphics', icon: 'Palette', displayOrder: 2, isVisible: true },
+      { id: 3, title: 'Visual Identity & Motion', description: 'Logo systems & 2D/3D motion graphics', icon: 'Shapes', displayOrder: 2, isVisible: true },
       { id: 4, title: '3D Product Visuals', description: 'Photorealistic 3D renders', icon: 'Layers', displayOrder: 3, isVisible: true }
     ];
   }
