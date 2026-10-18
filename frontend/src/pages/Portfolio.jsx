@@ -244,7 +244,7 @@ export default function Portfolio() {
         {loading ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[1, 2, 3, 4, 5, 6].map(n => (
-              <div key={n} className="rounded-[2rem] aspect-[4/5] bg-[#FAFAF9] border border-[#C59A9F]/40 animate-pulse" />
+              <div key={n} className="rounded-none aspect-[4/5] bg-[#FAFAF9] border border-[#C59A9F]/40 animate-pulse" />
             ))}
           </div>
         ) : filteredProjects.length === 0 ? (
@@ -290,7 +290,7 @@ export default function Portfolio() {
                   whileHover={{ y: -8, scale: 1.02 }}
                   transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
                   onClick={() => openModal(project)}
-                  className="group relative cursor-pointer rounded-[2rem] overflow-hidden bg-gradient-to-br from-[#240A0F] via-[#3B111A] to-[#160508] aspect-[4/5] border border-white/15 hover:border-[#C59A9F]/50 hover:shadow-2xl hover:shadow-[#6B1D2F]/25 transition-all duration-500 shadow-xl"
+                  className="group relative cursor-pointer rounded-none overflow-hidden bg-gradient-to-br from-[#240A0F] via-[#3B111A] to-[#160508] aspect-[4/5] border border-white/15 hover:border-[#C59A9F]/50 hover:shadow-2xl hover:shadow-[#6B1D2F]/25 transition-all duration-500 shadow-xl"
                 >
                   <ProjectCardMedia project={project} />
 
