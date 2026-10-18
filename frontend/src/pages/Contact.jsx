@@ -253,11 +253,7 @@ export default function Contact() {
             transition={{ duration: 0.7 }}
             className="lg:col-span-5 space-y-6 sm:space-y-8 scroll-mt-28"
           >
-            {/* Badge */}
             <div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#6B1D2F]/10 border border-[#6B1D2F]/20 rounded-full text-[11px] text-[#6B1D2F] font-black uppercase tracking-widest mb-5">
-                <Database size={12} /> Direct PostgreSQL Sync
-              </div>
               <h1
                 className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] mb-4 sm:mb-5 leading-[1.06] tracking-tight break-words"
                 style={{ fontFamily: theme.fonts.heading }}
