@@ -74,7 +74,7 @@ export const WhyHireMe = () => {
                   whileHover={{ y: -5 }}
                   className="glass-card-luxury p-3 sm:p-5 md:p-6 rounded-2xl flex flex-col items-center justify-center text-center"
                 >
-                  <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center shadow-md shadow-[#6B1D2F]/25 flex-shrink-0 mb-2 sm:mb-3">
+                  <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-none bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center shadow-md shadow-[#6B1D2F]/25 flex-shrink-0 mb-2 sm:mb-3">
                     <Icon size={18} />
                   </div>
                   <h4
@@ -106,7 +106,7 @@ export const WhyHireMe = () => {
             <div className="absolute -top-16 -right-16 w-48 h-48 bg-white/10 blur-[80px] rounded-full pointer-events-none" />
 
             <div className="relative z-10">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/20 border border-white/20 text-[11px] font-black text-white uppercase tracking-widest mb-8">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-none bg-white/20 border border-white/20 text-[11px] font-black text-white uppercase tracking-widest mb-8">
                 <Compass size={12} /> What Sets Me Apart
               </div>
 
