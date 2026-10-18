@@ -118,7 +118,7 @@ export const SkillsSection = ({ data }) => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: idx * 0.07 }}
-                  className="glass-card-luxury rounded-2xl p-6 sm:p-7 flex flex-col gap-4"
+                  className="glass-card-luxury rounded-none p-6 sm:p-7 flex flex-col gap-4"
                 >
                   {/* Top row */}
                   <div className="flex items-start justify-between gap-3">
@@ -144,13 +144,13 @@ export const SkillsSection = ({ data }) => {
 
                   {/* Progress bar */}
                   <div className="space-y-1.5">
-                    <div className="w-full bg-[#FAFAF9] dark:bg-[#1E0A0D]/50 rounded-full h-2 overflow-hidden border border-[#C59A9F]">
+                    <div className="w-full bg-[#FAFAF9] dark:bg-[#1E0A0D]/50 rounded-none h-2 overflow-hidden border border-[#C59A9F]">
                       <motion.div
                         initial={{ width: 0 }}
                         whileInView={{ width: `${skill.level}%` }}
                         viewport={{ once: true }}
                         transition={{ duration: 1.1, delay: idx * 0.08, ease: 'easeOut' }}
-                        className="h-full rounded-full bg-gradient-to-r from-[#6B1D2F] via-[#8B1E3F] to-[#C59A9F]"
+                        className="h-full rounded-none bg-gradient-to-r from-[#6B1D2F] via-[#8B1E3F] to-[#C59A9F]"
                       />
                     </div>
                     <div className="flex justify-between text-[9px] font-black text-[#6B1D2F] dark:text-[#C59A9F] uppercase tracking-widest">
@@ -172,7 +172,7 @@ export const SkillsSection = ({ data }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="mt-14 p-6 bg-gradient-to-r from-[#6B1D2F] via-[#8B1E3F] to-[#6B1D2F] rounded-2xl flex flex-wrap items-center justify-center gap-4 sm:gap-8 shadow-lg shadow-[#6B1D2F]/20"
+          className="mt-14 p-6 bg-gradient-to-r from-[#6B1D2F] via-[#8B1E3F] to-[#6B1D2F] rounded-none flex flex-wrap items-center justify-center gap-4 sm:gap-8 shadow-lg shadow-[#6B1D2F]/20"
         >
           {[
             'DaVinci Resolve', 'Adobe Premiere', 'After Effects',

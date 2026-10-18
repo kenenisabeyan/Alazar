@@ -112,7 +112,7 @@ export const HeroSection = ({ onOpenShowreel }) => {
 
             <motion.p
               variants={itemVariants}
-              className="text-sm sm:text-base md:text-xl text-[#1C1917] font-bold max-w-3xl mx-auto leading-relaxed bg-white/85 backdrop-blur-md px-4 sm:px-6 py-3 sm:py-3.5 rounded-2xl border border-[#C59A9F]/40 shadow-md inline-block max-w-full break-words"
+              className="text-sm sm:text-base md:text-xl text-[#1C1917] font-bold max-w-3xl mx-auto leading-relaxed bg-white/85 backdrop-blur-md px-4 sm:px-6 py-3 sm:py-3.5 rounded-none border border-[#C59A9F]/40 shadow-md inline-block max-w-full break-words"
             >
               Crafting high-octane commercial edits, master-level color grading, and striking graphic design systems for visionary global brands.
             </motion.p>
@@ -126,7 +126,7 @@ export const HeroSection = ({ onOpenShowreel }) => {
                 variant="primary"
                 icon={<ArrowRight size={16} />}
                 onClick={() => navigateToSection(navigate, '/portfolio#portfolio-grid')}
-                className="w-full sm:w-auto flex-1 sm:flex-initial min-w-0 shadow-xl shadow-[#6B1D2F]/20 hover:shadow-[#6B1D2F]/35 px-6 sm:px-9 py-3.5 sm:py-4 text-xs sm:text-sm tracking-wider sm:tracking-widest uppercase font-extrabold rounded-full"
+                className="w-full sm:w-auto flex-1 sm:flex-initial min-w-0 shadow-xl shadow-[#6B1D2F]/20 hover:shadow-[#6B1D2F]/35 px-6 sm:px-9 py-3.5 sm:py-4 text-xs sm:text-sm tracking-wider sm:tracking-widest uppercase font-extrabold rounded-none"
               >
                 Explore Work
               </Button>
@@ -135,7 +135,7 @@ export const HeroSection = ({ onOpenShowreel }) => {
                 variant="secondary"
                 icon={<Play size={16} className="fill-[#6B1D2F] text-[#6B1D2F]" />}
                 onClick={onOpenShowreel}
-                className="w-full sm:w-auto flex-1 sm:flex-initial min-w-0 bg-white/90 backdrop-blur-md border border-[#C59A9F] hover:border-[#6B1D2F] px-6 sm:px-9 py-3.5 sm:py-4 text-xs sm:text-sm tracking-wider sm:tracking-widest uppercase font-extrabold shadow-sm rounded-full"
+                className="w-full sm:w-auto flex-1 sm:flex-initial min-w-0 bg-white/90 backdrop-blur-md border border-[#C59A9F] hover:border-[#6B1D2F] px-6 sm:px-9 py-3.5 sm:py-4 text-xs sm:text-sm tracking-wider sm:tracking-widest uppercase font-extrabold shadow-sm rounded-none"
               >
                 Watch Reel
               </Button>
@@ -151,7 +151,7 @@ export const HeroSection = ({ onOpenShowreel }) => {
               <motion.div
                 key={idx}
                 whileHover={{ y: -6, scale: 1.02 }}
-                className="glass-card-luxury text-center p-3.5 sm:p-7 rounded-2xl sm:rounded-3xl"
+                className="glass-card-luxury text-center p-3.5 sm:p-7 rounded-none"
               >
                 <div className="flex items-center justify-center gap-1 mb-1">
                   <span className="text-2xl sm:text-3xl md:text-5xl font-black text-[#6B1D2F] dark:text-[#F5F0F1] tracking-tight" style={{ fontFamily: theme.fonts.heading }}>
