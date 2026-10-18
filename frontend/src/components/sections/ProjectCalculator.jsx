@@ -11,7 +11,7 @@ import { calculatorOptions, theme } from '../../constants';
 // ─── Small building-block components ────────────────────────────────────────
 
 const StepBadge = ({ n }) => (
-  <span className="w-7 h-7 rounded-full bg-[#6B1D2F] text-white flex items-center justify-center text-xs font-black shadow-sm flex-shrink-0">
+  <span className="w-7 h-7 rounded-none bg-[#6B1D2F] text-white flex items-center justify-center text-xs font-black shadow-sm flex-shrink-0">
     {n}
   </span>
 );
@@ -114,7 +114,7 @@ export const ProjectCalculator = () => {
                         <div className="absolute inset-0 bg-gradient-to-br from-white/15 to-transparent pointer-events-none" />
                       )}
                       <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 relative z-10 w-full sm:w-auto">
-                        <div className={`w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 transition-all mx-auto sm:mx-0 ${isActive ? 'bg-white/20 text-white shadow-md' : 'bg-[#FAFAF9] text-[#6B1D2F]'
+                        <div className={`w-9 h-9 rounded-none flex items-center justify-center flex-shrink-0 transition-all mx-auto sm:mx-0 ${isActive ? 'bg-white/20 text-white shadow-md' : 'bg-[#FAFAF9] text-[#6B1D2F]'
                           }`}>
                           <Icon size={16} />
                         </div>
@@ -127,9 +127,9 @@ export const ProjectCalculator = () => {
                           </span>
                         </div>
                       </div>
-                      <div className={`w-5 h-5 rounded-full border-2 items-center justify-center flex-shrink-0 relative z-10 transition-all hidden sm:flex ${isActive ? 'border-white bg-white/30' : 'border-[#C59A9F]/60 bg-white'
+                      <div className={`w-5 h-5 rounded-none border-2 items-center justify-center flex-shrink-0 relative z-10 transition-all hidden sm:flex ${isActive ? 'border-white bg-white/30' : 'border-[#C59A9F]/60 bg-white'
                         }`}>
-                        {isActive && <div className="w-2 h-2 rounded-full bg-white" />}
+                        {isActive && <div className="w-2 h-2 rounded-none bg-white" />}
                       </div>
                     </button>
                   );
@@ -152,9 +152,9 @@ export const ProjectCalculator = () => {
                           ×{s.multiplier} base rate
                         </span>
                       </div>
-                      <div className={`w-5 h-5 rounded-full border-2 items-center justify-center flex-shrink-0 relative z-10 transition-all hidden sm:flex ${isActive ? 'border-white bg-white/30' : 'border-[#C59A9F]/60 bg-white'
+                      <div className={`w-5 h-5 rounded-none border-2 items-center justify-center flex-shrink-0 relative z-10 transition-all hidden sm:flex ${isActive ? 'border-white bg-white/30' : 'border-[#C59A9F]/60 bg-white'
                         }`}>
-                        {isActive && <div className="w-2 h-2 rounded-full bg-white" />}
+                        {isActive && <div className="w-2 h-2 rounded-none bg-white" />}
                       </div>
                     </button>
                   );
@@ -178,7 +178,7 @@ export const ProjectCalculator = () => {
                         }`}
                     >
                       <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 flex-1 min-w-0 w-full sm:w-auto">
-                        <div className={`w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0 transition-all mx-auto sm:mx-0 ${checked
+                        <div className={`w-8 h-8 rounded-none flex items-center justify-center flex-shrink-0 transition-all mx-auto sm:mx-0 ${checked
                             ? 'bg-white/20 text-white shadow-sm'
                             : 'bg-[#FAFAF9] text-[#6B1D2F] group-hover:bg-[#6B1D2F] group-hover:text-white'
                           }`}>
@@ -224,7 +224,7 @@ export const ProjectCalculator = () => {
                 <span className="text-[11px] uppercase tracking-widest text-white/70 font-black">
                   Live Estimate
                 </span>
-                <div className="w-10 h-10 rounded-xl bg-white/20 text-white flex items-center justify-center shadow-lg">
+                <div className="w-10 h-10 rounded-none bg-white/20 text-white flex items-center justify-center shadow-lg">
                   <Calculator size={18} />
                 </div>
               </div>

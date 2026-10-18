@@ -128,7 +128,7 @@ export const WorkflowVault = () => {
                     </h4>
                   </div>
 
-                  <div className={`text-[9px] sm:text-[10px] font-bold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full mt-1 lg:mt-0 flex-shrink-0 ${isActive
+                  <div className={`text-[9px] sm:text-[10px] font-bold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-none mt-1 lg:mt-0 flex-shrink-0 ${isActive
                       ? 'bg-white/20 text-white'
                       : 'bg-[#FAFAF9] text-[#6B1D2F]'
                     }`}>
@@ -153,7 +153,7 @@ export const WorkflowVault = () => {
                 {/* Icon + step */}
                 <div className="flex flex-wrap items-start justify-between gap-3 mb-6 sm:mb-8">
                   <div className="flex items-center gap-3 sm:gap-4">
-                    <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center shadow-xl shadow-[#6B1D2F]/25 flex-shrink-0">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-none bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center shadow-xl shadow-[#6B1D2F]/25 flex-shrink-0">
                       <Icon size={22} className="sm:scale-125" />
                     </div>
                     <div>
@@ -168,7 +168,7 @@ export const WorkflowVault = () => {
                       </h3>
                     </div>
                   </div>
-                  <span className="text-[11px] font-black text-[#6B1D2F] bg-[#FAFAF9] border border-[#C59A9F]/50 px-3 py-1.5 rounded-full flex-shrink-0">
+                  <span className="text-[11px] font-black text-[#6B1D2F] bg-[#FAFAF9] border border-[#C59A9F]/50 px-3 py-1.5 rounded-none flex-shrink-0">
                     {step.duration}
                   </span>
                 </div>
@@ -183,7 +183,7 @@ export const WorkflowVault = () => {
                   </p>
                   <ul className="grid grid-cols-2 gap-2 sm:gap-2.5">
                     {step.details.map((d, i) => (
-                      <li key={i} className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-1.5 sm:gap-2.5 text-xs text-[#1C1917] font-medium p-2.5 sm:p-0 rounded-xl bg-[#FAFAF9] sm:bg-transparent border border-[#C59A9F]/20 sm:border-0">
+                      <li key={i} className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-1.5 sm:gap-2.5 text-xs text-[#1C1917] font-medium p-2.5 sm:p-0 rounded-none bg-[#FAFAF9] sm:bg-transparent border border-[#C59A9F]/20 sm:border-0">
                         <CheckCircle2 size={13} className="text-[#6B1D2F] flex-shrink-0 mx-auto sm:mx-0" />
                         <span className="break-normal whitespace-normal">{d}</span>
                       </li>
