@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Camera, MapPin, ArrowRight, Film, PenTool, Zap, X } from 'lucide-react';
+import { Camera, MapPin, ArrowRight, Film, Sliders, SunMedium, Tv, X } from 'lucide-react';
 import { btsGallery, theme } from '../../constants';
 
 // Grid layout config: first item is large (spans 2 rows), rest are regular
@@ -14,9 +14,9 @@ const layoutConfig = [
 
 const disciplineTags = [
   { icon: Film, text: 'On-Set Filming' },
-  { icon: PenTool, text: 'Color Suite' },
+  { icon: Sliders, text: 'Color Suite' },
   { icon: Camera, text: 'Aerial Filming' },
-  { icon: Zap, text: 'Lighting Setup' },
+  { icon: SunMedium, text: 'Lighting Setup' },
 ];
 
 export const BehindTheScenes = ({ data }) => {
@@ -145,7 +145,7 @@ export const BehindTheScenes = ({ data }) => {
         >
           {[
             { icon: Film, value: '140+', label: 'Projects Shot' },
-            { icon: Zap, value: '8K', label: 'Max Resolution' },
+            { icon: Tv, value: '8K', label: 'Max Resolution' },
             { icon: Camera, value: '3', label: 'Cinema Cameras' },
             { icon: MapPin, value: '4', label: 'Continents Filmed' },
           ].map(({ icon: Icon, value, label }) => (

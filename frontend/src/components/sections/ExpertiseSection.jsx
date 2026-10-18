@@ -2,13 +2,29 @@ import React, { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import {
-  Film, PenTool, Sliders, Layers, Monitor, Camera,
-  CheckCircle2, ArrowRight, Zap, Award, Star,
+  Film, Palette, Sliders, Layers, Monitor, Camera,
+  CheckCircle2, ArrowRight, Box, Trophy, Award, Star, Sparkles,
 } from 'lucide-react';
 import { theme } from '../../constants';
 
 // Icon lookup for dynamic discipline data
-const iconMap = { Film, PenTool, Sliders, Layers, Monitor, Camera, Zap, Award, Star, CheckCircle2 };
+const iconMap = {
+  Film,
+  Palette,
+  Sliders,
+  Layers,
+  Monitor,
+  Camera,
+  Box,
+  Trophy,
+  Award,
+  Star,
+  Sparkles,
+  CheckCircle2,
+  // Fallbacks for legacy/backend strings
+  PenTool: Palette,
+  Zap: Sparkles,
+};
 const getIcon = (name) => iconMap[name] || Film;
 
 // ─── Specialist tag pill ────────────────────────────────────────────────────
@@ -45,10 +61,10 @@ const defaultDesignCard = {
   headlineAccent: 'Designer & Director',
   description: 'Comprehensive brand identity systems, editorial poster design, 3D visual concepts, motion graphics, and digital UI kits, built to last and scale across every brand touchpoint.',
   competencies: [
-    { icon: 'PenTool', label: 'Brand Identity',   sub: 'Illustrator / Figma' },
+    { icon: 'Palette', label: 'Brand Identity',   sub: 'Illustrator / Figma' },
     { icon: 'Layers',  label: 'Motion Graphics',  sub: 'After Effects / C4D' },
     { icon: 'Monitor', label: 'Print & Editorial', sub: 'InDesign / Photoshop' },
-    { icon: 'Zap',     label: '3D Art Direction',  sub: 'Blender / Octane' },
+    { icon: 'Box',     label: '3D Art Direction',  sub: 'Blender / Octane' },
   ],
   tags: ['Logo Systems', 'Brand Guide', 'Poster Art', 'UI Kits', 'Typography', 'Key Art'],
   awardText: 'Awwwards Site of the Day',
@@ -60,7 +76,7 @@ const defaultStats = [
   { value: '140+', label: 'Projects Delivered',   iconName: 'Film' },
   { value: '8+',   label: 'Years of Mastery',      iconName: 'Award' },
   { value: '98%',  label: 'Client Satisfaction',   iconName: 'Star' },
-  { value: '12',   label: 'Industry Awards Won',   iconName: 'Zap' },
+  { value: '12',   label: 'Industry Awards Won',   iconName: 'Trophy' },
 ];
 
 const defaultMarquee = [
@@ -173,7 +189,7 @@ const DesignCard = ({ navigate, cardData }) => {
         {/* Top badge row */}
         <div className="flex items-center justify-between mb-8">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAFAF9] border border-[#C59A9F]/50 text-[11px] font-black text-[#6B1D2F] uppercase tracking-widest shadow-sm">
-            <PenTool size={12} />
+            <Palette size={12} />
             {d.badge}
           </div>
           <div className="flex items-center gap-1.5 text-[10px] font-black text-[#292524] uppercase tracking-widest">

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { TrendingUp, CheckCircle2, ArrowRight, ArrowUpRight, Film, PenTool } from 'lucide-react';
+import { TrendingUp, CheckCircle2, ArrowRight, ArrowUpRight, Film, Palette } from 'lucide-react';
 import { caseStudies, theme } from '../../constants';
 
 const catIcon = (client) => {
   if (['Vanguard Apparel', 'Apex Motors', 'Oak & Iron Media'].includes(client)) return Film;
-  return PenTool;
+  return Palette;
 };
 
 export const CaseStudyHighlight = () => {

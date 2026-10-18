@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Camera, Film, Monitor, Zap, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Camera, Film, Monitor, SunMedium, Tv, CheckCircle2, ArrowRight } from 'lucide-react';
 import { gearList, theme } from '../../constants';
 import heroBg from '../../assets/images/hero-bg.png';
 import alazarImg from '../../assets/images/alazar.png';
 
-const catIcons = [Camera, Film, Monitor, Zap];
+const catIcons = [Camera, Film, Monitor, SunMedium];
 
 export const GearSection = ({ data }) => {
   const [activeCategory, setActiveCategory] = useState(0);
@@ -152,7 +152,7 @@ export const GearSection = ({ data }) => {
             {/* Spec badge */}
             <div className="hidden lg:flex mt-4 p-4 bg-white/90 backdrop-blur-md border border-[#C59A9F]/60 rounded-xl items-center gap-3 shadow-sm">
               <div className="w-9 h-9 rounded-lg bg-[#FAFAF9] text-[#6B1D2F] flex items-center justify-center flex-shrink-0 shadow-sm">
-                <Zap size={16} />
+                <Tv size={16} />
               </div>
               <div>
                 <p className="text-[10px] font-black uppercase tracking-widest text-[#6B1D2F] mb-0.5">Output Standard</p>
