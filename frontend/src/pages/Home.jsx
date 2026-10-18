@@ -156,7 +156,7 @@ export default function Home() {
 
                     {/* Live badge - Visible only on hover */}
                     {project.previewVideoUrl && (
-                      <div className="absolute top-5 right-5 bg-[#1E0A0D]/85 backdrop-blur-md text-white text-[10px] uppercase font-black px-3 py-1.5 rounded-full flex items-center gap-1.5 z-10 border border-white/20 opacity-0 group-hover:opacity-100 -translate-y-2 group-hover:translate-y-0 transition-all duration-400 ease-out pointer-events-none">
+                      <div className="absolute top-5 right-5 bg-[#1E0A0D]/85 backdrop-blur-md text-white text-[10px] uppercase font-black px-3 py-1.5 rounded-none flex items-center gap-1.5 z-10 border border-white/20 opacity-0 group-hover:opacity-100 -translate-y-2 group-hover:translate-y-0 transition-all duration-400 ease-out pointer-events-none">
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                         Live Reel
                       </div>
@@ -165,10 +165,10 @@ export default function Home() {
                     {/* Content - Fades & slides on hover */}
                     <div className="absolute inset-0 p-7 flex flex-col justify-between z-10 opacity-0 group-hover:opacity-100 transition-all duration-400 ease-out pointer-events-none">
                       <div className="flex justify-between items-start -translate-y-2 group-hover:translate-y-0 transition-transform duration-400">
-                        <span className="text-[10px] uppercase tracking-widest px-3.5 py-1.5 bg-[#6B1D2F] text-white rounded-full font-black shadow-md">
+                        <span className="text-[10px] uppercase tracking-widest px-3.5 py-1.5 bg-[#6B1D2F] text-white rounded-none font-black shadow-md">
                           {project.category}
                         </span>
-                        <div className="w-11 h-11 rounded-full bg-white/95 text-[#6B1D2F] flex items-center justify-center shadow-xl pointer-events-auto">
+                        <div className="w-11 h-11 rounded-none bg-white/95 text-[#6B1D2F] flex items-center justify-center shadow-xl pointer-events-auto">
                           {project.videoUrl
                             ? <Play size={18} className="fill-[#6B1D2F] text-[#6B1D2F] ml-0.5" />
                             : <Eye size={18} />}

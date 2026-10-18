@@ -27,7 +27,7 @@ export const ProjectCardMedia = ({ project, className = '', showOverlays = true 
 
         {/* Live Reel Corner Indicator (Clean, non-intrusive) */}
         <div className="absolute top-3 right-3 z-10 pointer-events-none">
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-[9px] font-black uppercase tracking-wider text-white shadow-lg">
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-none bg-black/60 backdrop-blur-md border border-white/20 text-[9px] font-black uppercase tracking-wider text-white shadow-lg">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
             <span>LIVE REEL</span>
           </div>
