@@ -61,7 +61,7 @@ export const BehindTheScenes = ({ data }) => {
             {disciplineTags.map(({ icon: Icon, text }) => (
               <div
                 key={text}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-[#C59A9F] text-[10px] font-black text-[#292524] uppercase tracking-wider shadow-sm hover:border-[#6B1D2F] hover:text-[#6B1D2F] transition-colors"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-none bg-white border border-[#C59A9F] text-[10px] font-black text-[#292524] uppercase tracking-wider shadow-sm hover:border-[#6B1D2F] hover:text-[#6B1D2F] transition-colors"
               >
                 <Icon size={11} className="text-[#6B1D2F]" /> {text}
               </div>
