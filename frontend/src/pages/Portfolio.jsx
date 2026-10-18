@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Eye, Film, Layout, Volume2, RefreshCw, Sparkles, Grid, Layers, ArrowUpRight, Search, X } from 'lucide-react';
+import { Eye, Film, Layout, Volume2, RefreshCw, Grid, Layers, ArrowUpRight, Search, X } from 'lucide-react';
 
 import Modal from '../components/common/Modal';
 import ProjectImage from '../components/common/ProjectImage';

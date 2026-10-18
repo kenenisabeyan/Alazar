@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, CheckCircle2, Sparkles, Share2, Check, ArrowRight, MessageSquare, ChevronLeft, ChevronRight } from 'lucide-react';
+import { X, CheckCircle2, Share2, Check, ArrowRight, MessageSquare, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import Button from './Button';
 import ProjectImage from './ProjectImage';
@@ -160,15 +160,15 @@ export const Modal = ({ isOpen, onClose, project, onPrev, onNext }) => {
 
               <div className="md:col-span-5 lg:col-span-4 bg-gradient-to-br from-[#FAFAF9] to-white p-6 sm:p-7 rounded-3xl border border-[#C59A9F]/40 shadow-lg space-y-5">
                 <div>
-                  <h4 className="text-[11px] uppercase tracking-[0.2em] text-[#6B1D2F] font-black mb-1.5 flex items-center gap-1.5">
-                    <Sparkles size={13} /> Role & Responsibility
+                  <h4 className="text-[11px] uppercase tracking-[0.2em] text-[#6B1D2F] font-black mb-1.5">
+                    Role & Responsibility
                   </h4>
                   <p className="text-[#1C1917] text-sm sm:text-base font-black">{project.role || 'Lead Creative Director'}</p>
                 </div>
 
                 <div className="pt-4 border-t border-[#C59A9F]/30">
-                  <h4 className="text-[11px] uppercase tracking-[0.2em] text-[#6B1D2F] font-black mb-3 flex items-center gap-1.5">
-                    <Sparkles size={13} /> Deliverables & Specs
+                  <h4 className="text-[11px] uppercase tracking-[0.2em] text-[#6B1D2F] font-black mb-3">
+                    Deliverables & Specs
                   </h4>
                   <ul className="space-y-2.5">
                     {(project.deliverables || ["Cinematic Edit Cut", "Color Grading Master", "Social Media Crops"]).map((item, idx) => (

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Sparkles, Film, Layout, BookOpen, Package, Layers, Smartphone, PenTool, Image as ImageIcon, CheckCircle2, ShieldCheck } from 'lucide-react';
+import { Film, Layout, BookOpen, Package, Layers, Smartphone, PenTool, Image as ImageIcon, CheckCircle2, ShieldCheck } from 'lucide-react';
 
 const categoryThemes = {
   design: {
@@ -141,7 +141,6 @@ export const ProjectImage = ({
         {/* Bottom Technical Spec Strip */}
         <div className="relative z-10 flex justify-between items-center border-t border-white/15 pt-2 text-[8.5px] uppercase tracking-[0.18em] text-white/70 font-bold">
           <div className="flex items-center gap-1">
-            <Sparkles size={10} className="text-[#C59A9F]" />
             <span className="text-[#FAFAF9]/90">{deliverableSpec}</span>
           </div>
           <span className="text-[#C59A9F] bg-white/10 px-1.5 py-0.5 rounded text-[8px] font-mono">
@@ -156,7 +155,7 @@ export const ProjectImage = ({
     <div className={`relative w-full h-full overflow-hidden ${className}`}>
       {isLoading && (
         <div className="absolute inset-0 bg-[#2E1216] animate-pulse flex items-center justify-center z-10">
-          <Sparkles size={20} className="text-[#C59A9F] animate-spin" />
+          <div className="w-5 h-5 rounded-full border-2 border-[#C59A9F]/30 border-t-[#C59A9F] animate-spin" />
         </div>
       )}
       <img

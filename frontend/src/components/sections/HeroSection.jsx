@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, Play, Sparkles, Award } from 'lucide-react';
+import { ArrowRight, Play, Award } from 'lucide-react';
 import Button from '../common/Button';
 import { theme, statistics } from '../../constants';
 import heroBg from '../../assets/images/hero-bg.png';

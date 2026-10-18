@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Facebook, Send, ArrowUp, Sparkles, ArrowUpRight } from 'lucide-react';
+import { Facebook, Send, ArrowUp, ArrowUpRight } from 'lucide-react';
 import { theme } from '../../constants';
 import { navigateToSection } from '../../utils/navigation';
 
@@ -108,8 +108,8 @@ export const Footer = () => {
           {/* Quick Links */}
           <div className="md:col-span-6 lg:col-span-7 flex flex-wrap gap-12 md:gap-16 md:justify-end">
             <div>
-              <h4 className="text-xs uppercase tracking-widest font-extrabold text-[#6B1D2F] mb-6 flex items-center gap-2">
-                <Sparkles size={12} /> Navigation
+              <h4 className="text-xs uppercase tracking-widest font-extrabold text-[#6B1D2F] mb-6">
+                Navigation
               </h4>
               <ul className="space-y-3.5 text-sm text-[#292524] font-semibold">
                 {navLinks.map(({ label, path }) => (
@@ -127,8 +127,8 @@ export const Footer = () => {
             </div>
 
             <div>
-              <h4 className="text-xs uppercase tracking-widest font-extrabold text-[#6B1D2F] mb-6 flex items-center gap-2">
-                <Sparkles size={12} /> Expertise
+              <h4 className="text-xs uppercase tracking-widest font-extrabold text-[#6B1D2F] mb-6">
+                Expertise
               </h4>
               <ul className="space-y-3.5 text-sm text-[#292524] font-medium">
                 {expertiseLinks.map(({ label, path }) => (
@@ -146,8 +146,8 @@ export const Footer = () => {
             </div>
 
             <div>
-              <h4 className="text-xs uppercase tracking-widest font-extrabold text-[#6B1D2F] mb-6 flex items-center gap-2">
-                <Sparkles size={12} /> Availability
+              <h4 className="text-xs uppercase tracking-widest font-extrabold text-[#6B1D2F] mb-6">
+                Availability
               </h4>
               <p className="text-sm text-[#292524] font-medium leading-relaxed mb-4">
                 Available Globally (Remote)<br />

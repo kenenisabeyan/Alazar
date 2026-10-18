@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles, ArrowUpRight, Mail, Phone, MapPin, Award, BookOpen, Layers, CheckCircle2, Film, Eye, Play, PenTool } from 'lucide-react';
+import { ArrowUpRight, Mail, Phone, MapPin, Award, BookOpen, Layers, CheckCircle2, Film, Eye, Play, PenTool } from 'lucide-react';
 import alazarImg from '../../assets/images/alazar.png';
 import ProjectCardMedia from '../common/ProjectCardMedia';
 
@@ -44,7 +44,6 @@ export const PortfolioPresentationBoard = ({ projects = [], filter = 'all', pres
             {/* Top Bar Header */}
             <div className="relative z-10 flex flex-wrap justify-between items-center gap-2.5 sm:gap-3">
               <div className="inline-flex items-center gap-2 sm:gap-2.5 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-md shadow-md shimmer-border max-w-full">
-                <Sparkles size={13} className="text-[#E8B4BE] animate-pulse flex-shrink-0" />
                 <span className="text-[9px] sm:text-[11px] font-black uppercase tracking-[0.18em] sm:tracking-[0.25em] text-[#FAFAF9] truncate">
                   CREATIVE DIRECTION & EDITORIAL DESIGN
                 </span>
@@ -100,7 +99,6 @@ export const PortfolioPresentationBoard = ({ projects = [], filter = 'all', pres
             {/* Bottom Footer Info */}
             <div className="relative z-10 flex flex-wrap justify-between items-center border-t border-white/20 pt-4 sm:pt-5 gap-3">
               <div className="flex items-center gap-2 text-[9.5px] sm:text-xs font-black tracking-[0.16em] sm:tracking-[0.22em] text-[#FAFAF9] uppercase">
-                <Sparkles size={13} className="text-[#C59A9F] animate-pulse" />
                 <span>VISUAL ARCHIVE</span>
                 <span className="text-white/30">•</span>
                 <span className="text-[#C59A9F]">SELECTED WORKS</span>

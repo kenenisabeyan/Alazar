@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Camera, Film, Monitor, Zap, CheckCircle2, ArrowRight, Sparkles } from 'lucide-react';
+import { Camera, Film, Monitor, Zap, CheckCircle2, ArrowRight } from 'lucide-react';
 import { gearList, theme } from '../../constants';
 import heroBg from '../../assets/images/hero-bg.png';
 import alazarImg from '../../assets/images/alazar.png';

@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Mail, Phone, Clock, Send, CheckCircle2,
-  Database, Film, PenTool, Zap, Sparkles,
+  Database, Film, PenTool, Zap,
 } from 'lucide-react';
 
 import Input             from '../components/common/Input';

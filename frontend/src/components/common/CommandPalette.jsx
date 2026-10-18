@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, Film, Layout, User, Send, Download, Moon, Sun, Calculator, Command, X, ArrowRight, Sparkles, Camera, Clapperboard, HelpCircle } from 'lucide-react';
+import { Search, Film, Layout, User, Send, Download, Moon, Sun, Calculator, Command, X, ArrowRight, Sliders, Camera, Clapperboard, HelpCircle } from 'lucide-react';
 import { navigateToSection } from '../../utils/navigation';
 
 export const CommandPalette = () => {
@@ -66,7 +66,7 @@ export const CommandPalette = () => {
       id: 'sec-colorgrading',
       label: 'Color Grading Showcase & Sliders',
       category: 'Sections',
-      icon: Sparkles,
+      icon: Sliders,
       action: () => navigateToSection(navigate, '/#colorgrading'),
     },
     {

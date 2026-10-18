@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Film, PenTool, Camera, Sparkles, Layers } from 'lucide-react';
+import { Film, PenTool, Camera, Layers } from 'lucide-react';
 
 import Button from '../components/common/Button';
 import SkillsSection from '../components/sections/SkillsSection';
@@ -23,7 +23,7 @@ const defaultPhilosophyCards = [
 ];
 
 const iconMap = {
-  Film, Layers, Camera, PenTool, Sparkles
+  Film, Layers, Camera, PenTool
 };
 
 export default function About() {
