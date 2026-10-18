@@ -85,7 +85,7 @@ export const CareerTimeline = ({ data, awards: awardsProp }) => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1 }}
-                  className={`rounded-2xl border-2 overflow-hidden transition-all duration-400 ${isOpen
+                  className={`rounded-none border-2 overflow-hidden transition-all duration-400 ${isOpen
                       ? 'border-[#6B1D2F] shadow-xl shadow-[#6B1D2F]/10 bg-white'
                       : 'border-[#C59A9F] bg-white hover:border-[#C59A9F] shadow-sm'
                     }`}
@@ -97,7 +97,7 @@ export const CareerTimeline = ({ data, awards: awardsProp }) => {
                   >
                     <div className="flex items-center gap-3 w-full sm:w-auto">
                       {/* Index dot */}
-                      <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center flex-shrink-0 font-black text-xs sm:text-sm transition-all ${isOpen
+                      <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-none flex items-center justify-center flex-shrink-0 font-black text-xs sm:text-sm transition-all ${isOpen
                           ? 'bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white shadow-lg shadow-[#6B1D2F]/25'
                           : 'bg-[#FAFAF9] text-[#6B1D2F] group-hover:bg-[#6B1D2F] group-hover:text-white'
                         }`}>
@@ -131,11 +131,11 @@ export const CareerTimeline = ({ data, awards: awardsProp }) => {
                     </div>
 
                     <div className="flex flex-wrap sm:flex-col items-start sm:items-end gap-1.5 flex-shrink-0 pt-1 sm:pt-0">
-                      <span className="flex items-center gap-1 text-[10px] font-bold text-[#292524] bg-[#FAFAF9] px-2.5 py-1 rounded-full border border-[#C59A9F]/40">
+                      <span className="flex items-center gap-1 text-[10px] font-bold text-[#292524] bg-[#FAFAF9] px-2.5 py-1 rounded-none border border-[#C59A9F]/40">
                         <Calendar size={10} className="text-[#6B1D2F]" />
                         {exp.period}
                       </span>
-                      <span className="flex items-center gap-1 text-[10px] font-bold text-[#292524] bg-[#FAFAF9] px-2.5 py-1 rounded-full border border-[#C59A9F]/40">
+                      <span className="flex items-center gap-1 text-[10px] font-bold text-[#292524] bg-[#FAFAF9] px-2.5 py-1 rounded-none border border-[#C59A9F]/40">
                         <MapPin size={10} className="text-[#6B1D2F]" />
                         {exp.location}
                       </span>
@@ -191,12 +191,12 @@ export const CareerTimeline = ({ data, awards: awardsProp }) => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="bg-gradient-to-br from-[#6B1D2F] via-[#521523] to-[#3B0E19] text-white rounded-2xl p-7 sm:p-8 relative overflow-hidden shadow-xl shadow-[#6B1D2F]/20 border border-[#C59A9F]/30"
+              className="bg-gradient-to-br from-[#6B1D2F] via-[#521523] to-[#3B0E19] text-white rounded-none p-7 sm:p-8 relative overflow-hidden shadow-xl shadow-[#6B1D2F]/20 border border-[#C59A9F]/30"
             >
               <div className="absolute -top-12 -right-12 w-40 h-40 bg-white/10 blur-[60px] rounded-full pointer-events-none" />
 
               <div className="relative z-10">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/20 border border-white/30 text-[11px] font-black text-white uppercase tracking-widest mb-8">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-none bg-white/20 border border-white/30 text-[11px] font-black text-white uppercase tracking-widest mb-8">
                   <Award size={12} /> Industry Recognition
                 </div>
 
@@ -215,9 +215,9 @@ export const CareerTimeline = ({ data, awards: awardsProp }) => {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: idx * 0.08 }}
-                      className="flex items-center gap-4 p-4 bg-white/10 hover:bg-white/15 border border-white/15 rounded-xl transition-colors"
+                      className="flex items-center gap-4 p-4 bg-white/10 hover:bg-white/15 border border-white/15 rounded-none transition-colors"
                     >
-                      <div className="w-10 h-10 rounded-lg bg-white/20 text-white flex items-center justify-center flex-shrink-0">
+                      <div className="w-10 h-10 rounded-none bg-white/20 text-white flex items-center justify-center flex-shrink-0">
                         <Award size={18} />
                       </div>
                       <div className="flex-1 min-w-0">
@@ -228,7 +228,7 @@ export const CareerTimeline = ({ data, awards: awardsProp }) => {
                           {award.project}
                         </p>
                       </div>
-                      <span className="text-[10px] font-black text-white bg-white/20 px-2 py-1 rounded-lg flex-shrink-0">
+                      <span className="text-[10px] font-black text-white bg-white/20 px-2 py-1 rounded-none flex-shrink-0">
                         {award.year}
                       </span>
                     </motion.div>
@@ -243,9 +243,9 @@ export const CareerTimeline = ({ data, awards: awardsProp }) => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
-              className="bg-white border border-[#C59A9F] rounded-2xl p-7 flex items-center gap-5"
+              className="bg-white border border-[#C59A9F] rounded-none p-7 flex items-center gap-5"
             >
-              <div className="w-12 h-12 rounded-xl bg-[#FAFAF9] text-[#6B1D2F] flex items-center justify-center flex-shrink-0">
+              <div className="w-12 h-12 rounded-none bg-[#FAFAF9] text-[#6B1D2F] flex items-center justify-center flex-shrink-0">
                 <Briefcase size={20} />
               </div>
               <div>
