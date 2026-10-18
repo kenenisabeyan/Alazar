@@ -94,7 +94,7 @@ const VideoCard = ({ navigate, cardData }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
-      className="relative group flex flex-col bg-gradient-to-br from-[#6B1D2F] via-[#521523] to-[#3B0E19] text-white rounded-[2rem] overflow-hidden border border-[#C59A9F]/30 shadow-2xl shadow-[#6B1D2F]/20"
+      className="relative group flex flex-col bg-gradient-to-br from-[#6B1D2F] via-[#521523] to-[#3B0E19] text-white rounded-none overflow-hidden border border-[#C59A9F]/30 shadow-2xl shadow-[#6B1D2F]/20"
     >
       {/* Dark noise texture overlay */}
       <div className="absolute inset-0 opacity-[0.04] bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJub2lzZSI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuNjUiIG51bU9jdGF2ZXM9IjMiIHN0aXRjaFRpbGVzPSJzdGl0Y2giLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgZmlsdGVyPSJ1cmwoI25vaXNlKSIgb3BhY2l0eT0iMSIvPjwvc3ZnPg==')] pointer-events-none z-10" />
@@ -180,7 +180,7 @@ const DesignCard = ({ navigate, cardData }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.75, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-      className="relative group flex flex-col bg-white rounded-[2rem] overflow-hidden border border-[#C59A9F] shadow-xl shadow-black/5"
+      className="relative group flex flex-col bg-white rounded-none overflow-hidden border border-[#C59A9F] shadow-xl shadow-black/5"
     >
       {/* Top accent stripe */}
       <div className="h-1.5 w-full bg-gradient-to-r from-[#6B1D2F] via-[#8B1E3F] to-[#C59A9F]" />
@@ -357,9 +357,9 @@ export const ExpertiseSection = ({ data, statistics }) => {
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
               whileHover={{ y: -4 }}
-              className="glass-card-luxury rounded-2xl p-3.5 sm:p-6 flex flex-col items-center justify-center text-center"
+              className="glass-card-luxury rounded-none p-3.5 sm:p-6 flex flex-col items-center justify-center text-center"
             >
-              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center mx-auto mb-2 sm:mb-2.5 shadow-md shadow-[#6B1D2F]/20">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-none bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center mx-auto mb-2 sm:mb-2.5 shadow-md shadow-[#6B1D2F]/20">
                 <Icon size={18} />
               </div>
               <p className="text-2xl sm:text-3xl font-black text-[#6B1D2F] dark:text-[#F5F0F1] mb-1 leading-none text-center" style={{ fontFamily: theme.fonts.heading }}>
@@ -371,7 +371,7 @@ export const ExpertiseSection = ({ data, statistics }) => {
         </motion.div>
 
         {/* ── Scrolling marquee strip ── */}
-        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#6B1D2F] via-[#8B1E3F] to-[#6B1D2F] py-5 px-0 select-none shadow-lg shadow-[#6B1D2F]/20">
+        <div className="relative overflow-hidden rounded-none bg-gradient-to-r from-[#6B1D2F] via-[#8B1E3F] to-[#6B1D2F] py-5 px-0 select-none shadow-lg shadow-[#6B1D2F]/20">
           <motion.div style={{ x: marqX }} className="flex items-center gap-0 w-max">
             {[...marqueeItems, ...marqueeItems, ...marqueeItems].map((item, idx) => (
               <React.Fragment key={idx}>

@@ -57,7 +57,7 @@ export const ColorGradingShowcase = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.15 }}
-            className="text-[#1C1917] font-medium text-sm sm:text-base max-w-xs leading-relaxed bg-white/85 backdrop-blur-md px-5 py-3 rounded-2xl border border-[#C59A9F]/40 shadow-sm"
+            className="text-[#1C1917] font-medium text-sm sm:text-base max-w-xs leading-relaxed bg-white/85 backdrop-blur-md px-5 py-3 rounded-none border border-[#C59A9F]/40 shadow-sm"
           >
             Drag the handle to reveal the difference between a flat camera log recording and a fully graded cinematic master.
           </motion.p>
@@ -73,8 +73,8 @@ export const ColorGradingShowcase = () => {
         >
           <div
             ref={containerRef}
-            /* ── Full-width, tall, rounded exactly like the screenshot ── */
-            className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden bg-[#1E0A0D] select-none cursor-ew-resize group shadow-2xl shadow-[#1E0A0D]/40 aspect-[4/3] sm:aspect-[16/9] lg:aspect-[16/7.5]"
+            /* ── Full-width, tall, rectangular right angles ── */
+            className="relative w-full rounded-none overflow-hidden bg-[#1E0A0D] select-none cursor-ew-resize group shadow-2xl shadow-[#1E0A0D]/40 aspect-[4/3] sm:aspect-[16/9] lg:aspect-[16/7.5]"
             onMouseDown={(e) => { setIsDragging(true); updateFromClient(e.clientX); }}
             onMouseUp={() => setIsDragging(false)}
             onMouseLeave={() => setIsDragging(false)}
@@ -145,8 +145,8 @@ export const ColorGradingShowcase = () => {
               {/* Line */}
               <div className="w-[2px] h-full bg-white/90 shadow-[0_0_16px_rgba(255,255,255,0.55)]" />
 
-              {/* Handle knob — exactly like screenshot */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white border-2 border-[#6B1D2F] shadow-2xl flex items-center justify-center gap-0.5 group-hover:scale-110 transition-transform duration-200">
+              {/* Handle knob — rectangular right angle style */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-11 h-11 rounded-none bg-white border-2 border-[#6B1D2F] shadow-2xl flex items-center justify-center gap-0.5 group-hover:scale-110 transition-transform duration-200">
                 <ArrowLeft size={13} className="text-[#6B1D2F]" />
                 <ArrowRight size={13} className="text-[#6B1D2F]" />
               </div>
@@ -181,7 +181,7 @@ export const ColorGradingShowcase = () => {
           {metaItems.map(({ icon: Icon, label, value }) => (
             <div
               key={label}
-              className="glass-card-luxury rounded-2xl p-3 sm:p-5 flex flex-col sm:flex-row items-center justify-center sm:justify-start text-center sm:text-left gap-2 sm:gap-3"
+              className="glass-card-luxury rounded-none p-3 sm:p-5 flex flex-col sm:flex-row items-center justify-center sm:justify-start text-center sm:text-left gap-2 sm:gap-3"
             >
               <div className="w-9 h-9 rounded-none bg-[#FAFAF9] dark:bg-[#1E0A0D] text-[#6B1D2F] dark:text-[#F5F0F1] flex items-center justify-center flex-shrink-0 border border-[#C59A9F]/40 mx-auto sm:mx-0">
                 <Icon size={16} />
