@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
   ShieldCheck, Clock, FileCheck, Music,
-  MessageCircle, ArrowRight, CheckCircle2, Zap,
+  MessageCircle, ArrowRight, CheckCircle2, Sparkles,
 } from 'lucide-react';
 import { hiringGuarantees, theme } from '../../constants';
 
@@ -107,7 +107,7 @@ export const WhyHireMe = () => {
 
             <div className="relative z-10">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/20 border border-white/20 text-[11px] font-black text-white uppercase tracking-widest mb-8">
-                <Zap size={12} /> What Sets Me Apart
+                <Sparkles size={12} /> What Sets Me Apart
               </div>
 
               <h3

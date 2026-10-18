@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Mail, Phone, MapPin, Award, BookOpen, Layers, CheckCircle2, Film, Eye, Play, PenTool } from 'lucide-react';
+import { ArrowUpRight, Mail, Phone, MapPin, Award, BookOpen, Layers, CheckCircle2, Film, Eye, Play, Paintbrush } from 'lucide-react';
 import alazarImg from '../../assets/images/alazar.png';
 import ProjectCardMedia from '../common/ProjectCardMedia';
 

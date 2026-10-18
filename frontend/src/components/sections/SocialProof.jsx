@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   ChevronLeft, ChevronRight, Quote, Star,
-  Film, PenTool, ArrowRight,
+  Film, Palette, ArrowRight,
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { testimonials, clientLogos, theme } from '../../constants';
@@ -12,7 +12,7 @@ const disciplineOf = (company) => {
   const vid = ['Vanguard Apparel', 'Oak & Iron Media', 'Apex Motors'];
   return vid.includes(company)
     ? { label: 'Video Production', icon: Film }
-    : { label: 'Graphic Design',   icon: PenTool };
+    : { label: 'Graphic Design',   icon: Palette };
 };
 
 export const SocialProof = () => {
