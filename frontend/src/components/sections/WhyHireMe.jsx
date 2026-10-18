@@ -163,7 +163,7 @@ export const WhyHireMe = () => {
           </div>
           <button
             onClick={() => { navigate('/contact'); window.scrollTo(0, 0); }}
-            className="flex-shrink-0 flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-white text-[#6B1D2F] text-xs font-black uppercase tracking-widest hover:bg-[#FAFAF9] shadow-xl transition-all duration-300 group"
+            className="flex-shrink-0 flex items-center gap-2.5 px-8 py-3.5 rounded-none bg-white text-[#6B1D2F] text-xs font-black uppercase tracking-widest hover:bg-[#FAFAF9] shadow-xl transition-all duration-300 group"
           >
             Get Free Estimate <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
           </button>

@@ -121,7 +121,7 @@ export default function Home() {
                   variant="outline"
                   icon={<ArrowRight size={15} />}
                   onClick={() => { navigate('/portfolio'); window.scrollTo(0, 0); }}
-                  className="rounded-full px-7 py-3.5 border-2 border-[#6B1D2F] text-[#6B1D2F] font-black text-[11px] uppercase tracking-wider hover:bg-[#FAFAF9]"
+                  className="rounded-none px-7 py-3.5 border-2 border-[#6B1D2F] text-[#6B1D2F] font-black text-[11px] uppercase tracking-wider hover:bg-[#FAFAF9]"
                 >
                   View All Projects
                 </Button>
