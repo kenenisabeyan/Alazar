@@ -132,7 +132,7 @@ export default function Home() {
             {isLoading ? (
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {[1, 2, 3].map(i => (
-                  <div key={i} className="rounded-[2rem] aspect-[4/5] bg-[#FAFAF9] animate-pulse" />
+                  <div key={i} className="rounded-none aspect-[4/5] bg-[#FAFAF9] animate-pulse" />
                 ))}
               </div>
             ) : (
@@ -146,7 +146,7 @@ export default function Home() {
                     transition={{ duration: 0.55, delay: idx * 0.12 }}
                     whileHover={{ y: -8 }}
                     onClick={() => handleOpenProjectModal(project)}
-                    className="group relative cursor-pointer rounded-[2rem] overflow-hidden bg-gradient-to-br from-[#6B1D2F] via-[#521523] to-[#3B0E19] aspect-[4/5] border border-[#C59A9F]/30 hover:border-[#C59A9F]/60 hover:shadow-2xl hover:shadow-[#6B1D2F]/20 transition-all duration-500 shadow-xl"
+                    className="group relative cursor-pointer rounded-none overflow-hidden bg-gradient-to-br from-[#6B1D2F] via-[#521523] to-[#3B0E19] aspect-[4/5] border border-[#C59A9F]/30 hover:border-[#C59A9F]/60 hover:shadow-2xl hover:shadow-[#6B1D2F]/20 transition-all duration-500 shadow-xl"
                   >
                     {/* Media */}
                     <ProjectCardMedia project={project} />

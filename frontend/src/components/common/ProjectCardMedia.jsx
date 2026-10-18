@@ -35,7 +35,7 @@ export const ProjectCardMedia = ({ project, className = '', showOverlays = true 
 
         {/* Center Viewfinder Reticle (Only on hover) */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div className="w-11 h-11 rounded-full border border-white/40 flex items-center justify-center bg-black/40 backdrop-blur-sm shadow-xl">
+          <div className="w-11 h-11 rounded-none border border-white/40 flex items-center justify-center bg-black/40 backdrop-blur-sm shadow-xl">
             <Play size={16} className="text-white ml-0.5 fill-white" />
           </div>
         </div>
