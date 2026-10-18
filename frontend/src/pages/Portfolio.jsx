@@ -180,7 +180,7 @@ export default function Portfolio() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3 }}
-            className="flex flex-wrap justify-center bg-white p-1.5 rounded-full border border-[#C59A9F] shadow-sm gap-1"
+            className="flex flex-wrap justify-center bg-white p-1.5 rounded-none border border-[#C59A9F] shadow-sm gap-1"
           >
             {[
               { id: 'all', label: `All (${projects.length})` },
@@ -192,13 +192,13 @@ export default function Portfolio() {
                 <button
                   key={cat.id}
                   onClick={() => setFilter(cat.id)}
-                  className={`relative px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-[11px] font-black uppercase tracking-wider transition-all flex items-center gap-1.5 ${active ? 'text-white' : 'text-[#292524] hover:text-[#6B1D2F]'
+                  className={`relative px-4 py-2 sm:px-5 sm:py-2.5 rounded-none text-[11px] font-black uppercase tracking-wider transition-all flex items-center gap-1.5 ${active ? 'text-white' : 'text-[#292524] hover:text-[#6B1D2F]'
                     }`}
                 >
                   {active && (
                     <motion.div
                       layoutId="portfolioFilterBg"
-                      className="absolute inset-0 bg-[#6B1D2F] rounded-full -z-10 shadow-md shadow-[#6B1D2F]/25"
+                      className="absolute inset-0 bg-[#6B1D2F] rounded-none -z-10 shadow-md shadow-[#6B1D2F]/25"
                       transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                     />
                   )}
@@ -210,10 +210,10 @@ export default function Portfolio() {
           </motion.div>
 
           {/* View Mode Switcher */}
-          <div className="flex items-center bg-white p-1 rounded-full border border-[#C59A9F] shadow-sm gap-1">
+          <div className="flex items-center bg-white p-1 rounded-none border border-[#C59A9F] shadow-sm gap-1">
             <button
               onClick={() => setViewMode('grid')}
-              className={`px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full text-[11px] font-black uppercase tracking-wider transition-all flex items-center gap-1.5 ${
+              className={`px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-none text-[11px] font-black uppercase tracking-wider transition-all flex items-center gap-1.5 ${
                 viewMode === 'grid' ? 'bg-[#6B1D2F] text-white shadow-sm' : 'text-[#292524] hover:text-[#6B1D2F]'
               }`}
             >
@@ -221,7 +221,7 @@ export default function Portfolio() {
             </button>
             <button
               onClick={() => setViewMode('spread')}
-              className={`px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full text-[11px] font-black uppercase tracking-wider transition-all flex items-center gap-1.5 ${
+              className={`px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-none text-[11px] font-black uppercase tracking-wider transition-all flex items-center gap-1.5 ${
                 viewMode === 'spread' ? 'bg-[#6B1D2F] text-white shadow-sm' : 'text-[#292524] hover:text-[#6B1D2F]'
               }`}
             >
@@ -298,13 +298,13 @@ export default function Portfolio() {
 
                   <div className="absolute inset-0 p-6 sm:p-7 flex flex-col justify-between z-10 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-400 ease-out pointer-events-none">
                     <div className="flex justify-between items-start sm:-translate-y-2 sm:group-hover:translate-y-0 transition-transform duration-400">
-                      <span className="text-[9.5px] uppercase tracking-[0.2em] px-3.5 py-1.5 bg-black/60 backdrop-blur-md text-[#FAFAF9] rounded-full font-black shadow-lg flex items-center gap-1.5 border border-white/15">
+                      <span className="text-[9.5px] uppercase tracking-[0.2em] px-3.5 py-1.5 bg-black/60 backdrop-blur-md text-[#FAFAF9] rounded-none font-black shadow-lg flex items-center gap-1.5 border border-white/15">
                         {project.category === 'video' ? <Film size={11} className="text-[#C59A9F]" /> : <Layout size={11} className="text-[#C59A9F]" />}
                         {project.subCategory || project.category}
                       </span>
                       <motion.div
                         whileHover={{ scale: 1.15, rotate: 6 }}
-                        className="w-10 h-10 rounded-full bg-white/95 text-[#6B1D2F] flex items-center justify-center shadow-xl pointer-events-auto"
+                        className="w-10 h-10 rounded-none bg-white/95 text-[#6B1D2F] flex items-center justify-center shadow-xl pointer-events-auto"
                       >
                         {project.videoUrl || project.previewVideoUrl ? <Volume2 size={16} /> : <Eye size={16} />}
                       </motion.div>
