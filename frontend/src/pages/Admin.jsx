@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import toast from 'react-hot-toast';
 import {
   LayoutDashboard, Film, PenSquare, MessageSquare, BarChart2, Briefcase,
-  HelpCircle, Wrench, Trophy, Sparkles, Clock, DollarSign, ImageIcon,
+  HelpCircle, Wrench, Trophy, Cpu, Clock, DollarSign, ImageIcon,
   Play, User, Link2, Globe, Navigation, Layers, Palette, Camera,
   Mail, Calculator, LogOut, Menu, X, RefreshCw, Plus, Trash2,
   Edit3, Save, CheckCircle, Shield, ChevronRight, Eye, EyeOff,
@@ -42,7 +42,7 @@ const NAV_ITEMS = [
   { id: 'faqs',         label: 'FAQs',            icon: HelpCircle,      group: 'Content'   },
   { id: 'gear',         label: 'Gear List',       icon: Wrench,          group: 'Content'   },
   { id: 'awards',       label: 'Awards',          icon: Trophy,          group: 'Content'   },
-  { id: 'skills',       label: 'Skills',          icon: Sparkles,        group: 'Content'   },
+  { id: 'skills',       label: 'Skills',          icon: Cpu,             group: 'Content'   },
   { id: 'career',       label: 'Experience',      icon: Clock,           group: 'Content'   },
   { id: 'pricing',      label: 'Pricing',         icon: DollarSign,      group: 'Content'   },
   { id: 'media',        label: 'Media Library',   icon: ImageIcon,       group: 'Content'   },
