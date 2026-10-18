@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Film, Layout, BookOpen, Package, Layers, Smartphone, PenTool, Image as ImageIcon, CheckCircle2, ShieldCheck } from 'lucide-react';
+import { Film, Layout, BookOpen, Package, Layers, Smartphone, Palette, Type, Image as ImageIcon, CheckCircle2, ShieldCheck } from 'lucide-react';
 
 const categoryThemes = {
   design: {
@@ -48,7 +48,7 @@ export const ProjectImage = ({
     const sub = (subCategory || category || '').toLowerCase();
 
     // Determine icon based on discipline
-    let IconComponent = PenTool;
+    let IconComponent = Palette;
     let disciplineLabel = 'GRAPHIC DESIGN';
     let deliverableSpec = 'VECTOR SCALABLE • 300 DPI';
 
@@ -69,7 +69,7 @@ export const ProjectImage = ({
       disciplineLabel = 'UI & DIGITAL MEDIA';
       deliverableSpec = 'FIGMA KIT • 9-GRID SYSTEM';
     } else if (sub.includes('typography') || sub.includes('lettering') || sub.includes('font')) {
-      IconComponent = PenTool;
+      IconComponent = Type;
       disciplineLabel = 'CUSTOM TYPOGRAPHY';
       deliverableSpec = 'OTF / TTF GLYPH SUITE';
     } else if (sub.includes('3d') || sub.includes('poster') || sub.includes('aura') || sub.includes('promo')) {
