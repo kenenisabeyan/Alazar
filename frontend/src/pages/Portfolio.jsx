@@ -134,11 +134,6 @@ export default function Portfolio() {
 
       {/* ── Page header ────────────────────────────────────────────────── */}
       <div className="container mx-auto px-4 sm:px-6 md:px-12 mb-10 text-center relative z-10">
-        <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 bg-white border border-[#C59A9F]/40 rounded-full text-[10px] sm:text-[11px] text-[#6B1D2F] font-black mb-6 shadow-sm shimmer-border">
-          <Sparkles size={12} className="animate-pulse" />
-          Graphic Design & Video Portfolio Presentation
-        </div>
-
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

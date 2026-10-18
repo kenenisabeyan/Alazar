@@ -43,20 +43,6 @@ export const AvailabilityCTA = ({ cta, contact }) => {
             {/* Left copy */}
             <div className="lg:col-span-7 space-y-8">
 
-              {/* Availability badge */}
-              <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/[0.12] backdrop-blur-md border border-white/25 text-[11px] tracking-widest text-white uppercase font-black"
-              >
-                <span className="relative flex h-2.5 w-2.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
-                </span>
-                {availabilityBadge}
-              </motion.div>
-
               {/* Headline */}
               <motion.h2
                 initial={{ opacity: 0, y: 24 }}

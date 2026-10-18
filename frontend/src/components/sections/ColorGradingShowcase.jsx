@@ -39,14 +39,6 @@ export const ColorGradingShowcase = () => {
         {/* ── Section header — NO white pill bg ──────────────────────────── */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 mb-10 sm:mb-14">
           <div>
-            <motion.p
-              initial={{ opacity: 0, y: 14 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-[11px] font-black uppercase tracking-[0.28em] text-[#6B1D2F] mb-4"
-            >
-              Color Grading Suite
-            </motion.p>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
