@@ -72,7 +72,7 @@ export const WhyHireMe = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.55, delay: idx * 0.1 }}
                   whileHover={{ y: -5 }}
-                  className="glass-card-luxury p-3 sm:p-5 md:p-6 rounded-2xl flex flex-col items-center justify-center text-center"
+                  className="glass-card-luxury p-3 sm:p-5 md:p-6 rounded-none flex flex-col items-center justify-center text-center"
                 >
                   <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-none bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center shadow-md shadow-[#6B1D2F]/25 flex-shrink-0 mb-2 sm:mb-3">
                     <Icon size={18} />
@@ -101,7 +101,7 @@ export const WhyHireMe = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="lg:col-span-5 bg-gradient-to-br from-[#6B1D2F] via-[#521523] to-[#3B0E19] rounded-2xl p-5 sm:p-8 md:p-10 flex flex-col justify-between relative overflow-hidden shadow-xl shadow-[#6B1D2F]/20 border border-[#C59A9F]/20"
+            className="lg:col-span-5 bg-gradient-to-br from-[#6B1D2F] via-[#521523] to-[#3B0E19] rounded-none p-5 sm:p-8 md:p-10 flex flex-col justify-between relative overflow-hidden shadow-xl shadow-[#6B1D2F]/20 border border-[#C59A9F]/20"
           >
             <div className="absolute -top-16 -right-16 w-48 h-48 bg-white/10 blur-[80px] rounded-full pointer-events-none" />
 
@@ -137,7 +137,7 @@ export const WhyHireMe = () => {
             <div className="mt-10 pt-8 border-t border-white/15 relative z-10">
               <button
                 onClick={() => { navigate('/contact'); window.scrollTo(0, 0); }}
-                className="w-full py-4 rounded-xl bg-white text-[#6B1D2F] hover:bg-[#FAFAF9] text-xs font-black uppercase tracking-widest flex items-center justify-center gap-2 transition-all duration-300 group shadow-lg"
+                className="w-full py-4 rounded-none bg-white text-[#6B1D2F] hover:bg-[#FAFAF9] text-xs font-black uppercase tracking-widest flex items-center justify-center gap-2 transition-all duration-300 group shadow-lg"
               >
                 Start a Project <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </button>
@@ -151,7 +151,7 @@ export const WhyHireMe = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6 p-5 sm:p-8 bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] rounded-2xl shadow-xl shadow-[#6B1D2F]/20"
+          className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6 p-5 sm:p-8 bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] rounded-none shadow-xl shadow-[#6B1D2F]/20"
         >
           <div className="text-center sm:text-left">
             <h3 className="text-xl font-black text-white mb-1" style={{ fontFamily: theme.fonts.heading }}>

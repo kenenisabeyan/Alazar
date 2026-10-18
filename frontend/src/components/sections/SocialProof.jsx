@@ -71,7 +71,7 @@ export const SocialProof = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.15 }}
-            className="text-[#1C1917] font-medium text-sm sm:text-base max-w-xs leading-relaxed bg-white/85 backdrop-blur-md px-5 py-3 rounded-2xl border border-[#C59A9F]/40 shadow-sm"
+            className="text-[#1C1917] font-medium text-sm sm:text-base max-w-xs leading-relaxed bg-white/85 backdrop-blur-md px-5 py-3 rounded-none border border-[#C59A9F]/40 shadow-sm"
           >
             Feedback from creative directors, brand leads, and agency partners across video and design projects.
           </motion.p>
@@ -89,7 +89,7 @@ export const SocialProof = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="lg:col-span-7 relative bg-gradient-to-br from-[#6B1D2F] via-[#521523] to-[#3B0E19] rounded-[2rem] overflow-hidden shadow-2xl shadow-[#6B1D2F]/20 flex flex-col min-h-[340px] sm:min-h-[440px] border border-[#C59A9F]/30"
+            className="lg:col-span-7 relative bg-gradient-to-br from-[#6B1D2F] via-[#521523] to-[#3B0E19] rounded-none overflow-hidden shadow-2xl shadow-[#6B1D2F]/20 flex flex-col min-h-[340px] sm:min-h-[440px] border border-[#C59A9F]/30"
           >
             {/* Ambient inner glow */}
             <div className="absolute -top-20 -left-20 w-64 h-64 bg-[#6B1D2F]/40 blur-[80px] rounded-full pointer-events-none" />
@@ -143,11 +143,11 @@ export const SocialProof = () => {
 
                     {/* Author */}
                     <div className="flex items-center gap-3 sm:gap-4">
-                      <div className="p-0.5 bg-gradient-to-tr from-[#6B1D2F] to-[#C59A9F] rounded-full shadow-lg flex-shrink-0">
+                      <div className="p-0.5 bg-gradient-to-tr from-[#6B1D2F] to-[#C59A9F] rounded-none shadow-lg flex-shrink-0">
                         <img
                           src={cur.avatar}
                           alt={cur.author}
-                          className="w-10 h-10 sm:w-14 sm:h-14 rounded-full object-cover border-2 border-[#1C1917]"
+                          className="w-10 h-10 sm:w-14 sm:h-14 rounded-none object-cover border-2 border-[#1C1917]"
                         />
                       </div>
                       <div>
@@ -174,7 +174,7 @@ export const SocialProof = () => {
                     <button
                       key={i}
                       onClick={() => setPage([i, i > idx ? 1 : -1])}
-                      className={`h-1.5 rounded-full transition-all duration-300 ${
+                      className={`h-1.5 rounded-none transition-all duration-300 ${
                         i === idx ? 'w-8 bg-[#C59A9F]' : 'w-1.5 bg-white/20 hover:bg-white/40'
                       }`}
                     />
@@ -185,13 +185,13 @@ export const SocialProof = () => {
                 <div className="flex gap-2">
                   <button
                     onClick={() => paginate(-1)}
-                    className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#6B1D2F] border border-white/15 hover:border-[#6B1D2F] flex items-center justify-center text-white/70 hover:text-white transition-all"
+                    className="w-10 h-10 rounded-none bg-white/10 hover:bg-[#6B1D2F] border border-white/15 hover:border-[#6B1D2F] flex items-center justify-center text-white/70 hover:text-white transition-all"
                   >
                     <ChevronLeft size={18} />
                   </button>
                   <button
                     onClick={() => paginate(1)}
-                    className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#6B1D2F] border border-white/15 hover:border-[#6B1D2F] flex items-center justify-center text-white/70 hover:text-white transition-all"
+                    className="w-10 h-10 rounded-none bg-white/10 hover:bg-[#6B1D2F] border border-white/15 hover:border-[#6B1D2F] flex items-center justify-center text-white/70 hover:text-white transition-all"
                   >
                     <ChevronRight size={18} />
                   </button>
@@ -199,13 +199,13 @@ export const SocialProof = () => {
               </div>
 
               {/* Progress bar */}
-              <div className="w-full bg-white/10 h-0.5 rounded-full overflow-hidden mt-4">
+              <div className="w-full bg-white/10 h-0.5 rounded-none overflow-hidden mt-4">
                 <motion.div
                   key={page}
                   initial={{ width: '0%' }}
                   animate={{ width: '100%' }}
                   transition={{ duration: 6.5, ease: 'linear' }}
-                  className="bg-[#C59A9F] h-full rounded-full"
+                  className="bg-[#C59A9F] h-full rounded-none"
                 />
               </div>
             </div>
@@ -225,7 +225,7 @@ export const SocialProof = () => {
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.09 }}
                   onClick={() => setPage([i, i > idx ? 1 : -1])}
-                  className={`cursor-pointer rounded-2xl p-5 border-2 transition-all duration-300 flex items-start gap-4 group ${
+                  className={`cursor-pointer rounded-none p-5 border-2 transition-all duration-300 flex items-start gap-4 group ${
                     isActive
                       ? 'bg-[#6B1D2F] border-[#6B1D2F] shadow-xl shadow-[#6B1D2F]/20'
                       : 'bg-white border-[#C59A9F] hover:border-[#C59A9F] hover:shadow-md'
@@ -234,7 +234,7 @@ export const SocialProof = () => {
                   <img
                     src={t.avatar}
                     alt={t.author}
-                    className={`w-12 h-12 rounded-xl object-cover flex-shrink-0 border-2 ${isActive ? 'border-white/30' : 'border-[#C59A9F]'}`}
+                    className={`w-12 h-12 rounded-none object-cover flex-shrink-0 border-2 ${isActive ? 'border-white/30' : 'border-[#C59A9F]'}`}
                   />
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-2 mb-1">
@@ -266,7 +266,7 @@ export const SocialProof = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
               onClick={() => { navigate('/contact'); window.scrollTo(0, 0); }}
-              className="mt-2 w-full flex items-center justify-center gap-2 py-4 rounded-2xl border-2 border-dashed border-[#C59A9F]/50 text-[#6B1D2F] text-[11px] font-black uppercase tracking-widest hover:border-[#6B1D2F] hover:bg-[#FAFAF9]/50 transition-all group"
+              className="mt-2 w-full flex items-center justify-center gap-2 py-4 rounded-none border-2 border-dashed border-[#C59A9F]/50 text-[#6B1D2F] text-[11px] font-black uppercase tracking-widest hover:border-[#6B1D2F] hover:bg-[#FAFAF9]/50 transition-all group"
             >
               Work With Alazar
               <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />

@@ -83,7 +83,7 @@ export const WorkflowVault = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.15 }}
-            className="text-[#1C1917] font-medium text-sm sm:text-base max-w-xs leading-relaxed bg-white/85 backdrop-blur-md px-5 py-3 rounded-2xl border border-[#C59A9F]/40 shadow-sm"
+            className="text-[#1C1917] font-medium text-sm sm:text-base max-w-xs leading-relaxed bg-white/85 backdrop-blur-md px-5 py-3 rounded-none border border-[#C59A9F]/40 shadow-sm"
           >
             Four clear phases from initial brief to final delivery with zero confusion and full transparency.
           </motion.p>
@@ -105,13 +105,13 @@ export const WorkflowVault = () => {
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.08 }}
                   onClick={() => setActiveStep(idx)}
-                  className={`w-full text-center lg:text-left flex flex-col lg:flex-row items-center justify-center lg:justify-start gap-2 sm:gap-4 p-3 sm:p-5 rounded-2xl border-2 transition-all duration-300 group ${isActive
+                  className={`w-full text-center lg:text-left flex flex-col lg:flex-row items-center justify-center lg:justify-start gap-2 sm:gap-4 p-3 sm:p-5 rounded-none border-2 transition-all duration-300 group ${isActive
                       ? 'bg-[#6B1D2F] border-[#6B1D2F] text-white shadow-xl shadow-[#6B1D2F]/25'
                       : 'bg-white border-[#C59A9F]/50 text-[#1C1917] hover:border-[#6B1D2F]'
                     }`}
                 >
                   {/* Number badge */}
-                  <div className={`w-9 h-9 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center mx-auto lg:mx-0 flex-shrink-0 font-black text-xs sm:text-sm transition-all ${isActive
+                  <div className={`w-9 h-9 sm:w-12 sm:h-12 rounded-none flex items-center justify-center mx-auto lg:mx-0 flex-shrink-0 font-black text-xs sm:text-sm transition-all ${isActive
                       ? 'bg-white/20 text-white shadow-md'
                       : 'bg-[#FAFAF9] text-[#6B1D2F] group-hover:bg-[#6B1D2F] group-hover:text-white'
                     }`}>
@@ -148,7 +148,7 @@ export const WorkflowVault = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -30 }}
                 transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                className="h-full bg-white rounded-[2rem] border border-[#C59A9F] shadow-xl p-5 sm:p-8 md:p-10 flex flex-col"
+                className="h-full bg-white rounded-none border border-[#C59A9F] shadow-xl p-5 sm:p-8 md:p-10 flex flex-col"
               >
                 {/* Icon + step */}
                 <div className="flex flex-wrap items-start justify-between gap-3 mb-6 sm:mb-8">
@@ -196,7 +196,7 @@ export const WorkflowVault = () => {
                   <button
                     disabled={activeStep === 0}
                     onClick={() => setActiveStep(s => s - 1)}
-                    className="w-9 h-9 rounded-full border border-[#C59A9F] flex items-center justify-center text-[#292524] hover:border-[#6B1D2F] hover:text-[#6B1D2F] disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+                    className="w-9 h-9 rounded-none border border-[#C59A9F] flex items-center justify-center text-[#292524] hover:border-[#6B1D2F] hover:text-[#6B1D2F] disabled:opacity-30 disabled:cursor-not-allowed transition-all"
                   >
                     <ArrowRight size={14} className="rotate-180" />
                   </button>
@@ -205,7 +205,7 @@ export const WorkflowVault = () => {
                       <button
                         key={i}
                         onClick={() => setActiveStep(i)}
-                        className={`h-1.5 rounded-full transition-all ${i === activeStep ? 'w-8 bg-[#6B1D2F]' : 'w-1.5 bg-[#C59A9F]/50'
+                        className={`h-1.5 rounded-none transition-all ${i === activeStep ? 'w-8 bg-[#6B1D2F]' : 'w-1.5 bg-[#C59A9F]/50'
                           }`}
                       />
                     ))}
@@ -213,7 +213,7 @@ export const WorkflowVault = () => {
                   <button
                     disabled={activeStep === steps.length - 1}
                     onClick={() => setActiveStep(s => s + 1)}
-                    className="w-9 h-9 rounded-full border border-[#C59A9F] flex items-center justify-center text-[#292524] hover:border-[#6B1D2F] hover:text-[#6B1D2F] disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+                    className="w-9 h-9 rounded-none border border-[#C59A9F] flex items-center justify-center text-[#292524] hover:border-[#6B1D2F] hover:text-[#6B1D2F] disabled:opacity-30 disabled:cursor-not-allowed transition-all"
                   >
                     <ArrowRight size={14} />
                   </button>
