@@ -273,7 +273,7 @@ export default function Contact() {
                 { icon: Shapes,  title: 'Graphic Design',    sub: 'Brand · Motion · 3D Art'   },
               ].map(({ icon: Icon, title, sub }) => (
                 <div key={title} className="flex flex-col items-center justify-center text-center p-3 sm:p-4 bg-white rounded-2xl border border-[#C59A9F] shadow-sm hover:border-[#6B1D2F] transition-colors">
-                  <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center flex-shrink-0 shadow-md shadow-[#6B1D2F]/20 mb-1.5 sm:mb-2">
+                  <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-none bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center flex-shrink-0 shadow-md shadow-[#6B1D2F]/20 mb-1.5 sm:mb-2">
                     <Icon size={16} />
                   </div>
                   <div className="w-full">
@@ -288,7 +288,7 @@ export default function Contact() {
             <div className="space-y-3">
               {contactMetaItems.map(({ icon: Icon, label, content }) => (
                 <div key={label} className="flex items-center gap-3 sm:gap-3.5 p-3.5 sm:p-4 bg-white rounded-2xl border border-[#C59A9F] shadow-sm">
-                  <div className="w-10 h-10 sm:w-11 sm:h-11 bg-[#FAFAF9] border border-[#C59A9F]/40 rounded-full flex items-center justify-center text-[#6B1D2F] flex-shrink-0">
+                  <div className="w-10 h-10 sm:w-11 sm:h-11 bg-[#FAFAF9] border border-[#C59A9F]/40 rounded-none flex items-center justify-center text-[#6B1D2F] flex-shrink-0">
                     <Icon size={17} />
                   </div>
                   <div className="min-w-0 flex-1">
