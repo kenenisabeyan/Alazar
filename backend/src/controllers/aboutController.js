@@ -86,7 +86,7 @@ function initAboutStore() {
       { id: 3, disciplineId: 1, title: 'Sound Design', subtitle: 'Fairlight & Pro Tools', description: 'Foley, ambient mixing, audio restoration', icon: 'Monitor', software: 'Fairlight & Pro Tools', isVisible: true, displayOrder: 2 },
       { id: 4, disciplineId: 1, title: '8K Cinema RAW', subtitle: 'RED V-Raptor / FX6', description: 'High resolution digital cinematography workflow', icon: 'Camera', software: 'RED / Sony', isVisible: true, displayOrder: 3 },
       { id: 5, disciplineId: 2, title: 'Brand Identity', subtitle: 'Illustrator / Figma', description: 'Logo systems, typography rules, brand guidelines', icon: 'Palette', software: 'Adobe Illustrator', isVisible: true, displayOrder: 0 },
-      { id: 6, disciplineId: 2, title: 'Motion Graphics', subtitle: 'After Effects / C4D', description: 'Keyframe animation, 2D/3D visual effects', icon: 'Sparkles', software: 'Adobe After Effects', isVisible: true, displayOrder: 1 },
+      { id: 6, disciplineId: 2, title: 'Motion Graphics', subtitle: 'After Effects / C4D', description: 'Keyframe animation, 2D/3D visual effects', icon: 'Layers', software: 'Adobe After Effects', isVisible: true, displayOrder: 1 },
       { id: 7, disciplineId: 2, title: 'Print & Editorial', subtitle: 'InDesign / Photoshop', description: 'High-res poster art and print masters', icon: 'Layers', software: 'Adobe InDesign', isVisible: true, displayOrder: 2 },
       { id: 8, disciplineId: 2, title: '3D Art Direction', subtitle: 'Blender / Octane', description: 'Product renders and 3D concept graphics', icon: 'Camera', software: 'Blender 3D', isVisible: true, displayOrder: 3 }
     ];
@@ -129,13 +129,13 @@ function initAboutStore() {
     memoryStore.professional_skills = [
       { id: 1, categoryId: 1, name: 'DaVinci Resolve Studio', description: 'Color grading, Fairlight audio & node-based editing', percentage: 98, experienceLevel: 'EXPERT', icon: 'Film', customIcon: '', logo: '', softwareWebsite: 'https://www.blackmagicdesign.com/products/davinciresolve', yearsExperience: '8 Yrs', isFeatured: true, isVisible: true, displayOrder: 0 },
       { id: 2, categoryId: 1, name: 'Adobe Premiere Pro', description: 'Rhythmic cutting, multicam & speed ramping', percentage: 95, experienceLevel: 'EXPERT', icon: 'Film', customIcon: '', logo: '', softwareWebsite: 'https://www.adobe.com/products/premiere.html', yearsExperience: '8 Yrs', isFeatured: true, isVisible: true, displayOrder: 1 },
-      { id: 3, categoryId: 1, name: 'Frame.io Collaboration', description: 'Seamless cloud review and client feedback rounds', percentage: 90, experienceLevel: 'ADVANCED', icon: 'Sparkles', customIcon: '', logo: '', softwareWebsite: 'https://frame.io', yearsExperience: '5 Yrs', isFeatured: false, isVisible: true, displayOrder: 2 },
+      { id: 3, categoryId: 1, name: 'Frame.io Collaboration', description: 'Seamless cloud review and client feedback rounds', percentage: 90, experienceLevel: 'ADVANCED', icon: 'MessageSquare', customIcon: '', logo: '', softwareWebsite: 'https://frame.io', yearsExperience: '5 Yrs', isFeatured: false, isVisible: true, displayOrder: 2 },
       { id: 4, categoryId: 1, name: 'Sound Design & Foley', description: 'Environmental ambience, vocal polishing, & sound FX', percentage: 88, experienceLevel: 'ADVANCED', icon: 'Monitor', customIcon: '', logo: '', softwareWebsite: '', yearsExperience: '6 Yrs', isFeatured: false, isVisible: true, displayOrder: 3 },
       { id: 5, categoryId: 2, name: 'Photoshop', description: 'Key visual creation, poster composition & retouching', percentage: 95, experienceLevel: 'EXPERT', icon: 'Palette', customIcon: '', logo: '', softwareWebsite: 'https://www.adobe.com/products/photoshop.html', yearsExperience: '8 Yrs', isFeatured: true, isVisible: true, displayOrder: 0 },
       { id: 6, categoryId: 2, name: 'Illustrator', description: 'Vector logo systems, monograms & typography assets', percentage: 94, experienceLevel: 'EXPERT', icon: 'Paintbrush', customIcon: '', logo: '', softwareWebsite: 'https://www.adobe.com/products/illustrator.html', yearsExperience: '8 Yrs', isFeatured: true, isVisible: true, displayOrder: 1 },
       { id: 7, categoryId: 2, name: 'Figma', description: 'Design systems, UI kits & interactive digital layouts', percentage: 90, experienceLevel: 'ADVANCED', icon: 'Layout', customIcon: '', logo: '', softwareWebsite: 'https://www.figma.com', yearsExperience: '5 Yrs', isFeatured: true, isVisible: true, displayOrder: 2 },
       { id: 8, categoryId: 2, name: 'Blender 3D', description: '3D product visuals, glassmorphism & Octane rendering', percentage: 82, experienceLevel: 'ADVANCED', icon: 'Layers', customIcon: '', logo: '', softwareWebsite: 'https://www.blender.org', yearsExperience: '4 Yrs', isFeatured: true, isVisible: true, displayOrder: 3 },
-      { id: 9, categoryId: 2, name: 'After Effects', description: '2D/3D motion graphics, lower thirds & logo animations', percentage: 92, experienceLevel: 'EXPERT', icon: 'Sparkles', customIcon: '', logo: '', softwareWebsite: 'https://www.adobe.com/products/aftereffects.html', yearsExperience: '7 Yrs', isFeatured: true, isVisible: true, displayOrder: 4 },
+      { id: 9, categoryId: 2, name: 'After Effects', description: '2D/3D motion graphics, lower thirds & logo animations', percentage: 92, experienceLevel: 'EXPERT', icon: 'Layers', customIcon: '', logo: '', softwareWebsite: 'https://www.adobe.com/products/aftereffects.html', yearsExperience: '7 Yrs', isFeatured: true, isVisible: true, displayOrder: 4 },
       { id: 10, categoryId: 3, name: 'RED V-Raptor 8K Cinematography', description: 'High dynamic range RAW filming and exposure control', percentage: 92, experienceLevel: 'EXPERT', icon: 'Camera', customIcon: '', logo: '', softwareWebsite: 'https://www.red.com', yearsExperience: '6 Yrs', isFeatured: true, isVisible: true, displayOrder: 0 },
       { id: 11, categoryId: 3, name: 'Sony FX6 Field Rigging', description: 'Low light operation, wireless follow focus & gimbals', percentage: 94, experienceLevel: 'EXPERT', icon: 'Camera', customIcon: '', logo: '', softwareWebsite: 'https://pro.sony', yearsExperience: '7 Yrs', isFeatured: true, isVisible: true, displayOrder: 1 }
     ];
@@ -221,7 +221,7 @@ function initAboutStore() {
   if (!memoryStore.work_achievements) {
     memoryStore.work_achievements = [
       { id: 1, workExperienceId: 1, title: '140+ Projects Delivered', description: 'Delivered 140+ client projects with a 98% satisfaction rate.', icon: 'CheckCircle2', displayOrder: 0, isVisible: true },
-      { id: 2, workExperienceId: 1, title: '4.8M+ Campaign Views', description: 'Led campaign for Vanguard Apparel reaching 4.8M+ views.', icon: 'Sparkles', displayOrder: 1, isVisible: true },
+      { id: 2, workExperienceId: 1, title: '4.8M+ Campaign Views', description: 'Led campaign for Vanguard Apparel reaching 4.8M+ views.', icon: 'TrendingUp', displayOrder: 1, isVisible: true },
       { id: 3, workExperienceId: 2, title: 'Standardized Color Pipeline', description: 'Implemented ACES color workflow cutting turnaround time by 30%.', icon: 'Sliders', displayOrder: 0, isVisible: true }
     ];
   }
@@ -329,7 +329,7 @@ function initAboutStore() {
     memoryStore.cta_benefits = [
       { id: 1, ctaSectionId: 1, title: '100% On-Time Delivery', icon: 'CheckCircle2', description: 'Clear milestone schedule and guaranteed delivery date', displayOrder: 0, isVisible: true },
       { id: 2, ctaSectionId: 1, title: '8K Master File Delivery', icon: 'Film', description: 'Uncompressed raw masters + vertical social cuts', displayOrder: 1, isVisible: true },
-      { id: 3, ctaSectionId: 1, title: 'Video + Design in One', icon: 'Sparkles', description: 'Cohesive vision across footage and graphics', displayOrder: 2, isVisible: true },
+      { id: 3, ctaSectionId: 1, title: 'Video + Design in One', icon: 'Layers', description: 'Cohesive vision across footage and graphics', displayOrder: 2, isVisible: true },
       { id: 4, ctaSectionId: 1, title: 'Reply within 24 Hours', icon: 'Clock', description: 'Fast communication via email, Telegram, or WhatsApp', displayOrder: 3, isVisible: true }
     ];
   }
