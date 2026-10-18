@@ -221,7 +221,7 @@ function initAboutStore() {
   if (!memoryStore.work_achievements) {
     memoryStore.work_achievements = [
       { id: 1, workExperienceId: 1, title: '140+ Projects Delivered', description: 'Delivered 140+ client projects with a 98% satisfaction rate.', icon: 'CheckCircle2', displayOrder: 0, isVisible: true },
-      { id: 2, workExperienceId: 1, title: '4.8M+ Campaign Views', description: 'Led campaign for Vanguard Apparel reaching 4.8M+ views.', icon: 'Zap', displayOrder: 1, isVisible: true },
+      { id: 2, workExperienceId: 1, title: '4.8M+ Campaign Views', description: 'Led campaign for Vanguard Apparel reaching 4.8M+ views.', icon: 'Sparkles', displayOrder: 1, isVisible: true },
       { id: 3, workExperienceId: 2, title: 'Standardized Color Pipeline', description: 'Implemented ACES color workflow cutting turnaround time by 30%.', icon: 'Sliders', displayOrder: 0, isVisible: true }
     ];
   }
@@ -255,7 +255,7 @@ function initAboutStore() {
       { id: 1, name: 'Camera Systems', description: 'Flagship 8K & full-frame cinema cameras', icon: 'Camera', image: '', displayOrder: 0, isVisible: true },
       { id: 2, name: 'Lenses & Optics', description: 'Fast prime lenses and cinema glass', icon: 'Film', image: '', displayOrder: 1, isVisible: true },
       { id: 3, name: 'Editing & Color Suite', description: 'Color reference monitors and editing rigs', icon: 'Monitor', image: '', displayOrder: 2, isVisible: true },
-      { id: 4, name: 'Lighting & Sound Rig', description: 'High CRI LED panels & wireless audio capture', icon: 'Zap', image: '', displayOrder: 3, isVisible: true }
+      { id: 4, name: 'Lighting & Sound Rig', description: 'High CRI LED panels & wireless audio capture', icon: 'SunMedium', image: '', displayOrder: 3, isVisible: true }
     ];
   }
 
@@ -281,9 +281,9 @@ function initAboutStore() {
   if (!memoryStore.behind_the_scenes_categories) {
     memoryStore.behind_the_scenes_categories = [
       { id: 1, name: 'On-Set Filming', slug: 'on-set', icon: 'Film', description: 'Directing camera crews and lighting on location', displayOrder: 0, isVisible: true },
-      { id: 2, name: 'Color Suite', slug: 'color-suite', icon: 'PenTool', description: 'Color grading sessions in dedicated reference studio', displayOrder: 1, isVisible: true },
+      { id: 2, name: 'Color Suite', slug: 'color-suite', icon: 'Sliders', description: 'Color grading sessions in dedicated reference studio', displayOrder: 1, isVisible: true },
       { id: 3, name: 'Aerial Filming', slug: 'aerial', icon: 'Camera', description: 'FPV and cinematic drone footage capture', displayOrder: 2, isVisible: true },
-      { id: 4, name: 'Lighting Setup', slug: 'lighting', icon: 'Zap', description: 'High-contrast studio lighting control', displayOrder: 3, isVisible: true }
+      { id: 4, name: 'Lighting Setup', slug: 'lighting', icon: 'SunMedium', description: 'High-contrast studio lighting control', displayOrder: 3, isVisible: true }
     ];
   }
 
@@ -329,7 +329,7 @@ function initAboutStore() {
     memoryStore.cta_benefits = [
       { id: 1, ctaSectionId: 1, title: '100% On-Time Delivery', icon: 'CheckCircle2', description: 'Clear milestone schedule and guaranteed delivery date', displayOrder: 0, isVisible: true },
       { id: 2, ctaSectionId: 1, title: '8K Master File Delivery', icon: 'Film', description: 'Uncompressed raw masters + vertical social cuts', displayOrder: 1, isVisible: true },
-      { id: 3, ctaSectionId: 1, title: 'Video + Design in One', icon: 'PenTool', description: 'Cohesive vision across footage and graphics', displayOrder: 2, isVisible: true },
+      { id: 3, ctaSectionId: 1, title: 'Video + Design in One', icon: 'Sparkles', description: 'Cohesive vision across footage and graphics', displayOrder: 2, isVisible: true },
       { id: 4, ctaSectionId: 1, title: 'Reply within 24 Hours', icon: 'Clock', description: 'Fast communication via email, Telegram, or WhatsApp', displayOrder: 3, isVisible: true }
     ];
   }
@@ -356,7 +356,7 @@ function initAboutStore() {
     memoryStore.footer_expertise = [
       { id: 1, title: 'Commercial Editing', description: 'Paced rhythmic cuts for broadcast', icon: 'Film', displayOrder: 0, isVisible: true },
       { id: 2, title: 'Cinematic Color Grading', description: 'HDR color science & LUT creation', icon: 'Sliders', displayOrder: 1, isVisible: true },
-      { id: 3, title: 'Visual Identity & Motion', description: 'Logo systems & 2D/3D motion graphics', icon: 'PenTool', displayOrder: 2, isVisible: true },
+      { id: 3, title: 'Visual Identity & Motion', description: 'Logo systems & 2D/3D motion graphics', icon: 'Palette', displayOrder: 2, isVisible: true },
       { id: 4, title: '3D Product Visuals', description: 'Photorealistic 3D renders', icon: 'Layers', displayOrder: 3, isVisible: true }
     ];
   }
