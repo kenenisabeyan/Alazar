@@ -909,7 +909,7 @@ export default function Admin() {
           loading={false} />;
       case 'career':
         return <SimpleListPanel title="Experience" items={career}
-          fields={[{ key:'period', label:'Period', placeholder:'2022 - Present' }, { key:'role', label:'Role', placeholder:'Founder & Lead Director' }, { key:'company', label:'Company' }, { key:'location', label:'Location' }, { key:'description', label:'Description', type:'textarea', full:true }]}
+          fields={[{ key:'period', label:'Period', placeholder:'2022 to Present' }, { key:'role', label:'Role', placeholder:'Founder & Lead Director' }, { key:'company', label:'Company' }, { key:'location', label:'Location' }, { key:'description', label:'Description', type:'textarea', full:true }]}
           onCreate={(d) => api.content.createCareer(d).then(() => api.content.getCareer().then(setCareer))}
           onUpdate={(id, d) => api.content.updateCareer(id, d).then(() => api.content.getCareer().then(setCareer))}
           onDelete={(id) => api.content.deleteCareer(id).then(() => api.content.getCareer().then(setCareer))}

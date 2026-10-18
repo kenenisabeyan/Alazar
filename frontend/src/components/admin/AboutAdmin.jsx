@@ -401,7 +401,7 @@ export default function AboutAdmin() {
             {workExps.map(w => (
               <div key={w.id} className="p-6 rounded-2xl border border-stone-200 bg-stone-50 space-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-[#6B1D2F] uppercase">{w.startDate} - {w.endDate}</span>
+                  <span className="text-xs font-bold text-[#6B1D2F] uppercase">{w.startDate} to {w.endDate}</span>
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => handleToggle('work-experience', w.id, workExps, 'work_experiences')}

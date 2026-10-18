@@ -337,7 +337,7 @@ export const gearList = [
       {
         name: 'Sony G Master Prime Lenses',
         desc: 'Ultra sharp prime lenses with wide aperture',
-        badge: 'f/1.2 - f/1.4 GM',
+        badge: 'f/1.2 to f/1.4 GM',
         image: 'https://images.unsplash.com/photo-1622838320002-a1f94553f187?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       },
       {
@@ -583,7 +583,7 @@ export const skillsMatrix = [
 // ─────────────────────────────────────────────────────────────────────────────
 export const careerExperience = [
   {
-    period: '2022 - Present',
+    period: '2022 to Present',
     role: 'Founder & Lead Creative Director',
     company: 'Alazar Studio',
     location: 'Global / Remote',
@@ -594,7 +594,7 @@ export const careerExperience = [
     ],
   },
   {
-    period: '2020 - 2022',
+    period: '2020 to 2022',
     role: 'Senior Video Editor & Colorist',
     company: 'Apex Media Group',
     location: 'New York, USA',
@@ -605,7 +605,7 @@ export const careerExperience = [
     ],
   },
   {
-    period: '2018 - 2020',
+    period: '2018 to 2020',
     role: 'Motion Designer & Video Specialist',
     company: 'Studio One Agency',
     location: 'Remote',

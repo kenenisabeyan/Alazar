@@ -24,7 +24,7 @@ const steps = [
     subtitle: 'Collaborative Iteration',
     desc: 'Review annotated video drafts and design concepts online with timecoded feedback instead of email chains. Direct, frame-accurate collaboration.',
     details: ['Frame.io timecoded review link provided', 'Unlimited annotation comments', '2 structured revision rounds included', 'Screen-share sessions available on demand'],
-    duration: '2–4 Days',
+    duration: '2 to 4 Days',
     color: '#8B1E3F',
   },
   {
@@ -34,7 +34,7 @@ const steps = [
     subtitle: 'Precision Finishing',
     desc: 'Final color grade, Fairlight audio polish, sound FX layering, motion graphics rendering, and export quality control across all formats.',
     details: ['DaVinci Resolve professional color grade', 'Broadcast-compliant audio master', 'Motion graphics & title card finalization', 'All formats: 4K, 1080p, vertical & square'],
-    duration: '1–2 Days',
+    duration: '1 to 2 Days',
     color: '#6B1D2F',
   },
   {

@@ -49,7 +49,7 @@ const defaultForm = {
   lastName: '',
   email: '',
   projectType: 'freelance-video',
-  budget: '$3k - $5k',
+  budget: '$3k to $5k',
   details: '',
 };
 
@@ -58,10 +58,10 @@ export default function Contact() {
   const [formData, setFormData] = useState(() => {
     if (location.state?.estimate) {
       const est = location.state.estimate;
-      let budgetVal = '$3k - $5k';
+      let budgetVal = '$3k to $5k';
       if (est < 3000) budgetVal = 'under-3k';
-      else if (est <= 5000) budgetVal = '$3k - $5k';
-      else if (est <= 10000) budgetVal = '$5k - $10k';
+      else if (est <= 5000) budgetVal = '$3k to $5k';
+      else if (est <= 10000) budgetVal = '$5k to $10k';
       else budgetVal = '$10k+';
 
       const typeMap = {
@@ -447,8 +447,8 @@ export default function Contact() {
                         className="w-full bg-[#FAFAF9] border-2 border-[#C59A9F] rounded-xl px-4 py-3.5 text-[#1C1917] font-medium focus:outline-none focus:border-[#6B1D2F] text-sm appearance-none cursor-pointer transition-colors"
                       >
                         <option value="under-3k">&lt; $3,000</option>
-                        <option value="$3k - $5k">$3,000 – $5,000</option>
-                        <option value="$5k - $10k">$5,000 – $10,000</option>
+                        <option value="$3k to $5k">$3,000 to $5,000</option>
+                        <option value="$5k to $10k">$5,000 to $10,000</option>
                         <option value="$10k+">$10,000+</option>
                       </select>
                     </div>

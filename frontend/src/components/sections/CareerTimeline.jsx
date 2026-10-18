@@ -10,7 +10,7 @@ import { careerExperience, awardsList, theme } from '../../constants';
 export const CareerTimeline = ({ data, awards: awardsProp }) => {
   const [expanded, setExpanded] = useState(0);
   const timeline = (data && data.length) ? data.map(item => ({
-    period: `${item.startDate || ''} - ${item.endDate || ''}`,
+    period: (item.startDate && item.endDate) ? `${item.startDate} to ${item.endDate}` : (item.period ? item.period.replace(/\s*[-–—]\s*/g, ' to ') : ''),
     role: item.position,
     company: item.company,
     location: item.location,

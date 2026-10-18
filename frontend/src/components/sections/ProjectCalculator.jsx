@@ -39,7 +39,7 @@ export const ProjectCalculator = () => {
 
   const baseSubtotal = Math.round(typeObj.basePrice * scopeObj.multiplier);
   const grandTotal = baseSubtotal + addonsTotal;
-  const estimatedDays = selectedScope === 'onset' ? '7–12 Days' : '4–7 Days';
+  const estimatedDays = selectedScope === 'onset' ? '7 to 12 Days' : '4 to 7 Days';
 
   const toggleAddon = (id) =>
     setSelectedAddons(prev => prev.includes(id) ? prev.filter(a => a !== id) : [...prev, id]);

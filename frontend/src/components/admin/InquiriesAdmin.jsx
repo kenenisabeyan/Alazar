@@ -359,7 +359,7 @@ export default function InquiriesAdmin() {
                     </td>
 
                     <td className="py-4 px-4 font-mono font-bold text-[#1C1917]">
-                      {inq.budget || '$3k - $5k'}
+                      {inq.budget || '$3k to $5k'}
                     </td>
 
                     <td className="py-4 px-4">
@@ -569,7 +569,7 @@ export default function InquiriesAdmin() {
 
               <div>
                 <span className="text-[10px] uppercase font-black text-[#292524] block">Budget Target</span>
-                <p className="font-bold text-[#1C1917] mt-0.5">{selectedInquiry.budget || '$3k - $5k'}</p>
+                <p className="font-bold text-[#1C1917] mt-0.5">{selectedInquiry.budget || '$3k to $5k'}</p>
               </div>
 
               <div>
