@@ -63,7 +63,7 @@ export const ShowreelBanner = ({ onOpenShowreel }) => {
             {/* Sound toggle */}
             <button
               onClick={toggleSound}
-              className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full border text-[11px] font-black uppercase tracking-wider transition-all ${isMuted
+              className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-none border text-[11px] font-black uppercase tracking-wider transition-all ${isMuted
                   ? 'bg-white border-[#C59A9F] text-[#292524] hover:border-[#6B1D2F] hover:text-[#6B1D2F]'
                   : 'bg-[#6B1D2F] border-[#6B1D2F] text-white'
                 }`}
@@ -77,7 +77,7 @@ export const ShowreelBanner = ({ onOpenShowreel }) => {
             {/* Watch full */}
             <button
               onClick={onOpenShowreel}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#6B1D2F] text-white text-[11px] font-black uppercase tracking-wider hover:bg-[#8B1E3F] transition-all shadow-lg shadow-[#6B1D2F]/25 group"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-none bg-[#6B1D2F] text-white text-[11px] font-black uppercase tracking-wider hover:bg-[#8B1E3F] transition-all shadow-lg shadow-[#6B1D2F]/25 group"
             >
               Watch Full Reel
               <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform" />
