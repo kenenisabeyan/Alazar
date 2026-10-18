@@ -177,7 +177,7 @@ const DesignCard = ({ navigate, cardData }) => {
             {d.badge}
           </div>
           <div className="flex items-center gap-1.5 text-[10px] font-black text-[#292524] uppercase tracking-widest">
-            <Star size={11} className="text-[#6B1D2F] fill-[#6B1D2F]" />
+            <span className="w-2 h-2 rounded-full bg-[#6B1D2F]" />
             {d.experienceLabel}
           </div>
         </div>
