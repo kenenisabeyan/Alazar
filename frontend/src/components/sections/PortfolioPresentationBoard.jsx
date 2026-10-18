@@ -34,7 +34,7 @@ export const PortfolioPresentationBoard = ({ projects = [], filter = 'all', pres
           {/* Main Left Hero Card (Large "PORTFOLIO" Master Spread Card) */}
           <motion.div
             whileHover={{ y: -4 }}
-            className="lg:col-span-8 bg-gradient-to-br from-[#1E060B] via-[#360F19] to-[#591626] rounded-3xl sm:rounded-[2.5rem] p-5 sm:p-10 md:p-12 text-white relative overflow-hidden shadow-[0_25px_60px_-15px_rgba(107,29,47,0.35)] border border-[#C59A9F]/30 flex flex-col justify-between min-h-0 sm:min-h-[460px]"
+            className="lg:col-span-8 bg-gradient-to-br from-[#1E060B] via-[#360F19] to-[#591626] rounded-none p-5 sm:p-10 md:p-12 text-white relative overflow-hidden shadow-[0_25px_60px_-15px_rgba(107,29,47,0.35)] border border-[#C59A9F]/30 flex flex-col justify-between min-h-0 sm:min-h-[460px]"
           >
             {/* Ambient Lighting & Geometric Grid Lines */}
             <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#C59A9F_1.5px,transparent_1.5px)] [background-size:24px_24px] pointer-events-none" />
@@ -115,7 +115,7 @@ export const PortfolioPresentationBoard = ({ projects = [], filter = 'all', pres
             {/* Top Right Card: INTRODUCTION */}
             <motion.div
               whileHover={{ y: -4 }}
-              className="bg-gradient-to-br from-[#240A0F] via-[#1E060B] to-[#140407] rounded-3xl sm:rounded-[2.5rem] p-5 sm:p-7 text-white border border-[#C59A9F]/30 shadow-2xl flex-1 flex flex-col justify-between relative overflow-hidden"
+              className="bg-gradient-to-br from-[#240A0F] via-[#1E060B] to-[#140407] rounded-none p-5 sm:p-7 text-white border border-[#C59A9F]/30 shadow-2xl flex-1 flex flex-col justify-between relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 w-36 h-36 bg-[#6B1D2F]/25 blur-3xl rounded-full pointer-events-none" />
 
@@ -131,7 +131,7 @@ export const PortfolioPresentationBoard = ({ projects = [], filter = 'all', pres
 
               <div className="flex items-center gap-3 sm:gap-4 mb-4">
                 <div className="relative flex-shrink-0">
-                  <img src={alazarImg} alt={profileName} className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl border-2 border-[#C59A9F] object-cover shadow-lg" />
+                  <img src={alazarImg} alt={profileName} className="w-12 h-12 sm:w-14 sm:h-14 rounded-none border-2 border-[#C59A9F] object-cover shadow-lg" />
                   <span className="absolute -bottom-1 -right-1 w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-emerald-500 border-2 border-[#140407] shadow-sm" />
                 </div>
                 <div className="min-w-0">
@@ -145,11 +145,11 @@ export const PortfolioPresentationBoard = ({ projects = [], filter = 'all', pres
               </p>
 
               <div className="grid grid-cols-2 gap-2.5 sm:gap-3 text-[10px] sm:text-[11px] uppercase font-black text-white/95 border-t border-white/15 pt-4">
-                <div className="flex items-center justify-center gap-1.5 sm:gap-2 bg-white/10 px-2.5 sm:px-3.5 py-2 sm:py-2.5 rounded-2xl border border-white/15 backdrop-blur-md shadow-sm min-w-0 text-center">
+                <div className="flex items-center justify-center gap-1.5 sm:gap-2 bg-white/10 px-2.5 sm:px-3.5 py-2 sm:py-2.5 rounded-none border border-white/15 backdrop-blur-md shadow-sm min-w-0 text-center">
                   <MapPin size={13} className="text-[#C59A9F] flex-shrink-0" />
                   <span className="truncate">{location}</span>
                 </div>
-                <div className="flex items-center justify-center gap-1.5 sm:gap-2 bg-emerald-950/60 text-emerald-300 px-2.5 sm:px-3.5 py-2 sm:py-2.5 rounded-2xl border border-emerald-500/30 shadow-sm min-w-0 text-center">
+                <div className="flex items-center justify-center gap-1.5 sm:gap-2 bg-emerald-950/60 text-emerald-300 px-2.5 sm:px-3.5 py-2 sm:py-2.5 rounded-none border border-emerald-500/30 shadow-sm min-w-0 text-center">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse flex-shrink-0" />
                   <span className="truncate">{availability}</span>
                 </div>
@@ -159,7 +159,7 @@ export const PortfolioPresentationBoard = ({ projects = [], filter = 'all', pres
             {/* Bottom Right Card: CONTENT INDEX */}
             <motion.div
               whileHover={{ y: -4 }}
-              className="bg-gradient-to-br from-[#1A060A] via-[#280A11] to-[#1E060B] rounded-[2.5rem] p-6 sm:p-7 text-white border border-[#C59A9F]/30 shadow-2xl flex-1 flex flex-col justify-between relative overflow-hidden"
+              className="bg-gradient-to-br from-[#1A060A] via-[#280A11] to-[#1E060B] rounded-none p-6 sm:p-7 text-white border border-[#C59A9F]/30 shadow-2xl flex-1 flex flex-col justify-between relative overflow-hidden"
             >
               <div className="flex justify-between items-center border-b border-white/15 pb-3.5 mb-3.5">
                 <h3 className="text-base sm:text-lg font-black uppercase tracking-[0.2em] text-[#FAFAF9] font-serif flex items-center gap-2">
@@ -172,15 +172,15 @@ export const PortfolioPresentationBoard = ({ projects = [], filter = 'all', pres
               </div>
 
               <div className="grid grid-cols-3 gap-3 text-center my-3">
-                <div className="bg-gradient-to-b from-white/15 to-white/5 border border-white/20 p-3.5 rounded-2xl shadow-md">
+                <div className="bg-gradient-to-b from-white/15 to-white/5 border border-white/20 p-3.5 rounded-none shadow-md">
                   <span className="text-2xl font-black text-[#FAFAF9] block leading-none">{projects.length}</span>
                   <span className="text-[9px] font-black text-[#C59A9F] tracking-[0.2em] block uppercase mt-1.5">TOTAL</span>
                 </div>
-                <div className="bg-gradient-to-b from-[#6B1D2F]/60 to-[#3B0E19]/40 border border-[#C59A9F]/40 p-3.5 rounded-2xl shadow-md">
+                <div className="bg-gradient-to-b from-[#6B1D2F]/60 to-[#3B0E19]/40 border border-[#C59A9F]/40 p-3.5 rounded-none shadow-md">
                   <span className="text-2xl font-black text-[#FAFAF9] block leading-none">{videoCount}</span>
                   <span className="text-[9px] font-black text-[#C59A9F] tracking-[0.2em] block uppercase mt-1.5">VIDEO</span>
                 </div>
-                <div className="bg-gradient-to-b from-[#8B1E3F]/60 to-[#521523]/40 border border-[#C59A9F]/40 p-3.5 rounded-2xl shadow-md">
+                <div className="bg-gradient-to-b from-[#8B1E3F]/60 to-[#521523]/40 border border-[#C59A9F]/40 p-3.5 rounded-none shadow-md">
                   <span className="text-2xl font-black text-[#FAFAF9] block leading-none">{designCount}</span>
                   <span className="text-[9px] font-black text-[#C59A9F] tracking-[0.2em] block uppercase mt-1.5">DESIGN</span>
                 </div>
@@ -204,7 +204,7 @@ export const PortfolioPresentationBoard = ({ projects = [], filter = 'all', pres
               transition={{ delay: idx * 0.04 }}
               whileHover={{ y: -6, scale: 1.01 }}
               onClick={() => onSelectProject && onSelectProject(project.id)}
-              className="bg-gradient-to-br from-[#240A0F] to-[#160508] rounded-3xl p-5 sm:p-6 text-white border border-white/15 shadow-xl hover:shadow-2xl hover:border-[#C59A9F]/50 transition-all cursor-pointer flex flex-col justify-between group relative overflow-hidden"
+              className="bg-gradient-to-br from-[#240A0F] to-[#160508] rounded-none p-5 sm:p-6 text-white border border-white/15 shadow-xl hover:shadow-2xl hover:border-[#C59A9F]/50 transition-all cursor-pointer flex flex-col justify-between group relative overflow-hidden"
             >
               {/* Header inside Card */}
               <div className="flex justify-between items-center mb-3.5">
@@ -212,13 +212,13 @@ export const PortfolioPresentationBoard = ({ projects = [], filter = 'all', pres
                   <span className="w-1.5 h-1.5 rounded-full bg-[#C59A9F]" />
                   {idx < 9 ? `0${idx + 1}` : idx + 1}. {project.subCategory || project.category}
                 </span>
-                <div className="w-8 h-8 rounded-none bg-white/10 group-hover:bg-[#6B1D2F] flex items-center justify-center transition-colors">
+                <div className="w-8 h-8 rounded-none bg-white/10 group-hover:bg-[#6B1D2F] flex items-center justify-center transition-colors border border-white/15">
                   <ArrowUpRight size={15} className="text-[#C59A9F] group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                 </div>
               </div>
 
               {/* Artwork / Video Media Showcase Window */}
-              <div className="aspect-[4/3] bg-[#120407] rounded-2xl border border-white/15 overflow-hidden relative shadow-inner">
+              <div className="aspect-[4/3] bg-[#120407] rounded-none border border-white/15 overflow-hidden relative shadow-inner">
                 <ProjectCardMedia project={project} />
 
                 {/* Subtle hover vignette */}

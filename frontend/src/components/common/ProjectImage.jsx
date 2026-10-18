@@ -97,7 +97,7 @@ export const ProjectImage = ({
 
         {/* Top Header Strip: Discipline Pill & Studio Spec */}
         <div className="relative z-10 flex justify-between items-center gap-2">
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white/10 backdrop-blur-md border border-white/20 text-[9px] font-black uppercase tracking-[0.18em] text-[#FAFAF9] shadow-sm">
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-none bg-white/10 backdrop-blur-md border border-white/20 text-[9px] font-black uppercase tracking-[0.18em] text-[#FAFAF9] shadow-sm">
             <IconComponent size={10} className="text-[#C59A9F]" />
             <span>{subCategory || disciplineLabel}</span>
           </div>
@@ -113,10 +113,10 @@ export const ProjectImage = ({
           
           {/* Glowing Icon Frame */}
           <div className="relative mb-2.5 group-hover:scale-110 transition-transform duration-500">
-            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-lg border border-white/30 flex items-center justify-center shadow-2xl shadow-black/50 ring-1 ring-white/20">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-none bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-lg border border-white/30 flex items-center justify-center shadow-2xl shadow-black/50 ring-1 ring-white/20">
               <IconComponent size={22} className="text-[#FAFAF9] drop-shadow-[0_2px_8px_rgba(255,255,255,0.4)]" />
             </div>
-            <div className="absolute -inset-1 rounded-xl bg-[#C59A9F]/20 blur-sm -z-10" />
+            <div className="absolute -inset-1 rounded-none bg-[#C59A9F]/20 blur-sm -z-10" />
           </div>
 
           {/* Project Title with Luxury Typography */}
@@ -125,7 +125,7 @@ export const ProjectImage = ({
           </h4>
 
           {/* Editorial Subtitle Pill */}
-          <div className="inline-flex items-center gap-1 mt-1.5 px-2 py-0.5 rounded bg-black/30 border border-white/10 text-[8.5px] uppercase font-bold text-[#C59A9F] tracking-[0.2em]">
+          <div className="inline-flex items-center gap-1 mt-1.5 px-2 py-0.5 rounded-none bg-black/30 border border-white/10 text-[8.5px] uppercase font-bold text-[#C59A9F] tracking-[0.2em]">
             <span>{disciplineLabel}</span>
           </div>
 
@@ -143,7 +143,7 @@ export const ProjectImage = ({
           <div className="flex items-center gap-1">
             <span className="text-[#FAFAF9]/90">{deliverableSpec}</span>
           </div>
-          <span className="text-[#C59A9F] bg-white/10 px-1.5 py-0.5 rounded text-[8px] font-mono">
+          <span className="text-[#C59A9F] bg-white/10 px-1.5 py-0.5 rounded-none text-[8px] font-mono">
             ALAZAR STUDIO
           </span>
         </div>
