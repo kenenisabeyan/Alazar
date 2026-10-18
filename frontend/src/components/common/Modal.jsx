@@ -64,7 +64,7 @@ export const Modal = ({ isOpen, onClose, project, onPrev, onNext }) => {
           {/* Sticky Header Bar */}
           <div className="sticky top-0 bg-white/95 backdrop-blur-xl border-b border-[#C59A9F]/30 px-6 sm:px-8 py-4 flex items-center justify-between z-20">
             <div className="flex items-center gap-3">
-              <span className="text-[10px] uppercase tracking-[0.2em] px-3.5 py-1 bg-[#6B1D2F] text-white rounded-full font-black shadow-sm">
+              <span className="text-[10px] uppercase tracking-[0.2em] px-3.5 py-1 bg-[#6B1D2F] text-white rounded-none font-black shadow-sm">
                 {project.category}
               </span>
               <span className="text-xs text-[#292524] font-bold">{project.client} • {project.year || '2025'}</span>
@@ -74,7 +74,7 @@ export const Modal = ({ isOpen, onClose, project, onPrev, onNext }) => {
               {/* Share/Copy link button */}
               <button
                 onClick={handleCopyShare}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FAFAF9] border border-[#C59A9F]/50 text-[10px] font-black uppercase tracking-wider text-[#6B1D2F] hover:bg-[#6B1D2F] hover:text-white transition-all shadow-sm"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-none bg-[#FAFAF9] border border-[#C59A9F]/50 text-[10px] font-black uppercase tracking-wider text-[#6B1D2F] hover:bg-[#6B1D2F] hover:text-white transition-all shadow-sm"
                 title="Copy share link"
               >
                 {copied ? <Check size={12} className="text-emerald-500" /> : <Share2 size={12} />}
@@ -83,7 +83,7 @@ export const Modal = ({ isOpen, onClose, project, onPrev, onNext }) => {
 
               <button
                 onClick={onClose}
-                className="w-9 h-9 rounded-full bg-[#FAFAF9] border border-[#C59A9F] flex items-center justify-center text-[#292524] hover:text-[#6B1D2F] hover:border-[#6B1D2F] hover:bg-[#FAFAF9] transition-all shadow-sm"
+                className="w-9 h-9 rounded-none bg-[#FAFAF9] border border-[#C59A9F] flex items-center justify-center text-[#292524] hover:text-[#6B1D2F] hover:border-[#6B1D2F] hover:bg-[#FAFAF9] transition-all shadow-sm"
                 aria-label="Close modal"
               >
                 <X size={18} />
@@ -99,7 +99,7 @@ export const Modal = ({ isOpen, onClose, project, onPrev, onNext }) => {
               {onPrev && (
                 <button
                   onClick={(e) => { e.stopPropagation(); onPrev(); }}
-                  className="absolute left-3 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-black/60 hover:bg-[#6B1D2F] backdrop-blur-md text-white flex items-center justify-center border border-white/20 transition-all opacity-0 group-hover:opacity-100 shadow-xl"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-none bg-black/60 hover:bg-[#6B1D2F] backdrop-blur-md text-white flex items-center justify-center border border-white/20 transition-all opacity-0 group-hover:opacity-100 shadow-xl"
                   title="Previous project (←)"
                 >
                   <ChevronLeft size={20} />
@@ -109,7 +109,7 @@ export const Modal = ({ isOpen, onClose, project, onPrev, onNext }) => {
               {onNext && (
                 <button
                   onClick={(e) => { e.stopPropagation(); onNext(); }}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-black/60 hover:bg-[#6B1D2F] backdrop-blur-md text-white flex items-center justify-center border border-white/20 transition-all opacity-0 group-hover:opacity-100 shadow-xl"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-none bg-black/60 hover:bg-[#6B1D2F] backdrop-blur-md text-white flex items-center justify-center border border-white/20 transition-all opacity-0 group-hover:opacity-100 shadow-xl"
                   title="Next project (→)"
                 >
                   <ChevronRight size={20} />
@@ -197,7 +197,7 @@ export const Modal = ({ isOpen, onClose, project, onPrev, onNext }) => {
             <span className="text-[10px] text-[#292524] uppercase font-black tracking-wider hidden sm:inline-block">
               Use ← / → keys to navigate • Esc to exit
             </span>
-            <Button variant="secondary" className="text-xs py-2.5 px-7 rounded-full font-black uppercase tracking-widest" onClick={onClose}>
+            <Button variant="secondary" className="text-xs py-2.5 px-7 rounded-none font-black uppercase tracking-widest" onClick={onClose}>
               Close Window
             </Button>
           </div>
