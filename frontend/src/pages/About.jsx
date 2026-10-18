@@ -128,7 +128,7 @@ export default function About() {
                 <span className="text-[#6B1D2F] font-black">{profile.headline || 'Director & Visual Artist.'}</span>
               </h1>
 
-              <p className="text-sm sm:text-base md:text-lg text-[#1C1917] font-medium leading-relaxed max-w-lg bg-white/85 backdrop-blur-md px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl border border-[#C59A9F]/40 shadow-sm inline-block max-w-full break-words">
+              <p className="text-sm sm:text-base md:text-lg text-[#1C1917] font-medium leading-relaxed max-w-lg bg-white/85 backdrop-blur-md px-4 sm:px-5 py-2.5 sm:py-3 rounded-none border border-[#C59A9F]/40 shadow-sm inline-block max-w-full break-words">
                 {profile.shortDescription}
               </p>
 
@@ -137,7 +137,7 @@ export default function About() {
                   { icon: Film, title: 'Video Production', sub: 'DaVinci & RED 8K' },
                   { icon: Shapes, title: 'Brand & Graphic', sub: 'Identity Systems' },
                 ].map(({ icon: Icon, title, sub }) => (
-                  <div key={title} className="flex flex-col items-center justify-center text-center p-3 sm:p-3.5 rounded-2xl bg-white border border-[#C59A9F]/30 shadow-sm">
+                  <div key={title} className="flex flex-col items-center justify-center text-center p-3 sm:p-3.5 rounded-none bg-white border border-[#C59A9F]/30 shadow-sm">
                     <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-none bg-[#FAFAF9] text-[#6B1D2F] flex items-center justify-center flex-shrink-0 mb-1.5 shadow-sm">
                       <Icon size={16} />
                     </div>
@@ -224,7 +224,7 @@ export default function About() {
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.09 }}
                   whileHover={{ y: -6 }}
-                  className="glass-card-luxury p-3.5 sm:p-6 rounded-2xl sm:rounded-[2rem] flex flex-col items-center justify-center text-center"
+                  className="glass-card-luxury p-3.5 sm:p-6 rounded-none flex flex-col items-center justify-center text-center"
                 >
                   <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-none bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center flex-shrink-0 shadow-md sm:shadow-lg shadow-[#6B1D2F]/20 mb-2 sm:mb-3">
                     <IconComp size={20} className="sm:hidden" />

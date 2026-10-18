@@ -49,7 +49,7 @@ function FaqAccordion({ faqs }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: idx * 0.07 }}
-            className={`rounded-3xl sm:rounded-[2rem] border-2 overflow-hidden transition-all duration-300 ${isOpen
+            className={`rounded-none border-2 overflow-hidden transition-all duration-300 ${isOpen
                 ? 'border-[#6B1D2F] bg-white shadow-xl shadow-[#6B1D2F]/08'
                 : 'border-[#C59A9F]/50 bg-white hover:border-[#6B1D2F] shadow-sm hover:shadow-md'
               }`}
@@ -178,7 +178,7 @@ export default function Services() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-[#1C1917] font-medium text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto bg-white/85 backdrop-blur-md px-4 sm:px-6 py-2.5 sm:py-3.5 rounded-2xl border border-[#C59A9F]/40 shadow-sm max-w-full break-words"
+            className="text-[#1C1917] font-medium text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto bg-white/85 backdrop-blur-md px-4 sm:px-6 py-2.5 sm:py-3.5 rounded-none border border-[#C59A9F]/40 shadow-sm max-w-full break-words"
           >
             Whether you need remote video editing or full on-set production, get senior-level creative work, transparent pricing, and on-time delivery every time.
           </motion.p>
@@ -194,7 +194,7 @@ export default function Services() {
               viewport={{ once: true }}
               transition={{ duration: 0.65, delay: idx * 0.12 }}
               whileHover={{ y: -6 }}
-              className="bg-white border-2 border-[#C59A9F] rounded-[2rem] overflow-hidden shadow-sm hover:border-[#C59A9F] hover:shadow-xl transition-all duration-500 flex flex-col"
+              className="bg-white border-2 border-[#C59A9F] rounded-none overflow-hidden shadow-sm hover:border-[#C59A9F] hover:shadow-xl transition-all duration-500 flex flex-col"
             >
               {/* Top accent bar */}
               <div className="h-1 bg-gradient-to-r from-[#6B1D2F] via-[#8B1E3F] to-[#C59A9F]" />

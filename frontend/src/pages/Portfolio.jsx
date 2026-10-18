@@ -148,7 +148,7 @@ export default function Portfolio() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="text-[#1C1917] max-w-2xl mx-auto font-medium text-sm sm:text-lg mb-8 leading-relaxed bg-white/85 backdrop-blur-md px-4 sm:px-6 py-2.5 sm:py-3.5 rounded-2xl border border-[#C59A9F]/40 shadow-sm max-w-full break-words"
+          className="text-[#1C1917] max-w-2xl mx-auto font-medium text-sm sm:text-lg mb-8 leading-relaxed bg-white/85 backdrop-blur-md px-4 sm:px-6 py-2.5 sm:py-3.5 rounded-none border border-[#C59A9F]/40 shadow-sm max-w-full break-words"
         >
           An editorial archive of commercial video cuts, color-graded masters, brand identities, book covers, packaging, and digital imaging spreads.
         </motion.p>
@@ -248,7 +248,7 @@ export default function Portfolio() {
             ))}
           </div>
         ) : filteredProjects.length === 0 ? (
-          <div className="py-20 text-center bg-white rounded-3xl border border-[#C59A9F]/40 shadow-sm max-w-xl mx-auto space-y-4">
+          <div className="py-20 text-center bg-white rounded-none border border-[#C59A9F]/40 shadow-sm max-w-xl mx-auto space-y-4">
             <div className="w-16 h-16 rounded-none bg-[#6B1D2F]/10 border border-[#6B1D2F]/20 text-[#6B1D2F] flex items-center justify-center mx-auto">
               <Search size={28} />
             </div>
