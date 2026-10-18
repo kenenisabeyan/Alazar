@@ -64,7 +64,7 @@ export const PortfolioPresentationBoard = ({ projects = [], filter = 'all', pres
                 
                 <div className="flex items-center gap-1.5 sm:gap-2.5 text-[9px] sm:text-xs font-black tracking-[0.16em] sm:tracking-[0.22em] uppercase text-[#FAFAF9] flex-wrap pt-1">
                   <div className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl bg-white/10 border border-white/20 backdrop-blur-md shadow-sm">
-                    <PenTool size={11} className="text-[#C59A9F]" />
+                    <Paintbrush size={11} className="text-[#C59A9F]" />
                     <span>ILLUSTRATOR</span>
                   </div>
                   <div className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl bg-white/10 border border-white/20 backdrop-blur-md shadow-sm">
