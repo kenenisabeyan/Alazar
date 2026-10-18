@@ -48,7 +48,7 @@ export const ProjectImage = ({
     const sub = (subCategory || category || '').toLowerCase();
 
     // Determine icon based on discipline
-    let IconComponent = Palette;
+    let IconComponent = Shapes;
     let disciplineLabel = 'GRAPHIC DESIGN';
     let deliverableSpec = 'VECTOR SCALABLE • 300 DPI';
 

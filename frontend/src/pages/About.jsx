@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Film, Palette, Camera, Layers } from 'lucide-react';
+import { Film, Shapes, Camera, Layers } from 'lucide-react';
 
 import Button from '../components/common/Button';
 import SkillsSection from '../components/sections/SkillsSection';
@@ -19,11 +19,11 @@ const defaultPhilosophyCards = [
   { icon: Film, title: 'Paced Editing', desc: 'Cutting footage to match musical cadence, emotional beat, and narrative flow.' },
   { icon: Layers, title: 'Color Science', desc: 'Transforming flat camera log profiles into rich, cinematic color gamuts.' },
   { icon: Camera, title: 'Camera & Lens', desc: 'Capturing ultra-sharp 8K raw frames with prime lenses and controlled lighting.' },
-  { icon: Palette, title: 'Brand Identity', desc: 'Building cohesive poster art, motion graphics, and graphic design system.' },
+  { icon: Shapes, title: 'Brand Identity', desc: 'Building cohesive poster art, motion graphics, and graphic design system.' },
 ];
 
 const iconMap = {
-  Film, Layers, Camera, Palette, PenTool: Palette,
+  Film, Layers, Camera, Shapes, Palette: Shapes, PenTool: Shapes,
 };
 
 export default function About() {
