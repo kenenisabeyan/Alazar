@@ -105,7 +105,7 @@ export const SocialProof = () => {
                 </div>
 
                 {/* Discipline badge */}
-                <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/15 text-[10px] font-black text-white/70 uppercase tracking-widest">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-none bg-white/10 border border-white/15 text-[10px] font-black text-white/70 uppercase tracking-widest">
                   <DiscIcon size={11} /> {disc.label}
                 </div>
               </div>
@@ -242,7 +242,7 @@ export const SocialProof = () => {
                           style={{ fontFamily: theme.fonts.heading }}>
                         {t.author}
                       </h4>
-                      <span className={`flex-shrink-0 inline-flex items-center gap-1 text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full ${
+                      <span className={`flex-shrink-0 inline-flex items-center gap-1 text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-none ${
                         isActive ? 'bg-white/20 text-white/80' : 'bg-[#FAFAF9] text-[#6B1D2F]'
                       }`}>
                         <DIcon size={9} /> {d.label.split(' ')[0]}
