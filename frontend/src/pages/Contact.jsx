@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Mail, Phone, Clock, Send, CheckCircle2,
-  Database, Film, Palette, Sparkles,
+  Database, Film, Palette, Package,
 } from 'lucide-react';
 
 import Input             from '../components/common/Input';
@@ -19,7 +19,7 @@ const serviceOptions = [
   { value: 'freelance-video',  label: 'Video Editing & Color Grading',    icon: Film    },
   { value: 'freelance-design', label: 'Brand Design & Graphics',           icon: Palette },
   { value: 'in-person',        label: 'On-Set Filming & Directing',        icon: Film    },
-  { value: 'full-package',     label: 'Full Package (Video + Design)',      icon: Sparkles },
+  { value: 'full-package',     label: 'Full Package (Video + Design)',      icon: Package },
 ];
 
 const contactMeta = [

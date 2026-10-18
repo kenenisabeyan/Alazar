@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
   Film, Palette, ArrowRight, CheckCircle2,
-  Sliders, Monitor, Layers, Smartphone, Sparkles, Layout,
+  Sliders, Monitor, Layers, Smartphone, Shapes, Layout,
 } from 'lucide-react';
 import { theme } from '../../constants';
 
@@ -33,7 +33,7 @@ const services = [
     title: 'Graphic Design & Identity',
     desc: 'Comprehensive logo systems, brand strategy guides, editorial poster art, 3D visual concepts, and scalable digital design assets.',
     items: [
-      { icon: Sparkles, text: 'Brand Identity & Logo Systems' },
+      { icon: Shapes, text: 'Brand Identity & Logo Systems' },
       { icon: Layers, text: 'Poster Art & 3D Motion Graphics' },
       { icon: Monitor, text: 'Magazine & Editorial Print Layouts' },
       { icon: Layout, text: 'Digital UI Kits & Design Systems' },
