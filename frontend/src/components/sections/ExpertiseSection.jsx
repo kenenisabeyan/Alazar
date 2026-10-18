@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import {
   Film, Palette, Sliders, Layers, Monitor, Camera,
-  CheckCircle2, ArrowRight, Box, Trophy, Award, Star, Sparkles,
+  CheckCircle2, ArrowRight, Box, Trophy, Award, Star,
 } from 'lucide-react';
 import { theme } from '../../constants';
 
@@ -19,11 +19,10 @@ const iconMap = {
   Trophy,
   Award,
   Star,
-  Sparkles,
   CheckCircle2,
   // Fallbacks for legacy/backend strings
   PenTool: Palette,
-  Zap: Sparkles,
+  Zap: Sliders,
 };
 const getIcon = (name) => iconMap[name] || Film;
 
