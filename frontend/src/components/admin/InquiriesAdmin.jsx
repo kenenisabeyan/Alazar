@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
   Mail, Phone, Clock, Search, Filter, CheckCircle, Trash2, Edit2, Check,
-  Sparkles, RefreshCw, X, ShieldCheck, Tag, ArrowUpRight, Copy, MessageSquare, AlertCircle,
+  RefreshCw, X, ShieldCheck, Tag, ArrowUpRight, Copy, MessageSquare, AlertCircle,
   Download, LayoutGrid, List, Settings, Save, Eye
 } from 'lucide-react';
 import api from '../../api';
@@ -214,7 +214,6 @@ export default function InquiriesAdmin() {
         <div className="absolute top-0 right-0 w-64 h-64 bg-[#6B1D2F]/20 blur-3xl rounded-full pointer-events-none" />
         <div>
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 border border-white/20 text-[10px] font-black uppercase tracking-widest text-[#FAFAF9] mb-3">
-            <Sparkles size={11} className="text-[#E8B4BE]" />
             Client Inquiry Pipeline & CRM
           </div>
           <h1 className="text-3xl sm:text-4xl font-black text-white tracking-tight">Client Leads & Inquiries</h1>
