@@ -126,7 +126,7 @@ export const GearSection = ({ data }) => {
                       : 'bg-white/90 backdrop-blur-md border-[#C59A9F]/50 text-[#1C1917] hover:border-[#6B1D2F]'
                     }`}
                 >
-                  <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center mx-auto lg:mx-0 flex-shrink-0 transition-all ${isActive
+                  <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-none flex items-center justify-center mx-auto lg:mx-0 flex-shrink-0 transition-all ${isActive
                       ? 'bg-white/20 text-white shadow-md'
                       : 'bg-[#FAFAF9] text-[#6B1D2F] group-hover:bg-[#6B1D2F] group-hover:text-white'
                     }`}>
@@ -193,7 +193,7 @@ export const GearSection = ({ data }) => {
                         loading="lazy"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                      <span className="absolute bottom-2.5 left-3 px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md text-[10px] font-black tracking-widest uppercase text-white/95 border border-white/15 shadow-sm">
+                      <span className="absolute bottom-2.5 left-3 px-2.5 py-1 rounded-none bg-black/60 backdrop-blur-md text-[10px] font-black tracking-widest uppercase text-white/95 border border-white/15 shadow-sm">
                         {item.badge}
                       </span>
                     </div>
@@ -201,7 +201,7 @@ export const GearSection = ({ data }) => {
                     <div className="p-5 flex flex-col gap-3.5 flex-grow">
                       {/* Icon + name */}
                       <div className="flex items-start gap-3">
-                        <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center shadow-md shadow-[#6B1D2F]/20 flex-shrink-0">
+                        <div className="w-9 h-9 rounded-none bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center shadow-md shadow-[#6B1D2F]/20 flex-shrink-0">
                           <CheckCircle2 size={16} />
                         </div>
                         <h4
