@@ -121,7 +121,7 @@ export const GearSection = ({ data }) => {
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.07 }}
                   onClick={() => setActiveCategory(idx)}
-                  className={`flex flex-col lg:flex-row items-center justify-center lg:justify-start text-center lg:text-left gap-2 sm:gap-3.5 p-3 sm:px-5 sm:py-4 rounded-2xl sm:rounded-xl border-2 transition-all duration-300 w-full group ${isActive
+                  className={`flex flex-col lg:flex-row items-center justify-center lg:justify-start text-center lg:text-left gap-2 sm:gap-3.5 p-3 sm:px-5 sm:py-4 rounded-none border-2 transition-all duration-300 w-full group ${isActive
                       ? 'bg-[#6B1D2F] border-[#6B1D2F] text-white shadow-xl shadow-[#6B1D2F]/25'
                       : 'bg-white/90 backdrop-blur-md border-[#C59A9F]/50 text-[#1C1917] hover:border-[#6B1D2F]'
                     }`}
@@ -150,8 +150,8 @@ export const GearSection = ({ data }) => {
             })}
 
             {/* Spec badge */}
-            <div className="hidden lg:flex mt-4 p-4 bg-white/90 backdrop-blur-md border border-[#C59A9F]/60 rounded-xl items-center gap-3 shadow-sm">
-              <div className="w-9 h-9 rounded-lg bg-[#FAFAF9] text-[#6B1D2F] flex items-center justify-center flex-shrink-0 shadow-sm">
+            <div className="hidden lg:flex mt-4 p-4 bg-white/90 backdrop-blur-md border border-[#C59A9F]/60 rounded-none items-center gap-3 shadow-sm">
+              <div className="w-9 h-9 rounded-none bg-[#FAFAF9] text-[#6B1D2F] flex items-center justify-center flex-shrink-0 shadow-sm">
                 <Tv size={16} />
               </div>
               <div>
@@ -179,7 +179,7 @@ export const GearSection = ({ data }) => {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: idx * 0.07 }}
                     whileHover={{ y: -6 }}
-                    className="group bg-white/95 backdrop-blur-md rounded-2xl border border-[#C59A9F]/60 shadow-sm hover:border-[#6B1D2F] hover:shadow-xl transition-all duration-400 overflow-hidden flex flex-col"
+                    className="group bg-white/95 backdrop-blur-md rounded-none border border-[#C59A9F]/60 shadow-sm hover:border-[#6B1D2F] hover:shadow-xl transition-all duration-400 overflow-hidden flex flex-col"
                   >
                     {/* Top colour band */}
                     <div className="h-1 bg-gradient-to-r from-[#6B1D2F] to-[#C59A9F]" />
