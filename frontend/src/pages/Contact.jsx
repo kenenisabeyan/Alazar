@@ -261,7 +261,7 @@ export default function Contact() {
                 Let's Build<br />
                 <span className="text-gradient-burgundy font-black">Something Great.</span>
               </h1>
-              <p className="text-[#1C1917] font-medium text-sm sm:text-base md:text-lg leading-relaxed max-w-md bg-white/85 backdrop-blur-md px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl border border-[#C59A9F]/40 shadow-sm inline-block max-w-full break-words">
+              <p className="text-[#1C1917] font-medium text-sm sm:text-base md:text-lg leading-relaxed max-w-md bg-white/85 backdrop-blur-md px-4 sm:px-5 py-2.5 sm:py-3 rounded-none border border-[#C59A9F]/40 shadow-sm inline-block max-w-full break-words">
                 Ready to start your next video or design project? Fill out the brief below, your inquiry goes straight into the PERN backend.
               </p>
             </div>
@@ -272,7 +272,7 @@ export default function Contact() {
                 { icon: Film,    title: 'Video Production',  sub: 'Editing · Grading · Sound' },
                 { icon: Shapes,  title: 'Graphic Design',    sub: 'Brand · Motion · 3D Art'   },
               ].map(({ icon: Icon, title, sub }) => (
-                <div key={title} className="flex flex-col items-center justify-center text-center p-3 sm:p-4 bg-white rounded-2xl border border-[#C59A9F] shadow-sm hover:border-[#6B1D2F] transition-colors">
+                <div key={title} className="flex flex-col items-center justify-center text-center p-3 sm:p-4 bg-white rounded-none border border-[#C59A9F] shadow-sm hover:border-[#6B1D2F] transition-colors">
                   <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-none bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center flex-shrink-0 shadow-md shadow-[#6B1D2F]/20 mb-1.5 sm:mb-2">
                     <Icon size={16} />
                   </div>
@@ -287,7 +287,7 @@ export default function Contact() {
             {/* Contact meta */}
             <div className="space-y-3">
               {contactMetaItems.map(({ icon: Icon, label, content }) => (
-                <div key={label} className="flex items-center gap-3 sm:gap-3.5 p-3.5 sm:p-4 bg-white rounded-2xl border border-[#C59A9F] shadow-sm">
+                <div key={label} className="flex items-center gap-3 sm:gap-3.5 p-3.5 sm:p-4 bg-white rounded-none border border-[#C59A9F] shadow-sm">
                   <div className="w-10 h-10 sm:w-11 sm:h-11 bg-[#FAFAF9] border border-[#C59A9F]/40 rounded-none flex items-center justify-center text-[#6B1D2F] flex-shrink-0">
                     <Icon size={17} />
                   </div>
@@ -300,7 +300,7 @@ export default function Contact() {
             </div>
 
             {/* Availability pulse */}
-            <div className="flex items-center gap-3 p-3.5 sm:p-4 bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] rounded-2xl shadow-lg shadow-[#6B1D2F]/20">
+            <div className="flex items-center gap-3 p-3.5 sm:p-4 bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] rounded-none shadow-lg shadow-[#6B1D2F]/20">
               <div className="relative flex-shrink-0">
                 <span className="absolute inline-flex h-3 w-3 rounded-full bg-emerald-400 opacity-75 animate-ping" />
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500" />
@@ -318,7 +318,7 @@ export default function Contact() {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
-            className="lg:col-span-7 bg-white rounded-[2rem] border-2 border-[#C59A9F] shadow-xl overflow-hidden scroll-mt-24 relative"
+            className="lg:col-span-7 bg-white rounded-none border-2 border-[#C59A9F] shadow-xl overflow-hidden scroll-mt-24 relative"
           >
             {/* Direct alias for #form links */}
             <div id="form" className="absolute -top-24 left-0 pointer-events-none" />
@@ -351,7 +351,7 @@ export default function Contact() {
                         <button
                           type="button"
                           onClick={() => copyToClipboard(inquiryRef, 'ref')}
-                          className="px-2.5 py-0.5 rounded bg-[#6B1D2F] text-white text-[10px] uppercase font-sans font-black hover:bg-[#8B1E3F] transition-colors"
+                          className="px-2.5 py-0.5 rounded-none bg-[#6B1D2F] text-white text-[10px] uppercase font-sans font-black hover:bg-[#8B1E3F] transition-colors"
                         >
                           {copiedField === 'ref' ? 'Copied!' : 'Copy'}
                         </button>
@@ -387,7 +387,7 @@ export default function Contact() {
                     </div>
 
                     {serverError && (
-                      <div className="p-4 bg-rose-50 border border-rose-200 text-rose-700 text-sm rounded-xl">
+                      <div className="p-4 bg-rose-50 border border-rose-200 text-rose-700 text-sm rounded-none">
                         {serverError}
                       </div>
                     )}
@@ -413,13 +413,13 @@ export default function Contact() {
                               key={value}
                               type="button"
                               onClick={() => setFormData(p => ({ ...p, projectType: value }))}
-                              className={`flex flex-col items-center justify-center text-center p-3 sm:p-3.5 rounded-xl border-2 text-xs font-black transition-all ${
+                              className={`flex flex-col items-center justify-center text-center p-3 sm:p-3.5 rounded-none border-2 text-xs font-black transition-all ${
                                 active
                                   ? 'bg-[#6B1D2F] border-[#6B1D2F] text-white shadow-md'
                                   : 'bg-white border-[#C59A9F]/50 text-[#1C1917] hover:border-[#6B1D2F]'
                               }`}
                             >
-                              <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mb-1.5 sm:mb-2 ${
+                              <div className={`w-8 h-8 rounded-none flex items-center justify-center flex-shrink-0 mb-1.5 sm:mb-2 ${
                                 active ? 'bg-white/20 text-white' : 'bg-[#FAFAF9] text-[#6B1D2F]'
                               }`}>
                                 <Icon size={15} />
@@ -440,7 +440,7 @@ export default function Contact() {
                         name="budget"
                         value={formData.budget}
                         onChange={handleChange}
-                        className="w-full bg-[#FAFAF9] border-2 border-[#C59A9F] rounded-xl px-4 py-3.5 text-[#1C1917] font-medium focus:outline-none focus:border-[#6B1D2F] text-sm appearance-none cursor-pointer transition-colors"
+                        className="w-full bg-[#FAFAF9] border-2 border-[#C59A9F] rounded-none px-4 py-3.5 text-[#1C1917] font-medium focus:outline-none focus:border-[#6B1D2F] text-sm appearance-none cursor-pointer transition-colors"
                       >
                         <option value="under-3k">&lt; $3,000</option>
                         <option value="$3k to $5k">$3,000 to $5,000</option>
@@ -466,7 +466,7 @@ export default function Contact() {
                       variant="primary"
                       loading={loading}
                       icon={<Send size={16} />}
-                      className="w-full py-4 rounded-xl font-black text-xs uppercase tracking-widest"
+                      className="w-full py-4 rounded-none font-black text-xs uppercase tracking-widest"
                     >
                       Send Project Inquiry
                     </Button>

@@ -58,7 +58,7 @@ export const Modal = ({ isOpen, onClose, project, onPrev, onNext }) => {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.94, y: 20 }}
           transition={{ type: 'spring', stiffness: 350, damping: 28 }}
-          className="relative w-full max-w-6xl max-h-[92vh] bg-white border border-[#C59A9F]/40 rounded-3xl shadow-2xl overflow-y-auto overflow-x-hidden z-10 flex flex-col my-auto border-t-4 border-t-[#6B1D2F]"
+          className="relative w-full max-w-6xl max-h-[92vh] bg-white border border-[#C59A9F]/40 rounded-none shadow-2xl overflow-y-auto overflow-x-hidden z-10 flex flex-col my-auto border-t-4 border-t-[#6B1D2F]"
         >
 
           {/* Sticky Header Bar */}
@@ -95,7 +95,7 @@ export const Modal = ({ isOpen, onClose, project, onPrev, onNext }) => {
           <div className="p-6 sm:p-10 space-y-8">
 
             {/* Media Player Container with Floating Gallery Nav Arrows */}
-            <div className="group relative aspect-video rounded-3xl overflow-hidden bg-[#1E0A0D] border border-[#C59A9F]/40 shadow-2xl">
+            <div className="group relative aspect-video rounded-none overflow-hidden bg-[#1E0A0D] border border-[#C59A9F]/40 shadow-2xl">
               {onPrev && (
                 <button
                   onClick={(e) => { e.stopPropagation(); onPrev(); }}
@@ -158,7 +158,7 @@ export const Modal = ({ isOpen, onClose, project, onPrev, onNext }) => {
                 </p>
               </div>
 
-              <div className="md:col-span-5 lg:col-span-4 bg-gradient-to-br from-[#FAFAF9] to-white p-6 sm:p-7 rounded-3xl border border-[#C59A9F]/40 shadow-lg space-y-5">
+              <div className="md:col-span-5 lg:col-span-4 bg-gradient-to-br from-[#FAFAF9] to-white p-6 sm:p-7 rounded-none border border-[#C59A9F]/40 shadow-lg space-y-5">
                 <div>
                   <h4 className="text-[11px] uppercase tracking-[0.2em] text-[#6B1D2F] font-black mb-1.5">
                     Role & Responsibility
@@ -182,7 +182,7 @@ export const Modal = ({ isOpen, onClose, project, onPrev, onNext }) => {
 
                 <button
                   onClick={handleInquire}
-                  className="w-full py-3.5 px-4 rounded-2xl bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] text-white font-black text-xs uppercase tracking-widest flex items-center justify-center gap-2 shadow-lg shadow-[#6B1D2F]/20 hover:scale-[1.02] active:scale-98 transition-all"
+                  className="w-full py-3.5 px-4 rounded-none bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] text-white font-black text-xs uppercase tracking-widest flex items-center justify-center gap-2 shadow-lg shadow-[#6B1D2F]/20 hover:scale-[1.02] active:scale-98 transition-all"
                 >
                   <MessageSquare size={15} />
                   <span>Inquire Similar Project</span>
