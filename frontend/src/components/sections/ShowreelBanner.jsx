@@ -118,10 +118,10 @@ export const ShowreelBanner = ({ onOpenShowreel }) => {
             <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-96 h-64 bg-[#6B1D2F]/30 blur-[80px] rounded-full pointer-events-none" />
 
             {/* Viewfinder Corners */}
-            <div className="absolute top-4 left-4 w-4 h-4 border-t-2 border-l-2 border-white/40 rounded-tl-sm pointer-events-none" />
-            <div className="absolute top-4 right-4 w-4 h-4 border-t-2 border-r-2 border-white/40 rounded-tr-sm pointer-events-none" />
-            <div className="absolute bottom-4 left-4 w-4 h-4 border-b-2 border-l-2 border-white/40 rounded-bl-sm pointer-events-none" />
-            <div className="absolute bottom-4 right-4 w-4 h-4 border-b-2 border-r-2 border-white/40 rounded-br-sm pointer-events-none" />
+            <div className="absolute top-4 left-4 w-4 h-4 border-t-2 border-l-2 border-white/40 pointer-events-none" />
+            <div className="absolute top-4 right-4 w-4 h-4 border-t-2 border-r-2 border-white/40 pointer-events-none" />
+            <div className="absolute bottom-4 left-4 w-4 h-4 border-b-2 border-l-2 border-white/40 pointer-events-none" />
+            <div className="absolute bottom-4 right-4 w-4 h-4 border-b-2 border-r-2 border-white/40 pointer-events-none" />
 
             {/* Top-left — title overlay */}
             <div className="absolute top-3 left-3 sm:top-6 sm:left-7 z-10 pointer-events-none">
