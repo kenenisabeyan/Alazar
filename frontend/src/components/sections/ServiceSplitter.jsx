@@ -97,7 +97,7 @@ export const ServiceSplitter = () => {
                 transition={{ duration: 0.65, delay: idx * 0.12, ease: [0.16, 1, 0.3, 1] }}
                 whileHover={{ y: -8 }}
                 onClick={() => { navigate(svc.path); window.scrollTo(0, 0); }}
-                className={`group cursor-pointer rounded-[2rem] overflow-hidden border transition-all duration-500 flex flex-col ${svc.dark
+                className={`group cursor-pointer rounded-none overflow-hidden border transition-all duration-500 flex flex-col ${svc.dark
                     ? 'bg-gradient-to-br from-[#6B1D2F] via-[#521523] to-[#3B0E19] border-[#C59A9F]/30 shadow-xl shadow-[#6B1D2F]/25 hover:border-[#C59A9F]/60'
                     : 'bg-white border-[#C59A9F]/60 shadow-xl shadow-black/05 hover:border-[#6B1D2F]'
                   }`}

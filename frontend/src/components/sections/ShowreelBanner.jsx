@@ -97,7 +97,7 @@ export const ShowreelBanner = ({ onOpenShowreel }) => {
         >
           <div
             onClick={onOpenShowreel}
-            className="relative aspect-[16/10] sm:aspect-[16/9] md:aspect-[21/9] rounded-[2rem] overflow-hidden bg-[#1E0A0D] shadow-2xl shadow-[#1E0A0D]/50 border border-[#C59A9F]/20 cursor-pointer group select-none"
+            className="relative aspect-[16/10] sm:aspect-[16/9] md:aspect-[21/9] rounded-none overflow-hidden bg-[#1E0A0D] shadow-2xl shadow-[#1E0A0D]/50 border border-[#C59A9F]/20 cursor-pointer group select-none"
           >
             {/* Video */}
             <video
@@ -155,11 +155,11 @@ export const ShowreelBanner = ({ onOpenShowreel }) => {
               transition={{ type: 'spring', stiffness: 350, damping: 25 }}
               className="absolute inset-0 flex flex-col items-center justify-center z-10 pointer-events-none px-4"
             >
-              <div className="w-14 h-14 sm:w-20 sm:h-20 rounded-full bg-white/95 text-[#6B1D2F] flex items-center justify-center shadow-2xl shadow-[#1E0A0D]/60 border border-white/80 ring-4 sm:ring-8 ring-white/15 group-hover:ring-white/30 transition-all duration-300">
+              <div className="w-14 h-14 sm:w-20 sm:h-20 rounded-none bg-white/95 text-[#6B1D2F] flex items-center justify-center shadow-2xl shadow-[#1E0A0D]/60 border border-white/80 ring-4 sm:ring-8 ring-white/15 group-hover:ring-white/30 transition-all duration-300">
                 <Play size={22} className="sm:hidden ml-0.5 fill-[#6B1D2F]" />
                 <Play size={28} className="hidden sm:inline ml-1 fill-[#6B1D2F]" />
               </div>
-              <p className="mt-2.5 sm:mt-4 text-[9.5px] sm:text-[11px] font-black uppercase tracking-[0.14em] sm:tracking-[0.2em] text-white/95 bg-black/70 backdrop-blur-md px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full border border-white/20 shadow-xl max-w-[90%] text-center">
+              <p className="mt-2.5 sm:mt-4 text-[9.5px] sm:text-[11px] font-black uppercase tracking-[0.14em] sm:tracking-[0.2em] text-white/95 bg-black/70 backdrop-blur-md px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-none border border-white/20 shadow-xl max-w-[90%] text-center">
                 Click to Watch Full Showreel
               </p>
             </motion.div>
@@ -173,7 +173,7 @@ export const ShowreelBanner = ({ onOpenShowreel }) => {
               ].map(({ icon: Icon, text }) => (
                 <div
                   key={text}
-                  className="hidden sm:flex items-center gap-1.5 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/15 text-[9.5px] font-black uppercase tracking-wider text-white/90 shadow-md"
+                  className="hidden sm:flex items-center gap-1.5 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-none border border-white/15 text-[9.5px] font-black uppercase tracking-wider text-white/90 shadow-md"
                 >
                   <Icon size={12} className="text-[#C59A9F]" />
                   {text}
@@ -183,7 +183,7 @@ export const ShowreelBanner = ({ onOpenShowreel }) => {
 
             {/* Bottom-right — format badge (desktop only to prevent collision with center text on mobile) */}
             <div className="hidden sm:block absolute bottom-6 right-7 z-10 pointer-events-none">
-              <div className="px-3.5 py-1.5 rounded-full bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] text-white text-[9.5px] font-black uppercase tracking-[0.2em] shadow-lg border border-white/20">
+              <div className="px-3.5 py-1.5 rounded-none bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] text-white text-[9.5px] font-black uppercase tracking-[0.2em] shadow-lg border border-white/20">
                 PRORES 422 HQ
               </div>
             </div>
@@ -209,9 +209,9 @@ export const ShowreelBanner = ({ onOpenShowreel }) => {
               viewport={{ once: true }}
               transition={{ delay: 0.1 + idx * 0.07 }}
               whileHover={{ y: -4 }}
-              className="glass-card-luxury rounded-2xl p-3 sm:p-4 md:p-5 flex flex-col items-center justify-center text-center"
+              className="glass-card-luxury rounded-none p-3 sm:p-4 md:p-5 flex flex-col items-center justify-center text-center"
             >
-              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center flex-shrink-0 shadow-md shadow-[#6B1D2F]/20 mb-2 sm:mb-2.5">
+              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-none bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center flex-shrink-0 shadow-md shadow-[#6B1D2F]/20 mb-2 sm:mb-2.5">
                 <Icon size={18} />
               </div>
               <div className="w-full">
