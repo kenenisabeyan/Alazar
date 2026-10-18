@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Film, PenTool, Camera, Layers } from 'lucide-react';
+import { Film, Palette, Camera, Layers } from 'lucide-react';
 
 import Button from '../components/common/Button';
 import SkillsSection from '../components/sections/SkillsSection';
@@ -19,11 +19,11 @@ const defaultPhilosophyCards = [
   { icon: Film, title: 'Paced Editing', desc: 'Cutting footage to match musical cadence, emotional beat, and narrative flow.' },
   { icon: Layers, title: 'Color Science', desc: 'Transforming flat camera log profiles into rich, cinematic color gamuts.' },
   { icon: Camera, title: 'Camera & Lens', desc: 'Capturing ultra-sharp 8K raw frames with prime lenses and controlled lighting.' },
-  { icon: PenTool, title: 'Brand Identity', desc: 'Building cohesive poster art, motion graphics, and graphic design system.' },
+  { icon: Palette, title: 'Brand Identity', desc: 'Building cohesive poster art, motion graphics, and graphic design system.' },
 ];
 
 const iconMap = {
-  Film, Layers, Camera, PenTool
+  Film, Layers, Camera, Palette, PenTool: Palette,
 };
 
 export default function About() {
@@ -135,7 +135,7 @@ export default function About() {
               <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
                 {[
                   { icon: Film, title: 'Video Production', sub: 'DaVinci & RED 8K' },
-                  { icon: PenTool, title: 'Brand & Graphic', sub: 'Identity Systems' },
+                  { icon: Palette, title: 'Brand & Graphic', sub: 'Identity Systems' },
                 ].map(({ icon: Icon, title, sub }) => (
                   <div key={title} className="flex flex-col items-center justify-center text-center p-3 sm:p-3.5 rounded-2xl bg-white border border-[#C59A9F]/30 shadow-sm">
                     <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#FAFAF9] text-[#6B1D2F] flex items-center justify-center flex-shrink-0 mb-1.5 shadow-sm">
