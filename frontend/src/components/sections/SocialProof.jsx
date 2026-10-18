@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   ChevronLeft, ChevronRight, Quote, Star,
-  Sparkles, Film, PenTool, ArrowRight,
+  Film, PenTool, ArrowRight,
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { testimonials, clientLogos, theme } from '../../constants';

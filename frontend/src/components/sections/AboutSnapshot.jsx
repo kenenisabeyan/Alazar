@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
-  Film, PenTool, Sparkles, Quote, ArrowRight,
+  Film, PenTool, Quote, ArrowRight,
   Layers, CheckCircle2, Award, Camera, Zap,
 } from 'lucide-react';
 import Button from '../common/Button';

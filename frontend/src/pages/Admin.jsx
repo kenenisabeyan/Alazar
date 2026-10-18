@@ -7,7 +7,7 @@ import {
   Play, User, Link2, Globe, Navigation, Layers, Palette, Camera,
   Mail, Calculator, LogOut, Menu, X, RefreshCw, Plus, Trash2,
   Edit3, Save, CheckCircle, Shield, ChevronRight, Eye, EyeOff,
-  Upload, Star, GripVertical, Minus, ExternalLink, Sparkles,
+  Upload, Star, GripVertical, Minus, ExternalLink,
 } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
@@ -30,7 +30,7 @@ const btnDanger = 'p-2 rounded-lg text-red-400 hover:text-red-300 hover:bg-red-9
 // ── Sidebar nav items ─────────────────────────────────────────────────────────
 const NAV_ITEMS = [
   { id: 'dashboard',     label: 'Dashboard',       icon: LayoutDashboard, group: 'Overview'  },
-  { id: 'about-cms',     label: 'About Page CMS',  icon: Sparkles,        group: 'Overview'  },
+  { id: 'about-cms',     label: 'About Page CMS',  icon: User,            group: 'Overview'  },
   { id: 'portfolio-cms', label: 'Portfolio CMS',   icon: Layers,          group: 'Overview'  },
   { id: 'services-cms',  label: 'Services CMS',    icon: Wrench,          group: 'Overview'  },
   { id: 'contact-cms',   label: 'Contact CRM',     icon: Mail,            group: 'Overview'  },

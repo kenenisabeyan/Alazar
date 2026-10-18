@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import {
-  Play, Volume2, VolumeX, Sparkles,
+  Play, Volume2, VolumeX,
   Film, Disc, Camera, Sliders, ArrowRight,
 } from 'lucide-react';
 import { theme } from '../../constants';

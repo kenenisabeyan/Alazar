@@ -6,7 +6,6 @@ import {
   X,
   ArrowUpRight,
   Download,
-  Sparkles,
   Moon,
   Sun,
   Plus,
