@@ -362,7 +362,7 @@ export const ExpertiseSection = ({ data, statistics }) => {
                 <span className="text-[11px] font-black uppercase tracking-[0.25em] text-white/90 whitespace-nowrap px-6">
                   {item}
                 </span>
-                <span className="text-white text-xs flex-shrink-0">✦</span>
+                <span className="text-white/40 text-xs flex-shrink-0">•</span>
               </React.Fragment>
             ))}
           </motion.div>
