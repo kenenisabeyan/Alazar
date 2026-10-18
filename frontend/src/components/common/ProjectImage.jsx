@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Film, Layout, BookOpen, Package, Layers, Smartphone, Palette, Type, Image as ImageIcon, CheckCircle2, ShieldCheck } from 'lucide-react';
+import { Film, Layout, BookOpen, Package, Layers, Smartphone, Shapes, Type, Image as ImageIcon, CheckCircle2, ShieldCheck } from 'lucide-react';
 
 const categoryThemes = {
   design: {
