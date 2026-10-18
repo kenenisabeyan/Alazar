@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
-  User, Film, PenTool, Cpu, Briefcase, Award, Camera, ShieldCheck,
+  User, Film, Sparkles, Cpu, Briefcase, Award, Camera, ShieldCheck,
   Eye, EyeOff, Plus, Trash2, Edit2, Check, Save, ArrowUp, ArrowDown, Layers, Sliders, Mail, Globe, Phone, MapPin
 } from 'lucide-react';
 import api from '../../api';
@@ -105,7 +105,7 @@ export default function AboutAdmin() {
 
   const tabs = [
     { id: 'profile', label: 'Profile & Hero', icon: User },
-    { id: 'capabilities', label: 'Capabilities', icon: PenTool },
+    { id: 'capabilities', label: 'Capabilities', icon: Sparkles },
     { id: 'disciplines', label: 'Disciplines & Tags', icon: Film },
     { id: 'skills', label: 'Skills & Software', icon: Cpu },
     { id: 'work', label: 'Career History', icon: Briefcase },

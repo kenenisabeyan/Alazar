@@ -37,7 +37,7 @@ const defaultPortfolioSettings = {
     { id: 'design', name: 'Design', slug: 'design', icon: 'Layout', displayOrder: 2, isVisible: true }
   ],
   creativeRoles: [
-    { id: 1, name: 'ILLUSTRATOR', icon: 'PenTool', displayOrder: 0, isVisible: true },
+    { id: 1, name: 'ILLUSTRATOR', icon: 'Paintbrush', displayOrder: 0, isVisible: true },
     { id: 2, name: 'GRAPHIC DESIGNER', icon: 'Layers', displayOrder: 1, isVisible: true },
     { id: 3, name: 'VIDEO EDITOR', icon: 'Film', displayOrder: 2, isVisible: true }
   ]

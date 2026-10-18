@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Mail, Phone, Clock, Send, CheckCircle2,
-  Database, Film, PenTool, Zap,
+  Database, Film, Palette, Sparkles,
 } from 'lucide-react';
 
 import Input             from '../components/common/Input';
@@ -17,9 +17,9 @@ import heroBg            from '../assets/images/hero-bg.png';
 
 const serviceOptions = [
   { value: 'freelance-video',  label: 'Video Editing & Color Grading',    icon: Film    },
-  { value: 'freelance-design', label: 'Brand Design & Graphics',           icon: PenTool },
+  { value: 'freelance-design', label: 'Brand Design & Graphics',           icon: Palette },
   { value: 'in-person',        label: 'On-Set Filming & Directing',        icon: Film    },
-  { value: 'full-package',     label: 'Full Package (Video + Design)',      icon: Zap     },
+  { value: 'full-package',     label: 'Full Package (Video + Design)',      icon: Sparkles },
 ];
 
 const contactMeta = [
@@ -270,7 +270,7 @@ export default function Contact() {
             <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
               {[
                 { icon: Film,    title: 'Video Production',  sub: 'Editing · Grading · Sound' },
-                { icon: PenTool, title: 'Graphic Design',    sub: 'Brand · Motion · 3D Art'   },
+                { icon: Palette, title: 'Graphic Design',    sub: 'Brand · Motion · 3D Art'   },
               ].map(({ icon: Icon, title, sub }) => (
                 <div key={title} className="flex flex-col items-center justify-center text-center p-3 sm:p-4 bg-white rounded-2xl border border-[#C59A9F] shadow-sm hover:border-[#6B1D2F] transition-colors">
                   <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center flex-shrink-0 shadow-md shadow-[#6B1D2F]/20 mb-1.5 sm:mb-2">

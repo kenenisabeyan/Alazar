@@ -38,7 +38,7 @@ function initAboutStore() {
       { id: 1, title: 'Paced Editing', description: 'Cutting footage to match musical cadence, emotional beat, and narrative flow.', iconName: 'Film', customIcon: '', image: '', isVisible: true, displayOrder: 0 },
       { id: 2, title: 'Color Science', description: 'Transforming flat camera log profiles into rich, cinematic color gamuts.', iconName: 'Layers', customIcon: '', image: '', isVisible: true, displayOrder: 1 },
       { id: 3, title: 'Camera & Lens', description: 'Capturing ultra-sharp 8K raw frames with prime lenses and controlled lighting.', iconName: 'Camera', customIcon: '', image: '', isVisible: true, displayOrder: 2 },
-      { id: 4, title: 'Brand Identity', description: 'Building cohesive poster art, motion graphics, and graphic design system.', iconName: 'PenTool', customIcon: '', image: '', isVisible: true, displayOrder: 3 }
+      { id: 4, title: 'Brand Identity', description: 'Building cohesive poster art, motion graphics, and graphic design system.', iconName: 'Palette', customIcon: '', image: '', isVisible: true, displayOrder: 3 }
     ];
   }
 
@@ -67,7 +67,7 @@ function initAboutStore() {
         experienceLabel: 'Senior Level',
         headline: 'Senior Graphics Designer & Director',
         description: 'Comprehensive brand identity systems, editorial poster design, 3D visual concepts, motion graphics, and digital UI kits — built to last and scale across every brand touchpoint.',
-        primaryIcon: 'PenTool',
+        primaryIcon: 'Palette',
         coverImage: '',
         awardText: 'Awwwards Site of the Day',
         awardIcon: 'Star',
@@ -85,8 +85,8 @@ function initAboutStore() {
       { id: 2, disciplineId: 1, title: 'Commercial Edit', subtitle: 'Premiere Pro / Resolve', description: 'Rhythmic editing and multi-cam sync', icon: 'Film', software: 'Adobe Premiere Pro', isVisible: true, displayOrder: 1 },
       { id: 3, disciplineId: 1, title: 'Sound Design', subtitle: 'Fairlight & Pro Tools', description: 'Foley, ambient mixing, audio restoration', icon: 'Monitor', software: 'Fairlight & Pro Tools', isVisible: true, displayOrder: 2 },
       { id: 4, disciplineId: 1, title: '8K Cinema RAW', subtitle: 'RED V-Raptor / FX6', description: 'High resolution digital cinematography workflow', icon: 'Camera', software: 'RED / Sony', isVisible: true, displayOrder: 3 },
-      { id: 5, disciplineId: 2, title: 'Brand Identity', subtitle: 'Illustrator / Figma', description: 'Logo systems, typography rules, brand guidelines', icon: 'PenTool', software: 'Adobe Illustrator', isVisible: true, displayOrder: 0 },
-      { id: 6, disciplineId: 2, title: 'Motion Graphics', subtitle: 'After Effects / C4D', description: 'Keyframe animation, 2D/3D visual effects', icon: 'Zap', software: 'Adobe After Effects', isVisible: true, displayOrder: 1 },
+      { id: 5, disciplineId: 2, title: 'Brand Identity', subtitle: 'Illustrator / Figma', description: 'Logo systems, typography rules, brand guidelines', icon: 'Palette', software: 'Adobe Illustrator', isVisible: true, displayOrder: 0 },
+      { id: 6, disciplineId: 2, title: 'Motion Graphics', subtitle: 'After Effects / C4D', description: 'Keyframe animation, 2D/3D visual effects', icon: 'Sparkles', software: 'Adobe After Effects', isVisible: true, displayOrder: 1 },
       { id: 7, disciplineId: 2, title: 'Print & Editorial', subtitle: 'InDesign / Photoshop', description: 'High-res poster art and print masters', icon: 'Layers', software: 'Adobe InDesign', isVisible: true, displayOrder: 2 },
       { id: 8, disciplineId: 2, title: '3D Art Direction', subtitle: 'Blender / Octane', description: 'Product renders and 3D concept graphics', icon: 'Camera', software: 'Blender 3D', isVisible: true, displayOrder: 3 }
     ];
@@ -111,7 +111,7 @@ function initAboutStore() {
   if (!memoryStore.about_statistics) {
     memoryStore.about_statistics = [
       { id: 1, value: '140', suffix: '+', label: 'Projects Delivered', description: 'Completed commercial, music video, and brand design projects', icon: 'Film', isVisible: true, displayOrder: 0 },
-      { id: 2, value: '8', suffix: '+', label: 'Years of Mastery', description: 'Dedicated creative experience across video and design', icon: 'Zap', isVisible: true, displayOrder: 1 },
+      { id: 2, value: '8', suffix: '+', label: 'Years of Mastery', description: 'Dedicated creative experience across video and design', icon: 'Award', isVisible: true, displayOrder: 1 },
       { id: 3, value: '98', suffix: '%', label: 'Client Satisfaction', description: 'Consistently praised for quality, communication, and deadlines', icon: 'Star', isVisible: true, displayOrder: 2 },
       { id: 4, value: '12', suffix: '', label: 'Industry Awards Won', description: 'Recognized by Vimeo, Telly Awards, and Cannes Lions shortlist', icon: 'Award', isVisible: true, displayOrder: 3 }
     ];
@@ -120,7 +120,7 @@ function initAboutStore() {
   if (!memoryStore.skill_categories) {
     memoryStore.skill_categories = [
       { id: 1, name: 'Video & Post-Production', slug: 'video', icon: 'Film', description: 'Editing, color science, sound design', isVisible: true, displayOrder: 0 },
-      { id: 2, name: 'Graphic & Motion Design', slug: 'design', icon: 'PenTool', description: 'Branding, illustration, typography, 3D motion', isVisible: true, displayOrder: 1 },
+      { id: 2, name: 'Graphic & Motion Design', slug: 'design', icon: 'Palette', description: 'Branding, illustration, typography, 3D motion', isVisible: true, displayOrder: 1 },
       { id: 3, name: 'Filming & Field Operation', slug: 'filming', icon: 'Camera', description: 'Camera operation, lighting, audio capture', isVisible: true, displayOrder: 2 }
     ];
   }
@@ -129,13 +129,13 @@ function initAboutStore() {
     memoryStore.professional_skills = [
       { id: 1, categoryId: 1, name: 'DaVinci Resolve Studio', description: 'Color grading, Fairlight audio & node-based editing', percentage: 98, experienceLevel: 'EXPERT', icon: 'Film', customIcon: '', logo: '', softwareWebsite: 'https://www.blackmagicdesign.com/products/davinciresolve', yearsExperience: '8 Yrs', isFeatured: true, isVisible: true, displayOrder: 0 },
       { id: 2, categoryId: 1, name: 'Adobe Premiere Pro', description: 'Rhythmic cutting, multicam & speed ramping', percentage: 95, experienceLevel: 'EXPERT', icon: 'Film', customIcon: '', logo: '', softwareWebsite: 'https://www.adobe.com/products/premiere.html', yearsExperience: '8 Yrs', isFeatured: true, isVisible: true, displayOrder: 1 },
-      { id: 3, categoryId: 1, name: 'Frame.io Collaboration', description: 'Seamless cloud review and client feedback rounds', percentage: 90, experienceLevel: 'ADVANCED', icon: 'Zap', customIcon: '', logo: '', softwareWebsite: 'https://frame.io', yearsExperience: '5 Yrs', isFeatured: false, isVisible: true, displayOrder: 2 },
+      { id: 3, categoryId: 1, name: 'Frame.io Collaboration', description: 'Seamless cloud review and client feedback rounds', percentage: 90, experienceLevel: 'ADVANCED', icon: 'Sparkles', customIcon: '', logo: '', softwareWebsite: 'https://frame.io', yearsExperience: '5 Yrs', isFeatured: false, isVisible: true, displayOrder: 2 },
       { id: 4, categoryId: 1, name: 'Sound Design & Foley', description: 'Environmental ambience, vocal polishing, & sound FX', percentage: 88, experienceLevel: 'ADVANCED', icon: 'Monitor', customIcon: '', logo: '', softwareWebsite: '', yearsExperience: '6 Yrs', isFeatured: false, isVisible: true, displayOrder: 3 },
-      { id: 5, categoryId: 2, name: 'Photoshop', description: 'Key visual creation, poster composition & retouching', percentage: 95, experienceLevel: 'EXPERT', icon: 'PenTool', customIcon: '', logo: '', softwareWebsite: 'https://www.adobe.com/products/photoshop.html', yearsExperience: '8 Yrs', isFeatured: true, isVisible: true, displayOrder: 0 },
-      { id: 6, categoryId: 2, name: 'Illustrator', description: 'Vector logo systems, monograms & typography assets', percentage: 94, experienceLevel: 'EXPERT', icon: 'PenTool', customIcon: '', logo: '', softwareWebsite: 'https://www.adobe.com/products/illustrator.html', yearsExperience: '8 Yrs', isFeatured: true, isVisible: true, displayOrder: 1 },
-      { id: 7, categoryId: 2, name: 'Figma', description: 'Design systems, UI kits & interactive digital layouts', percentage: 90, experienceLevel: 'ADVANCED', icon: 'PenTool', customIcon: '', logo: '', softwareWebsite: 'https://www.figma.com', yearsExperience: '5 Yrs', isFeatured: true, isVisible: true, displayOrder: 2 },
+      { id: 5, categoryId: 2, name: 'Photoshop', description: 'Key visual creation, poster composition & retouching', percentage: 95, experienceLevel: 'EXPERT', icon: 'Palette', customIcon: '', logo: '', softwareWebsite: 'https://www.adobe.com/products/photoshop.html', yearsExperience: '8 Yrs', isFeatured: true, isVisible: true, displayOrder: 0 },
+      { id: 6, categoryId: 2, name: 'Illustrator', description: 'Vector logo systems, monograms & typography assets', percentage: 94, experienceLevel: 'EXPERT', icon: 'Paintbrush', customIcon: '', logo: '', softwareWebsite: 'https://www.adobe.com/products/illustrator.html', yearsExperience: '8 Yrs', isFeatured: true, isVisible: true, displayOrder: 1 },
+      { id: 7, categoryId: 2, name: 'Figma', description: 'Design systems, UI kits & interactive digital layouts', percentage: 90, experienceLevel: 'ADVANCED', icon: 'Layout', customIcon: '', logo: '', softwareWebsite: 'https://www.figma.com', yearsExperience: '5 Yrs', isFeatured: true, isVisible: true, displayOrder: 2 },
       { id: 8, categoryId: 2, name: 'Blender 3D', description: '3D product visuals, glassmorphism & Octane rendering', percentage: 82, experienceLevel: 'ADVANCED', icon: 'Layers', customIcon: '', logo: '', softwareWebsite: 'https://www.blender.org', yearsExperience: '4 Yrs', isFeatured: true, isVisible: true, displayOrder: 3 },
-      { id: 9, categoryId: 2, name: 'After Effects', description: '2D/3D motion graphics, lower thirds & logo animations', percentage: 92, experienceLevel: 'EXPERT', icon: 'Zap', customIcon: '', logo: '', softwareWebsite: 'https://www.adobe.com/products/aftereffects.html', yearsExperience: '7 Yrs', isFeatured: true, isVisible: true, displayOrder: 4 },
+      { id: 9, categoryId: 2, name: 'After Effects', description: '2D/3D motion graphics, lower thirds & logo animations', percentage: 92, experienceLevel: 'EXPERT', icon: 'Sparkles', customIcon: '', logo: '', softwareWebsite: 'https://www.adobe.com/products/aftereffects.html', yearsExperience: '7 Yrs', isFeatured: true, isVisible: true, displayOrder: 4 },
       { id: 10, categoryId: 3, name: 'RED V-Raptor 8K Cinematography', description: 'High dynamic range RAW filming and exposure control', percentage: 92, experienceLevel: 'EXPERT', icon: 'Camera', customIcon: '', logo: '', softwareWebsite: 'https://www.red.com', yearsExperience: '6 Yrs', isFeatured: true, isVisible: true, displayOrder: 0 },
       { id: 11, categoryId: 3, name: 'Sony FX6 Field Rigging', description: 'Low light operation, wireless follow focus & gimbals', percentage: 94, experienceLevel: 'EXPERT', icon: 'Camera', customIcon: '', logo: '', softwareWebsite: 'https://pro.sony', yearsExperience: '7 Yrs', isFeatured: true, isVisible: true, displayOrder: 1 }
     ];
