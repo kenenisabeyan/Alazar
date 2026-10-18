@@ -201,7 +201,7 @@ export default function Services() {
 
               <div className="p-5 sm:p-8 md:p-10 flex flex-col flex-grow">
                 <div className="flex items-center justify-between mb-6">
-                  <span className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-[11px] font-black uppercase tracking-widest ${svc.badgeDark
+                  <span className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-none text-[11px] font-black uppercase tracking-widest ${svc.badgeDark
                       ? 'bg-[#6B1D2F] text-white shadow-md shadow-[#6B1D2F]/25'
                       : 'bg-[#FAFAF9] text-[#6B1D2F] border border-[#C59A9F]/50'
                     }`}>
