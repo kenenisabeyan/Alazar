@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
   User, Film, PenTool, Cpu, Briefcase, Award, Camera, ShieldCheck,
-  Eye, EyeOff, Plus, Trash2, Edit2, Check, Save, ArrowUp, ArrowDown, Sparkles, Layers, Sliders, Mail, Globe, Phone, MapPin
+  Eye, EyeOff, Plus, Trash2, Edit2, Check, Save, ArrowUp, ArrowDown, Layers, Sliders, Mail, Globe, Phone, MapPin
 } from 'lucide-react';
 import api from '../../api';
 
@@ -105,7 +105,7 @@ export default function AboutAdmin() {
 
   const tabs = [
     { id: 'profile', label: 'Profile & Hero', icon: User },
-    { id: 'capabilities', label: 'Capabilities', icon: Sparkles },
+    { id: 'capabilities', label: 'Capabilities', icon: PenTool },
     { id: 'disciplines', label: 'Disciplines & Tags', icon: Film },
     { id: 'skills', label: 'Skills & Software', icon: Cpu },
     { id: 'work', label: 'Career History', icon: Briefcase },
@@ -122,7 +122,6 @@ export default function AboutAdmin() {
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-stone-200 shadow-sm">
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#6B1D2F]/10 text-[#6B1D2F] text-xs font-black uppercase tracking-wider mb-2">
-            <Sparkles size={13} />
             About Page CMS
           </div>
           <h1 className="text-2xl sm:text-3xl font-black text-stone-900 tracking-tight">
