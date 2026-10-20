@@ -17,28 +17,24 @@ export default function ScrollToTop() {
         const success = scrollToTarget(targetId);
         if (!success && attempts < maxAttempts) {
           attempts += 1;
-          // Exponential backoff / stepped interval for smooth page mounting
-          const delay = attempts < 5 ? 60 : 120;
+          const delay = attempts < 4 ? 30 : 60;
           timer = setTimeout(tryScroll, delay);
         }
       };
 
-      // Slight initial tick to allow React component mounting
-      timer = setTimeout(tryScroll, 40);
+      // Quick tick to allow DOM elements to mount
+      timer = setTimeout(tryScroll, 20);
 
       return () => {
         if (timer) clearTimeout(timer);
       };
     } else {
-      // No hash: scroll to top
+      // Instant reset to top on route change without sluggish animation
       if (window.lenis && typeof window.lenis.scrollTo === 'function') {
-        window.lenis.scrollTo(0, { immediate: false });
+        window.lenis.scrollTo(0, { immediate: true });
+        window.lenis.resize();
       } else {
-        window.scrollTo({
-          top: 0,
-          left: 0,
-          behavior: 'smooth',
-        });
+        window.scrollTo(0, 0);
       }
     }
   }, [pathname, hash, search]);

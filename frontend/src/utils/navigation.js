@@ -31,7 +31,7 @@ export function scrollToTarget(targetIdOrEl, options = {}) {
   }
 
   const offset = options.offset !== undefined ? options.offset : -HEADER_OFFSET;
-  const duration = options.duration !== undefined ? options.duration : 1.2;
+  const duration = options.duration !== undefined ? options.duration : 0.85;
 
   // 1. If Lenis is active on window, use Lenis smooth scroll
   if (window.lenis && typeof window.lenis.scrollTo === 'function') {
@@ -111,12 +111,13 @@ export function navigateToSection(navigate, toPath, options = {}) {
     replace: options.replace || false,
   });
 
-  // If no hash, scroll to top immediately
+  // If no hash, scroll to top immediately without lag
   if (!hashPart) {
     if (window.lenis && typeof window.lenis.scrollTo === 'function') {
-      window.lenis.scrollTo(0, { immediate: false });
+      window.lenis.scrollTo(0, { immediate: true });
+      window.lenis.resize();
     } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo(0, 0);
     }
   }
 }

@@ -28,7 +28,13 @@ const iconMap = {
 
 export default function About() {
   const navigate = useNavigate();
-  const [aboutData, setAboutData] = useState(null);
+  const [aboutData, setAboutData] = useState(() => {
+    try {
+      const cached = localStorage.getItem('alazar_cached_about');
+      if (cached) return JSON.parse(cached);
+    } catch {}
+    return null;
+  });
 
   useEffect(() => {
     async function loadData() {
@@ -36,9 +42,14 @@ export default function About() {
         const data = await api.about.getPublicData();
         if (data) {
           setAboutData(data);
+          try {
+            localStorage.setItem('alazar_cached_about', JSON.stringify(data));
+          } catch {}
         }
       } catch (err) {
         console.warn('Using fallback local state for About page');
+      } finally {
+        if (window.lenis) window.lenis.resize();
       }
     }
     loadData();
@@ -65,7 +76,7 @@ export default function About() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.2 }}
       className="min-h-screen bg-[#FAFAF9] dark:bg-[#1E0A0D] mesh-bg pt-24 xs:pt-28 sm:pt-40 pb-0 relative overflow-hidden transition-colors duration-300"
       style={{ fontFamily: theme.fonts.body }}
     >

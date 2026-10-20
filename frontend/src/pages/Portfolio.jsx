@@ -10,7 +10,7 @@ import PortfolioPresentationBoard from '../components/sections/PortfolioPresenta
 import ExpertiseSection from '../components/sections/ExpertiseSection';
 import CaseStudyHighlight from '../components/sections/CaseStudyHighlight';
 import AvailabilityCTA from '../components/sections/AvailabilityCTA';
-import { theme } from '../constants';
+import { theme, portfolioProjects } from '../constants';
 import api from '../api';
 import alazarImg from '../assets/images/alazar.png';
 import heroBg from '../assets/images/hero-bg.png';
@@ -22,22 +22,51 @@ export default function Portfolio() {
   const [filter, setFilter] = useState(catFromUrl);
   const [searchQuery, setSearchQuery] = useState('');
   const [viewMode, setViewMode] = useState('spread'); // 'spread' | 'grid'
-  const [portfolioData, setPortfolioData] = useState(null);
-  const [projects, setProjects] = useState([]);
-  const [loading, setLoading] = useState(true);
+  
+  // Instant rendering: Seed immediately from cache or constants
+  const [portfolioData, setPortfolioData] = useState(() => {
+    try {
+      const cached = localStorage.getItem('alazar_cached_portfolio_data');
+      if (cached) return JSON.parse(cached);
+    } catch {}
+    return null;
+  });
+  
+  const [projects, setProjects] = useState(() => {
+    try {
+      const cached = localStorage.getItem('alazar_cached_portfolio');
+      if (cached) {
+        const parsed = JSON.parse(cached);
+        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+      }
+    } catch {}
+    return portfolioProjects;
+  });
+  
+  const [loading, setLoading] = useState(false); // Render immediately without skeleton delay!
+  const [isRefreshing, setIsRefreshing] = useState(false);
   const [activeModalProject, setActiveModalProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const fetchProjects = async () => {
-    setLoading(true);
+  const fetchProjects = async (manualRefresh = false) => {
+    if (manualRefresh) setIsRefreshing(true);
     try {
       const publicData = await api.portfolio.getPublicData();
-      if (publicData && publicData.projects) {
+      if (publicData && publicData.projects && publicData.projects.length) {
         setPortfolioData(publicData);
         setProjects(publicData.projects);
+        try {
+          localStorage.setItem('alazar_cached_portfolio', JSON.stringify(publicData.projects));
+          localStorage.setItem('alazar_cached_portfolio_data', JSON.stringify(publicData));
+        } catch {}
       } else {
         const data = await api.projects.getAll();
-        setProjects(data);
+        if (data && data.length) {
+          setProjects(data);
+          try {
+            localStorage.setItem('alazar_cached_portfolio', JSON.stringify(data));
+          } catch {}
+        }
       }
 
       // Check if direct project query string exists
@@ -51,9 +80,11 @@ export default function Portfolio() {
         }
       }
     } catch (err) {
-      console.error('Error fetching projects:', err);
+      console.warn('Portfolio rendered from instant fallback/cache:', err);
     } finally {
-      setLoading(false);
+      if (manualRefresh) setIsRefreshing(false);
+      // Synchronize smooth scroll bounds after dynamic content paint
+      if (window.lenis) window.lenis.resize();
     }
   };
 
@@ -90,7 +121,7 @@ export default function Portfolio() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.2 }}
       className="min-h-screen bg-[#FAFAF9] dark:bg-[#1E0A0D] mesh-bg pt-24 xs:pt-28 sm:pt-40 pb-0 relative overflow-hidden transition-colors duration-300"
       style={{ fontFamily: theme.fonts.body }}
     >
@@ -230,11 +261,11 @@ export default function Portfolio() {
           </div>
 
           <button
-            onClick={fetchProjects}
+            onClick={() => fetchProjects(true)}
             title="Sync latest"
             className="p-3 rounded-none bg-white border border-[#C59A9F] text-[#292524] hover:border-[#6B1D2F] hover:text-[#6B1D2F] transition-all shadow-sm"
           >
-            <RefreshCw size={15} className={loading ? 'animate-spin text-[#6B1D2F]' : ''} />
+            <RefreshCw size={15} className={isRefreshing ? 'animate-spin text-[#6B1D2F]' : ''} />
           </button>
         </div>
       </div>

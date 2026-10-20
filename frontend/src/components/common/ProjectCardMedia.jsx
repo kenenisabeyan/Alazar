@@ -18,6 +18,7 @@ export const ProjectCardMedia = ({ project, className = '', showOverlays = true 
           muted
           loop
           playsInline
+          preload="metadata"
           onError={() => setVideoError(true)}
           className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
         />

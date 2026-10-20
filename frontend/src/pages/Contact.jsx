@@ -200,7 +200,7 @@ export default function Contact() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.2 }}
       className="min-h-screen bg-[#FAFAF9] dark:bg-[#1E0A0D] mesh-bg pt-24 xs:pt-28 sm:pt-36 pb-0 relative overflow-hidden transition-colors duration-300"
       style={{ fontFamily: theme.fonts.body }}
     >

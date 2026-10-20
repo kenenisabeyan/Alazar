@@ -14,7 +14,7 @@ import SocialProof from '../components/sections/SocialProof';
 import AvailabilityCTA from '../components/sections/AvailabilityCTA';
 import Modal from '../components/common/Modal';
 import Button from '../components/common/Button';
-import { theme } from '../constants';
+import { theme, portfolioProjects } from '../constants';
 import api from '../api';
 
 import ProjectImage from '../components/common/ProjectImage';
@@ -24,19 +24,35 @@ export default function Home() {
   const navigate = useNavigate();
   const [activeModalProject, setActiveModalProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [featuredProjects, setFeaturedProjects] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  
+  // Instant rendering: Seed featured projects immediately from cache or constants
+  const [featuredProjects, setFeaturedProjects] = useState(() => {
+    try {
+      const cached = localStorage.getItem('alazar_cached_portfolio');
+      if (cached) {
+        const parsed = JSON.parse(cached);
+        const feat = parsed.filter(p => p.featured);
+        if (feat.length > 0) return feat.slice(0, 3);
+        if (parsed.length > 0) return parsed.slice(0, 3);
+      }
+    } catch {}
+    const feat = portfolioProjects.filter(p => p.featured);
+    return (feat.length ? feat : portfolioProjects).slice(0, 3);
+  });
+  
+  const [isLoading, setIsLoading] = useState(false); // Instant rendering without loading skeletons!
 
   useEffect(() => {
     async function loadFeatured() {
-      setIsLoading(true);
       try {
         const data = await api.projects.getAll({ featured: true });
-        setFeaturedProjects(data.slice(0, 3));
+        if (data && data.length) {
+          setFeaturedProjects(data.slice(0, 3));
+        }
       } catch (err) {
-        console.error('Error fetching featured projects:', err);
+        // Fallback already rendered instantly
       } finally {
-        setIsLoading(false);
+        if (window.lenis) window.lenis.resize();
       }
     }
     loadFeatured();
@@ -66,7 +82,7 @@ export default function Home() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.2 }}
     >
       {/* 1 ── Hero */}
       <HeroSection onOpenShowreel={handleOpenShowreel} />

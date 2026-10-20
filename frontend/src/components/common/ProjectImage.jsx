@@ -152,19 +152,16 @@ export const ProjectImage = ({
   }
 
   return (
-    <div className={`relative w-full h-full overflow-hidden ${className}`}>
-      {isLoading && (
-        <div className="absolute inset-0 bg-[#2E1216] animate-pulse flex items-center justify-center z-10">
-          <div className="w-5 h-5 rounded-full border-2 border-[#C59A9F]/30 border-t-[#C59A9F] animate-spin" />
-        </div>
-      )}
+    <div className={`relative w-full h-full overflow-hidden bg-gradient-to-br from-[#2E1216] to-[#1E0A0D] ${className}`}>
       <img
         src={src}
         alt={alt || title}
+        loading="lazy"
+        decoding="async"
         onLoad={() => setIsLoading(false)}
         onError={() => setHasError(true)}
-        className={`w-full h-full object-cover transition-all duration-700 ease-out ${
-          isLoading ? 'opacity-0 scale-105' : 'opacity-100 scale-100'
+        className={`w-full h-full object-cover transition-opacity duration-300 ease-out ${
+          isLoading ? 'opacity-0' : 'opacity-100'
         }`}
       />
       {/* Subtle In-Image Editorial Vignette */}

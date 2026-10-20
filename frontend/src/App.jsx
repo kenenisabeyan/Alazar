@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Layout from './components/layout/Layout';
+import SmoothScroll from './components/common/SmoothScroll';
+import ScrollToTop from './components/common/ScrollToTop';
 import Home from './pages/Home';
 import About from './pages/About';
 import Portfolio from './pages/Portfolio';
@@ -30,27 +32,30 @@ function PublicOnlyRoute({ children }) {
 export default function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        {/* Admin Login — no Layout wrapper */}
-        <Route path="/login" element={
-          <PublicOnlyRoute><Login /></PublicOnlyRoute>
-        } />
+      <SmoothScroll>
+        <ScrollToTop />
+        <Routes>
+          {/* Admin Login — no Layout wrapper */}
+          <Route path="/login" element={
+            <PublicOnlyRoute><Login /></PublicOnlyRoute>
+          } />
 
-        {/* Admin Dashboard — no Layout wrapper, protected */}
-        <Route path="/admin" element={
-          <ProtectedRoute><Admin /></ProtectedRoute>
-        } />
+          {/* Admin Dashboard — no Layout wrapper, protected */}
+          <Route path="/admin" element={
+            <ProtectedRoute><Admin /></ProtectedRoute>
+          } />
 
-        {/* Public portfolio routes — with Layout */}
-        <Route path="/" element={<Layout><Home /></Layout>} />
-        <Route path="/about" element={<Layout><About /></Layout>} />
-        <Route path="/portfolio" element={<Layout><Portfolio /></Layout>} />
-        <Route path="/services" element={<Layout><Services /></Layout>} />
-        <Route path="/contact" element={<Layout><Contact /></Layout>} />
-
-        {/* Catch-all */}
-        <Route path="*" element={<Layout><Home /></Layout>} />
-      </Routes>
+          {/* Public portfolio routes — with persistent Layout wrapper */}
+          <Route element={<Layout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<Home />} />
+          </Route>
+        </Routes>
+      </SmoothScroll>
     </BrowserRouter>
   );
 }

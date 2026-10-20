@@ -13,6 +13,7 @@ export const CustomCursor = () => {
   const springConfig = { damping: 28, stiffness: 350, mass: 0.5 };
   const cursorX = useSpring(mouseX, springConfig);
   const cursorY = useSpring(mouseY, springConfig);
+  const visibleRef = React.useRef(false);
 
   useEffect(() => {
     // Only activate cursor on devices with fine pointer (desktop mouse)
@@ -22,10 +23,14 @@ export const CustomCursor = () => {
     const handleMouseMove = (e) => {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
-      if (!isVisible) setIsVisible(true);
+      if (!visibleRef.current) {
+        visibleRef.current = true;
+        setIsVisible(true);
+      }
     };
 
     const handleMouseLeave = () => {
+      visibleRef.current = false;
       setIsVisible(false);
     };
 
@@ -46,16 +51,16 @@ export const CustomCursor = () => {
       }
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    document.addEventListener('mouseleave', handleMouseLeave);
-    document.addEventListener('mouseover', handleMouseOver);
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    document.addEventListener('mouseleave', handleMouseLeave, { passive: true });
+    document.addEventListener('mouseover', handleMouseOver, { passive: true });
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseleave', handleMouseLeave);
       document.removeEventListener('mouseover', handleMouseOver);
     };
-  }, [isVisible, mouseX, mouseY]);
+  }, [mouseX, mouseY]);
 
   if (!isVisible) return null;
 

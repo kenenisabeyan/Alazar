@@ -70,13 +70,33 @@
     box-sizing: border-box;
   }
 
+  /* Lenis smooth scrolling rules - smooth-scroll physics handled via RAF */
+  html.lenis, html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  .lenis.lenis-scrolling iframe {
+    pointer-events: none;
+  }
+
   html {
-    scroll-behavior: smooth;
     background-color: var(--bg-primary);
     color: var(--text-primary);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
+    text-rendering: optimizeSpeed;
     width: 100%;
     overflow-x: hidden;
   }
@@ -88,6 +108,19 @@
     color: var(--text-primary);
     transition: background-color 0.35s ease, color 0.35s ease;
     -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Hardware acceleration for scroll rendering */
+  .gpu-layer {
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+    will-change: transform;
+  }
+
+  .content-visibility-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 700px;
   }
 
   /* Branded scrollbar */
