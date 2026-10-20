@@ -10,7 +10,7 @@ export const Footer = () => {
 
   const scrollToTop = () => {
     if (window.lenis && typeof window.lenis.scrollTo === 'function') {
-      window.lenis.scrollTo(0, { immediate: false });
+      window.lenis.scrollTo(0, { duration: 0.9 });
     } else {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
