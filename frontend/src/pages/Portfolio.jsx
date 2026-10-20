@@ -191,7 +191,7 @@ export default function Portfolio() {
             <Search size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#292524]" />
             <input
               type="text"
-              placeholder="Search works..."
+              placeholder="Search works (e.g. Addis Commercial, Video)..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-9 pr-8 py-2.5 bg-white border border-[#C59A9F] rounded-full text-xs font-semibold text-[#1C1917] focus:outline-none focus:border-[#6B1D2F] shadow-sm transition-colors"

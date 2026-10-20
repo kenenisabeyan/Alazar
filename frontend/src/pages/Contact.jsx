@@ -35,7 +35,7 @@ const contactMeta = [
   {
     icon: Phone,
     label: 'Phone / WhatsApp',
-    content: <p className="text-[#1C1917] font-medium text-sm">+1 (555) 123-4567</p>,
+    content: <p className="text-[#1C1917] font-medium text-sm">+251 91 123 4567</p>,
   },
   {
     icon: Clock,
@@ -144,13 +144,13 @@ export default function Contact() {
     {
       icon: Phone,
       label: 'Phone / WhatsApp',
-      value: '+1 (555) 123-4567',
+      value: '+251 91 123 4567',
       content: (
         <div className="flex items-center gap-2">
-          <p className="text-[#1C1917] font-medium text-sm">+1 (555) 123-4567</p>
+          <p className="text-[#1C1917] font-medium text-sm">+251 91 123 4567</p>
           <button
             type="button"
-            onClick={() => copyToClipboard('+1 (555) 123-4567', 'phone')}
+            onClick={() => copyToClipboard('+251 91 123 4567', 'phone')}
             className="text-[10px] font-black uppercase px-2 py-0.5 rounded bg-[#FAFAF9] border border-[#C59A9F]/50 text-[#6B1D2F] hover:bg-[#6B1D2F] hover:text-white transition-colors"
           >
             {copiedField === 'phone' ? 'Copied!' : 'Copy'}
@@ -392,13 +392,13 @@ export default function Contact() {
                       </div>
                     )}
 
-                    {/* Name row */}
+                    {/* Name row with Ethiopian placeholders */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                      <Input label="First Name" name="firstName" placeholder="John" value={formData.firstName} onChange={handleChange} error={errors.firstName} required />
-                      <Input label="Last Name"  name="lastName"  placeholder="Doe"  value={formData.lastName}  onChange={handleChange} />
+                      <Input label="First Name" name="firstName" placeholder="Kenenisa" value={formData.firstName} onChange={handleChange} error={errors.firstName} required />
+                      <Input label="Last Name"  name="lastName"  placeholder="Beyan"  value={formData.lastName}  onChange={handleChange} />
                     </div>
 
-                    <Input label="Email Address" name="email" type="email" placeholder="john@company.com" value={formData.email} onChange={handleChange} error={errors.email} required />
+                    <Input label="Email Address" name="email" type="email" placeholder="kenenisa.beyan@gmail.com" value={formData.email} onChange={handleChange} error={errors.email} required />
 
                     {/* Service type — custom styled buttons */}
                     <div>
@@ -454,7 +454,7 @@ export default function Contact() {
                       name="details"
                       multiline
                       rows={5}
-                      placeholder="Describe your goals, audience, deliverables, and timeline..."
+                      placeholder="Describe your goals, audience, deliverables, and timeline (e.g. Commercial video edit in Addis Ababa, brand identity package)..."
                       value={formData.details}
                       onChange={handleChange}
                       error={errors.details}

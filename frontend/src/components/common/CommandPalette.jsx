@@ -190,7 +190,7 @@ export const CommandPalette = () => {
             <input
               type="text"
               autoFocus
-              placeholder="Type a command or search (e.g. Portfolio, Resume, Video)..."
+              placeholder="Type a command or search (e.g. Kenenisa, Portfolio, Video, Contact)..."
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               className="w-full bg-transparent text-[#1C1917] placeholder-[#292524]/60 font-semibold text-sm focus:outline-none"
