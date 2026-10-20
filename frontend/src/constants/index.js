@@ -252,24 +252,24 @@ export const statistics = [
 export const testimonials = [
   {
     id: 1,
-    quote: "Alazar's video work made our brand look amazing. The pacing and color work on our campaign exceeded all expectations.",
-    author: 'Elena Rostova',
-    title: 'Creative Director',
-    company: 'Vanguard Apparel',
-    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80',
-  },
-  {
-    id: 2,
-    quote: 'Working with Alazar on the Lumina rebranding was easy and smooth. He combines graphic design and video editing seamlessly.',
-    author: 'Marcus Chen',
-    title: 'Founder & CEO',
-    company: 'Lumina Tech',
+    quote: "Alazar's video direction and cinematic color grading elevated our commercial campaign to international broadcast standards. Truly exceptional visual storytelling.",
+    author: 'Kenenisa Beyan',
+    title: 'Managing Creative Director',
+    company: 'Kenenisa Media Group',
     avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80',
   },
   {
+    id: 2,
+    quote: 'Working with Alazar on our brand identity book and launch visuals was effortless. He seamlessly combines graphic design discipline and cinematic video motion.',
+    author: 'Selamawit Tadesse',
+    title: 'Founder & CEO',
+    company: 'Lumina Tech Addis',
+    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80',
+  },
+  {
     id: 3,
-    quote: "The audio mixing and color work on 'The Craftsman' brought our story to life. Truly great work from start to finish.",
-    author: 'David Thorne',
+    quote: "The audio mixing, pacing, and color science brought our narrative to life. Alazar is our first call for every high-stakes commercial production in Ethiopia and abroad.",
+    author: 'Dawit Haile',
     title: 'Executive Producer',
     company: 'Oak & Iron Media',
     avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80',
@@ -528,12 +528,12 @@ export const calculatorOptions = {
 // Client Logos
 // ─────────────────────────────────────────────────────────────────────────────
 export const clientLogos = [
+  { name: 'Kenenisa Media Group', text: 'KENENISA' },
+  { name: 'Lumina Tech Addis', text: 'LUMINA' },
   { name: 'Vanguard Apparel', text: 'VANGUARD' },
-  { name: 'Lumina Tech', text: 'LUMINA' },
-  { name: 'Oak & Iron', text: 'OAK & IRON' },
   { name: 'Apex Motors', text: 'APEX MOTORS' },
-  { name: 'AURA Music', text: 'AURA' },
-  { name: 'Studio One', text: 'STUDIO ONE' },
+  { name: 'Habesha Creative', text: 'HABESHA' },
+  { name: 'Studio One Addis', text: 'STUDIO ONE' },
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -586,11 +586,11 @@ export const careerExperience = [
     period: '2022 to Present',
     role: 'Founder & Lead Creative Director',
     company: 'Alazar Studio',
-    location: 'Global / Remote',
-    description: 'Directing, video editing, and brand design for international clients in commercial, fashion, and tech industries.',
+    location: 'Addis Ababa / Global Remote',
+    description: 'Directing, video editing, and brand design for Ethiopian and international clients in commercial, fashion, and tech industries.',
     achievements: [
       "Delivered 140+ client projects with a 98% satisfaction rate",
-      "Led campaign for Vanguard Apparel reaching 4.8M+ views",
+      "Led high-impact campaign with Kenenisa Media Group reaching 4.8M+ views",
     ],
   },
   {

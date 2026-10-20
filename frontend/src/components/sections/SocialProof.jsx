@@ -9,7 +9,7 @@ import { testimonials, clientLogos, theme } from '../../constants';
 
 // ── discipline badge ──────────────────────────────────────────────────────────
 const disciplineOf = (company) => {
-  const vid = ['Vanguard Apparel', 'Oak & Iron Media', 'Apex Motors'];
+  const vid = ['Vanguard Apparel', 'Oak & Iron Media', 'Apex Motors', 'Kenenisa Media Group'];
   return vid.includes(company)
     ? { label: 'Video Production', icon: Film }
     : { label: 'Graphic Design',   icon: Shapes };
