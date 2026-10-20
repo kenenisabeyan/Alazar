@@ -291,7 +291,7 @@ export default function InquiriesAdmin() {
               <Search size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#292524]" />
               <input
                 type="text"
-                placeholder="Search by client, email, ref..."
+                placeholder="Search by Kenenisa, Beyan, ref..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-9 pr-4 py-2 bg-[#FAFAF9] border border-[#C59A9F]/40 rounded-xl text-xs font-semibold text-[#1C1917] focus:outline-none focus:border-[#6B1D2F]"
