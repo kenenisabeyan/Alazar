@@ -23,8 +23,8 @@ const guarantees = [
 
 export const AvailabilityCTA = ({ cta, contact }) => {
   const navigate = useNavigate();
-  const primaryEmail = contact?.primaryEmail || cta?.email || 'svga.asdesach1@gmail.com';
-  const availabilityBadge = cta?.availabilityText || contact?.availabilityText || 'Accepting Q3 / Q4 Projects, Global & Remote';
+  const primaryEmail = contact?.primaryEmail || cta?.email || 'a.asdesach1@gmail.com';
+  const availabilityBadge = cta?.availabilityText || contact?.availabilityText || 'Accepting Q3 / Q4 Projects, Addis Ababa & Remote';
 
   return (
     <section
