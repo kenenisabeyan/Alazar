@@ -29,8 +29,8 @@ export const ShowreelBanner = ({ onOpenShowreel }) => {
   return (
     <section
       id="showreel"
-      className="py-20 sm:py-28 relative overflow-hidden scroll-mt-20"
-      style={{ fontFamily: theme.fonts.body, background: '#FAFAF9' }}
+      className="py-16 sm:py-28 relative overflow-hidden scroll-mt-20 bg-[#FAFAF9] dark:bg-[#1E0A0D] transition-colors duration-300"
+      style={{ fontFamily: theme.fonts.body }}
     >
       {/* Ambient blob */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#6B1D2F]/07 blur-[160px] rounded-full pointer-events-none" />
@@ -38,14 +38,14 @@ export const ShowreelBanner = ({ onOpenShowreel }) => {
       <div className="container mx-auto px-4 sm:px-6 md:px-10 lg:px-12 max-w-[1550px] relative z-10">
 
         {/* ── Header row ─────────────────────────────────────────────────── */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-10">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-5 sm:gap-6 mb-8 sm:mb-10">
           <div>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.08 }}
-              className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] leading-[1.06] tracking-tight break-words"
+              className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] dark:text-[#F5F0F1] leading-[1.06] tracking-tight break-words"
               style={{ fontFamily: theme.fonts.heading }}
             >
               2025 Video<br />
@@ -58,18 +58,18 @@ export const ShowreelBanner = ({ onOpenShowreel }) => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.15 }}
-            className="flex flex-wrap items-center gap-2.5 sm:gap-3"
+            className="flex items-center gap-2.5 sm:gap-3 w-full sm:w-auto"
           >
             {/* Sound toggle */}
             <button
               onClick={toggleSound}
-              className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-none border text-[11px] font-black uppercase tracking-wider transition-all ${isMuted
-                  ? 'bg-white border-[#C59A9F] text-[#292524] hover:border-[#6B1D2F] hover:text-[#6B1D2F]'
+              className={`inline-flex items-center justify-center gap-2 px-3.5 sm:px-4 py-2.5 rounded-none border text-[11px] font-black uppercase tracking-wider transition-all flex-1 sm:flex-initial ${isMuted
+                  ? 'bg-white dark:bg-[#2E1216] border-[#C59A9F] dark:border-white/20 text-[#292524] dark:text-[#F5F0F1] hover:border-[#6B1D2F]'
                   : 'bg-[#6B1D2F] border-[#6B1D2F] text-white'
                 }`}
             >
               {isMuted
-                ? <><VolumeX size={14} className="text-[#6B1D2F]" /> Muted</>
+                ? <><VolumeX size={14} className="text-[#6B1D2F] dark:text-[#C59A9F]" /> Muted</>
                 : <><Volume2 size={14} className="text-emerald-400 animate-pulse" /> Sound On</>
               }
             </button>
@@ -77,7 +77,7 @@ export const ShowreelBanner = ({ onOpenShowreel }) => {
             {/* Watch full */}
             <button
               onClick={onOpenShowreel}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-none bg-[#6B1D2F] text-white text-[11px] font-black uppercase tracking-wider hover:bg-[#8B1E3F] transition-all shadow-lg shadow-[#6B1D2F]/25 group"
+              className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-none bg-[#6B1D2F] text-white text-[11px] font-black uppercase tracking-wider hover:bg-[#8B1E3F] transition-all shadow-lg shadow-[#6B1D2F]/25 group flex-1 sm:flex-initial"
             >
               Watch Full Reel
               <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform" />

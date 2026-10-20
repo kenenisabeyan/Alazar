@@ -58,7 +58,7 @@ export const PortfolioPresentationBoard = ({ projects = [], filter = 'all', pres
               
               {/* Left Text Column */}
               <div className="md:col-span-7 space-y-4 sm:space-y-6 text-left">
-                <h1 className="text-3xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-tight leading-[0.9] font-serif text-[#FAFAF9] drop-shadow-2xl break-words">
+                <h1 className="text-5xl xs:text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-black tracking-tight leading-[0.9] font-serif text-[#FAFAF9] drop-shadow-2xl break-words">
                   Portfolio
                 </h1>
                 

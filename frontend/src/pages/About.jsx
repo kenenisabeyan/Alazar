@@ -66,7 +66,7 @@ export default function About() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="min-h-screen bg-[#FAFAF9] mesh-bg pt-32 sm:pt-40 pb-0 relative overflow-hidden"
+      className="min-h-screen bg-[#FAFAF9] dark:bg-[#1E0A0D] mesh-bg pt-24 xs:pt-28 sm:pt-40 pb-0 relative overflow-hidden transition-colors duration-300"
       style={{ fontFamily: theme.fonts.body }}
     >
       {/* Motion Flow Background Image Layer 1: hero-bg.png */}
@@ -121,14 +121,14 @@ export default function About() {
               className="lg:col-span-6 space-y-6 text-left"
             >
               <h1
-                className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] leading-[1.08] tracking-tight break-words"
+                className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-[#1C1917] dark:text-[#F5F0F1] leading-[1.04] sm:leading-[0.96] tracking-tight break-words"
                 style={{ fontFamily: theme.fonts.heading }}
               >
                 {profile.fullName || 'Alazar Asdesach'}.<br />
-                <span className="text-[#6B1D2F] font-black">{profile.headline || 'Director & Visual Artist.'}</span>
+                <span className="text-gradient-burgundy font-black">{profile.headline || 'Director & Visual Artist.'}</span>
               </h1>
 
-              <p className="text-sm sm:text-base md:text-lg text-[#1C1917] font-medium leading-relaxed max-w-lg bg-white/85 backdrop-blur-md px-4 sm:px-5 py-2.5 sm:py-3 rounded-none border border-[#C59A9F]/40 shadow-sm inline-block max-w-full break-words">
+              <p className="text-sm sm:text-base md:text-lg text-[#1C1917] dark:text-[#F5F0F1] font-medium leading-relaxed max-w-lg bg-white/85 dark:bg-[#2E1216]/85 backdrop-blur-md px-4 sm:px-5 py-2.5 sm:py-3 rounded-none border border-[#C59A9F]/40 dark:border-white/10 shadow-sm inline-block max-w-full break-words">
                 {profile.shortDescription}
               </p>
 
@@ -137,13 +137,13 @@ export default function About() {
                   { icon: Film, title: 'Video Production', sub: 'DaVinci & RED 8K' },
                   { icon: Shapes, title: 'Brand & Graphic', sub: 'Identity Systems' },
                 ].map(({ icon: Icon, title, sub }) => (
-                  <div key={title} className="flex flex-col items-center justify-center text-center p-3 sm:p-3.5 rounded-none bg-white border border-[#C59A9F]/30 shadow-sm">
-                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-none bg-[#FAFAF9] text-[#6B1D2F] flex items-center justify-center flex-shrink-0 mb-1.5 shadow-sm">
+                  <div key={title} className="flex flex-col items-center justify-center text-center p-3 sm:p-3.5 rounded-none bg-white dark:bg-[#2E1216] border border-[#C59A9F]/30 dark:border-white/10 shadow-sm">
+                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-none bg-[#FAFAF9] dark:bg-[#1E0A0D] text-[#6B1D2F] dark:text-[#C59A9F] flex items-center justify-center flex-shrink-0 mb-1.5 shadow-sm">
                       <Icon size={16} />
                     </div>
                     <div className="w-full">
-                      <p className="text-xs font-black text-[#1C1917] leading-tight mb-0.5 text-center break-words">{title}</p>
-                      <p className="text-[10px] text-[#292524] font-bold uppercase tracking-wider text-center">{sub}</p>
+                      <p className="text-xs font-black text-[#1C1917] dark:text-[#F5F0F1] leading-tight mb-0.5 text-center break-words">{title}</p>
+                      <p className="text-[10px] text-[#292524] dark:text-[#A89597] font-bold uppercase tracking-wider text-center">{sub}</p>
                     </div>
                   </div>
                 ))}

@@ -71,7 +71,7 @@ export default function Login() {
               <Shield size={14} className="text-[#8B1E3F] animate-pulse" />
               <span className="text-xs text-[#8B1E3F] font-semibold uppercase tracking-widest">Admin Access</span>
             </div>
-            <h1 className="text-3xl font-black text-[#F5F0F1] tracking-tight">
+            <h1 className="text-4xl sm:text-5xl font-black text-[#F5F0F1] tracking-tight">
               Alazar <span className="text-[#8B1E3F]">Studio</span>
             </h1>
             <p className="text-[#A89597] text-sm mt-1">CMS Dashboard v2.0</p>

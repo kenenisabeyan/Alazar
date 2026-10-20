@@ -33,15 +33,15 @@ export const AboutSnapshot = () => {
   return (
     <section
       id="about-snapshot"
-      className="py-28 sm:py-36 relative overflow-hidden scroll-mt-20"
-      style={{ fontFamily: theme.fonts.body, background: '#FAFAF9' }}
+      className="py-16 sm:py-32 relative overflow-hidden scroll-mt-20 bg-[#FAFAF9] dark:bg-[#1E0A0D] transition-colors duration-300"
+      style={{ fontFamily: theme.fonts.body }}
     >
       {/* Ambient blobs */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-gradient-to-tr from-[#6B1D2F]/10 via-[#C59A9F]/08 to-transparent blur-[180px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#C59A9F]/10 blur-[140px] rounded-full pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-6 md:px-10 lg:px-12 max-w-[1550px] relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
 
           {/* ── LEFT: Bio column ──────────────────────────────────────────── */}
           <motion.div
@@ -49,11 +49,11 @@ export const AboutSnapshot = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-6 space-y-8 text-left"
+            className="lg:col-span-6 space-y-6 sm:space-y-8 text-left"
           >
             {/* Headline */}
             <h2
-              className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] tracking-tight leading-[1.04] break-words"
+              className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] dark:text-[#F5F0F1] tracking-tight leading-[1.04] break-words"
               style={{ fontFamily: theme.fonts.heading }}
             >
               Expert Video Director<br />
@@ -61,7 +61,7 @@ export const AboutSnapshot = () => {
             </h2>
 
             {/* Body copy */}
-            <p className="text-sm sm:text-lg text-[#1C1917] font-medium leading-relaxed max-w-xl bg-white/80 backdrop-blur-md px-4 sm:px-5 py-2.5 sm:py-3 rounded-none border border-[#C59A9F]/40 shadow-sm inline-block max-w-full break-words">
+            <p className="text-sm sm:text-lg text-[#1C1917] dark:text-[#F5F0F1] font-medium leading-relaxed max-w-xl bg-white/80 dark:bg-[#2E1216]/80 backdrop-blur-md px-4 sm:px-5 py-2.5 sm:py-3 rounded-none border border-[#C59A9F]/40 dark:border-white/10 shadow-sm inline-block max-w-full break-words">
               I combine cinematic video editing, DaVinci color science, and senior-level graphic design for global brands and creative directors who refuse to compromise on quality.
             </p>
 
@@ -72,24 +72,24 @@ export const AboutSnapshot = () => {
                   key={label}
                   className={`relative rounded-none p-3.5 sm:p-6 overflow-hidden border transition-all duration-300 hover:-translate-y-1 flex flex-col items-center justify-center text-center ${dark
                       ? 'bg-gradient-to-br from-[#6B1D2F] via-[#521523] to-[#3B0E19] border-[#C59A9F]/30 shadow-xl shadow-[#6B1D2F]/20'
-                      : 'bg-white border-[#C59A9F] shadow-md hover:border-[#6B1D2F]'
+                      : 'bg-white dark:bg-[#2E1216] border-[#C59A9F] dark:border-white/15 shadow-md hover:border-[#6B1D2F]'
                     }`}
                 >
                   {dark && <div className="absolute -top-6 -right-6 w-24 h-24 bg-white/10 blur-[40px] rounded-full pointer-events-none" />}
                   <div className="relative z-10 w-full flex flex-col items-center">
-                    <div className={`w-9 h-9 sm:w-11 sm:h-11 rounded-none flex items-center justify-center mx-auto mb-2 sm:mb-3.5 ${dark ? 'bg-white/20 text-white shadow-md' : 'bg-[#FAFAF9] text-[#6B1D2F]'
+                    <div className={`w-9 h-9 sm:w-11 sm:h-11 rounded-none flex items-center justify-center mx-auto mb-2 sm:mb-3.5 ${dark ? 'bg-white/20 text-white shadow-md' : 'bg-[#FAFAF9] dark:bg-[#1E0A0D] text-[#6B1D2F] dark:text-[#C59A9F]'
                       }`}>
                       <Icon size={18} />
                     </div>
                     <h4
-                      className={`text-xs sm:text-base font-black mb-1.5 sm:mb-2.5 leading-tight text-center break-words ${dark ? 'text-white' : 'text-[#1C1917]'}`}
+                      className={`text-xs sm:text-base font-black mb-1.5 sm:mb-2.5 leading-tight text-center break-words ${dark ? 'text-white' : 'text-[#1C1917] dark:text-[#F5F0F1]'}`}
                       style={{ fontFamily: theme.fonts.heading }}
                     >
                       {label}
                     </h4>
                     <div className="flex flex-wrap justify-center gap-1 sm:gap-1.5">
                       {tags.map(t => (
-                        <span key={t} className={`text-[8.5px] sm:text-[9.5px] font-black uppercase tracking-wider px-2 sm:px-2.5 py-0.5 rounded-none ${dark ? 'bg-white/20 text-white' : 'bg-[#FAFAF9] text-[#6B1D2F]'
+                        <span key={t} className={`text-[8.5px] sm:text-[9.5px] font-black uppercase tracking-wider px-2 sm:px-2.5 py-0.5 rounded-none ${dark ? 'bg-white/20 text-white' : 'bg-[#FAFAF9] dark:bg-[#1E0A0D] text-[#6B1D2F] dark:text-[#C59A9F]'
                           }`}>{t}</span>
                       ))}
                     </div>
@@ -99,15 +99,15 @@ export const AboutSnapshot = () => {
             </div>
 
             {/* Director's creed */}
-            <div className="flex items-center gap-3.5 sm:gap-4 p-4 sm:p-5 rounded-none bg-white border border-[#C59A9F]/40 shadow-sm">
+            <div className="flex items-center gap-3.5 sm:gap-4 p-4 sm:p-5 rounded-none bg-white dark:bg-[#2E1216] border border-[#C59A9F]/40 dark:border-white/10 shadow-sm">
               <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-none bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center flex-shrink-0 shadow-md shadow-[#6B1D2F]/25">
                 <Quote size={18} />
               </div>
               <div className="min-w-0 flex-1">
-                <p className="text-[10px] uppercase tracking-[0.2em] text-[#6B1D2F] font-black mb-0.5">
+                <p className="text-[10px] uppercase tracking-[0.2em] text-[#6B1D2F] dark:text-[#C59A9F] font-black mb-0.5">
                   Director's Creed
                 </p>
-                <p className="text-xs sm:text-base text-[#1C1917] italic font-bold leading-snug break-words">
+                <p className="text-xs sm:text-base text-[#1C1917] dark:text-[#F5F0F1] italic font-bold leading-snug break-words">
                   "Paced storytelling, vivid color science, and purposeful design."
                 </p>
               </div>
@@ -116,14 +116,14 @@ export const AboutSnapshot = () => {
             {/* Stats row */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 pt-1">
               {statistics.map(({ value, label }) => (
-                <div key={label} className="text-center p-3 sm:p-3.5 rounded-none bg-white border border-[#C59A9F] shadow-sm flex flex-col items-center justify-center">
+                <div key={label} className="text-center p-3 sm:p-3.5 rounded-none bg-white dark:bg-[#2E1216] border border-[#C59A9F] dark:border-white/15 shadow-sm flex flex-col items-center justify-center">
                   <p
-                    className="text-xl sm:text-2xl font-black text-[#6B1D2F] leading-none mb-1 text-center"
+                    className="text-xl sm:text-2xl font-black text-[#6B1D2F] dark:text-[#F5F0F1] leading-none mb-1 text-center"
                     style={{ fontFamily: theme.fonts.heading }}
                   >
                     {value}
                   </p>
-                  <p className="text-[9px] sm:text-[9.5px] text-[#292524] font-black uppercase tracking-wider leading-tight text-center">
+                  <p className="text-[9px] sm:text-[9.5px] text-[#292524] dark:text-[#A89597] font-black uppercase tracking-wider leading-tight text-center">
                     {label}
                   </p>
                 </div>

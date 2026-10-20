@@ -203,7 +203,7 @@ export default function PortfolioAdmin() {
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 border border-white/20 text-[10px] font-black uppercase tracking-widest text-[#FAFAF9] mb-3">
             Master Portfolio CMS
           </div>
-          <h1 className="text-3xl sm:text-4xl font-black text-white tracking-tight">Portfolio Manager</h1>
+          <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight">Portfolio Manager</h1>
           <p className="text-xs text-[#E8B4BE] mt-1 font-medium max-w-xl">
             Control all portfolio projects, categories, client case studies, editorial presentation boards, and featured showreels.
           </p>

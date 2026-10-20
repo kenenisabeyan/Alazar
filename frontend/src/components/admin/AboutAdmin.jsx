@@ -124,7 +124,7 @@ export default function AboutAdmin() {
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#6B1D2F]/10 text-[#6B1D2F] text-xs font-black uppercase tracking-wider mb-2">
             About Page CMS
           </div>
-          <h1 className="text-2xl sm:text-3xl font-black text-stone-900 tracking-tight">
+          <h1 className="text-2xl sm:text-4xl font-black text-stone-900 tracking-tight">
             Creative Profile & Content Manager
           </h1>
           <p className="text-sm text-stone-700 font-medium">

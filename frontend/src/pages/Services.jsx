@@ -119,7 +119,7 @@ export default function Services() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="min-h-screen bg-[#FAFAF9] mesh-bg pt-28 sm:pt-36 pb-0 relative overflow-hidden"
+      className="min-h-screen bg-[#FAFAF9] dark:bg-[#1E0A0D] mesh-bg pt-24 xs:pt-28 sm:pt-36 pb-0 relative overflow-hidden transition-colors duration-300"
       style={{ fontFamily: theme.fonts.body }}
     >
       {/* Motion Flow Background Image Layer 1: hero-bg.png */}
@@ -168,7 +168,7 @@ export default function Services() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-3xl sm:text-5xl md:text-7xl font-black text-[#1C1917] mb-5 tracking-tight leading-[1.04] break-words"
+            className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-[#1C1917] dark:text-[#F5F0F1] mb-5 tracking-tight leading-[1.04] sm:leading-[0.96] break-words"
             style={{ fontFamily: theme.fonts.heading }}
           >
             Services &{' '}
@@ -178,7 +178,7 @@ export default function Services() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-[#1C1917] font-medium text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto bg-white/85 backdrop-blur-md px-4 sm:px-6 py-2.5 sm:py-3.5 rounded-none border border-[#C59A9F]/40 shadow-sm max-w-full break-words"
+            className="text-[#1C1917] dark:text-[#F5F0F1] font-medium text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto bg-white/85 dark:bg-[#2E1216]/85 backdrop-blur-md px-4 sm:px-6 py-2.5 sm:py-3.5 rounded-none border border-[#C59A9F]/40 dark:border-white/10 shadow-sm max-w-full break-words"
           >
             Whether you need remote video editing or full on-set production, get senior-level creative work, transparent pricing, and on-time delivery every time.
           </motion.p>

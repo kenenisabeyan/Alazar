@@ -42,7 +42,7 @@ export const HeroSection = ({ onOpenShowreel }) => {
     <section
       id="hero"
       ref={containerRef}
-      className="relative min-h-[95vh] flex flex-col justify-center pt-36 pb-24 overflow-hidden bg-[#FAFAF9] mesh-bg"
+      className="relative min-h-[88vh] sm:min-h-[95vh] flex flex-col justify-start sm:justify-center pt-24 xs:pt-28 sm:pt-36 pb-16 sm:pb-24 overflow-hidden bg-[#FAFAF9] dark:bg-[#1E0A0D] mesh-bg transition-colors duration-300"
       style={{ fontFamily: theme.fonts.body }}
     >
       {/* Motion Flow Background Image Layer 1: hero-bg.png */}
@@ -70,7 +70,7 @@ export const HeroSection = ({ onOpenShowreel }) => {
           scale: [1, 1.02, 1]
         }}
         transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute -top-10 right-0 sm:right-10 md:right-20 w-[260px] xs:w-[340px] sm:w-[500px] md:w-[650px] opacity-20 md:opacity-25 pointer-events-none z-0 mix-blend-luminosity filter blur-[0.5px]"
+        className="absolute -top-4 -right-10 xs:-right-4 sm:-top-10 sm:right-10 md:right-20 w-[210px] xs:w-[280px] sm:w-[500px] md:w-[650px] opacity-15 sm:opacity-20 md:opacity-25 pointer-events-none z-0 mix-blend-luminosity filter blur-[0.5px]"
       >
         <img
           src={alazarImg}
@@ -91,7 +91,7 @@ export const HeroSection = ({ onOpenShowreel }) => {
 
       <motion.div
         style={{ y: textY, opacity: opacityFade }}
-        className="container mx-auto px-4 sm:px-6 md:px-12 relative z-10 text-center flex flex-col items-center max-w-full"
+        className="container mx-auto px-3.5 sm:px-6 md:px-12 relative z-10 text-center flex flex-col items-center max-w-full"
       >
         <motion.div
           variants={containerVariants}
@@ -99,20 +99,42 @@ export const HeroSection = ({ onOpenShowreel }) => {
           animate="visible"
           className="flex flex-col items-center w-full max-w-5xl"
         >
-          {/* Headline & Subtitle Text (Clean spacious design without bulky box) */}
-          <div className="max-w-6xl mx-auto space-y-6 mb-10 sm:mb-12 w-full px-1 sm:px-0">
+          {/* Headline & Subtitle Text with subtle ambient backdrop */}
+          <div className="max-w-6xl mx-auto space-y-3.5 sm:space-y-6 mb-7 sm:mb-12 w-full px-1 sm:px-0 relative flex flex-col items-center">
+            {/* Luminous soft backdrop for headline legibility */}
+            <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-[320px] xs:w-[440px] sm:w-[650px] md:w-[850px] h-[180px] sm:h-[260px] bg-white/60 dark:bg-[#1E0A0D]/60 blur-3xl pointer-events-none -z-10 rounded-full" />
+
+            {/* Top Eyebrow Badge */}
+            <motion.div
+              variants={itemVariants}
+              className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-white/85 dark:bg-white/[0.08] border border-[#C59A9F]/40 dark:border-white/15 backdrop-blur-md shadow-sm mb-1 sm:mb-2 select-none"
+            >
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shadow-sm shadow-emerald-500/50" />
+              <span className="text-[10px] sm:text-xs font-black uppercase tracking-[0.18em] text-[#6B1D2F] dark:text-[#C59A9F]">
+                Director & Lead Designer
+              </span>
+              <span className="text-[#C59A9F] dark:text-white/20">·</span>
+              <span className="text-[9.5px] sm:text-[11px] font-bold tracking-wider text-[#78716C] dark:text-[#A89597]">
+                Available Worldwide
+              </span>
+            </motion.div>
+
             <motion.h1
               variants={itemVariants}
-              className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black leading-[1.1] sm:leading-none text-[#1C1917] tracking-tight max-w-full break-words"
+              className="text-[clamp(2.15rem,8.5vw,3.25rem)] sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black leading-[1.05] sm:leading-[0.95] tracking-tight text-[#1C1917] dark:text-[#F5F0F1] max-w-full"
               style={{ fontFamily: theme.fonts.heading }}
             >
-              <span className="inline-block">Cinematic Videos.</span>{' '}
-              <span className="block sm:inline text-gradient-burgundy font-black">Clear Design.</span>
+              <span className="block whitespace-nowrap sm:whitespace-normal drop-shadow-[0_2px_10px_rgba(0,0,0,0.06)] dark:drop-shadow-[0_2px_16px_rgba(0,0,0,0.5)]">
+                Cinematic Videos.
+              </span>
+              <span className="block text-gradient-burgundy font-black filter drop-shadow-[0_2px_12px_rgba(107,29,47,0.18)] dark:drop-shadow-[0_2px_16px_rgba(245,172,182,0.25)]">
+                Clear Design.
+              </span>
             </motion.h1>
 
             <motion.p
               variants={itemVariants}
-              className="text-sm sm:text-base md:text-xl text-[#1C1917] font-bold max-w-3xl mx-auto leading-relaxed bg-white/85 backdrop-blur-md px-4 sm:px-6 py-3 sm:py-3.5 rounded-none border border-[#C59A9F]/40 shadow-md inline-block max-w-full break-words"
+              className="text-xs xs:text-sm sm:text-base md:text-lg text-[#292524] dark:text-[#F5F0F1] font-semibold max-w-2xl mx-auto leading-relaxed bg-white/80 dark:bg-[#2E1216]/80 backdrop-blur-xl px-4 sm:px-6 py-2.5 sm:py-3.5 rounded-2xl border border-[#C59A9F]/35 dark:border-white/10 shadow-lg shadow-black/5 inline-block max-w-full break-words"
             >
               Crafting high-octane commercial edits, master-level color grading, and striking graphic design systems for visionary global brands.
             </motion.p>
@@ -120,7 +142,7 @@ export const HeroSection = ({ onOpenShowreel }) => {
             {/* CTA Buttons */}
             <motion.div
               variants={itemVariants}
-              className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 pt-4 sm:pt-6 w-full max-w-md mx-auto sm:w-auto px-2 sm:px-0"
+              className="flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-6 pt-3 sm:pt-6 w-full max-w-md mx-auto sm:w-auto px-2 sm:px-0"
             >
               <Button
                 variant="primary"
@@ -145,21 +167,21 @@ export const HeroSection = ({ onOpenShowreel }) => {
           {/* Luxury Glass Stats Cards */}
           <motion.div
             variants={itemVariants}
-            className="w-full max-w-6xl grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 pt-10 sm:pt-14 border-t border-[#C59A9F]/80"
+            className="w-full max-w-6xl grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-6 pt-8 sm:pt-14 border-t border-[#C59A9F]/40 dark:border-white/10"
           >
             {statistics.map((stat, idx) => (
               <motion.div
                 key={idx}
-                whileHover={{ y: -6, scale: 1.02 }}
-                className="glass-card-luxury text-center p-3.5 sm:p-7 rounded-none"
+                whileHover={{ y: -4, scale: 1.02 }}
+                className="glass-card-luxury text-center p-3 sm:p-6 rounded-none border border-[#C59A9F]/30 dark:border-white/10 shadow-sm hover:shadow-md transition-all"
               >
-                <div className="flex items-center justify-center gap-1 mb-1">
+                <div className="flex items-center justify-center gap-1.5 mb-1">
                   <span className="text-2xl sm:text-3xl md:text-5xl font-black text-[#6B1D2F] dark:text-[#F5F0F1] tracking-tight" style={{ fontFamily: theme.fonts.heading }}>
                     {stat.value}
                   </span>
-                  <Award size={14} className="text-[#C59A9F]" />
+                  <Award size={15} className="text-[#C59A9F] dark:text-[#8B1E3F]" />
                 </div>
-                <p className="text-[9.5px] sm:text-[11px] text-[#292524] dark:text-[#A89597] uppercase tracking-wider sm:tracking-widest font-black leading-tight">{stat.label}</p>
+                <p className="text-[9px] sm:text-[11px] text-[#292524] dark:text-[#A89597] uppercase tracking-wider sm:tracking-widest font-black leading-tight">{stat.label}</p>
               </motion.div>
             ))}
           </motion.div>

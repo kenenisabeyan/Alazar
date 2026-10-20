@@ -14,13 +14,15 @@ export const Input = ({
   className = '',
   ...props
 }) => {
-  const baseClasses = "w-full bg-[#FAFAF9] border border-[#C59A9F] rounded-lg px-4 py-3 text-[#1C1917] focus:outline-none focus:border-[#6B1D2F] focus:ring-1 focus:ring-[#6B1D2F] transition-all duration-300 placeholder:text-[#292524]/50 text-sm";
+  const baseClasses = "w-full bg-[#FAFAF9] dark:bg-[#1E0A0D] border border-[#C59A9F] dark:border-white/20 rounded-lg px-4 py-3 text-[#1C1917] dark:text-[#F5F0F1] focus:outline-none focus:border-[#6B1D2F] dark:focus:border-[#8B1E3F] focus:ring-1 focus:ring-[#6B1D2F] transition-all duration-300 placeholder:text-[#292524]/50 dark:placeholder:text-white/40 text-sm";
   
+  const cleanLabel = label ? label.replace(/\s*\*+\s*$/, '') : '';
+
   return (
     <div className={`flex flex-col gap-2 ${className}`}>
       {label && (
-        <label className="text-xs text-[#1C1917] font-black tracking-widest uppercase flex justify-between">
-          <span>{label} {required && <span className="text-[#6B1D2F]">*</span>}</span>
+        <label className="text-xs text-[#1C1917] dark:text-[#F5F0F1] font-black tracking-widest uppercase flex justify-between">
+          <span>{cleanLabel} {required && <span className="text-[#6B1D2F] dark:text-[#E28D99]">*</span>}</span>
         </label>
       )}
       {multiline ? (

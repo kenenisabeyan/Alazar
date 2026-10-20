@@ -88,15 +88,15 @@ export default function Home() {
       {/* 6 ── Featured projects */}
       <div id="projects">
         <section
-          className="py-28 relative overflow-hidden"
-          style={{ fontFamily: theme.fonts.body, background: '#FAFAF9' }}
+          className="py-16 sm:py-28 relative overflow-hidden bg-[#FAFAF9] dark:bg-[#1E0A0D] transition-colors duration-300"
+          style={{ fontFamily: theme.fonts.body }}
         >
           {/* Ambient */}
           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#6B1D2F]/06 blur-[160px] rounded-full pointer-events-none" />
 
           <div className="container mx-auto px-4 sm:px-6 md:px-10 lg:px-12 max-w-[1550px] relative z-10">
             {/* Section header */}
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-14 gap-6">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 sm:mb-14 gap-5 sm:gap-6">
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -104,7 +104,7 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
               >
                 <h2
-                  className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] leading-[1.06] tracking-tight break-words"
+                  className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] dark:text-[#F5F0F1] leading-[1.06] tracking-tight break-words"
                   style={{ fontFamily: theme.fonts.heading }}
                 >
                   Featured <span className="text-gradient-burgundy font-black">Projects</span>
@@ -116,12 +116,13 @@ export default function Home() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
+                className="w-full sm:w-auto"
               >
                 <Button
                   variant="outline"
                   icon={<ArrowRight size={15} />}
                   onClick={() => { navigate('/portfolio'); window.scrollTo(0, 0); }}
-                  className="rounded-none px-7 py-3.5 border-2 border-[#6B1D2F] text-[#6B1D2F] font-black text-[11px] uppercase tracking-wider hover:bg-[#FAFAF9]"
+                  className="w-full sm:w-auto rounded-none px-7 py-3.5 border-2 border-[#6B1D2F] text-[#6B1D2F] dark:border-[#C59A9F] dark:text-[#F5F0F1] font-black text-[11px] uppercase tracking-wider hover:bg-[#6B1D2F] hover:text-white dark:hover:bg-[#8B1E3F] transition-all"
                 >
                   View All Projects
                 </Button>

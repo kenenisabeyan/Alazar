@@ -201,7 +201,7 @@ export default function Contact() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="min-h-screen bg-[#FAFAF9] mesh-bg pt-28 sm:pt-36 pb-0 relative overflow-hidden"
+      className="min-h-screen bg-[#FAFAF9] dark:bg-[#1E0A0D] mesh-bg pt-24 xs:pt-28 sm:pt-36 pb-0 relative overflow-hidden transition-colors duration-300"
       style={{ fontFamily: theme.fonts.body }}
     >
       {/* Motion Flow Background Image Layer 1: hero-bg.png */}
@@ -255,7 +255,7 @@ export default function Contact() {
           >
             <div>
               <h1
-                className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#1C1917] mb-4 sm:mb-5 leading-[1.06] tracking-tight break-words"
+                className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-[#1C1917] dark:text-[#F5F0F1] mb-4 sm:mb-5 leading-[1.04] sm:leading-[0.96] tracking-tight break-words"
                 style={{ fontFamily: theme.fonts.heading }}
               >
                 Let's Build<br />
@@ -272,13 +272,13 @@ export default function Contact() {
                 { icon: Film,    title: 'Video Production',  sub: 'Editing · Grading · Sound' },
                 { icon: Shapes,  title: 'Graphic Design',    sub: 'Brand · Motion · 3D Art'   },
               ].map(({ icon: Icon, title, sub }) => (
-                <div key={title} className="flex flex-col items-center justify-center text-center p-3 sm:p-4 bg-white rounded-none border border-[#C59A9F] shadow-sm hover:border-[#6B1D2F] transition-colors">
+                <div key={title} className="flex flex-col items-center justify-center text-center p-3 sm:p-4 bg-white dark:bg-[#2E1216] rounded-none border border-[#C59A9F] dark:border-white/15 shadow-sm hover:border-[#6B1D2F] transition-colors">
                   <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-none bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center flex-shrink-0 shadow-md shadow-[#6B1D2F]/20 mb-1.5 sm:mb-2">
                     <Icon size={16} />
                   </div>
                   <div className="w-full">
-                    <p className="text-xs font-black text-[#1C1917] leading-tight mb-0.5 text-center break-words">{title}</p>
-                    <p className="text-[10px] text-[#292524] font-semibold text-center">{sub}</p>
+                    <p className="text-xs font-black text-[#1C1917] dark:text-[#F5F0F1] leading-tight mb-0.5 text-center break-words">{title}</p>
+                    <p className="text-[10px] text-[#292524] dark:text-[#A89597] font-semibold text-center">{sub}</p>
                   </div>
                 </div>
               ))}
@@ -287,12 +287,12 @@ export default function Contact() {
             {/* Contact meta */}
             <div className="space-y-3">
               {contactMetaItems.map(({ icon: Icon, label, content }) => (
-                <div key={label} className="flex items-center gap-3 sm:gap-3.5 p-3.5 sm:p-4 bg-white rounded-none border border-[#C59A9F] shadow-sm">
-                  <div className="w-10 h-10 sm:w-11 sm:h-11 bg-[#FAFAF9] border border-[#C59A9F]/40 rounded-none flex items-center justify-center text-[#6B1D2F] flex-shrink-0">
+                <div key={label} className="flex items-center gap-3 sm:gap-3.5 p-3.5 sm:p-4 bg-white dark:bg-[#2E1216] rounded-none border border-[#C59A9F] dark:border-white/15 shadow-sm">
+                  <div className="w-10 h-10 sm:w-11 sm:h-11 bg-[#FAFAF9] dark:bg-[#1E0A0D] border border-[#C59A9F]/40 dark:border-white/15 rounded-none flex items-center justify-center text-[#6B1D2F] dark:text-[#C59A9F] flex-shrink-0">
                     <Icon size={17} />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <p className="text-[10px] text-[#6B1D2F] uppercase tracking-widest font-black mb-0.5">{label}</p>
+                    <p className="text-[10px] text-[#6B1D2F] dark:text-[#C59A9F] uppercase tracking-widest font-black mb-0.5">{label}</p>
                     {content}
                   </div>
                 </div>
@@ -318,7 +318,7 @@ export default function Contact() {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
-            className="lg:col-span-7 bg-white rounded-none border-2 border-[#C59A9F] shadow-xl overflow-hidden scroll-mt-24 relative"
+            className="lg:col-span-7 bg-white dark:bg-[#2E1216] rounded-none border-2 border-[#C59A9F] dark:border-white/15 shadow-xl overflow-hidden scroll-mt-24 relative"
           >
             {/* Direct alias for #form links */}
             <div id="form" className="absolute -top-24 left-0 pointer-events-none" />
@@ -339,14 +339,14 @@ export default function Contact() {
                       <CheckCircle2 size={36} />
                     </div>
                     <h3
-                      className="text-3xl font-black text-[#1C1917]"
+                      className="text-3xl font-black text-[#1C1917] dark:text-[#F5F0F1]"
                       style={{ fontFamily: theme.fonts.heading }}
                     >
                       Inquiry Saved!
                     </h3>
 
                     {inquiryRef && (
-                      <div className="inline-flex items-center gap-3 px-4 py-2 bg-[#FAFAF9] border border-[#C59A9F] rounded-none text-xs font-mono font-bold text-[#6B1D2F] shadow-sm">
+                      <div className="inline-flex items-center gap-3 px-4 py-2 bg-[#FAFAF9] dark:bg-[#1E0A0D] border border-[#C59A9F] dark:border-white/15 rounded-none text-xs font-mono font-bold text-[#6B1D2F] dark:text-[#C59A9F] shadow-sm">
                         <span>Reference Code: <strong>{inquiryRef}</strong></span>
                         <button
                           type="button"
@@ -358,8 +358,8 @@ export default function Contact() {
                       </div>
                     )}
 
-                    <p className="text-[#292524] font-medium max-w-sm mx-auto text-sm leading-relaxed">
-                      Thank you, <strong className="text-[#1C1917]">{formData.firstName}</strong>. Your brief has been recorded in PostgreSQL, I'll review it within 24 hours.
+                    <p className="text-[#292524] dark:text-[#A89597] font-medium max-w-sm mx-auto text-sm leading-relaxed">
+                      Thank you, <strong className="text-[#1C1917] dark:text-[#F5F0F1]">{formData.firstName}</strong>. Your brief has been recorded in PostgreSQL, I'll review it within 24 hours.
                     </p>
                     <Button variant="outline" onClick={() => { setSubmitted(false); setFormData(defaultForm); }}>
                       Send Another Inquiry
@@ -376,33 +376,33 @@ export default function Contact() {
                   >
                     <div>
                       <h3
-                        className="text-2xl font-black text-[#1C1917] mb-1"
+                        className="text-2xl font-black text-[#1C1917] dark:text-[#F5F0F1] mb-1"
                         style={{ fontFamily: theme.fonts.heading }}
                       >
                         Project Inquiry
                       </h3>
-                      <p className="text-[11px] text-[#292524] font-bold uppercase tracking-wider">
+                      <p className="text-[11px] text-[#292524] dark:text-[#A89597] font-bold uppercase tracking-wider">
                         All fields marked * are required
                       </p>
                     </div>
 
                     {serverError && (
-                      <div className="p-4 bg-rose-50 border border-rose-200 text-rose-700 text-sm rounded-none">
+                      <div className="p-4 bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800 text-rose-700 dark:text-rose-300 text-sm rounded-none">
                         {serverError}
                       </div>
                     )}
 
                     {/* Name row */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                      <Input label="First Name *" name="firstName" placeholder="John" value={formData.firstName} onChange={handleChange} error={errors.firstName} required />
-                      <Input label="Last Name"    name="lastName"  placeholder="Doe"  value={formData.lastName}  onChange={handleChange} />
+                      <Input label="First Name" name="firstName" placeholder="John" value={formData.firstName} onChange={handleChange} error={errors.firstName} required />
+                      <Input label="Last Name"  name="lastName"  placeholder="Doe"  value={formData.lastName}  onChange={handleChange} />
                     </div>
 
-                    <Input label="Email Address *" name="email" type="email" placeholder="john@company.com" value={formData.email} onChange={handleChange} error={errors.email} required />
+                    <Input label="Email Address" name="email" type="email" placeholder="john@company.com" value={formData.email} onChange={handleChange} error={errors.email} required />
 
                     {/* Service type — custom styled buttons */}
                     <div>
-                      <label className="text-[11px] text-[#1C1917] font-black tracking-widest uppercase block mb-3">
+                      <label className="text-[11px] text-[#1C1917] dark:text-[#F5F0F1] font-black tracking-widest uppercase block mb-3">
                         Service Type
                       </label>
                       <div className="grid grid-cols-2 gap-2.5">
@@ -416,11 +416,11 @@ export default function Contact() {
                               className={`flex flex-col items-center justify-center text-center p-3 sm:p-3.5 rounded-none border-2 text-xs font-black transition-all ${
                                 active
                                   ? 'bg-[#6B1D2F] border-[#6B1D2F] text-white shadow-md'
-                                  : 'bg-white border-[#C59A9F]/50 text-[#1C1917] hover:border-[#6B1D2F]'
+                                  : 'bg-white dark:bg-[#1E0A0D] border-[#C59A9F]/50 dark:border-white/15 text-[#1C1917] dark:text-[#F5F0F1] hover:border-[#6B1D2F]'
                               }`}
                             >
                               <div className={`w-8 h-8 rounded-none flex items-center justify-center flex-shrink-0 mb-1.5 sm:mb-2 ${
-                                active ? 'bg-white/20 text-white' : 'bg-[#FAFAF9] text-[#6B1D2F]'
+                                active ? 'bg-white/20 text-white' : 'bg-[#FAFAF9] dark:bg-[#2E1216] text-[#6B1D2F] dark:text-[#C59A9F]'
                               }`}>
                                 <Icon size={15} />
                               </div>
@@ -433,14 +433,14 @@ export default function Contact() {
 
                     {/* Budget */}
                     <div className="flex flex-col gap-2">
-                      <label className="text-[11px] text-[#1C1917] font-black tracking-widest uppercase">
+                      <label className="text-[11px] text-[#1C1917] dark:text-[#F5F0F1] font-black tracking-widest uppercase">
                         Budget Range
                       </label>
                       <select
                         name="budget"
                         value={formData.budget}
                         onChange={handleChange}
-                        className="w-full bg-[#FAFAF9] border-2 border-[#C59A9F] rounded-none px-4 py-3.5 text-[#1C1917] font-medium focus:outline-none focus:border-[#6B1D2F] text-sm appearance-none cursor-pointer transition-colors"
+                        className="w-full bg-[#FAFAF9] dark:bg-[#1E0A0D] border-2 border-[#C59A9F] dark:border-white/20 rounded-none px-4 py-3.5 text-[#1C1917] dark:text-[#F5F0F1] font-medium focus:outline-none focus:border-[#6B1D2F] text-sm appearance-none cursor-pointer transition-colors"
                       >
                         <option value="under-3k">&lt; $3,000</option>
                         <option value="$3k to $5k">$3,000 to $5,000</option>
@@ -450,7 +450,7 @@ export default function Contact() {
                     </div>
 
                     <Input
-                      label="Project Details *"
+                      label="Project Details"
                       name="details"
                       multiline
                       rows={5}
