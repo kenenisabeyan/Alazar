@@ -881,49 +881,81 @@ export default function Admin() {
         );
       case 'faqs':
         return <SimpleListPanel title="FAQs" items={faqs}
-          fields={[{ key:'question', label:'Question', type:'textarea', full:true }, { key:'answer', label:'Answer', type:'textarea', full:true }, { key:'sort_order', label:'Order', type:'number' }]}
+          fields={[
+            { key:'question', label:'Question', type:'textarea', full:true, placeholder:'What is your typical production turnaround in Addis Ababa?' },
+            { key:'answer', label:'Answer', type:'textarea', full:true, placeholder:'Standard commercial edits deliver in 4 to 7 business days with on-set filming in Addis Ababa scheduled around your production timeline.' },
+            { key:'sort_order', label:'Order', type:'number' }
+          ]}
           onCreate={(d) => api.content.createFaq(d).then(() => api.content.getFaqs().then(setFaqs))}
           onUpdate={(id, d) => api.content.updateFaq(id, d).then(() => api.content.getFaqs().then(setFaqs))}
           onDelete={(id) => api.content.deleteFaq(id).then(() => api.content.getFaqs().then(setFaqs))}
           loading={false} />;
       case 'gear':
         return <SimpleListPanel title="Gear" items={gear}
-          fields={[{ key:'category', label:'Category', placeholder:'Camera Systems' }, { key:'name', label:'Gear Name', placeholder:'RED V-Raptor 8K' }, { key:'description', label:'Description', type:'textarea', full:true }]}
+          fields={[
+            { key:'category', label:'Category', placeholder:'Cinema Cameras & Rigging' },
+            { key:'name', label:'Gear Name', placeholder:'RED V-Raptor 8K VV' },
+            { key:'description', label:'Description', type:'textarea', full:true, placeholder:'Flagship cinema camera for large-format 8K RAW commercial and documentary productions across Ethiopia.' }
+          ]}
           onCreate={(d) => api.content.createGear(d).then(() => api.content.getGear().then(setGear))}
           onUpdate={(id, d) => api.content.updateGear(id, d).then(() => api.content.getGear().then(setGear))}
           onDelete={(id) => api.content.deleteGear(id).then(() => api.content.getGear().then(setGear))}
           loading={false} />;
       case 'awards':
         return <SimpleListPanel title="Awards" items={awards}
-          fields={[{ key:'year', label:'Year', placeholder:'2025' }, { key:'title', label:'Award Title', placeholder:'Vimeo Staff Pick' }, { key:'project', label:'Project Name' }]}
+          fields={[
+            { key:'year', label:'Year', placeholder:'2025' },
+            { key:'title', label:'Award Title', placeholder:'Addis International Film Honors' },
+            { key:'project', label:'Project Name', placeholder:'Kenenisa Media Brand Story' }
+          ]}
           onCreate={(d) => api.content.createAward(d).then(() => api.content.getAwards().then(setAwards))}
           onUpdate={(id, d) => api.content.updateAward(id, d).then(() => api.content.getAwards().then(setAwards))}
           onDelete={(id) => api.content.deleteAward(id).then(() => api.content.getAwards().then(setAwards))}
           loading={false} />;
       case 'skills':
         return <SimpleListPanel title="Skills" items={skills}
-          fields={[{ key:'category', label:'Category' }, { key:'name', label:'Skill Name' }, { key:'level', label:'Level (0-100)', type:'number' }, { key:'description', label:'Description', type:'textarea', full:true }]}
+          fields={[
+            { key:'category', label:'Category', placeholder:'Video & Post-Production' },
+            { key:'name', label:'Skill Name', placeholder:'DaVinci Resolve Studio & Color Grading' },
+            { key:'level', label:'Level (0-100)', type:'number' },
+            { key:'description', label:'Description', type:'textarea', full:true, placeholder:'Advanced ACES color grading pipeline, Fairlight audio mastering, and broadcast delivery.' }
+          ]}
           onCreate={(d) => api.content.createSkill(d).then(() => api.content.getSkills().then(setSkills))}
           onUpdate={(id, d) => api.content.updateSkill(id, d).then(() => api.content.getSkills().then(setSkills))}
           onDelete={(id) => api.content.deleteSkill(id).then(() => api.content.getSkills().then(setSkills))}
           loading={false} />;
       case 'career':
         return <SimpleListPanel title="Experience" items={career}
-          fields={[{ key:'period', label:'Period', placeholder:'2022 to Present' }, { key:'role', label:'Role', placeholder:'Founder & Lead Director' }, { key:'company', label:'Company' }, { key:'location', label:'Location' }, { key:'description', label:'Description', type:'textarea', full:true }]}
+          fields={[
+            { key:'period', label:'Period', placeholder:'2022 to Present' },
+            { key:'role', label:'Role', placeholder:'Founder & Lead Creative Director' },
+            { key:'company', label:'Company', placeholder:'Alazar Studio' },
+            { key:'location', label:'Location', placeholder:'Addis Ababa / Global Remote' },
+            { key:'description', label:'Description', type:'textarea', full:true, placeholder:'Directing, commercial editing, and brand identity design for Ethiopian and international organizations.' }
+          ]}
           onCreate={(d) => api.content.createCareer(d).then(() => api.content.getCareer().then(setCareer))}
           onUpdate={(id, d) => api.content.updateCareer(id, d).then(() => api.content.getCareer().then(setCareer))}
           onDelete={(id) => api.content.deleteCareer(id).then(() => api.content.getCareer().then(setCareer))}
           loading={false} />;
       case 'client-logos':
         return <SimpleListPanel title="Client Logos" items={logos}
-          fields={[{ key:'name', label:'Client Name' }, { key:'display_text', label:'Display Text (if no logo image)' }, { key:'logo_url', label:'Logo Image URL', placeholder:'https://...' }]}
+          fields={[
+            { key:'name', label:'Client Name', placeholder:'Kenenisa Media Group' },
+            { key:'display_text', label:'Display Text (if no logo image)', placeholder:'KENENISA' },
+            { key:'logo_url', label:'Logo Image URL', placeholder:'https://...' }
+          ]}
           onCreate={(d) => api.content.createClientLogo(d).then(() => api.content.getClientLogos().then(setLogos))}
           onUpdate={(id, d) => api.content.updateClientLogo(id, d).then(() => api.content.getClientLogos().then(setLogos))}
           onDelete={(id) => api.content.deleteClientLogo(id).then(() => api.content.getClientLogos().then(setLogos))}
           loading={false} />;
       case 'bts':
         return <SimpleListPanel title="BTS Gallery" items={bts}
-          fields={[{ key:'title', label:'Title' }, { key:'location', label:'Location' }, { key:'image', label:'Image URL', placeholder:'https://...' }, { key:'caption', label:'Caption', type:'textarea', full:true }]}
+          fields={[
+            { key:'title', label:'Title', placeholder:'Highland Cinema Shoot' },
+            { key:'location', label:'Location', placeholder:'Entoto Mountain Highlands · Addis Ababa' },
+            { key:'image', label:'Image URL', placeholder:'https://...' },
+            { key:'caption', label:'Caption', type:'textarea', full:true, placeholder:'Filming high-speed anamorphic footage on location overlooking Addis Ababa.' }
+          ]}
           onCreate={(d) => api.content.createBtsItem(d).then(() => api.content.getBtsGallery().then(setBts))}
           onUpdate={(id, d) => api.content.updateBtsItem(id, d).then(() => api.content.getBtsGallery().then(setBts))}
           onDelete={(id) => api.content.deleteBtsItem(id).then(() => api.content.getBtsGallery().then(setBts))}
@@ -944,7 +976,14 @@ export default function Admin() {
           loading={false} />;
       case 'case-studies':
         return <SimpleListPanel title="Case Studies" items={caseStudies}
-          fields={[{ key:'client', label:'Client' }, { key:'project', label:'Project Name' }, { key:'metric', label:'Key Metric', placeholder:'4.8M+' }, { key:'metric_label', label:'Metric Label', placeholder:'Video Views' }, { key:'result', label:'Result', placeholder:'+420% Sales Growth' }, { key:'image', label:'Image URL', placeholder:'https://...' }]}
+          fields={[
+            { key:'client', label:'Client', placeholder:'Kenenisa Media Group' },
+            { key:'project', label:'Project Name', placeholder:'Addis Brand Cinema Campaign' },
+            { key:'metric', label:'Key Metric', placeholder:'4.8M+' },
+            { key:'metric_label', label:'Metric Label', placeholder:'Engaged Views' },
+            { key:'result', label:'Result', placeholder:'+420% Audience Growth' },
+            { key:'image', label:'Image URL', placeholder:'https://...' }
+          ]}
           onCreate={(d) => api.content.createCaseStudy(d).then(() => api.content.getCaseStudies().then(setCaseStudies))}
           onUpdate={(id, d) => api.content.updateCaseStudy(id, d).then(() => api.content.getCaseStudies().then(setCaseStudies))}
           onDelete={(id) => api.content.deleteCaseStudy(id).then(() => api.content.getCaseStudies().then(setCaseStudies))}
