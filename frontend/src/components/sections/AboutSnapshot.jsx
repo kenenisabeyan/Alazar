@@ -216,7 +216,7 @@ export const AboutSnapshot = () => {
               className="absolute -top-3 right-1 sm:-right-2 z-30 flex items-center gap-1.5 sm:gap-2 bg-white border border-[#C59A9F] rounded-none px-2.5 sm:px-3.5 py-1 sm:py-1.5 shadow-md"
             >
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shadow-sm shadow-emerald-500/50" />
-              <span className="text-[9.5px] font-black text-[#1C1917] uppercase tracking-wider">Available Now</span>
+              <span className="text-[9.5px] font-black text-[#1C1917] uppercase tracking-wider">Addis Ababa · Available</span>
             </motion.div>
 
             {/* Photo stack (Expanded to 540px width) */}
