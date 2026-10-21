@@ -246,6 +246,7 @@ export default function ServicesAdmin() {
                 <input
                   type="text"
                   required
+                  placeholder="e.g. 4K Cinema Production"
                   value={formData.badge}
                   onChange={e => setFormData({ ...formData, badge: e.target.value })}
                   className="w-full p-3 rounded-xl border border-[#C59A9F]/40 bg-[#FAFAF9] text-[#1C1917] focus:outline-none focus:border-[#6B1D2F]"
@@ -257,6 +258,7 @@ export default function ServicesAdmin() {
                 <input
                   type="text"
                   required
+                  placeholder="e.g. Commercial Video & Color Grading"
                   value={formData.title}
                   onChange={e => setFormData({ ...formData, title: e.target.value })}
                   className="w-full p-3 rounded-xl border border-[#C59A9F]/40 bg-[#FAFAF9] text-[#1C1917] focus:outline-none focus:border-[#6B1D2F]"
@@ -267,6 +269,7 @@ export default function ServicesAdmin() {
                 <label className="block text-[#1C1917] uppercase font-black tracking-wider text-[10px] mb-1">Description</label>
                 <textarea
                   rows={3}
+                  placeholder="e.g. Premium end-to-end commercial filmmaking tailored for Ethiopian and international brand narratives."
                   value={formData.desc}
                   onChange={e => setFormData({ ...formData, desc: e.target.value })}
                   className="w-full p-3 rounded-xl border border-[#C59A9F]/40 bg-[#FAFAF9] text-[#1C1917] focus:outline-none focus:border-[#6B1D2F]"
@@ -277,6 +280,7 @@ export default function ServicesAdmin() {
                 <label className="block text-[#1C1917] uppercase font-black tracking-wider text-[10px] mb-1">Deliverable Bullet Points (comma separated)</label>
                 <input
                   type="text"
+                  placeholder="e.g. RED 8K Filming, DaVinci Resolve Master, Social Cuts, Sound Design"
                   value={formData.items}
                   onChange={e => setFormData({ ...formData, items: e.target.value })}
                   className="w-full p-3 rounded-xl border border-[#C59A9F]/40 bg-[#FAFAF9] text-[#1C1917] focus:outline-none focus:border-[#6B1D2F]"
@@ -288,6 +292,7 @@ export default function ServicesAdmin() {
                   <label className="block text-[#1C1917] uppercase font-black tracking-wider text-[10px] mb-1">CTA Label</label>
                   <input
                     type="text"
+                    placeholder="e.g. Book Production"
                     value={formData.cta}
                     onChange={e => setFormData({ ...formData, cta: e.target.value })}
                     className="w-full p-3 rounded-xl border border-[#C59A9F]/40 bg-[#FAFAF9] text-[#1C1917] focus:outline-none focus:border-[#6B1D2F]"

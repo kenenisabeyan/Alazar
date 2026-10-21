@@ -253,7 +253,7 @@ export default function PortfolioAdmin() {
               <Search size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#292524]" />
               <input
                 type="text"
-                placeholder="Search projects by title, client..."
+                placeholder="Search projects (e.g. Kenenisa, Addis Commercial, Habesha)..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-9 pr-4 py-2 bg-[#FAFAF9] border border-[#C59A9F]/40 rounded-xl text-xs font-semibold text-[#1C1917] focus:outline-none focus:border-[#6B1D2F]"
@@ -401,6 +401,7 @@ export default function PortfolioAdmin() {
                   <input
                     type="text"
                     required
+                    placeholder="e.g. Kenenisa Media Brand Film"
                     value={formData.title}
                     onChange={e => setFormData({ ...formData, title: e.target.value })}
                     className="w-full p-3 rounded-xl border border-[#C59A9F]/40 bg-[#FAFAF9] text-[#1C1917] focus:outline-none focus:border-[#6B1D2F]"
@@ -426,6 +427,7 @@ export default function PortfolioAdmin() {
                   <input
                     type="text"
                     required
+                    placeholder="e.g. Kenenisa Media Group · Addis Ababa"
                     value={formData.client}
                     onChange={e => setFormData({ ...formData, client: e.target.value })}
                     className="w-full p-3 rounded-xl border border-[#C59A9F]/40 bg-[#FAFAF9] text-[#1C1917] focus:outline-none focus:border-[#6B1D2F]"
@@ -436,6 +438,7 @@ export default function PortfolioAdmin() {
                   <label className="block text-[#1C1917] uppercase font-black tracking-wider text-[10px] mb-1">Year</label>
                   <input
                     type="text"
+                    placeholder="e.g. 2026"
                     value={formData.year}
                     onChange={e => setFormData({ ...formData, year: e.target.value })}
                     className="w-full p-3 rounded-xl border border-[#C59A9F]/40 bg-[#FAFAF9] text-[#1C1917] focus:outline-none focus:border-[#6B1D2F]"
@@ -447,6 +450,7 @@ export default function PortfolioAdmin() {
                 <label className="block text-[#1C1917] uppercase font-black tracking-wider text-[10px] mb-1">Role</label>
                 <input
                   type="text"
+                  placeholder="e.g. Lead Director & Colorist"
                   value={formData.role}
                   onChange={e => setFormData({ ...formData, role: e.target.value })}
                   className="w-full p-3 rounded-xl border border-[#C59A9F]/40 bg-[#FAFAF9] text-[#1C1917] focus:outline-none focus:border-[#6B1D2F]"
@@ -457,6 +461,7 @@ export default function PortfolioAdmin() {
                 <label className="block text-[#1C1917] uppercase font-black tracking-wider text-[10px] mb-1">Description</label>
                 <textarea
                   rows={3}
+                  placeholder="e.g. Cinematic brand narrative shot in Addis Ababa capturing high-energy urban storytelling..."
                   value={formData.description}
                   onChange={e => setFormData({ ...formData, description: e.target.value })}
                   className="w-full p-3 rounded-xl border border-[#C59A9F]/40 bg-[#FAFAF9] text-[#1C1917] focus:outline-none focus:border-[#6B1D2F]"
@@ -467,6 +472,7 @@ export default function PortfolioAdmin() {
                 <label className="block text-[#1C1917] uppercase font-black tracking-wider text-[10px] mb-1">Deliverables (comma separated)</label>
                 <input
                   type="text"
+                  placeholder="e.g. 4K Master, Social Cuts, Color Grading LUT"
                   value={formData.deliverables}
                   onChange={e => setFormData({ ...formData, deliverables: e.target.value })}
                   className="w-full p-3 rounded-xl border border-[#C59A9F]/40 bg-[#FAFAF9] text-[#1C1917] focus:outline-none focus:border-[#6B1D2F]"
@@ -478,6 +484,7 @@ export default function PortfolioAdmin() {
                   <label className="block text-[#1C1917] uppercase font-black tracking-wider text-[10px] mb-1">Thumbnail Image URL</label>
                   <input
                     type="text"
+                    placeholder="https://..."
                     value={formData.thumbnail}
                     onChange={e => setFormData({ ...formData, thumbnail: e.target.value })}
                     className="w-full p-3 rounded-xl border border-[#C59A9F]/40 bg-[#FAFAF9] text-[#1C1917] focus:outline-none focus:border-[#6B1D2F]"
@@ -488,6 +495,7 @@ export default function PortfolioAdmin() {
                   <label className="block text-[#1C1917] uppercase font-black tracking-wider text-[10px] mb-1">Video URL (mp4 / showreel)</label>
                   <input
                     type="text"
+                    placeholder="https://...mp4"
                     value={formData.video_url}
                     onChange={e => setFormData({ ...formData, video_url: e.target.value })}
                     className="w-full p-3 rounded-xl border border-[#C59A9F]/40 bg-[#FAFAF9] text-[#1C1917] focus:outline-none focus:border-[#6B1D2F]"
