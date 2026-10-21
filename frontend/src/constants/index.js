@@ -54,14 +54,14 @@ export const theme = {
 export const portfolioProjects = [
   {
     id: 1,
-    title: 'Urban Echoes Commercial',
+    title: 'Kenenisa Media Brand Showcase',
     category: 'video',
     subCategory: 'Commercial Video',
-    client: 'Vanguard Apparel',
+    client: 'Kenenisa Media Group',
     thumbnail: '/assets/projects/urban-echoes.svg',
     previewVideoUrl: '/assets/sample-showreel.mp4',
     videoUrl: '/assets/sample-showreel.mp4',
-    description: "A high-octane commercial edit for Vanguard's Fall collection. Focused on kinetic movement, rhythmic cuts, and a sleek color grade.",
+    description: "A high-octane commercial edit for Kenenisa Media Group's premier campaign in Addis Ababa. Focused on kinetic movement, rhythmic cuts, and a sleek color grade.",
     role: 'Lead Video Editor & Colorist',
     deliverables: ['60s Commercial Reel', '3x Short Social Clips', 'Full Audio Mix'],
     year: '2025',

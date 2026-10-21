@@ -9,10 +9,14 @@ export function cn(...inputs) {
 }
 
 /**
- * Scroll to the top of the page smoothly
+ * Scroll to the top of the page smoothly via Lenis or immediate reset
  */
-export function scrollToTop() {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+export function scrollToTop(immediate = false) {
+  if (window.lenis && typeof window.lenis.scrollTo === 'function') {
+    window.lenis.scrollTo(0, immediate ? { immediate: true } : { duration: 0.9 });
+  } else {
+    window.scrollTo({ top: 0, behavior: immediate ? 'auto' : 'smooth' });
+  }
 }
 
 /**

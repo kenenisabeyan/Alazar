@@ -336,7 +336,6 @@ export const ProjectCalculator = () => {
                       typeName: typeObj.label,
                     }
                   });
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
                 className="mt-auto w-full py-4 rounded-none bg-white text-[#6B1D2F] text-xs font-black uppercase tracking-widest flex items-center justify-center gap-2.5 transition-all duration-300 hover:bg-[#FAFAF9] shadow-xl group"
               >

@@ -35,7 +35,6 @@ export const Modal = ({ isOpen, onClose, project, onPrev, onNext }) => {
   const handleInquire = () => {
     onClose();
     navigate('/contact', { state: { selectedProject: project.title } });
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   if (!isOpen || !project) return null;

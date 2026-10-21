@@ -42,16 +42,12 @@ export const ScrollProgress = () => {
   }, []);
 
   const handleScrollClick = () => {
-    // If direction is 'down' (user scrolling down or near bottom), click scrolls to top
-    // If direction is 'up' (user scrolling up), click scrolls to bottom
-    if (scrollDirection === 'down' || scrollProgress > 90) {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      });
+    const targetTop = (scrollDirection === 'down' || scrollProgress > 90) ? 0 : document.documentElement.scrollHeight;
+    if (window.lenis && typeof window.lenis.scrollTo === 'function') {
+      window.lenis.scrollTo(targetTop, { duration: 0.9 });
     } else {
       window.scrollTo({
-        top: document.documentElement.scrollHeight,
+        top: targetTop,
         behavior: 'smooth',
       });
     }
