@@ -276,16 +276,25 @@ export const Navigation = () => {
                         >
                           <span>{displayName}</span>
                           {hasSubLinks && (
-                            <ChevronDown
-                              size={12}
-                              className={`transition-transform duration-200 ${
-                                isHovered ? 'rotate-180 opacity-100' : 'opacity-60'
-                              } ${active ? 'text-white' : 'text-[#6B1D2F] dark:text-[#C59A9F]'}`}
-                            />
+                            <span
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                setHoveredNav((prev) => (prev === link.name ? null : link.name));
+                              }}
+                              className="p-0.5 rounded-full hover:bg-black/10 dark:hover:bg-white/20 transition-colors cursor-pointer"
+                              title={`${displayName} sections`}
+                            >
+                              <ChevronDown
+                                size={12}
+                                className={`transition-transform duration-200 ${
+                                  isHovered ? 'rotate-180 opacity-100' : 'opacity-60'
+                                } ${active ? 'text-white' : 'text-[#6B1D2F] dark:text-[#C59A9F]'}`}
+                              />
+                            </span>
                           )}
                         </button>
 
-                        {/* Dropdown Menu for Page Sections on Hover */}
+                        {/* Dropdown Menu for Page Sections on Hover / Toggle */}
                         <AnimatePresence>
                           {hasSubLinks && isHovered && (
                             <motion.div
@@ -293,7 +302,7 @@ export const Navigation = () => {
                               animate={{ opacity: 1, y: 0, scale: 1 }}
                               exit={{ opacity: 0, y: 8, scale: 0.96 }}
                               transition={{ duration: 0.18, ease: 'easeOut' }}
-                              className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50 w-64 select-none"
+                              className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50 w-64 select-none pointer-events-auto"
                             >
                               <div className="bg-white/95 dark:bg-[#1E0A0D]/95 backdrop-blur-2xl border border-[#C59A9F]/40 dark:border-white/15 rounded-2xl p-2 shadow-2xl shadow-[#1E0A0D]/25 overflow-hidden">
                                 <div className="text-[10px] font-black uppercase tracking-widest text-[#6B1D2F] dark:text-[#C59A9F] px-3 py-1.5 border-b border-[#C59A9F]/20 dark:border-white/10 flex items-center justify-between">
