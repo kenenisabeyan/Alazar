@@ -753,12 +753,12 @@ function TestimonialsPanel() {
       title="Testimonials"
       items={items}
       fields={[
-        { key: 'author',  label: 'Client Name' },
-        { key: 'company', label: 'Company' },
-        { key: 'title',   label: 'Job Title', placeholder: 'Creative Director' },
+        { key: 'author',  label: 'Client Name', placeholder: 'Kenenisa Beyan' },
+        { key: 'company', label: 'Company', placeholder: 'Kenenisa Media Group · Addis Ababa' },
+        { key: 'title',   label: 'Job Title', placeholder: 'Managing Creative Director' },
         { key: 'avatar',  label: 'Avatar URL', placeholder: 'https://...' },
         { key: 'rating',  label: 'Rating (1-5)', type: 'number' },
-        { key: 'quote',   label: 'Testimonial Quote', type: 'textarea', full: true },
+        { key: 'quote',   label: 'Testimonial Quote', type: 'textarea', full: true, placeholder: 'Working with Alazar elevated our Addis Ababa commercial campaign to international broadcast standards...' },
       ]}
       onCreate={(d) => api.testimonials.create(d).then(load)}
       onUpdate={(id, d) => api.testimonials.update(id, d).then(load)}
