@@ -243,11 +243,11 @@ export const Navigation = () => {
             {isScrolled && (
               <motion.nav
                 key="desktop-header-nav"
-                initial={{ opacity: 0, y: -12, scale: 0.96 }}
+                initial={{ opacity: 0, y: -14, scale: 0.96 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: -12, scale: 0.96 }}
+                exit={{ opacity: 0, y: -14, scale: 0.96 }}
                 transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
-                className="hidden md:flex items-center gap-1 lg:gap-1.5 px-3 py-1.5 rounded-full bg-white/90 dark:bg-[#1E0A0D]/90 backdrop-blur-xl border border-[#C59A9F]/40 dark:border-white/15 shadow-lg shadow-[#6B1D2F]/08 select-none"
+                className="hidden md:flex items-center gap-1 lg:gap-1.5 p-1.5 rounded-full bg-white/80 dark:bg-[#180A0D]/80 backdrop-blur-2xl border border-white/60 dark:border-white/10 shadow-[0_10px_35px_-5px_rgba(107,29,47,0.12),0_2px_8px_rgba(0,0,0,0.04),inset_0_1px_1px_rgba(255,255,255,0.8)] dark:shadow-[0_12px_40px_-5px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.08)] select-none"
                 aria-label="Main Navigation"
               >
                 {navSections
@@ -268,12 +268,15 @@ export const Navigation = () => {
                         <button
                           type="button"
                           onClick={() => handleNavClick(link.path)}
-                          className={`relative px-3.5 lg:px-4 py-2 rounded-full text-xs font-black tracking-wider uppercase transition-all duration-200 cursor-pointer flex items-center gap-1.5 select-none ${
+                          className={`relative px-4 py-2 rounded-full text-[11px] lg:text-xs font-black tracking-widest uppercase transition-all duration-300 cursor-pointer flex items-center gap-1.5 select-none ${
                             active
-                              ? 'bg-[#6B1D2F] text-white shadow-md shadow-[#6B1D2F]/25 font-bold'
-                              : 'text-[#1C1917]/80 dark:text-[#F5F0F1]/80 hover:text-[#6B1D2F] dark:hover:text-white hover:bg-[#6B1D2F]/08 dark:hover:bg-white/10'
+                              ? 'bg-gradient-to-r from-[#6B1D2F] via-[#7D1D34] to-[#8B1E3F] text-white shadow-[0_3px_14px_rgba(107,29,47,0.38)]'
+                              : 'text-[#44403C] dark:text-[#E7DFE1] hover:text-[#6B1D2F] dark:hover:text-white hover:bg-[#6B1D2F]/08 dark:hover:bg-white/08'
                           }`}
                         >
+                          {active && (
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#E28D99] animate-pulse shadow-sm shadow-[#E28D99]/80" />
+                          )}
                           <span>{displayName}</span>
                           {hasSubLinks && (
                             <span
@@ -302,14 +305,17 @@ export const Navigation = () => {
                               animate={{ opacity: 1, y: 0, scale: 1 }}
                               exit={{ opacity: 0, y: 8, scale: 0.96 }}
                               transition={{ duration: 0.18, ease: 'easeOut' }}
-                              className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50 w-64 select-none pointer-events-auto"
+                              className="absolute top-full left-1/2 -translate-x-1/2 pt-2.5 z-50 w-64 select-none pointer-events-auto"
                             >
-                              <div className="bg-white/95 dark:bg-[#1E0A0D]/95 backdrop-blur-2xl border border-[#C59A9F]/40 dark:border-white/15 rounded-2xl p-2 shadow-2xl shadow-[#1E0A0D]/25 overflow-hidden">
-                                <div className="text-[10px] font-black uppercase tracking-widest text-[#6B1D2F] dark:text-[#C59A9F] px-3 py-1.5 border-b border-[#C59A9F]/20 dark:border-white/10 flex items-center justify-between">
-                                  <span>{displayName} Sections</span>
-                                  <span className="text-[9px] opacity-60">Jump to</span>
+                              <div className="bg-white/95 dark:bg-[#1C0B0E]/95 backdrop-blur-3xl border border-[#C59A9F]/35 dark:border-white/12 rounded-2xl p-2.5 shadow-[0_20px_50px_rgba(107,29,47,0.18)] dark:shadow-[0_25px_60px_rgba(0,0,0,0.8)] overflow-hidden">
+                                <div className="text-[10px] font-black uppercase tracking-widest text-[#6B1D2F] dark:text-[#E28D99] px-3 py-1.5 border-b border-[#C59A9F]/20 dark:border-white/10 flex items-center justify-between">
+                                  <span className="flex items-center gap-1.5">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-[#6B1D2F] dark:bg-[#E28D99]" />
+                                    {displayName} Sections
+                                  </span>
+                                  <span className="text-[9px] font-bold text-[#A89597]">Jump to</span>
                                 </div>
-                                <div className="py-1">
+                                <div className="py-1 space-y-0.5">
                                   {link.subLinks.map((sub) => (
                                     <button
                                       key={sub.name}
@@ -319,12 +325,12 @@ export const Navigation = () => {
                                         setHoveredNav(null);
                                         handleNavClick(sub.path);
                                       }}
-                                      className="w-full text-left px-3 py-2 rounded-xl text-xs font-semibold text-[#1C1917] dark:text-[#F5F0F1] hover:bg-[#6B1D2F]/10 dark:hover:bg-white/10 hover:text-[#6B1D2F] dark:hover:text-white transition-all flex items-center justify-between group cursor-pointer"
+                                      className="w-full text-left px-3 py-2 rounded-xl text-xs font-semibold text-[#1C1917] dark:text-[#F5F0F1] hover:bg-gradient-to-r hover:from-[#6B1D2F]/12 hover:to-transparent hover:text-[#6B1D2F] dark:hover:text-white transition-all flex items-center justify-between group cursor-pointer"
                                     >
                                       <span className="truncate pr-2">{sub.name}</span>
                                       <ArrowRight
-                                        size={11}
-                                        className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-[#6B1D2F] dark:text-[#C59A9F] flex-shrink-0"
+                                        size={12}
+                                        className="opacity-0 -translate-x-1.5 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-[#6B1D2F] dark:text-[#E28D99] flex-shrink-0"
                                       />
                                     </button>
                                   ))}
@@ -352,7 +358,7 @@ export const Navigation = () => {
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.2 }}
                   onClick={() => handleNavClick('/contact')}
-                  className="hidden lg:inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#6B1D2F] hover:bg-[#8B1E3F] text-white text-xs font-black tracking-wider uppercase shadow-md shadow-[#6B1D2F]/20 hover:scale-105 active:scale-95 transition-all cursor-pointer"
+                  className="hidden xl:inline-flex items-center gap-1.5 px-4.5 py-2.5 rounded-full bg-gradient-to-r from-[#6B1D2F] via-[#7B1B32] to-[#8B1E3F] hover:from-[#7B1B32] hover:to-[#9B2247] text-white text-xs font-black tracking-widest uppercase shadow-[0_4px_18px_rgba(107,29,47,0.32)] hover:scale-105 active:scale-95 transition-all cursor-pointer"
                 >
                   <span>Hire Me</span>
                   <ArrowUpRight size={13} />
