@@ -176,6 +176,7 @@ export default function AboutAdmin() {
               <label className="block text-xs font-bold uppercase text-stone-700 mb-1">Full Name</label>
               <input
                 type="text"
+                placeholder="Alazar Asdesach"
                 value={profile.fullName || ''}
                 onChange={e => setData(prev => ({ ...prev, about_profile: { ...prev.about_profile, fullName: e.target.value } }))}
                 className="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-sm font-medium focus:ring-2 focus:ring-[#6B1D2F] outline-none"
@@ -185,6 +186,7 @@ export default function AboutAdmin() {
               <label className="block text-xs font-bold uppercase text-stone-700 mb-1">Professional Title</label>
               <input
                 type="text"
+                placeholder="Cinematographer & Colorist"
                 value={profile.professionalTitle || ''}
                 onChange={e => setData(prev => ({ ...prev, about_profile: { ...prev.about_profile, professionalTitle: e.target.value } }))}
                 className="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-sm font-medium focus:ring-2 focus:ring-[#6B1D2F] outline-none"
@@ -194,6 +196,7 @@ export default function AboutAdmin() {
               <label className="block text-xs font-bold uppercase text-stone-700 mb-1">Hero Headline</label>
               <input
                 type="text"
+                placeholder="Crafting Cinematic Stories in Addis Ababa & Beyond"
                 value={profile.headline || ''}
                 onChange={e => setData(prev => ({ ...prev, about_profile: { ...prev.about_profile, headline: e.target.value } }))}
                 className="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-sm font-medium focus:ring-2 focus:ring-[#6B1D2F] outline-none"
@@ -203,6 +206,7 @@ export default function AboutAdmin() {
               <label className="block text-xs font-bold uppercase text-stone-700 mb-1">Years Experience</label>
               <input
                 type="text"
+                placeholder="8+ Years"
                 value={profile.yearsExperience || ''}
                 onChange={e => setData(prev => ({ ...prev, about_profile: { ...prev.about_profile, yearsExperience: e.target.value } }))}
                 className="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-sm font-medium focus:ring-2 focus:ring-[#6B1D2F] outline-none"
@@ -212,6 +216,7 @@ export default function AboutAdmin() {
               <label className="block text-xs font-bold uppercase text-stone-700 mb-1">Short Description Summary</label>
               <textarea
                 rows={3}
+                placeholder="Addis Ababa-based director of photography, colorist, and visual designer specializing in commercial films..."
                 value={profile.shortDescription || ''}
                 onChange={e => setData(prev => ({ ...prev, about_profile: { ...prev.about_profile, shortDescription: e.target.value } }))}
                 className="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-sm font-medium focus:ring-2 focus:ring-[#6B1D2F] outline-none"
@@ -221,6 +226,7 @@ export default function AboutAdmin() {
               <label className="block text-xs font-bold uppercase text-stone-700 mb-1">Main Profile Image URL</label>
               <input
                 type="text"
+                placeholder="https://..."
                 value={profile.profileImage || ''}
                 onChange={e => setData(prev => ({ ...prev, about_profile: { ...prev.about_profile, profileImage: e.target.value } }))}
                 className="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-sm font-medium focus:ring-2 focus:ring-[#6B1D2F] outline-none"
@@ -230,6 +236,7 @@ export default function AboutAdmin() {
               <label className="block text-xs font-bold uppercase text-stone-700 mb-1">Availability Badge Text</label>
               <input
                 type="text"
+                placeholder="Addis Ababa · Available for Q3 / Q4"
                 value={profile.availabilityStatus || ''}
                 onChange={e => setData(prev => ({ ...prev, about_profile: { ...prev.about_profile, availabilityStatus: e.target.value } }))}
                 className="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-sm font-medium focus:ring-2 focus:ring-[#6B1D2F] outline-none"
