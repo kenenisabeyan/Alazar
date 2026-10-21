@@ -94,7 +94,7 @@ export default function Login() {
                   autoFocus
                   value={email}
                   onChange={e => setEmail(e.target.value)}
-                  placeholder="admin@alazar.studio"
+                  placeholder="kenenisa@alazar.studio"
                   className="w-full bg-[#1E0A0D] border border-[rgba(139,30,63,0.3)] rounded-xl pl-11 pr-4 py-3.5
                              text-[#F5F0F1] text-sm placeholder-[#78716C]
                              focus:outline-none focus:border-[#8B1E3F] focus:ring-1 focus:ring-[#8B1E3F]
