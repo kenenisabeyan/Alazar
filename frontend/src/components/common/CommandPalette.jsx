@@ -119,6 +119,30 @@ export const CommandPalette = () => {
       action: () => navigateToSection(navigate, '/services#calculator'),
     },
     {
+      id: 'proj-kenenisa',
+      label: 'Kenenisa Media Group · Brand Showcase',
+      keywords: 'kenenisa beyan addis ababa commercial video production',
+      category: 'Projects',
+      icon: Film,
+      action: () => navigateToSection(navigate, '/portfolio#portfolio-grid'),
+    },
+    {
+      id: 'case-kenenisa',
+      label: 'Case Study: Kenenisa Media Group (4.8M+ Views)',
+      keywords: 'kenenisa beyan case study addis ababa metrics engagement',
+      category: 'Case Studies',
+      icon: Clapperboard,
+      action: () => navigateToSection(navigate, '/#casestudies'),
+    },
+    {
+      id: 'test-kenenisa',
+      label: 'Client Testimonial: Kenenisa Beyan (Creative Director)',
+      keywords: 'kenenisa beyan testimonial review addis ababa client quote',
+      category: 'Testimonials',
+      icon: HelpCircle,
+      action: () => navigateToSection(navigate, '/#testimonials'),
+    },
+    {
       id: 'action-download-cv',
       label: 'Download Resume (CV)',
       category: 'Actions',
@@ -132,10 +156,14 @@ export const CommandPalette = () => {
     },
   ];
 
-  const filteredItems = commandItems.filter((item) =>
-    item.label.toLowerCase().includes(query.toLowerCase()) ||
-    item.category.toLowerCase().includes(query.toLowerCase())
-  );
+  const filteredItems = commandItems.filter((item) => {
+    const q = query.toLowerCase();
+    return (
+      item.label.toLowerCase().includes(q) ||
+      item.category.toLowerCase().includes(q) ||
+      (item.keywords && item.keywords.toLowerCase().includes(q))
+    );
+  });
 
   const handleSelect = (item) => {
     item.action();
