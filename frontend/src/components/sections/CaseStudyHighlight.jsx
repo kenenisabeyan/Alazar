@@ -5,7 +5,7 @@ import { TrendingUp, CheckCircle2, ArrowRight, ArrowUpRight, Film, Shapes } from
 import { caseStudies, theme } from '../../constants';
 
 const catIcon = (client) => {
-  if (['Vanguard Apparel', 'Apex Motors', 'Oak & Iron Media'].includes(client)) return Film;
+  if (['Vanguard Apparel', 'Apex Motors', 'Oak & Iron Media', 'Kenenisa Media Group'].includes(client)) return Film;
   return Shapes;
 };
 
