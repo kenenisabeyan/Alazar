@@ -5,6 +5,8 @@ import {
   Menu,
   X,
   ArrowUpRight,
+  ArrowRight,
+  ChevronDown,
   Download,
   Moon,
   Sun,
@@ -20,17 +22,53 @@ import alazarImg from '../../assets/images/alazar.png';
 import { navigateToSection } from '../../utils/navigation';
 
 export const Navigation = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.scrollY > 25;
+    }
+    return false;
+  });
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [expandedSection, setExpandedSection] = useState(null);
+  const [hoveredNav, setHoveredNav] = useState(null);
+  const hoverTimeoutRef = React.useRef(null);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
+  const handleMouseEnter = (name) => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+      hoverTimeoutRef.current = null;
+    }
+    setHoveredNav(name);
+  };
+
+  const handleMouseLeave = () => {
+    hoverTimeoutRef.current = setTimeout(() => {
+      setHoveredNav(null);
+    }, 160);
+  };
+
   useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 30);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    const handleScroll = () => {
+      const scrolled = window.scrollY > 25;
+      setIsScrolled(scrolled);
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    if (window.lenis && typeof window.lenis.on === 'function') {
+      window.lenis.on('scroll', handleScroll);
+    }
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (window.lenis && typeof window.lenis.off === 'function') {
+        window.lenis.off('scroll', handleScroll);
+      }
+      if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
+    };
   }, []);
 
   useEffect(() => {
@@ -91,18 +129,6 @@ export const Navigation = () => {
       ],
     },
     {
-      name: 'About',
-      path: '/about',
-      subLinks: [
-        { name: 'All About Alazar', path: '/about' },
-        { name: 'Story & Background', path: '/about#story' },
-        { name: 'Career Timeline', path: '/about#timeline' },
-        { name: 'Studio Gear & Cameras', path: '/about#gear' },
-        { name: 'Skills & Tech Stack', path: '/about#skills' },
-        { name: 'Behind The Scenes', path: '/about#bts' },
-      ],
-    },
-    {
       name: 'Portfolio',
       path: '/portfolio',
       subLinks: [
@@ -124,11 +150,23 @@ export const Navigation = () => {
       ],
     },
     {
+      name: 'About',
+      path: '/about',
+      subLinks: [
+        { name: 'All About Alazar', path: '/about' },
+        { name: 'Story & Background', path: '/about#story' },
+        { name: 'Career Timeline', path: '/about#timeline' },
+        { name: 'Studio Gear & Cameras', path: '/about#gear' },
+        { name: 'Skills & Tech Stack', path: '/about#skills' },
+        { name: 'Behind The Scenes', path: '/about#bts' },
+      ],
+    },
+    {
       name: 'Behind The Scenes',
       path: '/about#bts',
     },
     {
-      name: 'Contact Us',
+      name: 'Contact',
       path: '/contact',
       subLinks: [
         { name: 'Contact Overview & Channels', path: '/contact' },
@@ -200,8 +238,118 @@ export const Navigation = () => {
             </div>
           </Link>
 
-          {/* ── The Two Icons: Theme Toggle + Three-Line Menu Hamburger Drawer Opener ─────────── */}
+          {/* ── Center Header Navigation Links (Visible when user starts to scroll) ── */}
+          <AnimatePresence>
+            {isScrolled && (
+              <motion.nav
+                key="desktop-header-nav"
+                initial={{ opacity: 0, y: -12, scale: 0.96 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -12, scale: 0.96 }}
+                transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
+                className="hidden md:flex items-center gap-1 lg:gap-1.5 px-3 py-1.5 rounded-full bg-white/90 dark:bg-[#1E0A0D]/90 backdrop-blur-xl border border-[#C59A9F]/40 dark:border-white/15 shadow-lg shadow-[#6B1D2F]/08 select-none"
+                aria-label="Main Navigation"
+              >
+                {navSections
+                  .filter((item) => item.name !== 'Behind The Scenes')
+                  .map((link) => {
+                    const active = isActive(link.path);
+                    const hasSubLinks = link.subLinks && link.subLinks.length > 0;
+                    const isHovered = hoveredNav === link.name;
+                    const displayName = link.name.replace(' Us', '');
+
+                    return (
+                      <div
+                        key={link.name}
+                        className="relative"
+                        onMouseEnter={() => handleMouseEnter(link.name)}
+                        onMouseLeave={handleMouseLeave}
+                      >
+                        <button
+                          type="button"
+                          onClick={() => handleNavClick(link.path)}
+                          className={`relative px-3.5 lg:px-4 py-2 rounded-full text-xs font-black tracking-wider uppercase transition-all duration-200 cursor-pointer flex items-center gap-1.5 select-none ${
+                            active
+                              ? 'bg-[#6B1D2F] text-white shadow-md shadow-[#6B1D2F]/25 font-bold'
+                              : 'text-[#1C1917]/80 dark:text-[#F5F0F1]/80 hover:text-[#6B1D2F] dark:hover:text-white hover:bg-[#6B1D2F]/08 dark:hover:bg-white/10'
+                          }`}
+                        >
+                          <span>{displayName}</span>
+                          {hasSubLinks && (
+                            <ChevronDown
+                              size={12}
+                              className={`transition-transform duration-200 ${
+                                isHovered ? 'rotate-180 opacity-100' : 'opacity-60'
+                              } ${active ? 'text-white' : 'text-[#6B1D2F] dark:text-[#C59A9F]'}`}
+                            />
+                          )}
+                        </button>
+
+                        {/* Dropdown Menu for Page Sections on Hover */}
+                        <AnimatePresence>
+                          {hasSubLinks && isHovered && (
+                            <motion.div
+                              initial={{ opacity: 0, y: 8, scale: 0.96 }}
+                              animate={{ opacity: 1, y: 0, scale: 1 }}
+                              exit={{ opacity: 0, y: 8, scale: 0.96 }}
+                              transition={{ duration: 0.18, ease: 'easeOut' }}
+                              className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50 w-64 select-none"
+                            >
+                              <div className="bg-white/95 dark:bg-[#1E0A0D]/95 backdrop-blur-2xl border border-[#C59A9F]/40 dark:border-white/15 rounded-2xl p-2 shadow-2xl shadow-[#1E0A0D]/25 overflow-hidden">
+                                <div className="text-[10px] font-black uppercase tracking-widest text-[#6B1D2F] dark:text-[#C59A9F] px-3 py-1.5 border-b border-[#C59A9F]/20 dark:border-white/10 flex items-center justify-between">
+                                  <span>{displayName} Sections</span>
+                                  <span className="text-[9px] opacity-60">Jump to</span>
+                                </div>
+                                <div className="py-1">
+                                  {link.subLinks.map((sub) => (
+                                    <button
+                                      key={sub.name}
+                                      type="button"
+                                      onClick={(e) => {
+                                        e.stopPropagation();
+                                        setHoveredNav(null);
+                                        handleNavClick(sub.path);
+                                      }}
+                                      className="w-full text-left px-3 py-2 rounded-xl text-xs font-semibold text-[#1C1917] dark:text-[#F5F0F1] hover:bg-[#6B1D2F]/10 dark:hover:bg-white/10 hover:text-[#6B1D2F] dark:hover:text-white transition-all flex items-center justify-between group cursor-pointer"
+                                    >
+                                      <span className="truncate pr-2">{sub.name}</span>
+                                      <ArrowRight
+                                        size={11}
+                                        className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-[#6B1D2F] dark:text-[#C59A9F] flex-shrink-0"
+                                      />
+                                    </button>
+                                  ))}
+                                </div>
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    );
+                  })}
+              </motion.nav>
+            )}
+          </AnimatePresence>
+
+          {/* ── The Two Icons + Desktop CTA: Theme Toggle + Menu Hamburger Drawer Opener ─────────── */}
           <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+            {/* Desktop Hire Me CTA visible when scrolled */}
+            <AnimatePresence>
+              {isScrolled && (
+                <motion.button
+                  key="header-hire-btn"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.2 }}
+                  onClick={() => handleNavClick('/contact')}
+                  className="hidden lg:inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#6B1D2F] hover:bg-[#8B1E3F] text-white text-xs font-black tracking-wider uppercase shadow-md shadow-[#6B1D2F]/20 hover:scale-105 active:scale-95 transition-all cursor-pointer"
+                >
+                  <span>Hire Me</span>
+                  <ArrowUpRight size={13} />
+                </motion.button>
+              )}
+            </AnimatePresence>
 
             {/* 1. Theme toggle icon */}
             <button
