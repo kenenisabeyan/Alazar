@@ -28,7 +28,7 @@ export const ProjectCardMedia = ({ project, className = '', showOverlays = true 
 
         {/* Live Reel Corner Indicator (Clean, non-intrusive) */}
         <div className="absolute top-3 right-3 z-10 pointer-events-none">
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-none bg-black/60 backdrop-blur-md border border-white/20 text-[9px] font-black uppercase tracking-wider text-white shadow-lg">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-[9px] font-black uppercase tracking-wider text-white shadow-lg">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
             <span>LIVE REEL</span>
           </div>
@@ -36,7 +36,7 @@ export const ProjectCardMedia = ({ project, className = '', showOverlays = true 
 
         {/* Center Viewfinder Reticle (Only on hover) */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div className="w-11 h-11 rounded-none border border-white/40 flex items-center justify-center bg-black/40 backdrop-blur-sm shadow-xl">
+          <div className="w-12 h-12 rounded-full border border-white/40 flex items-center justify-center bg-black/40 backdrop-blur-sm shadow-xl">
             <Play size={16} className="text-white ml-0.5 fill-white" />
           </div>
         </div>
