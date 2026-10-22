@@ -78,7 +78,7 @@ export const AvailabilityCTA = ({ cta, contact }) => {
                 {guarantees.map(({ icon: Icon, text }) => (
                   <div
                     key={text}
-                    className="flex flex-col sm:flex-row items-center justify-center text-center sm:text-left gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-2 sm:py-2 rounded-none bg-white/[0.12] border border-white/25 text-[10px] sm:text-[11px] font-bold text-white hover:bg-white/[0.20] transition-all"
+                    className="flex flex-col sm:flex-row items-center justify-center text-center sm:text-left gap-1.5 sm:gap-2 px-3.5 sm:px-4 py-2 rounded-full bg-white/[0.12] border border-white/25 text-[10px] sm:text-[11px] font-bold text-white hover:bg-white/[0.20] transition-all"
                   >
                     <Icon size={13} className="text-[#C59A9F] flex-shrink-0 mx-auto sm:mx-0" />
                     <span className="break-normal whitespace-normal">{text}</span>
@@ -96,7 +96,7 @@ export const AvailabilityCTA = ({ cta, contact }) => {
               >
                 <button
                   onClick={() => navigateToSection(navigate, '/contact')}
-                  className="w-full sm:w-auto flex-1 min-w-0 group inline-flex items-center justify-center gap-2 px-4 sm:px-8 py-3.5 sm:py-4 rounded-none bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] text-white text-xs font-black uppercase tracking-wider sm:tracking-widest shadow-2xl shadow-[#6B1D2F]/35 hover:shadow-[#6B1D2F]/50 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer"
+                  className="w-full sm:w-auto flex-1 min-w-0 group inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] text-white text-xs font-black uppercase tracking-wider sm:tracking-widest shadow-2xl shadow-[#6B1D2F]/35 hover:shadow-[#6B1D2F]/50 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer"
                 >
                   <Send size={14} className="text-[#C59A9F] flex-shrink-0" />
                   <span className="truncate">Start Project</span>
@@ -105,7 +105,7 @@ export const AvailabilityCTA = ({ cta, contact }) => {
 
                 <a
                   href={`mailto:${primaryEmail}`}
-                  className="w-full sm:w-auto flex-1 min-w-0 group inline-flex items-center justify-center gap-2 px-4 sm:px-8 py-3.5 sm:py-4 rounded-none border-2 border-white/20 text-white text-xs font-black uppercase tracking-wider sm:tracking-widest hover:border-white/50 hover:bg-white/[0.07] transition-all duration-300"
+                  className="w-full sm:w-auto flex-1 min-w-0 group inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full border-2 border-white/20 text-white text-xs font-black uppercase tracking-wider sm:tracking-widest hover:border-white/50 hover:bg-white/[0.07] transition-all duration-300"
                 >
                   <Mail size={14} className="text-[#C59A9F] flex-shrink-0" />
                   <span className="truncate">{primaryEmail}</span>
@@ -138,13 +138,13 @@ export const AvailabilityCTA = ({ cta, contact }) => {
               ].map(({ icon: Icon, title, items, dark }) => (
                 <div
                   key={title}
-                  className={`rounded-none p-6 border transition-all duration-300 hover:-translate-y-1 ${dark
+                  className={`rounded-2xl p-6 border transition-all duration-300 hover:-translate-y-1 ${dark
                       ? 'bg-white/[0.06] border-white/10 hover:bg-white/[0.09]'
                       : 'bg-white/[0.04] border-white/10 hover:bg-white/[0.08]'
                     }`}
                 >
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-9 h-9 rounded-none bg-[#6B1D2F] text-white flex items-center justify-center shadow-lg shadow-[#6B1D2F]/30">
+                    <div className="w-10 h-10 rounded-xl bg-[#6B1D2F] text-white flex items-center justify-center shadow-lg shadow-[#6B1D2F]/30 border border-white/10">
                       <Icon size={17} />
                     </div>
                     <h4 className="text-sm font-black text-white" style={{ fontFamily: theme.fonts.heading }}>
@@ -153,7 +153,7 @@ export const AvailabilityCTA = ({ cta, contact }) => {
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {items.map(item => (
-                      <span key={item} className="text-[10px] font-bold text-white/80 px-2.5 py-1 rounded-none bg-white/[0.10] border border-white/20 uppercase tracking-wider">
+                      <span key={item} className="text-[10px] font-bold text-white/80 px-3 py-1 rounded-full bg-white/[0.10] border border-white/20 uppercase tracking-wider">
                         {item}
                       </span>
                     ))}
@@ -162,8 +162,8 @@ export const AvailabilityCTA = ({ cta, contact }) => {
               ))}
 
               {/* Response time card */}
-              <div className="rounded-none p-5 border border-white/10 bg-gradient-to-r from-[#6B1D2F]/30 to-[#8B1E3F]/20 flex items-center gap-4">
-                <div className="w-10 h-10 rounded-none bg-[#6B1D2F] text-white flex items-center justify-center shadow-lg shadow-[#6B1D2F]/30 flex-shrink-0">
+              <div className="rounded-2xl p-5 border border-white/10 bg-gradient-to-r from-[#6B1D2F]/30 to-[#8B1E3F]/20 flex items-center gap-4">
+                <div className="w-10 h-10 rounded-xl bg-[#6B1D2F] text-white flex items-center justify-center shadow-lg shadow-[#6B1D2F]/30 flex-shrink-0 border border-white/10">
                   <Clock size={18} />
                 </div>
                 <div>

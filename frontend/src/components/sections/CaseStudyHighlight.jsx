@@ -50,9 +50,9 @@ export const CaseStudyHighlight = () => {
               <button
                 key={cs.id}
                 onClick={() => setActive(idx)}
-                className={`px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-none text-[10px] sm:text-[11px] font-black uppercase tracking-wider transition-all ${active === idx
-                    ? 'bg-[#6B1D2F] text-white shadow-lg shadow-[#6B1D2F]/25'
-                    : 'bg-white border border-[#C59A9F] text-[#292524] hover:border-[#6B1D2F] hover:text-[#6B1D2F]'
+                className={`px-4 sm:px-5 py-2 rounded-full text-[10px] sm:text-[11px] font-black uppercase tracking-wider transition-all shadow-sm ${active === idx
+                    ? 'bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] text-white shadow-lg shadow-[#6B1D2F]/25'
+                    : 'bg-white border border-[#C59A9F]/40 text-[#292524] hover:border-[#6B1D2F] hover:text-[#6B1D2F]'
                   }`}
               >
                 {cs.client}
@@ -72,7 +72,7 @@ export const CaseStudyHighlight = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4 }}
-              className="lg:col-span-7 relative rounded-none overflow-hidden min-h-[340px] sm:min-h-[420px] bg-gradient-to-br from-[#6B1D2F] via-[#521523] to-[#3B0E19] shadow-2xl shadow-[#6B1D2F]/25 flex flex-col justify-end border border-[#C59A9F]/30"
+              className="lg:col-span-7 relative rounded-3xl overflow-hidden min-h-[340px] sm:min-h-[420px] bg-gradient-to-br from-[#6B1D2F] via-[#521523] to-[#3B0E19] shadow-2xl shadow-[#6B1D2F]/25 flex flex-col justify-end border border-[#C59A9F]/30"
             >
               {/* Background image */}
               <img
@@ -85,12 +85,12 @@ export const CaseStudyHighlight = () => {
               {/* Ambient glow */}
               <div className="absolute top-0 right-0 w-64 h-64 bg-[#6B1D2F]/30 blur-[80px] rounded-full pointer-events-none" />
 
-              <div className="relative z-10 p-5 sm:p-8 md:p-10">
+              <div className="relative z-10 p-6 sm:p-8 md:p-10">
                 <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 mb-4 sm:mb-6">
-                  <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-none bg-[#6B1D2F] text-[10px] font-black text-white uppercase tracking-widest">
+                  <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#6B1D2F] text-[10px] font-black text-white uppercase tracking-widest shadow-md">
                     <Icon size={11} /> {current.client}
                   </span>
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-none bg-white/10 border border-white/15 text-[10px] font-black text-white/80 uppercase tracking-widest">
+                  <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-[10px] font-black text-white/90 uppercase tracking-widest backdrop-blur-md">
                     <TrendingUp size={11} /> {current.result}
                   </span>
                 </div>
@@ -110,7 +110,7 @@ export const CaseStudyHighlight = () => {
                   >
                     {current.metric}
                   </span>
-                  <span className="text-xs font-bold text-white/50 uppercase tracking-widest pb-2">
+                  <span className="text-xs font-bold text-white/70 uppercase tracking-widest pb-2">
                     {current.metricLabel}
                   </span>
                 </div>
@@ -120,7 +120,7 @@ export const CaseStudyHighlight = () => {
                   {current.deliverables.map((d) => (
                     <span
                       key={d}
-                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-none bg-white/10 border border-white/15 text-[10px] font-bold text-white/80"
+                      className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-[10px] font-bold text-white/90"
                     >
                       <CheckCircle2 size={10} className="text-[#C59A9F]" /> {d}
                     </span>
@@ -129,7 +129,7 @@ export const CaseStudyHighlight = () => {
 
                 <button
                   onClick={() => { navigate('/portfolio'); window.scrollTo(0, 0); }}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-none bg-white text-[#6B1D2F] text-[11px] font-black uppercase tracking-widest hover:bg-[#FAFAF9] transition-all group shadow-xl"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-[#6B1D2F] text-[11px] font-black uppercase tracking-widest hover:bg-[#FAFAF9] transition-all group shadow-xl"
                 >
                   View Full Project <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </button>
@@ -138,7 +138,7 @@ export const CaseStudyHighlight = () => {
           </AnimatePresence>
 
           {/* Sidebar — other case study cards */}
-          <div className="lg:col-span-5 flex flex-col gap-5">
+          <div className="lg:col-span-5 flex flex-col gap-4">
             {caseStudies.map((cs, idx) => {
               const CsIcon = catIcon(cs.client);
               const isActive = idx === active;
@@ -150,17 +150,17 @@ export const CaseStudyHighlight = () => {
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1 }}
                   onClick={() => setActive(idx)}
-                  className={`cursor-pointer rounded-none p-6 border transition-all duration-300 flex items-center gap-5 ${isActive
-                      ? 'bg-[#6B1D2F] border-[#6B1D2F] shadow-xl shadow-[#6B1D2F]/20'
-                      : 'bg-white border-[#C59A9F] hover:border-[#C59A9F] hover:shadow-md'
+                  className={`cursor-pointer rounded-2xl p-5 sm:p-6 border transition-all duration-300 flex items-center gap-5 ${isActive
+                      ? 'bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] border-transparent text-white shadow-xl shadow-[#6B1D2F]/20'
+                      : 'bg-white border-[#C59A9F]/40 hover:border-[#6B1D2F] hover:shadow-md'
                     }`}
                 >
-                  <div className={`w-14 h-14 rounded-none flex items-center justify-center flex-shrink-0 ${isActive ? 'bg-white/20 text-white' : 'bg-[#FAFAF9] text-[#6B1D2F]'
+                  <div className={`w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0 ${isActive ? 'bg-white/20 text-white' : 'bg-[#FAFAF9] text-[#6B1D2F] border border-[#C59A9F]/30'
                     }`}>
                     <CsIcon size={24} />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className={`text-[10px] font-black uppercase tracking-widest mb-1 ${isActive ? 'text-white/60' : 'text-[#292524]'}`}>
+                    <p className={`text-[10px] font-black uppercase tracking-widest mb-1 ${isActive ? 'text-white/80' : 'text-[#292524]'}`}>
                       {cs.client}
                     </p>
                     <h4 className={`text-sm font-black truncate ${isActive ? 'text-white' : 'text-[#1C1917]'}`}
@@ -189,7 +189,7 @@ export const CaseStudyHighlight = () => {
             >
               <button
                 onClick={() => { navigate('/portfolio'); window.scrollTo(0, 0); }}
-                className="w-full flex items-center justify-center gap-2 py-4 rounded-none border-2 border-dashed border-[#C59A9F]/60 text-[#6B1D2F] text-[11px] font-black uppercase tracking-widest hover:border-[#6B1D2F] hover:bg-[#FAFAF9]/50 transition-all group"
+                className="w-full flex items-center justify-center gap-2 py-4 rounded-full border border-[#C59A9F]/50 text-[#6B1D2F] text-[11px] font-black uppercase tracking-widest hover:border-[#6B1D2F] hover:bg-[#FAFAF9] transition-all shadow-sm group"
               >
                 View All Projects <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
               </button>
