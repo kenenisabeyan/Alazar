@@ -261,24 +261,24 @@ export default function Contact() {
                 Let's Build<br />
                 <span className="text-gradient-burgundy font-black">Something Great.</span>
               </h1>
-              <p className="text-[#1C1917] font-medium text-sm sm:text-base md:text-lg leading-relaxed max-w-md bg-white/85 backdrop-blur-md px-4 sm:px-5 py-2.5 sm:py-3 rounded-none border border-[#C59A9F]/40 shadow-sm inline-block max-w-full break-words">
+              <p className="text-[#44403C] dark:text-[#E7E5E4] font-medium text-sm sm:text-base md:text-lg leading-relaxed max-w-md">
                 Ready to start your next video or design project? Fill out the brief below, your inquiry goes straight into the PERN backend.
               </p>
             </div>
 
             {/* Discipline mini-cards */}
-            <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
               {[
                 { icon: Film,    title: 'Video Production',  sub: 'Editing · Grading · Sound' },
                 { icon: Shapes,  title: 'Graphic Design',    sub: 'Brand · Motion · 3D Art'   },
               ].map(({ icon: Icon, title, sub }) => (
-                <div key={title} className="flex flex-col items-center justify-center text-center p-3 sm:p-4 bg-white dark:bg-[#2E1216] rounded-none border border-[#C59A9F] dark:border-white/15 shadow-sm hover:border-[#6B1D2F] transition-colors">
-                  <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-none bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center flex-shrink-0 shadow-md shadow-[#6B1D2F]/20 mb-1.5 sm:mb-2">
-                    <Icon size={16} />
+                <div key={title} className="flex flex-col items-center justify-center text-center p-4 sm:p-5 bg-white/90 dark:bg-[#2E1216]/90 backdrop-blur-md rounded-2xl border border-[#C59A9F]/35 dark:border-white/10 shadow-sm hover:border-[#6B1D2F] hover:shadow-md transition-all">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center flex-shrink-0 shadow-md shadow-[#6B1D2F]/20 mb-2">
+                    <Icon size={17} />
                   </div>
                   <div className="w-full">
-                    <p className="text-xs font-black text-[#1C1917] dark:text-[#F5F0F1] leading-tight mb-0.5 text-center break-words">{title}</p>
-                    <p className="text-[10px] text-[#292524] dark:text-[#A89597] font-semibold text-center">{sub}</p>
+                    <p className="text-xs font-black text-[#1C1917] dark:text-[#F5F0F1] leading-tight mb-1 text-center break-words">{title}</p>
+                    <p className="text-[10px] text-[#57534E] dark:text-[#A89597] font-semibold text-center">{sub}</p>
                   </div>
                 </div>
               ))}
@@ -287,12 +287,12 @@ export default function Contact() {
             {/* Contact meta */}
             <div className="space-y-3">
               {contactMetaItems.map(({ icon: Icon, label, content }) => (
-                <div key={label} className="flex items-center gap-3 sm:gap-3.5 p-3.5 sm:p-4 bg-white dark:bg-[#2E1216] rounded-none border border-[#C59A9F] dark:border-white/15 shadow-sm">
-                  <div className="w-10 h-10 sm:w-11 sm:h-11 bg-[#FAFAF9] dark:bg-[#1E0A0D] border border-[#C59A9F]/40 dark:border-white/15 rounded-none flex items-center justify-center text-[#6B1D2F] dark:text-[#C59A9F] flex-shrink-0">
-                    <Icon size={17} />
+                <div key={label} className="flex items-center gap-3.5 sm:gap-4 p-4 bg-white/90 dark:bg-[#2E1216]/90 backdrop-blur-md rounded-2xl border border-[#C59A9F]/35 dark:border-white/10 shadow-sm hover:shadow-md transition-all">
+                  <div className="w-10 h-10 sm:w-11 sm:h-11 bg-[#FAFAF9] dark:bg-[#1E0A0D] border border-[#C59A9F]/40 dark:border-white/15 rounded-xl flex items-center justify-center text-[#6B1D2F] dark:text-[#E28D99] flex-shrink-0">
+                    <Icon size={18} />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <p className="text-[10px] text-[#6B1D2F] dark:text-[#C59A9F] uppercase tracking-widest font-black mb-0.5">{label}</p>
+                    <p className="text-[10px] text-[#6B1D2F] dark:text-[#E28D99] uppercase tracking-widest font-black mb-0.5">{label}</p>
                     {content}
                   </div>
                 </div>
@@ -300,7 +300,7 @@ export default function Contact() {
             </div>
 
             {/* Availability pulse */}
-            <div className="flex items-center gap-3 p-3.5 sm:p-4 bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] rounded-none shadow-lg shadow-[#6B1D2F]/20">
+            <div className="flex items-center gap-3 p-4 bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] rounded-2xl shadow-xl shadow-[#6B1D2F]/20">
               <div className="relative flex-shrink-0">
                 <span className="absolute inline-flex h-3 w-3 rounded-full bg-emerald-400 opacity-75 animate-ping" />
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500" />
@@ -318,7 +318,7 @@ export default function Contact() {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
-            className="lg:col-span-7 bg-white dark:bg-[#2E1216] rounded-none border-2 border-[#C59A9F] dark:border-white/15 shadow-xl overflow-hidden scroll-mt-24 relative"
+            className="lg:col-span-7 bg-white/95 dark:bg-[#2E1216]/95 backdrop-blur-xl rounded-3xl border border-[#C59A9F]/40 dark:border-white/15 shadow-2xl overflow-hidden scroll-mt-24 relative"
           >
             {/* Direct alias for #form links */}
             <div id="form" className="absolute -top-24 left-0 pointer-events-none" />
