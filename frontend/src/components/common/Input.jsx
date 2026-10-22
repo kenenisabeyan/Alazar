@@ -14,7 +14,7 @@ export const Input = ({
   className = '',
   ...props
 }) => {
-  const baseClasses = "w-full bg-[#FAFAF9] dark:bg-[#1E0A0D] border border-[#C59A9F] dark:border-white/20 rounded-lg px-4 py-3 text-[#1C1917] dark:text-[#F5F0F1] focus:outline-none focus:border-[#6B1D2F] dark:focus:border-[#8B1E3F] focus:ring-1 focus:ring-[#6B1D2F] transition-all duration-300 placeholder:text-[#292524]/50 dark:placeholder:text-white/40 text-sm";
+  const baseClasses = "w-full bg-white/80 dark:bg-[#18080A]/80 backdrop-blur-sm border border-[#C59A9F]/45 dark:border-white/15 rounded-xl px-4.5 py-3.5 text-[#1C1917] dark:text-[#F5F0F1] font-medium focus:outline-none focus:border-[#6B1D2F] dark:focus:border-[#E28D99] focus:ring-4 focus:ring-[#6B1D2F]/10 dark:focus:ring-[#E28D99]/15 shadow-sm hover:border-[#6B1D2F]/60 transition-all duration-300 placeholder:text-[#292524]/40 dark:placeholder:text-white/30 text-sm";
   
   const cleanLabel = label ? label.replace(/\s*\*+\s*$/, '') : '';
 

@@ -134,7 +134,7 @@ export const HeroSection = ({ onOpenShowreel }) => {
 
             <motion.p
               variants={itemVariants}
-              className="text-xs xs:text-sm sm:text-base md:text-lg text-[#292524] dark:text-[#F5F0F1] font-semibold max-w-2xl mx-auto leading-relaxed bg-white/80 dark:bg-[#2E1216]/80 backdrop-blur-xl px-4 sm:px-6 py-2.5 sm:py-3.5 rounded-2xl border border-[#C59A9F]/35 dark:border-white/10 shadow-lg shadow-black/5 inline-block max-w-full break-words"
+              className="text-sm sm:text-base md:text-xl text-[#44403C] dark:text-[#E7E5E4] font-medium max-w-2xl mx-auto leading-relaxed px-2"
             >
               Crafting high-octane commercial edits, master-level color grading, and striking graphic design systems for visionary global brands.
             </motion.p>
@@ -142,13 +142,13 @@ export const HeroSection = ({ onOpenShowreel }) => {
             {/* CTA Buttons */}
             <motion.div
               variants={itemVariants}
-              className="flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-6 pt-3 sm:pt-6 w-full max-w-md mx-auto sm:w-auto px-2 sm:px-0"
+              className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 pt-3 sm:pt-6 w-full max-w-md mx-auto sm:w-auto px-2 sm:px-0"
             >
               <Button
                 variant="primary"
-                icon={<ArrowRight size={16} />}
+                icon={<ArrowRight size={17} />}
                 onClick={() => navigateToSection(navigate, '/portfolio#portfolio-grid')}
-                className="w-full sm:w-auto flex-1 sm:flex-initial min-w-0 shadow-xl shadow-[#6B1D2F]/20 hover:shadow-[#6B1D2F]/35 px-6 sm:px-9 py-3.5 sm:py-4 text-xs sm:text-sm tracking-wider sm:tracking-widest uppercase font-extrabold rounded-none"
+                className="w-full sm:w-auto flex-1 sm:flex-initial min-w-0 shadow-xl shadow-[#6B1D2F]/25 hover:shadow-2xl hover:shadow-[#6B1D2F]/40 px-8 sm:px-10 py-4 sm:py-4.5 text-xs sm:text-sm tracking-widest uppercase font-black"
               >
                 Explore Work
               </Button>
@@ -157,7 +157,7 @@ export const HeroSection = ({ onOpenShowreel }) => {
                 variant="secondary"
                 icon={<Play size={16} className="fill-[#6B1D2F] text-[#6B1D2F]" />}
                 onClick={onOpenShowreel}
-                className="w-full sm:w-auto flex-1 sm:flex-initial min-w-0 bg-white/90 backdrop-blur-md border border-[#C59A9F] hover:border-[#6B1D2F] px-6 sm:px-9 py-3.5 sm:py-4 text-xs sm:text-sm tracking-wider sm:tracking-widest uppercase font-extrabold shadow-sm rounded-none"
+                className="w-full sm:w-auto flex-1 sm:flex-initial min-w-0 bg-white/95 dark:bg-[#1E0A0D]/90 backdrop-blur-md border-2 border-[#6B1D2F]/70 dark:border-[#C59A9F]/60 text-[#6B1D2F] dark:text-[#F5F0F1] hover:border-[#6B1D2F] px-8 sm:px-10 py-4 sm:py-4.5 text-xs sm:text-sm tracking-widest uppercase font-black shadow-md hover:shadow-xl"
               >
                 Watch Reel
               </Button>
@@ -167,21 +167,21 @@ export const HeroSection = ({ onOpenShowreel }) => {
           {/* Luxury Glass Stats Cards */}
           <motion.div
             variants={itemVariants}
-            className="w-full max-w-6xl grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-6 pt-8 sm:pt-14 border-t border-[#C59A9F]/40 dark:border-white/10"
+            className="w-full max-w-6xl grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 pt-8 sm:pt-14 border-t border-[#C59A9F]/30 dark:border-white/10"
           >
             {statistics.map((stat, idx) => (
               <motion.div
                 key={idx}
-                whileHover={{ y: -4, scale: 1.02 }}
-                className="glass-card-luxury text-center p-3 sm:p-6 rounded-none border border-[#C59A9F]/30 dark:border-white/10 shadow-sm hover:shadow-md transition-all"
+                whileHover={{ y: -6, scale: 1.02 }}
+                className="glass-card-luxury text-center p-4 sm:p-7 rounded-2xl border border-[#C59A9F]/30 dark:border-white/10 shadow-sm hover:shadow-xl hover:border-[#6B1D2F]/40 transition-all duration-300"
               >
-                <div className="flex items-center justify-center gap-1.5 mb-1">
+                <div className="flex items-center justify-center gap-1.5 mb-1.5">
                   <span className="text-2xl sm:text-3xl md:text-5xl font-black text-[#6B1D2F] dark:text-[#F5F0F1] tracking-tight" style={{ fontFamily: theme.fonts.heading }}>
                     {stat.value}
                   </span>
-                  <Award size={15} className="text-[#C59A9F] dark:text-[#8B1E3F]" />
+                  <Award size={16} className="text-[#C59A9F] dark:text-[#E28D99]" />
                 </div>
-                <p className="text-[9px] sm:text-[11px] text-[#292524] dark:text-[#A89597] uppercase tracking-wider sm:tracking-widest font-black leading-tight">{stat.label}</p>
+                <p className="text-[10px] sm:text-xs text-[#57534E] dark:text-[#A89597] uppercase tracking-wider sm:tracking-widest font-bold leading-tight">{stat.label}</p>
               </motion.div>
             ))}
           </motion.div>
