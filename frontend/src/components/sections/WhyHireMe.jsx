@@ -51,7 +51,7 @@ export const WhyHireMe = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.15 }}
-            className="text-[#1C1917] font-medium text-base max-w-sm leading-relaxed bg-white/80 backdrop-blur-md px-4 py-2.5 rounded-xl border border-[#C59A9F]/40 shadow-sm"
+            className="text-[#44403C] font-medium text-base max-w-sm leading-relaxed lg:text-right"
           >
             A dedicated senior specialist, not an agency. Faster, sharper, and fully invested in your project's success.
           </motion.p>
@@ -61,7 +61,7 @@ export const WhyHireMe = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
 
           {/* Left: Guarantee cards */}
-          <div className="lg:col-span-7 grid grid-cols-2 gap-2.5 sm:gap-5">
+          <div className="lg:col-span-7 grid grid-cols-2 gap-3 sm:gap-5">
             {hiringGuarantees.map((item, idx) => {
               const Icon = guaranteeIcons[idx % guaranteeIcons.length];
               return (
@@ -72,9 +72,9 @@ export const WhyHireMe = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.55, delay: idx * 0.1 }}
                   whileHover={{ y: -5 }}
-                  className="glass-card-luxury p-3 sm:p-5 md:p-6 rounded-none flex flex-col items-center justify-center text-center"
+                  className="glass-card-luxury p-4 sm:p-5 md:p-6 rounded-2xl flex flex-col items-center justify-center text-center border border-[#C59A9F]/40 shadow-sm hover:shadow-md"
                 >
-                  <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-none bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center shadow-md shadow-[#6B1D2F]/25 flex-shrink-0 mb-2 sm:mb-3">
+                  <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center shadow-md shadow-[#6B1D2F]/25 flex-shrink-0 mb-2.5 sm:mb-3">
                     <Icon size={18} />
                   </div>
                   <h4
@@ -86,8 +86,8 @@ export const WhyHireMe = () => {
                   <p className="text-[10px] sm:text-xs text-[#292524] dark:text-[#A89597] font-medium leading-relaxed mb-2 text-center line-clamp-3 sm:line-clamp-none">
                     {item.desc}
                   </p>
-                  <div className="flex items-center justify-center gap-1 text-[8.5px] sm:text-[10px] text-[#6B1D2F] dark:text-[#C59A9F] font-black uppercase tracking-wider text-center mt-auto">
-                    <ShieldCheck size={11} className="flex-shrink-0" />
+                  <div className="flex items-center justify-center gap-1.5 text-[8.5px] sm:text-[10px] text-[#6B1D2F] dark:text-[#C59A9F] font-black uppercase tracking-wider text-center mt-auto">
+                    <ShieldCheck size={12} className="flex-shrink-0" />
                     <span>Guaranteed</span>
                   </div>
                 </motion.div>
@@ -101,12 +101,12 @@ export const WhyHireMe = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="lg:col-span-5 bg-gradient-to-br from-[#6B1D2F] via-[#521523] to-[#3B0E19] rounded-none p-5 sm:p-8 md:p-10 flex flex-col justify-between relative overflow-hidden shadow-xl shadow-[#6B1D2F]/20 border border-[#C59A9F]/20"
+            className="lg:col-span-5 bg-gradient-to-br from-[#6B1D2F] via-[#521523] to-[#3B0E19] rounded-3xl p-6 sm:p-8 md:p-10 flex flex-col justify-between relative overflow-hidden shadow-xl shadow-[#6B1D2F]/20 border border-[#C59A9F]/20"
           >
             <div className="absolute -top-16 -right-16 w-48 h-48 bg-white/10 blur-[80px] rounded-full pointer-events-none" />
 
             <div className="relative z-10">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-none bg-white/20 border border-white/20 text-[11px] font-black text-white uppercase tracking-widest mb-8">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/20 border border-white/20 text-[11px] font-black text-white uppercase tracking-widest mb-8">
                 <Compass size={12} /> What Sets Me Apart
               </div>
 
@@ -137,7 +137,7 @@ export const WhyHireMe = () => {
             <div className="mt-10 pt-8 border-t border-white/15 relative z-10">
               <button
                 onClick={() => { navigate('/contact'); window.scrollTo(0, 0); }}
-                className="w-full py-4 rounded-none bg-white text-[#6B1D2F] hover:bg-[#FAFAF9] text-xs font-black uppercase tracking-widest flex items-center justify-center gap-2 transition-all duration-300 group shadow-lg"
+                className="w-full py-4 rounded-full bg-white text-[#6B1D2F] hover:bg-[#FAFAF9] text-xs font-black uppercase tracking-widest flex items-center justify-center gap-2 transition-all duration-300 group shadow-lg"
               >
                 Start a Project <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </button>
@@ -151,7 +151,7 @@ export const WhyHireMe = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6 p-5 sm:p-8 bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] rounded-none shadow-xl shadow-[#6B1D2F]/20"
+          className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6 p-6 sm:p-8 bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] rounded-3xl shadow-xl shadow-[#6B1D2F]/20"
         >
           <div className="text-center sm:text-left">
             <h3 className="text-xl font-black text-white mb-1" style={{ fontFamily: theme.fonts.heading }}>
@@ -163,7 +163,7 @@ export const WhyHireMe = () => {
           </div>
           <button
             onClick={() => { navigate('/contact'); window.scrollTo(0, 0); }}
-            className="flex-shrink-0 flex items-center gap-2.5 px-8 py-3.5 rounded-none bg-white text-[#6B1D2F] text-xs font-black uppercase tracking-widest hover:bg-[#FAFAF9] shadow-xl transition-all duration-300 group"
+            className="flex-shrink-0 flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-white text-[#6B1D2F] text-xs font-black uppercase tracking-widest hover:bg-[#FAFAF9] shadow-xl transition-all duration-300 group"
           >
             Get Free Estimate <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
           </button>

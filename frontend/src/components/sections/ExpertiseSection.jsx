@@ -180,15 +180,15 @@ const DesignCard = ({ navigate, cardData }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.75, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-      className="relative group flex flex-col bg-white rounded-none overflow-hidden border border-[#C59A9F] shadow-xl shadow-black/5"
+      className="relative group flex flex-col bg-white rounded-3xl overflow-hidden border border-[#C59A9F]/40 shadow-xl shadow-black/5"
     >
       {/* Top accent stripe */}
       <div className="h-1.5 w-full bg-gradient-to-r from-[#6B1D2F] via-[#8B1E3F] to-[#C59A9F]" />
 
-      <div className="relative p-5 sm:p-8 md:p-10 flex flex-col h-full">
+      <div className="relative p-6 sm:p-8 md:p-10 flex flex-col h-full">
         {/* Top badge row */}
         <div className="flex items-center justify-between mb-8">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-none bg-[#FAFAF9] border border-[#C59A9F]/50 text-[11px] font-black text-[#6B1D2F] uppercase tracking-widest shadow-sm">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FAFAF9] border border-[#C59A9F]/50 text-[11px] font-black text-[#6B1D2F] uppercase tracking-widest shadow-sm">
             <Shapes size={12} />
             {d.badge}
           </div>
@@ -213,8 +213,8 @@ const DesignCard = ({ navigate, cardData }) => {
           {(d.competencies || defaultDesignCard.competencies).map(({ icon, label, sub }) => {
             const Icon = getIcon(icon);
             return (
-              <div key={label} className="flex flex-col items-center justify-center text-center bg-[#FAFAF9] hover:bg-[#FAFAF9]/50 border border-[#C59A9F] rounded-none p-2.5 sm:p-3 transition-colors">
-                <div className="w-8 h-8 rounded-none bg-[#FAFAF9] text-[#6B1D2F] flex items-center justify-center mb-1.5 flex-shrink-0 shadow-sm">
+              <div key={label} className="flex flex-col items-center justify-center text-center bg-[#FAFAF9] hover:bg-[#FAFAF9]/80 border border-[#C59A9F]/40 rounded-2xl p-3 sm:p-3.5 transition-colors">
+                <div className="w-8 h-8 rounded-xl bg-[#FAFAF9] text-[#6B1D2F] flex items-center justify-center mb-1.5 flex-shrink-0 shadow-sm border border-[#C59A9F]/30">
                   <Icon size={16} />
                 </div>
                 <div className="w-full">
@@ -234,7 +234,7 @@ const DesignCard = ({ navigate, cardData }) => {
         </div>
 
         {/* Award strip */}
-        <div className="mt-auto pt-6 border-t border-[#C59A9F] flex items-center justify-between">
+        <div className="mt-auto pt-6 border-t border-[#C59A9F]/30 flex items-center justify-between">
           <div className="flex items-center gap-2 text-xs text-[#292524] font-medium">
             <Award size={14} className="text-[#6B1D2F]" />
             <span>{d.awardText}</span>
@@ -329,7 +329,7 @@ export const ExpertiseSection = ({ data, statistics }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.18 }}
-            className="text-[#1C1917] font-medium text-base lg:text-lg max-w-sm leading-relaxed lg:text-right bg-white/80 backdrop-blur-md px-4 py-2.5 rounded-xl border border-[#C59A9F]/40 shadow-sm"
+            className="text-[#44403C] font-medium text-base lg:text-lg max-w-sm leading-relaxed lg:text-right"
           >
             Where cinematic video production meets senior-level graphic design, two disciplines mastered under one creative vision.
           </motion.p>
@@ -347,7 +347,7 @@ export const ExpertiseSection = ({ data, statistics }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4 mb-12 sm:mb-16"
+          className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-12 sm:mb-16"
         >
           {stats.map(({ value, label, icon: Icon }, idx) => (
             <motion.div
@@ -357,9 +357,9 @@ export const ExpertiseSection = ({ data, statistics }) => {
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
               whileHover={{ y: -4 }}
-              className="glass-card-luxury rounded-none p-3.5 sm:p-6 flex flex-col items-center justify-center text-center"
+              className="glass-card-luxury rounded-2xl p-4 sm:p-6 flex flex-col items-center justify-center text-center border border-[#C59A9F]/40 shadow-sm hover:shadow-md"
             >
-              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-none bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center mx-auto mb-2 sm:mb-2.5 shadow-md shadow-[#6B1D2F]/20">
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center mx-auto mb-2.5 sm:mb-3 shadow-md shadow-[#6B1D2F]/20">
                 <Icon size={18} />
               </div>
               <p className="text-2xl sm:text-3xl font-black text-[#6B1D2F] dark:text-[#F5F0F1] mb-1 leading-none text-center" style={{ fontFamily: theme.fonts.heading }}>
@@ -371,7 +371,7 @@ export const ExpertiseSection = ({ data, statistics }) => {
         </motion.div>
 
         {/* ── Scrolling marquee strip ── */}
-        <div className="relative overflow-hidden rounded-none bg-gradient-to-r from-[#6B1D2F] via-[#8B1E3F] to-[#6B1D2F] py-5 px-0 select-none shadow-lg shadow-[#6B1D2F]/20">
+        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#6B1D2F] via-[#8B1E3F] to-[#6B1D2F] py-5 px-0 select-none shadow-lg shadow-[#6B1D2F]/20">
           <motion.div style={{ x: marqX }} className="flex items-center gap-0 w-max">
             {[...marqueeItems, ...marqueeItems, ...marqueeItems].map((item, idx) => (
               <React.Fragment key={idx}>

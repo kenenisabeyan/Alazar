@@ -143,11 +143,11 @@ export const SocialProof = () => {
 
                     {/* Author */}
                     <div className="flex items-center gap-3 sm:gap-4">
-                      <div className="p-0.5 bg-gradient-to-tr from-[#6B1D2F] to-[#C59A9F] rounded-none shadow-lg flex-shrink-0">
+                      <div className="p-0.5 bg-gradient-to-tr from-[#6B1D2F] to-[#C59A9F] rounded-2xl shadow-lg flex-shrink-0">
                         <img
                           src={cur.avatar}
                           alt={cur.author}
-                          className="w-10 h-10 sm:w-14 sm:h-14 rounded-none object-cover border-2 border-[#1C1917]"
+                          className="w-10 h-10 sm:w-14 sm:h-14 rounded-2xl object-cover border-2 border-[#1C1917]"
                         />
                       </div>
                       <div>
@@ -157,7 +157,7 @@ export const SocialProof = () => {
                         >
                           {cur.author}
                         </h4>
-                        <p className="text-[11px] text-white/50 font-bold uppercase tracking-widest mt-0.5">
+                        <p className="text-[11px] text-white/70 font-bold uppercase tracking-widest mt-0.5">
                           {cur.title} · <span className="text-[#C59A9F]">{cur.company}</span>
                         </p>
                       </div>
@@ -174,8 +174,8 @@ export const SocialProof = () => {
                     <button
                       key={i}
                       onClick={() => setPage([i, i > idx ? 1 : -1])}
-                      className={`h-1.5 rounded-none transition-all duration-300 ${
-                        i === idx ? 'w-8 bg-[#C59A9F]' : 'w-1.5 bg-white/20 hover:bg-white/40'
+                      className={`h-2 rounded-full transition-all duration-300 ${
+                        i === idx ? 'w-8 bg-[#C59A9F]' : 'w-2 bg-white/20 hover:bg-white/40'
                       }`}
                     />
                   ))}
@@ -266,7 +266,7 @@ export const SocialProof = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
               onClick={() => { navigate('/contact'); window.scrollTo(0, 0); }}
-              className="mt-2 w-full flex items-center justify-center gap-2 py-4 rounded-none border-2 border-dashed border-[#C59A9F]/50 text-[#6B1D2F] text-[11px] font-black uppercase tracking-widest hover:border-[#6B1D2F] hover:bg-[#FAFAF9]/50 transition-all group"
+              className="mt-2 w-full flex items-center justify-center gap-2 py-4 rounded-full border border-[#C59A9F]/50 text-[#6B1D2F] text-[11px] font-black uppercase tracking-widest hover:border-[#6B1D2F] hover:bg-[#FAFAF9] shadow-sm transition-all group"
             >
               Work With Alazar
               <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
