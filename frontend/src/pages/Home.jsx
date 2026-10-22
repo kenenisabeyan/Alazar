@@ -138,7 +138,7 @@ export default function Home() {
                   variant="outline"
                   icon={<ArrowRight size={15} />}
                   onClick={() => { navigate('/portfolio'); window.scrollTo(0, 0); }}
-                  className="w-full sm:w-auto rounded-none px-7 py-3.5 border-2 border-[#6B1D2F] text-[#6B1D2F] dark:border-[#C59A9F] dark:text-[#F5F0F1] font-black text-[11px] uppercase tracking-wider hover:bg-[#6B1D2F] hover:text-white dark:hover:bg-[#8B1E3F] transition-all"
+                  className="w-full sm:w-auto px-8 py-3.5 border-2 border-[#6B1D2F] text-[#6B1D2F] dark:border-[#C59A9F] dark:text-[#F5F0F1] font-black text-[11px] uppercase tracking-wider hover:bg-[#6B1D2F] hover:text-white dark:hover:bg-[#8B1E3F] transition-all"
                 >
                   View All Projects
                 </Button>
@@ -149,7 +149,7 @@ export default function Home() {
             {isLoading ? (
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {[1, 2, 3].map(i => (
-                  <div key={i} className="rounded-none aspect-[4/5] bg-[#FAFAF9] animate-pulse" />
+                  <div key={i} className="rounded-2xl aspect-[4/5] bg-[#FAFAF9] dark:bg-[#1E0A0D] animate-pulse border border-[#C59A9F]/30" />
                 ))}
               </div>
             ) : (
@@ -163,7 +163,7 @@ export default function Home() {
                     transition={{ duration: 0.55, delay: idx * 0.12 }}
                     whileHover={{ y: -8 }}
                     onClick={() => handleOpenProjectModal(project)}
-                    className="group relative cursor-pointer rounded-none overflow-hidden bg-gradient-to-br from-[#6B1D2F] via-[#521523] to-[#3B0E19] aspect-[4/5] border border-[#C59A9F]/30 hover:border-[#C59A9F]/60 hover:shadow-2xl hover:shadow-[#6B1D2F]/20 transition-all duration-500 shadow-xl"
+                    className="group relative cursor-pointer rounded-2xl overflow-hidden bg-gradient-to-br from-[#6B1D2F] via-[#521523] to-[#3B0E19] aspect-[4/5] border border-[#C59A9F]/30 hover:border-[#C59A9F]/60 hover:shadow-2xl hover:shadow-[#6B1D2F]/25 transition-all duration-500 shadow-xl"
                   >
                     {/* Media */}
                     <ProjectCardMedia project={project} />
@@ -173,7 +173,7 @@ export default function Home() {
 
                     {/* Live badge - Visible only on hover */}
                     {project.previewVideoUrl && (
-                      <div className="absolute top-5 right-5 bg-[#1E0A0D]/85 backdrop-blur-md text-white text-[10px] uppercase font-black px-3 py-1.5 rounded-none flex items-center gap-1.5 z-10 border border-white/20 opacity-0 group-hover:opacity-100 -translate-y-2 group-hover:translate-y-0 transition-all duration-400 ease-out pointer-events-none">
+                      <div className="absolute top-5 right-5 bg-[#1E0A0D]/85 backdrop-blur-md text-white text-[10px] uppercase font-black px-3.5 py-1.5 rounded-full flex items-center gap-1.5 z-10 border border-white/20 opacity-0 group-hover:opacity-100 -translate-y-2 group-hover:translate-y-0 transition-all duration-400 ease-out pointer-events-none">
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                         Live Reel
                       </div>
@@ -182,10 +182,10 @@ export default function Home() {
                     {/* Content - Fades & slides on hover */}
                     <div className="absolute inset-0 p-7 flex flex-col justify-between z-10 opacity-0 group-hover:opacity-100 transition-all duration-400 ease-out pointer-events-none">
                       <div className="flex justify-between items-start -translate-y-2 group-hover:translate-y-0 transition-transform duration-400">
-                        <span className="text-[10px] uppercase tracking-widest px-3.5 py-1.5 bg-[#6B1D2F] text-white rounded-none font-black shadow-md">
+                        <span className="text-[10px] uppercase tracking-widest px-3.5 py-1.5 bg-[#6B1D2F] text-white rounded-full font-black shadow-md">
                           {project.category}
                         </span>
-                        <div className="w-11 h-11 rounded-none bg-white/95 text-[#6B1D2F] flex items-center justify-center shadow-xl pointer-events-auto">
+                        <div className="w-11 h-11 rounded-full bg-white/95 text-[#6B1D2F] flex items-center justify-center shadow-xl pointer-events-auto">
                           {project.videoUrl
                             ? <Play size={18} className="fill-[#6B1D2F] text-[#6B1D2F] ml-0.5" />
                             : <Eye size={18} />}

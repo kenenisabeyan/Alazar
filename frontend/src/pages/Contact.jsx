@@ -335,7 +335,7 @@ export default function Contact() {
                     exit={{ opacity: 0, scale: 0.95 }}
                     className="py-16 text-center space-y-6"
                   >
-                    <div className="w-20 h-20 bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white rounded-none flex items-center justify-center mx-auto shadow-2xl shadow-[#6B1D2F]/30">
+                    <div className="w-20 h-20 bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white rounded-3xl flex items-center justify-center mx-auto shadow-2xl shadow-[#6B1D2F]/30">
                       <CheckCircle2 size={36} />
                     </div>
                     <h3
@@ -346,19 +346,19 @@ export default function Contact() {
                     </h3>
 
                     {inquiryRef && (
-                      <div className="inline-flex items-center gap-3 px-4 py-2 bg-[#FAFAF9] dark:bg-[#1E0A0D] border border-[#C59A9F] dark:border-white/15 rounded-none text-xs font-mono font-bold text-[#6B1D2F] dark:text-[#C59A9F] shadow-sm">
+                      <div className="inline-flex items-center gap-3 px-4 py-2 bg-[#FAFAF9] dark:bg-[#1E0A0D] border border-[#C59A9F]/40 dark:border-white/15 rounded-full text-xs font-mono font-bold text-[#6B1D2F] dark:text-[#E28D99] shadow-sm">
                         <span>Reference Code: <strong>{inquiryRef}</strong></span>
                         <button
                           type="button"
                           onClick={() => copyToClipboard(inquiryRef, 'ref')}
-                          className="px-2.5 py-0.5 rounded-none bg-[#6B1D2F] text-white text-[10px] uppercase font-sans font-black hover:bg-[#8B1E3F] transition-colors"
+                          className="px-3 py-1 rounded-full bg-[#6B1D2F] text-white text-[10px] uppercase font-sans font-black hover:bg-[#8B1E3F] transition-colors shadow-sm"
                         >
                           {copiedField === 'ref' ? 'Copied!' : 'Copy'}
                         </button>
                       </div>
                     )}
 
-                    <p className="text-[#292524] dark:text-[#A89597] font-medium max-w-sm mx-auto text-sm leading-relaxed">
+                    <p className="text-[#57534E] dark:text-[#A89597] font-medium max-w-sm mx-auto text-sm leading-relaxed">
                       Thank you, <strong className="text-[#1C1917] dark:text-[#F5F0F1]">{formData.firstName}</strong>. Your brief has been recorded in PostgreSQL, I'll review it within 24 hours.
                     </p>
                     <Button variant="outline" onClick={() => { setSubmitted(false); setFormData(defaultForm); }}>
@@ -381,13 +381,13 @@ export default function Contact() {
                       >
                         Project Inquiry
                       </h3>
-                      <p className="text-[11px] text-[#292524] dark:text-[#A89597] font-bold uppercase tracking-wider">
+                      <p className="text-[11px] text-[#78716C] dark:text-[#A89597] font-bold uppercase tracking-wider">
                         All fields marked * are required
                       </p>
                     </div>
 
                     {serverError && (
-                      <div className="p-4 bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800 text-rose-700 dark:text-rose-300 text-sm rounded-none">
+                      <div className="p-4 bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800 text-rose-700 dark:text-rose-300 text-sm rounded-2xl">
                         {serverError}
                       </div>
                     )}
@@ -405,7 +405,7 @@ export default function Contact() {
                       <label className="text-[11px] text-[#1C1917] dark:text-[#F5F0F1] font-black tracking-widest uppercase block mb-3">
                         Service Type
                       </label>
-                      <div className="grid grid-cols-2 gap-2.5">
+                      <div className="grid grid-cols-2 gap-3">
                         {serviceOptions.map(({ value, label, icon: Icon }) => {
                           const active = formData.projectType === value;
                           return (
@@ -413,16 +413,16 @@ export default function Contact() {
                               key={value}
                               type="button"
                               onClick={() => setFormData(p => ({ ...p, projectType: value }))}
-                              className={`flex flex-col items-center justify-center text-center p-3 sm:p-3.5 rounded-none border-2 text-xs font-black transition-all ${
+                              className={`flex flex-col items-center justify-center text-center p-3.5 sm:p-4 rounded-2xl border text-xs font-black transition-all ${
                                 active
-                                  ? 'bg-[#6B1D2F] border-[#6B1D2F] text-white shadow-md'
-                                  : 'bg-white dark:bg-[#1E0A0D] border-[#C59A9F]/50 dark:border-white/15 text-[#1C1917] dark:text-[#F5F0F1] hover:border-[#6B1D2F]'
+                                  ? 'bg-gradient-to-r from-[#6B1D2F] via-[#7D1D34] to-[#8B1E3F] border-transparent text-white shadow-xl shadow-[#6B1D2F]/25 scale-[1.02]'
+                                  : 'bg-white/80 dark:bg-[#1E0A0D]/80 border-[#C59A9F]/40 dark:border-white/10 text-[#1C1917] dark:text-[#F5F0F1] hover:border-[#6B1D2F] hover:shadow-md'
                               }`}
                             >
-                              <div className={`w-8 h-8 rounded-none flex items-center justify-center flex-shrink-0 mb-1.5 sm:mb-2 ${
-                                active ? 'bg-white/20 text-white' : 'bg-[#FAFAF9] dark:bg-[#2E1216] text-[#6B1D2F] dark:text-[#C59A9F]'
+                              <div className={`w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 mb-2 transition-colors ${
+                                active ? 'bg-white/20 text-white' : 'bg-[#FAFAF9] dark:bg-[#2E1216] text-[#6B1D2F] dark:text-[#E28D99]'
                               }`}>
-                                <Icon size={15} />
+                                <Icon size={16} />
                               </div>
                               <span className="text-[11px] sm:text-xs leading-tight text-center">{label}</span>
                             </button>
@@ -440,7 +440,7 @@ export default function Contact() {
                         name="budget"
                         value={formData.budget}
                         onChange={handleChange}
-                        className="w-full bg-[#FAFAF9] dark:bg-[#1E0A0D] border-2 border-[#C59A9F] dark:border-white/20 rounded-none px-4 py-3.5 text-[#1C1917] dark:text-[#F5F0F1] font-medium focus:outline-none focus:border-[#6B1D2F] text-sm appearance-none cursor-pointer transition-colors"
+                        className="w-full bg-white/80 dark:bg-[#18080A]/80 backdrop-blur-sm border border-[#C59A9F]/45 dark:border-white/15 rounded-xl px-4.5 py-3.5 text-[#1C1917] dark:text-[#F5F0F1] font-medium focus:outline-none focus:border-[#6B1D2F] dark:focus:border-[#E28D99] focus:ring-4 focus:ring-[#6B1D2F]/10 text-sm appearance-none cursor-pointer transition-colors shadow-sm"
                       >
                         <option value="under-3k">&lt; $3,000</option>
                         <option value="$3k to $5k">$3,000 to $5,000</option>
@@ -466,7 +466,7 @@ export default function Contact() {
                       variant="primary"
                       loading={loading}
                       icon={<Send size={16} />}
-                      className="w-full py-4 rounded-none font-black text-xs uppercase tracking-widest"
+                      className="w-full py-4.5 font-black text-xs sm:text-sm uppercase tracking-widest shadow-xl shadow-[#6B1D2F]/25"
                     >
                       Send Project Inquiry
                     </Button>
