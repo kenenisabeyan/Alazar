@@ -71,7 +71,7 @@ export const SocialProof = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.15 }}
-            className="text-[#1C1917] font-medium text-sm sm:text-base max-w-xs leading-relaxed bg-white/85 backdrop-blur-md px-5 py-3 rounded-none border border-[#C59A9F]/40 shadow-sm"
+            className="text-[#44403C] dark:text-[#E7E5E4] font-medium text-sm sm:text-base max-w-xs leading-relaxed"
           >
             Feedback from creative directors, brand leads, and agency partners across video and design projects.
           </motion.p>
@@ -89,23 +89,23 @@ export const SocialProof = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="lg:col-span-7 relative bg-gradient-to-br from-[#6B1D2F] via-[#521523] to-[#3B0E19] rounded-none overflow-hidden shadow-2xl shadow-[#6B1D2F]/20 flex flex-col min-h-[340px] sm:min-h-[440px] border border-[#C59A9F]/30"
+            className="lg:col-span-7 relative bg-gradient-to-br from-[#6B1D2F] via-[#521523] to-[#3B0E19] rounded-3xl overflow-hidden shadow-2xl shadow-[#6B1D2F]/20 flex flex-col min-h-[340px] sm:min-h-[440px] border border-[#C59A9F]/30"
           >
             {/* Ambient inner glow */}
             <div className="absolute -top-20 -left-20 w-64 h-64 bg-[#6B1D2F]/40 blur-[80px] rounded-full pointer-events-none" />
             <div className="absolute -bottom-10 right-0 w-48 h-48 bg-[#8B1E3F]/25 blur-[60px] rounded-full pointer-events-none" />
 
-            <div className="relative z-10 p-5 sm:p-8 md:p-12 flex flex-col justify-between h-full flex-grow">
+            <div className="relative z-10 p-6 sm:p-8 md:p-12 flex flex-col justify-between h-full flex-grow">
 
               {/* Top row */}
               <div className="flex items-start justify-between mb-6 sm:mb-8">
                 {/* Quote icon */}
-                <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-none bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center shadow-xl shadow-[#6B1D2F]/30 border border-white/10">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center shadow-xl shadow-[#6B1D2F]/30 border border-white/10">
                   <Quote size={20} className="sm:scale-125 fill-white/20" />
                 </div>
 
                 {/* Discipline badge */}
-                <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-none bg-white/10 border border-white/15 text-[10px] font-black text-white/70 uppercase tracking-widest">
+                <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-[10px] font-black text-white/90 uppercase tracking-widest backdrop-blur-md">
                   <DiscIcon size={11} /> {disc.label}
                 </div>
               </div>

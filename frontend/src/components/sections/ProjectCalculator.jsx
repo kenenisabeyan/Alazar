@@ -140,7 +140,7 @@ export const ProjectCalculator = () => {
             {/* Step 2 – scope */}
             <div>
               <SectionLabel step="2">Project Scope</SectionLabel>
-              <div className="grid grid-cols-2 gap-2.5 sm:gap-3.5">
+              <div className="grid grid-cols-2 gap-3 sm:gap-4">
                 {calculatorOptions.scopes.map((s) => {
                   const isActive = selectedScope === s.id;
                   return (
@@ -148,13 +148,13 @@ export const ProjectCalculator = () => {
                       {isActive && <div className="absolute inset-0 bg-gradient-to-br from-white/15 to-transparent pointer-events-none" />}
                       <div className="relative z-10 flex-1 w-full text-center sm:text-left">
                         <span className={`block text-xs font-black mb-0.5 break-normal whitespace-normal ${isActive ? 'text-white' : 'text-[#1C1917]'}`}>{s.label}</span>
-                        <span className={`text-[10px] font-bold block ${isActive ? 'text-[#FAFAF9]/80' : 'text-[#292524]'}`}>
+                        <span className={`text-[10px] font-bold block ${isActive ? 'text-[#FAFAF9]/80' : 'text-[#57534E]'}`}>
                           ×{s.multiplier} base rate
                         </span>
                       </div>
-                      <div className={`w-5 h-5 rounded-none border-2 items-center justify-center flex-shrink-0 relative z-10 transition-all hidden sm:flex ${isActive ? 'border-white bg-white/30' : 'border-[#C59A9F]/60 bg-white'
+                      <div className={`w-5 h-5 rounded-full border-2 items-center justify-center flex-shrink-0 relative z-10 transition-all hidden sm:flex ${isActive ? 'border-white bg-white/30' : 'border-[#C59A9F]/60 bg-white'
                         }`}>
-                        {isActive && <div className="w-2 h-2 rounded-none bg-white" />}
+                        {isActive && <div className="w-2 h-2 rounded-full bg-white" />}
                       </div>
                     </button>
                   );
@@ -165,20 +165,20 @@ export const ProjectCalculator = () => {
             {/* Step 3 – add-ons */}
             <div>
               <SectionLabel step="3">Optional Add-on Modules</SectionLabel>
-              <div className="grid grid-cols-2 gap-2.5 sm:gap-3.5">
+              <div className="grid grid-cols-2 gap-3 sm:gap-4">
                 {calculatorOptions.addons.map((a) => {
                   const checked = selectedAddons.includes(a.id);
                   return (
                     <div
                       key={a.id}
                       onClick={() => toggleAddon(a.id)}
-                      className={`flex flex-col sm:flex-row items-center justify-between text-center sm:text-left gap-2 sm:gap-4 rounded-none border-2 p-3 sm:p-4 cursor-pointer transition-all duration-300 group ${checked
-                          ? 'bg-[#6B1D2F] border-[#6B1D2F] text-white shadow-lg shadow-[#6B1D2F]/20'
-                          : 'bg-white border-[#C59A9F]/50 hover:border-[#6B1D2F] hover:shadow-sm'
+                      className={`flex flex-col sm:flex-row items-center justify-between text-center sm:text-left gap-2 sm:gap-4 rounded-2xl border p-3.5 sm:p-4 cursor-pointer transition-all duration-300 group ${checked
+                          ? 'bg-gradient-to-r from-[#6B1D2F] via-[#7D1D34] to-[#8B1E3F] border-transparent text-white shadow-xl shadow-[#6B1D2F]/20 scale-[1.01]'
+                          : 'bg-white border-[#C59A9F]/40 hover:border-[#6B1D2F] hover:shadow-md'
                         }`}
                     >
                       <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 flex-1 min-w-0 w-full sm:w-auto">
-                        <div className={`w-8 h-8 rounded-none flex items-center justify-center flex-shrink-0 transition-all mx-auto sm:mx-0 ${checked
+                        <div className={`w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0 transition-all mx-auto sm:mx-0 ${checked
                             ? 'bg-white/20 text-white shadow-sm'
                             : 'bg-[#FAFAF9] text-[#6B1D2F] group-hover:bg-[#6B1D2F] group-hover:text-white'
                           }`}>
@@ -209,7 +209,7 @@ export const ProjectCalculator = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.65, delay: 0.1 }}
-            className="lg:col-span-5 bg-gradient-to-br from-[#6B1D2F] via-[#521523] to-[#3B0E19] text-white rounded-none overflow-hidden shadow-2xl shadow-[#6B1D2F]/20 border border-[#C59A9F]/30 flex flex-col sticky top-28"
+            className="lg:col-span-5 bg-gradient-to-br from-[#6B1D2F] via-[#521523] to-[#3B0E19] text-white rounded-3xl overflow-hidden shadow-2xl shadow-[#6B1D2F]/20 border border-[#C59A9F]/30 flex flex-col sticky top-28"
           >
             {/* Top accent stripe */}
             <div className="h-1 w-full bg-gradient-to-r from-[#8B1E3F] via-[#C59A9F] to-[#8B1E3F]" />
@@ -224,7 +224,7 @@ export const ProjectCalculator = () => {
                 <span className="text-[11px] uppercase tracking-widest text-white/70 font-black">
                   Live Estimate
                 </span>
-                <div className="w-10 h-10 rounded-none bg-white/20 text-white flex items-center justify-center shadow-lg">
+                <div className="w-10 h-10 rounded-xl bg-white/20 text-white flex items-center justify-center shadow-lg">
                   <Calculator size={18} />
                 </div>
               </div>
@@ -255,7 +255,7 @@ export const ProjectCalculator = () => {
               </div>
 
               {/* Breakdown rows */}
-              <div className="space-y-3 p-5 bg-[#1E0A0D]/30 border border-white/15 rounded-none">
+              <div className="space-y-3 p-5 sm:p-6 bg-[#1E0A0D]/40 backdrop-blur-md border border-white/15 rounded-2xl">
                 <p className="text-[10px] font-black uppercase tracking-widest text-white/50 mb-3">
                   Price Breakdown
                 </p>
@@ -337,7 +337,7 @@ export const ProjectCalculator = () => {
                     }
                   });
                 }}
-                className="mt-auto w-full py-4 rounded-none bg-white text-[#6B1D2F] text-xs font-black uppercase tracking-widest flex items-center justify-center gap-2.5 transition-all duration-300 hover:bg-[#FAFAF9] shadow-xl group"
+                className="mt-auto w-full py-4.5 rounded-full bg-white text-[#6B1D2F] text-xs font-black uppercase tracking-widest flex items-center justify-center gap-2.5 transition-all duration-300 hover:bg-[#FAFAF9] shadow-2xl group active:scale-[0.98]"
               >
                 Lock In This Estimate
                 <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
