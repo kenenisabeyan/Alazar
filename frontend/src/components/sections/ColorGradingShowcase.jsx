@@ -57,7 +57,7 @@ export const ColorGradingShowcase = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.15 }}
-            className="text-[#1C1917] font-medium text-sm sm:text-base max-w-xs leading-relaxed bg-white/85 backdrop-blur-md px-5 py-3 rounded-none border border-[#C59A9F]/40 shadow-sm"
+            className="text-[#44403C] dark:text-[#E7E5E4] font-medium text-sm sm:text-base max-w-xs leading-relaxed"
           >
             Drag the handle to reveal the difference between a flat camera log recording and a fully graded cinematic master.
           </motion.p>
@@ -73,8 +73,7 @@ export const ColorGradingShowcase = () => {
         >
           <div
             ref={containerRef}
-            /* ── Full-width, tall, rectangular right angles ── */
-            className="relative w-full rounded-none overflow-hidden bg-[#1E0A0D] select-none cursor-ew-resize group shadow-2xl shadow-[#1E0A0D]/40 aspect-[4/3] sm:aspect-[16/9] lg:aspect-[16/7.5]"
+            className="relative w-full rounded-3xl overflow-hidden bg-[#1E0A0D] select-none cursor-ew-resize group shadow-2xl shadow-[#1E0A0D]/40 border border-[#C59A9F]/30 dark:border-white/10 aspect-[4/3] sm:aspect-[16/9] lg:aspect-[16/7.5]"
             onMouseDown={(e) => { setIsDragging(true); updateFromClient(e.clientX); }}
             onMouseUp={() => setIsDragging(false)}
             onMouseLeave={() => setIsDragging(false)}
@@ -96,11 +95,6 @@ export const ColorGradingShowcase = () => {
               className="absolute inset-0 overflow-hidden"
               style={{ width: `${sliderPos}%` }}
             >
-              {/*
-                Same image with heavy CSS desaturation + low contrast to
-                simulate a flat S-Log / RAW log recording accurately.
-                The user sees the same scene before/after grading.
-              */}
               <img
                 src={sample.logImage}
                 alt="Camera RAW Log: Flat S-Log"
@@ -124,14 +118,14 @@ export const ColorGradingShowcase = () => {
 
             {/* ── LEFT label — Camera RAW LOG ── */}
             <div className="absolute bottom-5 left-5 z-20 pointer-events-none">
-              <span className="inline-flex items-center gap-1.5 bg-black/70 backdrop-blur-md text-[#F5F0F1] border border-white/20 text-[9px] sm:text-[10px] uppercase tracking-[0.22em] px-3.5 py-2 rounded-none font-black font-mono shadow-lg">
+              <span className="inline-flex items-center gap-1.5 bg-black/75 backdrop-blur-md text-[#F5F0F1] border border-white/20 text-[9px] sm:text-[10px] uppercase tracking-[0.22em] px-4 py-2 rounded-full font-black font-mono shadow-lg">
                 CAMERA RAW LOG
               </span>
             </div>
 
             {/* ── RIGHT label — Final Color Grade ── */}
             <div className="absolute bottom-5 right-5 z-20 pointer-events-none">
-              <span className="inline-flex items-center gap-2 bg-[#6B1D2F] text-[#F5F0F1] border border-white/20 text-[9px] sm:text-[10px] uppercase tracking-[0.22em] px-3.5 py-2 rounded-none font-black font-mono shadow-xl">
+              <span className="inline-flex items-center gap-2 bg-[#6B1D2F]/90 backdrop-blur-md text-[#F5F0F1] border border-white/20 text-[9px] sm:text-[10px] uppercase tracking-[0.22em] px-4 py-2 rounded-full font-black font-mono shadow-xl">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse flex-shrink-0" />
                 FINAL COLOR GRADE
               </span>
@@ -145,8 +139,8 @@ export const ColorGradingShowcase = () => {
               {/* Line */}
               <div className="w-[2px] h-full bg-white/90 shadow-[0_0_16px_rgba(255,255,255,0.55)]" />
 
-              {/* Handle knob — rectangular right angle style */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-11 h-11 rounded-none bg-white border-2 border-[#6B1D2F] shadow-2xl flex items-center justify-center gap-0.5 group-hover:scale-110 transition-transform duration-200">
+              {/* Handle knob */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white border-2 border-[#6B1D2F] shadow-2xl flex items-center justify-center gap-0.5 group-hover:scale-110 transition-transform duration-200">
                 <ArrowLeft size={13} className="text-[#6B1D2F]" />
                 <ArrowRight size={13} className="text-[#6B1D2F]" />
               </div>
@@ -159,7 +153,7 @@ export const ColorGradingShowcase = () => {
               transition={{ delay: 2.2, duration: 0.9 }}
               className="absolute inset-0 flex items-center justify-center pointer-events-none z-20"
             >
-              <div className="flex items-center gap-2 bg-[#1E0A0D]/80 backdrop-blur-md text-[#F5F0F1] text-[11px] font-black uppercase tracking-widest px-6 py-3 rounded-none border border-white/20 shadow-xl">
+              <div className="flex items-center gap-2 bg-[#1E0A0D]/85 backdrop-blur-md text-[#F5F0F1] text-[11px] font-black uppercase tracking-widest px-6 py-3 rounded-full border border-white/20 shadow-xl">
                 <ArrowLeft size={14} />
                 <Sliders size={13} className="text-[#C59A9F]" />
                 Drag to Compare
@@ -176,18 +170,18 @@ export const ColorGradingShowcase = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4"
+          className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4"
         >
           {metaItems.map(({ icon: Icon, label, value }) => (
             <div
               key={label}
-              className="glass-card-luxury rounded-none p-3 sm:p-5 flex flex-col sm:flex-row items-center justify-center sm:justify-start text-center sm:text-left gap-2 sm:gap-3"
+              className="glass-card-luxury rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-center sm:justify-start text-center sm:text-left gap-2 sm:gap-3 shadow-sm hover:shadow-xl transition-all"
             >
-              <div className="w-9 h-9 rounded-none bg-[#FAFAF9] dark:bg-[#1E0A0D] text-[#6B1D2F] dark:text-[#F5F0F1] flex items-center justify-center flex-shrink-0 border border-[#C59A9F]/40 mx-auto sm:mx-0">
+              <div className="w-10 h-10 rounded-xl bg-[#FAFAF9] dark:bg-[#1E0A0D] text-[#6B1D2F] dark:text-[#E28D99] flex items-center justify-center flex-shrink-0 border border-[#C59A9F]/40 mx-auto sm:mx-0">
                 <Icon size={16} />
               </div>
               <div className="min-w-0 w-full">
-                <p className="text-[9px] text-[#292524] dark:text-[#A89597] uppercase font-black tracking-[0.18em] mb-0.5 truncate">
+                <p className="text-[9px] text-[#57534E] dark:text-[#A89597] uppercase font-black tracking-[0.18em] mb-0.5 truncate">
                   {label}
                 </p>
                 <p className="text-xs sm:text-sm text-[#1C1917] dark:text-[#F5F0F1] font-black truncate">{value}</p>
