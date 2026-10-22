@@ -90,7 +90,10 @@ export const GearSection = ({ data }) => {
             >
               Professional-Grade<br />
               <span className="text-gradient-burgundy font-black">Filming & Editing Kit.</span>
-            </            <motion.div
+            </motion.h2>
+          </div>
+
+          <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -155,8 +158,6 @@ export const GearSection = ({ data }) => {
                 <p className="text-[10px] font-black uppercase tracking-widest text-[#6B1D2F] mb-0.5">Output Standard</p>
                 <p className="text-xs font-bold text-[#1C1917]">8K Cinema RAW Master</p>
               </div>
-            </div>
-          </div>v>
             </div>
           </div>
 

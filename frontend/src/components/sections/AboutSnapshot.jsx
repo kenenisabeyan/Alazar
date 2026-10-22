@@ -198,9 +198,9 @@ export const AboutSnapshot = () => {
             <motion.div
               animate={{ y: [0, -6, 0] }}
               transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-              className="hidden xs:flex absolute -bottom-4 left-1 sm:-left-4 z-30 bg-white border border-[#C59A9F]/50 rounded-none px-3 sm:px-4 py-2 sm:py-2.5 shadow-xl items-center gap-2 sm:gap-2.5"
+              className="hidden xs:flex absolute -bottom-4 left-1 sm:-left-4 z-30 bg-white border border-[#C59A9F]/50 rounded-2xl px-3 sm:px-4 py-2 sm:py-2.5 shadow-xl items-center gap-2 sm:gap-2.5"
             >
-              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-none bg-[#FAFAF9] text-[#6B1D2F] flex items-center justify-center shadow-sm">
+              <div className="w-8 h-8 rounded-xl bg-[#FAFAF9] text-[#6B1D2F] flex items-center justify-center shadow-sm border border-[#C59A9F]/30">
                 <Shapes size={14} />
               </div>
               <div>
@@ -213,7 +213,7 @@ export const AboutSnapshot = () => {
             <motion.div
               animate={{ scale: [1, 1.05, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
-              className="absolute -top-3 right-1 sm:-right-2 z-30 flex items-center gap-1.5 sm:gap-2 bg-white border border-[#C59A9F] rounded-none px-2.5 sm:px-3.5 py-1 sm:py-1.5 shadow-md"
+              className="absolute -top-3 right-1 sm:-right-2 z-30 flex items-center gap-1.5 sm:gap-2 bg-white border border-[#C59A9F]/40 rounded-full px-3.5 sm:px-4 py-1 sm:py-1.5 shadow-md"
             >
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shadow-sm shadow-emerald-500/50" />
               <span className="text-[9.5px] font-black text-[#1C1917] uppercase tracking-wider">Addis Ababa · Available</span>
@@ -222,7 +222,7 @@ export const AboutSnapshot = () => {
             {/* Photo stack (Expanded to 540px width) */}
             <div className="relative w-full max-w-[440px] sm:max-w-[500px] lg:max-w-[540px] aspect-[4/5] group cursor-pointer my-6">
               {/* Back left */}
-              <div className="absolute inset-0 rounded-none overflow-hidden border-2 border-[#C59A9F]/40 shadow-xl
+              <div className="absolute inset-0 rounded-3xl overflow-hidden border-2 border-[#C59A9F]/40 shadow-xl
                 -rotate-4 -translate-x-4 -translate-y-2 scale-95 opacity-75
                 group-hover:-rotate-8 group-hover:-translate-x-8 group-hover:-translate-y-4 group-hover:opacity-90
                 transition-all duration-500 ease-out z-0 bg-gradient-to-br from-[#6B1D2F] via-[#2E1216] to-[#1C1917]">
@@ -230,7 +230,7 @@ export const AboutSnapshot = () => {
                 <div className="absolute inset-0 bg-[#6B1D2F]/30 mix-blend-multiply" />
               </div>
               {/* Back right */}
-              <div className="absolute inset-0 rounded-none overflow-hidden border-2 border-[#C59A9F]/50 shadow-xl
+              <div className="absolute inset-0 rounded-3xl overflow-hidden border-2 border-[#C59A9F]/50 shadow-xl
                 rotate-4 translate-x-4 -translate-y-1 scale-95 opacity-80
                 group-hover:rotate-8 group-hover:translate-x-8 group-hover:-translate-y-3 group-hover:opacity-95
                 transition-all duration-500 ease-out z-10 bg-gradient-to-br from-[#8B1E3F] via-[#1C1917] to-[#6B1D2F]">
@@ -238,7 +238,7 @@ export const AboutSnapshot = () => {
                 <div className="absolute inset-0 bg-[#8B1E3F]/20 mix-blend-color-burn" />
               </div>
               {/* Front main */}
-              <div className="relative w-full h-full rounded-none overflow-hidden border-2 border-white/80 shadow-2xl shadow-[#6B1D2F]/25
+              <div className="relative w-full h-full rounded-3xl overflow-hidden border-2 border-white/80 shadow-2xl shadow-[#6B1D2F]/25
                 group-hover:scale-[1.02] transition-all duration-500 ease-out z-20">
                 <img
                   src={alazarImg}
@@ -249,7 +249,7 @@ export const AboutSnapshot = () => {
                 
                 {/* Clean Name Plate at Bottom of Photo */}
                 <div className="absolute bottom-6 left-6 right-6 z-10">
-                  <div className="bg-black/75 backdrop-blur-md rounded-none px-5 py-3 border border-white/20 shadow-2xl text-center">
+                  <div className="bg-black/75 backdrop-blur-md rounded-2xl px-5 py-3 border border-white/20 shadow-2xl text-center">
                     <p className="text-sm font-black text-white uppercase tracking-wider font-serif">Alazar Asdesach</p>
                     <p className="text-[10px] text-[#C59A9F] font-bold uppercase tracking-[0.2em] mt-0.5">Video Director · Senior Designer</p>
                   </div>
