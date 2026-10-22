@@ -185,13 +185,13 @@ export const SocialProof = () => {
                 <div className="flex gap-2">
                   <button
                     onClick={() => paginate(-1)}
-                    className="w-10 h-10 rounded-none bg-white/10 hover:bg-[#6B1D2F] border border-white/15 hover:border-[#6B1D2F] flex items-center justify-center text-white/70 hover:text-white transition-all"
+                    className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#6B1D2F] border border-white/15 hover:border-[#6B1D2F] flex items-center justify-center text-white/70 hover:text-white transition-all shadow-sm"
                   >
                     <ChevronLeft size={18} />
                   </button>
                   <button
                     onClick={() => paginate(1)}
-                    className="w-10 h-10 rounded-none bg-white/10 hover:bg-[#6B1D2F] border border-white/15 hover:border-[#6B1D2F] flex items-center justify-center text-white/70 hover:text-white transition-all"
+                    className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#6B1D2F] border border-white/15 hover:border-[#6B1D2F] flex items-center justify-center text-white/70 hover:text-white transition-all shadow-sm"
                   >
                     <ChevronRight size={18} />
                   </button>
@@ -199,13 +199,13 @@ export const SocialProof = () => {
               </div>
 
               {/* Progress bar */}
-              <div className="w-full bg-white/10 h-0.5 rounded-none overflow-hidden mt-4">
+              <div className="w-full bg-white/10 h-1 rounded-full overflow-hidden mt-4">
                 <motion.div
                   key={page}
                   initial={{ width: '0%' }}
                   animate={{ width: '100%' }}
                   transition={{ duration: 6.5, ease: 'linear' }}
-                  className="bg-[#C59A9F] h-full rounded-none"
+                  className="bg-[#C59A9F] h-full rounded-full"
                 />
               </div>
             </div>
@@ -225,33 +225,33 @@ export const SocialProof = () => {
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.09 }}
                   onClick={() => setPage([i, i > idx ? 1 : -1])}
-                  className={`cursor-pointer rounded-none p-5 border-2 transition-all duration-300 flex items-start gap-4 group ${
+                  className={`cursor-pointer rounded-2xl p-5 border transition-all duration-300 flex items-start gap-4 group ${
                     isActive
-                      ? 'bg-[#6B1D2F] border-[#6B1D2F] shadow-xl shadow-[#6B1D2F]/20'
-                      : 'bg-white border-[#C59A9F] hover:border-[#C59A9F] hover:shadow-md'
+                      ? 'bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] border-transparent text-white shadow-xl shadow-[#6B1D2F]/25 scale-[1.01]'
+                      : 'bg-white/90 dark:bg-[#2E1216]/90 backdrop-blur-md border-[#C59A9F]/40 dark:border-white/10 hover:border-[#6B1D2F] hover:shadow-md'
                   }`}
                 >
                   <img
                     src={t.avatar}
                     alt={t.author}
-                    className={`w-12 h-12 rounded-none object-cover flex-shrink-0 border-2 ${isActive ? 'border-white/30' : 'border-[#C59A9F]'}`}
+                    className={`w-12 h-12 rounded-xl object-cover flex-shrink-0 border-2 ${isActive ? 'border-white/30' : 'border-[#C59A9F]/50'}`}
                   />
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-2 mb-1">
-                      <h4 className={`text-sm font-black truncate ${isActive ? 'text-white' : 'text-[#1C1917]'}`}
+                      <h4 className={`text-sm font-black truncate ${isActive ? 'text-white' : 'text-[#1C1917] dark:text-[#F5F0F1]'}`}
                           style={{ fontFamily: theme.fonts.heading }}>
                         {t.author}
                       </h4>
-                      <span className={`flex-shrink-0 inline-flex items-center gap-1 text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-none ${
-                        isActive ? 'bg-white/20 text-white/80' : 'bg-[#FAFAF9] text-[#6B1D2F]'
+                      <span className={`flex-shrink-0 inline-flex items-center gap-1 text-[9px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full ${
+                        isActive ? 'bg-white/20 text-white/90' : 'bg-[#FAFAF9] dark:bg-[#1E0A0D] text-[#6B1D2F] dark:text-[#E28D99]'
                       }`}>
                         <DIcon size={9} /> {d.label.split(' ')[0]}
                       </span>
                     </div>
-                    <p className={`text-[10px] font-bold mb-2 ${isActive ? 'text-white/80' : 'text-[#292524]'}`}>
+                    <p className={`text-[10px] font-bold mb-2 ${isActive ? 'text-white/80' : 'text-[#57534E] dark:text-[#A89597]'}`}>
                       {t.title} · {t.company}
                     </p>
-                    <p className={`text-xs font-normal line-clamp-2 leading-relaxed ${isActive ? 'text-white/90' : 'text-[#1C1917]'}`}>
+                    <p className={`text-xs font-normal line-clamp-2 leading-relaxed ${isActive ? 'text-white/90' : 'text-[#1C1917] dark:text-[#F5F0F1]'}`}>
                       "{t.quote}"
                     </p>
                   </div>
