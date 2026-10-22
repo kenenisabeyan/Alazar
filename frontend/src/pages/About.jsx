@@ -139,38 +139,38 @@ export default function About() {
                 <span className="text-gradient-burgundy font-black">{profile.headline || 'Director & Visual Artist.'}</span>
               </h1>
 
-              <p className="text-sm sm:text-base md:text-lg text-[#1C1917] dark:text-[#F5F0F1] font-medium leading-relaxed max-w-lg bg-white/85 dark:bg-[#2E1216]/85 backdrop-blur-md px-4 sm:px-5 py-2.5 sm:py-3 rounded-none border border-[#C59A9F]/40 dark:border-white/10 shadow-sm inline-block max-w-full break-words">
+              <p className="text-sm sm:text-base md:text-lg text-[#44403C] dark:text-[#E7E5E4] font-medium leading-relaxed max-w-lg">
                 {profile.shortDescription}
               </p>
 
-              <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
+              <div className="grid grid-cols-2 gap-3 sm:gap-4">
                 {[
                   { icon: Film, title: 'Video Production', sub: 'DaVinci & RED 8K' },
                   { icon: Shapes, title: 'Brand & Graphic', sub: 'Identity Systems' },
                 ].map(({ icon: Icon, title, sub }) => (
-                  <div key={title} className="flex flex-col items-center justify-center text-center p-3 sm:p-3.5 rounded-none bg-white dark:bg-[#2E1216] border border-[#C59A9F]/30 dark:border-white/10 shadow-sm">
-                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-none bg-[#FAFAF9] dark:bg-[#1E0A0D] text-[#6B1D2F] dark:text-[#C59A9F] flex items-center justify-center flex-shrink-0 mb-1.5 shadow-sm">
-                      <Icon size={16} />
+                  <div key={title} className="flex flex-col items-center justify-center text-center p-4 sm:p-4.5 rounded-2xl bg-white/90 dark:bg-[#2E1216]/90 backdrop-blur-md border border-[#C59A9F]/35 dark:border-white/10 shadow-sm hover:border-[#6B1D2F] transition-all">
+                    <div className="w-10 h-10 rounded-xl bg-[#FAFAF9] dark:bg-[#1E0A0D] text-[#6B1D2F] dark:text-[#E28D99] flex items-center justify-center flex-shrink-0 mb-2 shadow-sm">
+                      <Icon size={17} />
                     </div>
                     <div className="w-full">
-                      <p className="text-xs font-black text-[#1C1917] dark:text-[#F5F0F1] leading-tight mb-0.5 text-center break-words">{title}</p>
-                      <p className="text-[10px] text-[#292524] dark:text-[#A89597] font-bold uppercase tracking-wider text-center">{sub}</p>
+                      <p className="text-xs font-black text-[#1C1917] dark:text-[#F5F0F1] leading-tight mb-1 text-center break-words">{title}</p>
+                      <p className="text-[10px] text-[#57534E] dark:text-[#A89597] font-bold uppercase tracking-wider text-center">{sub}</p>
                     </div>
                   </div>
                 ))}
               </div>
 
-              <div className="flex flex-row gap-2.5 sm:gap-3 pt-2 w-full max-w-md">
+              <div className="flex flex-row gap-3 pt-2 w-full max-w-md">
                 <Button
                   variant="primary"
-                  className="flex-1 min-w-0 px-3 sm:px-9 py-3.5 sm:py-4 rounded-none font-black uppercase text-[10.5px] sm:text-xs tracking-wider sm:tracking-widest shadow-xl"
+                  className="flex-1 min-w-0 px-6 py-4 font-black uppercase text-[10.5px] sm:text-xs tracking-wider sm:tracking-widest shadow-xl shadow-[#6B1D2F]/25"
                   onClick={() => { navigate('/portfolio'); window.scrollTo(0, 0); }}
                 >
                   View Portfolio
                 </Button>
                 <Button
                   variant="secondary"
-                  className="flex-1 min-w-0 px-3 sm:px-9 py-3.5 sm:py-4 rounded-none font-black uppercase text-[10.5px] sm:text-xs tracking-wider sm:tracking-widest"
+                  className="flex-1 min-w-0 px-6 py-4 font-black uppercase text-[10.5px] sm:text-xs tracking-wider sm:tracking-widest shadow-md"
                   onClick={() => { navigate('/contact'); window.scrollTo(0, 0); }}
                 >
                   Get In Touch
@@ -224,7 +224,7 @@ export default function About() {
 
         {/* ── Core philosophy cards ─────────────────────────────────────── */}
         {isSectionVisible('CREATIVE_CAPABILITIES') && (
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-5 mb-20 sm:mb-28">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 mb-20 sm:mb-28">
             {capabilities.map((item, idx) => {
               const IconComp = iconMap[item.iconName] || item.icon || Film;
               return (
@@ -235,20 +235,20 @@ export default function About() {
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.09 }}
                   whileHover={{ y: -6 }}
-                  className="glass-card-luxury p-3.5 sm:p-6 rounded-none flex flex-col items-center justify-center text-center"
+                  className="glass-card-luxury p-4 sm:p-7 rounded-2xl flex flex-col items-center justify-center text-center shadow-sm hover:shadow-xl transition-all"
                 >
-                  <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-none bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center flex-shrink-0 shadow-md sm:shadow-lg shadow-[#6B1D2F]/20 mb-2 sm:mb-3">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center flex-shrink-0 shadow-md sm:shadow-lg shadow-[#6B1D2F]/20 mb-3">
                     <IconComp size={20} className="sm:hidden" />
                     <IconComp size={24} className="hidden sm:inline" />
                   </div>
                   <div className="w-full">
                     <h3
-                      className="text-xs sm:text-lg font-black text-[#1C1917] dark:text-[#F5F0F1] mb-1 leading-snug text-center break-words"
+                      className="text-xs sm:text-lg font-black text-[#1C1917] dark:text-[#F5F0F1] mb-1.5 leading-snug text-center break-words"
                       style={{ fontFamily: theme.fonts.heading }}
                     >
                       {item.title}
                     </h3>
-                    <p className="text-[10px] sm:text-xs text-[#292524] dark:text-[#A89597] font-normal leading-relaxed text-center line-clamp-3 sm:line-clamp-none">
+                    <p className="text-[10px] sm:text-xs text-[#57534E] dark:text-[#A89597] font-normal leading-relaxed text-center line-clamp-3 sm:line-clamp-none">
                       {item.description || item.desc}
                     </p>
                   </div>

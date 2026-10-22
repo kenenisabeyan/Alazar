@@ -180,7 +180,7 @@ export default function Services() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-[#1C1917] dark:text-[#F5F0F1] font-medium text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto bg-white/85 dark:bg-[#2E1216]/85 backdrop-blur-md px-4 sm:px-6 py-2.5 sm:py-3.5 rounded-none border border-[#C59A9F]/40 dark:border-white/10 shadow-sm max-w-full break-words"
+            className="text-[#44403C] dark:text-[#E7E5E4] font-medium text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto px-2"
           >
             Whether you need remote video editing or full on-set production, get senior-level creative work, transparent pricing, and on-time delivery every time.
           </motion.p>
@@ -196,35 +196,35 @@ export default function Services() {
               viewport={{ once: true }}
               transition={{ duration: 0.65, delay: idx * 0.12 }}
               whileHover={{ y: -6 }}
-              className="bg-white border-2 border-[#C59A9F] rounded-none overflow-hidden shadow-sm hover:border-[#C59A9F] hover:shadow-xl transition-all duration-500 flex flex-col"
+              className="bg-white/90 dark:bg-[#2E1216]/90 backdrop-blur-md border border-[#C59A9F]/35 dark:border-white/10 rounded-3xl overflow-hidden shadow-xl hover:border-[#6B1D2F]/60 hover:shadow-2xl transition-all duration-500 flex flex-col"
             >
               {/* Top accent bar */}
               <div className="h-1 bg-gradient-to-r from-[#6B1D2F] via-[#8B1E3F] to-[#C59A9F]" />
 
-              <div className="p-5 sm:p-8 md:p-10 flex flex-col flex-grow">
+              <div className="p-6 sm:p-8 md:p-10 flex flex-col flex-grow">
                 <div className="flex items-center justify-between mb-6">
-                  <span className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-none text-[11px] font-black uppercase tracking-widest ${svc.badgeDark
-                      ? 'bg-[#6B1D2F] text-white shadow-md shadow-[#6B1D2F]/25'
-                      : 'bg-[#FAFAF9] text-[#6B1D2F] border border-[#C59A9F]/50'
+                  <span className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[11px] font-black uppercase tracking-widest ${svc.badgeDark
+                      ? 'bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] text-white shadow-md shadow-[#6B1D2F]/25'
+                      : 'bg-[#FAFAF9] dark:bg-[#1E0A0D] text-[#6B1D2F] dark:text-[#E28D99] border border-[#C59A9F]/40 dark:border-white/10'
                     }`}>
                     {svc.badge}
                   </span>
                 </div>
 
                 <h2
-                  className="text-2xl sm:text-3xl font-black text-[#1C1917] mb-4 leading-tight break-words"
+                  className="text-2xl sm:text-3xl font-black text-[#1C1917] dark:text-[#F5F0F1] mb-4 leading-tight break-words"
                   style={{ fontFamily: theme.fonts.heading }}
                 >
                   {svc.title}
                 </h2>
-                <p className="text-[#292524] mb-8 font-normal leading-relaxed text-sm">
+                <p className="text-[#57534E] dark:text-[#A89597] mb-8 font-normal leading-relaxed text-sm">
                   {svc.desc}
                 </p>
 
                 <ul className="space-y-3 mb-10 flex-grow">
                   {svc.items.map(item => (
-                    <li key={item} className="flex items-center gap-3 text-sm text-[#1C1917] font-medium">
-                      <div className="w-6 h-6 rounded-none bg-[#FAFAF9] text-[#6B1D2F] flex items-center justify-center flex-shrink-0">
+                    <li key={item} className="flex items-center gap-3 text-sm text-[#1C1917] dark:text-[#F5F0F1] font-medium">
+                      <div className="w-6 h-6 rounded-full bg-[#FAFAF9] dark:bg-[#1E0A0D] text-[#6B1D2F] dark:text-[#E28D99] flex items-center justify-center flex-shrink-0">
                         <CheckCircle2 size={14} />
                       </div>
                       {item}
@@ -234,7 +234,7 @@ export default function Services() {
 
                 <Button
                   variant={svc.ctaVariant}
-                  className="w-full py-4 rounded-xl font-black text-xs uppercase tracking-widest"
+                  className="w-full py-4.5 font-black text-xs uppercase tracking-widest shadow-lg"
                   onClick={() => navigate('/contact')}
                 >
                   {svc.cta}
