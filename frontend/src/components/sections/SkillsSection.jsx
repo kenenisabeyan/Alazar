@@ -53,7 +53,7 @@ export const SkillsSection = ({ data }) => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.15 }}
-            className="inline-flex bg-white border border-[#C59A9F] rounded-none p-1.5 shadow-sm gap-1 max-w-full overflow-x-auto"
+            className="inline-flex bg-white/90 backdrop-blur-md border border-[#C59A9F]/50 rounded-full p-1.5 shadow-sm gap-1 max-w-full overflow-x-auto"
           >
             {matrix.map((cat, idx) => {
               const Icon = catIcons[idx % catIcons.length];
@@ -62,17 +62,17 @@ export const SkillsSection = ({ data }) => {
                 <button
                   key={cat.category}
                   onClick={() => setActiveCategory(idx)}
-                  className={`relative px-3 sm:px-4 py-2 sm:py-2.5 rounded-none text-[10.5px] sm:text-[11px] font-black uppercase tracking-wider transition-all flex items-center gap-1.5 flex-shrink-0 ${isActive ? 'text-white' : 'text-[#292524] hover:text-[#1C1917]'
+                  className={`relative px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-[10.5px] sm:text-[11px] font-black uppercase tracking-wider transition-all flex items-center gap-2 flex-shrink-0 ${isActive ? 'text-white' : 'text-[#292524] hover:text-[#1C1917]'
                     }`}
                 >
                   {isActive && (
                     <motion.div
                       layoutId="skillTab"
-                      className="absolute inset-0 bg-[#6B1D2F] rounded-none -z-10 shadow-md shadow-[#6B1D2F]/30"
+                      className="absolute inset-0 bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] rounded-full -z-10 shadow-md shadow-[#6B1D2F]/30"
                       transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                     />
                   )}
-                  <Icon size={12} />
+                  <Icon size={13} />
                   <span>{cat.category.split(' ')[0]}</span>
                 </button>
               );
@@ -91,7 +91,7 @@ export const SkillsSection = ({ data }) => {
           >
             {/* Category headline */}
             <div className="flex items-center gap-3 mb-10">
-              <div className="w-10 h-10 rounded-none bg-[#FAFAF9] text-[#6B1D2F] flex items-center justify-center">
+              <div className="w-11 h-11 rounded-xl bg-[#FAFAF9] text-[#6B1D2F] flex items-center justify-center border border-[#C59A9F]/30 shadow-sm">
                 {React.createElement(catIcons[activeCategory % catIcons.length], { size: 18 })}
               </div>
               <div>
@@ -118,12 +118,12 @@ export const SkillsSection = ({ data }) => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: idx * 0.07 }}
-                  className="glass-card-luxury rounded-none p-6 sm:p-7 flex flex-col gap-4"
+                  className="glass-card-luxury rounded-2xl p-6 sm:p-7 flex flex-col gap-4 border border-[#C59A9F]/40 shadow-sm hover:shadow-md"
                 >
                   {/* Top row */}
                   <div className="flex items-start justify-between gap-3">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-none bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center shadow-lg shadow-[#6B1D2F]/20 flex-shrink-0">
+                      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center shadow-lg shadow-[#6B1D2F]/20 flex-shrink-0">
                         <CheckCircle2 size={18} />
                       </div>
                       <div>
@@ -137,20 +137,20 @@ export const SkillsSection = ({ data }) => {
                       </div>
                     </div>
                     {/* Mastery badge */}
-                    <span className="flex-shrink-0 text-xs font-black text-[#6B1D2F] dark:text-[#F5F0F1] bg-[#FAFAF9] dark:bg-[#1E0A0D] border border-[#C59A9F]/40 px-3 py-1 rounded-none">
+                    <span className="flex-shrink-0 text-xs font-black text-[#6B1D2F] dark:text-[#F5F0F1] bg-[#FAFAF9] dark:bg-[#1E0A0D] border border-[#C59A9F]/40 px-3 py-1 rounded-full shadow-sm">
                       {skill.level}%
                     </span>
                   </div>
 
                   {/* Progress bar */}
                   <div className="space-y-1.5">
-                    <div className="w-full bg-[#FAFAF9] dark:bg-[#1E0A0D]/50 rounded-none h-2 overflow-hidden border border-[#C59A9F]">
+                    <div className="w-full bg-[#FAFAF9] dark:bg-[#1E0A0D]/50 rounded-full h-2 overflow-hidden border border-[#C59A9F]/40 p-0.5">
                       <motion.div
                         initial={{ width: 0 }}
                         whileInView={{ width: `${skill.level}%` }}
                         viewport={{ once: true }}
                         transition={{ duration: 1.1, delay: idx * 0.08, ease: 'easeOut' }}
-                        className="h-full rounded-none bg-gradient-to-r from-[#6B1D2F] via-[#8B1E3F] to-[#C59A9F]"
+                        className="h-full rounded-full bg-gradient-to-r from-[#6B1D2F] via-[#8B1E3F] to-[#C59A9F]"
                       />
                     </div>
                     <div className="flex justify-between text-[9px] font-black text-[#6B1D2F] dark:text-[#C59A9F] uppercase tracking-widest">
@@ -172,7 +172,7 @@ export const SkillsSection = ({ data }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="mt-14 p-6 bg-gradient-to-r from-[#6B1D2F] via-[#8B1E3F] to-[#6B1D2F] rounded-none flex flex-wrap items-center justify-center gap-4 sm:gap-8 shadow-lg shadow-[#6B1D2F]/20"
+          className="mt-14 p-6 bg-gradient-to-r from-[#6B1D2F] via-[#8B1E3F] to-[#6B1D2F] rounded-2xl flex flex-wrap items-center justify-center gap-4 sm:gap-8 shadow-lg shadow-[#6B1D2F]/20"
         >
           {[
             'DaVinci Resolve', 'Adobe Premiere', 'After Effects',

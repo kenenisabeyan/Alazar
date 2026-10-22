@@ -63,8 +63,8 @@ export const ShowreelBanner = ({ onOpenShowreel }) => {
             {/* Sound toggle */}
             <button
               onClick={toggleSound}
-              className={`inline-flex items-center justify-center gap-2 px-3.5 sm:px-4 py-2.5 rounded-none border text-[11px] font-black uppercase tracking-wider transition-all flex-1 sm:flex-initial ${isMuted
-                  ? 'bg-white dark:bg-[#2E1216] border-[#C59A9F] dark:border-white/20 text-[#292524] dark:text-[#F5F0F1] hover:border-[#6B1D2F]'
+              className={`inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 rounded-full border text-[11px] font-black uppercase tracking-wider transition-all flex-1 sm:flex-initial shadow-sm ${isMuted
+                  ? 'bg-white dark:bg-[#2E1216] border-[#C59A9F]/50 dark:border-white/20 text-[#292524] dark:text-[#F5F0F1] hover:border-[#6B1D2F]'
                   : 'bg-[#6B1D2F] border-[#6B1D2F] text-white'
                 }`}
             >
@@ -77,7 +77,7 @@ export const ShowreelBanner = ({ onOpenShowreel }) => {
             {/* Watch full */}
             <button
               onClick={onOpenShowreel}
-              className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-none bg-[#6B1D2F] text-white text-[11px] font-black uppercase tracking-wider hover:bg-[#8B1E3F] transition-all shadow-lg shadow-[#6B1D2F]/25 group flex-1 sm:flex-initial"
+              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] text-white text-[11px] font-black uppercase tracking-wider hover:brightness-110 transition-all shadow-lg shadow-[#6B1D2F]/25 group flex-1 sm:flex-initial"
             >
               Watch Full Reel
               <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform" />
@@ -97,7 +97,7 @@ export const ShowreelBanner = ({ onOpenShowreel }) => {
         >
           <div
             onClick={onOpenShowreel}
-            className="relative aspect-[16/10] sm:aspect-[16/9] md:aspect-[21/9] rounded-none overflow-hidden bg-[#1E0A0D] shadow-2xl shadow-[#1E0A0D]/50 border border-[#C59A9F]/20 cursor-pointer group select-none"
+            className="relative aspect-[16/10] sm:aspect-[16/9] md:aspect-[21/9] rounded-3xl overflow-hidden bg-[#1E0A0D] shadow-2xl shadow-[#1E0A0D]/50 border border-[#C59A9F]/20 cursor-pointer group select-none"
           >
             {/* Video */}
             <video
@@ -125,7 +125,7 @@ export const ShowreelBanner = ({ onOpenShowreel }) => {
 
             {/* Top-left — title overlay */}
             <div className="absolute top-3 left-3 sm:top-6 sm:left-7 z-10 pointer-events-none">
-              <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-none bg-black/60 backdrop-blur-md border border-red-500/30 text-[8.5px] sm:text-[9.5px] font-black text-white uppercase tracking-[0.16em] sm:tracking-[0.2em] mb-2 shadow-lg">
+              <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-red-500/30 text-[8.5px] sm:text-[9.5px] font-black text-white uppercase tracking-[0.16em] sm:tracking-[0.2em] mb-2 shadow-lg">
                 <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
                 <span className="text-red-400 font-mono">REC</span>
                 <span className="text-white/30">|</span>
@@ -142,7 +142,7 @@ export const ShowreelBanner = ({ onOpenShowreel }) => {
 
             {/* Top-right — duration badge (desktop only to prevent center collision on mobile) */}
             <div className="hidden sm:block absolute top-6 right-7 z-10 pointer-events-none">
-              <div className="px-3.5 py-1.5 rounded-none bg-black/60 backdrop-blur-md border border-white/20 text-[#FAFAF9] text-[10px] font-mono font-black uppercase tracking-widest shadow-xl flex items-center gap-2">
+              <div className="px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-[#FAFAF9] text-[10px] font-mono font-black uppercase tracking-widest shadow-xl flex items-center gap-2">
                 <span className="text-emerald-400">00:02:14:00</span>
                 <span className="text-white/30">|</span>
                 <span className="text-[#C59A9F]">24.00 FPS</span>
@@ -155,11 +155,11 @@ export const ShowreelBanner = ({ onOpenShowreel }) => {
               transition={{ type: 'spring', stiffness: 350, damping: 25 }}
               className="absolute inset-0 flex flex-col items-center justify-center z-10 pointer-events-none px-4"
             >
-              <div className="w-14 h-14 sm:w-20 sm:h-20 rounded-none bg-white/95 text-[#6B1D2F] flex items-center justify-center shadow-2xl shadow-[#1E0A0D]/60 border border-white/80 ring-4 sm:ring-8 ring-white/15 group-hover:ring-white/30 transition-all duration-300">
-                <Play size={22} className="sm:hidden ml-0.5 fill-[#6B1D2F]" />
+              <div className="w-14 h-14 sm:w-20 sm:h-20 rounded-full bg-white/95 text-[#6B1D2F] flex items-center justify-center shadow-2xl shadow-[#1E0A0D]/60 border border-white/80 ring-4 sm:ring-8 ring-white/15 group-hover:ring-white/30 transition-all duration-300">
+                <Play size={22} className="sm:hidden ml-1 fill-[#6B1D2F]" />
                 <Play size={28} className="hidden sm:inline ml-1 fill-[#6B1D2F]" />
               </div>
-              <p className="mt-2.5 sm:mt-4 text-[9.5px] sm:text-[11px] font-black uppercase tracking-[0.14em] sm:tracking-[0.2em] text-white/95 bg-black/70 backdrop-blur-md px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-none border border-white/20 shadow-xl max-w-[90%] text-center">
+              <p className="mt-2.5 sm:mt-4 text-[9.5px] sm:text-[11px] font-black uppercase tracking-[0.14em] sm:tracking-[0.2em] text-white/95 bg-black/70 backdrop-blur-md px-4 sm:px-5 py-1.5 sm:py-2 rounded-full border border-white/20 shadow-xl max-w-[90%] text-center">
                 Click to Watch Full Showreel
               </p>
             </motion.div>
@@ -173,7 +173,7 @@ export const ShowreelBanner = ({ onOpenShowreel }) => {
               ].map(({ icon: Icon, text }) => (
                 <div
                   key={text}
-                  className="hidden sm:flex items-center gap-1.5 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-none border border-white/15 text-[9.5px] font-black uppercase tracking-wider text-white/90 shadow-md"
+                  className="hidden sm:flex items-center gap-1.5 bg-black/60 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/15 text-[9.5px] font-black uppercase tracking-wider text-white/90 shadow-md"
                 >
                   <Icon size={12} className="text-[#C59A9F]" />
                   {text}
@@ -183,7 +183,7 @@ export const ShowreelBanner = ({ onOpenShowreel }) => {
 
             {/* Bottom-right — format badge (desktop only to prevent collision with center text on mobile) */}
             <div className="hidden sm:block absolute bottom-6 right-7 z-10 pointer-events-none">
-              <div className="px-3.5 py-1.5 rounded-none bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] text-white text-[9.5px] font-black uppercase tracking-[0.2em] shadow-lg border border-white/20">
+              <div className="px-3.5 py-1.5 rounded-full bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] text-white text-[9.5px] font-black uppercase tracking-[0.2em] shadow-lg border border-white/20">
                 PRORES 422 HQ
               </div>
             </div>
@@ -209,11 +209,22 @@ export const ShowreelBanner = ({ onOpenShowreel }) => {
               viewport={{ once: true }}
               transition={{ delay: 0.1 + idx * 0.07 }}
               whileHover={{ y: -4 }}
-              className="glass-card-luxury rounded-none p-3 sm:p-4 md:p-5 flex flex-col items-center justify-center text-center"
+              className="glass-card-luxury rounded-2xl p-4 sm:p-5 flex flex-col items-center justify-center text-center border border-[#C59A9F]/40 shadow-sm"
             >
-              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-none bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center flex-shrink-0 shadow-md shadow-[#6B1D2F]/20 mb-2 sm:mb-2.5">
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center flex-shrink-0 shadow-md shadow-[#6B1D2F]/20 mb-2.5">
                 <Icon size={18} />
               </div>
+              <div className="w-full">
+                <p className="text-[9px] sm:text-[10px] text-[#292524] dark:text-[#A89597] uppercase font-black tracking-wider mb-1 leading-tight text-center break-normal">
+                  {label}
+                </p>
+                <p className="text-xs sm:text-sm text-[#1C1917] dark:text-[#F5F0F1] font-black leading-tight text-center break-normal whitespace-normal">
+                  {value}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
               <div className="w-full">
                 <p className="text-[9px] sm:text-[10px] text-[#292524] dark:text-[#A89597] uppercase font-black tracking-wider mb-1 leading-tight text-center break-normal">
                   {label}
