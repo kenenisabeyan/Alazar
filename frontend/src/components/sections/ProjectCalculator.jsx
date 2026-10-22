@@ -11,7 +11,7 @@ import { calculatorOptions, theme } from '../../constants';
 // ─── Small building-block components ────────────────────────────────────────
 
 const StepBadge = ({ n }) => (
-  <span className="w-7 h-7 rounded-none bg-[#6B1D2F] text-white flex items-center justify-center text-xs font-black shadow-sm flex-shrink-0">
+  <span className="w-7 h-7 rounded-lg bg-[#6B1D2F] text-white flex items-center justify-center text-xs font-black shadow-sm flex-shrink-0">
     {n}
   </span>
 );
@@ -46,9 +46,9 @@ export const ProjectCalculator = () => {
 
   // ── Shared button classes ─────────────────────────────────────────────────
   const optBtn = (active) =>
-    `relative overflow-hidden rounded-none border-2 text-left text-xs font-black transition-all duration-300 flex items-center justify-between gap-3 group cursor-pointer p-4 ${active
-      ? 'bg-[#6B1D2F] border-[#6B1D2F] text-white shadow-xl shadow-[#6B1D2F]/25'
-      : 'bg-white border-[#C59A9F]/50 text-[#1C1917] hover:border-[#6B1D2F] hover:shadow-md'
+    `relative overflow-hidden rounded-2xl border text-left text-xs font-black transition-all duration-300 flex items-center justify-between gap-3 group cursor-pointer p-4 ${active
+      ? 'bg-gradient-to-r from-[#6B1D2F] via-[#7D1D34] to-[#8B1E3F] border-transparent text-white shadow-xl shadow-[#6B1D2F]/25 scale-[1.01]'
+      : 'bg-white border-[#C59A9F]/40 text-[#1C1917] hover:border-[#6B1D2F] hover:shadow-md'
     }`;
 
   return (
@@ -82,7 +82,7 @@ export const ProjectCalculator = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.15 }}
-            className="text-[#1C1917] font-medium text-sm sm:text-base max-w-xs leading-relaxed bg-white/85 backdrop-blur-md px-5 py-3 rounded-none border border-[#C59A9F]/40 shadow-sm"
+            className="text-[#44403C] dark:text-[#E7E5E4] font-medium text-sm sm:text-base max-w-xs leading-relaxed"
           >
             Configure your production scope in real-time for an instant budgetary estimate with complete transparency.
           </motion.p>
@@ -97,13 +97,13 @@ export const ProjectCalculator = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.65 }}
-            className="lg:col-span-7 bg-white rounded-none border border-[#C59A9F]/60 shadow-xl p-5 sm:p-8 md:p-10 space-y-8 sm:space-y-10"
+            className="lg:col-span-7 bg-white/95 dark:bg-[#2E1216]/95 backdrop-blur-xl rounded-3xl border border-[#C59A9F]/40 dark:border-white/10 shadow-2xl p-6 sm:p-8 md:p-10 space-y-8 sm:space-y-10"
           >
 
             {/* Step 1 – project type */}
             <div>
               <SectionLabel step="1">Production Category</SectionLabel>
-              <div className="grid grid-cols-2 gap-2.5 sm:gap-3.5">
+              <div className="grid grid-cols-2 gap-3 sm:gap-4">
                 {calculatorOptions.projectTypes.map((t) => {
                   const isActive = selectedType === t.id;
                   const Icon = t.id.includes('design') ? Shapes : Film;
@@ -114,7 +114,7 @@ export const ProjectCalculator = () => {
                         <div className="absolute inset-0 bg-gradient-to-br from-white/15 to-transparent pointer-events-none" />
                       )}
                       <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 relative z-10 w-full sm:w-auto">
-                        <div className={`w-9 h-9 rounded-none flex items-center justify-center flex-shrink-0 transition-all mx-auto sm:mx-0 ${isActive ? 'bg-white/20 text-white shadow-md' : 'bg-[#FAFAF9] text-[#6B1D2F]'
+                        <div className={`w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 transition-all mx-auto sm:mx-0 ${isActive ? 'bg-white/20 text-white shadow-md' : 'bg-[#FAFAF9] text-[#6B1D2F]'
                           }`}>
                           <Icon size={16} />
                         </div>
@@ -122,14 +122,14 @@ export const ProjectCalculator = () => {
                           <span className={`leading-snug block text-xs font-black break-normal whitespace-normal ${isActive ? 'text-white' : 'text-[#1C1917]'}`}>
                             {t.label}
                           </span>
-                          <span className={`text-[10px] font-bold block mt-0.5 ${isActive ? 'text-[#FAFAF9]/80' : 'text-[#292524]'}`}>
+                          <span className={`text-[10px] font-bold block mt-0.5 ${isActive ? 'text-[#FAFAF9]/80' : 'text-[#57534E]'}`}>
                             from ${t.basePrice.toLocaleString()}
                           </span>
                         </div>
                       </div>
-                      <div className={`w-5 h-5 rounded-none border-2 items-center justify-center flex-shrink-0 relative z-10 transition-all hidden sm:flex ${isActive ? 'border-white bg-white/30' : 'border-[#C59A9F]/60 bg-white'
+                      <div className={`w-5 h-5 rounded-full border-2 items-center justify-center flex-shrink-0 relative z-10 transition-all hidden sm:flex ${isActive ? 'border-white bg-white/30' : 'border-[#C59A9F]/60 bg-white'
                         }`}>
-                        {isActive && <div className="w-2 h-2 rounded-none bg-white" />}
+                        {isActive && <div className="w-2 h-2 rounded-full bg-white" />}
                       </div>
                     </button>
                   );
