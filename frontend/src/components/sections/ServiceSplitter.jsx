@@ -78,7 +78,7 @@ export const ServiceSplitter = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.15 }}
-            className="text-[#1C1917] font-medium text-sm sm:text-base max-w-xs leading-relaxed bg-white/80 backdrop-blur-md px-4 py-2.5 rounded-xl border border-[#C59A9F]/40 shadow-sm max-w-full break-words"
+            className="text-[#44403C] font-medium text-sm sm:text-base max-w-xs leading-relaxed md:text-right"
           >
             Every project benefits from both cinematic video mastery and senior-level graphic design thinking.
           </motion.p>
@@ -97,24 +97,24 @@ export const ServiceSplitter = () => {
                 transition={{ duration: 0.65, delay: idx * 0.12, ease: [0.16, 1, 0.3, 1] }}
                 whileHover={{ y: -8 }}
                 onClick={() => { navigate(svc.path); window.scrollTo(0, 0); }}
-                className={`group cursor-pointer rounded-none overflow-hidden border transition-all duration-500 flex flex-col ${svc.dark
+                className={`group cursor-pointer rounded-3xl overflow-hidden border transition-all duration-500 flex flex-col ${svc.dark
                     ? 'bg-gradient-to-br from-[#6B1D2F] via-[#521523] to-[#3B0E19] border-[#C59A9F]/30 shadow-xl shadow-[#6B1D2F]/25 hover:border-[#C59A9F]/60'
-                    : 'bg-white border-[#C59A9F]/60 shadow-xl shadow-black/05 hover:border-[#6B1D2F]'
+                    : 'bg-white border-[#C59A9F]/40 shadow-xl shadow-black/05 hover:border-[#6B1D2F]'
                   }`}
               >
                 {/* Top accent bar */}
-                <div className="h-1 w-full bg-gradient-to-r from-[#6B1D2F] via-[#8B1E3F] to-[#C59A9F]" />
+                <div className="h-1.5 w-full bg-gradient-to-r from-[#6B1D2F] via-[#8B1E3F] to-[#C59A9F]" />
 
-                <div className="p-5 sm:p-8 md:p-10 flex flex-col h-full">
+                <div className="p-6 sm:p-8 md:p-10 flex flex-col h-full">
                   {/* Label pill + icon */}
                   <div className="flex items-center justify-between mb-8">
-                    <span className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-none text-[11px] font-black uppercase tracking-widest ${svc.dark
+                    <span className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[11px] font-black uppercase tracking-widest ${svc.dark
                         ? 'bg-white/20 text-white border border-white/30'
                         : 'bg-[#FAFAF9] text-[#6B1D2F] border border-[#C59A9F]/50'
                       }`}>
                       <MainIcon size={12} /> {svc.label}
                     </span>
-                    <div className={`w-12 h-12 rounded-none flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 ${svc.dark ? 'bg-white/20 text-white' : 'bg-[#FAFAF9] text-[#6B1D2F]'
+                    <div className={`w-12 h-12 rounded-2xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 ${svc.dark ? 'bg-white/20 text-white' : 'bg-[#FAFAF9] text-[#6B1D2F] border border-[#C59A9F]/30'
                       }`}>
                       <MainIcon size={22} />
                     </div>
@@ -134,8 +134,8 @@ export const ServiceSplitter = () => {
                   {/* Items list */}
                   <ul className="grid grid-cols-2 gap-2 sm:gap-3 mb-8 sm:mb-10 flex-grow">
                     {svc.items.map(({ icon: ItemIcon, text }) => (
-                      <li key={text} className={`flex flex-col sm:flex-row items-center justify-center sm:justify-start text-center sm:text-left gap-2 sm:gap-3 text-xs sm:text-sm font-medium p-2.5 sm:p-0 rounded-none ${svc.dark ? 'bg-white/[0.08] sm:bg-transparent text-white/90' : 'bg-[#FAFAF9] sm:bg-transparent text-[#1C1917]'}`}>
-                        <div className={`w-8 h-8 rounded-none flex items-center justify-center flex-shrink-0 mx-auto sm:mx-0 ${svc.dark ? 'bg-white/20 text-white' : 'bg-[#FAFAF9] text-[#6B1D2F] border border-[#C59A9F]/30'
+                      <li key={text} className={`flex flex-col sm:flex-row items-center justify-center sm:justify-start text-center sm:text-left gap-2 sm:gap-3 text-xs sm:text-sm font-medium p-3 sm:p-2.5 rounded-2xl ${svc.dark ? 'bg-white/[0.08] sm:bg-white/[0.05] text-white/90' : 'bg-[#FAFAF9] sm:bg-[#FAFAF9]/60 text-[#1C1917]'}`}>
+                        <div className={`w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0 mx-auto sm:mx-0 ${svc.dark ? 'bg-white/20 text-white' : 'bg-[#FAFAF9] text-[#6B1D2F] border border-[#C59A9F]/30'
                           }`}>
                           <ItemIcon size={14} />
                         </div>
@@ -145,14 +145,14 @@ export const ServiceSplitter = () => {
                   </ul>
 
                   {/* CTA row */}
-                  <div className={`pt-6 border-t flex items-center justify-between ${svc.dark ? 'border-white/20' : 'border-[#C59A9F]/50'}`}>
+                  <div className={`pt-6 border-t flex items-center justify-between ${svc.dark ? 'border-white/20' : 'border-[#C59A9F]/40'}`}>
                     <span className={`text-[11px] font-black uppercase tracking-widest flex items-center gap-2 group-hover:gap-3 transition-all ${svc.dark ? 'text-white' : 'text-[#6B1D2F]'
                       }`}>
                       {svc.cta} <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                     </span>
-                    <div className={`w-9 h-9 rounded-none flex items-center justify-center transition-all duration-300 group-hover:scale-110 ${svc.dark
+                    <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 shadow-sm ${svc.dark
                         ? 'bg-white text-[#6B1D2F]'
-                        : 'bg-[#FAFAF9] text-[#6B1D2F] group-hover:bg-[#6B1D2F] group-hover:text-white'
+                        : 'bg-[#FAFAF9] text-[#6B1D2F] group-hover:bg-[#6B1D2F] group-hover:text-white border border-[#C59A9F]/30'
                       }`}>
                       <ArrowRight size={14} />
                     </div>

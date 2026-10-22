@@ -225,17 +225,6 @@ export const ShowreelBanner = ({ onOpenShowreel }) => {
             </motion.div>
           ))}
         </motion.div>
-              <div className="w-full">
-                <p className="text-[9px] sm:text-[10px] text-[#292524] dark:text-[#A89597] uppercase font-black tracking-wider mb-1 leading-tight text-center break-normal">
-                  {label}
-                </p>
-                <p className="text-xs sm:text-sm text-[#1C1917] dark:text-[#F5F0F1] font-black leading-tight text-center break-normal whitespace-normal">
-                  {value}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
 
       </div>
     </section>
