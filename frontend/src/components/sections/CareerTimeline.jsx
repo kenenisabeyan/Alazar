@@ -85,9 +85,9 @@ export const CareerTimeline = ({ data, awards: awardsProp }) => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1 }}
-                  className={`rounded-none border-2 overflow-hidden transition-all duration-400 ${isOpen
-                      ? 'border-[#6B1D2F] shadow-xl shadow-[#6B1D2F]/10 bg-white'
-                      : 'border-[#C59A9F] bg-white hover:border-[#C59A9F] shadow-sm'
+                  className={`rounded-2xl border overflow-hidden transition-all duration-400 ${isOpen
+                      ? 'border-[#6B1D2F] shadow-xl shadow-[#6B1D2F]/10 bg-white ring-1 ring-[#6B1D2F]/20'
+                      : 'border-[#C59A9F]/40 bg-white hover:border-[#6B1D2F]/50 shadow-sm'
                     }`}
                 >
                   {/* Clickable header */}
@@ -97,7 +97,7 @@ export const CareerTimeline = ({ data, awards: awardsProp }) => {
                   >
                     <div className="flex items-center gap-3 w-full sm:w-auto">
                       {/* Index dot */}
-                      <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-none flex items-center justify-center flex-shrink-0 font-black text-xs sm:text-sm transition-all ${isOpen
+                      <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center flex-shrink-0 font-black text-xs sm:text-sm transition-all ${isOpen
                           ? 'bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white shadow-lg shadow-[#6B1D2F]/25'
                           : 'bg-[#FAFAF9] text-[#6B1D2F] group-hover:bg-[#6B1D2F] group-hover:text-white'
                         }`}>
@@ -116,7 +116,7 @@ export const CareerTimeline = ({ data, awards: awardsProp }) => {
 
                       <ArrowRight
                         size={16}
-                        className={`sm:hidden ml-auto flex-shrink-0 transition-all duration-300 text-[#C59A9F] ${isOpen ? 'rotate-90' : 'group-hover:translate-x-1'}`}
+                        className={`sm:hidden ml-auto flex-shrink-0 transition-all duration-300 text-[#C59A9F] ${isOpen ? 'rotate-90 text-[#6B1D2F]' : 'group-hover:translate-x-1'}`}
                       />
                     </div>
 
@@ -131,11 +131,11 @@ export const CareerTimeline = ({ data, awards: awardsProp }) => {
                     </div>
 
                     <div className="flex flex-wrap sm:flex-col items-start sm:items-end gap-1.5 flex-shrink-0 pt-1 sm:pt-0">
-                      <span className="flex items-center gap-1 text-[10px] font-bold text-[#292524] bg-[#FAFAF9] px-2.5 py-1 rounded-none border border-[#C59A9F]/40">
+                      <span className="flex items-center gap-1.5 text-[10px] font-bold text-[#292524] bg-[#FAFAF9] px-3 py-1 rounded-full border border-[#C59A9F]/40">
                         <Calendar size={10} className="text-[#6B1D2F]" />
                         {exp.period}
                       </span>
-                      <span className="flex items-center gap-1 text-[10px] font-bold text-[#292524] bg-[#FAFAF9] px-2.5 py-1 rounded-none border border-[#C59A9F]/40">
+                      <span className="flex items-center gap-1.5 text-[10px] font-bold text-[#292524] bg-[#FAFAF9] px-3 py-1 rounded-full border border-[#C59A9F]/40">
                         <MapPin size={10} className="text-[#6B1D2F]" />
                         {exp.location}
                       </span>
@@ -143,7 +143,7 @@ export const CareerTimeline = ({ data, awards: awardsProp }) => {
 
                     <ArrowRight
                       size={16}
-                      className={`hidden sm:block flex-shrink-0 transition-all duration-300 text-[#C59A9F] ${isOpen ? 'rotate-90' : 'group-hover:translate-x-1'}`}
+                      className={`hidden sm:block flex-shrink-0 transition-all duration-300 text-[#C59A9F] ${isOpen ? 'rotate-90 text-[#6B1D2F]' : 'group-hover:translate-x-1'}`}
                     />
                   </button>
 

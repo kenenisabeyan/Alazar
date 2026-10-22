@@ -90,17 +90,14 @@ export const GearSection = ({ data }) => {
             >
               Professional-Grade<br />
               <span className="text-gradient-burgundy font-black">Filming & Editing Kit.</span>
-            </motion.h2>
-          </div>
-
-          <motion.div
+            </            <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.15 }}
             className="lg:col-span-5 flex flex-col justify-end space-y-3"
           >
-            <p className="text-[#1C1917] font-medium text-sm sm:text-base leading-relaxed bg-white/85 backdrop-blur-md px-4 sm:px-5 py-3 rounded-none border border-[#C59A9F]/40 shadow-sm max-w-full break-words">
+            <p className="text-[#44403C] font-medium text-sm sm:text-base md:text-lg leading-relaxed max-w-xl">
               Industry-standard cinema cameras, precision lenses, professional lighting, and a fast dedicated post-production suite, providing everything needed to deliver 8K master quality.
             </p>
           </motion.div>
@@ -121,12 +118,12 @@ export const GearSection = ({ data }) => {
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.07 }}
                   onClick={() => setActiveCategory(idx)}
-                  className={`flex flex-col lg:flex-row items-center justify-center lg:justify-start text-center lg:text-left gap-2 sm:gap-3.5 p-3 sm:px-5 sm:py-4 rounded-none border-2 transition-all duration-300 w-full group ${isActive
-                      ? 'bg-[#6B1D2F] border-[#6B1D2F] text-white shadow-xl shadow-[#6B1D2F]/25'
-                      : 'bg-white/90 backdrop-blur-md border-[#C59A9F]/50 text-[#1C1917] hover:border-[#6B1D2F]'
+                  className={`flex flex-col lg:flex-row items-center justify-center lg:justify-start text-center lg:text-left gap-2 sm:gap-3.5 p-3 sm:px-5 sm:py-4 rounded-2xl border transition-all duration-300 w-full group ${isActive
+                      ? 'bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] border-[#6B1D2F] text-white shadow-xl shadow-[#6B1D2F]/25 ring-2 ring-[#6B1D2F]/30'
+                      : 'bg-white/90 backdrop-blur-md border-[#C59A9F]/40 text-[#1C1917] hover:border-[#6B1D2F]/60 hover:bg-white shadow-sm'
                     }`}
                 >
-                  <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-none flex items-center justify-center mx-auto lg:mx-0 flex-shrink-0 transition-all ${isActive
+                  <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center mx-auto lg:mx-0 flex-shrink-0 transition-all ${isActive
                       ? 'bg-white/20 text-white shadow-md'
                       : 'bg-[#FAFAF9] text-[#6B1D2F] group-hover:bg-[#6B1D2F] group-hover:text-white'
                     }`}>
@@ -143,21 +140,23 @@ export const GearSection = ({ data }) => {
                   </div>
                   <ArrowRight
                     size={14}
-                    className={`hidden lg:block ml-auto flex-shrink-0 transition-all ${isActive ? 'text-[#C59A9F]' : 'text-[#C59A9F]/0 group-hover:text-[#C59A9F]'}`}
+                    className={`hidden lg:block ml-auto flex-shrink-0 transition-all ${isActive ? 'text-white' : 'text-[#C59A9F]/40 group-hover:text-[#6B1D2F] group-hover:translate-x-1'}`}
                   />
                 </motion.button>
               );
             })}
 
             {/* Spec badge */}
-            <div className="hidden lg:flex mt-4 p-4 bg-white/90 backdrop-blur-md border border-[#C59A9F]/60 rounded-none items-center gap-3 shadow-sm">
-              <div className="w-9 h-9 rounded-none bg-[#FAFAF9] text-[#6B1D2F] flex items-center justify-center flex-shrink-0 shadow-sm">
+            <div className="hidden lg:flex mt-4 p-4 bg-white/90 backdrop-blur-md border border-[#C59A9F]/40 rounded-2xl items-center gap-3 shadow-sm">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#FAFAF9] to-[#F5F0F1] text-[#6B1D2F] flex items-center justify-center flex-shrink-0 shadow-sm border border-[#C59A9F]/30">
                 <Tv size={16} />
               </div>
               <div>
                 <p className="text-[10px] font-black uppercase tracking-widest text-[#6B1D2F] mb-0.5">Output Standard</p>
                 <p className="text-xs font-bold text-[#1C1917]">8K Cinema RAW Master</p>
               </div>
+            </div>
+          </div>v>
             </div>
           </div>
 
@@ -179,7 +178,7 @@ export const GearSection = ({ data }) => {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: idx * 0.07 }}
                     whileHover={{ y: -6 }}
-                    className="group bg-white/95 backdrop-blur-md rounded-none border border-[#C59A9F]/60 shadow-sm hover:border-[#6B1D2F] hover:shadow-xl transition-all duration-400 overflow-hidden flex flex-col"
+                    className="group bg-white/95 backdrop-blur-md rounded-2xl border border-[#C59A9F]/40 shadow-md hover:border-[#6B1D2F] hover:shadow-2xl transition-all duration-400 overflow-hidden flex flex-col"
                   >
                     {/* Top colour band */}
                     <div className="h-1 bg-gradient-to-r from-[#6B1D2F] to-[#C59A9F]" />
@@ -193,7 +192,7 @@ export const GearSection = ({ data }) => {
                         loading="lazy"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                      <span className="absolute bottom-2.5 left-3 px-2.5 py-1 rounded-none bg-black/60 backdrop-blur-md text-[10px] font-black tracking-widest uppercase text-white/95 border border-white/15 shadow-sm">
+                      <span className="absolute bottom-2.5 left-3 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-[10px] font-black tracking-widest uppercase text-white/95 border border-white/20 shadow-sm">
                         {item.badge}
                       </span>
                     </div>
@@ -201,7 +200,7 @@ export const GearSection = ({ data }) => {
                     <div className="p-5 flex flex-col gap-3.5 flex-grow">
                       {/* Icon + name */}
                       <div className="flex items-start gap-3">
-                        <div className="w-9 h-9 rounded-none bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center shadow-md shadow-[#6B1D2F]/20 flex-shrink-0">
+                        <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#6B1D2F] to-[#8B1E3F] text-white flex items-center justify-center shadow-md shadow-[#6B1D2F]/20 flex-shrink-0">
                           <CheckCircle2 size={16} />
                         </div>
                         <h4
