@@ -191,12 +191,12 @@ export const CareerTimeline = ({ data, awards: awardsProp }) => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="bg-gradient-to-br from-[#6B1D2F] via-[#521523] to-[#3B0E19] text-white rounded-none p-7 sm:p-8 relative overflow-hidden shadow-xl shadow-[#6B1D2F]/20 border border-[#C59A9F]/30"
+              className="bg-gradient-to-br from-[#6B1D2F] via-[#521523] to-[#3B0E19] text-white rounded-3xl p-7 sm:p-8 relative overflow-hidden shadow-xl shadow-[#6B1D2F]/20 border border-[#C59A9F]/30"
             >
               <div className="absolute -top-12 -right-12 w-40 h-40 bg-white/10 blur-[60px] rounded-full pointer-events-none" />
 
               <div className="relative z-10">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-none bg-white/20 border border-white/30 text-[11px] font-black text-white uppercase tracking-widest mb-8">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/20 border border-white/30 text-[11px] font-black text-white uppercase tracking-widest mb-8">
                   <Award size={12} /> Industry Recognition
                 </div>
 
@@ -215,9 +215,9 @@ export const CareerTimeline = ({ data, awards: awardsProp }) => {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: idx * 0.08 }}
-                      className="flex items-center gap-4 p-4 bg-white/10 hover:bg-white/15 border border-white/15 rounded-none transition-colors"
+                      className="flex items-center gap-4 p-4 bg-white/10 hover:bg-white/15 border border-white/15 rounded-2xl transition-colors"
                     >
-                      <div className="w-10 h-10 rounded-none bg-white/20 text-white flex items-center justify-center flex-shrink-0">
+                      <div className="w-10 h-10 rounded-xl bg-white/20 text-white flex items-center justify-center flex-shrink-0">
                         <Award size={18} />
                       </div>
                       <div className="flex-1 min-w-0">
@@ -228,7 +228,7 @@ export const CareerTimeline = ({ data, awards: awardsProp }) => {
                           {award.project}
                         </p>
                       </div>
-                      <span className="text-[10px] font-black text-white bg-white/20 px-2 py-1 rounded-none flex-shrink-0">
+                      <span className="text-[10px] font-black text-white bg-white/20 px-2.5 py-1 rounded-full flex-shrink-0">
                         {award.year}
                       </span>
                     </motion.div>
@@ -243,9 +243,9 @@ export const CareerTimeline = ({ data, awards: awardsProp }) => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
-              className="bg-white border border-[#C59A9F] rounded-none p-7 flex items-center gap-5"
+              className="bg-white border border-[#C59A9F]/40 rounded-2xl p-7 flex items-center gap-5 shadow-sm"
             >
-              <div className="w-12 h-12 rounded-none bg-[#FAFAF9] text-[#6B1D2F] flex items-center justify-center flex-shrink-0">
+              <div className="w-12 h-12 rounded-xl bg-[#FAFAF9] text-[#6B1D2F] flex items-center justify-center flex-shrink-0 shadow-sm border border-[#C59A9F]/30">
                 <Briefcase size={20} />
               </div>
               <div>
