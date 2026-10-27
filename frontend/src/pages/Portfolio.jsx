@@ -194,7 +194,7 @@ export default function Portfolio() {
               placeholder="Search works..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-8 py-2 bg-[#FAFAF9] dark:bg-[#2E1216] border border-[#C59A9F]/35 dark:border-white/10 rounded-full text-xs font-semibold text-[#1C1917] dark:text-[#F5F0F1] focus:outline-none focus:border-[#6B1D2F] dark:focus:border-[#E28D99] shadow-inner transition-colors"
+              className="w-full pl-9 pr-8 py-2 bg-[#FAFAF9] dark:bg-[#2E1216] border border-[#C59A9F]/35 dark:border-white/10 rounded-none text-xs font-semibold text-[#1C1917] dark:text-[#F5F0F1] focus:outline-none focus:border-[#6B1D2F] dark:focus:border-[#E28D99] shadow-inner transition-colors"
             />
             {searchQuery && (
               <button
@@ -211,7 +211,7 @@ export default function Portfolio() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3 }}
-            className="flex flex-wrap justify-center bg-black/[0.04] dark:bg-white/[0.06] p-1 rounded-full gap-1"
+            className="flex flex-wrap justify-center bg-black/[0.04] dark:bg-white/[0.06] p-1 rounded-none gap-1"
           >
             {[
               { id: 'all', label: `All (${projects.length})` },
@@ -223,14 +223,14 @@ export default function Portfolio() {
                 <button
                   key={cat.id}
                   onClick={() => setFilter(cat.id)}
-                  className={`relative px-4 py-1.5 sm:px-5 sm:py-2 rounded-full text-[11px] font-black uppercase tracking-wider transition-all flex items-center gap-1.5 ${
+                  className={`relative px-4 py-1.5 sm:px-5 sm:py-2 rounded-none text-[11px] font-black uppercase tracking-wider transition-all flex items-center gap-1.5 ${
                     active ? 'text-white' : 'text-[#57534E] dark:text-[#D6D3D1] hover:text-[#6B1D2F] dark:hover:text-[#F5F0F1]'
                   }`}
                 >
                   {active && (
                     <motion.div
                       layoutId="portfolioFilterBg"
-                      className="absolute inset-0 bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] rounded-full -z-10 shadow-md shadow-[#6B1D2F]/25"
+                      className="absolute inset-0 bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] rounded-none -z-10 shadow-md shadow-[#6B1D2F]/25"
                       transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                     />
                   )}
@@ -242,10 +242,10 @@ export default function Portfolio() {
           </motion.div>
 
           {/* View Mode Switcher */}
-          <div className="flex items-center bg-black/[0.04] dark:bg-white/[0.06] p-1 rounded-full gap-1">
+          <div className="flex items-center bg-black/[0.04] dark:bg-white/[0.06] p-1 rounded-none gap-1">
             <button
               onClick={() => setViewMode('grid')}
-              className={`px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-full text-[11px] font-black uppercase tracking-wider transition-all flex items-center gap-1.5 ${
+              className={`px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-none text-[11px] font-black uppercase tracking-wider transition-all flex items-center gap-1.5 ${
                 viewMode === 'grid' ? 'bg-[#6B1D2F] text-white shadow-sm' : 'text-[#57534E] dark:text-[#D6D3D1] hover:text-[#6B1D2F]'
               }`}
             >
@@ -253,7 +253,7 @@ export default function Portfolio() {
             </button>
             <button
               onClick={() => setViewMode('spread')}
-              className={`px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-full text-[11px] font-black uppercase tracking-wider transition-all flex items-center gap-1.5 ${
+              className={`px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-none text-[11px] font-black uppercase tracking-wider transition-all flex items-center gap-1.5 ${
                 viewMode === 'spread' ? 'bg-[#6B1D2F] text-white shadow-sm' : 'text-[#57534E] dark:text-[#D6D3D1] hover:text-[#6B1D2F]'
               }`}
             >
@@ -264,7 +264,7 @@ export default function Portfolio() {
           <button
             onClick={() => fetchProjects(true)}
             title="Sync latest"
-            className="w-9 h-9 rounded-full bg-[#FAFAF9] dark:bg-[#2E1216] border border-[#C59A9F]/40 dark:border-white/10 text-[#57534E] dark:text-[#D6D3D1] hover:border-[#6B1D2F] hover:text-[#6B1D2F] flex items-center justify-center transition-all shadow-sm flex-shrink-0"
+            className="w-9 h-9 rounded-none bg-[#FAFAF9] dark:bg-[#2E1216] border border-[#C59A9F]/40 dark:border-white/10 text-[#57534E] dark:text-[#D6D3D1] hover:border-[#6B1D2F] hover:text-[#6B1D2F] flex items-center justify-center transition-all shadow-sm flex-shrink-0"
           >
             <RefreshCw size={14} className={isRefreshing ? 'animate-spin text-[#6B1D2F]' : ''} />
           </button>
@@ -276,12 +276,12 @@ export default function Portfolio() {
         {loading ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[1, 2, 3, 4, 5, 6].map(n => (
-              <div key={n} className="rounded-2xl aspect-[4/5] bg-[#FAFAF9] dark:bg-[#1E0A0D] border border-[#C59A9F]/30 animate-pulse" />
+              <div key={n} className="rounded-none aspect-[4/5] bg-[#FAFAF9] dark:bg-[#1E0A0D] border border-[#C59A9F]/30 animate-pulse" />
             ))}
           </div>
         ) : filteredProjects.length === 0 ? (
-          <div className="py-20 text-center bg-white dark:bg-[#2E1216] rounded-2xl border border-[#C59A9F]/30 dark:border-white/10 shadow-lg max-w-xl mx-auto space-y-4 px-6">
-            <div className="w-16 h-16 rounded-full bg-[#6B1D2F]/10 border border-[#6B1D2F]/20 text-[#6B1D2F] flex items-center justify-center mx-auto">
+          <div className="py-20 text-center bg-white dark:bg-[#2E1216] rounded-none border border-[#C59A9F]/30 dark:border-white/10 shadow-lg max-w-xl mx-auto space-y-4 px-6">
+            <div className="w-16 h-16 rounded-none bg-[#6B1D2F]/10 border border-[#6B1D2F]/20 text-[#6B1D2F] flex items-center justify-center mx-auto">
               <Search size={28} />
             </div>
             <h3 className="text-2xl font-black text-[#1C1917] dark:text-[#F5F0F1]" style={{ fontFamily: theme.fonts.heading }}>
@@ -292,7 +292,7 @@ export default function Portfolio() {
             </p>
             <button
               onClick={() => { setSearchQuery(''); setFilter('all'); }}
-              className="px-7 py-3 rounded-full bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] text-white font-black text-xs uppercase tracking-widest hover:opacity-95 transition-all shadow-lg shadow-[#6B1D2F]/25"
+              className="px-7 py-3 rounded-none bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] text-white font-black text-xs uppercase tracking-widest hover:opacity-95 transition-all shadow-lg shadow-[#6B1D2F]/25"
             >
               Reset All Filters
             </button>
