@@ -202,7 +202,7 @@ export const Navigation = () => {
     ? 'bg-[#FAFAF9]/85 dark:bg-[#1E0A0D]/85 backdrop-blur-md border-b border-[#C59A9F]/20 dark:border-white/10 shadow-sm'
     : 'bg-transparent border-transparent';
 
-  /* Clean round icon button styling without dark container background */
+  /* Clean icon button styling with background and subtle border */
   const iconBtn =
     'bg-white/80 dark:bg-white/[0.08] hover:bg-white dark:hover:bg-white/[0.15] border border-[#C59A9F]/40 dark:border-white/15 text-[#1C1917] dark:text-[#F5F0F1] shadow-sm hover:shadow transition-all';
 
@@ -238,7 +238,7 @@ export const Navigation = () => {
             </div>
           </Link>
 
-          {/* ── Center Header Navigation Links (Visible when user starts to scroll) ── */}
+          {/* ── Center Header Navigation Links ── */}
           <AnimatePresence>
             {isScrolled && (
               <motion.nav
@@ -247,7 +247,7 @@ export const Navigation = () => {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -14, scale: 0.96 }}
                 transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
-                className="hidden md:flex items-center gap-1 lg:gap-1.5 p-1.5 rounded-full bg-white/80 dark:bg-[#180A0D]/80 backdrop-blur-2xl border border-white/60 dark:border-white/10 shadow-[0_10px_35px_-5px_rgba(107,29,47,0.12),0_2px_8px_rgba(0,0,0,0.04),inset_0_1px_1px_rgba(255,255,255,0.8)] dark:shadow-[0_12px_40px_-5px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.08)] select-none"
+                className="hidden md:flex items-center gap-2 lg:gap-5 p-0 bg-transparent border-none shadow-none select-none"
                 aria-label="Main Navigation"
               >
                 {navSections
@@ -268,15 +268,12 @@ export const Navigation = () => {
                         <button
                           type="button"
                           onClick={() => handleNavClick(link.path)}
-                          className={`relative px-4 py-2 rounded-full text-[11px] lg:text-xs font-black tracking-widest uppercase transition-all duration-300 cursor-pointer flex items-center gap-1.5 select-none ${
+                          className={`relative px-3 py-1.5 text-[11px] lg:text-xs font-black tracking-widest uppercase transition-all duration-200 cursor-pointer flex items-center gap-1.5 select-none bg-transparent border-none shadow-none ${
                             active
-                              ? 'bg-gradient-to-r from-[#6B1D2F] via-[#7D1D34] to-[#8B1E3F] text-white shadow-[0_3px_14px_rgba(107,29,47,0.38)]'
-                              : 'text-[#44403C] dark:text-[#E7DFE1] hover:text-[#6B1D2F] dark:hover:text-white hover:bg-[#6B1D2F]/08 dark:hover:bg-white/08'
+                              ? 'text-[#6B1D2F] dark:text-[#E28D99]'
+                              : 'text-[#44403C] dark:text-[#E7DFE1] hover:text-[#6B1D2F] dark:hover:text-[#E28D99]'
                           }`}
                         >
-                          {active && (
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#E28D99] animate-pulse shadow-sm shadow-[#E28D99]/80" />
-                          )}
                           <span>{displayName}</span>
                           {hasSubLinks && (
                             <span
@@ -284,14 +281,14 @@ export const Navigation = () => {
                                 e.stopPropagation();
                                 setHoveredNav((prev) => (prev === link.name ? null : link.name));
                               }}
-                              className="p-0.5 rounded-full hover:bg-black/10 dark:hover:bg-white/20 transition-colors cursor-pointer"
+                              className="p-0.5 transition-colors cursor-pointer"
                               title={`${displayName} sections`}
                             >
                               <ChevronDown
                                 size={12}
                                 className={`transition-transform duration-200 ${
                                   isHovered ? 'rotate-180 opacity-100' : 'opacity-60'
-                                } ${active ? 'text-white' : 'text-[#6B1D2F] dark:text-[#C59A9F]'}`}
+                                } ${active ? 'text-[#6B1D2F] dark:text-[#E28D99]' : 'text-[#6B1D2F] dark:text-[#C59A9F]'}`}
                               />
                             </span>
                           )}
@@ -307,10 +304,10 @@ export const Navigation = () => {
                               transition={{ duration: 0.18, ease: 'easeOut' }}
                               className="absolute top-full left-1/2 -translate-x-1/2 pt-2.5 z-50 w-64 select-none pointer-events-auto"
                             >
-                              <div className="bg-white/95 dark:bg-[#1C0B0E]/95 backdrop-blur-3xl border border-[#C59A9F]/35 dark:border-white/12 rounded-2xl p-2.5 shadow-[0_20px_50px_rgba(107,29,47,0.18)] dark:shadow-[0_25px_60px_rgba(0,0,0,0.8)] overflow-hidden">
+                              <div className="bg-white dark:bg-[#1C0B0E] backdrop-blur-3xl border border-[#C59A9F]/35 dark:border-white/12 rounded-none p-2.5 shadow-[0_20px_50px_rgba(107,29,47,0.22)] dark:shadow-[0_25px_60px_rgba(0,0,0,0.8)] overflow-hidden">
                                 <div className="text-[10px] font-black uppercase tracking-widest text-[#6B1D2F] dark:text-[#E28D99] px-3 py-1.5 border-b border-[#C59A9F]/20 dark:border-white/10 flex items-center justify-between">
                                   <span className="flex items-center gap-1.5">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-[#6B1D2F] dark:bg-[#E28D99]" />
+                                    <span className="w-1.5 h-1.5 rounded-none bg-[#6B1D2F] dark:bg-[#E28D99]" />
                                     {displayName} Sections
                                   </span>
                                   <span className="text-[9px] font-bold text-[#A89597]">Jump to</span>
@@ -325,7 +322,7 @@ export const Navigation = () => {
                                         setHoveredNav(null);
                                         handleNavClick(sub.path);
                                       }}
-                                      className="w-full text-left px-3 py-2 rounded-xl text-xs font-semibold text-[#1C1917] dark:text-[#F5F0F1] hover:bg-gradient-to-r hover:from-[#6B1D2F]/12 hover:to-transparent hover:text-[#6B1D2F] dark:hover:text-white transition-all flex items-center justify-between group cursor-pointer"
+                                      className="w-full text-left px-3 py-2 rounded-none text-xs font-semibold text-[#1C1917] dark:text-[#F5F0F1] hover:bg-gradient-to-r hover:from-[#6B1D2F]/12 hover:to-transparent hover:text-[#6B1D2F] dark:hover:text-white transition-all flex items-center justify-between group cursor-pointer"
                                     >
                                       <span className="truncate pr-2">{sub.name}</span>
                                       <ArrowRight
@@ -358,7 +355,7 @@ export const Navigation = () => {
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.2 }}
                   onClick={() => handleNavClick('/contact')}
-                  className="hidden xl:inline-flex items-center gap-1.5 px-4.5 py-2.5 rounded-full bg-gradient-to-r from-[#6B1D2F] via-[#7B1B32] to-[#8B1E3F] hover:from-[#7B1B32] hover:to-[#9B2247] text-white text-xs font-black tracking-widest uppercase shadow-[0_4px_18px_rgba(107,29,47,0.32)] hover:scale-105 active:scale-95 transition-all cursor-pointer"
+                  className="hidden xl:inline-flex items-center gap-1.5 px-4.5 py-2.5 rounded-none bg-gradient-to-r from-[#6B1D2F] via-[#7B1B32] to-[#8B1E3F] hover:from-[#7B1B32] hover:to-[#9B2247] text-white text-xs font-black tracking-widest uppercase shadow-[0_4px_18px_rgba(107,29,47,0.32)] hover:scale-105 active:scale-95 transition-all cursor-pointer"
                 >
                   <span>Hire Me</span>
                   <ArrowUpRight size={13} />
@@ -370,7 +367,7 @@ export const Navigation = () => {
             <button
               id="theme-toggle-btn"
               onClick={toggleTheme}
-              className={`w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center cursor-pointer hover:scale-105 active:scale-95 ${iconBtn}`}
+              className={`w-9 h-9 sm:w-11 sm:h-11 rounded-none flex items-center justify-center cursor-pointer hover:scale-105 active:scale-95 ${iconBtn}`}
               aria-label="Toggle theme"
               title="Toggle dark/light mode"
             >
@@ -385,7 +382,7 @@ export const Navigation = () => {
             <button
               id="menu-hamburger-btn"
               onClick={() => setMobileMenuOpen(true)}
-              className={`w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center cursor-pointer hover:scale-105 active:scale-95 ${iconBtn}`}
+              className={`w-9 h-9 sm:w-11 sm:h-11 rounded-none flex items-center justify-center cursor-pointer hover:scale-105 active:scale-95 ${iconBtn}`}
               aria-label="Open navigation menu drawer"
               title="Open Navigation Menu"
             >
@@ -400,32 +397,32 @@ export const Navigation = () => {
       <AnimatePresence>
         {mobileMenuOpen && (
           <div className="fixed inset-0 z-[100] flex justify-end">
-            {/* Backdrop Dimmer & Blur */}
+            {/* Backdrop Dimmer & Blur (Soft light dim in bright mode, deep dim in dark mode) */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
               onClick={() => setMobileMenuOpen(false)}
-              className="fixed inset-0 bg-black/75 backdrop-blur-sm cursor-pointer"
+              className="fixed inset-0 bg-black/25 dark:bg-black/75 backdrop-blur-sm cursor-pointer"
               aria-label="Close navigation overlay"
             />
 
-            {/* Slide-In Drawer Panel from Right Edge */}
+            {/* Slide-In Drawer Panel from Right Edge (Responsive Light & Dark Mode) */}
             <motion.aside
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-              className="relative w-[68vw] min-w-[215px] max-w-[265px] sm:max-w-[320px] md:max-w-[360px] h-full bg-[#181818] dark:bg-[#141414] border-l border-white/[0.08] shadow-2xl flex flex-col overflow-y-auto z-10 select-none scrollbar-none"
+              className="relative w-[68vw] min-w-[215px] max-w-[265px] sm:max-w-[320px] md:max-w-[360px] h-full bg-[#FAFAF9] dark:bg-[#141414] border-l border-[#C59A9F]/30 dark:border-white/[0.08] shadow-2xl flex flex-col overflow-y-auto z-10 select-none scrollbar-none"
               style={{ fontFamily: theme.fonts.body }}
             >
-              {/* Clean Top Bar with ONLY the bare 'X' Close Button at top right */}
+              {/* Clean Top Bar with Close Button at top right */}
               <div className="flex justify-end pt-7 pb-3 px-5 sm:px-6">
                 <button
                   id="drawer-close-btn"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="p-1 text-white/70 hover:text-white transition-colors cursor-pointer"
+                  className="p-1 text-[#1C1917]/70 hover:text-[#6B1D2F] dark:text-white/70 dark:hover:text-white transition-colors cursor-pointer"
                   aria-label="Close navigation menu"
                 >
                   <X size={24} strokeWidth={1.5} />
@@ -439,13 +436,15 @@ export const Navigation = () => {
                   const active = isActive(item.path);
 
                   return (
-                    <div key={item.name} className="border-b border-white/[0.08] py-3.5">
+                    <div key={item.name} className="border-b border-[#C59A9F]/20 dark:border-white/[0.08] py-3.5">
                       <div className="flex items-center justify-between">
                         {/* Title button: directly navigates to the exact page */}
                         <button
                           onClick={() => handleNavClick(item.path)}
                           className={`flex-1 text-left text-[15px] sm:text-base font-normal tracking-wide transition-colors cursor-pointer py-0.5 ${
-                            active ? 'text-white font-medium' : 'text-[#E5E5E5]/85 hover:text-white'
+                            active
+                              ? 'text-[#6B1D2F] font-bold dark:text-white dark:font-medium'
+                              : 'text-[#1C1917]/90 hover:text-[#6B1D2F] dark:text-[#E5E5E5]/85 dark:hover:text-white'
                           }`}
                         >
                           {item.name}
@@ -458,7 +457,7 @@ export const Navigation = () => {
                               e.stopPropagation();
                               toggleSection(item.name);
                             }}
-                            className="p-1.5 text-white/50 hover:text-white transition-colors cursor-pointer ml-2 flex-shrink-0"
+                            className="p-1.5 text-[#1C1917]/50 hover:text-[#6B1D2F] dark:text-white/50 dark:hover:text-white transition-colors cursor-pointer ml-2 flex-shrink-0"
                             aria-label={`Toggle ${item.name} sub-menu`}
                           >
                             {isExpanded ? (
@@ -478,18 +477,18 @@ export const Navigation = () => {
                             animate={{ opacity: 1, height: 'auto' }}
                             exit={{ opacity: 0, height: 0 }}
                             transition={{ duration: 0.2, ease: 'easeInOut' }}
-                            className="overflow-hidden pl-3 pt-2.5 space-y-2 border-l border-white/15 ml-1 my-1.5"
+                            className="overflow-hidden pl-3 pt-2.5 space-y-2 border-l border-[#6B1D2F]/30 dark:border-white/15 ml-1 my-1.5"
                           >
                             {item.subLinks.map((sub) => (
                               <button
                                 key={sub.name}
                                 onClick={() => handleNavClick(sub.path)}
-                                className="block w-full text-left text-[13px] text-white/60 hover:text-white transition-colors py-1 font-normal tracking-wide flex items-center justify-between group cursor-pointer"
+                                className="block w-full text-left text-[13px] text-[#44403C]/80 hover:text-[#6B1D2F] dark:text-white/60 dark:hover:text-white transition-colors py-1 font-normal tracking-wide flex items-center justify-between group cursor-pointer"
                               >
                                 <span className="group-hover:translate-x-1 transition-transform">
                                   {sub.name}
                                 </span>
-                                <ChevronRight size={11} className="opacity-0 group-hover:opacity-60 transition-opacity" />
+                                <ChevronRight size={11} className="opacity-0 group-hover:opacity-100 text-[#6B1D2F] dark:text-[#E28D99] transition-opacity" />
                               </button>
                             ))}
                           </motion.div>
@@ -503,16 +502,16 @@ export const Navigation = () => {
                 <div className="pt-6 pb-8 space-y-3">
                   <button
                     onClick={() => handleNavClick('/contact')}
-                    className="w-full py-2.5 px-4 rounded-lg bg-[#6B1D2F] hover:bg-[#8B1E3F] text-white text-xs font-semibold tracking-wider uppercase transition-colors flex items-center justify-center gap-1.5 shadow-md cursor-pointer"
+                    className="w-full py-2.5 px-4 rounded-none bg-[#6B1D2F] hover:bg-[#8B1E3F] text-white text-xs font-semibold tracking-wider uppercase transition-colors flex items-center justify-center gap-1.5 shadow-md cursor-pointer"
                   >
                     <span>Hire Me</span>
                     <ArrowUpRight size={13} />
                   </button>
 
-                  <div className="flex items-center justify-between text-xs text-white/50 pt-2 border-t border-white/[0.08]">
+                  <div className="flex items-center justify-between text-xs text-[#1C1917]/50 dark:text-white/50 pt-2 border-t border-[#C59A9F]/20 dark:border-white/[0.08]">
                     <button
                       onClick={handleDownloadCV}
-                      className="flex items-center gap-1 text-[11px] text-white/70 hover:text-white tracking-wider uppercase font-medium transition-colors cursor-pointer"
+                      className="flex items-center gap-1 text-[11px] text-[#1C1917]/70 hover:text-[#6B1D2F] dark:text-white/70 dark:hover:text-white tracking-wider uppercase font-medium transition-colors cursor-pointer"
                     >
                       <Download size={11} />
                       <span>CV Resume</span>
@@ -523,7 +522,7 @@ export const Navigation = () => {
                         href="https://t.me/Onlygrace2"
                         target="_blank"
                         rel="noreferrer"
-                        className="p-1 text-white/60 hover:text-white transition-colors"
+                        className="p-1 text-[#1C1917]/60 hover:text-[#6B1D2F] dark:text-white/60 dark:hover:text-white transition-colors"
                         aria-label="Telegram"
                       >
                         <Send size={12} />
@@ -532,7 +531,7 @@ export const Navigation = () => {
                         href="https://www.facebook.com/share/169w6Q4Mqo4/?mibextid=wwXIfr"
                         target="_blank"
                         rel="noreferrer"
-                        className="p-1 text-white/60 hover:text-white transition-colors"
+                        className="p-1 text-[#1C1917]/60 hover:text-[#6B1D2F] dark:text-white/60 dark:hover:text-white transition-colors"
                         aria-label="Facebook"
                       >
                         <Facebook size={12} />
