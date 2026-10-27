@@ -204,21 +204,21 @@ export const PortfolioPresentationBoard = ({ projects = [], filter = 'all', pres
               transition={{ delay: idx * 0.04 }}
               whileHover={{ y: -6, scale: 1.01 }}
               onClick={() => onSelectProject && onSelectProject(project.id)}
-              className="bg-gradient-to-br from-[#240A0F] to-[#160508] rounded-2xl p-5 sm:p-6 text-white border border-white/15 shadow-xl hover:shadow-2xl hover:border-[#C59A9F]/50 transition-all cursor-pointer flex flex-col justify-between group relative overflow-hidden"
+              className="bg-gradient-to-br from-[#240A0F] to-[#160508] rounded-none p-5 sm:p-6 text-white border border-white/15 shadow-xl hover:shadow-2xl hover:border-[#C59A9F]/50 transition-all cursor-pointer flex flex-col justify-between group relative overflow-hidden"
             >
               {/* Header inside Card */}
               <div className="flex justify-between items-center mb-3.5">
                 <span className="text-xs sm:text-sm font-black uppercase tracking-[0.18em] text-[#FAFAF9] font-serif flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#C59A9F]" />
+                  <span className="w-1.5 h-1.5 rounded-none bg-[#C59A9F]" />
                   {idx < 9 ? `0${idx + 1}` : idx + 1}. {project.subCategory || project.category}
                 </span>
-                <div className="w-8 h-8 rounded-full bg-white/10 group-hover:bg-[#6B1D2F] flex items-center justify-center transition-colors border border-white/15">
+                <div className="w-8 h-8 rounded-none bg-white/10 group-hover:bg-[#6B1D2F] flex items-center justify-center transition-colors border border-white/15">
                   <ArrowUpRight size={15} className="text-[#C59A9F] group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                 </div>
               </div>
 
               {/* Artwork / Video Media Showcase Window */}
-              <div className="aspect-[4/3] bg-[#120407] rounded-xl border border-white/15 overflow-hidden relative shadow-inner">
+              <div className="aspect-[4/3] bg-[#120407] rounded-none border border-white/15 overflow-hidden relative shadow-inner">
                 <ProjectCardMedia project={project} />
 
                 {/* Subtle hover vignette */}
@@ -231,7 +231,7 @@ export const PortfolioPresentationBoard = ({ projects = [], filter = 'all', pres
                   <h4 className="text-sm sm:text-base font-black text-white group-hover:text-[#FAFAF9] transition-colors">{project.title}</h4>
                   <p className="text-[10px] sm:text-[11px] text-[#C59A9F] uppercase tracking-wider font-bold">{project.client}</p>
                 </div>
-                <span className="text-[9.5px] uppercase font-black px-3 py-1 rounded-full bg-white/10 text-[#FAFAF9] border border-white/15 font-mono">
+                <span className="text-[9.5px] uppercase font-black px-3 py-1 rounded-none bg-white/10 text-[#FAFAF9] border border-white/15 font-mono">
                   {project.year || '2025'}
                 </span>
               </div>
