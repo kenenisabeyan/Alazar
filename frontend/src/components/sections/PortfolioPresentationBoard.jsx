@@ -58,7 +58,7 @@ export const PortfolioPresentationBoard = ({ projects = [], filter = 'all', pres
               
               {/* Left Text Column */}
               <div className="md:col-span-7 space-y-4 sm:space-y-6 text-left">
-                <h1 className="text-5xl xs:text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-black tracking-tight leading-[0.9] font-serif text-[#FAFAF9] drop-shadow-2xl break-words">
+                <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl font-black tracking-tight leading-none font-serif text-[#FAFAF9] drop-shadow-2xl whitespace-nowrap">
                   Portfolio
                 </h1>
                 
@@ -161,12 +161,12 @@ export const PortfolioPresentationBoard = ({ projects = [], filter = 'all', pres
               whileHover={{ y: -4 }}
               className="bg-gradient-to-br from-[#1A060A] via-[#280A11] to-[#1E060B] rounded-none p-6 sm:p-7 text-white border border-[#C59A9F]/30 shadow-2xl flex-1 flex flex-col justify-between relative overflow-hidden"
             >
-              <div className="flex justify-between items-center border-b border-white/15 pb-3.5 mb-3.5">
-                <h3 className="text-base sm:text-lg font-black uppercase tracking-[0.2em] text-[#FAFAF9] font-serif flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-none bg-[#6B1D2F] shadow-sm shadow-[#6B1D2F]" />
-                  CONTENT INDEX
+              <div className="flex justify-between items-center border-b border-white/15 pb-3.5 mb-3.5 gap-2">
+                <h3 className="text-xs sm:text-sm md:text-base font-black uppercase tracking-[0.12em] sm:tracking-[0.16em] text-[#FAFAF9] font-serif flex items-center gap-1.5 whitespace-nowrap">
+                  <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-none bg-[#6B1D2F] shadow-sm shadow-[#6B1D2F] flex-shrink-0" />
+                  <span>CONTENT INDEX</span>
                 </h3>
-                <span className="text-[9.5px] font-black uppercase tracking-widest text-[#E8B4BE] bg-white/10 px-3.5 py-1.5 rounded-none border border-white/20 backdrop-blur-md">
+                <span className="text-[9px] sm:text-[9.5px] font-black uppercase tracking-widest text-[#E8B4BE] bg-white/10 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-none border border-white/20 backdrop-blur-md whitespace-nowrap flex-shrink-0">
                   CHAPTERS
                 </span>
               </div>
