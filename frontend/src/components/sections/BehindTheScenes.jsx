@@ -61,7 +61,7 @@ export const BehindTheScenes = ({ data }) => {
             {disciplineTags.map(({ icon: Icon, text }) => (
               <div
                 key={text}
-                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white border border-[#C59A9F]/40 text-[10px] font-black text-[#292524] uppercase tracking-wider shadow-sm hover:border-[#6B1D2F] hover:text-[#6B1D2F] transition-colors"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-none bg-white border border-[#C59A9F]/40 text-[10px] font-black text-[#292524] uppercase tracking-wider shadow-sm hover:border-[#6B1D2F] hover:text-[#6B1D2F] transition-colors"
               >
                 <Icon size={11} className="text-[#6B1D2F]" /> {text}
               </div>
@@ -83,7 +83,7 @@ export const BehindTheScenes = ({ data }) => {
                 transition={{ duration: 0.6, delay: idx * 0.12 }}
                 whileHover={{ y: -6, scale: 1.01 }}
                 onClick={() => setLightboxItem(item)}
-                className={`group relative overflow-hidden rounded-3xl cursor-pointer ${layout.colSpan} ${layout.rowSpan} ${layout.aspect} bg-gradient-to-br from-[#6B1D2F] via-[#521523] to-[#3B0E19] shadow-xl shadow-[#6B1D2F]/15 border border-[#C59A9F]/20 hover:border-[#C59A9F]/60 hover:shadow-2xl hover:shadow-[#6B1D2F]/25 transition-all duration-500`}
+                className={`group relative overflow-hidden rounded-none cursor-pointer ${layout.colSpan} ${layout.rowSpan} ${layout.aspect} bg-gradient-to-br from-[#6B1D2F] via-[#521523] to-[#3B0E19] shadow-xl shadow-[#6B1D2F]/15 border border-[#C59A9F]/20 hover:border-[#C59A9F]/60 hover:shadow-2xl hover:shadow-[#6B1D2F]/25 transition-all duration-500`}
               >
                 {/* Image */}
                 <img
@@ -97,11 +97,11 @@ export const BehindTheScenes = ({ data }) => {
 
                 {/* Top tags */}
                 <div className="absolute top-5 left-5 right-5 z-10 flex items-start justify-between opacity-100 sm:opacity-0 sm:group-hover:opacity-100 sm:-translate-y-2 sm:group-hover:translate-y-0 transition-all duration-400 ease-out pointer-events-none">
-                  <div className="flex items-center gap-1.5 bg-[#1E0A0D]/85 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/20 text-[10px] font-bold text-white shadow-lg">
+                  <div className="flex items-center gap-1.5 bg-[#1E0A0D]/85 backdrop-blur-md px-3.5 py-1.5 rounded-none border border-white/20 text-[10px] font-bold text-white shadow-lg">
                     <MapPin size={11} className="text-[#C59A9F]" />
                     {item.location}
                   </div>
-                  <div className="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white flex items-center justify-center shadow-xl">
+                  <div className="w-9 h-9 rounded-none bg-white/20 backdrop-blur-md border border-white/30 text-white flex items-center justify-center shadow-xl">
                     <ArrowRight size={14} />
                   </div>
                 </div>
@@ -184,7 +184,7 @@ export const BehindTheScenes = ({ data }) => {
               exit={{ opacity: 0, scale: 0.92, y: 20 }}
               transition={{ type: 'spring', stiffness: 300, damping: 28 }}
               onClick={e => e.stopPropagation()}
-              className="relative max-w-4xl w-full rounded-3xl overflow-hidden shadow-2xl shadow-[#1E0A0D]/60 border border-white/15 cursor-default bg-[#2E1216]"
+              className="relative max-w-4xl w-full rounded-none overflow-hidden shadow-2xl shadow-[#1E0A0D]/60 border border-white/15 cursor-default bg-[#2E1216]"
             >
               <img
                 src={lightboxItem.image}
@@ -219,7 +219,7 @@ export const BehindTheScenes = ({ data }) => {
                     const prevIdx = (idx - 1 + btsGallery.length) % btsGallery.length;
                     setLightboxItem(btsGallery[prevIdx]);
                   }}
-                  className="pointer-events-auto w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white flex items-center justify-center hover:bg-white/20 hover:scale-110 transition-all shadow-lg"
+                  className="pointer-events-auto w-10 h-10 rounded-none bg-white/10 backdrop-blur-md border border-white/20 text-white flex items-center justify-center hover:bg-white/20 hover:scale-110 transition-all shadow-lg"
                   aria-label="Previous photo"
                 >
                   <ArrowRight size={18} className="rotate-180" />
@@ -231,7 +231,7 @@ export const BehindTheScenes = ({ data }) => {
                     const nextIdx = (idx + 1) % btsGallery.length;
                     setLightboxItem(btsGallery[nextIdx]);
                   }}
-                  className="pointer-events-auto w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white flex items-center justify-center hover:bg-white/20 hover:scale-110 transition-all shadow-lg"
+                  className="pointer-events-auto w-10 h-10 rounded-none bg-white/10 backdrop-blur-md border border-white/20 text-white flex items-center justify-center hover:bg-white/20 hover:scale-110 transition-all shadow-lg"
                   aria-label="Next photo"
                 >
                   <ArrowRight size={18} />
@@ -240,7 +240,7 @@ export const BehindTheScenes = ({ data }) => {
 
               <button
                 onClick={() => setLightboxItem(null)}
-                className="absolute top-5 right-5 w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white flex items-center justify-center hover:bg-white/20 transition-all z-10"
+                className="absolute top-5 right-5 w-10 h-10 rounded-none bg-white/10 backdrop-blur-md border border-white/20 text-white flex items-center justify-center hover:bg-white/20 transition-all z-10"
               >
                 <X size={18} />
               </button>
