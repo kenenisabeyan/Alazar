@@ -322,7 +322,7 @@ export default function Portfolio() {
                   whileHover={{ y: -8, scale: 1.02 }}
                   transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
                   onClick={() => openModal(project)}
-                  className="group relative cursor-pointer rounded-2xl overflow-hidden bg-gradient-to-br from-[#240A0F] via-[#3B111A] to-[#160508] aspect-[4/5] border border-white/15 hover:border-[#C59A9F]/50 hover:shadow-2xl hover:shadow-[#6B1D2F]/25 transition-all duration-500 shadow-xl"
+                  className="group relative cursor-pointer rounded-none overflow-hidden bg-gradient-to-br from-[#240A0F] via-[#3B111A] to-[#160508] aspect-[4/5] border border-white/15 hover:border-[#C59A9F]/50 hover:shadow-2xl hover:shadow-[#6B1D2F]/25 transition-all duration-500 shadow-xl"
                 >
                   <ProjectCardMedia project={project} />
 
@@ -330,13 +330,13 @@ export default function Portfolio() {
 
                   <div className="absolute inset-0 p-6 sm:p-7 flex flex-col justify-between z-10 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-400 ease-out pointer-events-none">
                     <div className="flex justify-between items-start sm:-translate-y-2 sm:group-hover:translate-y-0 transition-transform duration-400">
-                      <span className="text-[9.5px] uppercase tracking-[0.2em] px-3.5 py-1.5 bg-black/60 backdrop-blur-md text-[#FAFAF9] rounded-full font-black shadow-lg flex items-center gap-1.5 border border-white/15">
+                      <span className="text-[9.5px] uppercase tracking-[0.2em] px-3.5 py-1.5 bg-black/60 backdrop-blur-md text-[#FAFAF9] rounded-none font-black shadow-lg flex items-center gap-1.5 border border-white/15">
                         {project.category === 'video' ? <Film size={11} className="text-[#C59A9F]" /> : <Layout size={11} className="text-[#C59A9F]" />}
                         {project.subCategory || project.category}
                       </span>
                       <motion.div
                         whileHover={{ scale: 1.15, rotate: 6 }}
-                        className="w-10 h-10 rounded-full bg-white/95 text-[#6B1D2F] flex items-center justify-center shadow-xl pointer-events-auto"
+                        className="w-10 h-10 rounded-none bg-white/95 text-[#6B1D2F] flex items-center justify-center shadow-xl pointer-events-auto"
                       >
                         {project.videoUrl || project.previewVideoUrl ? <Volume2 size={16} /> : <Eye size={16} />}
                       </motion.div>
