@@ -57,7 +57,7 @@ export const Modal = ({ isOpen, onClose, project, onPrev, onNext }) => {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.94, y: 16 }}
           transition={{ type: 'spring', stiffness: 350, damping: 28 }}
-          className="relative w-full max-w-5xl lg:max-w-6xl max-h-[calc(100dvh-1.25rem)] sm:max-h-[calc(100dvh-2.5rem)] bg-white dark:bg-[#180A0D] border border-[#C59A9F]/40 dark:border-white/15 rounded-2xl sm:rounded-3xl shadow-2xl overflow-y-auto overflow-x-hidden z-10 flex flex-col my-auto border-t-4 border-t-[#6B1D2F]"
+          className="relative w-full max-w-5xl lg:max-w-6xl max-h-[calc(100dvh-1.25rem)] sm:max-h-[calc(100dvh-2.5rem)] bg-white dark:bg-[#180A0D] border border-[#C59A9F]/40 dark:border-white/15 rounded-2xl sm:rounded-3xl shadow-2xl overflow-y-auto overflow-x-hidden z-10 flex flex-col my-auto border-t-4 border-t-[#6B1D2F] modal-scroll"
         >
 
           {/* Sticky Header Bar */}
