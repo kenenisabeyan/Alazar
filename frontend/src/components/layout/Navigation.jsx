@@ -254,89 +254,21 @@ export const Navigation = () => {
                   .filter((item) => item.name !== 'Behind The Scenes')
                   .map((link) => {
                     const active = isActive(link.path);
-                    const hasSubLinks = link.subLinks && link.subLinks.length > 0;
-                    const isHovered = hoveredNav === link.name;
                     const displayName = link.name.replace(' Us', '');
 
                     return (
-                      <div
+                      <button
                         key={link.name}
-                        className="relative"
-                        onMouseEnter={() => handleMouseEnter(link.name)}
-                        onMouseLeave={handleMouseLeave}
+                        type="button"
+                        onClick={() => handleNavClick(link.path)}
+                        className={`relative px-3 py-1.5 text-[11px] lg:text-xs font-black tracking-widest uppercase transition-all duration-200 cursor-pointer select-none bg-transparent border-none shadow-none ${
+                          active
+                            ? 'text-[#6B1D2F] dark:text-[#E28D99]'
+                            : 'text-[#44403C] dark:text-[#E7DFE1] hover:text-[#6B1D2F] dark:hover:text-[#E28D99]'
+                        }`}
                       >
-                        <button
-                          type="button"
-                          onClick={() => handleNavClick(link.path)}
-                          className={`relative px-3 py-1.5 text-[11px] lg:text-xs font-black tracking-widest uppercase transition-all duration-200 cursor-pointer flex items-center gap-1.5 select-none bg-transparent border-none shadow-none ${
-                            active
-                              ? 'text-[#6B1D2F] dark:text-[#E28D99]'
-                              : 'text-[#44403C] dark:text-[#E7DFE1] hover:text-[#6B1D2F] dark:hover:text-[#E28D99]'
-                          }`}
-                        >
-                          <span>{displayName}</span>
-                          {hasSubLinks && (
-                            <span
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                setHoveredNav((prev) => (prev === link.name ? null : link.name));
-                              }}
-                              className="p-0.5 transition-colors cursor-pointer"
-                              title={`${displayName} sections`}
-                            >
-                              <ChevronDown
-                                size={12}
-                                className={`transition-transform duration-200 ${
-                                  isHovered ? 'rotate-180 opacity-100' : 'opacity-60'
-                                } ${active ? 'text-[#6B1D2F] dark:text-[#E28D99]' : 'text-[#6B1D2F] dark:text-[#C59A9F]'}`}
-                              />
-                            </span>
-                          )}
-                        </button>
-
-                        {/* Dropdown Menu for Page Sections on Hover / Toggle */}
-                        <AnimatePresence>
-                          {hasSubLinks && isHovered && (
-                            <motion.div
-                              initial={{ opacity: 0, y: 8, scale: 0.96 }}
-                              animate={{ opacity: 1, y: 0, scale: 1 }}
-                              exit={{ opacity: 0, y: 8, scale: 0.96 }}
-                              transition={{ duration: 0.18, ease: 'easeOut' }}
-                              className="absolute top-full left-1/2 -translate-x-1/2 pt-2.5 z-50 w-64 select-none pointer-events-auto"
-                            >
-                              <div className="bg-white dark:bg-[#1C0B0E] backdrop-blur-3xl border border-[#C59A9F]/35 dark:border-white/12 rounded-none p-2.5 shadow-[0_20px_50px_rgba(107,29,47,0.22)] dark:shadow-[0_25px_60px_rgba(0,0,0,0.8)] overflow-hidden">
-                                <div className="text-[10px] font-black uppercase tracking-widest text-[#6B1D2F] dark:text-[#E28D99] px-3 py-1.5 border-b border-[#C59A9F]/20 dark:border-white/10 flex items-center justify-between">
-                                  <span className="flex items-center gap-1.5">
-                                    <span className="w-1.5 h-1.5 rounded-none bg-[#6B1D2F] dark:bg-[#E28D99]" />
-                                    {displayName} Sections
-                                  </span>
-                                  <span className="text-[9px] font-bold text-[#A89597]">Jump to</span>
-                                </div>
-                                <div className="py-1 space-y-0.5">
-                                  {link.subLinks.map((sub) => (
-                                    <button
-                                      key={sub.name}
-                                      type="button"
-                                      onClick={(e) => {
-                                        e.stopPropagation();
-                                        setHoveredNav(null);
-                                        handleNavClick(sub.path);
-                                      }}
-                                      className="w-full text-left px-3 py-2 rounded-none text-xs font-semibold text-[#1C1917] dark:text-[#F5F0F1] hover:bg-gradient-to-r hover:from-[#6B1D2F]/12 hover:to-transparent hover:text-[#6B1D2F] dark:hover:text-white transition-all flex items-center justify-between group cursor-pointer"
-                                    >
-                                      <span className="truncate pr-2">{sub.name}</span>
-                                      <ArrowRight
-                                        size={12}
-                                        className="opacity-0 -translate-x-1.5 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-[#6B1D2F] dark:text-[#E28D99] flex-shrink-0"
-                                      />
-                                    </button>
-                                  ))}
-                                </div>
-                              </div>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </div>
+                        <span>{displayName}</span>
+                      </button>
                     );
                   })}
               </motion.nav>
