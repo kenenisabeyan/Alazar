@@ -15,14 +15,14 @@
   <!-- Brand Book Isometric Layout -->
   <g transform="translate(150, 220) rotate(-6)" filter="url(#shadow)">
     <!-- Book Spine & Cover -->
-    <rect x="0" y="0" width="460" height="520" rx="16" fill="#FAFAF9" stroke="#C59A9F" stroke-width="3"/>
+    <rect x="0" y="0" width="460" height="520" rx="0" fill="#FAFAF9" stroke="#C59A9F" stroke-width="3"/>
     <rect x="0" y="0" width="30" height="520" fill="#6B1D2F"/>
     <!-- Book Content -->
     <text x="245" y="160" text-anchor="middle" fill="#6B1D2F" font-family="'Roboto', sans-serif" font-weight="900" font-size="38" letter-spacing="4">LUMINA</text>
     <line x1="120" y1="200" x2="370" y2="200" stroke="#C59A9F" stroke-width="3"/>
     <text x="245" y="240" text-anchor="middle" fill="#1C1917" font-family="'Roboto', sans-serif" font-weight="700" font-size="16" letter-spacing="5">BRAND IDENTITY MANUAL</text>
     
-    <rect x="120" y="290" width="250" height="140" rx="8" fill="#F4F0EF" stroke="#C59A9F" stroke-width="1"/>
+    <rect x="120" y="290" width="250" height="140" rx="0" fill="#F4F0EF" stroke="#C59A9F" stroke-width="1"/>
     <circle cx="245" cy="360" r="35" fill="#6B1D2F"/>
     <polygon points="245,335 270,375 220,375" fill="#C59A9F"/>
   </g>
