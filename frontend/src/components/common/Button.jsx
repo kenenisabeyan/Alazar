@@ -11,7 +11,7 @@ export const Button = ({
   loading = false,
   ...props
 }) => {
-  const baseStyle = "relative overflow-hidden inline-flex items-center justify-center px-9 py-4.5 sm:py-5 rounded-full font-black tracking-widest text-xs sm:text-sm select-none cursor-pointer focus:outline-none focus:ring-4 focus:ring-[#6B1D2F]/20 disabled:opacity-50 disabled:cursor-not-allowed uppercase transition-all duration-300 ease-out group active:scale-[0.97] min-h-[54px] sm:min-h-[58px]";
+  const baseStyle = "relative overflow-hidden inline-flex items-center justify-center px-9 py-4.5 sm:py-5 rounded-none font-black tracking-widest text-xs sm:text-sm select-none cursor-pointer focus:outline-none focus:ring-4 focus:ring-[#6B1D2F]/20 disabled:opacity-50 disabled:cursor-not-allowed uppercase transition-all duration-300 ease-out group active:scale-[0.97] min-h-[54px] sm:min-h-[58px]";
 
   const variants = {
     // Rich Burgundy Brand Gradient with ambient glow & sheen

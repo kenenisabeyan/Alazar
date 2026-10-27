@@ -107,9 +107,9 @@ export const HeroSection = ({ onOpenShowreel }) => {
             {/* Top Eyebrow Badge */}
             <motion.div
               variants={itemVariants}
-              className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-white/85 dark:bg-white/[0.08] border border-[#C59A9F]/40 dark:border-white/15 backdrop-blur-md shadow-sm mb-1 sm:mb-2 select-none"
+              className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-none bg-white/85 dark:bg-white/[0.08] border border-[#C59A9F]/40 dark:border-white/15 backdrop-blur-md shadow-sm mb-1 sm:mb-2 select-none"
             >
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shadow-sm shadow-emerald-500/50" />
+              <span className="w-2 h-2 rounded-none bg-emerald-500 animate-pulse shadow-sm shadow-emerald-500/50" />
               <span className="text-[10px] sm:text-xs font-black uppercase tracking-[0.18em] text-[#6B1D2F] dark:text-[#C59A9F]">
                 Director & Lead Designer
               </span>
@@ -148,7 +148,7 @@ export const HeroSection = ({ onOpenShowreel }) => {
                 variant="primary"
                 icon={<ArrowRight size={17} />}
                 onClick={() => navigateToSection(navigate, '/portfolio#portfolio-grid')}
-                className="w-full sm:w-auto flex-1 sm:flex-initial min-w-0 shadow-xl shadow-[#6B1D2F]/25 hover:shadow-2xl hover:shadow-[#6B1D2F]/40 px-8 sm:px-10 py-4 sm:py-4.5 text-xs sm:text-sm tracking-widest uppercase font-black"
+                className="w-full sm:w-auto flex-1 sm:flex-initial min-w-0 rounded-none shadow-xl shadow-[#6B1D2F]/25 hover:shadow-2xl hover:shadow-[#6B1D2F]/40 px-8 sm:px-10 py-4 sm:py-4.5 text-xs sm:text-sm tracking-widest uppercase font-black"
               >
                 Explore Work
               </Button>
@@ -157,7 +157,7 @@ export const HeroSection = ({ onOpenShowreel }) => {
                 variant="secondary"
                 icon={<Play size={16} className="fill-[#6B1D2F] text-[#6B1D2F]" />}
                 onClick={onOpenShowreel}
-                className="w-full sm:w-auto flex-1 sm:flex-initial min-w-0 bg-white/95 dark:bg-[#1E0A0D]/90 backdrop-blur-md border-2 border-[#6B1D2F]/70 dark:border-[#C59A9F]/60 text-[#6B1D2F] dark:text-[#F5F0F1] hover:border-[#6B1D2F] px-8 sm:px-10 py-4 sm:py-4.5 text-xs sm:text-sm tracking-widest uppercase font-black shadow-md hover:shadow-xl"
+                className="w-full sm:w-auto flex-1 sm:flex-initial min-w-0 rounded-none bg-white/95 dark:bg-[#1E0A0D]/90 backdrop-blur-md border-2 border-[#6B1D2F]/70 dark:border-[#C59A9F]/60 text-[#6B1D2F] dark:text-[#F5F0F1] hover:border-[#6B1D2F] px-8 sm:px-10 py-4 sm:py-4.5 text-xs sm:text-sm tracking-widest uppercase font-black shadow-md hover:shadow-xl"
               >
                 Watch Reel
               </Button>
@@ -173,7 +173,7 @@ export const HeroSection = ({ onOpenShowreel }) => {
               <motion.div
                 key={idx}
                 whileHover={{ y: -6, scale: 1.02 }}
-                className="glass-card-luxury text-center p-4 sm:p-7 rounded-2xl border border-[#C59A9F]/30 dark:border-white/10 shadow-sm hover:shadow-xl hover:border-[#6B1D2F]/40 transition-all duration-300"
+                className="glass-card-luxury text-center p-4 sm:p-7 rounded-none border border-[#C59A9F]/30 dark:border-white/10 shadow-sm hover:shadow-xl hover:border-[#6B1D2F]/40 transition-all duration-300"
               >
                 <div className="flex items-center justify-center gap-1.5 mb-1.5">
                   <span className="text-2xl sm:text-3xl md:text-5xl font-black text-[#6B1D2F] dark:text-[#F5F0F1] tracking-tight" style={{ fontFamily: theme.fonts.heading }}>
