@@ -122,7 +122,7 @@ export default function Portfolio() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.2 }}
-      className="min-h-screen bg-[#FAFAF9] dark:bg-[#1E0A0D] mesh-bg pt-24 xs:pt-28 sm:pt-40 pb-0 relative overflow-hidden transition-colors duration-300"
+      className="min-h-screen bg-[#FAFAF9] dark:bg-[#1A060B] mesh-bg pt-24 xs:pt-28 sm:pt-40 pb-0 relative overflow-hidden transition-colors duration-300"
       style={{ fontFamily: theme.fonts.body }}
     >
       {/* Motion Flow Background Image Layer 1: hero-bg.png */}
@@ -133,7 +133,7 @@ export default function Portfolio() {
           y: ['0%', '-1.5%', '0%'],
         }}
         transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute inset-0 z-0 pointer-events-none opacity-25 mix-blend-multiply"
+        className="absolute inset-0 z-0 pointer-events-none opacity-25 dark:opacity-40 mix-blend-multiply dark:mix-blend-screen"
       >
         <img
           src={heroBg}
@@ -150,7 +150,7 @@ export default function Portfolio() {
           scale: [1, 1.02, 1],
         }}
         transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute -top-10 right-0 sm:right-10 md:right-20 w-[260px] xs:w-[340px] sm:w-[500px] md:w-[650px] opacity-10 sm:opacity-20 md:opacity-25 pointer-events-none z-0 mix-blend-multiply filter blur-[0.5px]"
+        className="absolute -top-10 right-0 sm:right-10 md:right-20 w-[260px] xs:w-[340px] sm:w-[500px] md:w-[650px] opacity-20 sm:opacity-30 md:opacity-35 dark:opacity-60 dark:sm:opacity-75 pointer-events-none z-0 mix-blend-multiply dark:mix-blend-lighten filter blur-[0.5px]"
       >
         <img
           src={alazarImg}
@@ -160,8 +160,8 @@ export default function Portfolio() {
       </motion.div>
 
       {/* Dynamic Ambient Glow Orbs */}
-      <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-gradient-to-r from-[#6B1D2F]/18 via-[#8B1E3F]/12 to-[#C59A9F]/20 blur-[180px] rounded-full pointer-events-none animate-pulse-glow" />
-      <div className="absolute top-1/2 -right-20 w-[500px] h-[500px] bg-[#C59A9F]/20 blur-[150px] rounded-full pointer-events-none" />
+      <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-gradient-to-r from-[#6B1D2F]/20 dark:from-[#8B1E3F]/40 via-[#8B1E3F]/15 dark:via-[#6B1D2F]/35 to-[#C59A9F]/20 dark:to-[#8B1E3F]/30 blur-[170px] rounded-full pointer-events-none animate-pulse-glow" />
+      <div className="absolute top-1/2 -right-20 w-[500px] h-[500px] bg-[#C59A9F]/20 dark:bg-[#8B1E3F]/30 blur-[150px] rounded-full pointer-events-none" />
 
       {/* ── Page header ────────────────────────────────────────────────── */}
       <div className="container mx-auto px-4 sm:px-6 md:px-12 mb-10 text-center relative z-10">
@@ -184,17 +184,17 @@ export default function Portfolio() {
           An editorial archive of commercial video cuts, color-graded masters, brand identities, book covers, packaging, and digital imaging spreads.
         </motion.p>
 
-        {/* Search & Filter Unified Luxury Capsule Toolbar */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 p-2 sm:p-2.5 rounded-2xl sm:rounded-full bg-white/85 dark:bg-[#1E0A0D]/85 backdrop-blur-xl border border-[#C59A9F]/35 dark:border-white/10 shadow-xl shadow-black/5 max-w-4xl mx-auto">
+        {/* Search & Filter Unified Luxury Glass Capsule Toolbar */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 p-2 sm:p-2.5 rounded-2xl sm:rounded-full bg-white/80 dark:bg-white/[0.06] backdrop-blur-2xl border border-[#C59A9F]/35 dark:border-white/15 shadow-xl shadow-black/5 dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] max-w-4xl mx-auto">
           {/* Keyword Search Input */}
           <div className="relative w-full sm:w-60">
-            <Search size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#78716C] dark:text-[#A89597]" />
+            <Search size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#78716C] dark:text-[#E7E5E4]" />
             <input
               type="text"
               placeholder="Search works..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-8 py-2 bg-[#FAFAF9] dark:bg-[#2E1216] border border-[#C59A9F]/35 dark:border-white/10 rounded-none text-xs font-semibold text-[#1C1917] dark:text-[#F5F0F1] focus:outline-none focus:border-[#6B1D2F] dark:focus:border-[#E28D99] shadow-inner transition-colors"
+              className="w-full pl-9 pr-8 py-2 bg-[#FAFAF9] dark:bg-white/[0.08] backdrop-blur-md border border-[#C59A9F]/35 dark:border-white/15 rounded-none text-xs font-semibold text-[#1C1917] dark:text-[#F5F0F1] focus:outline-none focus:border-[#6B1D2F] dark:focus:border-[#E28D99] shadow-inner transition-colors"
             />
             {searchQuery && (
               <button
@@ -211,7 +211,7 @@ export default function Portfolio() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3 }}
-            className="flex flex-wrap justify-center bg-black/[0.04] dark:bg-white/[0.06] p-1 rounded-none gap-1"
+            className="flex flex-wrap justify-center bg-black/[0.04] dark:bg-white/[0.08] backdrop-blur-md border border-transparent dark:border-white/10 p-1 rounded-none gap-1"
           >
             {[
               { id: 'all', label: `All (${projects.length})` },
@@ -242,7 +242,7 @@ export default function Portfolio() {
           </motion.div>
 
           {/* View Mode Switcher */}
-          <div className="flex items-center bg-black/[0.04] dark:bg-white/[0.06] p-1 rounded-none gap-1">
+          <div className="flex items-center bg-black/[0.04] dark:bg-white/[0.08] backdrop-blur-md border border-transparent dark:border-white/10 p-1 rounded-none gap-1">
             <button
               onClick={() => setViewMode('grid')}
               className={`px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-none text-[11px] font-black uppercase tracking-wider transition-all flex items-center gap-1.5 ${

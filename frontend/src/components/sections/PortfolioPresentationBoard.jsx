@@ -34,7 +34,7 @@ export const PortfolioPresentationBoard = ({ projects = [], filter = 'all', pres
           {/* Main Left Hero Card (Large "PORTFOLIO" Master Spread Card) */}
           <motion.div
             whileHover={{ y: -4 }}
-            className="lg:col-span-8 bg-gradient-to-br from-[#1E060B] via-[#360F19] to-[#591626] rounded-none p-6 sm:p-10 md:p-12 text-white relative overflow-hidden shadow-[0_25px_60px_-15px_rgba(107,29,47,0.35)] border border-[#C59A9F]/30 flex flex-col justify-between min-h-0 sm:min-h-[460px]"
+            className="lg:col-span-8 bg-gradient-to-br from-[#2D0A13]/80 via-[#451221]/70 to-[#6B1D2F]/60 backdrop-blur-2xl rounded-none p-6 sm:p-10 md:p-12 text-white relative overflow-hidden shadow-[0_25px_60px_-15px_rgba(107,29,47,0.35)] border border-white/20 dark:border-[#C59A9F]/40 flex flex-col justify-between min-h-0 sm:min-h-[460px]"
           >
             {/* Ambient Lighting & Geometric Grid Lines */}
             <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#C59A9F_1.5px,transparent_1.5px)] [background-size:24px_24px] pointer-events-none" />
@@ -115,7 +115,7 @@ export const PortfolioPresentationBoard = ({ projects = [], filter = 'all', pres
             {/* Top Right Card: INTRODUCTION */}
             <motion.div
               whileHover={{ y: -4 }}
-              className="bg-gradient-to-br from-[#240A0F] via-[#1E060B] to-[#140407] rounded-none p-5 sm:p-6 lg:p-5.5 text-white border border-[#C59A9F]/30 shadow-2xl flex-1 flex flex-col justify-between relative overflow-hidden min-h-[280px]"
+              className="bg-gradient-to-br from-[#2E0B13]/80 via-[#22070D]/75 to-[#160508]/70 backdrop-blur-2xl rounded-none p-5 sm:p-6 lg:p-5.5 text-white border border-white/20 dark:border-[#C59A9F]/40 shadow-2xl flex-1 flex flex-col justify-between relative overflow-hidden min-h-[280px]"
             >
               <div className="absolute top-0 right-0 w-36 h-36 bg-[#6B1D2F]/25 blur-3xl rounded-full pointer-events-none" />
 
@@ -161,7 +161,7 @@ export const PortfolioPresentationBoard = ({ projects = [], filter = 'all', pres
             {/* Bottom Right Card: CONTENT INDEX */}
             <motion.div
               whileHover={{ y: -4 }}
-              className="bg-gradient-to-br from-[#1A060A] via-[#280A11] to-[#1E060B] rounded-none p-5 sm:p-6 lg:p-5.5 text-white border border-[#C59A9F]/30 shadow-2xl flex-1 flex flex-col justify-between relative overflow-hidden min-h-[220px]"
+              className="bg-gradient-to-br from-[#24080F]/80 via-[#330C16]/75 to-[#22070D]/70 backdrop-blur-2xl rounded-none p-5 sm:p-6 lg:p-5.5 text-white border border-white/20 dark:border-[#C59A9F]/40 shadow-2xl flex-1 flex flex-col justify-between relative overflow-hidden min-h-[220px]"
             >
               <div className="flex justify-between items-center border-b border-white/15 pb-2.5 mb-3 gap-2">
                 <h3 className="text-xs sm:text-sm md:text-base font-black uppercase tracking-[0.12em] sm:tracking-[0.16em] text-[#FAFAF9] font-serif flex items-center gap-1.5 whitespace-nowrap">
@@ -206,7 +206,7 @@ export const PortfolioPresentationBoard = ({ projects = [], filter = 'all', pres
               transition={{ delay: idx * 0.04 }}
               whileHover={{ y: -6, scale: 1.01 }}
               onClick={() => onSelectProject && onSelectProject(project.id)}
-              className="bg-gradient-to-br from-[#240A0F] to-[#160508] rounded-none p-5 sm:p-6 text-white border border-white/15 shadow-xl hover:shadow-2xl hover:border-[#C59A9F]/50 transition-all cursor-pointer flex flex-col justify-between group relative overflow-hidden"
+              className="bg-gradient-to-br from-[#2E0B13]/80 via-[#22070D]/75 to-[#160508]/70 backdrop-blur-xl rounded-none p-5 sm:p-6 text-white border border-white/20 dark:border-white/15 shadow-xl hover:shadow-2xl hover:border-[#C59A9F]/60 transition-all cursor-pointer flex flex-col justify-between group relative overflow-hidden"
             >
               {/* Header inside Card */}
               <div className="flex justify-between items-center mb-3.5">
