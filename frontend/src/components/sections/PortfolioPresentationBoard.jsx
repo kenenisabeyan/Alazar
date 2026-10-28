@@ -110,47 +110,49 @@ export const PortfolioPresentationBoard = ({ projects = [], filter = 'all', pres
           </motion.div>
 
           {/* Right Column Stack (Introduction & Content Index) */}
-          <div className="lg:col-span-4 flex flex-col gap-6">
+          <div className="lg:col-span-4 flex flex-col gap-5 sm:gap-6 justify-between">
             
             {/* Top Right Card: INTRODUCTION */}
             <motion.div
               whileHover={{ y: -4 }}
-              className="bg-gradient-to-br from-[#240A0F] via-[#1E060B] to-[#140407] rounded-none p-6 sm:p-7 text-white border border-[#C59A9F]/30 shadow-2xl flex-1 flex flex-col justify-between relative overflow-hidden"
+              className="bg-gradient-to-br from-[#240A0F] via-[#1E060B] to-[#140407] rounded-none p-5 sm:p-6 lg:p-5.5 text-white border border-[#C59A9F]/30 shadow-2xl flex-1 flex flex-col justify-between relative overflow-hidden min-h-[280px]"
             >
               <div className="absolute top-0 right-0 w-36 h-36 bg-[#6B1D2F]/25 blur-3xl rounded-full pointer-events-none" />
 
-              <div className="flex justify-between items-center border-b border-white/15 pb-3.5 mb-4">
-                <h3 className="text-sm sm:text-lg font-black uppercase tracking-[0.18em] sm:tracking-[0.2em] text-[#FAFAF9] font-serif flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-none bg-[#C59A9F] shadow-sm shadow-[#C59A9F]" />
-                  INTRODUCTION
-                </h3>
-                <span className="text-[9px] sm:text-[9.5px] font-black uppercase tracking-widest text-[#FAFAF9] bg-white/10 px-3 py-1 sm:py-1.5 rounded-none border border-white/20 backdrop-blur-md">
-                  PROFILE
-                </span>
+              <div>
+                <div className="flex justify-between items-center border-b border-white/15 pb-2.5 mb-3.5">
+                  <h3 className="text-sm sm:text-base font-black uppercase tracking-[0.16em] sm:tracking-[0.2em] text-[#FAFAF9] font-serif flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-none bg-[#C59A9F] shadow-sm shadow-[#C59A9F]" />
+                    INTRODUCTION
+                  </h3>
+                  <span className="text-[9px] sm:text-[9.5px] font-black uppercase tracking-widest text-[#FAFAF9] bg-white/10 px-2.5 py-1 rounded-none border border-white/20 backdrop-blur-md">
+                    PROFILE
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-3 sm:gap-3.5 mb-3">
+                  <div className="relative flex-shrink-0">
+                    <img src={alazarImg} alt={profileName} className="w-11 h-11 sm:w-12 sm:h-12 rounded-none border-2 border-[#C59A9F] object-cover shadow-lg" />
+                    <span className="absolute -bottom-1 -right-1 w-3 h-3 sm:w-3.5 sm:h-3.5 rounded-none bg-emerald-500 border-2 border-[#140407] shadow-sm" />
+                  </div>
+                  <div className="min-w-0">
+                    <h4 className="text-sm sm:text-base font-black text-[#FAFAF9] tracking-tight truncate">{profileName}</h4>
+                    <p className="text-[11px] sm:text-xs text-[#C59A9F] font-bold tracking-wide truncate">{profileTitle}</p>
+                  </div>
+                </div>
+
+                <p className="text-xs sm:text-[13px] text-white/85 leading-relaxed mb-3.5 font-normal">
+                  {profileDescription}
+                </p>
               </div>
 
-              <div className="flex items-center gap-3 sm:gap-4 mb-4">
-                <div className="relative flex-shrink-0">
-                  <img src={alazarImg} alt={profileName} className="w-12 h-12 sm:w-14 sm:h-14 rounded-none border-2 border-[#C59A9F] object-cover shadow-lg" />
-                  <span className="absolute -bottom-1 -right-1 w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-none bg-emerald-500 border-2 border-[#140407] shadow-sm" />
-                </div>
-                <div className="min-w-0">
-                  <h4 className="text-base sm:text-lg font-black text-[#FAFAF9] tracking-tight truncate">{profileName}</h4>
-                  <p className="text-xs text-[#C59A9F] font-bold tracking-wide truncate">{profileTitle}</p>
-                </div>
-              </div>
-
-              <p className="text-xs sm:text-sm text-white/85 leading-relaxed mb-4 font-normal">
-                {profileDescription}
-              </p>
-
-              <div className="grid grid-cols-2 gap-2.5 sm:gap-3 text-[10px] sm:text-[11px] uppercase font-black text-white/95 border-t border-white/15 pt-4">
-                <div className="flex items-center justify-center gap-1.5 sm:gap-2 bg-white/10 px-3 py-2 sm:py-2.5 rounded-none border border-white/15 backdrop-blur-md shadow-sm min-w-0 text-center">
-                  <MapPin size={13} className="text-[#C59A9F] flex-shrink-0" />
+              <div className="grid grid-cols-2 gap-2 sm:gap-2.5 text-[9.5px] sm:text-[10.5px] uppercase font-black text-white/95 border-t border-white/15 pt-3 mt-auto">
+                <div className="flex items-center justify-center gap-1.5 bg-white/10 px-2.5 py-2 rounded-none border border-white/15 backdrop-blur-md shadow-sm min-w-0 text-center">
+                  <MapPin size={12} className="text-[#C59A9F] flex-shrink-0" />
                   <span className="truncate">{location}</span>
                 </div>
-                <div className="flex items-center justify-center gap-1.5 sm:gap-2 bg-emerald-950/60 text-emerald-300 px-3 py-2 sm:py-2.5 rounded-none border border-emerald-500/30 shadow-sm min-w-0 text-center">
-                  <span className="w-2 h-2 rounded-none bg-emerald-400 animate-pulse flex-shrink-0" />
+                <div className="flex items-center justify-center gap-1.5 bg-emerald-950/60 text-emerald-300 px-2.5 py-2 rounded-none border border-emerald-500/30 shadow-sm min-w-0 text-center">
+                  <span className="w-1.5 h-1.5 rounded-none bg-emerald-400 animate-pulse flex-shrink-0" />
                   <span className="truncate">{availability}</span>
                 </div>
               </div>
@@ -159,9 +161,9 @@ export const PortfolioPresentationBoard = ({ projects = [], filter = 'all', pres
             {/* Bottom Right Card: CONTENT INDEX */}
             <motion.div
               whileHover={{ y: -4 }}
-              className="bg-gradient-to-br from-[#1A060A] via-[#280A11] to-[#1E060B] rounded-none p-6 sm:p-7 text-white border border-[#C59A9F]/30 shadow-2xl flex-1 flex flex-col justify-between relative overflow-hidden"
+              className="bg-gradient-to-br from-[#1A060A] via-[#280A11] to-[#1E060B] rounded-none p-5 sm:p-6 lg:p-5.5 text-white border border-[#C59A9F]/30 shadow-2xl flex-1 flex flex-col justify-between relative overflow-hidden min-h-[220px]"
             >
-              <div className="flex justify-between items-center border-b border-white/15 pb-3.5 mb-3.5 gap-2">
+              <div className="flex justify-between items-center border-b border-white/15 pb-2.5 mb-3 gap-2">
                 <h3 className="text-xs sm:text-sm md:text-base font-black uppercase tracking-[0.12em] sm:tracking-[0.16em] text-[#FAFAF9] font-serif flex items-center gap-1.5 whitespace-nowrap">
                   <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-none bg-[#6B1D2F] shadow-sm shadow-[#6B1D2F] flex-shrink-0" />
                   <span>CONTENT INDEX</span>
@@ -171,23 +173,23 @@ export const PortfolioPresentationBoard = ({ projects = [], filter = 'all', pres
                 </span>
               </div>
 
-              <div className="grid grid-cols-3 gap-3 text-center my-3">
-                <div className="bg-gradient-to-b from-white/15 to-white/5 border border-white/20 p-3.5 rounded-none shadow-md">
-                  <span className="text-2xl font-black text-[#FAFAF9] block leading-none">{projects.length}</span>
-                  <span className="text-[9px] font-black text-[#C59A9F] tracking-[0.2em] block uppercase mt-1.5">TOTAL</span>
+              <div className="grid grid-cols-3 gap-2.5 sm:gap-3 text-center my-2 sm:my-3">
+                <div className="bg-gradient-to-b from-white/15 to-white/5 border border-white/20 p-2.5 sm:p-3 rounded-none shadow-md">
+                  <span className="text-xl sm:text-2xl font-black text-[#FAFAF9] block leading-none">{projects.length}</span>
+                  <span className="text-[8.5px] sm:text-[9px] font-black text-[#C59A9F] tracking-[0.18em] block uppercase mt-1.5">TOTAL</span>
                 </div>
-                <div className="bg-gradient-to-b from-[#6B1D2F]/60 to-[#3B0E19]/40 border border-[#C59A9F]/40 p-3.5 rounded-none shadow-md">
-                  <span className="text-2xl font-black text-[#FAFAF9] block leading-none">{videoCount}</span>
-                  <span className="text-[9px] font-black text-[#C59A9F] tracking-[0.2em] block uppercase mt-1.5">VIDEO</span>
+                <div className="bg-gradient-to-b from-[#6B1D2F]/60 to-[#3B0E19]/40 border border-[#C59A9F]/40 p-2.5 sm:p-3 rounded-none shadow-md">
+                  <span className="text-xl sm:text-2xl font-black text-[#FAFAF9] block leading-none">{videoCount}</span>
+                  <span className="text-[8.5px] sm:text-[9px] font-black text-[#C59A9F] tracking-[0.18em] block uppercase mt-1.5">VIDEO</span>
                 </div>
-                <div className="bg-gradient-to-b from-[#8B1E3F]/60 to-[#521523]/40 border border-[#C59A9F]/40 p-3.5 rounded-none shadow-md">
-                  <span className="text-2xl font-black text-[#FAFAF9] block leading-none">{designCount}</span>
-                  <span className="text-[9px] font-black text-[#C59A9F] tracking-[0.2em] block uppercase mt-1.5">DESIGN</span>
+                <div className="bg-gradient-to-b from-[#8B1E3F]/60 to-[#521523]/40 border border-[#C59A9F]/40 p-2.5 sm:p-3 rounded-none shadow-md">
+                  <span className="text-xl sm:text-2xl font-black text-[#FAFAF9] block leading-none">{designCount}</span>
+                  <span className="text-[8.5px] sm:text-[9px] font-black text-[#C59A9F] tracking-[0.18em] block uppercase mt-1.5">DESIGN</span>
                 </div>
               </div>
 
-              <div className="text-[10.5px] font-black text-white/80 tracking-[0.22em] text-center uppercase border-t border-white/15 pt-3.5">
-                CURRENT VIEW: <span className="text-[#FAFAF9] bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] px-3.5 py-1 rounded-none font-mono border border-white/20 shadow-sm">{filter.toUpperCase()} ({displayProjects.length})</span>
+              <div className="text-[10px] sm:text-[10.5px] font-black text-white/80 tracking-[0.18em] sm:tracking-[0.22em] text-center uppercase border-t border-white/15 pt-3">
+                CURRENT VIEW: <span className="text-[#FAFAF9] bg-gradient-to-r from-[#6B1D2F] to-[#8B1E3F] px-3 py-0.5 sm:px-3.5 sm:py-1 rounded-none font-mono border border-white/20 shadow-sm">{filter.toUpperCase()} ({displayProjects.length})</span>
               </div>
             </motion.div>
 
